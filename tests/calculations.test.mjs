@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createSeed} from '../src/data.js';
+import {validWeights,weightedScore,qspm,financials,npv,irr,space,iePosition,progress,scenarioResult} from '../src/calculations.js';
+const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
+test('sample factors total exactly 100% in each group',()=>{const s=createSeed();assert.ok(validWeights(s.external));assert.ok(validWeights(s.internal));near(weightedScore(s.external),2.82);});
+test('IFE ratings match factor type',()=>{for(const r of createSeed().internal)assert.ok(r.type==='قوت'?r.rating>=3:r.rating<=2);});
+test('QSPM transfers weights, excludes an entire irrelevant row',()=>{const s=createSeed(),first=qspm(s.external,s.internal,s.qScores);s.qScores.E1.relevant=false;const second=qspm(s.external,s.internal,s.qScores);for(let i=0;i<3;i++)near(first[i]-second[i],s.external[0].weight/100*s.qScores.E1.as[i]);});
+test('invalid factor weights block QSPM',()=>{const s=createSeed();s.external[0].weight=90;assert.equal(qspm(s.external,s.internal,s.qScores),null);});
+test('ROA uses average assets and CAC uses new paying customers',()=>{const s=createSeed(),f=financials(s.fin);near(f.roa,.08);near(f.cac,.6);near(f.grossMargin,.4);near(f.ltv,8.64);near(f.breakEven,1400);near(f.cagr,Math.sqrt(2)-1);});
+test('undefined denominator is not infinity or a fake zero',()=>{const f=financials({...createSeed().fin,newCustomers:0,assetsStart:0,assetsEnd:0});assert.equal(f.cac,null);assert.equal(f.roa,null);assert.equal(f.runway,null);});
+test('annual NPV and IRR',()=>{near(npv(1000,[600,600],.2),-83.3333333333);near(irr(1000,[1100]),.1);assert.equal(irr(1000,[1200,-300,1000]),null);});
+test('SPACE vector derives from averages',()=>{const s={FS:[4,4,4],IS:[4,4,4],CA:[-2,-2,-2],ES:[-3,-3,-3]};assert.deepEqual(space(s),{x:2,y:1,posture:'تهاجمی'});});
+test('IE cell thresholds and management zones',()=>{assert.deepEqual(iePosition(3.2,2.8),{cell:4,action:'رشد و ساخت'});assert.equal(iePosition(1.5,1.5).cell,9);assert.equal(iePosition(2,3).cell,2);});
+test('progress works for a decreasing metric',()=>{near(progress(1.5,2,1),50);assert.equal(progress(1,1,1),null);});
+test('scenario cost model is consistent',()=>{const s=scenarioResult(2400,.6,560,0,0);near(s.profit,400);near(scenarioResult(2400,.6,560,0,10).profit,256);});
