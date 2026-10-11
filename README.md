@@ -16,6 +16,24 @@
 
 Node.js 22 یا جدیدتر. وابستگی اجرایی یا نیاز به دریافت کتابخانه از CDN وجود ندارد.
 
+### اجرای محلی در ویندوز
+
+در PowerShell، از ریشه ریپو اجرا کنید:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\run-local.ps1
+```
+
+رانر به‌طور پیش‌فرض `main` و `HEAD` فعلی را در دو پوشه موقت و به‌ترتیب روی `http://localhost:4173` و `http://localhost:4174` اجرا می‌کند. `HEAD` یعنی کامیت فعلی؛ اگر هر دو ref به یک کامیت اشاره کنند، دو نسخه یکسان خواهید دید. برای اجرای یک شاخه یا کامیت خاص:
+
+```powershell
+.\run-local.ps1 -Refs main
+.\run-local.ps1 -Refs main, feature/my-change
+```
+
+با `Ctrl+C` سرورها بسته می‌شوند و worktreeهای موقت پاک می‌شوند. اجرای پروژه روی شاخه کاری فعلی اثری ندارد. برای باز نکردن خودکار مرورگر از `-NoBrowser` استفاده کنید.
+
 ```sh
 npm run check
 npm test
