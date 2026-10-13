@@ -1,6 +1,8 @@
 import {preferences} from './preferences.js';
 import {english} from './translations.js';
 const additions = {
+  'حالت استفاده':'Working mode',
+  'هشدارهای اعتبار داده و محاسبات در هر دو حالت نمایش داده می‌شوند.':'Data and calculation validation warnings remain visible in both modes.',
   'آموزش‌ها روشن است. برای پنهان‌کردن دکمه‌ها و درس‌ها، کلید را خاموش کنید.':'Learning is on. Turn off the switch to hide tutorials and lessons.',
   'آموزش‌ها خاموش است. برای نمایش راهنمای صفحه‌ها، مفاهیم و کتابخانه، کلید را روشن کنید.':'Learning is off. Turn on the switch to show page guides, concept help and the learning library.',
   'نام صفحه، ماتریس، شاخص، مفهوم یا داده را بنویسید.':'Search pages, matrices, metrics, concepts or saved data.',
