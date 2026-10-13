@@ -46,3 +46,7 @@ label.field{color:var(--muted)}.metric-top,.section-heading p,.journey-step,.lab
 @media(max-width:700px){.chart-scroll .chart{width:var(--chart-min-width);min-width:var(--chart-min-width);max-width:none}.chart-scroll-note{display:block}}
 @media print{.chart-scroll .chart{width:100%;min-width:0}.chart-scroll-note{display:none}}
 .flex.between:has(>.btn){flex-wrap:wrap}.bar-row>span{overflow-wrap:anywhere}
+
+/* Make appearance controls easy to spot in the RTL top bar. */
+.theme-toggle{width:auto;min-width:58px;padding:0 7px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:4px;font-size:11px;white-space:nowrap}.theme-toggle .icon{width:17px;height:17px}
+@media(max-width:700px){.theme-toggle{min-width:54px;padding:0 5px;gap:3px;font-size:10px}}
