@@ -1,0 +1,1694 @@
+{
+  "schema_version": 1,
+  "product": "Stratino / استراتینو",
+  "date": "2026-10-13",
+  "baseline": "71d18cbef8a57b792cc7cd9bd7bd6c1633717a6b",
+  "tasks": [
+    {
+      "id": "STR-001",
+      "order": 1,
+      "title": "آماده‌سازی ریپو، خط پایه و ابزار توسعه",
+      "dependencies": [],
+      "lane": "foundation",
+      "paths": "README.md; package.json; scripts/; tests/; AGENTS.md; .agents/skills/; .codex/skills/",
+      "scope": [
+        "موجودی route، ابزار، محاسبه، ذخیره و تست را در یک جدول parity ثبت کن؛ baseline main و شاخه‌های مرتبط را بررسی کن",
+        "frontend-design و Graphify ثبت‌شده را اعتبارسنجی کن؛ نسخه نصب و راه Windows را مستند کن",
+        "قواعد branch/PR، template تسک و قرارداد Done را برقرار کن؛ بدون حذف شاخه و تغییر مخزن دوردست"
+      ],
+      "acceptance": [
+        "نسخه فعلی قبل از مهاجرت قابل اجرا و آزمون است",
+        "هر ابزار فعلی یک مقصد یا دلیل تعویق دارد",
+        "Graphify query در یک checkout تازه پس از build گراف کار می‌کند"
+      ],
+      "ux": [
+        "تجربه فعلی تم، فارسی/انگلیسی و آموزش به‌عنوان baseline تصویری ثبت شود",
+        "تفاوت نمونه نمایشی و محصول عملیاتی در README واضح بماند"
+      ],
+      "validation": "npm run check; npm test; npm run build; graphify --version و query محدود",
+      "risk": "متوسط",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 1,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/1"
+    },
+    {
+      "id": "STR-002",
+      "order": 2,
+      "title": "تغییر هویت محصول به استراتینو با حفظ داده قدیمی",
+      "dependencies": [
+        "STR-001"
+      ],
+      "lane": "brand",
+      "paths": "src/app.js; src/i18n.js; src/translations.js; public/index.html; public/manifest*.webmanifest; public/assets/; README.md",
+      "scope": [
+        "نام نمایشی، title، description، manifest، خروجی گزارش و نام فایل دانلود را Stratino/استراتینو کن",
+        "یک منبع برند واحد و نشان ساده قابل استفاده در روشن/تیره بساز؛ برند قبلی فقط در تاریخچه و migration بماند",
+        "کلیدهای roy esh قدیمی را کورکورانه تغییر نده؛ mapping migration را ثبت کن؛ تغییر نام مخزن GitHub نیازمند تصمیم جداست"
+      ],
+      "acceptance": [
+        "در همه صفحات و گزارش‌های جدید نام استراتینو دیده می‌شود",
+        "داده کاربر قدیمی با تغییر نام از بین نمی‌رود",
+        "متن فارسی/انگلیسی، manifest و assetها نام هماهنگ دارند"
+      ],
+      "ux": [
+        "نشان در favicon و موبایل خوانا، کنتراست مناسب و بدون تقلید برند مرجع باشد",
+        "کپی رابط حرفه‌ای و قابل فهم مدیر بماند"
+      ],
+      "validation": "جست‌وجوی باقی‌مانده رویش/Royesh با allowlist تاریخی؛ smoke روشن/تیره و دو زبان",
+      "risk": "متوسط",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 2,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/2"
+    },
+    {
+      "id": "STR-003",
+      "order": 3,
+      "title": "ساخت پایه React/TypeScript/Vite و جداسازی بخش‌های ریپو",
+      "dependencies": [
+        "STR-001",
+        "STR-002"
+      ],
+      "lane": "frontend/core",
+      "paths": "package.json; apps/web/; apps/api/; packages/domain/; packages/ui/; src/calculations.js; scripts/; infra/",
+      "scope": [
+        "ساختار workspace کم‌پیچیدگی، TypeScript strict، Vite و lockfile بساز",
+        "site، auth/onboarding، workspace app و operator routes را با boundaries و lazy loading جدا کن",
+        "محاسبات خالص را تدریجی استخراج کن و prototype را تا parity حفظ کن؛ frontendها و microserviceهای اضافی نساز"
+      ],
+      "acceptance": [
+        "از clone تازه build و اجرای اپ جدید ممکن است",
+        "هیچ feature به‌دلیل جابه‌جایی فایل حذف نشده؛ جدول parity به‌روز است",
+        "public route بدون session باز و private route فقط shell مجاز را بارگذاری می‌کند"
+      ],
+      "ux": [
+        "مسیرها در refresh، back/forward و deep link درست کار کنند",
+        "layout عمومی و پنل هویت مشترک ولی ناوبری متناسب داشته باشند"
+      ],
+      "validation": "typecheck/build جدید، تست fixtures محاسبات، smoke prototype و deep link",
+      "risk": "بالا",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 3,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/3"
+    },
+    {
+      "id": "STR-004",
+      "order": 4,
+      "title": "اعتبارسنجی گردش کار مدیر و قیمت پیش از هزینه سرور",
+      "dependencies": [
+        "STR-001"
+      ],
+      "lane": "product/research",
+      "paths": "docs/PRODUCT_CONTEXT_FA.md; docs/research/; docs/backlog/",
+      "scope": [
+        "سناریوی مشاهده فایل و کار واقعی ۸–۱۲ مدیر را آماده کن؛ داده حساس را جمع‌آوری نکن",
+        "پایلوت پنج نفر، baseline زمان انجام کار، بازگشت دو هفته و آزمون قیمت صریح طراحی کن",
+        "پیام تحلیل→اجرا را با مدارک ارائه مقایسه و داده/فرضیه/تصمیم را جدا ثبت کن؛ تماس خودکار با افراد نداشته باش"
+      ],
+      "acceptance": [
+        "پرسش‌ها و پروتکل ثبت بازخورد موجود است",
+        "نتیجه بدون داده مصاحبه ساختگی نوشته می‌شود",
+        "هدف سه بازگشت و دو تعهد خرید به‌عنوان معیار پیشنهادی، نه موفقیت واقعی، مشخص است"
+      ],
+      "ux": [
+        "تست وظیفه با فارسی ساده و بدون هدایت پاسخ باشد",
+        "جای تم، آموزش و Workspace در سناریو قابل کشف باشد"
+      ],
+      "validation": "بازبینی پروتکل و گزارش شواهد؛ اجرا توسط مالک/داوطلبان واقعی",
+      "risk": "کم",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 4,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/4"
+    },
+    {
+      "id": "STR-005",
+      "order": 5,
+      "title": "تثبیت مدل داده و قرارداد معماری SaaS",
+      "dependencies": [
+        "STR-003"
+      ],
+      "lane": "core",
+      "paths": "docs/ARCHITECTURE_STRATINO.md; apps/api/; packages/domain/; docs/adr/",
+      "scope": [
+        "ERD User/Membership/Workspace/Profile/Analysis/Decision/Action/Document/Attachment/BillingAccount را تهیه کن",
+        "مالکیت، نقش‌ها، revision، نسخه روش محاسبه و JSON schema تحلیل‌ها را تعریف کن",
+        "قرارداد API، خطا، pagination، تاریخ/واحد، quota و دامنه تراکنش‌ها را پیش از CRUD تثبیت کن"
+      ],
+      "acceptance": [
+        "تمام داده تجاری مالک Workspace مشخص دارد",
+        "حساب پرداخت و شمارش Workspace مالکیت‌محور مشخص است",
+        "مهاجرت از state فعلی مسیر dry-run و rollback دارد"
+      ],
+      "ux": [
+        "قرارداد پاسخ save/error/conflict قابل نمایش در UI باشد",
+        "ID پروژه در shell و state client به‌صورت صریح مدیریت شود"
+      ],
+      "validation": "بازبینی ERD/OpenAPI و آزمون نمونه schema؛ منابع داده نمایشی مشخص",
+      "risk": "بالا",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 5,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/5"
+    },
+    {
+      "id": "STR-006",
+      "order": 6,
+      "title": "ساخت design system خوانا، فارسی و دارای موشن",
+      "dependencies": [
+        "STR-002",
+        "STR-003"
+      ],
+      "lane": "design/frontend",
+      "paths": "packages/ui/; apps/web/src/styles/; docs/UX_STANDARD.md; public/assets/vazirmatn.woff2",
+      "scope": [
+        "semantic tokens روشن/تیره، تایپ‌اسکیل، spacing و motion primitives بساز",
+        "Button/Input/Table/Dialog/Tabs/Toast/Skeleton/EmptyState را با headless primitives دسترس‌پذیر بساز",
+        "نمایش اجزا و stateها در صفحه توسعه داخلی داشته باش؛ استفاده از رنگ و حرکت تابع معنا باشد"
+      ],
+      "acceptance": [
+        "بدنه ۱۶px هدف، کنتراست و focus سنجیده می‌شود",
+        "RTL/LTR و کاهش حرکت در همه primitives برقرار است",
+        "کامپوننت‌ها CSS تکراری و overrideهای متناقض تولید نمی‌کنند"
+      ],
+      "ux": [
+        "frontend-design: طرح کوتاه پیش از اجرا و نقد screenshot بعد اجرا",
+        "۳۶۰/۷۶۸/۱۲۸۰/۱۴۴۰ و zoom ۲۰۰٪ بدون برهم‌ریختگی"
+      ],
+      "validation": "component tests، keyboard/dialog، contrast و screenshot در دو تم",
+      "risk": "متوسط",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 6,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/6"
+    },
+    {
+      "id": "STR-007",
+      "order": 7,
+      "title": "CI و آزمون‌های پایه برای جلوگیری از رگرسیون",
+      "dependencies": [
+        "STR-003",
+        "STR-005"
+      ],
+      "lane": "quality",
+      "paths": " .github/workflows/; apps/web/; apps/api/; tests/; scripts/check.mjs",
+      "scope": [
+        "فرمان‌های root lint/typecheck/test/build و محیط API با PostgreSQL تستی تعریف کن",
+        "CI بدون راز واقعی، migration check، OpenAPI drift و محاسبات مستقل اجرا کند",
+        "گیت PR و artifactهای failure محدود ایجاد کن؛ از ادعای coverage ساختگی پرهیز کن"
+      ],
+      "acceptance": [
+        "clone تازه فرمان‌های ثبت‌شده را اجرا می‌کند",
+        "تست خرابی عمدی در fixture یا permission باعث failure می‌شود",
+        "گزارش test فقط شواهد run واقعی را ثبت می‌کند"
+      ],
+      "ux": [
+        "تست مرورگر stateهای مهم و RTL را پوشش دهد، نه فقط وجود متن",
+        "artifactها داده یا credential حساس نداشته باشند"
+      ],
+      "validation": "اجرای local برابر pipeline؛ sample failure و success ثبت شود",
+      "risk": "متوسط",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 7,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/7"
+    },
+    {
+      "id": "STR-008",
+      "order": 8,
+      "title": "رانر PowerShell یکپارچه برای main و HEAD",
+      "dependencies": [
+        "STR-003",
+        "STR-007"
+      ],
+      "lane": "developer-experience",
+      "paths": "run-local.ps1; scripts/; infra/compose.dev.yml; README.md",
+      "scope": [
+        "رانر موجود را برای frontend/API/Postgres/storage/email catcher محلی ارتقا بده",
+        "دو ref را در worktree و پورت و volume جدا اجرا کن؛ dependency با lockfile و پیش‌نیاز نسخه‌ای بررسی شود",
+        "Ctrl+C همه child processها را تمیز کند؛ dirty tree دست‌نخورده، خطای فارسی قابل فهم و NoBrowser فراهم باشد"
+      ],
+      "acceptance": [
+        "main و HEAD داده و پورت مشترک ندارند",
+        "اجرای دوم و توقف بدون orphan و حذف داده شخصی انجام می‌شود",
+        "خطای پورت/نبود Docker/Python/Node راه رفع مشخص دارد"
+      ],
+      "ux": [
+        "آدرس‌ها و health status واضح چاپ شوند؛ ادعای Ready قبل از healthcheck نباشد",
+        "لوگ‌ها خلاصه و عاری از secrets باشند"
+      ],
+      "validation": "تست واقعی PowerShell ویندوز؛ smoke دو ref، cleanup و preflight failure",
+      "risk": "متوسط",
+      "phase": "Foundation",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 8,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/8"
+    },
+    {
+      "id": "STR-009",
+      "order": 9,
+      "title": "بک‌اند Django/PostgreSQL با محیط محلی واقعی",
+      "dependencies": [
+        "STR-005",
+        "STR-007"
+      ],
+      "lane": "backend",
+      "paths": "apps/api/config/; apps/api/modules/; infra/compose.dev.yml; .env.example",
+      "scope": [
+        "Django LTS، DRF، migrationها، validation و API versioning پایه را بساز",
+        "dev با Postgres واقعی، فایل محلی/S3-compatible و email catcher بدون ارسال خارجی کار کند",
+        "health/readiness، مدیریت تنظیمات و production checks بساز؛ secrets در env خارج git"
+      ],
+      "acceptance": [
+        "migration روی DB خالی و upgrade اعمال می‌شود",
+        "API بدون secret واقعی در localhost آماده است",
+        "production با تنظیم ناامن fail یا خطای واضح دارد"
+      ],
+      "ux": [
+        "خطای شبکه/validation استاندارد و قابل ترجمه است",
+        "health endpoint اطلاعات DB یا نسخه حساس افشا نکند"
+      ],
+      "validation": "API tests/Postgres؛ migration check؛ manage.py check --deploy با تنظیم تستی",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 9,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/9"
+    },
+    {
+      "id": "STR-010",
+      "order": 10,
+      "title": "ثبت‌نام، ورود، تأیید ایمیل و بازیابی امن حساب",
+      "dependencies": [
+        "STR-006",
+        "STR-009"
+      ],
+      "lane": "auth",
+      "paths": "apps/api/modules/accounts/; apps/web/src/features/auth/; /signup; /login; /verify; /reset-password",
+      "scope": [
+        "auth استاندارد Django session/CSRF، hash رمز و email confirmation پیاده کن",
+        "توکن بازیابی محدودزمان، یکبارمصرف، rate limit و logout/revoke داشته باشد",
+        "resend، expiry، account enumeration protection و dispatch retry ایمیل را پوشش بده؛ JWT بلندمدت در localStorage نباشد"
+      ],
+      "acceptance": [
+        "signup→verify→login و reset کامل کار می‌کند",
+        "رمز/توکن و credential در log یا browser storage نیست",
+        "CSRF، brute force، expired token و نشست بعد logout آزموده‌اند"
+      ],
+      "ux": [
+        "فرم کوتاه با password reveal، خطای فیلدی و حفظ ورودی غیرحساس",
+        "focus و وضعیت ارسال دوباره/انقضا/قطع شبکه روشن است"
+      ],
+      "validation": "auth integration و تست منفی؛ Playwright login/reset با email catcher",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 10,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/10"
+    },
+    {
+      "id": "STR-011",
+      "order": 11,
+      "title": "پروفایل و تنظیمات شخصی تم، زبان و آموزش",
+      "dependencies": [
+        "STR-010"
+      ],
+      "lane": "frontend/backend",
+      "paths": "apps/api/modules/accounts/preferences; apps/web/src/features/account/; /app/account",
+      "scope": [
+        "نام/نقش، اطلاعات شخصی لازم و تغییرات حساب را جدا از مشخصات پروژه نگهدار",
+        "تم روشن/تیره/سیستم، زبان، کاهش حرکت و نمایش آموزش در حساب sync شوند",
+        "ترجیحات device قبل از login با preference حساب به‌طور قابل پیش‌بینی merge شوند؛ تغییر ایمیل نیازمند تأیید دوباره"
+      ],
+      "acceptance": [
+        "کنترل آموزش در تنظیمات آشکار و پس از login دیگر ثابت است",
+        "تغییر theme بدون flash و در refresh باقی است",
+        "حساب شخصی تغییر اطلاعات Workspace را انجام نمی‌دهد"
+      ],
+      "ux": [
+        "بخش ظاهر و تجربه قابل یافتن از avatar باشد",
+        "toggle آموزش تور را می‌بندد، ولی خطای اعتبار داده را پنهان نمی‌کند"
+      ],
+      "validation": "preference persistence دو نشست؛ روشن/تیره/سیستم و reduced-motion",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 11,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/11"
+    },
+    {
+      "id": "STR-012",
+      "order": 12,
+      "title": "جداسازی Workspace و کنترل مجوز در تمام مسیرها",
+      "dependencies": [
+        "STR-009",
+        "STR-010"
+      ],
+      "lane": "security/backend",
+      "paths": "apps/api/modules/workspaces/permissions.py; queryset/services; search/export/download",
+      "scope": [
+        "Membership owner/editor/viewer و authorization server-side مرکزی بساز",
+        "همه list/detail/write/file/search/export و jobها به Workspace مجاز scope شوند",
+        "operator role از membership جدا و تغییر مالک/حذف آخرین مالک محافظت شود؛ frontend guard جای backend نیست"
+      ],
+      "acceptance": [
+        "دو کاربر و دو Workspace هیچ نشت بین هم ندارند",
+        "تغییر شناسه، nested ID و bulk operation راه دورزدن نیست",
+        "viewer نمی‌نویسد؛ حذف عضو فوراً دانلود و cache دسترسی را محدود می‌کند"
+      ],
+      "ux": [
+        "permission-denied با پیام روشن و بدون افشای نام پروژه دیگر",
+        "دکمه غیرمجاز و پاسخ سرور هماهنگ باشند"
+      ],
+      "validation": "permission matrix؛ IDOR منفی روی endpointها و signed-download expiry",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 12,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/12"
+    },
+    {
+      "id": "STR-013",
+      "order": 13,
+      "title": "ساخت، سوییچ و مدیریت اعضای Workspace",
+      "dependencies": [
+        "STR-006",
+        "STR-012"
+      ],
+      "lane": "frontend/backend",
+      "paths": "apps/web/src/features/workspaces/; apps/api/modules/workspaces/; /app/workspaces",
+      "scope": [
+        "CRUD نام/مشخصات، انتخاب Workspace و archive/restore را بساز",
+        "invite ایمیل با expiry، accept، revoke و نقش محدود بساز؛ مالکیت واضح باشد",
+        "فهرست joined و owned را جدا و switch را با پاکسازی query cache و unsaved changes انجام بده"
+      ],
+      "acceptance": [
+        "مدیر سه پروژه جدا را بدون مخلوط‌شدن داده مدیریت می‌کند",
+        "invite تکراری/منقضی/ایمیل نامعتبر نتیجه درست دارد",
+        "archive داده را حذف نمی‌کند و آخرین مالک قابل حذف نیست"
+      ],
+      "ux": [
+        "نام پروژه در همه صفحات آشکار؛ selector دسکتاپ و موبایل قابل لمس",
+        "حذف/انتقال حساس confirmation با نام پروژه داشته باشد"
+      ],
+      "validation": "Workspace CRUD/permissions و Playwright switch/invite/conflict",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 13,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/13"
+    },
+    {
+      "id": "STR-014",
+      "order": 14,
+      "title": "آن‌بوردینگ کوتاه برای اطلاعات کاربر و پروژه",
+      "dependencies": [
+        "STR-011",
+        "STR-013"
+      ],
+      "lane": "product/frontend",
+      "paths": "apps/web/src/features/onboarding/; project-profile API; /app/start",
+      "scope": [
+        "ثبت نام→اطلاعات شخصی کوتاه→نام پروژه→اطلاعات اولیه و هدف را پیاده کن",
+        "نام اجباری، صنعت/مرحله/هدف قابل اصلاح؛ optionalها skip داشته باشند",
+        "ادامه onboarding نیمه‌تمام، back، validation و user بدون Workspace را پوشش بده؛ دمو فقط با انتخاب صریح"
+      ],
+      "acceptance": [
+        "کاربر تازه به یک Workspace واقعی می‌رسد",
+        "refresh اطلاعات مرحله قبل را حفظ می‌کند",
+        "کاربر دعوت‌شده مجبور به ساخت پروژه اضافی نمی‌شود"
+      ],
+      "ux": [
+        "progress کوتاه، یک هدف هر مرحله، متن فارسی ساده",
+        "داده نمایشی هرگز با اطلاعات واقعی بی‌اجازه پر نشود"
+      ],
+      "validation": "Playwright signup/onboarding/invite entry و موبایل keyboard",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 14,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/14"
+    },
+    {
+      "id": "STR-015",
+      "order": 15,
+      "title": "پوسته پنل با ناوبری مدرن و مسیرهای مستقل",
+      "dependencies": [
+        "STR-006",
+        "STR-013"
+      ],
+      "lane": "frontend",
+      "paths": "apps/web/src/layouts/; router; /app/workspaces/:workspaceId/*",
+      "scope": [
+        "sidebar RTL ابزارها، selector پروژه، topbar search و حساب/اشتراک بساز",
+        "گروه‌بندی شناخت→تحلیل→تصمیم→اجرا→مدارک را به route registry متصل کن",
+        "lazy routes، breadcrumbs، not-found، auth guard و deep links جای hash routes را بگیرند؛ legacy link mapping حفظ شود"
+      ],
+      "acceptance": [
+        "back/forward و refresh تمام routeهای مجاز درست است",
+        "profile و workspace settings جابه‌جا نمی‌شوند",
+        "mobile menu focus و content area بدون overflow سراسری کار می‌کند"
+      ],
+      "ux": [
+        "تم و آموزش از منوی حساب قابل یافتن؛ جست‌وجو با دکمه و shortcut",
+        "route transition کوتاه با focus heading و احترام کاهش حرکت"
+      ],
+      "validation": "routing/deeplink smoke، keyboard و screenshot دو تم",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 15,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/15"
+    },
+    {
+      "id": "STR-016",
+      "order": 16,
+      "title": "کلاینت API تایپ‌شده و ذخیره مطمئن فرم‌ها",
+      "dependencies": [
+        "STR-005",
+        "STR-009",
+        "STR-015"
+      ],
+      "lane": "core/frontend",
+      "paths": "apps/web/src/api/; TanStack Query keys; packages/domain/schemas; OpenAPI",
+      "scope": [
+        "OpenAPI typed client و query keys شامل Workspace بساز",
+        "autosave debounce با revision، dirty state، conflict و retry idempotent برای داده‌های قابل ذخیره تعریف کن",
+        "قطع شبکه، session expiry و تغییر Workspace داده را به پروژه اشتباه نفرستند؛ business data محلی مخفیانه ذخیره نشود"
+      ],
+      "acceptance": [
+        "قطع درخواست باعث false saved نمی‌شود",
+        "دو tab هم‌زمان overwrite خاموش ندارند",
+        "خطای validation، quota و session recovery پاسخ قابل نمایش دارد"
+      ],
+      "ux": [
+        "ذخیره شد/در حال ذخیره/خطا/تعارض واضح و screen-reader friendly",
+        "کاربر کنترل retry و انتخاب حل تعارض دارد"
+      ],
+      "validation": "client contract tests؛ race/conflict/network/logout during save",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 16,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/16"
+    },
+    {
+      "id": "STR-017",
+      "order": 17,
+      "title": "انتقال امن داده نمونه قدیمی و پشتیبان JSON",
+      "dependencies": [
+        "STR-005",
+        "STR-013",
+        "STR-016"
+      ],
+      "lane": "migration",
+      "paths": "src/app.js STORAGE/validateState; apps/api/modules/imports/; apps/web/src/features/import/",
+      "scope": [
+        "schemaهای roy esh-strategy-v1 و export قدیمی را شناسایی و mapping versioned بساز",
+        "import ابتدا preview/dry-run باشد و مقصد Workspace با تأیید کاربر مشخص شود",
+        "محاسبات، تصمیم و فایل metadata بدون ادعای وجود بایت منتقل شوند؛ فایل واقعی دوباره upload شود"
+      ],
+      "acceptance": [
+        "fixture معتبر بدون حذف مرورگر قدیمی وارد می‌شود",
+        "JSON خراب/بزرگ/نامعتبر رد و تراکنش ناقص rollback می‌شود",
+        "import دوباره نتیجه قابل پیش‌بینی و گزارش itemها دارد"
+      ],
+      "ux": [
+        "preview شمارش رکورد، نام مقصد و هشدار فایل فاقد بایت روشن باشد",
+        "حفظ backup و undo/import batch آشکار باشد"
+      ],
+      "validation": "fixtures قدیمی/خراب، atomicity و dry-run؛ حفظ export قبل migration",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 17,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/17"
+    },
+    {
+      "id": "STR-018",
+      "order": 18,
+      "title": "پروفایل کسب‌وکار و ICP مبتنی بر شواهد",
+      "dependencies": [
+        "STR-016",
+        "STR-017"
+      ],
+      "lane": "strategy",
+      "paths": "src/data.js; apps/web/src/features/company/; apps/api/modules/strategy/profile",
+      "scope": [
+        "مدل شرکت/محصول، مشتری، مسئله، stage و اهداف را از نمونه فعلی مستقل کن",
+        "ICP را segment/persona/evidence/assumption تعریف کن؛ فرمول عددی جهانی اختراع نکن",
+        "فیلدهای reusable برای مدارک و تغییرات نسخه‌ای profile فراهم کن"
+      ],
+      "acceptance": [
+        "دو پروژه ICP و مشخصات متفاوت دارند",
+        "قالب خالی به جای شرکت فرضی ذخیره می‌شود",
+        "شاهد و فرضیه از هم مشخص‌اند و راهنمای ICP قابل بازکردن است"
+      ],
+      "ux": [
+        "فرم بخش‌بندی و نمونه اختیاری با action بعدی",
+        "جست‌وجوی ICP و آموزش به قسمت مرتبط برسند"
+      ],
+      "validation": "CRUD schema و Playwright edit/save؛ empty/filled حالت",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 18,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/18"
+    },
+    {
+      "id": "STR-019",
+      "order": 19,
+      "title": "SWOT/TOWS واقعی و اتصال به تصمیم",
+      "dependencies": [
+        "STR-018"
+      ],
+      "lane": "strategy",
+      "paths": "src/calculations.js; apps/web/src/features/swot/; apps/api/modules/strategy/swot",
+      "scope": [
+        "ویرایش عوامل چهارگانه با evidence، owner و اولویت بساز",
+        "TOWS پیشنهادهای راهبرد را با عوامل منبع مرتبط کند و ویرایش دستی مجاز باشد",
+        "حذف factor وابستگی تصمیم را اعلام کند؛ تولید خودکار توصیه قطعی یا AI اضافه نشود"
+      ],
+      "acceptance": [
+        "تحلیل هر پروژه جدا ذخیره می‌شود",
+        "ارتباط راهبرد با عوامل قابل مشاهده است",
+        "ویرایش/حذف با وابستگی نتیجه بدون رکورد آویزان دارد"
+      ],
+      "ux": [
+        "روی موبایل ماتریس به section قابل فهم تبدیل شود",
+        "کنتراست و برچسب علاوه بر رنگ و empty CTA مناسب"
+      ],
+      "validation": "link integrity و CRUD؛ keyboard matrix و mobile smoke",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 19,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/19"
+    },
+    {
+      "id": "STR-020",
+      "order": 20,
+      "title": "محاسبه EFE/IFE و نمایش تفسیر معتبر",
+      "dependencies": [
+        "STR-018"
+      ],
+      "lane": "strategy/calculation",
+      "paths": "src/calculations.js; tests/calculations.test.mjs; packages/domain/; API analysis calculations",
+      "scope": [
+        "منطق EFE/IFE را با fixtures فعلی به TS و سرویس authoritative منتقل کن",
+        "weight/rating، جمع وزن، rounding، داده ناقص و evidence را validate کن",
+        "method version، input و output را ذخیره و تفسیر/محدودیت مدل را نمایش بده"
+      ],
+      "acceptance": [
+        "وزن‌های معتبر مجموع یک دارند؛ invalid قابل finalize نیست",
+        "preview و نتیجه سرور با fixtures مشترک سازگارند",
+        "محاسبه بعد refresh و تغییر پروژه ثابت و مجزا است"
+      ],
+      "ux": [
+        "جدول ورودی خوانا، نتیجه همراه داده ناقص و محدودیت",
+        "نمودار جای جدول قابل دسترسی را نمی‌گیرد"
+      ],
+      "validation": "golden fixtures، invalid/boundary values و API/client parity",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 20,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/20"
+    },
+    {
+      "id": "STR-021",
+      "order": 21,
+      "title": "دفتر تصمیم و برنامه اجرای قابل پیگیری",
+      "dependencies": [
+        "STR-019",
+        "STR-020"
+      ],
+      "lane": "execution",
+      "paths": "apps/api/modules/execution/; apps/web/src/features/decisions/; actions board",
+      "scope": [
+        "Decision با دلیل، فرض، منبع تحلیل و trigger review بساز",
+        "Action با owner عضو پروژه، موعد، status و هدف مرتبط پیاده کن",
+        "نمای برنامه ۹۰روزه و history تغییرات داشته باشد؛ task manager عمومی و chat خارج محدوده"
+      ],
+      "acceptance": [
+        "تصمیم از تحلیل به اقدام واقعی لینک می‌شود",
+        "همکار غیرعضو به اقدام تخصیص نمی‌یابد",
+        "موعد/وضعیت پس از refresh، فیلتر و role restriction درست‌اند"
+      ],
+      "ux": [
+        "kanban با کیبورد و گزینه تغییر وضعیت بدون drag",
+        "وضعیت عقب‌افتاده با متن و تاریخ روشن، نه فقط قرمز"
+      ],
+      "validation": "CRUD/link/role و timezone/due date؛ board keyboard",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 21,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/21"
+    },
+    {
+      "id": "STR-022",
+      "order": 22,
+      "title": "کتابخانه مدارک مدیریتی با راهنما و وضعیت پروژه",
+      "dependencies": [
+        "STR-018",
+        "STR-021"
+      ],
+      "lane": "documents",
+      "paths": "src/document-catalog.js (if present, locate via graph); existing catalog tests; apps/api/modules/documents/; apps/web/src/features/documents/",
+      "scope": [
+        "تمام رکوردهای catalog فعلی را موجودی و از محتوای LifeMate-specific به الگوی عمومی قابل انتخاب تبدیل کن",
+        "عنوان، کاربرد، مخاطب ارائه، اولویت، مسئول مناسب، ساختار و راهنمای نگارش و مثال را ثبت کن",
+        "وضعیت draft/review/ready، reviewer و نسخه محتوا؛ پنج مدرک نخست MVP و بقیه catalog بدون وعده تولید کامل"
+      ],
+      "acceptance": [
+        "راهنمای مدارک با مرحله/صنعت فیلتر و owner مشخص ذخیره می‌شود",
+        "هیچ Drive/source-folder CTA یا متن وابسته به آن در محصول نیست",
+        "محتوای حقوقی/مالی پیشنهادی از الزام قطعی تفکیک شده است"
+      ],
+      "ux": [
+        "لیست قابل اسکن و details بدون انبوه کارت مشابه",
+        "اولویت/پیشرفت/مسئول و اقدام بعدی در دو تم خوانا"
+      ],
+      "validation": "catalog schema/content tests؛ filter و guide mobile؛ بازبینی تخصصی محتوا",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 22,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/22"
+    },
+    {
+      "id": "STR-023",
+      "order": 23,
+      "title": "آپلود واقعی چند فایل برای هر مدرک",
+      "dependencies": [
+        "STR-012",
+        "STR-022"
+      ],
+      "lane": "files/security",
+      "paths": "apps/api/modules/documents/attachments; storage interface; apps/web/src/features/documents/uploads",
+      "scope": [
+        "private storage با metadata، checksum، MIME/extension/size و quota server-side بساز",
+        "چند انتخاب، progress، retry، cancel، حذف جدا، نسخه و download مجاز فراهم کن",
+        "quarantine و scan policy، نام امن، finalize atomic و cleanup orphanها؛ فایل public یا executable inline نباشد"
+      ],
+      "acceptance": [
+        "فایل پس از restart و login قابل دانلود و checksum ثابت است",
+        "تغییر شناسه یا لینک منقضی، مجوز را دور نمی‌زند",
+        "quota/reservation هم‌زمان و فایل مخرب/بزرگ با خطای واضح کنترل می‌شوند"
+      ],
+      "ux": [
+        "نام و اندازه هر فایل با اعداد locale؛ خطای هر مورد مستقل",
+        "drag/drop مکمل دکمه upload دسترس‌پذیر باشد؛ حذف قابل فهم"
+      ],
+      "validation": "upload/download/permission/integrity/limit؛ retry و restart persistence",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 23,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/23"
+    },
+    {
+      "id": "STR-024",
+      "order": 24,
+      "title": "گزارش، PDF و خروجی قابل انتقال داده",
+      "dependencies": [
+        "STR-020",
+        "STR-021",
+        "STR-023"
+      ],
+      "lane": "reporting",
+      "paths": "apps/api/modules/exports/; apps/web/src/features/reports/; existing print/report",
+      "scope": [
+        "گزارش تحلیل→تصمیم→اقدام و خروجی پنج مدرک قالب‌محور بساز",
+        "PDF فارسی با فونت درست، نمودار/جدول و units؛ JSON/CSV versioned و archive فایل مجاز برای انتقال داده",
+        "snapshot immutable با method version، timestamp و scope؛ export شخصی را پشت paywall امنیتی نگذار"
+      ],
+      "acceptance": [
+        "PDF RTL، صفحه‌بندی و متن انتخاب‌پذیر درست دارد",
+        "JSON قابل re-import و همه داده مجاز قابل خروجی است",
+        "export از پروژه دیگر و scope غیرمجاز رد می‌شود"
+      ],
+      "ux": [
+        "preview و progress ساخت گزارش، خطا و retry واضح",
+        "خروجی فاقد demo claim و اطلاعات فنی غیرضروری باشد"
+      ],
+      "validation": "render PDF visual QA؛ export/import roundtrip و permission tests",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 24,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/24"
+    },
+    {
+      "id": "STR-025",
+      "order": 25,
+      "title": "جست‌وجوی سراسری ابزار و محتوای مجاز پروژه",
+      "dependencies": [
+        "STR-012",
+        "STR-015",
+        "STR-022"
+      ],
+      "lane": "search",
+      "paths": "src/search.js; tests/search.test.mjs; route registry; Postgres search API; command palette",
+      "scope": [
+        "ابزارها و مترادف فارسی/انگلیسی ICP، ماتریس، مدارک و بخش‌ها را index کن",
+        "محتوای تصمیم/اقدام/مدرک/پروفایل با query مجاز و pagination جست‌وجو شود",
+        "ی/ک، فاصله و نیم‌فاصله را normalize کن؛ ابتدا Postgres، بدون Elasticsearch"
+      ],
+      "acceptance": [
+        "ماتریس icp صفحه مرتبط با توضیح تفاوت ICP را پیدا می‌کند",
+        "عنوان تخصصی و مترادف route درست می‌آورند",
+        "هیچ snippet/count پروژه غیرمجاز افشا نمی‌شود"
+      ],
+      "ux": [
+        "command palette با کیبورد، debounce و no-results با پیشنهاد",
+        "نتایج ابزار و محتوا و Workspace مقصد قابل تشخیص باشند"
+      ],
+      "validation": "synonym/normalization tests؛ ACL search و keyboard open/navigate",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 25,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/25"
+    },
+    {
+      "id": "STR-026",
+      "order": 26,
+      "title": "تور آموزشی زمینه‌ای با خاموش‌کردن سراسری",
+      "dependencies": [
+        "STR-011",
+        "STR-015",
+        "STR-018",
+        "STR-020",
+        "STR-022"
+      ],
+      "lane": "learning",
+      "paths": "existing tutorial modules; apps/web/src/features/learning/; accounts preferences",
+      "scope": [
+        "تعریف step بر اساس route و target پایدار، فرمول/مثال/محدودیت/منبع بساز",
+        "تور قابلیت next/back/close/resume و target گم‌شده داشته باشد",
+        "setting آموزش همه CTA/guide library را کنترل کند؛ permission/quota و validation مستقل باقی بمانند"
+      ],
+      "acceptance": [
+        "خاموش‌کردن در حساب تمام ورودی‌های آموزش را پنهان می‌کند",
+        "تور در resize/scroll و موبایل target درست دارد",
+        "Escape و focus return کار می‌کند و progress بر user ثبت می‌شود"
+      ],
+      "ux": [
+        "مرحله کوتاه با spotlight آرام، بدون اجبار یا popup شروع ناخواسته",
+        "reduced-motion و خواندن screen reader رعایت شود"
+      ],
+      "validation": "tour route/target fallback و toggle persistence؛ keyboard/mobile",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 26,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/26"
+    },
+    {
+      "id": "STR-027",
+      "order": 27,
+      "title": "داشبورد مدیر بر پایه اقدام بعدی و سلامت پروژه",
+      "dependencies": [
+        "STR-021",
+        "STR-022",
+        "STR-024"
+      ],
+      "lane": "dashboard",
+      "paths": "apps/web/src/features/dashboard/; workspace summary API",
+      "scope": [
+        "summary واقعی پیشرفت تحلیل، اقدام‌های سررسید، تصمیم نیازمند بازبینی و مدارک ناقص بساز",
+        "کارت یا نمودار فقط سؤال مدیریتی مشخص را پاسخ دهد؛ داده ساختگی به‌عنوان KPI وارد نشود",
+        "نمای حساب چند پروژه با خلاصه مجاز و ورود به Workspace فراهم کن"
+      ],
+      "acceptance": [
+        "هر عدد از داده پروژه قابل ردیابی است",
+        "پروژه خالی setup guidance و پروژه فعال next action دارد",
+        "summary داده پروژه غیرمجاز یا cache قبلی را نشان نمی‌دهد"
+      ],
+      "ux": [
+        "یک محور دیداری مرتبط با مسیر استراتژی، layout آرام و خوانا",
+        "chart توضیح متنی و drill-down عملی داشته باشد"
+      ],
+      "validation": "summary fixtures/ACL؛ dashboard empty/active/error snapshots",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 27,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/27"
+    },
+    {
+      "id": "STR-028",
+      "order": 28,
+      "title": "پلن، سهمیه و entitlement واقعی و قابل تنظیم",
+      "dependencies": [
+        "STR-012",
+        "STR-013",
+        "STR-023"
+      ],
+      "lane": "billing/core",
+      "paths": "apps/api/modules/billing/plans; workspace/file limits; apps/web/src/features/subscription/",
+      "scope": [
+        "Plan/BillingAccount/Entitlement و usage ledger بساز؛ قیمت و سهمیه config/DB باشند",
+        "owned Workspace، seats و actual bytes را با enforcement atomic کنترل کن",
+        "free/pro پیشنهادی را fixture آزمایش تعریف کن؛ downgrade/archive و grace بدون حذف داده ناگهانی"
+      ],
+      "acceptance": [
+        "هم‌زمانی create/upload سهمیه را دور نمی‌زند",
+        "joined Workspace از سهمیه مالکیت کم نمی‌شود",
+        "تغییر plan و downgrade به داده شخصی دسترسی و export را نابود نمی‌کند"
+      ],
+      "ux": [
+        "usage meter روشن، محدودیت قبل اقدام و upgrade با دلیل مشخص",
+        "امنیت و بازیابی داده قابلیت پولی نباشد"
+      ],
+      "validation": "quota race، plan transition، owner billing و ACL منفی",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 28,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/28"
+    },
+    {
+      "id": "STR-029",
+      "order": 29,
+      "title": "پرداخت داخلی و فعال‌سازی قابل اعتماد اشتراک",
+      "dependencies": [
+        "STR-028"
+      ],
+      "lane": "payments",
+      "paths": "apps/api/modules/billing/payments; payment provider adapter; checkout/callback screens",
+      "scope": [
+        "درگاه داخلی پشت adapter با sandbox/test config، Invoice/PaymentAttempt و پول integer rial بساز",
+        "verify server-side، amount/currency match و idempotency callback داشته باشد",
+        "موفق/ناموفق/نامعلوم/reconcile/refund ثبت شود؛ تمدید دستی، نه ادعای برداشت خودکار"
+      ],
+      "acceptance": [
+        "callback جعلی یا دوباره entitlement اضافه نمی‌کند",
+        "تبدیل تومان نمایش به ریال API دقیق و آزموده است",
+        "timeout پرداخت با بررسی وضعیت قابل بازیابی است"
+      ],
+      "ux": [
+        "قیمت نهایی، دوره، رسید و برگشت به پروژه واضح",
+        "خطای پرداخت کاربر را از داده خود محروم نمی‌کند"
+      ],
+      "validation": "provider sandbox integration؛ duplicate/tampered/timeout/cancel tests",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 29,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/29"
+    },
+    {
+      "id": "STR-030",
+      "order": 30,
+      "title": "پنل مالک سرویس برای کاربران و پشتیبانی",
+      "dependencies": [
+        "STR-010",
+        "STR-012",
+        "STR-028"
+      ],
+      "lane": "operations/admin",
+      "paths": "Django admin; apps/api/modules/operations; /internal/",
+      "scope": [
+        "Django admin با staff access و MFA برای حساب operator، plan و subscription operational view بساز",
+        "audit actor/reason برای تغییر حساس، محدودیت دسترسی و redaction داده تجاری",
+        "دسترسی پشتیبانی به محتوای مشتری نیازمند جریان صریح و ثبت زمان/دلیل باشد؛ backdoor impersonation نساز"
+      ],
+      "acceptance": [
+        "کاربر عادی و مالک Workspace وارد operator admin نمی‌شوند",
+        "تغییر اشتراک audit قابل پیگیری دارد",
+        "اطلاعات حساس بدون ضرورت در لیست و log نیست"
+      ],
+      "ux": [
+        "پنل داخلی جست‌وجو، فیلتر، تأیید عمل حساس و خطای روشن",
+        "آمار سرویس از آمار ساختگی جدا باشد"
+      ],
+      "validation": "staff/MFA/permissions/audit؛ destructive-action safeguards",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 30,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/30"
+    },
+    {
+      "id": "STR-031",
+      "order": 31,
+      "title": "بک‌آپ مستقل دیتابیس و فایل و آزمون بازیابی",
+      "dependencies": [
+        "STR-009",
+        "STR-023"
+      ],
+      "lane": "operations/data",
+      "paths": "infra/backup/; restore runbook; database and storage manifests",
+      "scope": [
+        "backup DB و فایل با manifest/checksum، encryption، retention و copy خارج host طراحی کن",
+        "restore در محیط خالی، recovery کلید و سازگاری DB/file را آزمایش کن",
+        "هدف اولیه RPO ۲۴h و RTO یک روز کاری را فرض طراحی بنویس؛ تا تست موفق SLA اعلام نکن"
+      ],
+      "acceptance": [
+        "بازیابی رکورد و بایت فایل در host تازه موفق است",
+        "failed backup و کمبود فضا alert قابل عمل دارند",
+        "نسخه مستقل از volume اصلی و کلید بازیابی در دسترس مجاز است"
+      ],
+      "ux": [
+        "هیچ پیام «ایمن» فقط به‌دلیل snapshot نمایش داده نشود",
+        "در outage وضعیت و مسیر recovery صادقانه به کاربر برسد"
+      ],
+      "validation": "restore drill، corrupted/missing file و key recovery؛ اندازه/زمان ثبت شود",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 31,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/31"
+    },
+    {
+      "id": "STR-032",
+      "order": 32,
+      "title": "ثبت خطا، audit و پایش هزینه بدون داده حساس",
+      "dependencies": [
+        "STR-009",
+        "STR-021",
+        "STR-029"
+      ],
+      "lane": "observability",
+      "paths": "apps/api/logging; frontend error boundary; audit events; infra/monitoring",
+      "scope": [
+        "structured logs و request ID، frontend/API exception و health/resource monitor بساز",
+        "password/token/متن مدارک و مالی مشتری از log حذف شود؛ retention و access policy",
+        "metric استفاده، storage/traffic/email cost و سقف مصرف ثبت شود؛ provider-neutral و self-host امکان‌پذیر"
+      ],
+      "acceptance": [
+        "خطای client به request سرور مرتبط می‌شود",
+        "تزریق داده حساس در تست log آشکار نمی‌شود",
+        "هشدار failure پرداخت/backup/email مسیر رسیدگی دارد"
+      ],
+      "ux": [
+        "error boundary با حفظ کار و retry، کد پشتیبانی کوتاه",
+        "technical stacktrace به مشتری نشان داده نشود"
+      ],
+      "validation": "redaction و retention tests؛ simulated outage و error boundary",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 32,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/32"
+    },
+    {
+      "id": "STR-033",
+      "order": 33,
+      "title": "سخت‌سازی امنیت، کش خصوصی و نشست‌ها",
+      "dependencies": [
+        "STR-010",
+        "STR-012",
+        "STR-023",
+        "STR-029",
+        "STR-030"
+      ],
+      "lane": "security",
+      "paths": "public/sw.js; apps/web/service-worker policy; API headers/settings; dependency policy",
+      "scope": [
+        "Service Worker فعلی را برای وب آنلاین حذف/محدود و cache auth/API/private file را ممنوع کن",
+        "CSP، secure cookie، CSRF، CORS allowlist، rate limits و dependency/security checks",
+        "logout/switch/revocation cache پاک و upload unsafe کنترل شود؛ threat model سبک و incident runbook بنویس"
+      ],
+      "acceptance": [
+        "offline/cache پس از logout اطلاعات خصوصی کاربر قبل را نشان نمی‌دهد",
+        "DB عمومی و secret در bundle یا git وجود ندارد",
+        "تست IDOR/CSRF/XSS/file و خطای امن ثبت شده‌اند"
+      ],
+      "ux": [
+        "انقضای نشست هشدار واضح و حفظ ورودی مجاز دارد",
+        "نشان امنیتی بی‌پشتوانه یا وعده عدم هک وارد landing نشود"
+      ],
+      "validation": "security integration؛ browser cache inspect؛ dependency audit و threat review",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 33,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/33"
+    },
+    {
+      "id": "STR-034",
+      "order": 34,
+      "title": "صفحه عمومی استراتینو با نمایش محصول و موشن اصیل",
+      "dependencies": [
+        "STR-006",
+        "STR-015",
+        "STR-028"
+      ],
+      "lane": "marketing/frontend",
+      "paths": "apps/web/src/features/site/; /; /features; /pricing; /faq",
+      "scope": [
+        "پیام تحلیل→تصمیم→اجرا→مدارک با نمایش واقعی محصول بساز",
+        "public pages prerender/SEO metadata، OG، local font/images و CTA signup/demo",
+        "قیمت از plan منبع واحد؛ demo بدون داده حساس؛ testimonial و اعداد مشتری ساختگی ممنوع"
+      ],
+      "acceptance": [
+        "نام استراتینو و ارزش اصلی ظرف چند لحظه قابل فهم است",
+        "public site روی موبایل و بدون login اطلاعات لازم دارد",
+        "قیمت/CTA با محصول و plan واقعی هماهنگ‌اند"
+      ],
+      "ux": [
+        "frontend-design با یک لحظه بصری شاخص و موشن کنترل‌شده",
+        "تصاویر واقعی یا SVG دقیق محصول، reduced-motion و سرعت اولویت دارند"
+      ],
+      "validation": "SEO prerender/crawl smoke؛ responsive/performance و usability CTA",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 34,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/34"
+    },
+    {
+      "id": "STR-035",
+      "order": 35,
+      "title": "سیاست داده، لغو اشتراک و فرایندهای اعتماد",
+      "dependencies": [
+        "STR-023",
+        "STR-028",
+        "STR-029"
+      ],
+      "lane": "product/legal",
+      "paths": "/privacy; /terms; /data; account export/delete; docs/policies/",
+      "scope": [
+        "مالکیت داده، محل نگهداری، backup retention، پشتیبانی و حذف را مطابق پیاده‌سازی بنویس",
+        "cancel/expiry/refund و export-before-delete با retention روشن طراحی کن",
+        "پیش‌نیاز قرارداد درگاه و الزامات کسب‌وکار در زمان عرضه از مرجع رسمی بررسی شود؛ متن حقوقی بازبینی مالک/متخصص"
+      ],
+      "acceptance": [
+        "سیاست‌ها ادعای کاذب encryption یا compliance ندارند",
+        "حذف حساب از archive پروژه و حذف فایل تفاوت روشن دارد",
+        "فرایند درخواست/تأیید حذف قابل پیگیری و زمان‌بندی شده است"
+      ],
+      "ux": [
+        "متن فارسی کوتاه و خلاصه خوانا همراه جزئیات",
+        "لغو و export مسیر قابل پیدا کردن و بدون dark pattern"
+      ],
+      "validation": "workflow cancel/delete/export tests؛ بازبینی محتوا و نیاز قانونی روز عرضه",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 35,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/35"
+    },
+    {
+      "id": "STR-036",
+      "order": 36,
+      "title": "بررسی سراسری کیفیت UI/UX و کارایی MVP",
+      "dependencies": [
+        "STR-024",
+        "STR-025",
+        "STR-026",
+        "STR-027",
+        "STR-029",
+        "STR-034"
+      ],
+      "lane": "quality/design",
+      "paths": "apps/web/; Playwright; docs/UX_STANDARD.md; performance reports",
+      "scope": [
+        "جریان‌های signup/project/analysis/upload/search/report/payment را در دو تم بررسی کن",
+        "اعداد فارسی همه متن، نمودار، tooltip، جدول و PDF؛ LTR برای انگلیسی حفظ شود",
+        "کیبورد، zoom، reduced motion، layout موبایل و loading/empty/error بازبینی شوند؛ بودجه bundle/API اندازه‌گیری شود"
+      ],
+      "acceptance": [
+        "تصویر و نتیجه آزمون واقعی در ۴ breakpoint ثبت شده است",
+        "خطاهای P0/P1 جریان اصلی برطرف یا عرضه مسدود می‌شوند",
+        "LCP/INP/CLS و payload هدف‌گذاری و شرایط اندازه‌گیری ثبت شده، نه ادعای نمره ساختگی"
+      ],
+      "ux": [
+        "بررسی modern UI با readability و task success، نه صرفاً جلوه بصری",
+        "navigation، preferences و آموزش توسط کاربر پیدا شوند"
+      ],
+      "validation": "Playwright E2E، axe کمکی، keyboard دستی، screenshot و profiler",
+      "risk": "متوسط",
+      "phase": "MVP",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 36,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/36"
+    },
+    {
+      "id": "STR-037",
+      "order": 37,
+      "title": "استقرار قابل انتقال روی ایران با مسیر VPS مشترک",
+      "dependencies": [
+        "STR-007",
+        "STR-031",
+        "STR-032",
+        "STR-033"
+      ],
+      "lane": "deployment",
+      "paths": "infra/Dockerfile*; compose.production; reverse proxy; docs/runbooks/",
+      "scope": [
+        "image immutable، same-origin routing، health/rollback، migrations و TLS تعریف کن",
+        "پروفایل managed hosting و single VPS با resource/network/DB isolation برای چند اپ مستند کن",
+        "قیمت/region/support/backup واقعی دوباره بررسی؛ خرید و deploy عمومی فقط با بودجه و مجوز مالک"
+      ],
+      "acceptance": [
+        "محیط آزمایشی از صفر با تنظیمات خارج git بالا می‌آید",
+        "rollback نسخه اپ و recovery migration امن ثبت شده است",
+        "host دوم بدون تغییر domain logic قابل راه‌اندازی است"
+      ],
+      "ux": [
+        "maintenance و outage page واضح و سبک",
+        "deep link، asset cache و auth پشت proxy صحیح باشند"
+      ],
+      "validation": "staging local/sandbox smoke؛ restore/rollback drill و هزینه واقعی تخمین‌زده",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 37,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/37"
+    },
+    {
+      "id": "STR-038",
+      "order": 38,
+      "title": "پایلوت نهایی و گیت عرضه اولین نسخه پولی",
+      "dependencies": [
+        "STR-004",
+        "STR-024",
+        "STR-029",
+        "STR-030",
+        "STR-031",
+        "STR-032",
+        "STR-033",
+        "STR-035",
+        "STR-036",
+        "STR-037"
+      ],
+      "lane": "launch",
+      "paths": "docs/launch/; release checklist; open issues; pilot feedback",
+      "scope": [
+        "پنج کاربر واقعی با پروژه غیرحساس دعوت مالک و onboarding مشاهده‌شده؛ اشکالات ثبت شوند",
+        "permission/data restore/payment/support و checklist release با شواهد مرور شود",
+        "baseline activation/return/paid intent و ظرفیت محدود ثبت؛ انتشار عمومی تصمیم جداگانه مالک"
+      ],
+      "acceptance": [
+        "پایلوت نتایج واقعی با داده ناشناس و consent دارد",
+        "هیچ blocker امنیت/فایل/پرداخت باقی نمانده است",
+        "نسخه، محدودیت‌ها، contact support و rollback آماده‌اند"
+      ],
+      "ux": [
+        "نسخه beta واضح و empty project قابل شروع باشد",
+        "خرید یا عدم خرید کاربر بدون فشار و قیمت روشن"
+      ],
+      "validation": "E2E final + restore/payment evidence + manual usability + مالک gate",
+      "risk": "بالا",
+      "phase": "MVP",
+      "priority": "P0",
+      "status": "planned",
+      "issue_number": 38,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/38"
+    },
+    {
+      "id": "STR-039",
+      "order": 39,
+      "title": "انتقال QSPM و VRIO با روش محاسبه آزموده",
+      "dependencies": [
+        "STR-020",
+        "STR-021",
+        "STR-038"
+      ],
+      "lane": "strategy",
+      "paths": "existing QSPM/VRIO in src/calculations.js; domain package; strategy API/UI",
+      "scope": [
+        "QSPM با وزن EFE/IFE، irrelevant rows و AS معتبر و VRIO evidence-based را منتقل کن",
+        "رابط ورودی، comparison، توضیح نتیجه و محدودیت مدل با method version بساز",
+        "ارتباط با تصمیم حفظ و parity fixtures اجرا شود؛ توصیه قطعی سرمایه‌گذاری صادر نشود"
+      ],
+      "acceptance": [
+        "fixtures legacy و backend/client سازگارند",
+        "سناریو ناقص و rating خارج محدوده کنترل می‌شود",
+        "ورودی و خروجی هر نسخه پروژه قابل ردیابی است"
+      ],
+      "ux": [
+        "مقایسه خوانا در table/diagram با جایگزین متنی",
+        "تور کوتاه ویژه QSPM/VRIO و واحدها آشکار"
+      ],
+      "validation": "golden/parity/invalid tests و permission + UI flow",
+      "risk": "بالا",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 39,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/39"
+    },
+    {
+      "id": "STR-040",
+      "order": 40,
+      "title": "ماتریس‌های CPM، SPACE و BCG متصل به پروژه",
+      "dependencies": [
+        "STR-039"
+      ],
+      "lane": "strategy",
+      "paths": "existing calculations/charts; apps/web/src/features/matrices/portfolio; strategy API",
+      "scope": [
+        "سه ابزار را در subtask/PRهای کوچک با input schema و method version منتقل کن",
+        "BCG نسبت سهم/رشد، SPACE جهت محور و CPM وزن/رقبا را با داده معتبر پیاده کن",
+        "هر chart از نتیجه canonical و گزینه ذخیره snapshot/decision استفاده کند"
+      ],
+      "acceptance": [
+        "fixtures هر سه ابزار بدون regression منتقل شده‌اند",
+        "مرز/صفر/نقص داده و محور منفی درست‌اند",
+        "هیچ chart صرفاً نمایشی به‌جای محاسبه ذخیره نمی‌شود"
+      ],
+      "ux": [
+        "label، محور و legend خوانا و non-color alternative",
+        "mobile table/zoom و tutorial هدف‌دار"
+      ],
+      "validation": "محاسبات هر ابزار جدا؛ chart semantics و client/API parity",
+      "risk": "بالا",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 40,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/40"
+    },
+    {
+      "id": "STR-041",
+      "order": 41,
+      "title": "ماتریس‌های IE، GE، Ansoff و Grand Strategy",
+      "dependencies": [
+        "STR-040"
+      ],
+      "lane": "strategy",
+      "paths": "existing matrices renderers; domain schemas; strategy API/UI",
+      "scope": [
+        "هر ابزار را در PR مستقل با روش و فرض‌ها منتقل کن",
+        "GE ساده‌شده کارگاهی را از روش کامل تفکیک و label صادقانه حفظ کن",
+        "Ansoff/Grand qualitative inputs و IE اتصال IFE/EFE داشته باشند؛ فرمول جهانی اختراع نشود"
+      ],
+      "acceptance": [
+        "هر ماتریس dependency و روش واضح دارد",
+        "snapshot با ورودی و method version ذخیره می‌شود",
+        "نقص داده به خروجی قطعی تبدیل نمی‌شود"
+      ],
+      "ux": [
+        "تراکم اطلاعات با sections و drill-down، نه کارت‌های مشابه زیاد",
+        "توضیح روش و تور فقط در حالت آموزش نمایش یابد"
+      ],
+      "validation": "matrix fixtures/linked-analysis و responsive/accessibility checks",
+      "risk": "بالا",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 41,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/41"
+    },
+    {
+      "id": "STR-042",
+      "order": 42,
+      "title": "ابزار مالی و سناریو با واحد و فرض‌های روشن",
+      "dependencies": [
+        "STR-038"
+      ],
+      "lane": "finance",
+      "paths": "src/calculations.js NPV/IRR; finance/scenario routes; API decimal schemas",
+      "scope": [
+        "cashflow/ratios/scenario و NPV/IRR با Decimal و conventions period/unit تعریف کن",
+        "تورم/discount/time و non-conventional cashflow محدودیت صریح داشته باشد",
+        "سناریو base/conservative/optimistic از assumptions واقعی و versioned inputs، نه اعداد پیش‌فرض مشتری"
+      ],
+      "acceptance": [
+        "تومان/ریال و دوره در API/display/export سازگار است",
+        "IRR نامعتبر به عدد جعلی تبدیل نمی‌شود",
+        "محاسبات سمت سرور و preview fixtures مشترک دارند"
+      ],
+      "ux": [
+        "فرض‌ها کنار خروجی و chart با جدول قابل دسترسی",
+        "اعداد locale و واحد پول هر مقدار روشن"
+      ],
+      "validation": "precision/boundary fixtures و currency/period parity؛ report QA",
+      "risk": "بالا",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 42,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/42"
+    },
+    {
+      "id": "STR-043",
+      "order": 43,
+      "title": "BSC، ریسک و بازبینی چرخه استراتژی",
+      "dependencies": [
+        "STR-021",
+        "STR-027",
+        "STR-038"
+      ],
+      "lane": "execution",
+      "paths": "existing BSC/risk/journal routes; execution API; metrics models",
+      "scope": [
+        "هدف/شاخص/target/period و owner در BSC مستقل از demo تعریف کن",
+        "risk probability/impact و convention heatmap، mitigation و review بساز",
+        "بازبینی تصمیم با دلیل تغییر و history به برنامه اجرا متصل شود"
+      ],
+      "acceptance": [
+        "KPI واقعی با منبع و دوره قابل ردیابی است",
+        "risk score روش محلی را شفاف نشان می‌دهد",
+        "تغییر هدف یا تصمیم تاریخچه و مجوز را حفظ می‌کند"
+      ],
+      "ux": [
+        "heatmap متن/جدول جایگزین و رنگ معنایی محدود",
+        "review checklist کوتاه و action-driven"
+      ],
+      "validation": "metric/risk formulas، history و permissions؛ dashboard integration",
+      "risk": "متوسط",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 43,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/43"
+    },
+    {
+      "id": "STR-044",
+      "order": 44,
+      "title": "آماده‌سازی نسخه انگلیسی و عرضه خارج ایران",
+      "dependencies": [
+        "STR-038"
+      ],
+      "lane": "internationalization",
+      "paths": "apps/web/locales/en; backend translated errors; docs/international/",
+      "scope": [
+        "ترجمه کامل UI، docs/templates/tutorial، dates/numbers و LTR را بازبینی کن",
+        "متن کاربر ترجمه خودکار نشود؛ locale timezone/currency از زبان جدا باشند",
+        "بازار، پرداخت، میزبانی، پشتیبانی و محتوای تخصصی خارج ایران اعتبارسنجی جدا داشته باشند"
+      ],
+      "acceptance": [
+        "متن فارسی ناخواسته در UI انگلیسی با inventory مشخص رفع می‌شود",
+        "export/PDF و عدد/تاریخ locale درست‌اند",
+        "برنامه عرضه خارجی بدون ادعای آمادگی صرفاً با ترجمه ارائه می‌شود"
+      ],
+      "ux": [
+        "LTR layout و chart labels مستقلاً طراحی/تست شوند",
+        "راه تغییر زبان از همان جای آشنا باقی بماند"
+      ],
+      "validation": "translation coverage، LTR screenshots و date/number tests",
+      "risk": "متوسط",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 44,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/44"
+    },
+    {
+      "id": "STR-045",
+      "order": 45,
+      "title": "نسخه عربی برای بازار خاورمیانه",
+      "dependencies": [
+        "STR-044"
+      ],
+      "lane": "internationalization",
+      "paths": "apps/web/locales/ar; Arabic typography/templates; research/",
+      "scope": [
+        "پژوهش مخاطب کشور مشخص و ترجمه انسانی/تخصصی عربی برنامه‌ریزی کن",
+        "font/RTL، عدد locale و اصطلاحات مدیریتی از فارسی جدا شوند",
+        "قوانین، پرداخت و محل داده کشورهای هدف پیش از عرضه ارزیابی شوند"
+      ],
+      "acceptance": [
+        "هیچ ترجمه ماشینی تأییدنشده به‌عنوان رسمی منتشر نمی‌شود",
+        "UI/PDF عربی و فارسی مستقل و بدون نشت متن‌اند",
+        "پلن عرضه کشورمحور با داده واقعی وجود دارد"
+      ],
+      "ux": [
+        "RTL عربی تست مستقل و متن تجاری بومی",
+        "مرزبندی زبان، ارز و تقویم روشن"
+      ],
+      "validation": "بازبینی native speaker، screenshot و i18n tests",
+      "risk": "متوسط",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 45,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/45"
+    },
+    {
+      "id": "STR-046",
+      "order": 46,
+      "title": "PWA نصب‌پذیر بدون کش ناامن داده شرکت",
+      "dependencies": [
+        "STR-033",
+        "STR-038"
+      ],
+      "lane": "future-platform",
+      "paths": "manifest; service worker; install UX; web push design",
+      "scope": [
+        "بعد از تثبیت وب، نصب desktop/mobile و update prompt را طراحی کن",
+        "cache فقط assets عمومی؛ auth/API/private docs خارج cache بمانند",
+        "آفلاین read/write داده تجاری پروژه تحقیق جدا با encryption/sync conflict است؛ در این تسک وعده آن نده"
+      ],
+      "acceptance": [
+        "install/update قابل آزمون در مرورگر پشتیبان است",
+        "logout و session revoke داده private آفلاین باقی نمی‌گذارند",
+        "unsupported browser همچنان وب کامل دارد"
+      ],
+      "ux": [
+        "install prompt فقط اختیاری و غیرمزاحم",
+        "پیام offline دقیقاً محدودیت واقعی را بیان کند"
+      ],
+      "validation": "SW cache/security و install/update/browser compatibility",
+      "risk": "بالا",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 46,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/46"
+    },
+    {
+      "id": "STR-047",
+      "order": 47,
+      "title": "کمک AI اختیاری با بودجه و محرمانگی",
+      "dependencies": [
+        "STR-022",
+        "STR-028",
+        "STR-032",
+        "STR-038"
+      ],
+      "lane": "future-ai",
+      "paths": "AI provider interface; document assist UX; cost ledger; policy",
+      "scope": [
+        "پیش از ساخت، ارزش نگارش/توضیح AI را با پرداخت واقعی اعتبارسنجی کن",
+        "opt-in ارسال داده، provider interface، redaction و سقف هزینه/credit داشته باشد",
+        "خروجی draft با منابع/limitations و review انسان؛ calculation deterministic و entitlement جدا"
+      ],
+      "acceptance": [
+        "بدون consent داده شرکت به مدل خارجی ارسال نمی‌شود",
+        "spend limit و provider failure کنترل می‌شوند",
+        "متن AI به‌عنوان مدرک حقوقی یا نتیجه محاسبات قطعی معرفی نمی‌شود"
+      ],
+      "ux": [
+        "preview، پذیرش/ویرایش/رد و هزینه قبل اجرا روشن",
+        "AI off تجربه اصلی را ناقص نمی‌کند"
+      ],
+      "validation": "cost cap/privacy/redaction/timeout tests و ارزیابی کیفیت draft",
+      "risk": "بالا",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 47,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/47"
+    },
+    {
+      "id": "STR-048",
+      "order": 48,
+      "title": "سازمان، همکاری پیشرفته و اتصال ابزارها",
+      "dependencies": [
+        "STR-038",
+        "STR-043"
+      ],
+      "lane": "future-enterprise",
+      "paths": "organization layer; integration adapters; audit/roles; public API design",
+      "scope": [
+        "تقاضای واقعی برای چند مالک، سازمان، SSO و نقش سفارشی را بررسی کن",
+        "قالب API/webhook با signed event/idempotency و least privilege طراحی کن",
+        "ابتدا یک integration نیازمحور؛ realtime/chat/ERP عمومی به‌صورت bundle اضافه نشوند"
+      ],
+      "acceptance": [
+        "Workspace/project مفهوم قبلی را از دست نمی‌دهد",
+        "permissions سازمانی موجب نشت بین محصولات نمی‌شوند",
+        "credential اتصال encrypted و قابل revoke است"
+      ],
+      "ux": [
+        "settings پروژه و سازمان واضح و بدون overload",
+        "sync status و failure قابل اقدام باشند"
+      ],
+      "validation": "integration contracts، tenant/role matrix و migration drill",
+      "risk": "بالا",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 48,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/48"
+    },
+    {
+      "id": "STR-049",
+      "order": 49,
+      "title": "پرداخت خارجی و رمزارزی با ارزیابی مستقل",
+      "dependencies": [
+        "STR-029",
+        "STR-044"
+      ],
+      "lane": "future-payments",
+      "paths": "international billing adapters; pricing/currency; compliance research",
+      "scope": [
+        "کشور، entity، provider eligibility و هزینه واقعی را از منبع رسمی بررسی کن",
+        "پرداخت ارزی adapter جدا و tax/refund/reconcile طراحی شود",
+        "رمزارزی فقط با تقاضا، بررسی قانونی و risk handling؛ secret custody و promise تسویه نساز"
+      ],
+      "acceptance": [
+        "هیچ مسیر خارجی قبل eligibility و مجوز مالک فعال نمی‌شود",
+        "currency/amount و callback duplicate آزموده‌اند",
+        "بدهی/برگشت پول و دوره اشتراک قابل reconciliation است"
+      ],
+      "ux": [
+        "قیمت و ارز و هزینه نهایی قبل تأیید روشن",
+        "pending/failed پرداخت به داده مشتری دست‌اندازی نکند"
+      ],
+      "validation": "provider sandbox و legal review؛ این issue تحقیق/طراحی قبل اجراست",
+      "risk": "بالا",
+      "phase": "Future",
+      "priority": "P3",
+      "status": "planned",
+      "issue_number": 49,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/49"
+    },
+    {
+      "id": "STR-050",
+      "order": 50,
+      "title": "رشد، بازگشت مشتری و اصلاح پلن با داده واقعی",
+      "dependencies": [
+        "STR-004",
+        "STR-032",
+        "STR-038"
+      ],
+      "lane": "growth",
+      "paths": "docs/research/; activation metrics; pricing experiments; onboarding improvements",
+      "scope": [
+        "activation=اولین تحلیل ذخیره‌شده + تصمیم/اقدام را تعریف و cohort بدون متن حساس سنجش کن",
+        "بازگشت، churn، support time و cost/account را از داده واقعی محاسبه کن",
+        "پیام/قیمت/سهمیه را با آزمایش کوچک و privacy policy اصلاح کن؛ نامحدود هزینه‌زا وعده نده"
+      ],
+      "acceptance": [
+        "metric event تعریف و consent/retention دارد",
+        "تخفیف سالانه MRR را نادرست افزایش نمی‌دهد",
+        "تغییر قیمت با evidence و migration مشتری قدیمی انجام می‌شود"
+      ],
+      "ux": [
+        "onboarding و upgrade بر نتیجه واقعی مشتری تکیه کنند",
+        "تجربه لغو/خروجی و آموزش بدون فشار حفظ شود"
+      ],
+      "validation": "event/schema tests؛ گزارش cohort و experiment با confidence/assumptions",
+      "risk": "متوسط",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 50,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/50"
+    },
+    {
+      "id": "STR-051",
+      "order": 51,
+      "title": "تحلیل محیط و صنعت با PESTEL و پنج نیروی رقابتی",
+      "dependencies": [
+        "STR-018",
+        "STR-020",
+        "STR-038"
+      ],
+      "lane": "strategy/research",
+      "paths": "existing environment/industry routes; strategy research models; evidence sources",
+      "scope": [
+        "صفحات محیط و صنعت فعلی را با PESTEL و پنج نیرو به داده هر پروژه منتقل کن",
+        "شواهد، تاریخ مشاهده، confidence، عامل و اثر را ثبت و به EFE/CPM لینک کن",
+        "نمونه فرضی صنعت به‌عنوان داده واقعی پیش‌فرض ذخیره نشود؛ ورود دستی معتبر مقدم بر اتصال داده بیرونی است"
+      ],
+      "acceptance": [
+        "شواهد یک پروژه وارد پروژه دیگر نمی‌شوند",
+        "عامل محیطی به تحلیل downstream با source/version مشخص وصل می‌شود",
+        "داده ناقص یا قدیمی در نتیجه و گزارش آشکار است"
+      ],
+      "ux": [
+        "رادار/جدول نیروها با معنا و توضیح محدودیت، نه نمره جهانی صنعت",
+        "آموزش در جای تصمیم کاربر و source/date خوانا باشد"
+      ],
+      "validation": "evidence/linked-factor/version tests؛ industry/environment UI parity",
+      "risk": "متوسط",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 51,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/51"
+    },
+    {
+      "id": "STR-052",
+      "order": 52,
+      "title": "مرکز اعلان و یادآوری قابل کنترل پروژه",
+      "dependencies": [
+        "STR-021",
+        "STR-032",
+        "STR-038"
+      ],
+      "lane": "execution/notifications",
+      "paths": "workspace notifications API; reminder scheduler; topbar notification center; preferences",
+      "scope": [
+        "اعلان اقدام سررسید، تصمیم نیازمند review و وضعیت مدارک را از event واقعی بساز",
+        "read/unread، فیلتر Workspace و frequency preferences؛ jobهای idempotent با timezone مشخص",
+        "ابتدا داخل اپ؛ ایمیل یادآوری فقط با opt-in کاربر و رعایت بودجه، بدون پیام خودکار در مرحله برنامه‌ریزی"
+      ],
+      "acceptance": [
+        "اعلان demo یا تکراری به کاربر واقعی نمایش داده نمی‌شود",
+        "عضو حذف‌شده اعلان/لینک پروژه را دریافت نمی‌کند",
+        "timezone، retry و جلوگیری از ارسال دوگانه آزموده‌اند"
+      ],
+      "ux": [
+        "badge متن قابل دسترسی و مقصد مستقیم به کار مرتبط",
+        "خاموش‌کردن اعلان آسان و آموزش مستقل از اعلان کاری باشد"
+      ],
+      "validation": "event/permission/scheduler idempotency؛ preference و notification keyboard",
+      "risk": "متوسط",
+      "phase": "Expansion",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 52,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/52"
+    }
+  ]
+}
