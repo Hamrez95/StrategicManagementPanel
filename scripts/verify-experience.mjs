@@ -4,7 +4,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.STRATEGY_PLAYWRIGHT_MODULE || 'playwright');
-const url=process.env.STRATEGY_URL || 'http://localhost:4173';
+const url=process.env.STRATEGY_URL || 'http://localhost:4173/prototype/';
 const browser=await chromium.launch({headless:true,executablePath:process.env.STRATEGY_BROWSER_EXECUTABLE || undefined,args:['--no-sandbox','--disable-dev-shm-usage']});
 const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','documents','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(x=>'matrices/'+x)];
 const tutorials=['company','matrices/efe','matrices/ife','qspm','matrices/bcg','finance'];

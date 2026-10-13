@@ -6,7 +6,7 @@ try{
  const page=await browser.newPage({serviceWorkers:'block'});
  const old=createSeed();old.org.name='رویش';old.fin.revenue=12345;
  await page.addInitScript(data=>{if(!localStorage.getItem('royesh-strategy-v1'))localStorage.setItem('royesh-strategy-v1',JSON.stringify(data));},old);
- await page.goto((process.env.STRATEGY_URL||'http://localhost:4173')+'/#settings');await page.waitForSelector('#main h1');
+ await page.goto((process.env.STRATEGY_URL||'http://localhost:4173/prototype/')+'/#settings');await page.waitForSelector('#main h1');
  assert.equal(await page.locator('.brand strong').innerText(),'استراتینو');
  await page.locator('[data-preference="language"]').selectOption('en');assert.equal(await page.locator('.brand strong').innerText(),'Stratino');
  const [download]=await Promise.all([page.waitForEvent('download'),page.locator('[data-action="export"]').click()]);assert.equal(download.suggestedFilename(),'stratino-strategy-backup.json');

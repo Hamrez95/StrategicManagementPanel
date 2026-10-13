@@ -102,3 +102,4 @@ React + TypeScript + Vite؛ Django/DRF modular monolith؛ PostgreSQL؛ فایل 
 
 - STR-001: خط پایه و جدول parity، ابزار و دستور Windows ثبت شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ مرحله تور، آفلاین و حفظ داده پاس شدند؛ چهار تصویر واقعی breakpoint ثبت شد؛ Graphify در worktree تازه build/query شد؛ دو ترجمه ناقص تنظیمات اصلاح شد.
 - STR-002: هویت محصول و نشان S، HTML/manifest و نام خروجی استراتینو شد؛ شرکت نمونه آوند است؛ داده قدیمی بدون بازنویسی با تست مرورگر حفظ شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ تور و چهار breakpoint پاس شدند.
+- STR-003: پایه npm workspace با React/TS strict/Vite، routes عمومی/حساب/پنل/اپراتور و domain/UI ساخته شد؛ prototype کامل حفظ شد؛ typecheck و parity و ۳۹ تست و ۱۵۶ بررسی صفحه پاس شدند؛ هشت بررسی تم/breakpoint و قرارداد session mock، داده نامعتبر، عضویت و deep link بررسی شد. ورود سروری هنوز پیاده‌سازی نشده است.

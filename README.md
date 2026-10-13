@@ -2,7 +2,9 @@
 
 ## مسیر محصول جدید: استراتینو / Stratino
 
-نام محصول استراتینو است. [فهرست ۵۲ تسک اولویت‌دار و تفصیلی](docs/backlog/README.md) و [نقشه پیگیری GitHub](https://github.com/Hamrez95/StrategicManagementPanel/issues/53) از آماده‌سازی ریپو، تغییر نام و جداسازی بخش‌ها شروع می‌شوند. جهت توسعه React + TypeScript + Vite، Django و PostgreSQL است؛ رابط اجرایی زیر هنوز پروتوتایپ فعلی است و تغییر واقعی نام/ساختار در تسک‌ها انجام می‌شود.
+نام محصول استراتینو است. [فهرست ۵۲ تسک اولویت‌دار و تفصیلی](docs/backlog/README.md) و [نقشه پیگیری GitHub](https://github.com/Hamrez95/StrategicManagementPanel/issues/53) ترتیب توسعه را مشخص می‌کنند. پایه React + TypeScript + Vite اکنون صفحه عمومی و مرز حساب/پنل را اجرا می‌کند؛ Django و PostgreSQL مراحل بعدی‌اند. اپ کامل نمونه در `/prototype/` و `/demo` حفظ شده است.
+
+`npm ci` و `npm run build` کل خروجی را می‌سازند؛ `npm run dev` توسعه React را روی localhost:5173 اجرا می‌کند. راهنما و محدودیت‌های auth در [پایه React](docs/REACT_FOUNDATION.md) ثبت شده‌اند؛ مسیر حساب هنوز ورود واقعی ندارد و مسیر خصوصی در نبود session معتبر باز نمی‌شود.
 
 برای ادامه توسعه ابتدا `AGENTS.md`، تسک انتخاب‌شده و [گردش توسعه](docs/DEVELOPMENT_WORKFLOW.md) را بخوانید. مهارت frontend-design داخل `.agents/skills/` و Graphify مخصوص Codex داخل `.codex/skills/` ثبت شده‌اند؛ [قرارداد UI/UX](docs/UX_STANDARD.md) در همه تسک‌ها اعمال می‌شود.
 
@@ -20,7 +22,7 @@
 
 ## اجرا و بررسی
 
-Node.js 22 یا جدیدتر. وابستگی اجرایی یا نیاز به دریافت کتابخانه از CDN وجود ندارد.
+Node.js 22.12 یا جدیدتر. کتابخانه‌های React در build بسته‌بندی می‌شوند و نیاز به CDN اجرایی ندارند؛ prototype قبلی همچنان بدون کتابخانه اجرایی خارجی کار می‌کند.
 
 ### اجرای محلی در ویندوز
 
