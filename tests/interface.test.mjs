@@ -22,6 +22,8 @@ const action=dataset=>listeners.click({target:{closest:selector=>selector==='[da
 const submit=(id,values,dataset={})=>listeners.submit({preventDefault(){},target:{id,values,dataset,querySelectorAll:()=>[],reportValidity:()=>true}});
 
 test('all 18 main views, nine matrices, and all learning lessons render',()=>{
+  assert.match(html(),/class="icon-btn theme-toggle"[^>]*>[^<]*<svg[\s\S]*?<span>تم<\/span>/,'The theme control has a visible text label');
+  assert.match(html(),/data-action="language"[^>]*>EN<\/button>/,'The language control is visible in Persian mode');
   const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(k=>'matrices/'+k),...Object.keys(help).map(k=>'learn/'+k),'learn/sources','journal/فرضیه'];
   for(const route of routes){const content=go(route);assert.ok(content.includes('<main'),route);assert.ok(content.includes('<h1'),route);assert.ok(!content.includes('[object Object]'),route);assert.ok(!content.includes('NaN'),route);assert.ok(!content.includes('undefined'),route);}
 });
