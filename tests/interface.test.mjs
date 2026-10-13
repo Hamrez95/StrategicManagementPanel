@@ -5,12 +5,13 @@ import {readFile} from 'node:fs/promises';
 import {createSeed,help} from '../src/data.js';
 const listeners={},windowListeners={},store=new Map(),nodes=new Map();
 const node=()=>({innerHTML:'',hidden:true,style:{},dataset:{},classList:{add(){},remove(){}},append(){},focus(){},remove(){},click(){},setAttribute(){},removeAttribute(){}});
-for(const key of ['#app','#overlay','#tooltip','#toasts'])nodes.set(key,node());
+for(const key of ['#app','#overlay','#tooltip','#toasts','#search-results'])nodes.set(key,node());
 globalThis.document={title:'',documentElement:node(),body:node(),activeElement:null,querySelector:selector=>nodes.get(selector)||null,querySelectorAll:()=>[],createElement:node,addEventListener:(event,callback)=>listeners[event]=callback};
 globalThis.window={addEventListener:(event,callback)=>windowListeners[event]=callback,scrollTo(){},innerWidth:1440,innerHeight:900,print(){}};
 globalThis.location={hash:'#overview'};
 globalThis.localStorage={getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)};
 Object.defineProperty(globalThis,'navigator',{value:{onLine:true},configurable:true});
+globalThis.setTimeout=callback=>{callback();return 0;};
 const NativeFormData=globalThis.FormData;
 globalThis.FormData=class {constructor(form){this.entries=Object.entries(form.values)}[Symbol.iterator](){return this.entries[Symbol.iterator]()}};
 await import('../src/app.js');
@@ -53,6 +54,16 @@ test('investment form calculates and rejects malformed cash flows',()=>{
 });
 test('stage completion and learning toggle are persistent',async()=>{
   go('journey');await action({action:'complete',index:'2'});assert.equal(saved().completed[2],true);await action({action:'learning'});assert.equal(saved().learning,false);assert.ok(!html().includes('data-help='));assert.ok(!html().includes('data-action="tour"'));
+});
+test('education control is prominent and explicitly shows on/off state',async()=>{
+  let content=go('settings');if(!saved().learning){await change({setting:'learning'},true,'checkbox');content=html();}assert.ok(content.indexOf('class="learning-control"')<content.indexOf('ظاهر و زبان'));assert.match(content,/data-setting="learning"[^>]*checked/);assert.match(content,/آموزش: روشن/);
+  await change({setting:'learning'},false,'checkbox');assert.equal(saved().learning,false);assert.match(html(),/آموزش: خاموش/);assert.match(html(),/حالت حرفه‌ای/);
+  await change({setting:'learning'},true,'checkbox');assert.equal(saved().learning,true);
+});
+test('global search resolves ICP page and indexed specialized data',()=>{
+  action({action:'search'});listeners.input({target:{id:'global-search',value:'ماتریس ICP',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#company"/);
+  listeners.input({target:{id:'global-search',value:'دیرکرد وصول سفارش‌های سازمانی',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#risks"/);
+  listeners.input({target:{id:'global-search',value:'BCG cash cow',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#matrices\/bcg"/);
 });
 test('all cached assets exist in build; font is self-hosted',async()=>{
   const sw=await readFile(new URL('../public/sw.js',import.meta.url),'utf8');for(const [,asset] of sw.matchAll(/'(\/(?:src|assets)\/[^']+)'/g)){const path=asset.startsWith('/src/')?'..'+asset:'../public'+asset;assert.ok((await readFile(new URL(path,import.meta.url))).length>0,asset);}
