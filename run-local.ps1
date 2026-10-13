@@ -104,8 +104,15 @@ try {
             $process.Refresh()
             if ($process.HasExited) { throw (Get-ServerFailure -Server $server) }
             try {
-                $response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1
-                if ($response.StatusCode -eq 200) { $ready = $true; break }
+                $request = [Net.HttpWebRequest]::Create("http://127.0.0.1:$port/")
+                $request.Proxy = $null
+                $request.Timeout = 1000
+                $response = $request.GetResponse()
+                try {
+                    if ([int]$response.StatusCode -eq 200) { $ready = $true }
+                }
+                finally { $response.Close() }
+                if ($ready) { break }
             }
             catch { Start-Sleep -Milliseconds 250 }
         }
