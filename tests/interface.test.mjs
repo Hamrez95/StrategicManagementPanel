@@ -4,9 +4,9 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createSeed,help} from '../src/data.js';
 const listeners={},windowListeners={},store=new Map(),nodes=new Map();
-const node=()=>({innerHTML:'',hidden:true,style:{},dataset:{},append(){},focus(){},remove(){},click(){},setAttribute(){},removeAttribute(){}});
+const node=()=>({innerHTML:'',hidden:true,style:{},dataset:{},classList:{add(){},remove(){}},append(){},focus(){},remove(){},click(){},setAttribute(){},removeAttribute(){}});
 for(const key of ['#app','#overlay','#tooltip','#toasts'])nodes.set(key,node());
-globalThis.document={title:'',body:node(),activeElement:null,querySelector:selector=>nodes.get(selector)||null,querySelectorAll:()=>[],createElement:node,addEventListener:(event,callback)=>listeners[event]=callback};
+globalThis.document={title:'',documentElement:node(),body:node(),activeElement:null,querySelector:selector=>nodes.get(selector)||null,querySelectorAll:()=>[],createElement:node,addEventListener:(event,callback)=>listeners[event]=callback};
 globalThis.window={addEventListener:(event,callback)=>windowListeners[event]=callback,scrollTo(){},innerWidth:1440,innerHeight:900,print(){}};
 globalThis.location={hash:'#overview'};
 globalThis.localStorage={getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)};
@@ -19,7 +19,7 @@ const go=route=>{location.hash='#'+route;windowListeners.hashchange();return htm
 const saved=()=>JSON.parse(store.get('royesh-strategy-v1'));
 const change=(dataset,value,type='number')=>listeners.change({target:{dataset,value,type,checked:!!value,checkValidity:()=>true}});
 const action=dataset=>listeners.click({target:{closest:selector=>selector==='[data-action]'?{dataset}:null}});
-const submit=(id,values,dataset={})=>listeners.submit({preventDefault(){},target:{id,values,dataset,reportValidity:()=>true}});
+const submit=(id,values,dataset={})=>listeners.submit({preventDefault(){},target:{id,values,dataset,querySelectorAll:()=>[],reportValidity:()=>true}});
 
 test('all 18 main views, nine matrices, and all learning lessons render',()=>{
   const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(k=>'matrices/'+k),...Object.keys(help).map(k=>'learn/'+k),'learn/sources','journal/فرضیه'];
@@ -50,7 +50,7 @@ test('investment form calculates and rejects malformed cash flows',()=>{
   go('finance');submit('investment-form',{initial:'1000',rate:'20',flows:'600,600'});assert.deepEqual(saved().investment.flows,[600,600]);assert.ok(html().includes('۸۳٫۳۳'));submit('investment-form',{initial:'1000',rate:'20',flows:'600,,600'});assert.deepEqual(saved().investment.flows,[600,600]);
 });
 test('stage completion and learning toggle are persistent',async()=>{
-  go('journey');await action({action:'complete',index:'2'});assert.equal(saved().completed[2],true);await action({action:'learning'});assert.equal(saved().learning,false);assert.ok(html().includes('aria-pressed="false"'));
+  go('journey');await action({action:'complete',index:'2'});assert.equal(saved().completed[2],true);await action({action:'learning'});assert.equal(saved().learning,false);assert.ok(!html().includes('data-help='));assert.ok(!html().includes('data-action="tour"'));
 });
 test('all cached assets exist in build; font is self-hosted',async()=>{
   const sw=await readFile(new URL('../public/sw.js',import.meta.url),'utf8');for(const [,asset] of sw.matchAll(/'(\/(?:src|assets)\/[^']+)'/g)){const path=asset.startsWith('/src/')?'..'+asset:'../public'+asset;assert.ok((await readFile(new URL(path,import.meta.url))).length>0,asset);}
