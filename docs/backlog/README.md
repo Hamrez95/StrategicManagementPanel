@@ -1,6 +1,6 @@
 # استراتینو — فهرست اجرای پروژه
 
-۵۲ تسک تفصیلی در GitHub و در همین پوشه ثبت شده‌اند. همه **باز / برنامه‌ریزی‌شده** هستند؛ ایجاد تسک به معنی پیاده‌سازی نیست.
+۵۲ تسک تفصیلی در GitHub و در همین پوشه ثبت شده‌اند. وضعیت اولیه تسک‌ها برنامه‌ریزی‌شده است؛ ایجاد تسک به معنی پیاده‌سازی نیست. وضعیت اجرا در بخش زیر و GitHub ثبت می‌شود.
 
 ## ترتیب اجرا
 
@@ -97,3 +97,7 @@ React + TypeScript + Vite؛ Django/DRF modular monolith؛ PostgreSQL؛ فایل 
 | STR-047 | P3 | [#47 — کمک AI اختیاری با بودجه و محرمانگی](https://github.com/Hamrez95/StrategicManagementPanel/issues/47) | STR-022, STR-028, STR-032, STR-038 | [شرح](STR-047.md) |
 | STR-048 | P3 | [#48 — سازمان، همکاری پیشرفته و اتصال ابزارها](https://github.com/Hamrez95/StrategicManagementPanel/issues/48) | STR-038, STR-043 | [شرح](STR-048.md) |
 | STR-049 | P3 | [#49 — پرداخت خارجی و رمزارزی با ارزیابی مستقل](https://github.com/Hamrez95/StrategicManagementPanel/issues/49) | STR-029, STR-044 | [شرح](STR-049.md) |
+
+## وضعیت اجرای ثبت‌شده
+
+- STR-001: خط پایه و جدول parity، ابزار و دستور Windows ثبت شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ مرحله تور، آفلاین و حفظ داده پاس شدند؛ چهار تصویر واقعی breakpoint ثبت شد؛ Graphify در worktree تازه build/query شد؛ دو ترجمه ناقص تنظیمات اصلاح شد.
