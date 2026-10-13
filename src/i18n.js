@@ -1,6 +1,14 @@
 import {preferences} from './preferences.js';
 import {english} from './translations.js';
 const additions = {
+  'آموزش‌ها روشن است. برای پنهان‌کردن دکمه‌ها و درس‌ها، کلید را خاموش کنید.':'Learning is on. Turn off the switch to hide tutorials and lessons.',
+  'آموزش‌ها خاموش است. برای نمایش راهنمای صفحه‌ها، مفاهیم و کتابخانه، کلید را روشن کنید.':'Learning is off. Turn on the switch to show page guides, concept help and the learning library.',
+  'نام صفحه، ماتریس، شاخص، مفهوم یا داده را بنویسید.':'Search pages, matrices, metrics, concepts or saved data.',
+  'نتیجه‌ای پیدا نشد؛ نام صفحه، ماتریس یا شاخص را بنویسید.':'No results found. Try a page, matrix or metric name.',
+  'مثلاً: ماتریس ICP، بازده دارایی یا ریسک':'For example: ICP matrix, return on assets or risk',
+  'آموزش: روشن':'Learning: on', 'آموزش: خاموش':'Learning: off',
+  'خاموش‌کردن آموزش':'Turn learning off', 'فعال‌کردن آموزش':'Turn learning on',
+  'صفحه':'Page', 'ماتریس':'Matrix', 'داده':'Data', 'منبع':'Source',
   'شرکت نمونه':'Sample company', 'شرکت':'Company', 'خروجی':'Deliverable', 'بودجه':'Budget', 'موعد':'Due (Jalali)', 'م.':'m toman', 'رشد مرکب فروش سالانه':'Annual compound revenue growth', 'م':'M', 'س':'S', 'ع':'A', 'ن':'N',
   'اجرا و کنترل':'Execution and control', 'نمودار قابل پیمایش':'Scrollable chart', 'برای دیدن کامل نمودار، افقی بکشید.':'Swipe horizontally to view the full chart.',
   'آموزش این صفحه':'Page tutorial', 'تغییر تم':'Toggle theme', 'تغییر زبان':'Switch language', 'فا':'FA',
