@@ -60,6 +60,7 @@ function Get-ServerFailure {
     $stderr = Get-ServerLog -Path $Server.Stderr
     if ($stdout) { $details += ("خروجی سرور:" + [Environment]::NewLine + $stdout) }
     if ($stderr) { $details += ("خطای سرور:" + [Environment]::NewLine + $stderr) }
+    if ($Server.ProbeError) { $details += "خطای بررسی اتصال: $($Server.ProbeError)" }
     if (-not $details.Count) { $details += "گزارش سرور: $($Server.Stdout) و $($Server.Stderr)" }
     return ("سرور محلی روی $($Server.Url) بالا نماند (PID $($Server.Process.Id))." + [Environment]::NewLine + ($details -join [Environment]::NewLine))
 }
@@ -96,7 +97,7 @@ try {
         Remove-Item $stdout, $stderr -Force -ErrorAction SilentlyContinue
         $process = Start-Process -FilePath $nodeCommand.Source -ArgumentList $arguments -WorkingDirectory $worktreePath -PassThru -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr
         $url = "http://localhost:$port"
-        $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr }
+        $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr; ProbeError = '' }
         $servers.Add($server)
 
         $ready = $false
@@ -114,7 +115,7 @@ try {
                 finally { $response.Close() }
                 if ($ready) { break }
             }
-            catch { Start-Sleep -Milliseconds 250 }
+            catch { $server.ProbeError = $_.Exception.Message; Start-Sleep -Milliseconds 250 }
         }
         if (-not $ready) { throw (Get-ServerFailure -Server $server) }
 
