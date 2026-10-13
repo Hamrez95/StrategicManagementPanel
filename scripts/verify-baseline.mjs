@@ -2,7 +2,7 @@ import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,executablePath:process.env.STRATEGY_BROWSER_EXECUTABLE||undefined,args:['--no-sandbox','--disable-dev-shm-usage']});
-const url=process.env.STRATEGY_URL||'http://localhost:4173';
+const url=process.env.STRATEGY_URL||'http://localhost:4173/prototype/';
 const out=process.env.STRATINO_SCREENSHOT_DIR||'test-results/baseline';
 await mkdir(out,{recursive:true});
 const observations=[];

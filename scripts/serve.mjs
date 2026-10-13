@@ -35,8 +35,8 @@ const server = createServer(async (request, response) => {
     try {
       if ((await stat(filePath)).isDirectory()) filePath = path.join(filePath, 'index.html');
     } catch {
-      response.writeHead(404).end('Not found');
-      return;
+      if (!path.extname(pathname) && !pathname.startsWith('/api/')) filePath = path.join(root, 'index.html');
+      else { response.writeHead(404).end('Not found'); return; }
     }
 
     const body = await readFile(filePath);
