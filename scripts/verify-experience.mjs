@@ -6,7 +6,7 @@ const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.STRATEGY_PLAYWRIGHT_MODULE || 'playwright');
 const url=process.env.STRATEGY_URL || 'http://localhost:4173';
 const browser=await chromium.launch({headless:true,executablePath:process.env.STRATEGY_BROWSER_EXECUTABLE || undefined,args:['--no-sandbox','--disable-dev-shm-usage']});
-const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(x=>'matrices/'+x)];
+const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','documents','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(x=>'matrices/'+x)];
 const tutorials=['company','matrices/efe','matrices/ife','qspm','matrices/bcg','finance'];
 const errors=[],untranslated=[];let pagesChecked=0,tourSteps=0,backChecked=false;
 await mkdir('test-results',{recursive:true});
@@ -27,6 +27,15 @@ try {
   await page.locator('[form="company-form"]').click();
   const afterForm=await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')));
   assert.deepEqual(afterForm.org,baseline.org,'Saving an unchanged localized form must preserve canonical values');
+  await go('documents');assert.equal(await page.locator('[data-document-upload]').count(),60,'Every inventory entry has its own upload control');
+  await page.locator('#document-search').fill('privacy policy');assert.ok(await page.locator('.doc-card:visible').count()>=1,'Document search filters its catalog');
+  await page.locator('#document-search').fill('');
+  await page.locator('#document-file-executive-onepage').setInputFiles({name:'sample-brief.pdf',mimeType:'application/pdf',buffer:Buffer.from('demo')});
+  assert.match(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-brief\.pdf/,'Mock file selection appears on the document card');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')).documentAttachments),undefined,'Mock file selection is not saved as an app record');
+  await page.locator('#document-file-executive-onepage').evaluate(el=>{el.value='';});
+  await page.locator('[data-action="remove-document-file"][data-doc-id="executive-onepage"]').click();
+  await go('documents');await screenshot('documents-light-fa');
   await go('settings');await screenshot('settings-dark-en');
   for(const language of ['en','fa']){
     if(await page.getAttribute('html','lang')!==language)await page.locator('[data-action="language"]').click();
@@ -69,6 +78,7 @@ try {
   await page.reload();await page.waitForSelector('#main h1');
   assert.equal(await page.getAttribute('html','lang'),'en');assert.equal(await page.getAttribute('html','dir'),'ltr');assert.equal(await page.getAttribute('html','data-theme'),'dark');assert.equal(await page.getAttribute('html','data-learning'),'false');
   await page.locator('[data-action="search"]').click();await page.locator('#global-search').fill('return on assets');assert.ok(await page.locator('.search-result').count()>0,'English search');await page.keyboard.press('Escape');
+  await page.locator('[data-action="search"]').click();await page.locator('#global-search').fill('investor teaser');await page.locator('.search-result[href="#documents/investor-teaser"]').click();assert.equal(await page.evaluate(()=>location.hash),'#documents/investor-teaser','Global search opens the matched document entry');
   await go('matrices/efe');await page.locator('[data-field="weight"]').first().fill(String(baseline.external[0].weight));await page.locator('[data-field="weight"]').first().press('Tab');
   const lastRating=page.locator('[data-field="rating"]').last();await lastRating.scrollIntoViewIfNeeded();const originalRating=await lastRating.inputValue();const beforeScroll=await page.evaluate(()=>scrollY);await lastRating.selectOption(originalRating==='2'?'3':'2');assert.ok(Math.abs((await page.evaluate(()=>scrollY))-beforeScroll)<2,'Editing a matrix input preserves scroll position');await page.locator('[data-field="rating"]').last().selectOption(originalRating);
   await go('overview');await screenshot('professional-mobile-dark-en');

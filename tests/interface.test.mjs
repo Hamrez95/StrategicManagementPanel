@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createSeed,help} from '../src/data.js';
+import {documents,documentSections} from '../src/document-catalog.js';
 const listeners={},windowListeners={},store=new Map(),nodes=new Map();
 const node=()=>({innerHTML:'',hidden:true,style:{},dataset:{},classList:{add(){},remove(){}},append(){},focus(){},remove(){},click(){},setAttribute(){},removeAttribute(){}});
 for(const key of ['#app','#overlay','#tooltip','#toasts','#search-results'])nodes.set(key,node());
@@ -22,15 +23,15 @@ const change=(dataset,value,type='number')=>listeners.change({target:{dataset,va
 const action=dataset=>listeners.click({target:{closest:selector=>selector==='[data-action]'?{dataset}:null}});
 const submit=(id,values,dataset={})=>listeners.submit({preventDefault(){},target:{id,values,dataset,querySelectorAll:()=>[],reportValidity:()=>true}});
 
-test('all 18 main views, nine matrices, and all learning lessons render',()=>{
+test('all main views, nine matrices, and all learning lessons render',()=>{
   assert.match(html(),/class="icon-btn theme-toggle"[^>]*>[^<]*<svg[\s\S]*?<span>تم<\/span>/,'The theme control has a visible text label');
   assert.match(html(),/data-action="language"[^>]*>EN<\/button>/,'The language control is visible in Persian mode');
-  const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(k=>'matrices/'+k),...Object.keys(help).map(k=>'learn/'+k),'learn/sources','journal/فرضیه'];
+  const routes=['overview','journey','company','environment','industry','internal','matrices','swot','qspm','finance','scenarios','execution','scorecard','risks','journal','reports','documents','learn','settings',...['efe','ife','cpm','space','bcg','ie','ge','ansoff','grand'].map(k=>'matrices/'+k),...Object.keys(help).map(k=>'learn/'+k),'learn/sources','journal/فرضیه'];
   for(const route of routes){const content=go(route);assert.ok(content.includes('<main'),route);assert.ok(content.includes('<h1'),route);assert.ok(!content.includes('[object Object]'),route);assert.ok(!content.includes('NaN'),route);assert.ok(!content.includes('undefined'),route);}
 });
 test('no placeholder navigation or unimplemented action buttons',async()=>{
   const app=await readFile(new URL('../src/app.js',import.meta.url),'utf8');
-  const views=['overview','company','environment','industry','internal','matrices','matrices/efe','matrices/space','matrices/bcg','swot','qspm','finance','execution','scorecard','risks','journal','reports','learn','settings'];
+  const views=['overview','company','environment','industry','internal','matrices','matrices/efe','matrices/space','matrices/bcg','swot','qspm','finance','execution','scorecard','risks','journal','reports','documents','learn','settings'];
   for(const route of views){const content=go(route);assert.ok(!content.includes('href="#"'),route);for(const [,name] of content.matchAll(/data-action="([a-zA-Z]+)"/g)){assert.ok(app.includes(`action==='${name}'`),name);}}
 });
 test('weight changes persist and invalid groups suppress QSPM',async()=>{
@@ -64,6 +65,18 @@ test('global search resolves ICP page and indexed specialized data',()=>{
   action({action:'search'});listeners.input({target:{id:'global-search',value:'ماتریس ICP',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#company"/);
   listeners.input({target:{id:'global-search',value:'دیرکرد وصول سفارش‌های سازمانی',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#risks"/);
   listeners.input({target:{id:'global-search',value:'BCG cash cow',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#matrices\/bcg"/);
+  listeners.input({target:{id:'global-search',value:'One-page company summary',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#documents\/executive-onepage"/);
+});
+test('document library includes every bilingual Drive item and one upload control per document',async()=>{
+  let content=go('documents');assert.equal(documentSections.length,12);assert.equal(documents.length,60);
+  assert.equal([...content.matchAll(/data-document-upload=/g)].length,documents.length);assert.match(content,/کتابخانه اسناد مدیریتی/);assert.match(content,/راهنمای نگارش/);assert.match(content,/سناریو و راهبردهای صلح/);
+  await change({preference:'language'},'en','select-one');content=html();assert.match(content,/Management document library/);assert.match(content,/data-document-upload=/);assert.match(content,/Add file/);
+  await change({preference:'language'},'fa','select-one');
+});
+test('file attachment mock is visible for the session and never enters saved app data',async()=>{
+  go('documents');await listeners.change({target:{dataset:{documentUpload:'executive-onepage'},files:[{name:'brief.pdf',size:2048,type:'application/pdf'}]}});
+  assert.match(go('documents'),/brief\.pdf/);assert.match(html(),/Selected for this session|فایل انتخاب‌شده/);assert.equal(saved().documentAttachments,undefined);
+  await action({action:'remove-document-file',docId:'executive-onepage'});assert.doesNotMatch(go('documents'),/brief\.pdf/);
 });
 test('all cached assets exist in build; font is self-hosted',async()=>{
   const sw=await readFile(new URL('../public/sw.js',import.meta.url),'utf8');for(const [,asset] of sw.matchAll(/'(\/(?:src|assets)\/[^']+)'/g)){const path=asset.startsWith('/src/')?'..'+asset:'../public'+asset;assert.ok((await readFile(new URL(path,import.meta.url))).length>0,asset);}

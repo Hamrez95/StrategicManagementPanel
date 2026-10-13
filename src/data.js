@@ -45,7 +45,7 @@ export const stages = [
 export const nav = [
   {group:'فضای کار',items:[['overview','نمای کلی','home'],['journey','مسیر استراتژی','route'],['company','شناخت شرکت','building']]},
   {group:'تحلیل و انتخاب',items:[['environment','محیط و بازار','globe'],['industry','صنعت و رقبا','radar'],['internal','منابع و قابلیت‌ها','layers'],['matrices','آزمایشگاه ماتریس‌ها','grid'],['swot','گزینه‌های رشد','branch'],['qspm','اتاق تصمیم','target'],['finance','اقتصاد کسب‌وکار','chart'],['scenarios','سناریو و آینده','compass']]},
-  {group:'اجرا و یادگیری',items:[['execution','برنامه اجرا','kanban'],['scorecard','اهداف و عملکرد','activity'],['risks','ریسک‌ها','shield'],['journal','تصمیم‌ها و فرضیات','book'],['reports','گزارش مدیریتی','file'],['learn','کتابخانه یادگیری','cap']]}
+  {group:'اجرا و یادگیری',items:[['execution','برنامه اجرا','kanban'],['scorecard','اهداف و عملکرد','activity'],['risks','ریسک‌ها','shield'],['journal','تصمیم‌ها و فرضیات','book'],['reports','گزارش مدیریتی','file'],['documents','کتابخانه مستندات','file'],['learn','کتابخانه یادگیری','cap']]}
 ];
 export function createSeed() {
   const external = [

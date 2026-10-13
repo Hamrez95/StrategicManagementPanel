@@ -1,6 +1,7 @@
 // Reviewed English presentation strings. Canonical record values and routes remain unchanged.
 export const english = {
   "| رویش": "| Royesh",
+  "کتابخانه مستندات": "Document library",
   "· ویرایش": "· Edit",
   "ابتکار جدید": "New initiative",
   "از ۶": "of 6",

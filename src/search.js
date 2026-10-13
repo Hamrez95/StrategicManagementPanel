@@ -17,6 +17,7 @@ export const PAGE_SEARCH_TERMS={
   risks:'risk mitigation probability impact response trigger ریسک احتمال اثر پاسخ کاهش',
   journal:'decision log hypothesis evidence assumption decision record دفتر تصمیم فرضیه شواهد فرضیات فرض',
   reports:'report export print pdf management report گزارش مدیریتی چاپ خروجی',
+  documents:'document library data room investor teaser pitch deck business plan privacy policy product requirements roadmap management documents مستندات مدیریتی کتابخانه مستندات دیتاروم دیتاروم مستند سند معرفی سرمایه گذار برنامه کسب و کار سیاست حریم خصوصی نقشه راه',
   learn:'learning library definition formula example آموزش یادگیری کتابخانه تعریف فرمول مثال',
   settings:'preferences appearance language theme dark light آموزش فعال سازی تنظیمات پوسته زبان'
 };
