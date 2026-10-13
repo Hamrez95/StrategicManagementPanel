@@ -1,6 +1,6 @@
 // Reviewed English presentation strings. Canonical record values and routes remain unchanged.
 export const english = {
-  "| رویش": "| Royesh",
+  "| استراتینو": "| Stratino",
   "کتابخانه مستندات": "Document library",
   "· ویرایش": "· Edit",
   "ابتکار جدید": "New initiative",
@@ -464,8 +464,8 @@ export const english = {
   "روند فروش": "Revenue trend",
   "روند فروش و هدف": "Revenue and target trend",
   "روی چه قابلیتی می‌توانیم حساب کنیم؟": "Which capabilities can we rely on?",
-  "رویش": "Royesh",
-  "رویش · پروتوتایپ آموزشی مدیریت استراتژیک": "Royesh · Educational strategy management prototype",
+  "استراتینو": "Stratino",
+  "استراتینو · پروتوتایپ آموزشی مدیریت استراتژیک": "Stratino · Educational strategy management prototype",
   "ریسک را ببینید، پاسخ را مشخص کنید.": "Understand risks. Define the response.",
   "ریسک و شرط بازبینی": "Risks and review conditions",
   "ریسک‌ها": "Risks",
@@ -710,7 +710,7 @@ export const english = {
   "موعد بازبینی شمسی": "Review date · Jalali",
   "موعد شمسی": "Due date · Jalali",
   "موقعیت رقابتی و رشد بازار چه جهت‌هایی می‌سازند؟": "Which directions fit competitive position and market growth?",
-  "موقعیت رویش": "Royesh’s position",
+  "موقعیت استراتینو": "Stratino’s position",
   "میانگین خرید": "Average order value",
   "میانگین خرید × دفعات ماهانه × طول عمر به ماه × حاشیه مشارکت": "Average order value × Monthly frequency × Lifetime in months × Contribution margin",
   "میانگین دارایی ابتدا و انتها": "Average opening and closing assets",

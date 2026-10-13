@@ -23,7 +23,7 @@ try {
   const afterPreferences=await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')));
   assert.deepEqual(afterPreferences,baseline,'Presentation preferences must not change business records');
   await go('company');await page.locator('[data-action="companyEdit"]').click();
-  assert.match(await page.locator('[name="name"]').inputValue(),/Royesh/);
+  assert.match(await page.locator('[name="name"]').inputValue(),/Avand/);
   await page.locator('[form="company-form"]').click();
   const afterForm=await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')));
   assert.deepEqual(afterForm.org,baseline.org,'Saving an unchanged localized form must preserve canonical values');
