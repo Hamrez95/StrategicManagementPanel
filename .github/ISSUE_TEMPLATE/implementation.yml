@@ -1,0 +1,31 @@
+name: Stratino implementation task
+description: A bounded task with acceptance, UX, Graphify and validation evidence
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Priority, dependencies, current and desired behavior
+      description: Include STR ID, phase, affected paths and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: graph
+    attributes:
+      label: Graphify impact query and relevant skills
+      description: Local code-only graph, targeted query before raw reads, update after code changes. frontend-design for UI.
+    validations:
+      required: true
+  - type: textarea
+    id: ux
+    attributes:
+      label: UI/UX and API experience
+      description: Follow docs/UX_STANDARD.md; RTL, numbers, themes, responsive, keyboard, reduced motion and all states. Backend tasks define errors and save/limit status.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance, validation and rollback
+      description: Observable checks, negative tests for auth/payment/migration, exact commands, evidence and rollback.
+    validations:
+      required: true
