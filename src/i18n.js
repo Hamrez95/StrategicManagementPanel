@@ -1,6 +1,10 @@
 import {preferences} from './preferences.js';
+import {BRAND} from './brand.js';
 import {english} from './translations.js';
 const additions = {
+  [BRAND.fa]:BRAND.en,
+  'آوند':'Avand',
+  'موقعیت شرکت':'Company position',
   'حالت استفاده':'Working mode',
   'هشدارهای اعتبار داده و محاسبات در هر دو حالت نمایش داده می‌شوند.':'Data and calculation validation warnings remain visible in both modes.',
   'آموزش‌ها روشن است. برای پنهان‌کردن دکمه‌ها و درس‌ها، کلید را خاموش کنید.':'Learning is on. Turn off the switch to hide tutorials and lessons.',
@@ -24,7 +28,7 @@ const additions = {
   'با خاموش‌کردن، همه دکمه‌ها و بخش‌های آموزشی پنهان می‌شوند. هشدارهای اعتبار داده و محاسبات همچنان نمایش داده می‌شوند.':'Turning this off hides learning buttons and sections. Data and calculation validation warnings remain visible.',
   'آموزش فعال است':'Learning enabled', 'حالت حرفه‌ای':'Professional mode',
   'پاک‌کردن داده مرورگر، اطلاعات را حذف می‌کند. فایل پشتیبان بگیرید.':'Clearing browser data deletes your records. Export a backup.',
-  'رویش · فضای کار مدیریت استراتژیک':'Royesh · Strategy management workspace',
+  'استراتینو · فضای کار مدیریت استراتژیک':'Stratino · Strategy management workspace',
   'رفتن به محتوای اصلی':'Skip to main content', 'منوی اصلی':'Main navigation', 'شاخص':'Metric', 'بازکردن منو':'Open menu',
   'تنظیمات فضای کار':'Workspace settings', 'توجه‌ها و ریسک‌ها':'Alerts and risks',
   'مثلاً: بازده دارایی، QSPM یا ریسک':'For example: return on assets, QSPM or risk', 'عبارت جستجو':'Search query',

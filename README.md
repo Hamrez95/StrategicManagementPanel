@@ -1,8 +1,8 @@
-# رویش — پنل مدیریت استراتژیک
+# استراتینو — پنل مدیریت استراتژیک
 
 ## مسیر محصول جدید: استراتینو / Stratino
 
-نام محصول آینده استراتینو انتخاب شده است. [فهرست ۵۲ تسک اولویت‌دار و تفصیلی](docs/backlog/README.md) و [نقشه پیگیری GitHub](https://github.com/Hamrez95/StrategicManagementPanel/issues/53) از آماده‌سازی ریپو، تغییر نام و جداسازی بخش‌ها شروع می‌شوند. جهت توسعه React + TypeScript + Vite، Django و PostgreSQL است؛ رابط اجرایی زیر هنوز پروتوتایپ فعلی است و تغییر واقعی نام/ساختار در تسک‌ها انجام می‌شود.
+نام محصول استراتینو است. [فهرست ۵۲ تسک اولویت‌دار و تفصیلی](docs/backlog/README.md) و [نقشه پیگیری GitHub](https://github.com/Hamrez95/StrategicManagementPanel/issues/53) از آماده‌سازی ریپو، تغییر نام و جداسازی بخش‌ها شروع می‌شوند. جهت توسعه React + TypeScript + Vite، Django و PostgreSQL است؛ رابط اجرایی زیر هنوز پروتوتایپ فعلی است و تغییر واقعی نام/ساختار در تسک‌ها انجام می‌شود.
 
 برای ادامه توسعه ابتدا `AGENTS.md`، تسک انتخاب‌شده و [گردش توسعه](docs/DEVELOPMENT_WORKFLOW.md) را بخوانید. مهارت frontend-design داخل `.agents/skills/` و Graphify مخصوص Codex داخل `.codex/skills/` ثبت شده‌اند؛ [قرارداد UI/UX](docs/UX_STANDARD.md) در همه تسک‌ها اعمال می‌شود.
 
