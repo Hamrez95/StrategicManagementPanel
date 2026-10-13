@@ -1,18 +1,3 @@
-const sourceFolders = {
-  '00': ['https://drive.google.com/drive/folders/1UKgj-c_B1S3iUrTdlAzeHnSL6U9ujn2E','https://drive.google.com/drive/folders/1mfEBSEm86fkBibpfVgJGZ32Nu7MZXjJl'],
-  '01': ['https://drive.google.com/drive/folders/1yC8thOJlNSzeDKG-UVncfHKJ1HOIXYE2','https://drive.google.com/drive/folders/1nIiLvlL_P6UyLlR5JSSMimRJSUVxtWNI'],
-  '02': ['https://drive.google.com/drive/folders/19X6lVtNo_srokZVFqJ567M7rPi6mejPW','https://drive.google.com/drive/folders/1pwG50HplPSpxhVnzOD1jJFnwsrO6SOdf'],
-  '03': ['https://drive.google.com/drive/folders/1vPRIHGZZadGAcXkr7_BGmAEKcnNWb_SG','https://drive.google.com/drive/folders/1lNXTxf6cnuEofArQN3QNnO3k6j1pJgLG'],
-  '04': ['https://drive.google.com/drive/folders/17qrU_gG-WtU0nfcdMN7R_GFlzqLxT2SQ','https://drive.google.com/drive/folders/1qho11aes60Y5DMVQcGQ7YJXwApPl8QDZ'],
-  '05': ['https://drive.google.com/drive/folders/1_Xsm8FqgZfBDiHemCAJ6gVaHJeTm-MRj','https://drive.google.com/drive/folders/1h1jJoNYhjwR8uQWbNBl_7DDhg6-q68Nu'],
-  '06': ['https://drive.google.com/drive/folders/1_OAMWU_57jHuQKKTYoZGX-04NdKJC1SR','https://drive.google.com/drive/folders/181T-a1qznhOPu1DO0v2m7xPzLgaT_zW6'],
-  '07': ['https://drive.google.com/drive/folders/1zpydXrJGK_mJF8JuoNjf8Cicans6ap5K','https://drive.google.com/drive/folders/1HbdE2DEAMtnrL-vp2UTEsWwrvNFEIlU6'],
-  '08': ['https://drive.google.com/drive/folders/1N4-iguA_YSURljMsk-E8dtLwlYXtUkYR','https://drive.google.com/drive/folders/1VOK5JKAk3f5m5vzmifBR6Wh_F6HxGfR2'],
-  '09': ['https://drive.google.com/drive/folders/1ZWcKnDp1pug4HS1H4NLwkjz9gxga8L8k','https://drive.google.com/drive/folders/1shw9KY2uhoRiqjWoU3pD_99aTz9beuJ0'],
-  '10': ['https://drive.google.com/drive/folders/1AXC4FJsLUu8iJ639G7P4rDVkY3yzA5ub','https://drive.google.com/drive/folders/1ltlyXb5lknqxqxtd4Ua1I5bZEpevzXre'],
-  '11': ['https://drive.google.com/drive/folders/17PuhIF2jNPxylrxQvBEuI8bDS44Kw-3n','https://drive.google.com/drive/folders/1C7WkiwhN3jrwg-KoUtqum8BgL7y4IY7d']
-};
-
 export const documentSections = [
   ['00','پکیج معرفی مدیریتی','Executive summary package','خلاصه‌های آماده برای معرفی شرکت و شروع گفت‌وگو با سرمایه‌گذار یا شریک.','Short, shareable material for introducing the company to investors and partners.','external'],
   ['01','شرکت و حاکمیت','Corporate and governance','مدارک حقوقی پایه، ساختار مالکیت و پاسخ‌گویی سازمان.','Foundational legal records, ownership and organizational accountability.','restricted'],
@@ -26,7 +11,7 @@ export const documentSections = [
   ['09','حقوقی و حریم خصوصی','Legal and privacy','تعهدات کاربر، پردازش داده، حریم خصوصی و مالکیت فکری.','User terms, data handling, privacy and intellectual property.','restricted'],
   ['10','نقشه‌راه و اجرا','Roadmap and execution','تبدیل جهت‌گیری به اولویت، مرحله، مسئول و شاخص.','Translate strategy into priorities, phases, owners and measures.','internal'],
   ['11','استراتژی و تحلیل','Strategy and analysis','انتخاب میدان رقابت، منطق برد، تحلیل‌های کلیدی و پاسخ به عدم‌قطعیت.','Define where and how to win, the core analysis and response to uncertainty.','internal']
-].map(([id,fa,en,descriptionFa,descriptionEn,access])=>({id,fa,en,description:{fa:descriptionFa,en:descriptionEn},access,source:{fa:sourceFolders[id][0],en:sourceFolders[id][1]}}));
+].map(([id,fa,en,descriptionFa,descriptionEn,access])=>({id,fa,en,description:{fa:descriptionFa,en:descriptionEn},access}));
 
 const owners = {
   founder:['بنیان‌گذار / مدیرعامل','Founder / CEO'], strategy:['مدیر استراتژی','Strategy lead'],
@@ -53,15 +38,15 @@ const accessText = {
   internal:['داخلی؛ نسخه عمومی فقط پس از بازبینی و حذف فرض‌های حساس','Internal; publish only after review and removal of sensitive assumptions']
 };
 const statusText = {
-  listed:['در فهرست Drive؛ محتوا و کامل‌بودن بازبینی نشده','Listed in Drive; content and completeness not reviewed'],
-  existing:['در Drive با نشان [EXISTING]؛ اعتبار نسخه باید بررسی شود','Marked [EXISTING] in Drive; verify that the current version is valid'],
+  listed:['در فهرست اولیه؛ محتوا و کامل‌بودن بازبینی نشده','Listed in the initial inventory; content and completeness not reviewed'],
+  existing:['نسخه موجود؛ اعتبار و کامل‌بودن باید بررسی شود','Existing version; verify validity and completeness'],
   draft:['پیش‌نویس یا نیازمند تکمیل/تأیید','Draft or awaiting completion/approval'],
   placeholder:['جای‌نگهدار؛ محتوای نهایی هنوز باید بارگذاری شود','Placeholder; final material still needs to be supplied']
 };
 const sectionAccess = Object.fromEntries(documentSections.map(s=>[s.id,s.access]));
 const sectionReviewer = Object.fromEntries(documentSections.map(s=>[s.id,reviewers[s.id]]));
 
-// Kinds used in the inventory describe the expected deliverable, not necessarily the Drive file extension.
+// Kinds describe the expected deliverable, not a file extension.
 const kinds={
   brief:['خلاصه اجرایی','Executive brief'], narrative:['روایت مدیریتی','Management narrative'],
   spreadsheet:['مدل / صفحه‌گسترده','Model / spreadsheet'], report:['گزارش تحلیلی','Analysis report'],
@@ -83,7 +68,7 @@ const rows = [
   ['advisory-board','01','P2','founder','narrative','معرفی هیئت مشاوران','Advisory board overview','حوزه تخصص، نقش مورد انتظار، تعارض منافع و حدود اختیار مشاوران.','Expertise, expected contribution, conflicts and advisory boundaries.','دستاورد مرتبط و کمک مشخص هر فرد را با اجازه نام‌بردن بنویس؛ مشاور را از عضو هیئت‌مدیره تفکیک کن؛ تعهد و جبران را دقیق مشخص کن.','With permission, state relevant experience and specific contribution; distinguish advisers from directors; document commitment and compensation.','معرفی توانمندی‌های تیم در اتاق داده و دعوت به مشاوره.','Showcase team capability in the data room and invite advisory support.','با ورود/خروج مشاور یا تغییر نقش بازبینی.','Review when an adviser joins, leaves or changes scope.','سرمایه‌گذار، تیم و مشاوران','Investors, team and advisers','listed'],
 
   ['team-budget','02','P0','finance','spreadsheet','هزینه تیم و بودجه استخدام MVP','Team costs and MVP hiring budget','هزینه نفرات فعلی/برنامه‌ریزی‌شده، زمان استخدام و اثر بر runway.','Current and planned team costs, hiring schedule and runway impact.','هزینه ماهانه و سالانه را تفکیک کن؛ فرض حقوق/مزایا را تاریخ‌دار کن؛ فرد فعلی را از نقش برنامه‌ریزی‌شده جدا کن؛ جمع‌ها را با مدل مالی تطبیق بده.','Separate monthly and annual costs; date compensation assumptions; distinguish current staff from planned roles; reconcile totals with the financial model.','بودجه MVP، برنامه runway و بررسی هزینه‌های سرمایه‌گذار.','MVP budgeting, runway planning and investor cost review.','با هر برنامه استخدام و حداقل هر فصل.','With every hiring plan and at least quarterly.','مدیرعامل، مالی و سرمایه‌گذار مجاز','CEO, finance and authorized investors','existing'],
-  ['life-finance-workbook','02','P1','finance','spreadsheet','فایل مالی LifeMate (نسخه فارسی؛ دامنه نیازمند تطبیق)','LifeMate finance workbook (Persian source; scope to confirm)','فایل مالی موجود در پوشه تیم؛ دامنه آن باید با بودجه تیم و مدل مالی تطبیق داده شود.','Finance workbook found in the team folder; reconcile its scope with the team budget and financial model.','ابتدا tabها، ارز، دوره و مالک فرض‌ها را فهرست کن؛ هم‌پوشانی با بودجه تیم/MVP را پیدا کن؛ منبع و فرمول‌ها را کنترل کن؛ تا زمان تطبیق، عددهای آن را مبنای تصمیم یا ارائه قرار نده.','First map tabs, currency, periods and assumption owners; identify overlap with team/MVP budgets; validate sources and formulas; do not use its figures for decisions or presentations until reconciled.','برنامه‌ریزی داخلی مالی و بررسی تفاوت فایل‌های موازی Data Room.','Internal financial planning and reconciliation of parallel Data Room files.','در ابتدای مرتب‌سازی Data Room و پیش از تصمیم بودجه یا جذب سرمایه.','During Data Room cleanup and before budget or fundraising decisions.','مؤسسان، مدیر مالی و مدیرعامل','Founders, finance lead and CEO','listed'],
+  ['life-finance-workbook','02','P1','finance','spreadsheet','فایل مالی LifeMate (دامنه نیازمند تطبیق)','LifeMate finance workbook (scope to confirm)','دامنه و جایگاه این مدل باید با بودجه تیم و مدل مالی سازمان تطبیق داده شود.','Reconcile this workbook’s scope with the team budget and company financial model.','ابتدا برگه‌ها، ارز، دوره و مالک فرض‌ها را فهرست کن؛ هم‌پوشانی با بودجه تیم و محصول را پیدا کن؛ فرمول‌ها و فرض‌ها را کنترل کن؛ تا زمان تطبیق، عددهای آن را مبنای تصمیم یا ارائه قرار نده.','First map tabs, currency, periods and assumption owners; identify overlap with the team budget and product plan; validate formulas and assumptions; do not use its figures for decisions or presentations until reconciled.','برنامه‌ریزی مالی داخلی و تطبیق بودجه تیم با مدل مالی.','Internal financial planning and reconciliation of the team budget with the financial model.','در آغاز برنامه‌ریزی بودجه و پیش از تصمیم‌گیری مالی.','When starting budget planning and before financial decisions.','مؤسسان، مدیر مالی و مدیرعامل','Founders, finance lead and CEO','listed'],
   ['team-bios','02','P1','people','narrative','زندگی‌نامه حرفه‌ای تیم برای سرمایه‌گذار','Investor-style team biographies','مسئله‌های مرتبطی که اعضا حل کرده‌اند، مسئولیت فعلی و سابقه قابل‌راستی‌آزمایی.','Relevant problems solved, current accountability and verifiable experience.','برای هر نفر ۳ تا ۵ خط؛ دستاورد مشخص را با نقش فرد بنویس؛ ادعاهای مبهم و اطلاعات شخصی غیرضروری را حذف کن؛ متن را با خود فرد تأیید کن.','Use 3–5 lines per person; state the person’s role in each concrete achievement; remove vague claims and unnecessary personal data; have each person approve their bio.','Pitch deck، اتاق داده، وب‌سایت و معرفی تیم.','Pitch deck, data room, website and team introductions.','هنگام جذب فرد کلیدی یا تغییر مسئولیت.','When a key person joins or responsibilities change.','سرمایه‌گذار، شریک و نامزد استخدام','Investors, partners and candidates','listed'],
   ['roles-responsibilities','02','P1','people','plan','نقش‌ها و مسئولیت‌ها','Roles and responsibilities','مالک تصمیم و خروجی هر نقش، مرز اختیار و ارتباط با نقش‌های دیگر.','Decision and deliverable ownership, authority boundaries and cross-role interfaces.','برای هر مسئولیت یک پاسخ‌گوی نهایی بگذار؛ خروجی و اختیار را جدا بنویس؛ تعامل بین CareMate، MedMate، عملیات و پشتیبانی را مشخص کن؛ جاهای بدون مالک را برجسته کن.','Assign one accountable owner per responsibility; distinguish deliverables from authority; define interfaces across CareMate, MedMate, operations and support; surface unowned work.','هم‌راستایی تیم، استخدام و برنامه‌ریزی تحویل محصول.','Team alignment, hiring and product delivery planning.','با رشد تیم و هر تغییر ساختار.','As the team grows and whenever structure changes.','تیم بنیان‌گذار و مدیران','Founding team and managers','listed'],
   ['culture-values','02','P2','founder','narrative','بیانیه فرهنگ و ارزش‌ها','Culture and values statement','رفتارهای قابل‌مشاهده‌ای که ارزش‌های LifeMate را در همکاری و مراقبت تعریف می‌کنند.','Observable behaviors that define LifeMate’s values in collaboration and care.','هر ارزش را به رفتار روزمره و رفتار غیرقابل‌قبول وصل کن؛ نمونه‌های تصمیم‌گیری بده؛ متن را با تجربه واقعی تیم مقایسه کن؛ از شعارهای بی‌معیار دوری کن.','Connect each value to everyday and unacceptable behaviors; give decision examples; compare the text with actual team experience; avoid untestable slogans.','استخدام، onboarding، تصمیم‌های دشوار و ارتباط با کاربران و خانواده‌ها.','Hiring, onboarding, hard decisions and communication with users and families.','هنگام رشد تیم و بازبینی سالانه.','During team growth and annual review.','تیم، نامزدهای استخدام و مشاوران','Team, candidates and advisers','listed'],
@@ -144,79 +129,7 @@ const rows = [
   ['scenario-strategy','11','P0','board','plan','سند سناریو و راهبردهای صلح، رکود و جنگ','Scenario strategy for growth, stagnation and crisis','سه آینده محتمل، محرک‌های هشدار، پاسخ‌های محصول/بازار/مالی/تیم و شروط بازگشت.','Three plausible futures, early-warning triggers and product/market/finance/team responses.','سناریو را پیش‌بینی قطعی ننویس؛ محرک‌ها را کمّی و قابل‌پایش کن؛ runway و churn را به آستانه تصمیم تبدیل کن؛ اقدام بدون پشیمانی، مسئول و شرط خروج هر سناریو را مشخص کن.','Do not present scenarios as forecasts; make triggers measurable; turn runway and churn into decision thresholds; define no-regret actions, owners and exit conditions.','جلسه هیئت‌مدیره، تصمیم تخصیص نقدینگی و آمادگی بحران.','Board review, cash allocation and crisis readiness.','بازبینی فصلی و با تحقق هر محرک مهم.','Quarterly and when a material trigger occurs.','مدیرعامل، مدیر مالی، هیئت‌مدیره و رهبران تیم','CEO, finance, board and team leads','listed']
 ];
 
-const fileUrl=(type,id)=>{
-  if(!id)return null;
-  if(type==='folder')return `https://drive.google.com/drive/folders/${id}`;
-  if(type==='file')return `https://drive.google.com/file/d/${id}/view`;
-  if(type==='sheet')return `https://docs.google.com/spreadsheets/d/${id}/edit`;
-  if(type==='slide')return `https://docs.google.com/presentation/d/${id}/edit`;
-  return `https://docs.google.com/document/d/${id}/edit`;
-};
-const sources={
-  'executive-onepage':['doc','1aDBYIXDy8qNNqnakqfBdhKpIdQXctp71','doc','1bu96nCih4y2fbYQd3HGxhNO0trqayHCr'],
-  'investor-teaser':['doc','1iJQMoXbEGrzNhiJTPCLs1Jjlhz-xBsQn','doc','1HueqHfbekkDkJDdREsPKOlDJmAQnM2dG'],
-  'vision-narrative':['doc','1CvHT81pIwUn2ELzLgbSIF27DSPXUagFc','doc','1I2m9VWqPQNRiuPlfXzVWSSNHTXAjGESK'],
-  'corporate-registration':['folder','1pKNpwlXQP75szKh9QwjN8OnnYXdP_gsv','folder','1I6DC2ERbTbFlbqJSG84E1o1V7C0SNGjV'],
-  'cap-table':['sheet','1ql2yxmj8XaCtcmqiL6WSlBBw4EryD2aY','sheet','1NGABuZ7Fot3t1gfxPwWkXT5QNuuRRFLC'],
-  'founder-agreements':['doc','1pM6BjTt2KBJ12BMsJ1EXYzBbmq9sw_rN','doc','1NGRnvZ9fPDddbgtG_HRqEoT6RzNpkubC'],
-  'org-chart':['file','16IrbcCThj_odzvJbu_v71z3wE6pZM6F9','file','1mhtz7ni4TKKMsOUpRgwMV3XtQS5bLhg9'],
-  'hiring-plan':['sheet','1YzBkrdeLnu0MyHzKfb8qlY8rf97A2seD','sheet','1hDIYpkj3pGzGPMKlh_KovG2sWpT2IQU4'],
-  'advisory-board':['doc','1Wwpg39Seyazv-kNKw6zb4fFgb7NvT4Zi','doc','1Kxbw2G_JspxxxDXtWIQsjRptIBZspmqF'],
-  'team-budget':['folder','19X6lVtNo_srokZVFqJ567M7rPi6mejPW','sheet','1QilMrhJvDCGEPqYFDgCXWhtPv3HR82wU'],
-  'life-finance-workbook':['sheet','1plLgoyD38f9KOsbBrzniqzx1SAzh1XrU',null,null],
-  'team-bios':['doc','106WkjXrPy5anEG82wlJKQ2ArerY6txpg','doc','1j0z9p5oPCXklNo-9aJmbcH_dGaL2rXkM'],
-  'roles-responsibilities':['doc','1Jz_OrOq2EMI0t2skySEixmyYSB0kVBRl','doc','1UCfiTkOGutjiWUHCZVAvVajov9m67dtk'],
-  'culture-values':['doc','18r3HURIvIep6EghaK4fwXHtJLXvQyiKn','doc','1-LP77WPCw_Ag3Mi2jf96MZYiMDVEAVtH'],
-  'product-vision':['doc','1ES90SxqH_Ck2UaxqWI3W9b6_49yIcklC','doc','1V5NreoIRPJNKMPes5KV9iRbel6EShCNa'],
-  'mvp-prd':['doc','1o4lqf09et4gGRfIaBIcXoomBo3SNdGKq','doc','1KsUt8ZfaRr_Io7gcVP49s5llofk-Mcme'],
-  'ux-ui-designs':['file','16-J4nLtK-qxlzoFQh91XZNtERCseFS4c','file','13zqzuQpgpDwUeZ13HEJzy0u6H8t1ws-c'],
-  'feature-phases':['sheet','13SYGhNr6o0Y3raqlLpl1h0Mm0hb8LS4D','sheet','1BzAlLaEJVHRH1Z6OgoxX_1ghygFn-rP5'],
-  'architecture-tech':['doc','1TeFSJ87VX3FKkzIoSTxpyALfNRiCN7bW','doc','10KlRJ3M5kOeAnKQGpoocqmVBZ1vAifyd'],
-  'api-spec':['doc','10U61OdwPLPdMxkjmED-r8BNj292EqnMu','doc','1PUlPvY4HL9g1tD-aQuWg3fb--XvKgyEb'],
-  'security-privacy-plan':['doc','1cu2O49hv2uUcWpwu4IiM_GUDtYthQ68K','doc','1LbCBY_gkj3P8mWAKe1-UWNodiixdmoDT'],
-  'data-model':['doc','1kZfcyGpNH0dPylzYTkNMeB93C7t7FGRJ','doc','1hUtVtErixG9NEdjFlxeKpZxkR5-6PfBF'],
-  'market-research-folder':['folder','1s6kWOEoEn91fe18lEkhSoUPHfIswvivN','folder','1EuUB4jn2-jHrfXyJHtpaTxFKuKydutQ0'],
-  'target-personas':['doc','1RnC_dsQwv7pQkD_MYO98th5_jjoJePEq','doc','1IDT5-eryictoyJXLYjeSRoGDN_yf0ZBs'],
-  'competitor-analysis':['sheet','1mSFzoT-VcuLu5DcZOj2EznhQ-nGgJSqc','sheet','1ZT3dhQ4O_0B3gvnTXhxGKRiyzVeeLZ-o'],
-  'tam-sam-som':['sheet','178_UrLkpYehQ8-N17gq40avvr2U0Uaff','sheet','1hBNnAVNzEysZbPYvL8-Q0TsbDK6ExYj5'],
-  'industry-trends':['doc','1-hwAhVVNQes0xtSSJez0qfd9OXG6BkMU','doc','1vDihV1OY--_LrIcXL6bDF6L8dCznVnub'],
-  'business-model-canvas':['file','1jQvf_I-PSJMjtCwR7D7dsGYSU6Jxfx1H','file','1F4_AmgSzeL8hQu_NZaXPZTGKajqDIND6'],
-  'monetization-model':['sheet','1lBJBE4o9nNdkEEOHqmlug6ngueg80K2s','sheet','18aP49ytC_z_eqX-tVDnEjbofl7BxMLTI'],
-  'gtm-strategy':['doc','1Ymn-sLge2p5SSBC7KEYq3hM96hzHrCCh','doc','17rtmCPP-LMedHJzq4U0d4R76-nlxgflT'],
-  'growth-loops':['doc','1LtHQPMBLx16KLFhyRJ9is8npJzWqyjKg','doc','1l4A72YZjsLPA3-MoNsHQRa0w0AaR-qMg'],
-  'customer-journey':['slide','19WW3X30-MqBP27XMuCdCGtTegEBcM9-Q','slide','1hm9h_4RRgX_2xa7sYkk48njHTUaMKWWR'],
-  'financial-projection':['sheet','1n7glWxHAHmRiZmzN3q-EJVRcGguGce-g','sheet','1QUBWexbstmRfak42_ZWfqRjDfZJ63-Ql'],
-  'mvp-budget':['sheet','1QpV_V9l3BshUcke_LenA3dtkPwHuUGcl','sheet','1o4ffWCgilmzkRWStz0s01hn65M6Odvmx'],
-  'unit-economics':['sheet','1iIlNb4a2hViALjIwSNjTX4iPHkSFuqDB','sheet','1gEnf7q1RBKCfb9HzSfwk9iRX54jaFmwK'],
-  'fundraising-plan':['doc','1ZUnxZO40FH9MzgMesPP4X60f2fLW5Bi9','doc','13Kml_JKDOBE5fR9fq_d5WIfuwqCdFffm'],
-  'pitch-deck':['slide','1e7-pPDJaQUQLsxpXSYxZV1ykXpcBUebj','slide','1XAkU1AsrE6HILtx0HBlovciJquiTn8lK'],
-  'demo-video':['file','1n-Q1Lrk40qx60U2xQ5Z-JRX8bFBjQxEL','file','1tP_cWIgmcwK4J55843Dj-ijETghsl_eT'],
-  'investor-faq':['doc','1YPLMr2_laTmWyic5XoUn2rKgHDLRUEjt','doc','18k6rCzrAA0Mbe9bedXpy3jTzoRecIDac'],
-  'brand-identity':['file','1lTksybNPRSNl6n11Zes1P6A1OxgD6Leb','file','10U6GHDe30PD8_mJLXodiWJMSWUsefZf3'],
-  'tone-of-voice':['doc','1r5PphX0p3BRwKm61uhJE82riZ_PU--hj','doc','1P16gi--l5LXaM50JW1eIeU6lGDztCQin'],
-  'landing-copy':['doc','1GRtpdJK0h2gtm3fV3vatohkwIiC8TjkK','doc','1oE85QKrqOqvn3LkS5RmDawMwGJUPnSGB'],
-  'privacy-policy':['doc','1IKaEsdr4ONNMzG2fKCoGDbS7rbTICxe0','doc','1d3iih9cFEn_k3faxg4-2FZ56YvodiX_C'],
-  'terms-of-use':['doc','1AdeB_BMFeWYZhgmo1mj0c0hVULjBDeDK','doc','1eJNL9h0Ll9_HDe5CUpchMdfT-ApJsfrb'],
-  'data-storage-policy':['doc','1kSsINr8713OFnHntQ_0iltRrURsakgTe','doc','10znd_9IbbKlbalsRIBwdcywXr8PF7OC6'],
-  'ip-ownership':['doc','1DvDt325Ihw0Wl7Ex-Z45Surfrkf_drM-','doc','17ZWWr2KpVaeAciQTpRTuwk0RWMy-vhz9'],
-  'strategic-roadmap':['sheet','1QSxaTMX91SbwG8nYUTagFt4wKdC777a2','sheet','1Aw-C8kXz6o3dDSV662JoQJphPggk_uH4'],
-  'tech-roadmap':['slide','1ZZ3grVTR9utLavGC9dpEU0udqURHJa4W','slide','1WhWlecBMxpi8DmYnaWkngc60SeS551zm'],
-  'milestones-kpis':['sheet','1PZt099VTCCf_JNs6n9RRo8KtASPUDNhT','sheet','1L8leypAOjc5izgy_mi9S3TWR0XfpEMIC'],
-  'vision-statement':['doc','18y1XS3h9qCabIX6qnRHmqv8Y05GjpejU','doc','1cj0_C1RBlqFSoveX01DSd_XK48hT1ZxX'],
-  'mission-statement':['doc','1ZwxrQOZATHauHEIZBRHaOLmRUC5ygUM0','doc','111EQ6rTib82Y5a5rdoj6HONOluTmB9zv'],
-  'pestel':['doc','1ZACe7zrX8bknhJHhl6WDgbrxVL_Zvj9R','doc','1ZAAA54GgtDVmEXpUaIN7g5b4M-XpY51x'],
-  'porter-five-forces':['doc','12hkSEzeOoWb2JdCcIn5BwLD1d3lmBx9i','doc','1xKuy8fecOWJgLEgWGnx1G04XnyguNB8q'],
-  'value-chain':['doc','13FJ-ecEciu8rmDP_YjRlsQFz6hPkCzUz','doc','12kYIn6gtRRHV2RqJwjSfPih0KN2Mgm-U'],
-  'generic-strategy':['doc','1-ds4IPnVPcw7Uv2lw_j_CfM8WSctQGFQ','doc','1u8fB8W1pcIAb5pnndg3fDFPI26DDWyYr'],
-  'long-term-goals':['doc','1gaz0O5GwYn1hK2qukHF28u_N7yOSV4mz','doc','1IrbcVwXhlJ0f_capDpmG5Sp_uJb-nqTm'],
-  'playing-to-win':['doc','1QDL7wcUzc9J6i7-WbNaHZZvs3UKak_Jn',null,null],
-  'strategy-matrices':['sheet','1Uao-59IWotfRQAcQGRt0AsvpabU68jh4',null,null],
-  'lifemate-porter-analysis':['doc','1pLk2US9OWr3dbuXrcE2-h-H6AL7kHTTx',null,null],
-  'scenario-strategy':['doc','1-1CMAwwZRdlmcHszANXoV79RlFHg-Wok',null,null]
-};
-
 export const documents=rows.map(([id,section,priority,owner,kind,titleFa,titleEn,topicFa,topicEn,guideFa,guideEn,useFa,useEn,timingFa,timingEn,audienceFa,audienceEn,status])=>{
-  const source=sources[id];
   return {
     id,section,priority,
     title:{fa:titleFa,en:titleEn},topic:{fa:topicFa,en:topicEn},kind:{fa:kinds[kind][0],en:kinds[kind][1]},
@@ -225,7 +138,6 @@ export const documents=rows.map(([id,section,priority,owner,kind,titleFa,titleEn
     audience:{fa:audienceFa,en:audienceEn},reviewer:{fa:reviewers[section][0],en:reviewers[section][1]},
     access:{fa:accessText[sectionAccess[section]][0],en:accessText[sectionAccess[section]][1]},
     status:{fa:(statusText[status]||statusText.listed)[0],en:(statusText[status]||statusText.listed)[1]},
-    source:{fa:source?fileUrl(source[0],source[1]):sourceFolders[section][0],en:source?fileUrl(source[2],source[3])||fileUrl(source[0],source[1]):sourceFolders[section][1]},
     keywords:[titleFa,titleEn,topicFa,topicEn,guideFa,guideEn,useFa,useEn,owners[owner].join(' '),section].join(' ')
   };
 });

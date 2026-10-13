@@ -67,16 +67,19 @@ test('global search resolves ICP page and indexed specialized data',()=>{
   listeners.input({target:{id:'global-search',value:'BCG cash cow',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#matrices\/bcg"/);
   listeners.input({target:{id:'global-search',value:'One-page company summary',dataset:{}}});assert.match(nodes.get('#search-results').innerHTML,/href="#documents\/executive-onepage"/);
 });
-test('document library includes every bilingual Drive item and one upload control per document',async()=>{
+test('document library has bilingual records, no external-folder links, and multi-file controls',async()=>{
   let content=go('documents');assert.equal(documentSections.length,12);assert.equal(documents.length,60);
   assert.equal([...content.matchAll(/data-document-upload=/g)].length,documents.length);assert.match(content,/کتابخانه اسناد مدیریتی/);assert.match(content,/راهنمای نگارش/);assert.match(content,/سناریو و راهبردهای صلح/);
-  await change({preference:'language'},'en','select-one');content=html();assert.match(content,/Management document library/);assert.match(content,/data-document-upload=/);assert.match(content,/Add file/);
+  assert.equal([...content.matchAll(/type="file" multiple/g)].length,documents.length);assert.doesNotMatch(content,/drive\.google\.com|\bDrive\b|بازکردن فایل منبع|Open source file/i);
+  await change({preference:'language'},'en','select-one');content=html();assert.match(content,/Management document library/);assert.match(content,/data-document-upload=/);assert.match(content,/Add files/);assert.doesNotMatch(content,/drive\.google\.com|\bDrive\b|Open source file/i);
   await change({preference:'language'},'fa','select-one');
 });
 test('file attachment mock is visible for the session and never enters saved app data',async()=>{
-  go('documents');await listeners.change({target:{dataset:{documentUpload:'executive-onepage'},files:[{name:'brief.pdf',size:2048,type:'application/pdf'}]}});
-  assert.match(go('documents'),/brief\.pdf/);assert.match(html(),/Selected for this session|فایل انتخاب‌شده/);assert.equal(saved().documentAttachments,undefined);
-  await action({action:'remove-document-file',docId:'executive-onepage'});assert.doesNotMatch(go('documents'),/brief\.pdf/);
+  go('documents');await listeners.change({target:{dataset:{documentUpload:'executive-onepage'},files:[{name:'brief1.pdf',size:2048,type:'application/pdf'},{name:'forecast.xlsx',size:1024,type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}]}});
+  await listeners.change({target:{dataset:{documentUpload:'executive-onepage'},files:[{name:'pitch.pptx',size:4096,type:'application/vnd.openxmlformats-officedocument.presentationml.presentation'}]}});
+  assert.match(go('documents'),/brief1\.pdf/);assert.match(html(),/forecast\.xlsx/);assert.match(html(),/pitch\.pptx/);assert.match(html(),/۳ فایل انتخاب شده/);assert.equal(saved().documentAttachments,undefined);
+  await action({action:'remove-document-file',docId:'executive-onepage',docFileIndex:'1'});assert.match(go('documents'),/brief1\.pdf/);assert.doesNotMatch(html(),/forecast\.xlsx/);assert.match(html(),/pitch\.pptx/);
+  await action({action:'remove-document-file',docId:'executive-onepage',docFileIndex:'0'});assert.doesNotMatch(go('documents'),/brief1\.pdf/);assert.match(html(),/pitch\.pptx/);
 });
 test('all cached assets exist in build; font is self-hosted',async()=>{
   const sw=await readFile(new URL('../public/sw.js',import.meta.url),'utf8');for(const [,asset] of sw.matchAll(/'(\/(?:src|assets)\/[^']+)'/g)){const path=asset.startsWith('/src/')?'..'+asset:'../public'+asset;assert.ok((await readFile(new URL(path,import.meta.url))).length>0,asset);}

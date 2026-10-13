@@ -1,4 +1,5 @@
 import {preferences} from './preferences.js';
+import {localize} from './i18n.js';
 const step = (target, faTitle, enTitle, faText, enText) => ({target, title:{fa:faTitle,en:enTitle}, text:{fa:faText,en:enText}});
 const intro = step('.page-head','از سؤال شروع کنیم','Start with the question','ابتدا مشخص کنید این صفحه به کدام تصمیم کمک می‌کند. اعداد نمونه‌اند؛ برای کار واقعی شواهد شرکت را جایگزین کنید.','Identify the decision this page supports. The figures are fictional: replace them with evidence from your own company.');
 const finish = step('.head-actions','تحلیل را به اقدام وصل کنید','Turn analysis into action','نتیجه، فرضیات و شرط بازبینی را ثبت کنید. یک امتیاز یا نمودار به‌تنهایی تصمیم نهایی نیست.','Record the conclusion, assumptions and review trigger. A score or chart alone is not a final decision.');
@@ -80,6 +81,7 @@ function showStep() {
   const en = preferences.language === 'en';
   const card = document.querySelector('.tour-card');
   card.innerHTML = `<header><span>${en?'Page walkthrough':'آموزش این صفحه'}</span><button class="icon-btn" data-tour-action="close" aria-label="${en?'Close tutorial':'بستن آموزش'}">×</button></header><div class="tour-step-count" aria-live="polite">${active.index+1} / ${active.steps.length}</div><h2 id="tour-title">${escape(text(s.title))}</h2><p id="tour-description">${escape(text(s.text))}</p><div class="tour-dots" aria-hidden="true">${active.steps.map((_,i)=>`<i class="${i===active.index?'active':''}"></i>`).join('')}</div><footer><button class="btn" data-tour-action="back" ${active.index===0?'disabled':''}>${en?'Back':'قبلی'}</button><button class="btn primary" data-tour-action="${active.index===active.steps.length-1?'finish':'next'}">${active.index===active.steps.length-1?(en?'Finish':'پایان آموزش'):(en?'Next':'بعدی')}</button></footer>`;
+  localize(card);
   position();
   card.querySelector('[data-tour-action="next"], [data-tour-action="finish"]').focus({preventScroll:true});
 }

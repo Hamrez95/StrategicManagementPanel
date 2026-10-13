@@ -27,15 +27,15 @@ try {
   await page.locator('[form="company-form"]').click();
   const afterForm=await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')));
   assert.deepEqual(afterForm.org,baseline.org,'Saving an unchanged localized form must preserve canonical values');
-  await go('documents');assert.equal(await page.locator('[data-document-upload]').count(),60,'Every inventory entry has its own upload control');
+  await go('documents');assert.equal(await page.locator('[data-document-upload]').count(),60,'Every inventory entry has its own upload control');assert.equal(await page.locator('[data-document-upload][multiple]').count(),60,'Each document accepts multiple files');assert.equal(await page.locator('.doc-room-links,.doc-source-link').count(),0,'Document page has no external folder or source links');
   await page.locator('#document-search').fill('privacy policy');assert.ok(await page.locator('.doc-card:visible').count()>=1,'Document search filters its catalog');
   await page.locator('#document-search').fill('');
-  await page.locator('#document-file-executive-onepage').setInputFiles({name:'sample-brief.pdf',mimeType:'application/pdf',buffer:Buffer.from('demo')});
-  assert.match(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-brief\.pdf/,'Mock file selection appears on the document card');
+  await page.locator('#document-file-executive-onepage').setInputFiles([{name:'sample-brief.pdf',mimeType:'application/pdf',buffer:Buffer.from('demo')},{name:'sample-budget.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:Buffer.from('demo')}]);
+  assert.match(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-brief\.pdf/,'First mock file is listed');assert.match(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-budget\.xlsx/,'Second mock file is listed');
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('royesh-strategy-v1')).documentAttachments),undefined,'Mock file selection is not saved as an app record');
-  await page.locator('#document-file-executive-onepage').evaluate(el=>{el.value='';});
-  await page.locator('[data-action="remove-document-file"][data-doc-id="executive-onepage"]').click();
-  await go('documents');await screenshot('documents-light-fa');
+  await page.locator('[data-action="remove-document-file"][data-doc-id="executive-onepage"][data-doc-file-index="0"]').click();assert.doesNotMatch(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-brief\.pdf/,'Removing one file leaves other files intact');assert.match(await page.locator('[data-attachment-status="executive-onepage"]').innerText(),/sample-budget\.xlsx/);
+  await page.locator('[data-action="remove-document-file"][data-doc-id="executive-onepage"][data-doc-file-index="0"]').click();
+  await go('documents');await screenshot('documents-professional-dark-en');
   await go('settings');await screenshot('settings-dark-en');
   for(const language of ['en','fa']){
     if(await page.getAttribute('html','lang')!==language)await page.locator('[data-action="language"]').click();

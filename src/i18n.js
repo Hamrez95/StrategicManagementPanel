@@ -60,6 +60,13 @@ export function translate(value) {
   if(/[\u0600-\u06ff]/.test(result))return original;
   return `${original.match(/^\s*/)[0]}${result}${original.match(/\s*$/)[0]}`;
 }
+const persianDigits='۰۱۲۳۴۵۶۷۸۹';
+const arabicDigits='٠١٢٣٤٥٦٧٨٩';
+export function localizeDigits(value, language=preferences.language) {
+  const text=String(value??'');
+  if(language==='en')return text.replace(/[۰-۹٠-٩]/g,d=>String(Math.max(persianDigits.indexOf(d),arabicDigits.indexOf(d)))).replace(/٫/g,'.').replace(/٬/g,',').replace(/٪/g,'%');
+  return text.replace(/[0-9٠-٩]/g,d=>persianDigits[/[0-9]/.test(d)?d.charCodeAt(0)-48:arabicDigits.indexOf(d)]).replace(/(?<=[۰-۹]),(?=[۰-۹]{3}(?![۰-۹]))/g,'٬').replace(/(?<=[۰-۹])\.(?=[۰-۹])/g,'٫').replace(/(?<=[۰-۹])%/g,'٪');
+}
 const originalTexts=new WeakMap();
 const originalAttributes=new WeakMap();
 // Localize the existing HTML-rendering boundary, never IDs, routes or option values.
@@ -70,7 +77,7 @@ export function localize(root) {
   while ((node=walker.nextNode())) {
     if (['SCRIPT','STYLE','TEXTAREA'].includes(node.parentElement?.tagName)) continue;
     if (!originalTexts.has(node)) originalTexts.set(node,node.nodeValue);
-    node.nodeValue=translate(originalTexts.get(node));
+    node.nodeValue=localizeDigits(translate(originalTexts.get(node)));
   }
   for (const element of root.querySelectorAll('[aria-label],[placeholder],[title]')) {
     if (!originalAttributes.has(element)) originalAttributes.set(element,{});
@@ -78,7 +85,7 @@ export function localize(root) {
     for (const key of ['aria-label','placeholder','title']) {
       if (!element.hasAttribute(key)) continue;
       originals[key] ??= element.getAttribute(key);
-      element.setAttribute(key,translate(originals[key]));
+      element.setAttribute(key,localizeDigits(translate(originals[key])));
     }
   }
 }
