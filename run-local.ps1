@@ -23,8 +23,9 @@ if ($FirstPort -lt 1024 -or $FirstPort + $Refs.Count - 1 -gt 65535) {
 
 New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
 $worktrees = [Collections.Generic.List[string]]::new()
-$servers = [Collections.Generic.List[Diagnostics.Process]]::new()
+$servers = [Collections.Generic.List[object]]::new()
 $urls = [Collections.Generic.List[string]]::new()
+$usedPorts = [Collections.Generic.HashSet[int]]::new()
 
 function Invoke-Git {
     param([string[]] $GitArgs)
@@ -36,6 +37,31 @@ function Invoke-Git {
 function Quote-ProcessArgument {
     param([string] $Value)
     return '"' + $Value.Replace('"', '\"') + '"'
+}
+
+function Test-PortAvailable {
+    param([int] $Port)
+    $listener = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $Port)
+    try { $listener.Start(); return $true }
+    catch { return $false }
+    finally { $listener.Stop() }
+}
+
+function Get-ServerLog {
+    param([string] $Path)
+    if (Test-Path $Path) { return ((Get-Content -Path $Path -Tail 30 -ErrorAction SilentlyContinue) -join [Environment]::NewLine) }
+    return ''
+}
+
+function Get-ServerFailure {
+    param($Server)
+    $details = @()
+    $stdout = Get-ServerLog -Path $Server.Stdout
+    $stderr = Get-ServerLog -Path $Server.Stderr
+    if ($stdout) { $details += ("خروجی سرور:" + [Environment]::NewLine + $stdout) }
+    if ($stderr) { $details += ("خطای سرور:" + [Environment]::NewLine + $stderr) }
+    if (-not $details.Count) { $details += "گزارش سرور: $($Server.Stdout) و $($Server.Stderr)" }
+    return ("سرور محلی روی $($Server.Url) بالا نماند (PID $($Server.Process.Id))." + [Environment]::NewLine + ($details -join [Environment]::NewLine))
 }
 
 try {
@@ -58,11 +84,33 @@ try {
         finally { Pop-Location }
 
         $port = $FirstPort + $index
+        while ($usedPorts.Contains($port) -or -not (Test-PortAvailable -Port $port)) {
+            $port++
+            if ($port -gt 65535) { throw 'پورت آزاد برای اجرای سرور محلی پیدا نشد.' }
+        }
+        [void]$usedPorts.Add($port)
         $distPath = Join-Path $worktreePath 'dist'
         $arguments = "$(Quote-ProcessArgument $serverScript) $port $(Quote-ProcessArgument $distPath)"
-        $process = Start-Process -FilePath $nodeCommand.Source -ArgumentList $arguments -WorkingDirectory $worktreePath -PassThru -WindowStyle Hidden
-        $servers.Add($process)
+        $stdout = Join-Path $tempRoot "$safeName-$port.stdout.log"
+        $stderr = Join-Path $tempRoot "$safeName-$port.stderr.log"
+        Remove-Item $stdout, $stderr -Force -ErrorAction SilentlyContinue
+        $process = Start-Process -FilePath $nodeCommand.Source -ArgumentList $arguments -WorkingDirectory $worktreePath -PassThru -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr
         $url = "http://localhost:$port"
+        $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr }
+        $servers.Add($server)
+
+        $ready = $false
+        for ($attempt = 0; $attempt -lt 30; $attempt++) {
+            $process.Refresh()
+            if ($process.HasExited) { throw (Get-ServerFailure -Server $server) }
+            try {
+                $response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1
+                if ($response.StatusCode -eq 200) { $ready = $true; break }
+            }
+            catch { Start-Sleep -Milliseconds 250 }
+        }
+        if (-not $ready) { throw (Get-ServerFailure -Server $server) }
+
         $urls.Add($url)
         Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
     }
@@ -74,14 +122,16 @@ try {
     Write-Host 'برای بستن سرورها Ctrl+C را بزنید.' -ForegroundColor Green
     while ($true) {
         foreach ($server in $servers) {
-            if ($server.HasExited) { throw "سرور محلی متوقف شد (PID $($server.Id))." }
+            $server.Process.Refresh()
+            if ($server.Process.HasExited) { throw (Get-ServerFailure -Server $server) }
         }
         Start-Sleep -Seconds 1
     }
 }
 finally {
     foreach ($server in $servers) {
-        if (-not $server.HasExited) { Stop-Process -Id $server.Id -Force -ErrorAction SilentlyContinue }
+        $server.Process.Refresh()
+        if (-not $server.Process.HasExited) { Stop-Process -Id $server.Process.Id -Force -ErrorAction SilentlyContinue }
     }
     foreach ($worktree in $worktrees) {
         & $gitCommand.Source -C $repoRoot worktree remove --force $worktree 2>$null | Out-Null
