@@ -29,6 +29,10 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     email_verified_at = models.DateTimeField(null=True, blank=True)
     email_verification_nonce = models.UUIDField(default=uuid.uuid4, editable=False)
+    display_name = models.CharField(max_length=80, blank=True, default='')
+    role_title = models.CharField(max_length=80, blank=True, default='')
+    pending_email = models.EmailField(blank=True, default='')
+    email_change_nonce = models.UUIDField(default=uuid.uuid4, editable=False)
     objects = UserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -43,3 +47,17 @@ class AuthRateLimit(models.Model):
     bucket_hash = models.CharField(max_length=64, primary_key=True)
     window_started_at = models.DateTimeField()
     attempts = models.PositiveIntegerField(default=0)
+
+
+class AccountPreferences(models.Model):
+    THEME_CHOICES = [('system', 'System'), ('light', 'Light'), ('dark', 'Dark')]
+    LANGUAGE_CHOICES = [('fa', 'Persian'), ('en', 'English')]
+    MOTION_CHOICES = [('auto', 'System'), ('reduced', 'Reduced')]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='account_preferences')
+    theme = models.CharField(max_length=8, choices=THEME_CHOICES, default='system')
+    language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES, default='fa')
+    motion = models.CharField(max_length=8, choices=MOTION_CHOICES, default='auto')
+    show_tutorial = models.BooleanField(default=True)
+    device_synced_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)

@@ -35,15 +35,16 @@ async function ensureCsrfCookie() {
   }
 }
 
-export async function postAuth<T = Record<string, unknown>>(
+export async function requestAuth<T = Record<string, unknown>>(
+  method: 'POST' | 'PATCH',
   path: string,
-  payload: Record<string, string> = {},
+  payload: Record<string, unknown> = {},
 ): Promise<T> {
   const csrfToken = await ensureCsrfCookie();
   let response: Response;
   try {
     response = await fetch(path, {
-      method: 'POST',
+      method,
       credentials: 'same-origin',
       cache: 'no-store',
       headers: {
@@ -72,6 +73,20 @@ export async function postAuth<T = Record<string, unknown>>(
     throw new AuthApiError(message, response.status, fields, typeof body?.code === 'string' ? body.code : '');
   }
   return body as T;
+}
+
+export function postAuth<T = Record<string, unknown>>(
+  path: string,
+  payload: Record<string, unknown> = {},
+) {
+  return requestAuth<T>('POST', path, payload);
+}
+
+export function patchAuth<T = Record<string, unknown>>(
+  path: string,
+  payload: Record<string, unknown>,
+) {
+  return requestAuth<T>('PATCH', path, payload);
 }
 
 export function firstFieldError(fields: AuthFields, name: string) {

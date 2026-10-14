@@ -2,12 +2,20 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Notice } from '@stratino/ui';
-import { readSession } from './session';
+import { readSession, type Session } from './session';
 import { postAuth } from './features/auth/api';
+import {
+  applyAccountPreferences,
+  loadAndSyncAccountPreferences,
+  readDevicePreferences,
+  saveAccountPreferences,
+} from './features/account/api';
+import type { DevicePreferences } from './features/account/api';
 const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const Operator = lazy(() => import('./pages/Operator'));
+const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
@@ -26,6 +34,12 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState('');
   const query = useQuery({ queryKey: ['session'], queryFn: ({ signal }) => readSession(signal) });
+  useQuery({
+    queryKey: ['account-preferences'],
+    queryFn: ({ signal }) => loadAndSyncAccountPreferences(signal),
+    enabled: Boolean(query.data),
+    staleTime: 5 * 60 * 1000,
+  });
   if (query.isPending)
     return (
       <Notice title="در حال بررسی حساب">
@@ -57,6 +71,7 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     try {
       await postAuth('/api/v1/accounts/logout/');
       queryClient.setQueryData(['session'], null);
+      queryClient.removeQueries({ queryKey: ['account-preferences'] });
       navigate('/account/login', { replace: true });
     } catch {
       setLogoutError('خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
@@ -67,6 +82,12 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   return (
     <>
       <div className="session-tools">
+        <Link to="/app/account" className="session-account-link" aria-label={`تنظیمات حساب ${query.data.user.name}`}>
+          <span className="session-account-avatar" aria-hidden="true">
+            {Array.from(query.data.user.name)[0] ?? 'ح'}
+          </span>
+          تنظیمات حساب
+        </Link>
         <span>واردشده با <strong dir="auto">{query.data.user.name}</strong></span>
         <Button variant="quiet" pending={loggingOut} pendingLabel="در حال خروج…" onClick={() => void signOut()}>
           خروج از حساب
@@ -78,30 +99,51 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   );
 }
 export function App() {
-  const [dark, setDark] = useState(() => {
-    try {
-      const p = JSON.parse(localStorage.getItem('royesh-preferences-v1') || '{}');
-      return (
-        p.theme === 'dark' ||
-        (p.theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
-      );
-    } catch {
-      return false;
-    }
-  });
+  const queryClient = useQueryClient();
+  const [devicePreferences, setDevicePreferences] = useState<DevicePreferences>(readDevicePreferences);
+  const [preferenceSyncError, setPreferenceSyncError] = useState(false);
+  const dark =
+    devicePreferences.theme === 'dark' ||
+    (devicePreferences.theme === 'system' &&
+      (globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false));
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  }, [dark]);
+    const root = document.documentElement;
+    const apply = () => {
+      root.dataset.theme =
+        devicePreferences.theme === 'system'
+          ? globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+          : devicePreferences.theme;
+      root.lang = devicePreferences.language;
+      root.dir = devicePreferences.language === 'en' ? 'ltr' : 'rtl';
+      root.dataset.motion = devicePreferences.motion;
+    };
+    apply();
+    const systemTheme = globalThis.matchMedia?.('(prefers-color-scheme: dark)');
+    systemTheme?.addEventListener('change', apply);
+    return () => systemTheme?.removeEventListener('change', apply);
+  }, [devicePreferences]);
+  useEffect(() => {
+    const onPreferences = (event: Event) => {
+      const detail = (event as CustomEvent<DevicePreferences>).detail;
+      if (detail) {
+        setDevicePreferences(detail);
+        setPreferenceSyncError(false);
+      }
+    };
+    window.addEventListener('stratino:preferences', onPreferences);
+    return () => window.removeEventListener('stratino:preferences', onPreferences);
+  }, []);
   const toggleTheme = () => {
-    setDark((value) => !value);
-    try {
-      const p = JSON.parse(localStorage.getItem('royesh-preferences-v1') || '{}');
-      localStorage.setItem(
-        'royesh-preferences-v1',
-        JSON.stringify({ ...p, theme: dark ? 'light' : 'dark' }),
-      );
-    } catch {
-      /* Session-only when storage is unavailable. */
+    const next: DevicePreferences = { ...devicePreferences, theme: dark ? 'light' : 'dark' };
+    applyAccountPreferences(next);
+    setPreferenceSyncError(false);
+    const session = queryClient.getQueryData<Session | null>(['session']);
+    if (session?.authenticated) {
+      void saveAccountPreferences(next)
+        .then((saved) => queryClient.setQueryData(['account-preferences'], saved))
+        .catch(() => setPreferenceSyncError(true));
     }
   };
   useEffect(() => {
@@ -125,6 +167,11 @@ export function App() {
           </Button>
         </nav>
       </header>
+      {preferenceSyncError && (
+        <p className="preference-sync-note" role="status">
+          ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حساب کامل نشد. در تنظیمات حساب دوباره ذخیره کنید.
+        </p>
+      )}
       <main id="content" tabIndex={-1}>
         <Suspense
           fallback={
@@ -162,6 +209,7 @@ export function App() {
                   </Notice>
                 }
               />
+              <Route path="/app/account" element={<AccountSettingsPage />} />
             </Route>
             <Route element={<SessionBoundary operator />}>
               <Route path="/internal/*" element={<Operator />} />

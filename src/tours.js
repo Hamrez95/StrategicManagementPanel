@@ -34,7 +34,7 @@ const matrixTours = {
  grand:[intro,step('.swot-grid','یک جهت‌نمای کیفی','A qualitative orientation','قدرت رقابتی و رشد بازار باید شاهد داشته باشند. هر ناحیه خانواده‌ای از گزینه‌هاست، نه دستور خودکار.','Competitive strength and market growth need evidence. Each quadrant describes a family of options, not an automatic instruction.'),finish],
  cpm:definitions.industry,
 };
-export const tourAvailable = (view, sub) => Boolean(view === 'matrices' && sub ? matrixTours[sub] : definitions[view]);
+export const tourAvailable = (view, sub) => Boolean(preferences.showTutorial && (view === 'matrices' && sub ? matrixTours[sub] : definitions[view]));
 let active = null;
 let returnFocus = null;
 let previousOverflow = '';
@@ -52,6 +52,7 @@ export function stopTour() {
   if (focus?.isConnected) focus.focus({preventScroll:true});
 }
 export function startTour(view, sub) {
+  if (!preferences.showTutorial) return;
   stopTour();
   const steps = (view === 'matrices' && sub ? matrixTours[sub] : definitions[view])?.filter(s => document.querySelector(s.target));
   if (!steps?.length) return;

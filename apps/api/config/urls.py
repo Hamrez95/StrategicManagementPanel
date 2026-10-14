@@ -2,6 +2,10 @@ from django.urls import path
 from modules.core.views import live, ready
 from modules.accounts.auth_views import (
     csrf_cookie,
+    account_preferences,
+    account_profile,
+    email_change_confirm,
+    email_change_request,
     login_view,
     logout_view,
     password_reset_confirm,
@@ -24,4 +28,8 @@ urlpatterns = [
     path('api/v1/accounts/logout/', logout_view),
     path('api/v1/accounts/password-reset/request/', password_reset_request),
     path('api/v1/accounts/password-reset/confirm/', password_reset_confirm),
+    path('api/v1/account/profile/', account_profile),
+    path('api/v1/account/preferences/', account_preferences),
+    path('api/v1/account/email-change/', email_change_request),
+    path('api/v1/account/email-change/confirm/', email_change_confirm),
 ]

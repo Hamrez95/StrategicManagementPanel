@@ -1,6 +1,6 @@
 const KEY = 'royesh-preferences-v1';
-const defaults = { theme: 'light', language: 'fa', motion: 'auto' };
-const allowed = { theme: ['light', 'dark', 'system'], language: ['fa', 'en'], motion: ['auto', 'reduced'] };
+const defaults = { theme: 'light', language: 'fa', motion: 'auto', showTutorial: true };
+const allowed = { theme: ['light', 'dark', 'system'], language: ['fa', 'en'], motion: ['auto', 'reduced'], showTutorial: [true, false] };
 export const preferences = { ...defaults };
 try {
   const saved = JSON.parse(localStorage.getItem(KEY));
