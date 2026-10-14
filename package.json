@@ -20,19 +20,28 @@
     "format:check": "prettier --check apps/web/src packages/*/src",
     "check:contracts": "node scripts/check-contracts.mjs",
     "test:contracts": "node --test tests/contracts.test.mjs",
-    "test:ui": "node scripts/verify-ui.mjs"
+    "test:ui": "node scripts/verify-ui.mjs",
+    "lint": "npm run check && eslint apps/web/src packages/*/src",
+    "quality": "npm run lint && npm run format:check && npm run typecheck && npm run check:contracts && npm test && npm run test:domain && npm run build",
+    "test:gate": "node scripts/prove-test-gate.mjs",
+    "test:browser:all": "node scripts/verify-browser-suite.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",
     "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "10.0.1",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
     "ajv": "8.20.0",
+    "eslint": "10.12.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
     "playwright": "1.62.1",
     "prettier": "3.9.10",
-    "typescript": "7.0.2",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
     "vite": "8.3.4"
   },
   "workspaces": [
