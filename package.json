@@ -19,10 +19,12 @@
     "test:legacy": "node --test tests/*.test.mjs",
     "format:check": "prettier --check apps/web/src packages/*/src",
     "check:contracts": "node scripts/check-contracts.mjs",
-    "test:contracts": "node --test tests/contracts.test.mjs"
+    "test:contracts": "node --test tests/contracts.test.mjs",
+    "test:ui": "node scripts/verify-ui.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",
+    "@axe-core/playwright": "4.13.0",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",

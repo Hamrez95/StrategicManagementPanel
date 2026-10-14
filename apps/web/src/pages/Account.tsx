@@ -7,7 +7,7 @@ export default function Account() {
         ثبت‌نام، ورود و بازیابی حساب پس از آماده‌شدن بک‌اند فعال می‌شوند. نسخه نمونه را همین حالا
         می‌توانید بررسی کنید؛ اطلاعاتش در مرورگر شما نگهداری می‌شود.
       </p>
-      <Link className="button primary" to="/demo">
+      <Link className="ui-button ui-button--primary" to="/demo">
         استفاده از نسخه نمونه
       </Link>
     </Notice>
