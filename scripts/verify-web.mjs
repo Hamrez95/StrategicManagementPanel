@@ -16,7 +16,7 @@ try {
   page.on('pageerror', (e) => errors.push(e.message));
   for (const width of [360, 768, 1280, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto(url);
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.getByRole('heading', { name: /تحلیل‌هایتان/ }).waitFor();
     for (const theme of ['light', 'dark']) {
       if ((await page.getAttribute('html', 'data-theme')) !== theme)
