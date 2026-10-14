@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router';
+import { Link, Navigate, Outlet, Route, Routes, useLocation, useMatch, useNavigate } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { Brand, Button, Notice } from '@stratino/ui';
+import { Brand, Button, Notice, useUIAppearance } from '@stratino/ui';
 import { readSession, type Session } from './session';
 import { postAuth } from './features/auth/api';
 import {
@@ -11,9 +11,11 @@ import {
   saveAccountPreferences,
 } from './features/account/api';
 import type { DevicePreferences } from './features/account/api';
+import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
 const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
+const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
 const Operator = lazy(() => import('./pages/Operator'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
@@ -29,6 +31,9 @@ function RouteFocus() {
 }
 function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const { pathname } = useLocation();
+  const { dir } = useUIAppearance();
+  const english = dir === 'ltr';
+  const activeWorkspace = useMatch('/app/workspaces/:workspaceId/*')?.params.workspaceId ?? '';
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [loggingOut, setLoggingOut] = useState(false);
@@ -72,6 +77,8 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
       await postAuth('/api/v1/accounts/logout/');
       queryClient.setQueryData(['session'], null);
       queryClient.removeQueries({ queryKey: ['account-preferences'] });
+      queryClient.removeQueries({ predicate: (query) => query.queryKey[0] === 'workspace' });
+      queryClient.removeQueries({ queryKey: ['workspaces'] });
       navigate('/account/login', { replace: true });
     } catch {
       setLogoutError('خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
@@ -80,22 +87,72 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     }
   }
   return (
-    <>
+    <WorkspaceSwitchProvider>
       <div className="session-tools">
-        <Link to="/app/account" className="session-account-link" aria-label={`تنظیمات حساب ${query.data.user.name}`}>
+        <WorkspaceSelector session={query.data} activeWorkspace={activeWorkspace} />
+        <Link to="/app/account" className="session-account-link" aria-label={english
+          ? `Account settings for ${query.data.user.name}`
+          : `تنظیمات حساب ${query.data.user.name}`}>
           <span className="session-account-avatar" aria-hidden="true">
             {Array.from(query.data.user.name)[0] ?? 'ح'}
           </span>
-          تنظیمات حساب
+          {english ? 'Account settings' : 'تنظیمات حساب'}
         </Link>
-        <span>واردشده با <strong dir="auto">{query.data.user.name}</strong></span>
-        <Button variant="quiet" pending={loggingOut} pendingLabel="در حال خروج…" onClick={() => void signOut()}>
-          خروج از حساب
+        <span>{english ? 'Signed in as' : 'واردشده با'} <strong dir="auto">{query.data.user.name}</strong></span>
+        <Button variant="quiet" pending={loggingOut} pendingLabel={english ? 'Signing out…' : 'در حال خروج…'} onClick={() => void signOut()}>
+          {english ? 'Sign out' : 'خروج از حساب'}
         </Button>
       </div>
       {logoutError && <p className="session-tools__error" role="alert">{logoutError}</p>}
       <Outlet context={query.data} />
-    </>
+    </WorkspaceSwitchProvider>
+  );
+}
+
+function WorkspaceSelector({
+  session,
+  activeWorkspace,
+}: {
+  session: Session;
+  activeWorkspace: string;
+}) {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const { canSwitch } = useWorkspaceSwitch();
+  const { dir } = useUIAppearance();
+  const english = dir === 'ltr';
+  return (
+    <label className="workspace-selector">
+      <span>{english ? 'Workspace' : 'فضای کار'}</span>
+      <select
+        aria-label={english ? 'Select Workspace' : 'انتخاب فضای کار'}
+        value={activeWorkspace}
+        onChange={(event) => {
+          const next = event.currentTarget.value;
+          const currentName = session.workspaces.find((workspace) => workspace.id === activeWorkspace)?.name
+            ?? (english ? 'Your Workspaces' : 'فضاهای من');
+          const nextName = session.workspaces.find((workspace) => workspace.id === next)?.name
+            ?? (english ? 'Your Workspaces' : 'فضاهای من');
+          const confirmMessage = english
+            ? `Unsaved changes will be lost. Leave “${currentName}” and switch to “${nextName}”?`
+            : `تغییرات ذخیره‌نشده باقی می‌مانند. از «${currentName}» به «${nextName}» بروید؟`;
+          if (!canSwitch(confirmMessage)) return;
+          if (activeWorkspace) {
+            queryClient.removeQueries({
+              predicate: (query) => query.queryKey[0] === 'workspace' && query.queryKey[1] === activeWorkspace,
+            });
+          }
+          navigate(next ? `/app/workspaces/${encodeURIComponent(next)}` : '/app/workspaces');
+        }}
+      >
+        <option value="">{english ? 'Your Workspaces' : 'فضاهای من'}</option>
+        {session.workspaces.map((workspace) => (
+          <option key={workspace.id} value={workspace.id}>
+            {workspace.name} · {workspace.role === 'owner' ? (english ? 'Owner' : 'مالک') : workspace.role === 'editor' ? (english ? 'Editor' : 'ویرایشگر') : (english ? 'Viewer' : 'بیننده')}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
 export function App() {
@@ -200,15 +257,9 @@ export function App() {
             />
             <Route path="/account/*" element={<Account />} />
             <Route element={<SessionBoundary />}>
+              <Route path="/app/workspaces" element={<WorkspaceManagement />} />
               <Route path="/app/workspaces/:workspaceId/*" element={<Workspace />} />
-              <Route
-                path="/app/start"
-                element={
-                  <Notice title="شروع پروژه">
-                    <p>ورود تأیید شده است؛ آن‌بوردینگ پروژه در مرحله بعد تکمیل می‌شود.</p>
-                  </Notice>
-                }
-              />
+              <Route path="/app/start" element={<Navigate to="/app/workspaces" replace />} />
               <Route path="/app/account" element={<AccountSettingsPage />} />
             </Route>
             <Route element={<SessionBoundary operator />}>

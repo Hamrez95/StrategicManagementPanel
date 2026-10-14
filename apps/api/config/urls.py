@@ -15,7 +15,15 @@ from modules.accounts.auth_views import (
     signup,
     verify_email,
 )
-from modules.workspaces.views import list_workspaces, read_workspace
+from modules.workspaces.views import (
+    accept_invitation,
+    list_workspaces,
+    workspace_detail,
+    workspace_invitation_detail,
+    workspace_invitations,
+    workspace_member_detail,
+    workspace_members,
+)
 
 urlpatterns = [
     path('api/v1/health/live', live),
@@ -23,7 +31,12 @@ urlpatterns = [
     path('api/v1/csrf/', csrf_cookie),
     path('api/v1/session/', session_view),
     path('api/v1/workspaces/', list_workspaces),
-    path('api/v1/workspaces/<str:workspace_id>/', read_workspace),
+    path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
+    path('api/v1/workspaces/<str:workspace_id>/members/', workspace_members),
+    path('api/v1/workspaces/<str:workspace_id>/members/<str:user_id>/', workspace_member_detail),
+    path('api/v1/workspaces/<str:workspace_id>/invitations/', workspace_invitations),
+    path('api/v1/workspaces/<str:workspace_id>/invitations/<str:invitation_id>/', workspace_invitation_detail),
+    path('api/v1/workspace-invitations/accept/', accept_invitation),
     path('api/v1/accounts/signup/', signup),
     path('api/v1/accounts/verify-email/', verify_email),
     path('api/v1/accounts/resend-verification/', resend_verification),

@@ -36,7 +36,7 @@ async function ensureCsrfCookie() {
 }
 
 export async function requestAuth<T = Record<string, unknown>>(
-  method: 'POST' | 'PATCH',
+  method: 'POST' | 'PATCH' | 'DELETE',
   path: string,
   payload: Record<string, unknown> = {},
 ): Promise<T> {
@@ -49,10 +49,10 @@ export async function requestAuth<T = Record<string, unknown>>(
       cache: 'no-store',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
         'X-CSRFToken': csrfToken,
+        ...(method === 'DELETE' ? {} : { 'Content-Type': 'application/json' }),
       },
-      body: JSON.stringify(payload),
+      body: method === 'DELETE' ? undefined : JSON.stringify(payload),
     });
   } catch {
     throw new AuthApiError('ارتباط با سرویس حساب قطع شد. اتصال را بررسی و دوباره تلاش کنید.', 0);
@@ -65,7 +65,7 @@ export async function requestAuth<T = Record<string, unknown>>(
         ? (body.fields as AuthFields)
         : {};
     const message =
-      response.status === 403
+      response.status === 403 && body?.code !== 'workspace_permission_denied'
         ? 'درخواست امنیتی تأیید نشد. صفحه را تازه کنید و دوباره تلاش کنید.'
         : typeof body?.message === 'string'
           ? body.message
@@ -87,6 +87,10 @@ export function patchAuth<T = Record<string, unknown>>(
   payload: Record<string, unknown>,
 ) {
   return requestAuth<T>('PATCH', path, payload);
+}
+
+export function deleteAuth(path: string) {
+  return requestAuth<{}>('DELETE', path);
 }
 
 export function firstFieldError(fields: AuthFields, name: string) {

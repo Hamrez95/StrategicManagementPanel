@@ -81,3 +81,35 @@ class Membership(models.Model):
         if self.workspace_id and self.user_id and self.workspace.owner_id == self.user_id:
             raise ValidationError({'user': 'Workspace ownership is derived from the owner field.'})
 
+
+class WorkspaceInvitation(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='invitations')
+    invited_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name='workspace_invitations_sent',
+    )
+    email = models.EmailField(max_length=254)
+    role = models.CharField(max_length=8, choices=Membership.Role.choices)
+    token_digest = models.CharField(max_length=64, unique=True)
+    expires_at = models.DateTimeField()
+    accepted_at = models.DateTimeField(null=True, blank=True)
+    revoked_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('expires_at', 'id')
+        indexes = [models.Index(fields=('workspace', 'expires_at'), name='workspace_invite_expiry_idx')]
+        constraints = [
+            models.UniqueConstraint(
+                fields=('workspace', 'email'),
+                condition=Q(accepted_at__isnull=True, revoked_at__isnull=True),
+                name='workspace_invite_pending_uniq',
+            ),
+            models.CheckConstraint(
+                condition=Q(role__in=('editor', 'viewer')),
+                name='workspace_invite_valid_role',
+            ),
+        ]
+

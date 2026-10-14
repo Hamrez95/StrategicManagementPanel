@@ -1,8 +1,6 @@
 import json
 import logging
 import math
-import smtplib
-import time
 import uuid
 from datetime import timedelta
 from urllib.parse import quote
@@ -13,7 +11,6 @@ from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
 from django.core import signing
 from django.core.exceptions import ValidationError
-from django.core.mail import send_mail
 from django.core.validators import validate_email
 from django.db import IntegrityError, transaction
 from django.http import HttpResponse, JsonResponse
@@ -24,6 +21,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 from .models import AccountPreferences, AuthRateLimit, User
+from modules.core.mailer import deliver_email
 from modules.workspaces.services import workspace_session_payload
 
 logger = logging.getLogger(__name__)
@@ -132,22 +130,7 @@ def _limited_response(retry_after):
 
 
 def _deliver_auth_email(subject, body, recipient):
-    for attempt in range(3):
-        try:
-            sent = send_mail(
-                subject,
-                body,
-                settings.DEFAULT_FROM_EMAIL,
-                [recipient],
-                fail_silently=False,
-            )
-            if sent == 1:
-                return True
-        except (OSError, smtplib.SMTPException):
-            if attempt < 2:
-                time.sleep(0.2 * (attempt + 1))
-    logger.warning('Authentication email delivery failed after bounded retries.')
-    return False
+    return deliver_email(subject, body, recipient, purpose='Account')
 
 
 def _send_verification(user):

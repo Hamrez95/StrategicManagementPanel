@@ -6,6 +6,7 @@ import {
   VerifyEmailPage,
 } from '../features/auth/AuthPages';
 import { EmailChangeConfirmationPage } from '../features/account/AccountSettingsPage';
+import InvitationAcceptPage from '../features/workspaces/InvitationAcceptPage';
 
 export default function Account() {
   return (
@@ -15,6 +16,7 @@ export default function Account() {
       <Route path="verify" element={<VerifyEmailPage />} />
       <Route path="reset-password" element={<PasswordResetPage />} />
       <Route path="email-change" element={<EmailChangeConfirmationPage />} />
+      <Route path="invitation" element={<InvitationAcceptPage />} />
       <Route path="*" element={<Navigate to="login" replace />} />
     </Routes>
   );

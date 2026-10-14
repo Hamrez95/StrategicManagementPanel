@@ -1,4 +1,6 @@
-from urllib.parse import urlencode
+from datetime import timedelta
+from urllib.parse import parse_qs, urlencode, urlsplit
+from unittest.mock import patch
 
 from django.core.exceptions import ValidationError
 from django.db.models.deletion import ProtectedError
@@ -7,15 +9,20 @@ from django.utils import timezone
 from rest_framework.exceptions import NotFound, PermissionDenied
 
 from modules.accounts.models import User
-from modules.workspaces.models import BillingAccount, Membership, Workspace
+from modules.workspaces.models import BillingAccount, Membership, Workspace, WorkspaceInvitation
 from modules.workspaces.permissions import get_workspace_child_or_404
 from modules.workspaces.services import (
+    WorkspaceActionError,
+    accept_workspace_invitation,
     accessible_workspaces_for,
     create_owned_workspace,
+    create_workspace_invitation,
     grant_workspace_membership,
     remove_workspace_membership,
     require_workspace_role,
     workspace_role,
+    update_workspace,
+    revoke_workspace_invitation,
 )
 
 
@@ -122,6 +129,22 @@ class WorkspaceAuthorizationTests(TestCase):
         remove_workspace_membership(self.owner, self.workspace, self.viewer)
         self.assertIsNone(workspace_role(self.viewer, self.workspace))
 
+    def test_owner_can_change_and_revoke_member_access_through_api(self):
+        self.client.force_login(self.owner)
+        changed = self.client.patch(
+            f'/api/v1/workspaces/{self.workspace.pk}/members/{self.editor.pk}/',
+            data={'role': Membership.Role.VIEWER},
+            content_type='application/json',
+        )
+        self.assertEqual(changed.status_code, 200)
+        self.assertEqual(changed.json()['role'], Membership.Role.VIEWER)
+
+        removed = self.client.delete(
+            f'/api/v1/workspaces/{self.workspace.pk}/members/{self.editor.pk}/'
+        )
+        self.assertEqual(removed.status_code, 204)
+        self.assertIsNone(workspace_role(self.editor, self.workspace))
+
     def test_owned_workspace_prevents_deleting_its_owner(self):
         with self.assertRaises(ProtectedError):
             self.owner.delete()
@@ -132,6 +155,19 @@ class WorkspaceAuthorizationTests(TestCase):
         self.assertEqual(workspace.name, 'New workspace')
         self.assertEqual(workspace.billing_account.owner_id, new_owner.pk)
         self.assertEqual(workspace.revision, 1)
+
+    def test_workspace_creation_endpoint_uses_the_verified_owner_account(self):
+        self.client.force_login(self.owner)
+        response = self.client.post(
+            '/api/v1/workspaces/',
+            data={'name': '  API project  '},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 201)
+        workspace = Workspace.objects.get(pk=response.json()['id'])
+        self.assertEqual(workspace.name, 'API project')
+        self.assertEqual(workspace.billing_account.owner_id, self.owner.pk)
+        self.assertEqual(response['Cache-Control'], 'no-store, private')
 
     def test_workspace_endpoints_return_only_member_data_and_disable_caching(self):
         self.assertEqual(self.client.get('/api/v1/workspaces/').status_code, 401)
@@ -188,4 +224,193 @@ class WorkspaceAuthorizationTests(TestCase):
         self.assertEqual(response.json()['workspaces'], [
             {'id': str(self.workspace.pk), 'name': self.workspace.name, 'role': 'viewer'},
         ])
+
+    def test_workspace_updates_require_owner_and_reject_stale_revisions(self):
+        saved = update_workspace(self.owner, self.workspace, revision=1, name='Renamed project')
+        self.assertEqual(saved.name, 'Renamed project')
+        self.assertEqual(saved.revision, 2)
+
+        with self.assertRaises(WorkspaceActionError) as conflict:
+            update_workspace(self.owner, saved, revision=1, name='Lost update')
+        self.assertEqual(conflict.exception.code, 'revision_conflict')
+
+        self.client.force_login(self.owner)
+        stale = self.client.patch(
+            f'/api/v1/workspaces/{self.workspace.pk}/',
+            data={'revision': 1, 'name': 'Stale API update'},
+            content_type='application/json',
+        )
+        self.assertEqual(stale.status_code, 409)
+        self.assertEqual(stale.json()['code'], 'revision_conflict')
+
+        self.client.force_login(self.editor)
+        response = self.client.patch(
+            f'/api/v1/workspaces/{self.workspace.pk}/',
+            data={'revision': 2, 'name': 'Not allowed'},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 403)
+        self.assertEqual(Workspace.objects.get(pk=self.workspace.pk).name, 'Renamed project')
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_archive_keeps_workspace_and_revokes_pending_invitations(self, _deliver_email):
+        invitation = create_workspace_invitation(
+            self.owner, self.workspace, 'invitee@example.test', Membership.Role.VIEWER
+        )
+        saved = update_workspace(self.owner, self.workspace, revision=1, archived=True)
+
+        self.assertIsNotNone(saved.archived_at)
+        self.assertTrue(Workspace.objects.filter(pk=self.workspace.pk).exists())
+        invitation.refresh_from_db()
+        self.assertIsNotNone(invitation.revoked_at)
+
+        self.client.force_login(self.owner)
+        rows = self.client.get('/api/v1/workspaces/').json()['items']
+        self.assertEqual([row['id'] for row in rows], [str(self.workspace.pk)])
+        self.client.force_login(self.viewer)
+        self.assertEqual(self.client.get('/api/v1/session/').json()['workspaces'], [])
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_invitation_token_is_one_use_hmac_backed_and_email_bound(self, deliver_email):
+        invitation = create_workspace_invitation(
+            self.owner, self.workspace, '  INVITEE@example.test ', Membership.Role.EDITOR
+        )
+        self.assertEqual(invitation.email, 'invitee@example.test')
+        self.assertEqual(invitation.role, Membership.Role.EDITOR)
+        self.assertEqual(len(invitation.token_digest), 64)
+        message = deliver_email.call_args.args[1]
+        link = next(line for line in message.splitlines() if '#token=' in line)
+        token = parse_qs(urlsplit(link).fragment)['token'][0]
+        self.assertNotEqual(invitation.token_digest, token)
+
+        wrong_account = self.create_user('wrong@example.test')
+        with self.assertRaises(ValidationError):
+            accept_workspace_invitation(wrong_account, token)
+        self.assertIsNone(workspace_role(wrong_account, self.workspace))
+
+        invitee = self.create_user('invitee@example.test')
+        workspace, membership = accept_workspace_invitation(invitee, token)
+        self.assertEqual(workspace.pk, self.workspace.pk)
+        self.assertEqual(membership.role, Membership.Role.EDITOR)
+        invitation.refresh_from_db()
+        self.assertIsNotNone(invitation.accepted_at)
+        with self.assertRaises(ValidationError):
+            accept_workspace_invitation(invitee, token)
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_expired_and_revoked_invitations_cannot_be_accepted(self, _deliver_email):
+        expired = create_workspace_invitation(
+            self.owner, self.workspace, 'expired@example.test', Membership.Role.VIEWER
+        )
+        expired_user = self.create_user('expired@example.test')
+        expired.expires_at = timezone.now() - timedelta(seconds=1)
+        expired.save(update_fields=['expires_at'])
+        expired_token = next(
+            parse_qs(urlsplit(line).fragment)['token'][0]
+            for line in _deliver_email.call_args.args[1].splitlines()
+            if '#token=' in line
+        )
+        with self.assertRaises(ValidationError):
+            accept_workspace_invitation(expired_user, expired_token)
+
+        active = create_workspace_invitation(
+            self.owner, self.workspace, 'revoked@example.test', Membership.Role.EDITOR
+        )
+        revoked_token = next(
+            parse_qs(urlsplit(line).fragment)['token'][0]
+            for line in _deliver_email.call_args.args[1].splitlines()
+            if '#token=' in line
+        )
+        revoke_workspace_invitation(self.owner, self.workspace, active.pk)
+        revoked_user = self.create_user('revoked@example.test')
+        with self.assertRaises(ValidationError):
+            accept_workspace_invitation(revoked_user, revoked_token)
+
+    @patch('modules.workspaces.services.deliver_email', return_value=False)
+    def test_failed_delivery_revokes_the_new_invitation(self, _deliver_email):
+        with self.assertRaises(WorkspaceActionError) as error:
+            create_workspace_invitation(
+                self.owner, self.workspace, 'undelivered@example.test', Membership.Role.EDITOR
+            )
+        self.assertEqual(error.exception.code, 'email_unavailable')
+        invitation = WorkspaceInvitation.objects.get(email='undelivered@example.test')
+        self.assertIsNotNone(invitation.revoked_at)
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_invitation_endpoints_are_owner_only_and_support_revocation(self, deliver_email):
+        self.client.force_login(self.editor)
+        denied = self.client.get(f'/api/v1/workspaces/{self.workspace.pk}/invitations/')
+        self.assertEqual(denied.status_code, 403)
+
+        self.client.force_login(self.owner)
+        created = self.client.post(
+            f'/api/v1/workspaces/{self.workspace.pk}/invitations/',
+            data={'email': 'new-member@example.test', 'role': 'viewer'},
+            content_type='application/json',
+        )
+        self.assertEqual(created.status_code, 202)
+        self.assertEqual(created['Cache-Control'], 'no-store, private')
+        listing = self.client.get(f'/api/v1/workspaces/{self.workspace.pk}/invitations/')
+        self.assertEqual(listing.status_code, 200)
+        self.assertEqual(listing.json()['items'][0]['email'], 'new-member@example.test')
+        invitation_id = listing.json()['items'][0]['id']
+        revoked = self.client.delete(
+            f'/api/v1/workspaces/{self.workspace.pk}/invitations/{invitation_id}/'
+        )
+        self.assertEqual(revoked.status_code, 204)
+        self.assertEqual(self.client.get(f'/api/v1/workspaces/{self.workspace.pk}/invitations/').json()['items'], [])
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_duplicate_invites_invalid_addresses_and_owner_roles_are_rejected(self, deliver_email):
+        self.client.force_login(self.owner)
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/invitations/'
+        first = self.client.post(
+            endpoint,
+            data={'email': 'new-member@example.test', 'role': Membership.Role.EDITOR},
+            content_type='application/json',
+        )
+        self.assertEqual(first.status_code, 202)
+        duplicate = self.client.post(
+            endpoint,
+            data={'email': 'NEW-MEMBER@example.test', 'role': Membership.Role.VIEWER},
+            content_type='application/json',
+        )
+        self.assertEqual(duplicate.status_code, 409)
+        self.assertEqual(duplicate.json()['code'], 'duplicate_invitation')
+
+        invalid_email = self.client.post(
+            endpoint,
+            data={'email': 'not-an-email', 'role': Membership.Role.EDITOR},
+            content_type='application/json',
+        )
+        self.assertEqual(invalid_email.status_code, 400)
+        owner_role = self.client.post(
+            endpoint,
+            data={'email': 'new-member@example.test', 'role': 'owner'},
+            content_type='application/json',
+        )
+        self.assertEqual(owner_role.status_code, 400)
+        self.assertEqual(deliver_email.call_count, 1)
+
+    @patch('modules.workspaces.services.deliver_email', return_value=True)
+    def test_invitation_accept_endpoint_adds_only_matching_verified_account(self, deliver_email):
+        create_workspace_invitation(
+            self.owner, self.workspace, 'accept@example.test', Membership.Role.VIEWER
+        )
+        token = next(
+            parse_qs(urlsplit(line).fragment)['token'][0]
+            for line in deliver_email.call_args.args[1].splitlines()
+            if '#token=' in line
+        )
+        invitee = self.create_user('accept@example.test')
+        self.client.force_login(invitee)
+        response = self.client.post(
+            '/api/v1/workspace-invitations/accept/',
+            data={'token': token},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()['membership']['role'], Membership.Role.VIEWER)
+        self.assertEqual(response['Cache-Control'], 'no-store, private')
+        self.assertEqual(self.client.get('/api/v1/session/').json()['workspaces'][0]['id'], str(self.workspace.pk))
 

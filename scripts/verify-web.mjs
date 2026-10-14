@@ -46,7 +46,7 @@ try {
   let session = {
     authenticated: true,
     user: { id: 'u1', name: 'مدیر نمونه', is_staff: false },
-    workspaces: [{ id: 'w1', name: 'پروژه مجاز' }],
+    workspaces: [{ id: 'w1', name: 'پروژه مجاز', role: 'owner' }],
   };
   await page.route('**/api/v1/session/', (route) =>
     route.fulfill({ status: 401, json: { detail: 'unauthenticated' } }),
@@ -55,10 +55,96 @@ try {
   await page.waitForURL(/account\/login/);
   await page.unroute('**/api/v1/session/');
   await page.route('**/api/v1/session/', (route) => route.fulfill({ json: session }));
+  await page.route('**/api/v1/csrf/', (route) => route.fulfill({
+    json: {},
+    headers: { 'Set-Cookie': 'csrftoken=workspace-test; Path=/; SameSite=Lax' },
+  }));
+  const workspace = {
+    id: 'w1',
+    owner_id: 'u1',
+    billing_account_id: 'billing-1',
+    name: 'پروژه مجاز',
+    revision: 1,
+    archived_at: null,
+  };
+  const invitations = [];
+  await page.route('**/api/v1/workspaces/**', async (route) => {
+    const request = route.request();
+    const pathname = new URL(request.url()).pathname;
+    if (request.method() === 'GET' && pathname === '/api/v1/workspaces/') {
+      return route.fulfill({ json: { items: [workspace], next_cursor: null } });
+    }
+    if (request.method() === 'GET' && pathname === '/api/v1/workspaces/w1/') {
+      return route.fulfill({ json: workspace });
+    }
+    if (request.method() === 'PATCH' && pathname === '/api/v1/workspaces/w1/') {
+      const body = request.postDataJSON();
+      if (body.revision !== workspace.revision) {
+        return route.fulfill({
+          status: 409,
+          json: { code: 'revision_conflict', message: 'این فضا هم‌زمان تغییر کرده است.', fields: { revision: ['نسخه فعلی تغییر کرده است.'] } },
+        });
+      }
+      if (typeof body.name === 'string') workspace.name = body.name.trim();
+      if (typeof body.archived === 'boolean') workspace.archived_at = body.archived ? new Date().toISOString() : null;
+      workspace.revision++;
+      return route.fulfill({ json: workspace });
+    }
+    if (request.method() === 'GET' && pathname === '/api/v1/workspaces/w1/members/') {
+      return route.fulfill({ json: { items: [{ user_id: 'u1', email: 'owner@example.test', name: 'مدیر نمونه', role: 'owner' }] } });
+    }
+    if (request.method() === 'GET' && pathname === '/api/v1/workspaces/w1/invitations/') {
+      return route.fulfill({ json: { items: invitations } });
+    }
+    if (request.method() === 'POST' && pathname === '/api/v1/workspaces/w1/invitations/') {
+      const body = request.postDataJSON();
+      invitations.push({ id: 'invite-1', email: body.email, role: body.role, expires_at: new Date(Date.now() + 86400000).toISOString() });
+      return route.fulfill({ status: 202, json: { message: 'اگر نشانی قابل افزودن باشد، دعوت به همان ایمیل فرستاده می‌شود.' } });
+    }
+    if (request.method() === 'DELETE' && pathname === '/api/v1/workspaces/w1/invitations/invite-1/') {
+      invitations.splice(0, invitations.length);
+      return route.fulfill({ status: 204, body: '' });
+    }
+    return route.fulfill({ status: 404, json: { code: 'workspace_not_found', message: 'فضای کار در دسترس نیست.' } });
+  });
   await page.goto(url + '/app/workspaces/w1/overview');
   await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+  await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
   await page.reload();
   await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+  const nameInput = page.getByLabel('نام فضای کار');
+  workspace.revision = 2;
+  await nameInput.fill('تغییر هم‌زمان');
+  await page.getByRole('button', { name: 'ذخیره نام' }).click();
+  await page.getByRole('alert').filter({ hasText: 'هم‌زمان تغییر کرده است' }).waitFor();
+  await page.getByRole('button', { name: 'بارگیری نسخه تازه' }).click();
+  await page.waitForFunction(() => document.querySelector('.workspace-form--inline input')?.value === 'پروژه مجاز');
+  await nameInput.fill('نام ذخیره‌نشده');
+  const cancelDialogPromise = page.waitForEvent('dialog');
+  const cancelSelection = page.getByRole('combobox', { name: 'انتخاب فضای کار' }).selectOption('');
+  const cancelDialog = await cancelDialogPromise;
+  assert.match(cancelDialog.message(), /پروژه مجاز/);
+  await cancelDialog.dismiss();
+  await cancelSelection;
+  assert.match(page.url(), /\/app\/workspaces\/w1\/overview$/);
+  const switchDialogPromise = page.waitForEvent('dialog');
+  const switchSelection = page.getByRole('combobox', { name: 'انتخاب فضای کار' }).selectOption('');
+  const switchDialog = await switchDialogPromise;
+  assert.match(switchDialog.message(), /پروژه مجاز/);
+  await switchDialog.accept();
+  await switchSelection;
+  await page.getByRole('heading', { name: 'فضاهای من' }).waitFor();
+  await page.getByRole('link', { name: 'پروژه مجاز' }).waitFor();
+  await page.getByRole('link', { name: 'پروژه مجاز' }).click();
+  await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
+  await page.getByLabel('دعوت با ایمیل').fill('member@example.test');
+  await page.getByLabel('سطح دسترسی').selectOption('viewer');
+  await page.getByRole('button', { name: 'فرستادن دعوت' }).click();
+  await page.getByText('member@example.test').waitFor();
+  await page.getByRole('button', { name: 'لغو دعوت' }).click();
+  const invitationDialog = page.getByRole('dialog');
+  await invitationDialog.getByRole('button', { name: 'لغو دعوت' }).click();
+  await page.getByText('member@example.test').waitFor({ state: 'detached' });
   await page.goto(url + '/app/workspaces/other/overview');
   await page.getByRole('heading', { name: 'فضای کار در دسترس نیست' }).waitFor();
   await page.goto(url + '/internal');
