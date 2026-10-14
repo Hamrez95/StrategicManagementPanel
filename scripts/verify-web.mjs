@@ -77,6 +77,9 @@ try {
   });
   const projectProfiles = new Map([['w1', emptyProfile('w1')]]);
   const profileHistory = new Map([['w1', []]]);
+  const emptyStrategy = (workspaceId) => ({ workspace_id: workspaceId, factors: [], options: [] });
+  const strategyBoards = new Map([['w1', emptyStrategy('w1')]]);
+  let strategySequence = 0;
   let loseProfilePatchResponse = false;
   let failProfileNextPatch = false;
   let failProfileNextRead = false;
@@ -106,6 +109,7 @@ try {
       workspaceRows.push(created);
       projectProfiles.set('w2', emptyProfile('w2'));
       profileHistory.set('w2', []);
+      strategyBoards.set('w2', emptyStrategy('w2'));
       session = { ...session, workspaces: [...session.workspaces, { id: 'w2', name: created.name, role: 'owner' }] };
       createdWorkspaceCount++;
       return route.fulfill({ status: 201, json: created });
@@ -211,6 +215,81 @@ try {
       }
       return route.fulfill({ json: profile });
     }
+    const strategyMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/$/);
+    if (strategyMatch && request.method() === 'GET') {
+      const board = strategyBoards.get(strategyMatch[1]);
+      return board ? route.fulfill({ json: structuredClone(board) }) : route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
+    }
+    const factorCollection = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/factors\/$/);
+    if (factorCollection && request.method() === 'POST') {
+      const board = strategyBoards.get(factorCollection[1]);
+      if (!board) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
+      const body = request.postDataJSON();
+      const factor = { id: `factor-${++strategySequence}`, ...body, revision: 1, updated_at: new Date().toISOString(), linked_options: [] };
+      board.factors.push(factor);
+      return route.fulfill({ status: 201, json: factor });
+    }
+    const factorDetail = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/factors\/([^/]+)\/$/);
+    if (factorDetail && request.method() === 'PATCH') {
+      const board = strategyBoards.get(factorDetail[1]);
+      const factor = board?.factors.find((item) => item.id === factorDetail[2]);
+      if (!factor) return route.fulfill({ status: 404, json: { code: 'factor_not_found' } });
+      const body = request.postDataJSON();
+      if (body.revision !== factor.revision) return route.fulfill({ status: 409, json: { code: 'revision_conflict', message: 'نسخه عامل تغییر کرده است.', fields: { revision: ['نسخه فعلی تغییر کرده است.'] } } });
+      const changedSemantic = ['factor_type', 'title', 'evidence', 'priority'].some((field) => body[field] !== undefined && body[field] !== factor[field]);
+      for (const field of ['factor_type', 'title', 'evidence', 'owner', 'priority']) if (body[field] !== undefined) factor[field] = typeof body[field] === 'string' ? body[field].trim() : body[field];
+      factor.revision++;
+      factor.updated_at = new Date().toISOString();
+      if (changedSemantic) for (const option of board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id))) { option.needs_review = true; option.revision++; }
+      factor.linked_options = board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id)).map((item) => ({ id: item.id, title: item.title, category: item.category }));
+      return route.fulfill({ json: factor });
+    }
+    if (factorDetail && request.method() === 'DELETE') {
+      const board = strategyBoards.get(factorDetail[1]);
+      const factor = board?.factors.find((item) => item.id === factorDetail[2]);
+      if (!factor) return route.fulfill({ status: 404, json: { code: 'factor_not_found' } });
+      const dependencies = board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id));
+      if (dependencies.length && new URL(request.url()).searchParams.get('confirm_dependencies') !== 'true') return route.fulfill({ status: 409, json: { code: 'factor_dependencies', message: 'این عامل در گزینه راهبردی استفاده شده است.', fields: { dependencies: dependencies.map((item) => item.title) } } });
+      for (const option of dependencies) { option.factor_refs = option.factor_refs.filter((ref) => ref.id !== factor.id); option.needs_review = true; option.revision++; }
+      board.factors = board.factors.filter((item) => item.id !== factor.id);
+      return route.fulfill({ json: { id: factor.id, deleted: true, affected_options: dependencies.map((item) => ({ id: item.id, title: item.title, category: item.category })) } });
+    }
+    const optionCollection = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/options\/$/);
+    if (optionCollection && request.method() === 'POST') {
+      const board = strategyBoards.get(optionCollection[1]);
+      if (!board) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
+      const body = request.postDataJSON();
+      const factor_refs = body.factor_ids.map((id) => board.factors.find((factor) => factor.id === id)).filter(Boolean).map(({ id, factor_type, title }) => ({ id, factor_type, title }));
+      if (factor_refs.length !== body.factor_ids.length) return route.fulfill({ status: 400, json: { code: 'validation_error', message: 'عامل معتبر نیست.', fields: { factor_ids: ['عامل معتبر نیست.'] } } });
+      const { factor_ids, ...values } = body;
+      const option = { id: `option-${++strategySequence}`, ...values, factor_refs, needs_review: false, revision: 1, updated_at: new Date().toISOString() };
+      board.options.push(option);
+      for (const factor of board.factors) factor.linked_options = board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id)).map((item) => ({ id: item.id, title: item.title, category: item.category }));
+      return route.fulfill({ status: 201, json: option });
+    }
+    const optionDetail = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/options\/([^/]+)\/$/);
+    if (optionDetail && request.method() === 'PATCH') {
+      const board = strategyBoards.get(optionDetail[1]);
+      const option = board?.options.find((item) => item.id === optionDetail[2]);
+      if (!option) return route.fulfill({ status: 404, json: { code: 'option_not_found' } });
+      const body = request.postDataJSON();
+      if (body.revision !== option.revision) return route.fulfill({ status: 409, json: { code: 'revision_conflict', message: 'نسخه گزینه تغییر کرده است.', fields: { revision: ['نسخه فعلی تغییر کرده است.'] } } });
+      if (body.factor_ids) option.factor_refs = body.factor_ids.map((id) => board.factors.find((factor) => factor.id === id)).filter(Boolean).map(({ id, factor_type, title }) => ({ id, factor_type, title }));
+      for (const field of ['category', 'title', 'action', 'rationale', 'hypothesis', 'cost']) if (body[field] !== undefined) option[field] = body[field];
+      option.needs_review = false;
+      option.revision++;
+      option.updated_at = new Date().toISOString();
+      for (const factor of board.factors) factor.linked_options = board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id)).map((item) => ({ id: item.id, title: item.title, category: item.category }));
+      return route.fulfill({ json: option });
+    }
+    if (optionDetail && request.method() === 'DELETE') {
+      const board = strategyBoards.get(optionDetail[1]);
+      const option = board?.options.find((item) => item.id === optionDetail[2]);
+      if (!option) return route.fulfill({ status: 404, json: { code: 'option_not_found' } });
+      board.options = board.options.filter((item) => item.id !== option.id);
+      for (const factor of board.factors) factor.linked_options = board.options.filter((item) => item.factor_refs.some((ref) => ref.id === factor.id)).map((item) => ({ id: item.id, title: item.title, category: item.category }));
+      return route.fulfill({ json: { id: option.id, deleted: true } });
+    }
     const memberMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/members\/$/);
     if (request.method() === 'GET' && memberMatch) {
       const record = workspaceRows.find((item) => item.id === memberMatch[1]);
@@ -283,6 +362,130 @@ try {
       await page.screenshot({ path: `test-results/web/company-profile-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
     }
   }
+
+  await page.goto(url + '/app/workspaces/w1/tools/swot');
+  await page.getByRole('heading', { name: 'تحلیل SWOT و گزینه‌های TOWS' }).waitFor();
+  await page.getByText('هنوز عاملی ثبت نشده است').waitFor();
+  const strengthGroup = page.locator('.strategy-factor-group--strength');
+  await strengthGroup.getByRole('button', { name: 'افزودن عامل' }).click();
+  await strengthGroup.getByLabel('عامل مشخص').fill('تحویل سریع برای مشتریان فعلی');
+  const strategySwitchDialogPromise = page.waitForEvent('dialog');
+  const strategyWorkspaceSelection = page.getByRole('combobox', { name: 'انتخاب فضای کار' }).selectOption('');
+  const strategySwitchDialog = await strategySwitchDialogPromise;
+  assert.match(strategySwitchDialog.message(), /پروژه مجاز/);
+  await strategySwitchDialog.dismiss();
+  await strategyWorkspaceSelection;
+  assert.equal(await strengthGroup.getByLabel('عامل مشخص').inputValue(), 'تحویل سریع برای مشتریان فعلی', 'switch confirmation must preserve the open factor draft');
+  await strengthGroup.getByLabel('شاهد و منبع').fill('داده شش پروژه اخیر، زمان تحویل زیر دو هفته را نشان می‌دهد.');
+  await strengthGroup.getByLabel('مسئول پیگیری').fill('مدیر عملیات');
+  await strengthGroup.getByRole('button', { name: 'ذخیره عامل' }).click();
+  await page.getByRole('status').filter({ hasText: 'عامل ثبت شد' }).waitFor();
+  const strengthId = strategyBoards.get('w1').factors.find((item) => item.factor_type === 'strength').id;
+
+  const opportunityGroup = page.locator('.strategy-factor-group--opportunity');
+  await opportunityGroup.getByRole('button', { name: 'افزودن عامل' }).click();
+  await opportunityGroup.getByLabel('عامل مشخص').fill('تقاضای تازه برای قراردادهای سازمانی');
+  await opportunityGroup.getByLabel('شاهد و منبع').fill('سه درخواست قیمت از سازمان‌ها در ماه گذشته دریافت شد.');
+  await opportunityGroup.getByLabel('مسئول پیگیری').fill('مدیر فروش');
+  await opportunityGroup.getByRole('button', { name: 'ذخیره عامل' }).click();
+  await page.getByRole('status').filter({ hasText: 'عامل ثبت شد' }).waitFor();
+  const opportunityId = strategyBoards.get('w1').factors.find((item) => item.factor_type === 'opportunity').id;
+
+  await page.getByRole('button', { name: 'افزودن گزینه راهبردی' }).click();
+  await page.getByLabel('نام گزینه راهبردی').fill('پایلوت خدمت سازمانی');
+  await page.getByLabel('اقدام مشخص و محدود').fill('برای دو سازمان، پایلوت شش‌هفته‌ای با دامنه ثابت اجرا کنید.');
+  await page.getByLabel('منطق پیوند عامل‌ها').fill('سرعت تحویل تیم با تقاضای مشاهده‌شده هم‌خوان است.');
+  await page.getByLabel('فرضیه قابل‌آزمون').fill('اگر پایلوت در زمان وعده‌داده‌شده تحویل شود، دست‌کم یک سازمان قرارداد را تمدید می‌کند.');
+  await page.getByLabel('هزینه یا محدودیت').fill('ظرفیت یک نفر از تیم برای شش هفته');
+  await page.getByLabel('تحویل سریع برای مشتریان فعلی').check();
+  await page.getByLabel('تقاضای تازه برای قراردادهای سازمانی').check();
+  await page.getByRole('button', { name: 'ذخیره گزینه راهبردی' }).click();
+  await page.getByRole('status').filter({ hasText: 'گزینه راهبردی ثبت شد' }).waitFor();
+  let strategyOption = strategyBoards.get('w1').options[0];
+  assert.equal(strategyOption.category, 'SO');
+  assert.deepEqual(new Set(strategyOption.factor_refs.map((item) => item.id)), new Set([strengthId, opportunityId]));
+  assert.equal(strategyOption.needs_review, false);
+
+  const strengthCard = strengthGroup.locator('.strategy-factor-card');
+  await strengthCard.getByRole('button', { name: 'ویرایش' }).click();
+  await strengthCard.getByLabel('شاهد و منبع').fill('بازبینی داده شش پروژه، مزیت سرعت را تأیید کرد.');
+  await strengthCard.getByRole('button', { name: 'ذخیره عامل' }).click();
+  await page.getByRole('status').filter({ hasText: 'عامل به‌روز شد' }).waitFor();
+  strategyOption = strategyBoards.get('w1').options[0];
+  assert.equal(strategyOption.needs_review, true, 'semantic factor edits must flag linked options');
+  await page.getByRole('status').filter({ hasText: 'یکی از عامل‌های پیوندخورده تغییر کرده یا حذف شده است' }).waitFor();
+  session = { ...session, workspaces: session.workspaces.map((item) => item.id === 'w1' ? { ...item, role: 'viewer' } : item) };
+  await page.reload();
+  await page.getByRole('status').filter({ hasText: 'ویرایشگر باید پیش از استفاده' }).waitFor();
+  assert.equal(await page.getByRole('button', { name: 'ذخیره گزینه راهبردی' }).count(), 0, 'viewers must not receive the review editor');
+  session = { ...session, workspaces: session.workspaces.map((item) => item.id === 'w1' ? { ...item, role: 'owner' } : item) };
+  await page.reload();
+  await page.getByRole('status').filter({ hasText: 'یکی از عامل‌های پیوندخورده تغییر کرده یا حذف شده است' }).waitFor();
+
+  await strengthGroup.getByRole('button', { name: 'حذف' }).click();
+  const factorDialog = page.getByRole('dialog');
+  await factorDialog.getByText('پایلوت خدمت سازمانی').waitFor();
+  await factorDialog.getByRole('button', { name: 'تأیید حذف عامل' }).click();
+  await page.getByRole('status').filter({ hasText: 'عامل حذف شد و گزینه‌های وابسته' }).waitFor();
+  strategyOption = strategyBoards.get('w1').options[0];
+  assert.equal(strategyBoards.get('w1').options.length, 1, 'deleting a factor must retain its strategy option');
+  assert.equal(strategyOption.needs_review, true);
+  assert.deepEqual(strategyOption.factor_refs.map((item) => item.id), [opportunityId]);
+
+  await strengthGroup.getByRole('button', { name: 'افزودن عامل' }).click();
+  await strengthGroup.getByLabel('عامل مشخص').fill('توان جایگزین تحویل تیم');
+  await strengthGroup.getByLabel('شاهد و منبع').fill('ظرفیت تحویل در برنامه تیم برای فصل جاری ثبت شده است.');
+  await strengthGroup.getByLabel('مسئول پیگیری').fill('مدیر عملیات');
+  await strengthGroup.getByRole('button', { name: 'ذخیره عامل' }).click();
+  await page.getByRole('status').filter({ hasText: 'عامل ثبت شد' }).waitFor();
+  const replacementStrength = strategyBoards.get('w1').factors.find((item) => item.factor_type === 'strength');
+  await page.getByLabel('توان جایگزین تحویل تیم').check();
+  await page.getByRole('button', { name: 'ذخیره گزینه راهبردی' }).click();
+  await page.getByRole('status').filter({ hasText: 'گزینه راهبردی به‌روز شد' }).waitFor();
+  strategyOption = strategyBoards.get('w1').options[0];
+  assert.equal(strategyOption.needs_review, false, 'review is cleared only after the option is repaired');
+  assert.deepEqual(new Set(strategyOption.factor_refs.map((item) => item.id)), new Set([replacementStrength.id, opportunityId]));
+
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `SWOT/TOWS overflow ${width}/${theme}`);
+      await page.screenshot({ path: `test-results/web/strategy-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
+    }
+  }
+  await strengthGroup.getByRole('button', { name: 'افزودن عامل' }).focus();
+  await page.keyboard.press('Tab');
+  assert.equal(await page.evaluate(() => document.activeElement?.textContent?.trim() === 'ویرایش'), true, 'factor actions must be keyboard reachable in order');
+  assert.notEqual(await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle), 'none', 'keyboard focus must stay visible');
+
+  await page.goto(url + '/app/account');
+  await page.getByLabel('زبان رابط').selectOption('en');
+  await page.getByLabel('پوسته').selectOption('light');
+  await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
+  await page.goto(url + '/app/workspaces/w1/tools/swot');
+  await page.getByRole('heading', { name: 'SWOT and TOWS' }).waitFor();
+  assert.equal(await page.locator('.ui-root').getAttribute('dir'), 'ltr');
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `LTR SWOT/TOWS overflow ${width}/${theme}`);
+      await page.screenshot({ path: `test-results/web/strategy-ltr-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
+    }
+  }
+  const strategyOptionCard = page.locator('.strategy-option-card').filter({ hasText: 'پایلوت خدمت سازمانی' });
+  await strategyOptionCard.getByRole('button', { name: 'Delete' }).click();
+  const optionDialog = page.getByRole('dialog');
+  await optionDialog.getByRole('button', { name: 'Confirm deletion' }).click();
+  await page.getByRole('status').filter({ hasText: 'Strategy option deleted' }).waitFor();
+  assert.equal(strategyBoards.get('w1').options.length, 0, 'an option can be deleted independently');
+  assert.equal(strategyBoards.get('w1').factors.length, 2, 'deleting an option must preserve its factors');
+  await page.goto(url + '/app/account');
+  await page.getByLabel('زبان رابط').selectOption('fa');
+  await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
 
   const legacyImportFixture = {
     version: 1, org: { name: 'شرکت نمونه' }, completed: [false, false, false, false, false, false],
@@ -541,7 +744,8 @@ try {
         workspaceMobileMenuFocusRestored: true,
         routeSearchAndLegacyDeepLinks: true,
         workspaceProfileAutosaveConflictAndRecovery: true,
-        responsiveScreenshots: 28,
+        workspaceSwotTowsFactorsOptionsAndDependencyReview: true,
+        responsiveScreenshots: 44,
         legacyImportPreviewCommitDownloadUndo: true,
         legacyBrowserStoragePreserved: true,
         errors,
@@ -551,7 +755,7 @@ try {
     ),
   );
   console.log(
-    'PASS: responsive/theme/onboarding/shell/import screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
+    'PASS: responsive/theme/onboarding/shell/import/profile/SWOT RTL/LTR screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, SWOT/TOWS factor links and dependency review, keyboard focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
 } finally {
   await browser.close();

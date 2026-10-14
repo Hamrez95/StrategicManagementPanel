@@ -1811,6 +1811,130 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/strategy/": {
+      "get": {
+        "operationId": "readStrategyBoard",
+        "summary": "Read a Workspace SWOT and TOWS board",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Private factor and option data", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyBoard" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/strategy/factors/": {
+      "post": {
+        "operationId": "createStrategyFactor",
+        "summary": "Add an evidenced SWOT factor",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }
+        ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyFactorWrite" } } } },
+        "responses": {
+          "201": { "description": "Created factor", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyFactor" } } } },
+          "400": { "description": "Invalid factor or limit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Workspace is archived", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/strategy/factors/{factor_id}/": {
+      "parameters": [
+        { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+        { "name": "factor_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }
+      ],
+      "patch": {
+        "operationId": "updateStrategyFactor",
+        "summary": "Edit a SWOT factor",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyFactorUpdate" } } } },
+        "responses": {
+          "200": { "description": "Updated factor; affected options are marked for review", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyFactor" } } } },
+          "400": { "description": "Invalid factor", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing factor or Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Stale revision or incompatible links", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      },
+      "delete": {
+        "operationId": "deleteStrategyFactor",
+        "summary": "Delete a factor after reviewing dependent options",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } },
+          { "name": "confirm_dependencies", "in": "query", "required": false, "schema": { "type": "boolean", "default": false } }
+        ],
+        "responses": {
+          "200": { "description": "Deleted factor; affected options remain and need review", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyFactorDelete" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing factor or Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Workspace is archived or dependencies need explicit confirmation", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/strategy/options/": {
+      "post": {
+        "operationId": "createStrategyOption",
+        "summary": "Create a manually authored TOWS option",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }
+        ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyOptionWrite" } } } },
+        "responses": {
+          "201": { "description": "Created option linked to factors in this Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyOption" } } } },
+          "400": { "description": "Invalid option or factor pairing", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Workspace is archived", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/strategy/options/{option_id}/": {
+      "parameters": [
+        { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+        { "name": "option_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }
+      ],
+      "patch": {
+        "operationId": "updateStrategyOption",
+        "summary": "Edit a TOWS option and its factor links",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyOptionUpdate" } } } },
+        "responses": {
+          "200": { "description": "Updated strategy option", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyOption" } } } },
+          "400": { "description": "Invalid option or factor pairing", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing option or Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Stale revision or archived Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      },
+      "delete": {
+        "operationId": "deleteStrategyOption",
+        "summary": "Delete a TOWS option",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }],
+        "responses": {
+          "200": { "description": "Deleted option", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StrategyOptionDelete" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Viewer cannot edit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing option or Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Workspace is archived", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/profile/revisions/": {
       "get": {
         "operationId": "listWorkspaceProfileRevisions",
@@ -6535,6 +6659,156 @@
         "required": [
           "message"
         ],
+        "additionalProperties": false
+      },
+      "StrategyFactorType": {
+        "type": "string",
+        "enum": ["strength", "weakness", "opportunity", "threat"]
+      },
+      "StrategyCategory": {
+        "type": "string",
+        "enum": ["SO", "WO", "ST", "WT"]
+      },
+      "StrategyDependency": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "category": { "$ref": "#/components/schemas/StrategyCategory" }
+        },
+        "required": ["id", "title", "category"],
+        "additionalProperties": false
+      },
+      "StrategyFactorWrite": {
+        "type": "object",
+        "properties": {
+          "factor_type": { "$ref": "#/components/schemas/StrategyFactorType" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "evidence": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "owner": { "type": "string", "maxLength": 120 },
+          "priority": { "type": "integer", "minimum": 1, "maximum": 5 }
+        },
+        "required": ["factor_type", "title", "evidence", "owner", "priority"],
+        "additionalProperties": false
+      },
+      "StrategyFactorUpdate": {
+        "type": "object",
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "factor_type": { "$ref": "#/components/schemas/StrategyFactorType" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "evidence": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "owner": { "type": "string", "maxLength": 120 },
+          "priority": { "type": "integer", "minimum": 1, "maximum": 5 }
+        },
+        "required": ["revision"],
+        "anyOf": [
+          { "required": ["factor_type"] }, { "required": ["title"] }, { "required": ["evidence"] },
+          { "required": ["owner"] }, { "required": ["priority"] }
+        ],
+        "additionalProperties": false
+      },
+      "StrategyFactor": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "factor_type": { "$ref": "#/components/schemas/StrategyFactorType" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "evidence": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "owner": { "type": "string", "maxLength": 120 },
+          "priority": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "revision": { "type": "integer", "minimum": 1 },
+          "updated_at": { "type": "string", "format": "date-time" },
+          "linked_options": { "type": "array", "items": { "$ref": "#/components/schemas/StrategyDependency" } }
+        },
+        "required": ["id", "factor_type", "title", "evidence", "owner", "priority", "revision", "updated_at", "linked_options"],
+        "additionalProperties": false
+      },
+      "StrategyFactorDelete": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "deleted": { "type": "boolean", "enum": [true] },
+          "affected_options": { "type": "array", "items": { "$ref": "#/components/schemas/StrategyDependency" } }
+        },
+        "required": ["id", "deleted", "affected_options"],
+        "additionalProperties": false
+      },
+      "StrategyFactorRef": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "factor_type": { "$ref": "#/components/schemas/StrategyFactorType" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 }
+        },
+        "required": ["id", "factor_type", "title"],
+        "additionalProperties": false
+      },
+      "StrategyOptionWrite": {
+        "type": "object",
+        "properties": {
+          "category": { "$ref": "#/components/schemas/StrategyCategory" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "action": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "rationale": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "hypothesis": { "type": "string", "minLength": 1, "maxLength": 600 },
+          "cost": { "type": "string", "maxLength": 300 },
+          "factor_ids": { "type": "array", "minItems": 2, "maxItems": 10, "uniqueItems": true, "items": { "type": "string", "format": "uuid" } }
+        },
+        "required": ["category", "title", "action", "rationale", "hypothesis", "factor_ids"],
+        "additionalProperties": false
+      },
+      "StrategyOptionUpdate": {
+        "type": "object",
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "category": { "$ref": "#/components/schemas/StrategyCategory" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "action": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "rationale": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "hypothesis": { "type": "string", "minLength": 1, "maxLength": 600 },
+          "cost": { "type": "string", "maxLength": 300 },
+          "factor_ids": { "type": "array", "minItems": 2, "maxItems": 10, "uniqueItems": true, "items": { "type": "string", "format": "uuid" } }
+        },
+        "required": ["revision"],
+        "anyOf": [
+          { "required": ["category"] }, { "required": ["title"] }, { "required": ["action"] },
+          { "required": ["rationale"] }, { "required": ["hypothesis"] }, { "required": ["cost"] }, { "required": ["factor_ids"] }
+        ],
+        "additionalProperties": false
+      },
+      "StrategyOption": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "category": { "$ref": "#/components/schemas/StrategyCategory" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "action": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "rationale": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "hypothesis": { "type": "string", "minLength": 1, "maxLength": 600 },
+          "cost": { "type": "string", "maxLength": 300 },
+          "factor_refs": { "type": "array", "items": { "$ref": "#/components/schemas/StrategyFactorRef" } },
+          "needs_review": { "type": "boolean" },
+          "revision": { "type": "integer", "minimum": 1 },
+          "updated_at": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "category", "title", "action", "rationale", "hypothesis", "cost", "factor_refs", "needs_review", "revision", "updated_at"],
+        "additionalProperties": false
+      },
+      "StrategyOptionDelete": {
+        "type": "object",
+        "properties": { "id": { "type": "string", "format": "uuid" }, "deleted": { "type": "boolean", "enum": [true] } },
+        "required": ["id", "deleted"],
+        "additionalProperties": false
+      },
+      "StrategyBoard": {
+        "type": "object",
+        "properties": {
+          "workspace_id": { "type": "string", "format": "uuid" },
+          "factors": { "type": "array", "maxItems": 100, "items": { "$ref": "#/components/schemas/StrategyFactor" } },
+          "options": { "type": "array", "maxItems": 50, "items": { "$ref": "#/components/schemas/StrategyOption" } }
+        },
+        "required": ["workspace_id", "factors", "options"],
         "additionalProperties": false
       },
       "ProfileProduct": {

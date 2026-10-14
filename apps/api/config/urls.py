@@ -1,6 +1,13 @@
 from django.urls import path
 from modules.core.views import live, ready
 from modules.imports.views import preview_import, workspace_import_detail, workspace_imports
+from modules.strategy.views import (
+    strategy_board,
+    strategy_factor_create,
+    strategy_factor_detail,
+    strategy_option_create,
+    strategy_option_detail,
+)
 from modules.accounts.auth_views import (
     csrf_cookie,
     account_preferences,
@@ -37,6 +44,11 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
     path('api/v1/workspaces/<str:workspace_id>/profile/', workspace_profile),
     path('api/v1/workspaces/<str:workspace_id>/profile/revisions/', workspace_profile_revisions),
+    path('api/v1/workspaces/<str:workspace_id>/strategy/', strategy_board),
+    path('api/v1/workspaces/<str:workspace_id>/strategy/factors/', strategy_factor_create),
+    path('api/v1/workspaces/<str:workspace_id>/strategy/factors/<uuid:factor_id>/', strategy_factor_detail),
+    path('api/v1/workspaces/<str:workspace_id>/strategy/options/', strategy_option_create),
+    path('api/v1/workspaces/<str:workspace_id>/strategy/options/<uuid:option_id>/', strategy_option_detail),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),
     path('api/v1/workspaces/<str:workspace_id>/imports/<uuid:batch_id>/', workspace_import_detail),

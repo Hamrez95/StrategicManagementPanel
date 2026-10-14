@@ -592,7 +592,7 @@
         "STR-018"
       ],
       "lane": "strategy",
-      "paths": "src/calculations.js; apps/web/src/features/swot/; apps/api/modules/strategy/swot",
+      "paths": "apps/web/src/features/strategy/; apps/web/src/App.tsx; apps/web/src/api/contracts.ts; apps/api/modules/strategy/; apps/api/config/urls.py; docs/api/openapi.json",
       "scope": [
         "ویرایش عوامل چهارگانه با evidence، owner و اولویت بساز",
         "TOWS پیشنهادهای راهبرد را با عوامل منبع مرتبط کند و ویرایش دستی مجاز باشد",
@@ -611,9 +611,10 @@
       "risk": "متوسط",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 19,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/19"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/19",
+      "progress_evidence": "Workspace-scoped SWOT factors and manually authored TOWS options, factor dependency review/repair, API contract, responsive RTL/LTR UI and authored API/browser coverage implemented; tests, migration, screenshots and acceptance evidence are deferred to final verification."
     },
     {
       "id": "STR-020",
