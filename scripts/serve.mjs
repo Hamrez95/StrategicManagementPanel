@@ -1,10 +1,12 @@
-import { createServer } from 'node:http';
+import { createServer, request as proxyRequest } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 
-const [portArg, rootArg] = process.argv.slice(2);
+const [portArg, rootArg, apiPortArg] = process.argv.slice(2);
 const port = Number(portArg);
 const root = path.resolve(rootArg ?? 'dist');
+const apiPort = apiPortArg === undefined ? null : Number(apiPortArg);
+if (apiPort !== null && (!Number.isInteger(apiPort) || apiPort < 1 || apiPort > 65535)) throw new Error('Invalid local API port');
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error('Usage: node scripts/serve.mjs <port> <dist-directory>');
 }
@@ -25,6 +27,18 @@ const mimeTypes = {
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+    if (pathname.startsWith('/api/')) {
+      if (apiPort === null) { response.writeHead(404, { 'Cache-Control': 'no-store' }).end('API unavailable'); return; }
+      const upstream = proxyRequest({ hostname: '127.0.0.1', port: apiPort, path: request.url, method: request.method, headers: request.headers }, (reply) => {
+        response.writeHead(reply.statusCode, { ...reply.headers, 'Cache-Control': 'no-store, private' });
+        reply.pipe(response);
+      });
+      upstream.setTimeout(10000, () => upstream.destroy());
+      upstream.on('error', () => { if (!response.headersSent) response.writeHead(502, { 'Cache-Control': 'no-store' }).end('Local API unavailable'); else response.destroy(); });
+      request.on('aborted', () => upstream.destroy());
+      request.pipe(upstream);
+      return;
+    }
     const requestedPath = path.resolve(root, `.${pathname}`);
     if (requestedPath !== root && !requestedPath.startsWith(`${root}${path.sep}`)) {
       response.writeHead(403).end('Forbidden');
