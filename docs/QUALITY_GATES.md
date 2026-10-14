@@ -21,3 +21,7 @@ TypeScript 7 in the initial foundation exceeded typescript-eslint's declared sup
 STR-009 adds a PostgreSQL service and backend dependency lock, blank-DB and upgrade migrations, missing/unsafe production configuration tests, standard error/health contract verification. STR-010/012 extend real authentication/permission negative tests. Planned API operations cannot be advertised as implemented simply because OpenAPI is valid.
 
 Merge only after all actual checks complete successfully for the exact head SHA. Creating a workflow does not itself configure GitHub branch protection. The current repository main is unprotected; required-check enforcement needs repository administration access, which the connected app does not expose. Our authorized merge workflow still verifies checks explicitly. This limitation remains recorded rather than claimed away.
+
+## Chromium offline simulation
+
+The first CI runs passed new UI and web routes but failed the legacy offline banner: network requests were offline while navigator.onLine remained true. Current Chromium separates network request emulation and navigator state. The test uses BrowserContext.setOffline plus native Network.overrideNetworkState, asserts navigator offline and a genuinely failed uncached request, then reloads cached prototype assets and verifies the banner. It does not inject a fake navigator value or skip offline assertions. [Official protocol](https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-overrideNetworkState).
