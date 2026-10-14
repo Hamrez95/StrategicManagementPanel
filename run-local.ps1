@@ -1,12 +1,13 @@
 param(
     [string[]] $Refs = @('main', 'HEAD'),
     [int] $FirstPort = 4173,
-    [switch] $NoBrowser
+    [switch] $NoBrowser,
+    [switch] $SmokeTest
 )
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = $PSScriptRoot
-$tempRoot = Join-Path ([IO.Path]::GetTempPath()) 'StrategicManagementPanel-local'
+$tempRoot = Join-Path ([IO.Path]::GetTempPath()) ('Stratino-local-' + [guid]::NewGuid().ToString('N'))
 $serverScript = Join-Path $repoRoot 'scripts/serve.mjs'
 $nodeCommand = Get-Command node -ErrorAction SilentlyContinue
 $gitCommand = Get-Command git -ErrorAction SilentlyContinue
@@ -15,13 +16,14 @@ $npmCommand = Get-Command npm -ErrorAction SilentlyContinue
 if (-not $nodeCommand) { throw 'Node.js پیدا نشد. Node.js 22 یا جدیدتر را نصب کنید.' }
 if (-not $gitCommand) { throw 'Git پیدا نشد. Git را نصب کنید و دوباره اجرا کنید.' }
 if (-not $npmCommand) { throw 'npm پیدا نشد. نصب Node.js را بررسی کنید.' }
+$nodeVersion = [version]((& $nodeCommand.Source --version).Trim().TrimStart('v'))
+if ($nodeVersion -lt [version]'22.12.0') { throw 'Node.js 22.12 یا جدیدتر لازم است. Node.js را به‌روزرسانی کنید.' }
 if (-not (Test-Path $serverScript)) { throw "فایل سرور پیدا نشد: $serverScript" }
 if ($Refs.Count -lt 1) { throw 'حداقل یک ref مانند main یا HEAD وارد کنید.' }
 if ($FirstPort -lt 1024 -or $FirstPort + $Refs.Count - 1 -gt 65535) {
     throw 'شماره پورت باید در بازه 1024 تا 65535 باشد.'
 }
 
-New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
 $worktrees = [Collections.Generic.List[string]]::new()
 $servers = [Collections.Generic.List[object]]::new()
 $urls = [Collections.Generic.List[string]]::new()
@@ -66,9 +68,17 @@ function Get-ServerFailure {
 }
 
 try {
+    # Validate every ref and port before creating a checkout or installing anything.
+    $commits = @()
+    for ($index = 0; $index -lt $Refs.Count; $index++) {
+        $commits += Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$($Refs[$index])^{commit}")
+        $port = $FirstPort + $index
+        if (-not (Test-PortAvailable -Port $port)) { throw "پورت $port اشغال است. برنامه مالک پورت را ببندید یا -FirstPort دیگری انتخاب کنید." }
+    }
+    New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
     for ($index = 0; $index -lt $Refs.Count; $index++) {
         $ref = $Refs[$index]
-        $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', "$ref^{commit}")
+        $commit = $commits[$index]
         if (-not $commit) { throw "Git ref پیدا نشد: $ref" }
 
         $safeName = ($ref -replace '[^A-Za-z0-9._-]', '_')
@@ -79,16 +89,16 @@ try {
         Push-Location $worktreePath
         try {
             Write-Host "ساخت نسخه $ref ($($commit.Substring(0, 8)))..."
+            if (-not (Test-Path -LiteralPath (Join-Path $worktreePath 'package-lock.json'))) { throw "نسخه $ref فایل قفل وابستگی ندارد؛ نصب قابل تکرار ممکن نیست." }
+            & $npmCommand.Source ci --no-audit --no-fund
+            if ($LASTEXITCODE -ne 0) { throw "نصب وابستگی نسخه $ref ناموفق بود. اتصال به registry و فایل قفل را بررسی کنید." }
             & $npmCommand.Source run build
             if ($LASTEXITCODE -ne 0) { throw "ساخت نسخه $ref ناموفق بود." }
         }
         finally { Pop-Location }
 
         $port = $FirstPort + $index
-        while ($usedPorts.Contains($port) -or -not (Test-PortAvailable -Port $port)) {
-            $port++
-            if ($port -gt 65535) { throw 'پورت آزاد برای اجرای سرور محلی پیدا نشد.' }
-        }
+        if (-not (Test-PortAvailable -Port $port)) { throw "پورت $port هنگام ساخت اشغال شد؛ -FirstPort دیگری انتخاب کنید." }
         [void]$usedPorts.Add($port)
         $distPath = Join-Path $worktreePath 'dist'
         $arguments = "$(Quote-ProcessArgument $serverScript) $port $(Quote-ProcessArgument $distPath)"
@@ -110,7 +120,9 @@ try {
                 $request.Timeout = 1000
                 $response = $request.GetResponse()
                 try {
-                    if ([int]$response.StatusCode -eq 200) { $ready = $true }
+                    $reader = [IO.StreamReader]::new($response.GetResponseStream())
+                    try { $html = $reader.ReadToEnd() } finally { $reader.Dispose() }
+                    if ([int]$response.StatusCode -eq 200 -and $html -match '<(?:div id="root"|html)') { $ready = $true }
                 }
                 finally { $response.Close() }
                 if ($ready) { break }
@@ -122,6 +134,8 @@ try {
         $urls.Add($url)
         Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
     }
+
+    if ($SmokeTest) { Write-Host 'بررسی اجرا موفق بود؛ سرورها بسته می‌شوند.' -ForegroundColor Green; return }
 
     if (-not $NoBrowser) {
         foreach ($url in $urls) { Start-Process $url }
@@ -139,10 +153,18 @@ try {
 finally {
     foreach ($server in $servers) {
         $server.Process.Refresh()
-        if (-not $server.Process.HasExited) { Stop-Process -Id $server.Process.Id -Force -ErrorAction SilentlyContinue }
+        if (-not $server.Process.HasExited) {
+            Stop-Process -Id $server.Process.Id -Force -ErrorAction SilentlyContinue
+            [void]$server.Process.WaitForExit(5000)
+        }
     }
     foreach ($worktree in $worktrees) {
-        & $gitCommand.Source -C $repoRoot worktree remove --force $worktree 2>$null | Out-Null
+        $resolved = [IO.Path]::GetFullPath($worktree)
+        $allowed = [IO.Path]::GetFullPath($tempRoot) + [IO.Path]::DirectorySeparatorChar
+        if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'مسیر پاک‌سازی خارج از پوشه موقت این اجرا است.' }
+        $cleanupResult = & $gitCommand.Source -C $repoRoot worktree remove --force $resolved 2>&1
+        $cleanupExit = $LASTEXITCODE
+        if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "پاک‌سازی worktree ناموفق بود؛ مسیر برای بررسی نگه داشته شد: $resolved ($cleanupResult)" }
     }
-    & $gitCommand.Source -C $repoRoot worktree prune 2>$null | Out-Null
+    Write-Host "گزارش این اجرا: $tempRoot"
 }
