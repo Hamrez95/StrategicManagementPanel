@@ -1,0 +1,72 @@
+import os
+import secrets
+from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+ENVIRONMENT = os.environ.get('STRATINO_ENV', 'development')
+if ENVIRONMENT not in ('development', 'production', 'test'):
+    raise ImproperlyConfigured('STRATINO_ENV must be development, test or production.')
+PRODUCTION = ENVIRONMENT == 'production'
+DEBUG = os.environ.get('DJANGO_DEBUG', '0' if PRODUCTION else '1') == '1'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1]' if not PRODUCTION else '').split(',') if host.strip()]
+if PRODUCTION:
+    if DEBUG or len(SECRET_KEY) < 50 or len(set(SECRET_KEY)) < 5 or not ALLOWED_HOSTS or '*' in ALLOWED_HOSTS:
+        raise ImproperlyConfigured('Production requires DEBUG=0, a strong secret and explicit allowed hosts.')
+elif not SECRET_KEY:
+    # Ephemeral development only: restart invalidates sessions unless configured.
+    SECRET_KEY = secrets.token_urlsafe(64)
+
+INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.core']
+MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'modules.core.middleware.PrivateResponseMiddleware']
+ROOT_URLCONF = 'config.urls'
+WSGI_APPLICATION = 'config.wsgi.application'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'accounts.User'
+DATABASES = {'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.environ.get('POSTGRES_DB', 'stratino'),
+    'USER': os.environ.get('POSTGRES_USER', 'stratino'),
+    'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
+    'HOST': os.environ.get('POSTGRES_HOST', '127.0.0.1'),
+    'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+    'CONN_MAX_AGE': 0,
+    'OPTIONS': {'connect_timeout': 3, 'sslmode': os.environ.get('POSTGRES_SSLMODE', 'require' if PRODUCTION else 'prefer')},
+}}
+if PRODUCTION and (not DATABASES['default']['PASSWORD'] or DATABASES['default']['OPTIONS']['sslmode'] not in ('require', 'verify-ca', 'verify-full')):
+    raise ImproperlyConfigured('Production requires database credentials and TLS.')
+LANGUAGE_CODE = 'fa'
+TIME_ZONE = 'Asia/Tehran'
+USE_I18N = True
+USE_TZ = True
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.SessionAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
+    'EXCEPTION_HANDLER': 'modules.core.errors.exception_handler',
+}
+AUTH_PASSWORD_VALIDATORS = [{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 12}}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = PRODUCTION
+CSRF_COOKIE_SECURE = PRODUCTION
+SESSION_COOKIE_SAMESITE = 'Lax'
+SECURE_SSL_REDIRECT = PRODUCTION
+SECURE_HSTS_SECONDS = 31536000 if PRODUCTION else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = PRODUCTION
+SECURE_HSTS_PRELOAD = PRODUCTION
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2 * 1024 * 1024
+MEDIA_ROOT = Path(os.environ.get('STRATINO_PRIVATE_FILES', str(BASE_DIR / '.private-files')))
+STORAGES = {'default': {'BACKEND': 'modules.core.storage.PrivateFileStorage'}}
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', '127.0.0.1')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '1025'))
+EMAIL_TIMEOUT = 5
+EMAIL_USE_TLS = PRODUCTION
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'development@stratino.invalid')
+if not PRODUCTION and EMAIL_HOST not in ('localhost', '127.0.0.1', 'mailpit'):
+    raise ImproperlyConfigured('Development email must use the local catcher.')

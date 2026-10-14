@@ -1,0 +1,42 @@
+name: API foundation
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: api-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      COMPOSE_PROJECT_NAME: stratino-ci
+      POSTGRES_PASSWORD: synthetic-local-ci-only-password
+      DJANGO_SECRET_KEY: synthetic-local-ci-only-key-with-many-characters-never-use-in-production-58310
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Build, migrate and test against PostgreSQL
+        run: |
+          docker compose -f infra/compose.dev.yml config --quiet
+          docker compose -f infra/compose.dev.yml build api
+          docker compose -f infra/compose.dev.yml up -d --wait db mailpit
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --noinput
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --check
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py makemigrations --check --dry-run
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py check
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py test --noinput
+          docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid api python manage.py check --deploy --fail-level WARNING
+      - name: HTTP readiness, private file persistence and local email
+        run: |
+          docker compose -f infra/compose.dev.yml up -d --wait api
+          curl --fail http://127.0.0.1:8000/api/v1/health/ready
+          docker compose -f infra/compose.dev.yml exec -T api python scripts/smoke.py write
+          docker compose -f infra/compose.dev.yml restart api
+          docker compose -f infra/compose.dev.yml up -d --wait api
+          docker compose -f infra/compose.dev.yml exec -T api python scripts/smoke.py read
+      - name: Stop owned CI services
+        if: always()
+        run: docker compose -f infra/compose.dev.yml down --volumes
