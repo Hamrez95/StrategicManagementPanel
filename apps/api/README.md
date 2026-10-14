@@ -1,6 +1,6 @@
 # API boundary
 
-STR-009 implements the Django 5.2 LTS / DRF foundation and a PostgreSQL-only database. STR-010 adds email-based UUID accounts, session authentication and account recovery. Workspace and upload endpoints remain planned in the OpenAPI design contract.
+STR-009 implements the Django 5.2 LTS / DRF foundation and a PostgreSQL-only database. STR-010 adds email-based UUID accounts, session authentication and account recovery. STR-011 adds account profile and preferences. STR-012 adds owner/editor/viewer Workspace authorization, private Workspace list/detail endpoints and scoped-query helpers. Workspace creation and invitation flows are in STR-013; analysis, document, attachment, search, export and job endpoints remain future work.
 
 STR-010 adds same-origin session authentication. The browser first loads `GET /api/v1/csrf/`, then sends the `csrftoken` cookie value in `X-CSRFToken` for every account-changing request. `GET /api/v1/session/` returns the current verified account or 401. Account endpoints are `POST /api/v1/accounts/signup/`, `verify-email/`, `resend-verification/`, `login/`, `logout/`, `password-reset/request/`, and `password-reset/confirm/`. STR-011 adds authenticated `GET/PATCH /api/v1/account/profile/` and `GET/PATCH /api/v1/account/preferences/`, plus `POST /api/v1/account/email-change/` and the signed-link confirmation endpoint.
 
@@ -18,6 +18,8 @@ docker compose --env-file .env -f infra/compose.dev.yml up -d --wait api
 API readiness: `http://127.0.0.1:8000/api/v1/health/ready`; email catcher: `http://127.0.0.1:8025`. Database has no published port; service networking is internal. Mailpit has no relay configured. Every API response is private/no-store. Private bytes live in a named volume with no public media route or storage URL. This storage is a development foundation; workspace download authorization and file quarantine arrive in STR-023.
 
 `health/live` checks the process; `health/ready` requires PostgreSQL connectivity and all migrations applied. Neither reveals database/credential/version details. Production rejects debug mode, absent/weak secrets, wildcard hosts and insecure database settings. These checks do not by themselves make the application ready for production. A deployment needs email, proxy, permissions, backups, and the later release gates.
+
+Workspace authorization rules and mandatory queryset helpers are documented in `modules/workspaces/README.md`. Every endpoint that returns private API data is `private, no-store`; future file downloads must repeat the membership check on every request. STR-012's negative permission, IDOR, migration and endpoint checks are deferred to the final validation batch as requested.
 
 For a native Python 3.12 environment use `pip install --require-hashes -r apps/api/requirements.txt`, set PostgreSQL environment variables, and run commands from `apps/api`. Regenerate the universal hashed lock with `uv pip compile apps/api/requirements.in --python-version 3.12 --universal --generate-hashes -o apps/api/requirements.txt`.
 

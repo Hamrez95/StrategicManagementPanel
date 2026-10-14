@@ -1048,7 +1048,7 @@
       "get": {
         "operationId": "listWorkspaces",
         "summary": "listWorkspaces",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Live read endpoint. Returns only active-session user's accessible Workspaces with private/no-store caching. Cursor is signed, account-bound and expires after one hour.",
         "security": [
           {
             "cookieSession": []
@@ -1311,7 +1311,7 @@
       "get": {
         "operationId": "readWorkspace",
         "summary": "readWorkspace",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Live read endpoint. Only owners and current members can read a Workspace; missing or invisible IDs return the same 404. Response is private/no-store.",
         "security": [
           {
             "cookieSession": []
@@ -4213,7 +4213,8 @@
         },
         "required": [
           "id",
-          "name"
+          "name",
+          "role"
         ],
         "additionalProperties": false
       },

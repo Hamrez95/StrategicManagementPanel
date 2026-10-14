@@ -24,6 +24,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 from .models import AccountPreferences, AuthRateLimit, User
+from modules.workspaces.services import workspace_session_payload
 
 logger = logging.getLogger(__name__)
 EMAIL_VERIFICATION_SALT = 'stratino.email-verification'
@@ -200,7 +201,7 @@ def session_view(request):
                 'name': user.display_name or user.get_full_name() or user.email,
                 'is_staff': bool(user.is_staff),
             },
-            'workspaces': [],
+            'workspaces': workspace_session_payload(user),
         }
     )
 

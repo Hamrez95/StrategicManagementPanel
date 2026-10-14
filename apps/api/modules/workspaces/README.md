@@ -1,0 +1,11 @@
+# Workspace authorization boundary
+
+`Workspace.owner_id` is the only owner authority. Owner/editor/viewer is resolved centrally: owner is derived from that field, while `Membership` stores only editor or viewer. `is_staff` is an operator capability and never grants access to a customer's Workspace.
+
+Use `accessible_workspaces_for(user)` for every Workspace list and detail lookup. Use `scope_queryset_to_user_workspaces(queryset, user, workspace_field, workspace_id)` before reading, changing, deleting, searching, exporting or processing child rows. Resolve a nested ID with `get_workspace_child_or_404`; the route Workspace remains authoritative. Validate every nested relation with `validate_related_workspaces` before save. Bulk operations must be applied to the scoped queryset, never to an unfiltered model manager.
+
+Views that write must define an explicit `workspace_roles` allow-list and apply `WorkspaceRolePermission`. Editors can write business resources; viewers can only read and export; owner-only operations must allow only `owner`. A missing/non-member Workspace or nested row uses a generic 404. A visible Workspace with an insufficient role returns 403. Use `workspace_role(assignee, workspace)` to validate assignments. Never grant access by accepting a Workspace ID from a child payload.
+
+Membership changes are owner-only and transactional. Owner identity is not a Membership row, so a member-removal operation cannot remove the last owner. Every request re-queries current membership; do not cache an authorization decision or a private download URL. API responses are `private, no-store`. A future download endpoint must re-check membership on each request and stream through private storage. The server currently has no analysis, document, attachment, search, export or job endpoints; when introduced, each must use the scoping helpers above before this boundary can be considered complete for that resource family.
+
+`GET /api/v1/workspaces/` returns at most 100 authorized rows and uses a one-hour, per-account signed cursor. `BillingAccount` currently establishes the required owner-to-Workspace relationship only. Plans, quotas, invoices and payment behavior are deferred to STR-029. Workspace creation always obtains the owner's own account through `create_owned_workspace`; no client-supplied billing account is accepted.

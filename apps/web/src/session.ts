@@ -1,7 +1,7 @@
 export type Session = {
   authenticated: true;
   user: { id: string; name: string; is_staff: boolean };
-  workspaces: Array<{ id: string; name: string }>;
+  workspaces: Array<{ id: string; name: string; role: 'owner' | 'editor' | 'viewer' }>;
 };
 export async function readSession(signal?: AbortSignal): Promise<Session | null> {
   const response = await fetch('/api/v1/session/', {
@@ -25,7 +25,13 @@ export async function readSession(signal?: AbortSignal): Promise<Session | null>
     typeof s.user.name !== 'string' ||
     typeof s.user.is_staff !== 'boolean' ||
     !Array.isArray(s.workspaces) ||
-    s.workspaces.some((w) => !w || typeof w.id !== 'string' || typeof w.name !== 'string')
+    s.workspaces.some(
+      (w) =>
+        !w ||
+        typeof w.id !== 'string' ||
+        typeof w.name !== 'string' ||
+        !['owner', 'editor', 'viewer'].includes(w.role),
+    )
   )
     throw new Error('پاسخ حساب معتبر نیست.');
   return s as Session;

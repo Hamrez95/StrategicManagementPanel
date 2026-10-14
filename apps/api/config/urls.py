@@ -15,12 +15,15 @@ from modules.accounts.auth_views import (
     signup,
     verify_email,
 )
+from modules.workspaces.views import list_workspaces, read_workspace
 
 urlpatterns = [
     path('api/v1/health/live', live),
     path('api/v1/health/ready', ready),
     path('api/v1/csrf/', csrf_cookie),
     path('api/v1/session/', session_view),
+    path('api/v1/workspaces/', list_workspaces),
+    path('api/v1/workspaces/<str:workspace_id>/', read_workspace),
     path('api/v1/accounts/signup/', signup),
     path('api/v1/accounts/verify-email/', verify_email),
     path('api/v1/accounts/resend-verification/', resend_verification),
