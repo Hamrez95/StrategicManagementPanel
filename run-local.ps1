@@ -162,7 +162,7 @@ finally {
         $resolved = [IO.Path]::GetFullPath($worktree)
         $allowed = [IO.Path]::GetFullPath($tempRoot) + [IO.Path]::DirectorySeparatorChar
         if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'مسیر پاک‌سازی خارج از پوشه موقت این اجرا است.' }
-        $cleanupResult = & $gitCommand.Source -C $repoRoot worktree remove --force $resolved 2>&1
+        $cleanupResult = & $gitCommand.Source -c core.longpaths=true -C $repoRoot worktree remove --force $resolved 2>&1
         $cleanupExit = $LASTEXITCODE
         if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "پاک‌سازی worktree ناموفق بود؛ مسیر برای بررسی نگه داشته شد: $resolved ($cleanupResult)" }
     }
