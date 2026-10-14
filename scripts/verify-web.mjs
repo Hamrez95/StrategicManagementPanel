@@ -71,7 +71,12 @@ try {
   let createdWorkspaceCount = 0;
   let accountProfile = { email: 'owner@example.test', display_name: 'مدیر نمونه', role_title: '', pending_email: '' };
   let accountPreferences = { theme: 'light', language: 'fa', motion: 'auto', show_tutorial: true, device_sync_pending: false, updated_at: new Date().toISOString() };
-  const projectProfiles = new Map([['w1', { workspace_id: 'w1', industry: '', stage: '', mission: '', revision: 1, onboarding_completed_at: null }]]);
+  const emptyProfile = (workspaceId) => ({
+    workspace_id: workspaceId, company_name: '', industry: '', stage: '', mission: '', problem_statement: '',
+    products: [], customer_segments: [], goals: [], icps: [], revision: 1, onboarding_completed_at: null,
+  });
+  const projectProfiles = new Map([['w1', emptyProfile('w1')]]);
+  const profileHistory = new Map([['w1', []]]);
   let loseProfilePatchResponse = false;
   let failProfileNextPatch = false;
   let failProfileNextRead = false;
@@ -99,7 +104,8 @@ try {
       const body = request.postDataJSON();
       const created = { id: 'w2', owner_id: session.user.id, billing_account_id: 'billing-2', name: body.name, revision: 1, archived_at: null };
       workspaceRows.push(created);
-      projectProfiles.set('w2', { workspace_id: 'w2', industry: '', stage: '', mission: '', revision: 1, onboarding_completed_at: null });
+      projectProfiles.set('w2', emptyProfile('w2'));
+      profileHistory.set('w2', []);
       session = { ...session, workspaces: [...session.workspaces, { id: 'w2', name: created.name, role: 'owner' }] };
       createdWorkspaceCount++;
       return route.fulfill({ status: 201, json: created });
@@ -165,6 +171,10 @@ try {
       batch.undone_at = new Date().toISOString();
       return route.fulfill({ status: 204, body: '' });
     }
+    const profileRevisionsMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/profile\/revisions\/$/);
+    if (profileRevisionsMatch && request.method() === 'GET') {
+      return route.fulfill({ json: { items: profileHistory.get(profileRevisionsMatch[1]) ?? [] } });
+    }
     const profileMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/profile\/$/);
     if (profileMatch && request.method() === 'GET') {
       if (expireProfileNextRead) {
@@ -188,9 +198,13 @@ try {
       if (!profile) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
       const body = request.postDataJSON();
       if (body.revision !== profile.revision) return route.fulfill({ status: 409, json: { code: 'revision_conflict', message: 'اطلاعات پروژه هم‌زمان تغییر کرده است.', fields: { revision: ['نسخه فعلی تغییر کرده است.'] } } });
-      for (const key of ['industry', 'stage', 'mission']) if (typeof body[key] === 'string') profile[key] = body[key].trim();
+      for (const key of ['company_name', 'industry', 'stage', 'mission', 'problem_statement']) if (typeof body[key] === 'string') profile[key] = body[key].trim();
+      for (const key of ['products', 'customer_segments', 'goals', 'icps']) if (Array.isArray(body[key])) profile[key] = structuredClone(body[key]);
       if (body.complete === true) profile.onboarding_completed_at = new Date().toISOString();
       profile.revision++;
+      profileHistory.set(profileMatch[1], [{
+        revision: profile.revision, snapshot: structuredClone(profile), changed_by_id: session.user.id, created_at: new Date().toISOString(),
+      }, ...(profileHistory.get(profileMatch[1]) ?? [])].slice(0, 10));
       if (loseProfilePatchResponse) {
         loseProfilePatchResponse = false;
         return route.fulfill({ status: 503, json: { code: 'temporary_failure', message: 'پاسخ ذخیره دریافت نشد.' } });
@@ -231,6 +245,44 @@ try {
   await profileIndustry.fill('فناوری');
   await page.locator('.workspace-save-status').getByText('همه تغییرها ذخیره شد.').waitFor();
   assert.equal(projectProfiles.get('w1').industry, 'فناوری');
+
+  await page.goto(url + '/app/workspaces/w1/tools/company');
+  await page.getByRole('heading', { name: 'شرکت و مشتری ایده‌آل' }).waitFor();
+  await page.getByText('هنوز ICP نساخته‌اید').waitFor();
+  assert.equal(projectProfiles.get('w1').company_name, '', 'a new profile must not contain a seeded company');
+  assert.deepEqual(projectProfiles.get('w1').icps, [], 'a new profile must not contain a seeded ICP');
+  await page.getByRole('button', { name: 'راهنمای ICP' }).click();
+  await page.getByRole('dialog').getByText(/باوری را که هنوز بررسی نشده/).waitFor();
+  await page.getByRole('dialog').getByRole('button', { name: 'بستن' }).click();
+  await page.getByRole('button', { name: 'تعریف اولین ICP' }).click();
+  await page.getByLabel('نام شرکت یا پروژه').fill('راهکار مشتریان سازمانی');
+  await page.getByLabel('نام ICP').fill('تیم‌های تولید متوسط');
+  await page.getByLabel('صنعت').fill('تولید صنعتی');
+  await page.getByLabel('نقش پرسونا').fill('مدیر عملیات');
+  await page.getByLabel('مسئله برای حل').fill('هماهنگی سفارش‌ها میان واحدها دشوار است.');
+  await page.getByRole('button', { name: 'افزودن شاهد' }).click();
+  await page.getByLabel('آنچه مشاهده شد').fill('سه مدیر عملیات این تاخیر را گزارش کردند.');
+  await page.getByLabel('منبع یا ارجاع').fill('مصاحبه‌های مشتری خرداد');
+  await page.getByRole('button', { name: 'افزودن فرضیه' }).click();
+  await page.getByLabel('فرضیه').fill('شرکت‌ها برای کاهش تاخیر بودجه اختصاص می‌دهند.');
+  await page.getByLabel('آزمون بعدی').fill('بودجه را در مصاحبه بعدی بررسی کنیم.');
+  await page.getByRole('button', { name: 'ذخیره پروفایل' }).click();
+  await page.getByRole('status').filter({ hasText: 'اطلاعات این فضای کار ذخیره شد' }).waitFor();
+  assert.equal(projectProfiles.get('w1').company_name, 'راهکار مشتریان سازمانی');
+  assert.equal(projectProfiles.get('w1').icps[0].evidence[0].statement, 'سه مدیر عملیات این تاخیر را گزارش کردند.');
+  assert.equal(projectProfiles.get('w1').icps[0].assumptions[0].statement, 'شرکت‌ها برای کاهش تاخیر بودجه اختصاص می‌دهند.');
+  await page.getByRole('heading', { name: 'نسخه‌های ذخیره‌شده اخیر' }).waitFor();
+  await page.getByRole('button', { name: 'بارگذاری در پیش‌نویس' }).waitFor();
+  await page.getByLabel('جست‌وجوی ICP').fill('تیم‌های تولید');
+  await page.getByRole('button', { name: /تیم‌های تولید متوسط/ }).waitFor();
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `company profile overflow ${width}/${theme}`);
+      await page.screenshot({ path: `test-results/web/company-profile-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
+    }
+  }
 
   const legacyImportFixture = {
     version: 1, org: { name: 'شرکت نمونه' }, completed: [false, false, false, false, false, false],
@@ -447,6 +499,14 @@ try {
   assert.equal(projectProfiles.get('w2').industry, 'نرم‌افزار');
   assert.equal(projectProfiles.get('w2').mission, 'رسیدن به نخستین مشتریان');
   assert.equal(createdWorkspaceCount, 1);
+  await page.goto(url + '/app/workspaces/w2/tools/company');
+  await page.getByRole('heading', { name: 'شرکت و مشتری ایده‌آل' }).waitFor();
+  await page.getByRole('button', { name: 'تعریف اولین ICP' }).click();
+  await page.getByLabel('نام ICP').fill('مشتری مستقل پروژه دوم');
+  await page.getByRole('button', { name: 'ذخیره پروفایل' }).click();
+  await page.getByRole('status').filter({ hasText: 'اطلاعات این فضای کار ذخیره شد' }).waitFor();
+  assert.equal(projectProfiles.get('w2').icps[0].name, 'مشتری مستقل پروژه دوم');
+  assert.equal(projectProfiles.get('w1').icps[0].name, 'تیم‌های تولید متوسط', 'Workspace ICPs must stay isolated');
 
   await page.goto(url + '/app/start');
   await page.waitForURL(/\/app\/workspaces\/w2$/);

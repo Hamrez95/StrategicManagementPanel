@@ -52,19 +52,21 @@ export function WorkspaceOverviewPage() {
               <h2 id="workspace-profile-summary-title">{english ? 'Starting direction' : 'جهت اولیه پروژه'}</h2>
               <p>{english ? 'The project profile saved for this Workspace.' : 'اطلاعات پایه‌ای که برای این فضا ثبت کرده‌اید.'}</p>
             </div>
-            <Link className="text-link" to={`/app/workspaces/${encodeURIComponent(workspaceId)}/settings`}>{english ? 'Edit details' : 'ویرایش اطلاعات'}</Link>
+            <Link className="text-link" to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/company`}>{english ? 'Edit business profile' : 'ویرایش شناخت کسب‌وکار'}</Link>
           </div>
-          {profileQuery.data.industry || profileQuery.data.stage || profileQuery.data.mission ? (
+          {profileQuery.data.company_name || profileQuery.data.industry || profileQuery.data.stage || profileQuery.data.mission || profileQuery.data.icps.length ? (
             <dl className="workspace-home__facts">
+              <div><dt>{english ? 'Company or project' : 'شرکت یا پروژه'}</dt><dd>{profileQuery.data.company_name || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
               <div><dt>{english ? 'Industry' : 'حوزه فعالیت'}</dt><dd>{profileQuery.data.industry || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
               <div><dt>{english ? 'Current stage' : 'مرحله فعلی'}</dt><dd>{profileQuery.data.stage || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
               <div><dt>{english ? 'Goal or challenge' : 'هدف یا مسئله'}</dt><dd>{profileQuery.data.mission || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
+              <div><dt>{english ? 'Ideal customer profiles' : 'پروفایل‌های مشتری ایده‌آل'}</dt><dd>{new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(profileQuery.data.icps.length)}</dd></div>
             </dl>
           ) : (
             <EmptyState
               title={english ? 'Project direction has not been added' : 'هنوز جهت پروژه را ثبت نکرده‌اید'}
-              description={english ? 'Add an industry, stage or goal to give your strategy work a useful starting point.' : 'حوزه، مرحله یا هدف پروژه را بنویسید تا کار استراتژی نقطه شروع روشن‌تری داشته باشد.'}
-              action={<Link className="ui-button ui-button--secondary" to={`/app/workspaces/${encodeURIComponent(workspaceId)}/settings`}>{english ? 'Add project details' : 'ثبت اطلاعات پروژه'}</Link>}
+              description={english ? 'Add a business profile or ideal customer to give your strategy work a useful starting point.' : 'شناخت کسب‌وکار یا مشتری ایده‌آل را بنویسید تا کار استراتژی نقطه شروع روشن‌تری داشته باشد.'}
+              action={<Link className="ui-button ui-button--secondary" to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/company`}>{english ? 'Add business profile' : 'ثبت شناخت کسب‌وکار'}</Link>}
             />
           )}
         </section>

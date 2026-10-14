@@ -26,6 +26,7 @@ function routeChoices(workspaceId: string | undefined, english: boolean): RouteC
       path: workspaceToolPath(workspaceId, tool.id),
       keywords: `${group.title.fa} ${group.title.en} ${tool.id} ${tool.legacyHash}`,
     }))),
+    { title: english ? 'ICP guide and customer profiles' : 'راهنمای ICP و پروفایل مشتری', path: `${workspaceToolPath(workspaceId, 'company')}#icps`, keywords: 'ICP ideal customer persona segment evidence assumption مشتری ایده‌آل پرسونا بخش بازار شاهد فرضیه' },
   );
   return choices;
 }

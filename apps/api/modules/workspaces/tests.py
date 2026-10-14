@@ -12,6 +12,7 @@ from rest_framework.exceptions import NotFound, PermissionDenied
 
 from modules.accounts.models import User
 from modules.workspaces.models import BillingAccount, Membership, Workspace, WorkspaceInvitation, WorkspaceProfile
+from modules.workspaces.models import WorkspaceProfileRevision
 from modules.workspaces.permissions import get_workspace_child_or_404
 from modules.workspaces.services import (
     WorkspaceActionError,
@@ -262,6 +263,9 @@ class WorkspaceAuthorizationTests(TestCase):
         self.assertEqual(initial.status_code, 200)
         self.assertEqual(initial.json()['revision'], 1)
         self.assertEqual(initial.json()['industry'], '')
+        self.assertEqual(initial.json()['company_name'], '')
+        self.assertEqual(initial.json()['products'], [])
+        self.assertEqual(initial.json()['icps'], [])
         self.assertEqual(initial['Cache-Control'], 'no-store, private')
 
         owner_update = self.client.patch(
@@ -310,6 +314,87 @@ class WorkspaceAuthorizationTests(TestCase):
         self.client.force_login(self.outsider)
         hidden = self.client.get(endpoint)
         self.assertEqual(hidden.status_code, 404)
+
+    def test_strategy_profile_icp_evidence_and_revisions_are_workspace_scoped(self):
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'
+        icp = {
+            'id': 'icp-saas',
+            'name': 'تیم مالی شرکت‌های نرم‌افزاری',
+            'segment': {
+                'industry': 'نرم‌افزار', 'organization_size': '۲۰ تا ۱۰۰ نفر',
+                'geography': 'ایران', 'buying_context': 'گزارش مالی ماهانه',
+            },
+            'persona': {
+                'role': 'مدیر مالی', 'decision_role': 'تصمیم‌گیر خرید',
+                'goals': 'کاهش زمان بستن ماه', 'pains': 'اطلاعات در چند فایل پراکنده است',
+            },
+            'problem': 'گزارش قابل اتکا دیر آماده می‌شود.',
+            'evidence': [{
+                'id': 'evidence-1', 'source_type': 'interview', 'reference': 'مصاحبه ۱۴۰۵-۰۷',
+                'statement': 'سه مدیر مالی زمان زیادی برای تطبیق داده‌ها صرف می‌کنند.',
+                'date': '1405-07-01', 'confidence': 'medium',
+            }],
+            'assumptions': [{
+                'id': 'assumption-1', 'statement': 'این تیم‌ها برای گزارش خودکار بودجه دارند.',
+                'confidence': 'low', 'test': 'پرسش درباره بودجه در مصاحبه بعدی', 'status': 'untested',
+            }],
+        }
+        self.client.force_login(self.owner)
+        first = self.client.patch(
+            endpoint,
+            data={
+                'revision': 1,
+                'company_name': 'راهکار مالی آفتاب',
+                'problem_statement': 'تطبیق دستی داده‌ها کند است.',
+                'products': [{
+                    'id': 'product-finance', 'name': 'گزارش‌یار', 'description': 'گزارش مالی',
+                    'problem_solved': 'تطبیق دستی', 'target_customer': 'تیم مالی',
+                }],
+                'customer_segments': [{
+                    'id': 'segment-software', 'name': 'شرکت نرم‌افزاری', 'description': 'تیم رشد',
+                    'needs': 'گزارش سریع', 'buying_roles': 'مدیر مالی',
+                }],
+                'goals': [{'id': 'goal-close', 'title': 'کاهش زمان گزارش', 'success_signal': 'دو روز زودتر', 'timeframe': 'فصل جاری'}],
+                'icps': [icp],
+            },
+            content_type='application/json',
+        )
+        self.assertEqual(first.status_code, 200)
+        self.assertEqual(first.json()['revision'], 2)
+        self.assertEqual(first.json()['icps'][0]['evidence'][0]['confidence'], 'medium')
+        self.assertEqual(first.json()['icps'][0]['assumptions'][0]['status'], 'untested')
+
+        history = self.client.get(f'/api/v1/workspaces/{self.workspace.pk}/profile/revisions/')
+        self.assertEqual(history.status_code, 200)
+        self.assertEqual(history.json()['items'][0]['revision'], 2)
+        self.assertEqual(history.json()['items'][0]['snapshot']['company_name'], 'راهکار مالی آفتاب')
+        self.assertEqual(WorkspaceProfileRevision.objects.filter(profile__workspace=self.workspace).count(), 1)
+
+        other_endpoint = f'/api/v1/workspaces/{self.other_workspace.pk}/profile/'
+        self.client.force_login(self.outsider)
+        other = self.client.patch(
+            other_endpoint,
+            data={'revision': 1, 'company_name': 'کارگاه چوب', 'industry': 'تولید', 'icps': []},
+            content_type='application/json',
+        )
+        self.assertEqual(other.status_code, 200)
+        self.assertEqual(other.json()['icps'], [])
+        self.assertEqual(self.client.get(endpoint).status_code, 404)
+
+    def test_strategy_profile_rejects_invalid_icp_structure_without_revision_change(self):
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'
+        self.client.force_login(self.owner)
+        response = self.client.patch(
+            endpoint,
+            data={'revision': 1, 'icps': [{'id': 'bad', 'name': 'نامعتبر', 'evidence': []}]},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('icps.0', response.json()['fields'])
+        profile = WorkspaceProfile.objects.get(workspace=self.workspace)
+        self.assertEqual(profile.revision, 1)
+        self.assertEqual(profile.icps, [])
+        self.assertEqual(WorkspaceProfileRevision.objects.count(), 0)
 
     def test_owner_can_complete_profile_with_optional_fields_empty(self):
         endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'

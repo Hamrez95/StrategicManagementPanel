@@ -9,21 +9,59 @@ export type ApiWorkspace = {
   archived_at: string | null;
 };
 
+export type ApiProfileProduct = {
+  id: string; name: string; description: string; problem_solved: string; target_customer: string;
+};
+export type ApiProfileCustomerSegment = {
+  id: string; name: string; description: string; needs: string; buying_roles: string;
+};
+export type ApiProfileGoal = { id: string; title: string; success_signal: string; timeframe: string };
+export type ApiProfileEvidence = {
+  id: string;
+  source_type: 'interview' | 'sales' | 'support' | 'usage' | 'survey' | 'document' | 'secondary' | 'other';
+  reference: string;
+  statement: string;
+  date: string;
+  confidence: 'low' | 'medium' | 'high';
+};
+export type ApiProfileAssumption = {
+  id: string;
+  statement: string;
+  confidence: 'low' | 'medium' | 'high';
+  test: string;
+  status: 'untested' | 'supported' | 'rejected';
+};
+export type ApiWorkspaceICP = {
+  id: string;
+  name: string;
+  segment: { industry: string; organization_size: string; geography: string; buying_context: string };
+  persona: { role: string; decision_role: string; goals: string; pains: string };
+  problem: string;
+  evidence: ApiProfileEvidence[];
+  assumptions: ApiProfileAssumption[];
+};
 export type ApiWorkspaceProfile = {
   workspace_id: string;
+  company_name: string;
   industry: string;
   stage: string;
   mission: string;
+  problem_statement: string;
+  products: ApiProfileProduct[];
+  customer_segments: ApiProfileCustomerSegment[];
+  goals: ApiProfileGoal[];
+  icps: ApiWorkspaceICP[];
   revision: number;
   onboarding_completed_at: string | null;
 };
-
-export type ApiProfileWrite = { revision: number } & (
-  | { industry: string; stage?: string; mission?: string; complete?: true }
-  | { industry?: string; stage: string; mission?: string; complete?: true }
-  | { industry?: string; stage?: string; mission: string; complete?: true }
-  | { complete: true; industry?: string; stage?: string; mission?: string }
-);
+export type ApiProfileWrite = { revision: number; complete?: true } & Partial<Omit<ApiWorkspaceProfile,
+  'workspace_id' | 'revision' | 'onboarding_completed_at'>>;
+export type ApiWorkspaceProfileRevision = {
+  revision: number;
+  snapshot: ApiWorkspaceProfile;
+  changed_by_id: string;
+  created_at: string;
+};
 
 export type ApiWorkspaceMember = {
   user_id: string;
@@ -50,6 +88,12 @@ export type OpenApiPaths = {
       parameters: { path: { workspace_id: string } };
       requestBody: ApiProfileWrite;
       response: ApiWorkspaceProfile;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/profile/revisions/': {
+    get: {
+      parameters: { path: { workspace_id: string } };
+      response: { items: ApiWorkspaceProfileRevision[] };
     };
   };
 };
@@ -87,18 +131,133 @@ export function decodeWorkspaceProfile(value: unknown): ApiWorkspaceProfile {
   const item = record(value);
   const completedAt = item.onboarding_completed_at;
   if (completedAt !== null && typeof completedAt !== 'string') throw new TypeError('Expected completion date');
-  const profile = {
+  const profile: ApiWorkspaceProfile = {
     workspace_id: requiredString(item.workspace_id),
+    company_name: requiredString(item.company_name),
     industry: requiredString(item.industry),
     stage: requiredString(item.stage),
     mission: requiredString(item.mission),
+    problem_statement: requiredString(item.problem_statement),
+    products: decodeRows(item.products, decodeProduct),
+    customer_segments: decodeRows(item.customer_segments, decodeCustomerSegment),
+    goals: decodeRows(item.goals, decodeGoal),
+    icps: decodeRows(item.icps, decodeICP),
     revision: positiveRevision(item.revision),
     onboarding_completed_at: completedAt,
   };
-  if (profile.industry.length > 200 || profile.stage.length > 100 || profile.mission.length > 2000) {
+  if (profile.company_name.length > 120 || profile.industry.length > 200 || profile.stage.length > 100 || profile.mission.length > 2000 || profile.problem_statement.length > 2000) {
     throw new TypeError('Profile field exceeds its OpenAPI limit');
   }
   return profile;
+}
+
+function decodeRows<T>(value: unknown, decode: (item: unknown) => T): T[] {
+  if (!Array.isArray(value)) throw new TypeError('Expected profile list');
+  return value.map(decode);
+}
+
+function boundedString(value: unknown, max: number, field: string, required = false) {
+  if (typeof value !== 'string' || (required && !value.trim())) throw new TypeError(`Expected ${field}`);
+  const text = value;
+  if (text.length > max) throw new TypeError(`${field} exceeds its OpenAPI limit`);
+  return text;
+}
+
+function decodeProduct(value: unknown): ApiProfileProduct {
+  const item = record(value);
+  return {
+    id: boundedString(item.id, 80, 'product.id', true),
+    name: boundedString(item.name, 120, 'product.name', true),
+    description: boundedString(item.description, 1000, 'product.description'),
+    problem_solved: boundedString(item.problem_solved, 600, 'product.problem_solved'),
+    target_customer: boundedString(item.target_customer, 400, 'product.target_customer'),
+  };
+}
+
+function decodeCustomerSegment(value: unknown): ApiProfileCustomerSegment {
+  const item = record(value);
+  return {
+    id: boundedString(item.id, 80, 'customer.id', true),
+    name: boundedString(item.name, 120, 'customer.name', true),
+    description: boundedString(item.description, 1000, 'customer.description'),
+    needs: boundedString(item.needs, 600, 'customer.needs'),
+    buying_roles: boundedString(item.buying_roles, 400, 'customer.buying_roles'),
+  };
+}
+
+function decodeGoal(value: unknown): ApiProfileGoal {
+  const item = record(value);
+  return {
+    id: boundedString(item.id, 80, 'goal.id', true),
+    title: boundedString(item.title, 160, 'goal.title', true),
+    success_signal: boundedString(item.success_signal, 500, 'goal.success_signal'),
+    timeframe: boundedString(item.timeframe, 120, 'goal.timeframe'),
+  };
+}
+
+function decodeEvidence(value: unknown): ApiProfileEvidence {
+  const item = record(value);
+  if (!['interview', 'sales', 'support', 'usage', 'survey', 'document', 'secondary', 'other'].includes(String(item.source_type))) throw new TypeError('Invalid evidence source');
+  if (!['low', 'medium', 'high'].includes(String(item.confidence))) throw new TypeError('Invalid evidence confidence');
+  return {
+    id: boundedString(item.id, 80, 'evidence.id', true),
+    source_type: item.source_type as ApiProfileEvidence['source_type'],
+    reference: boundedString(item.reference, 400, 'evidence.reference'),
+    statement: boundedString(item.statement, 1000, 'evidence.statement', true),
+    date: boundedString(item.date, 32, 'evidence.date'),
+    confidence: item.confidence as ApiProfileEvidence['confidence'],
+  };
+}
+
+function decodeAssumption(value: unknown): ApiProfileAssumption {
+  const item = record(value);
+  if (!['low', 'medium', 'high'].includes(String(item.confidence))) throw new TypeError('Invalid assumption confidence');
+  if (!['untested', 'supported', 'rejected'].includes(String(item.status))) throw new TypeError('Invalid assumption status');
+  return {
+    id: boundedString(item.id, 80, 'assumption.id', true),
+    statement: boundedString(item.statement, 1000, 'assumption.statement', true),
+    confidence: item.confidence as ApiProfileAssumption['confidence'],
+    test: boundedString(item.test, 600, 'assumption.test'),
+    status: item.status as ApiProfileAssumption['status'],
+  };
+}
+
+function decodeICP(value: unknown): ApiWorkspaceICP {
+  const item = record(value);
+  const segment = record(item.segment);
+  const persona = record(item.persona);
+  return {
+    id: boundedString(item.id, 80, 'icp.id', true),
+    name: boundedString(item.name, 120, 'icp.name', true),
+    segment: {
+      industry: boundedString(segment.industry, 160, 'segment.industry'),
+      organization_size: boundedString(segment.organization_size, 120, 'segment.organization_size'),
+      geography: boundedString(segment.geography, 120, 'segment.geography'),
+      buying_context: boundedString(segment.buying_context, 500, 'segment.buying_context'),
+    },
+    persona: {
+      role: boundedString(persona.role, 120, 'persona.role'),
+      decision_role: boundedString(persona.decision_role, 120, 'persona.decision_role'),
+      goals: boundedString(persona.goals, 500, 'persona.goals'),
+      pains: boundedString(persona.pains, 500, 'persona.pains'),
+    },
+    problem: boundedString(item.problem, 1000, 'icp.problem'),
+    evidence: decodeRows(item.evidence, decodeEvidence),
+    assumptions: decodeRows(item.assumptions, decodeAssumption),
+  };
+}
+
+export function decodeWorkspaceProfileRevisions(value: unknown): ApiWorkspaceProfileRevision[] {
+  const response = record(value);
+  return decodeRows(response.items, (entry) => {
+    const item = record(entry);
+    return {
+      revision: positiveRevision(item.revision),
+      snapshot: decodeWorkspaceProfile(item.snapshot),
+      changed_by_id: requiredString(item.changed_by_id),
+      created_at: requiredString(item.created_at),
+    };
+  });
 }
 
 export function decodeWorkspaceMember(value: unknown): ApiWorkspaceMember {

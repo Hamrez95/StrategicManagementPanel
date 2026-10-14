@@ -84,9 +84,15 @@ class Membership(models.Model):
 
 class WorkspaceProfile(models.Model):
     workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, related_name='profile')
+    company_name = models.CharField(max_length=120, blank=True, default='')
     industry = models.CharField(max_length=200, blank=True, default='')
     stage = models.CharField(max_length=100, blank=True, default='')
     mission = models.TextField(max_length=2000, blank=True, default='')
+    problem_statement = models.TextField(max_length=2000, blank=True, default='')
+    products = models.JSONField(default=list)
+    customer_segments = models.JSONField(default=list)
+    goals = models.JSONField(default=list)
+    icps = models.JSONField(default=list)
     revision = models.PositiveIntegerField(default=1)
     onboarding_completed_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -94,6 +100,21 @@ class WorkspaceProfile(models.Model):
     class Meta:
         constraints = [
             models.CheckConstraint(condition=Q(revision__gte=1), name='workspace_profile_revision_gte_1'),
+        ]
+
+
+class WorkspaceProfileRevision(models.Model):
+    profile = models.ForeignKey(WorkspaceProfile, on_delete=models.CASCADE, related_name='history')
+    revision = models.PositiveIntegerField()
+    snapshot = models.JSONField()
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='workspace_profile_revisions')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-revision',)
+        constraints = [
+            models.UniqueConstraint(fields=('profile', 'revision'), name='workspace_profile_revision_unique'),
+            models.CheckConstraint(condition=Q(revision__gte=1), name='workspace_profile_history_revision_gte_1'),
         ]
 
 

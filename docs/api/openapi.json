@@ -1811,6 +1811,22 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/profile/revisions/": {
+      "get": {
+        "operationId": "listWorkspaceProfileRevisions",
+        "summary": "List recent profile revisions",
+        "description": "Returns up to ten private immutable profile snapshots for an authorized Workspace member.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Private profile history", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceProfileRevisionList" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/profile/": {
       "get": {
         "operationId": "readWorkspaceProfile",
@@ -5545,6 +5561,7 @@
       "ProfileWrite": {
         "type": "object",
         "properties": {
+          "company_name": { "type": "string", "maxLength": 120 },
           "complete": {
             "type": "boolean",
             "enum": [
@@ -5560,6 +5577,11 @@
             "type": "string",
             "maxLength": 2000
           },
+          "problem_statement": { "type": "string", "maxLength": 2000 },
+          "products": { "type": "array", "maxItems": 20, "items": { "$ref": "#/components/schemas/ProfileProduct" } },
+          "customer_segments": { "type": "array", "maxItems": 20, "items": { "$ref": "#/components/schemas/ProfileCustomerSegment" } },
+          "goals": { "type": "array", "maxItems": 30, "items": { "$ref": "#/components/schemas/ProfileGoal" } },
+          "icps": { "type": "array", "maxItems": 20, "items": { "$ref": "#/components/schemas/WorkspaceICP" } },
           "revision": {
             "type": "integer",
             "minimum": 1
@@ -5577,6 +5599,12 @@
           { "required": ["industry"] },
           { "required": ["stage"] },
           { "required": ["mission"] },
+          { "required": ["company_name"] },
+          { "required": ["problem_statement"] },
+          { "required": ["products"] },
+          { "required": ["customer_segments"] },
+          { "required": ["goals"] },
+          { "required": ["icps"] },
           { "required": ["complete"] }
         ]
       },
@@ -6509,12 +6537,128 @@
         ],
         "additionalProperties": false
       },
+      "ProfileProduct": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "description": { "type": "string", "maxLength": 1000 },
+          "problem_solved": { "type": "string", "maxLength": 600 },
+          "target_customer": { "type": "string", "maxLength": 400 }
+        },
+        "required": ["id", "name", "description", "problem_solved", "target_customer"],
+        "additionalProperties": false
+      },
+      "ProfileCustomerSegment": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "description": { "type": "string", "maxLength": 1000 },
+          "needs": { "type": "string", "maxLength": 600 },
+          "buying_roles": { "type": "string", "maxLength": 400 }
+        },
+        "required": ["id", "name", "description", "needs", "buying_roles"],
+        "additionalProperties": false
+      },
+      "ProfileGoal": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+          "success_signal": { "type": "string", "maxLength": 500 },
+          "timeframe": { "type": "string", "maxLength": 120 }
+        },
+        "required": ["id", "title", "success_signal", "timeframe"],
+        "additionalProperties": false
+      },
+      "WorkspaceICPSegment": {
+        "type": "object",
+        "properties": {
+          "industry": { "type": "string", "maxLength": 160 },
+          "organization_size": { "type": "string", "maxLength": 120 },
+          "geography": { "type": "string", "maxLength": 120 },
+          "buying_context": { "type": "string", "maxLength": 500 }
+        },
+        "required": ["industry", "organization_size", "geography", "buying_context"],
+        "additionalProperties": false
+      },
+      "WorkspaceICPPersona": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string", "maxLength": 120 },
+          "decision_role": { "type": "string", "maxLength": 120 },
+          "goals": { "type": "string", "maxLength": 500 },
+          "pains": { "type": "string", "maxLength": 500 }
+        },
+        "required": ["role", "decision_role", "goals", "pains"],
+        "additionalProperties": false
+      },
+      "WorkspaceProfileEvidence": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "source_type": { "type": "string", "enum": ["interview", "sales", "support", "usage", "survey", "document", "secondary", "other"] },
+          "reference": { "type": "string", "maxLength": 400 },
+          "statement": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "date": { "type": "string", "maxLength": 32 },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+        },
+        "required": ["id", "source_type", "reference", "statement", "date", "confidence"],
+        "additionalProperties": false
+      },
+      "WorkspaceProfileAssumption": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "statement": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "test": { "type": "string", "maxLength": 600 },
+          "status": { "type": "string", "enum": ["untested", "supported", "rejected"] }
+        },
+        "required": ["id", "statement", "confidence", "test", "status"],
+        "additionalProperties": false
+      },
+      "WorkspaceICP": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "segment": { "$ref": "#/components/schemas/WorkspaceICPSegment" },
+          "persona": { "$ref": "#/components/schemas/WorkspaceICPPersona" },
+          "problem": { "type": "string", "maxLength": 1000 },
+          "evidence": { "type": "array", "maxItems": 10, "items": { "$ref": "#/components/schemas/WorkspaceProfileEvidence" } },
+          "assumptions": { "type": "array", "maxItems": 10, "items": { "$ref": "#/components/schemas/WorkspaceProfileAssumption" } }
+        },
+        "required": ["id", "name", "segment", "persona", "problem", "evidence", "assumptions"],
+        "additionalProperties": false
+      },
+      "WorkspaceProfileRevision": {
+        "type": "object",
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "snapshot": { "$ref": "#/components/schemas/WorkspaceProfile" },
+          "changed_by_id": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" }
+        },
+        "required": ["revision", "snapshot", "changed_by_id", "created_at"],
+        "additionalProperties": false
+      },
+      "WorkspaceProfileRevisionList": {
+        "type": "object",
+        "properties": {
+          "items": { "type": "array", "maxItems": 10, "items": { "$ref": "#/components/schemas/WorkspaceProfileRevision" } }
+        },
+        "required": ["items"],
+        "additionalProperties": false
+      },
       "WorkspaceProfile": {
         "type": "object",
         "properties": {
           "workspace_id": {
             "type": "string"
           },
+          "company_name": { "type": "string", "maxLength": 120 },
           "industry": {
             "type": "string",
             "maxLength": 200
@@ -6527,6 +6671,11 @@
             "type": "string",
             "maxLength": 2000
           },
+          "problem_statement": { "type": "string", "maxLength": 2000 },
+          "products": { "type": "array", "items": { "$ref": "#/components/schemas/ProfileProduct" } },
+          "customer_segments": { "type": "array", "items": { "$ref": "#/components/schemas/ProfileCustomerSegment" } },
+          "goals": { "type": "array", "items": { "$ref": "#/components/schemas/ProfileGoal" } },
+          "icps": { "type": "array", "items": { "$ref": "#/components/schemas/WorkspaceICP" } },
           "revision": {
             "type": "integer",
             "minimum": 1
@@ -6539,9 +6688,15 @@
         },
         "required": [
           "workspace_id",
+          "company_name",
           "industry",
           "stage",
           "mission",
+          "problem_statement",
+          "products",
+          "customer_segments",
+          "goals",
+          "icps",
           "revision",
           "onboarding_completed_at"
         ],

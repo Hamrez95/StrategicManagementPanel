@@ -5,10 +5,12 @@ import {
   decodeWorkspaceMember,
   decodeWorkspacePage,
   decodeWorkspaceProfile,
+  decodeWorkspaceProfileRevisions,
   type ApiWorkspace,
   type ApiWorkspaceInvitation,
   type ApiWorkspaceMember,
   type ApiWorkspaceProfile,
+  type ApiWorkspaceProfileRevision,
   type OpenApiPaths,
 } from '../../api/contracts';
 import { deleteAuth, patchAuth, postAuth } from '../auth/api';
@@ -105,9 +107,23 @@ export class WorkspaceProfileConflictError extends Error {
 }
 
 function matchesProfile(profile: ProjectProfile, update: ProjectProfileUpdate) {
-  return (update.industry === undefined || profile.industry === update.industry.trim())
-    && (update.stage === undefined || profile.stage === update.stage.trim())
-    && (update.mission === undefined || profile.mission === update.mission.trim());
+  const textFields = ['company_name', 'industry', 'stage', 'mission', 'problem_statement'] as const;
+  const textMatches = textFields.every((field) => {
+    const expected = update[field];
+    return expected === undefined || profile[field] === expected.trim();
+  });
+  const collectionFields = ['products', 'customer_segments', 'goals', 'icps'] as const;
+  const normalize = (value: unknown): unknown => {
+    if (typeof value === 'string') return value.trim();
+    if (Array.isArray(value)) return value.map(normalize);
+    if (value && typeof value === 'object') {
+      return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, normalize(entry)]));
+    }
+    return value;
+  };
+  const collectionsMatch = collectionFields.every((field) => update[field] === undefined
+    || JSON.stringify(normalize(profile[field])) === JSON.stringify(normalize(update[field])));
+  return textMatches && collectionsMatch;
 }
 
 async function currentProfileOrConflict(workspaceId: string, update: ProjectProfileUpdate) {
@@ -143,6 +159,14 @@ export async function saveWorkspaceProfileSafely(workspaceId: string, update: Pr
       throw retryError;
     }
   }
+}
+
+export async function listWorkspaceProfileRevisions(workspaceId: string, signal?: AbortSignal): Promise<ApiWorkspaceProfileRevision[]> {
+  return getWorkspaceData(
+    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/revisions/`,
+    signal,
+    decodeWorkspaceProfileRevisions,
+  );
 }
 
 export async function listWorkspaceMembers(workspaceId: string, signal?: AbortSignal) {

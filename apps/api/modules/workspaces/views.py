@@ -12,7 +12,12 @@ from django.views.decorators.http import require_GET, require_http_methods, requ
 from modules.accounts.models import User
 
 from .models import Membership, Workspace, WorkspaceInvitation
-from .profile_services import read_workspace_profile, update_workspace_profile, workspace_profile_dict
+from .profile_services import (
+    read_workspace_profile,
+    update_workspace_profile,
+    workspace_profile_dict,
+    workspace_profile_revisions as list_workspace_profile_revisions,
+)
 from .services import (
     WorkspaceActionError,
     accept_workspace_invitation,
@@ -211,24 +216,40 @@ def workspace_profile(request, workspace_id):
         body = _json_body(request)
         if body is None:
             return _error(400, 'invalid_json', 'درخواست قابل خواندن نیست.')
-        allowed = {'revision', 'industry', 'stage', 'mission', 'complete'}
+        profile_fields = {
+            'company_name', 'industry', 'stage', 'mission', 'problem_statement',
+            'products', 'customer_segments', 'goals', 'icps',
+        }
+        allowed = {'revision', 'complete', *profile_fields}
         if (
             'revision' not in body
             or set(body) - allowed
-            or not set(body).intersection({'industry', 'stage', 'mission', 'complete'})
+            or not set(body).intersection(profile_fields | {'complete'})
         ):
             return _error(400, 'invalid_fields', 'نسخه و اطلاعات مجاز پروژه را بفرستید.')
         if isinstance(body['revision'], bool) or not isinstance(body['revision'], int) or body['revision'] < 1:
             return _error(400, 'validation_error', 'نسخه اطلاعات پروژه معتبر نیست.', {'revision': ['مقدار معتبر وارد کنید.']})
+        for field in ('company_name', 'industry', 'stage', 'mission', 'problem_statement'):
+            if field in body and not isinstance(body[field], str):
+                return _error(400, 'validation_error', 'مقدار این فیلد باید متن باشد.', {field: ['متن وارد کنید.']})
+        for field in ('products', 'customer_segments', 'goals', 'icps'):
+            if field in body and not isinstance(body[field], list):
+                return _error(400, 'validation_error', 'مقدار این بخش باید فهرست باشد.', {field: ['فهرست معتبر وارد کنید.']})
         if 'complete' in body and body['complete'] is not True:
             return _error(400, 'validation_error', 'وضعیت تکمیل معتبر نیست.', {'complete': ['برای تکمیل مقدار درست بفرستید.']})
         profile = update_workspace_profile(
             request.user,
             workspace,
             revision=body['revision'],
+            company_name=body.get('company_name'),
             industry=body.get('industry'),
             stage=body.get('stage'),
             mission=body.get('mission'),
+            problem_statement=body.get('problem_statement'),
+            products=body.get('products'),
+            customer_segments=body.get('customer_segments'),
+            goals=body.get('goals'),
+            icps=body.get('icps'),
             complete=body.get('complete'),
         )
         return JsonResponse(workspace_profile_dict(profile))
@@ -238,6 +259,18 @@ def workspace_profile(request, workspace_id):
         return _action_error(error)
     except DjangoValidationError as error:
         return _validation_error(error)
+
+
+@require_GET
+def workspace_profile_revisions(request, workspace_id):
+    if not _verified_user(request):
+        return _error(401, 'not_authenticated', 'برای ادامه وارد حساب تأییدشده شوید.')
+    try:
+        workspace = get_accessible_workspace_or_404(request.user, workspace_id)
+        items = list_workspace_profile_revisions(request.user, workspace)
+        return JsonResponse({'items': items})
+    except Http404:
+        return _error(404, 'workspace_not_found', 'فضای کار در دسترس نیست.')
 
 
 @require_GET

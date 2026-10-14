@@ -25,6 +25,7 @@ from modules.workspaces.views import (
     workspace_member_detail,
     workspace_members,
     workspace_profile,
+    workspace_profile_revisions,
 )
 
 urlpatterns = [
@@ -35,6 +36,7 @@ urlpatterns = [
     path('api/v1/workspaces/', list_workspaces),
     path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
     path('api/v1/workspaces/<str:workspace_id>/profile/', workspace_profile),
+    path('api/v1/workspaces/<str:workspace_id>/profile/revisions/', workspace_profile_revisions),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),
     path('api/v1/workspaces/<str:workspace_id>/imports/<uuid:batch_id>/', workspace_import_detail),
