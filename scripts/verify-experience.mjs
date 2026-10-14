@@ -92,6 +92,9 @@ try {
   assert.equal(await offlinePage.evaluate(()=>navigator.onLine),false,'Browser reports offline');
   assert.equal(await offlinePage.evaluate(async()=>{try{await fetch('/uncached-offline-proof',{cache:'no-store',signal:AbortSignal.timeout(3000)});return false;}catch{return true;}}),true,'Uncached network request fails');
   await offlinePage.reload();await offlinePage.waitForSelector('#main h1');
+  // Reapply native navigator state to the new navigation target on current Chromium.
+  await offlineProtocol.send('Network.overrideNetworkState',{offline:true,latency:0,downloadThroughput:-1,uploadThroughput:-1});
+  assert.equal(await offlinePage.evaluate(()=>navigator.onLine),false,'Reloaded browser reports offline');
   try { await offlinePage.locator('.offline').waitFor({state:'visible',timeout:10000}); } catch(error) { console.error('Offline diagnostics',await offlinePage.evaluate(()=>({online:navigator.onLine,worker:navigator.serviceWorker.controller?.scriptURL,banner:document.querySelector('.offline')?.textContent})));throw error; }
   assert.ok(await offlinePage.locator('.offline').isVisible(),'Offline refresh');await offlineContext.close();
   assert.deepEqual(errors,[],'Browser runtime errors');assert.deepEqual(untranslated,[],'English visible strings must be localized');
