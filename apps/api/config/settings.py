@@ -1,6 +1,7 @@
 import os
 import secrets
 from pathlib import Path
+from urllib.parse import urlsplit
 from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -68,5 +69,11 @@ EMAIL_USE_TLS = PRODUCTION
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'development@stratino.invalid')
+STRATINO_PUBLIC_URL = os.environ.get('STRATINO_PUBLIC_URL', 'http://127.0.0.1:4173').rstrip('/')
+PASSWORD_RESET_TIMEOUT = 60 * 60
+EMAIL_VERIFICATION_TIMEOUT = 60 * 60 * 24
+public_url = urlsplit(STRATINO_PUBLIC_URL)
+if PRODUCTION and (public_url.scheme != 'https' or not public_url.netloc or public_url.username or public_url.password):
+    raise ImproperlyConfigured('Production requires a public HTTPS application URL for account email links.')
 if not PRODUCTION and EMAIL_HOST not in ('localhost', '127.0.0.1', 'mailpit'):
     raise ImproperlyConfigured('Development email must use the local catcher.')

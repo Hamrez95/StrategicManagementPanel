@@ -1,8 +1,9 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Link, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
-import { useQuery } from '@tanstack/react-query';
+import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Notice } from '@stratino/ui';
 import { readSession } from './session';
+import { postAuth } from './features/auth/api';
 const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
@@ -20,6 +21,10 @@ function RouteFocus() {
 }
 function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const [loggingOut, setLoggingOut] = useState(false);
+  const [logoutError, setLogoutError] = useState('');
   const query = useQuery({ queryKey: ['session'], queryFn: ({ signal }) => readSession(signal) });
   if (query.isPending)
     return (
@@ -46,7 +51,31 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
         <Link to="/">بازگشت به صفحه اصلی</Link>
       </Notice>
     );
-  return <Outlet context={query.data} />;
+  async function signOut() {
+    setLogoutError('');
+    setLoggingOut(true);
+    try {
+      await postAuth('/api/v1/accounts/logout/');
+      queryClient.setQueryData(['session'], null);
+      navigate('/account/login', { replace: true });
+    } catch {
+      setLogoutError('خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
+    } finally {
+      setLoggingOut(false);
+    }
+  }
+  return (
+    <>
+      <div className="session-tools">
+        <span>واردشده با <strong dir="auto">{query.data.user.name}</strong></span>
+        <Button variant="quiet" pending={loggingOut} pendingLabel="در حال خروج…" onClick={() => void signOut()}>
+          خروج از حساب
+        </Button>
+      </div>
+      {logoutError && <p className="session-tools__error" role="alert">{logoutError}</p>}
+      <Outlet context={query.data} />
+    </>
+  );
 }
 export function App() {
   const [dark, setDark] = useState(() => {

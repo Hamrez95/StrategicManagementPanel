@@ -27,6 +27,7 @@ services:
       POSTGRES_HOST: db
       EMAIL_HOST: mailpit
       STRATINO_PRIVATE_FILES: /private-files
+      STRATINO_PUBLIC_URL: ${STRATINO_PUBLIC_URL:-http://127.0.0.1:4173}
     ports:
       - '127.0.0.1:${API_PORT:-8000}:8000'
     volumes:

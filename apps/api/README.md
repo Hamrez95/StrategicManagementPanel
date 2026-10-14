@@ -1,6 +1,10 @@
 # API boundary
 
-STR-009 implements the Django 5.2 LTS / DRF foundation and a PostgreSQL-only database. Email-based UUID users and migrations establish ownership identity before STR-010; there are no login, registration, workspace or upload endpoints yet. Business API operations remain planned in the OpenAPI design contract.
+STR-009 implements the Django 5.2 LTS / DRF foundation and a PostgreSQL-only database. STR-010 adds email-based UUID accounts, session authentication and account recovery. Workspace and upload endpoints remain planned in the OpenAPI design contract.
+
+STR-010 adds same-origin session authentication. The browser first loads `GET /api/v1/csrf/`, then sends the `csrftoken` cookie value in `X-CSRFToken` for every account-changing POST. `GET /api/v1/session/` returns the current verified account or 401. Account endpoints are `POST /api/v1/accounts/signup/`, `verify-email/`, `resend-verification/`, `login/`, `logout/`, `password-reset/request/`, and `password-reset/confirm/`.
+
+Email verification uses Django's timestamped signing with a rotating per-user nonce; password recovery uses Django's `PasswordResetTokenGenerator`. Links carry secrets only in the URL fragment, which the browser removes before submitting the token in a POST body. Reset links expire after one hour and verification links after 24 hours. Password change invalidates existing Django sessions through the session auth hash. Signup, login, resend and recovery use database-backed fixed-window rate limits keyed by hashed IP/email values. SMTP delivery retries three times with short backoff; a final failure is recorded without logging recipient, token, password or message content. Configure `STRATINO_PUBLIC_URL` to the browser's local origin so email links return to the right checkout; `run-local.ps1 -WithBackend` sets this per ref/port automatically. Mailpit remains local and does not relay email externally.
 
 From the repository root, copy `.env.example` to an ignored `.env` and generate independent local values for `POSTGRES_PASSWORD` and `DJANGO_SECRET_KEY` (at least 50 random characters). With Docker Compose installed:
 

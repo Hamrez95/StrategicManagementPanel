@@ -108,6 +108,7 @@ function New-LocalStack {
     if (-not $localEnv['DJANGO_SECRET_KEY'] -or -not $localEnv['POSTGRES_PASSWORD']) { throw 'تنظیم محلی ناقص است؛ فایل .local-dev مربوط به این نسخه را بررسی کنید.' }
     $localEnv['API_PORT'] = [string]($FirstApiPort + $Index)
     $localEnv['MAILPIT_PORT'] = [string]($FirstMailPort + $Index)
+    $localEnv['STRATINO_PUBLIC_URL'] = "http://127.0.0.1:$($FirstPort + $Index)"
     return [pscustomobject]@{Name=$name; EnvFile=$envFile; Env=$localEnv; Compose=(Join-Path $Checkout 'infra/compose.dev.yml')}
 }
 

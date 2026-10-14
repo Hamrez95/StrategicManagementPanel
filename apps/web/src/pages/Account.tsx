@@ -1,15 +1,19 @@
-import { Link } from 'react-router';
-import { Notice } from '@stratino/ui';
+import { Navigate, Route, Routes } from 'react-router';
+import {
+  LoginPage,
+  PasswordResetPage,
+  SignupPage,
+  VerifyEmailPage,
+} from '../features/auth/AuthPages';
+
 export default function Account() {
   return (
-    <Notice title="حساب استراتینو در حال آماده‌سازی است">
-      <p>
-        ثبت‌نام، ورود و بازیابی حساب پس از آماده‌شدن بک‌اند فعال می‌شوند. نسخه نمونه را همین حالا
-        می‌توانید بررسی کنید؛ اطلاعاتش در مرورگر شما نگهداری می‌شود.
-      </p>
-      <Link className="ui-button ui-button--primary" to="/demo">
-        استفاده از نسخه نمونه
-      </Link>
-    </Notice>
+    <Routes>
+      <Route path="login" element={<LoginPage />} />
+      <Route path="signup" element={<SignupPage />} />
+      <Route path="verify" element={<VerifyEmailPage />} />
+      <Route path="reset-password" element={<PasswordResetPage />} />
+      <Route path="*" element={<Navigate to="login" replace />} />
+    </Routes>
   );
 }
