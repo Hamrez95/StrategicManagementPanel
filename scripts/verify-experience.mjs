@@ -84,7 +84,9 @@ try {
   await go('overview');await screenshot('professional-mobile-dark-en');
   const offlineContext=await browser.newContext({serviceWorkers:'allow'});const offlinePage=await offlineContext.newPage();offlinePage.on('pageerror',e=>errors.push(e.message));
   await offlinePage.goto(url);await offlinePage.evaluate(()=>navigator.serviceWorker.ready);await offlinePage.reload();await offlinePage.waitForFunction(()=>Boolean(navigator.serviceWorker.controller));
-  await offlineContext.setOffline(true);await offlinePage.reload();await offlinePage.waitForSelector('#main h1');assert.ok(await offlinePage.locator('.offline').isVisible(),'Offline refresh');await offlineContext.close();
+  await offlineContext.setOffline(true);await offlinePage.reload();await offlinePage.waitForSelector('#main h1');
+  try { await offlinePage.locator('.offline').waitFor({state:'visible',timeout:10000}); } catch(error) { console.error('Offline diagnostics',await offlinePage.evaluate(()=>({online:navigator.onLine,worker:navigator.serviceWorker.controller?.scriptURL,banner:document.querySelector('.offline')?.textContent})));throw error; }
+  assert.ok(await offlinePage.locator('.offline').isVisible(),'Offline refresh');await offlineContext.close();
   assert.deepEqual(errors,[],'Browser runtime errors');assert.deepEqual(untranslated,[],'English visible strings must be localized');
   const result={pagesChecked,tourSteps,errors,untranslated,offlineRefresh:true,persistence:true,canonicalRecordsPreserved:true};
   await writeFile('test-results/experience.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
