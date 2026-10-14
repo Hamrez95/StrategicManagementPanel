@@ -162,6 +162,15 @@ finally {
         $resolved = [IO.Path]::GetFullPath($worktree)
         $allowed = [IO.Path]::GetFullPath($tempRoot) + [IO.Path]::DirectorySeparatorChar
         if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'مسیر پاک‌سازی خارج از پوشه موقت این اجرا است.' }
+        # Unlink npm's workspace junctions without traversing or deleting their targets.
+        # Git's recursive removal otherwise reaches a dangling junction on Windows.
+        $workspaceLinks = Join-Path $resolved 'node_modules/@stratino'
+        foreach ($name in @('web', 'domain', 'ui')) {
+            $link = Get-Item -LiteralPath (Join-Path $workspaceLinks $name) -Force -ErrorAction SilentlyContinue
+            if ($link -and ($link.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+                [IO.Directory]::Delete($link.FullName)
+            }
+        }
         $cleanupResult = & $gitCommand.Source -c core.longpaths=true -C $repoRoot worktree remove --force $resolved 2>&1
         $cleanupExit = $LASTEXITCODE
         if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "پاک‌سازی worktree ناموفق بود؛ مسیر برای بررسی نگه داشته شد: $resolved ($cleanupResult)" }
