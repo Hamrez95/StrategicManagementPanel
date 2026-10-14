@@ -62,6 +62,40 @@ test('EFE/IFE drafts have bounded, typed factor snapshots', () => {
     assert.equal(check('EvaluationMatrixInputs', { rows: [invalid] }), false);
   assert.equal(check('EvaluationMatrixInputs', { rows: Array(101).fill(row) }), false);
 });
+test('execution decisions, goals, actions and history stay explicitly linked', () => {
+  const decision = {
+    title: 'پایلوت بازار',
+    rationale: 'سه درخواست قیمت دریافت شد.',
+    assumptions: 'تحویل در شش هفته ممکن است.',
+    review_trigger: 'پس از دو پایلوت.',
+    status: 'approved',
+    source_kind: 'analysis',
+    source_id: '11111111-1111-4111-8111-111111111111',
+  };
+  assert.equal(check('ExecutionDecisionWrite', decision), true);
+  assert.equal(
+    check('ExecutionDecisionWrite', { ...decision, workspace_id: 'another-workspace' }),
+    false,
+  );
+  const goal = { title: 'تحویل پایلوت', description: '', due_on: null, status: 'active' };
+  assert.equal(check('ExecutionGoalWrite', goal), true);
+  const action = {
+    decision_id: '11111111-1111-4111-8111-111111111111',
+    goal_id: null,
+    owner_id: '22222222-2222-4222-8222-222222222222',
+    title: 'اجرای پایلوت',
+    description: '',
+    due_on: '2026-11-14',
+    status: 'planned',
+  };
+  assert.equal(check('ExecutionActionWrite', action), true);
+  assert.equal(check('ExecutionActionWrite', { ...action, status: 'started' }), false);
+  assert.equal(check('ExecutionActionUpdate', { revision: 1, status: 'blocked' }), true);
+  assert.equal(check('ExecutionActionUpdate', { revision: 0, status: 'blocked' }), false);
+  assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/execution/']);
+  assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/execution/decisions/{record_id}/']);
+  assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/execution/goals/{record_id}/']);
+});
 test('weighted matrix row rejects invalid ratings, weights and extra fields', () => {
   const row = { id: 'r1', title: 'عامل نمونه', weight: 50, rating: 3 };
   assert.equal(check('WeightedInputs', { rows: [row] }), true);

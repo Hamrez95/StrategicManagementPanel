@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from modules.analysis.views import analysis_collection, analysis_detail
 from modules.core.views import live, ready
 from modules.imports.views import preview_import, workspace_import_detail, workspace_imports
@@ -52,6 +52,7 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/strategy/options/<uuid:option_id>/', strategy_option_detail),
     path('api/v1/workspaces/<str:workspace_id>/analyses/', analysis_collection),
     path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/', analysis_detail),
+    path('api/v1/workspaces/<str:workspace_id>/execution/', include('modules.execution.urls')),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),
     path('api/v1/workspaces/<str:workspace_id>/imports/<uuid:batch_id>/', workspace_import_detail),

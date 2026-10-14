@@ -1,5 +1,14 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Link, Navigate, Outlet, Route, Routes, useLocation, useMatch, useNavigate } from 'react-router';
+import {
+  Link,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useMatch,
+  useNavigate,
+} from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Notice, useUIAppearance } from '@stratino/ui';
 import { queryKeys } from './api/queryKeys';
@@ -20,16 +29,33 @@ const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
 const Onboarding = lazy(() => import('./features/onboarding/OnboardingPage'));
 const ApplicationShell = lazy(() => import('./features/workspaces/ApplicationShell'));
-const WorkspaceOverviewPage = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceOverviewPage })));
-const WorkspaceToolPage = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceToolPage })));
-const LegacyWorkspaceRedirect = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.LegacyWorkspaceRedirect })));
-const WorkspaceIndexRedirect = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceIndexRedirect })));
+const WorkspaceOverviewPage = lazy(() =>
+  import('./features/workspaces/WorkspaceRoutePages').then((module) => ({
+    default: module.WorkspaceOverviewPage,
+  })),
+);
+const WorkspaceToolPage = lazy(() =>
+  import('./features/workspaces/WorkspaceRoutePages').then((module) => ({
+    default: module.WorkspaceToolPage,
+  })),
+);
+const LegacyWorkspaceRedirect = lazy(() =>
+  import('./features/workspaces/WorkspaceRoutePages').then((module) => ({
+    default: module.LegacyWorkspaceRedirect,
+  })),
+);
+const WorkspaceIndexRedirect = lazy(() =>
+  import('./features/workspaces/WorkspaceRoutePages').then((module) => ({
+    default: module.WorkspaceIndexRedirect,
+  })),
+);
 const Operator = lazy(() => import('./pages/Operator'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const WorkspaceImportPage = lazy(() => import('./features/imports/WorkspaceImportPage'));
 const CompanyProfilePage = lazy(() => import('./features/workspaces/CompanyProfilePage'));
 const SwotPage = lazy(() => import('./features/strategy/SwotPage'));
 const EvaluationMatrixPage = lazy(() => import('./features/analysis/EvaluationMatrixPage'));
+const ExecutionPlanPage = lazy(() => import('./features/decisions/ExecutionPlanPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
@@ -39,16 +65,27 @@ function RouteFocus() {
     const english = document.documentElement.lang === 'en';
     const toolId = pathname.split('/tools/')[1]?.split('/')[0];
     const tool = getWorkspaceTool(toolId);
-    const title = tool?.title[english ? 'en' : 'fa']
-      ?? (pathname.endsWith('/settings')
-        ? (english ? 'Workspace settings' : 'تنظیمات فضای کار')
+    const title =
+      tool?.title[english ? 'en' : 'fa'] ??
+      (pathname.endsWith('/settings')
+        ? english
+          ? 'Workspace settings'
+          : 'تنظیمات فضای کار'
         : pathname.endsWith('/imports')
-          ? (english ? 'Old browser backup' : 'پشتیبان مرورگر قدیمی')
-        : pathname.endsWith('/account')
-          ? (english ? 'Account and preferences' : 'حساب و تنظیمات')
-          : pathname.startsWith('/app')
-            ? (english ? 'Workspace' : 'فضای کار')
-            : (english ? 'From analysis to action' : 'از تحلیل تا اقدام'));
+          ? english
+            ? 'Old browser backup'
+            : 'پشتیبان مرورگر قدیمی'
+          : pathname.endsWith('/account')
+            ? english
+              ? 'Account and preferences'
+              : 'حساب و تنظیمات'
+            : pathname.startsWith('/app')
+              ? english
+                ? 'Workspace'
+                : 'فضای کار'
+              : english
+                ? 'From analysis to action'
+                : 'از تحلیل تا اقدام');
     document.title = `استراتینو | ${title}`;
   }, [pathname]);
   return null;
@@ -63,7 +100,10 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState('');
   const appPath = pathname.startsWith('/app');
-  const query = useQuery({ queryKey: queryKeys.session, queryFn: ({ signal }) => readSession(signal) });
+  const query = useQuery({
+    queryKey: queryKeys.session,
+    queryFn: ({ signal }) => readSession(signal),
+  });
   useQuery({
     queryKey: queryKeys.account.preferences,
     queryFn: ({ signal }) => loadAndSyncAccountPreferences(signal),
@@ -118,20 +158,38 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
         <>
           <div className="session-tools">
             <WorkspaceSelector session={query.data} activeWorkspace={activeWorkspace} />
-            <Link to="/app/account" className="session-account-link" aria-label={english
-              ? `Account settings for ${query.data.user.name}`
-              : `تنظیمات حساب ${query.data.user.name}`}>
+            <Link
+              to="/app/account"
+              className="session-account-link"
+              aria-label={
+                english
+                  ? `Account settings for ${query.data.user.name}`
+                  : `تنظیمات حساب ${query.data.user.name}`
+              }
+            >
               <span className="session-account-avatar" aria-hidden="true">
                 {Array.from(query.data.user.name)[0] ?? 'ح'}
               </span>
               {english ? 'Account settings' : 'تنظیمات حساب'}
             </Link>
-            <span>{english ? 'Signed in as' : 'واردشده با'} <strong dir="auto">{query.data.user.name}</strong></span>
-            <Button variant="quiet" pending={loggingOut} pendingLabel={english ? 'Signing out…' : 'در حال خروج…'} onClick={() => void signOut()}>
+            <span>
+              {english ? 'Signed in as' : 'واردشده با'}{' '}
+              <strong dir="auto">{query.data.user.name}</strong>
+            </span>
+            <Button
+              variant="quiet"
+              pending={loggingOut}
+              pendingLabel={english ? 'Signing out…' : 'در حال خروج…'}
+              onClick={() => void signOut()}
+            >
               {english ? 'Sign out' : 'خروج از حساب'}
             </Button>
           </div>
-          {logoutError && <p className="session-tools__error" role="alert">{logoutError}</p>}
+          {logoutError && (
+            <p className="session-tools__error" role="alert">
+              {logoutError}
+            </p>
+          )}
         </>
       )}
       <Outlet context={query.data} />
@@ -159,17 +217,20 @@ function WorkspaceSelector({
         value={activeWorkspace}
         onChange={(event) => {
           const next = event.currentTarget.value;
-          const currentName = session.workspaces.find((workspace) => workspace.id === activeWorkspace)?.name
-            ?? (english ? 'Your Workspaces' : 'فضاهای من');
-          const nextName = session.workspaces.find((workspace) => workspace.id === next)?.name
-            ?? (english ? 'Your Workspaces' : 'فضاهای من');
+          const currentName =
+            session.workspaces.find((workspace) => workspace.id === activeWorkspace)?.name ??
+            (english ? 'Your Workspaces' : 'فضاهای من');
+          const nextName =
+            session.workspaces.find((workspace) => workspace.id === next)?.name ??
+            (english ? 'Your Workspaces' : 'فضاهای من');
           const confirmMessage = english
             ? `Unsaved changes will be lost. Leave “${currentName}” and switch to “${nextName}”?`
             : `تغییرات ذخیره‌نشده باقی می‌مانند. از «${currentName}» به «${nextName}» بروید؟`;
           if (!canSwitch(confirmMessage)) return;
           if (activeWorkspace) {
             queryClient.removeQueries({
-              predicate: (query) => query.queryKey[0] === 'workspace' && query.queryKey[1] === activeWorkspace,
+              predicate: (query) =>
+                query.queryKey[0] === 'workspace' && query.queryKey[1] === activeWorkspace,
             });
           }
           navigate(next ? `/app/workspaces/${encodeURIComponent(next)}` : '/app/workspaces');
@@ -178,7 +239,18 @@ function WorkspaceSelector({
         <option value="">{english ? 'Your Workspaces' : 'فضاهای من'}</option>
         {session.workspaces.map((workspace) => (
           <option key={workspace.id} value={workspace.id}>
-            {workspace.name} · {workspace.role === 'owner' ? (english ? 'Owner' : 'مالک') : workspace.role === 'editor' ? (english ? 'Editor' : 'ویرایشگر') : (english ? 'Viewer' : 'بیننده')}
+            {workspace.name} ·{' '}
+            {workspace.role === 'owner'
+              ? english
+                ? 'Owner'
+                : 'مالک'
+              : workspace.role === 'editor'
+                ? english
+                  ? 'Editor'
+                  : 'ویرایشگر'
+                : english
+                  ? 'Viewer'
+                  : 'بیننده'}
           </option>
         ))}
       </select>
@@ -189,7 +261,8 @@ export function App() {
   const location = useLocation();
   const applicationPath = location.pathname.startsWith('/app');
   const queryClient = useQueryClient();
-  const [devicePreferences, setDevicePreferences] = useState<DevicePreferences>(readDevicePreferences);
+  const [devicePreferences, setDevicePreferences] =
+    useState<DevicePreferences>(readDevicePreferences);
   const [preferenceSyncError, setPreferenceSyncError] = useState(false);
   const dark =
     devicePreferences.theme === 'dark' ||
@@ -255,24 +328,31 @@ export function App() {
       <a className="skip-link" href="#content">
         رفتن به محتوای اصلی
       </a>
-      {!applicationPath && <header className="site-header">
-        <Link to="/" aria-label="استراتینو، صفحه اصلی">
-          <Brand />
-        </Link>
-        <nav aria-label="ناوبری اصلی">
-          <Link to="/demo">نمونه تعاملی</Link>
-          <Link to="/account/login">حساب کاربری</Link>
-          <Button aria-label="تغییر تم" onClick={toggleTheme}>
-            {dark ? 'تم روشن' : 'تم تیره'}
-          </Button>
-        </nav>
-      </header>}
+      {!applicationPath && (
+        <header className="site-header">
+          <Link to="/" aria-label="استراتینو، صفحه اصلی">
+            <Brand />
+          </Link>
+          <nav aria-label="ناوبری اصلی">
+            <Link to="/demo">نمونه تعاملی</Link>
+            <Link to="/account/login">حساب کاربری</Link>
+            <Button aria-label="تغییر تم" onClick={toggleTheme}>
+              {dark ? 'تم روشن' : 'تم تیره'}
+            </Button>
+          </nav>
+        </header>
+      )}
       {!applicationPath && preferenceSyncError && (
         <p className="preference-sync-note" role="status">
-          ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حساب کامل نشد. در تنظیمات حساب دوباره ذخیره کنید.
+          ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حساب کامل نشد. در تنظیمات حساب دوباره ذخیره
+          کنید.
         </p>
       )}
-      <main id="content" className={applicationPath ? 'route-main route-main--application' : 'route-main'} tabIndex={-1}>
+      <main
+        id="content"
+        className={applicationPath ? 'route-main route-main--application' : 'route-main'}
+        tabIndex={-1}
+      >
         <Suspense
           fallback={
             <p className="loading" role="status">
@@ -313,6 +393,7 @@ export function App() {
                   <Route path="tools/company" element={<CompanyProfilePage />} />
                   <Route path="tools/swot" element={<SwotPage />} />
                   <Route path="tools/matrices" element={<EvaluationMatrixPage />} />
+                  <Route path="tools/execution" element={<ExecutionPlanPage />} />
                   <Route path="tools/:toolId" element={<WorkspaceToolPage />} />
                   <Route path="*" element={<LegacyWorkspaceRedirect />} />
                 </Route>
@@ -334,11 +415,13 @@ export function App() {
           <RouteFocus />
         </Suspense>
       </main>
-      {!applicationPath && <footer className="site-footer">
-        <Brand />
-        <p>از تحلیل به تصمیم؛ از تصمیم به اقدام.</p>
-        <span>نسخه در حال توسعه</span>
-      </footer>}
+      {!applicationPath && (
+        <footer className="site-footer">
+          <Brand />
+          <p>از تحلیل به تصمیم؛ از تصمیم به اقدام.</p>
+          <span>نسخه در حال توسعه</span>
+        </footer>
+      )}
     </>
   );
 }

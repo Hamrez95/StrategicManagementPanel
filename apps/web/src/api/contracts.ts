@@ -185,6 +185,103 @@ export type ApiAnalysisWrite = {
 };
 export type ApiAnalysisDelete = { id: string; deleted: true };
 
+export type ApiExecutionDecisionStatus = 'proposed' | 'approved' | 'rejected' | 'superseded';
+export type ApiExecutionGoalStatus = 'active' | 'complete';
+export type ApiExecutionActionStatus = 'planned' | 'in_progress' | 'blocked' | 'done';
+export type ApiExecutionSourceKind = 'analysis' | 'strategy_option';
+export type ApiExecutionSource = { kind: ApiExecutionSourceKind; id: string; title: string };
+export type ApiExecutionDecision = {
+  id: string;
+  title: string;
+  rationale: string;
+  assumptions: string;
+  review_trigger: string;
+  source: ApiExecutionSource | null;
+  status: ApiExecutionDecisionStatus;
+  revision: number;
+  action_count: number;
+  created_at: string;
+  updated_at: string;
+};
+export type ApiExecutionGoal = {
+  id: string;
+  title: string;
+  description: string;
+  due_on: string | null;
+  status: ApiExecutionGoalStatus;
+  revision: number;
+  action_count: number;
+  created_at: string;
+  updated_at: string;
+};
+export type ApiExecutionAction = {
+  id: string;
+  decision_id: string;
+  decision_title: string;
+  goal_id: string | null;
+  goal_title: string | null;
+  owner_id: string;
+  owner_name: string;
+  title: string;
+  description: string;
+  due_on: string;
+  overdue: boolean;
+  status: ApiExecutionActionStatus;
+  revision: number;
+  created_at: string;
+  updated_at: string;
+};
+export type ApiExecutionEvent = {
+  id: string;
+  entity_type: 'decision' | 'goal' | 'action';
+  entity_id: string;
+  entity_label: string;
+  event_type: 'created' | 'updated' | 'status_changed';
+  changes: Record<string, unknown>;
+  actor_name: string;
+  created_at: string;
+};
+export type ApiExecutionBoard = {
+  workspace_id: string;
+  role: 'owner' | 'editor' | 'viewer';
+  today: string;
+  horizon_end: string;
+  history_limit: number;
+  decisions: ApiExecutionDecision[];
+  goals: ApiExecutionGoal[];
+  actions: ApiExecutionAction[];
+  events: ApiExecutionEvent[];
+  members: { id: string; name: string; role: 'owner' | 'member' }[];
+  sources: ApiExecutionSource[];
+};
+export type ApiExecutionDecisionWrite = {
+  title: string;
+  rationale: string;
+  assumptions: string;
+  review_trigger: string;
+  status: ApiExecutionDecisionStatus;
+  source_kind: ApiExecutionSourceKind;
+  source_id: string;
+};
+export type ApiExecutionGoalWrite = {
+  title: string;
+  description: string;
+  due_on: string | null;
+  status: ApiExecutionGoalStatus;
+};
+export type ApiExecutionActionWrite = {
+  decision_id: string;
+  goal_id: string | null;
+  owner_id: string;
+  title: string;
+  description: string;
+  due_on: string;
+  status: ApiExecutionActionStatus;
+};
+export type ApiExecutionDecisionUpdate = { revision: number } & Partial<ApiExecutionDecisionWrite>;
+export type ApiExecutionGoalUpdate = { revision: number } & Partial<ApiExecutionGoalWrite>;
+export type ApiExecutionActionUpdate = { revision: number } & Partial<ApiExecutionActionWrite>;
+
 export type ApiWorkspaceMember = {
   user_id: string;
   email: string;
@@ -284,6 +381,49 @@ export type OpenApiPaths = {
     delete: {
       parameters: { path: { workspace_id: string; record_id: string } };
       response: ApiAnalysisDelete;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/': {
+    get: { parameters: { path: { workspace_id: string } }; response: ApiExecutionBoard };
+    post: {
+      parameters: { path: { workspace_id: string } };
+      requestBody: ApiExecutionActionWrite;
+      response: ApiExecutionAction;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/actions/{record_id}/': {
+    patch: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: ApiExecutionActionUpdate;
+      response: ApiExecutionAction;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/decisions/': {
+    post: {
+      parameters: { path: { workspace_id: string } };
+      requestBody: ApiExecutionDecisionWrite;
+      response: ApiExecutionDecision;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/decisions/{record_id}/': {
+    patch: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: ApiExecutionDecisionUpdate;
+      response: ApiExecutionDecision;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/goals/': {
+    post: {
+      parameters: { path: { workspace_id: string } };
+      requestBody: ApiExecutionGoalWrite;
+      response: ApiExecutionGoal;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/execution/goals/{record_id}/': {
+    patch: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: ApiExecutionGoalUpdate;
+      response: ApiExecutionGoal;
     };
   };
 };
@@ -707,6 +847,198 @@ export function decodeAnalysisPage(value: unknown) {
   )
     throw new ApiError('ماتریس تکراری در پاسخ سرور دریافت شد.', 502, {}, 'invalid_response');
   return { items, next_cursor: page.next_cursor as string | null };
+}
+
+const decisionStatuses: ApiExecutionDecisionStatus[] = [
+  'proposed',
+  'approved',
+  'rejected',
+  'superseded',
+];
+const goalStatuses: ApiExecutionGoalStatus[] = ['active', 'complete'];
+const actionStatuses: ApiExecutionActionStatus[] = ['planned', 'in_progress', 'blocked', 'done'];
+
+function dateString(value: unknown, field: string, optional = false): string | null {
+  if (optional && value === null) return null;
+  if (
+    typeof value !== 'string' ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(value) ||
+    Number.isNaN(Date.parse(`${value}T00:00:00Z`)) ||
+    new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) !== value
+  )
+    throw new TypeError(`Invalid date: ${field}`);
+  return value;
+}
+
+function decodeExecutionSource(value: unknown): ApiExecutionSource {
+  const item = record(value);
+  if (item.kind !== 'analysis' && item.kind !== 'strategy_option')
+    throw new TypeError('Invalid execution source kind');
+  return {
+    kind: item.kind,
+    id: requiredString(item.id),
+    title: boundedString(item.title, 160, 'execution.source.title', true),
+  };
+}
+
+export function decodeExecutionDecision(value: unknown): ApiExecutionDecision {
+  const item = record(value);
+  if (!decisionStatuses.includes(item.status as ApiExecutionDecisionStatus))
+    throw new TypeError('Invalid decision status');
+  if (item.source !== null && item.source !== undefined) decodeExecutionSource(item.source);
+  if (!Number.isInteger(item.action_count) || (item.action_count as number) < 0)
+    throw new TypeError('Invalid decision action count');
+  return {
+    id: requiredString(item.id),
+    title: boundedString(item.title, 160, 'decision.title', true),
+    rationale: boundedString(item.rationale, 2000, 'decision.rationale', true),
+    assumptions: boundedString(item.assumptions, 2000, 'decision.assumptions', true),
+    review_trigger: boundedString(item.review_trigger, 500, 'decision.review_trigger', true),
+    source:
+      item.source === null || item.source === undefined ? null : decodeExecutionSource(item.source),
+    status: item.status as ApiExecutionDecisionStatus,
+    revision: positiveRevision(item.revision),
+    action_count: item.action_count as number,
+    created_at: requiredString(item.created_at),
+    updated_at: requiredString(item.updated_at),
+  };
+}
+
+export function decodeExecutionGoal(value: unknown): ApiExecutionGoal {
+  const item = record(value);
+  if (!goalStatuses.includes(item.status as ApiExecutionGoalStatus))
+    throw new TypeError('Invalid goal status');
+  if (!Number.isInteger(item.action_count) || (item.action_count as number) < 0)
+    throw new TypeError('Invalid goal action count');
+  return {
+    id: requiredString(item.id),
+    title: boundedString(item.title, 160, 'goal.title', true),
+    description: boundedString(item.description, 1000, 'goal.description'),
+    due_on: dateString(item.due_on, 'goal.due_on', true),
+    status: item.status as ApiExecutionGoalStatus,
+    revision: positiveRevision(item.revision),
+    action_count: item.action_count as number,
+    created_at: requiredString(item.created_at),
+    updated_at: requiredString(item.updated_at),
+  };
+}
+
+export function decodeExecutionAction(value: unknown): ApiExecutionAction {
+  const item = record(value);
+  if (!actionStatuses.includes(item.status as ApiExecutionActionStatus))
+    throw new TypeError('Invalid action status');
+  if (typeof item.overdue !== 'boolean') throw new TypeError('Invalid overdue state');
+  return {
+    id: requiredString(item.id),
+    decision_id: requiredString(item.decision_id),
+    decision_title: boundedString(item.decision_title, 160, 'action.decision_title', true),
+    goal_id: item.goal_id === null ? null : requiredString(item.goal_id),
+    goal_title:
+      item.goal_title === null
+        ? null
+        : boundedString(item.goal_title, 160, 'action.goal_title', true),
+    owner_id: requiredString(item.owner_id),
+    owner_name: boundedString(item.owner_name, 254, 'action.owner_name', true),
+    title: boundedString(item.title, 160, 'action.title', true),
+    description: boundedString(item.description, 1000, 'action.description'),
+    due_on: dateString(item.due_on, 'action.due_on') as string,
+    overdue: item.overdue,
+    status: item.status as ApiExecutionActionStatus,
+    revision: positiveRevision(item.revision),
+    created_at: requiredString(item.created_at),
+    updated_at: requiredString(item.updated_at),
+  };
+}
+
+function decodeExecutionEvent(value: unknown): ApiExecutionEvent {
+  const item = record(value);
+  if (!['decision', 'goal', 'action'].includes(String(item.entity_type)))
+    throw new TypeError('Invalid execution event type');
+  if (!['created', 'updated', 'status_changed'].includes(String(item.event_type)))
+    throw new TypeError('Invalid execution event action');
+  return {
+    id: requiredString(item.id),
+    entity_type: item.entity_type as ApiExecutionEvent['entity_type'],
+    entity_id: requiredString(item.entity_id),
+    entity_label: boundedString(item.entity_label, 160, 'event.entity_label', true),
+    event_type: item.event_type as ApiExecutionEvent['event_type'],
+    changes: record(item.changes),
+    actor_name: boundedString(item.actor_name, 254, 'event.actor_name', true),
+    created_at: requiredString(item.created_at),
+  };
+}
+
+export function decodeExecutionBoard(value: unknown): ApiExecutionBoard {
+  const item = record(value);
+  if (!['owner', 'editor', 'viewer'].includes(String(item.role)))
+    throw new TypeError('Invalid execution board role');
+  const today = dateString(item.today, 'execution.today') as string;
+  const horizonEnd = dateString(item.horizon_end, 'execution.horizon_end') as string;
+  if (
+    !Number.isInteger(item.history_limit) ||
+    (item.history_limit as number) < 1 ||
+    (item.history_limit as number) > 500
+  )
+    throw new TypeError('Invalid execution history limit');
+  const decisions = decodeRows(item.decisions, decodeExecutionDecision);
+  const goals = decodeRows(item.goals, decodeExecutionGoal);
+  const actions = decodeRows(item.actions, decodeExecutionAction);
+  const events = decodeRows(item.events, decodeExecutionEvent);
+  const members = decodeRows(item.members, (value) => {
+    const member = record(value);
+    if (member.role !== 'owner' && member.role !== 'member')
+      throw new TypeError('Invalid execution member role');
+    return {
+      id: requiredString(member.id),
+      name: boundedString(member.name, 254, 'member.name', true),
+      role: member.role as 'owner' | 'member',
+    };
+  });
+  const sources = decodeRows(item.sources, decodeExecutionSource);
+  const idsUnique = (values: { id: string }[]) =>
+    new Set(values.map((entry) => entry.id)).size === values.length;
+  if (
+    !idsUnique(decisions) ||
+    !idsUnique(goals) ||
+    !idsUnique(actions) ||
+    !idsUnique(events) ||
+    !idsUnique(members) ||
+    !idsUnique(sources)
+  )
+    throw new TypeError('Duplicate execution record id');
+  if (
+    decisions.length > 100 ||
+    goals.length > 100 ||
+    actions.length > 500 ||
+    events.length > (item.history_limit as number)
+  )
+    throw new TypeError('Execution board exceeds a supported limit');
+  const decisionById = new Map(decisions.map((entry) => [entry.id, entry]));
+  const goalById = new Map(goals.map((entry) => [entry.id, entry]));
+  for (const action of actions) {
+    if (!decisionById.has(action.decision_id))
+      throw new TypeError('Execution action is outside this Workspace');
+    if (action.goal_id !== null && !goalById.has(action.goal_id))
+      throw new TypeError('Execution goal is outside this Workspace');
+    if (action.decision_title !== decisionById.get(action.decision_id)?.title)
+      throw new TypeError('Stale decision reference');
+    if (action.goal_id !== null && action.goal_title !== goalById.get(action.goal_id)?.title)
+      throw new TypeError('Stale goal reference');
+  }
+  if (horizonEnd < today) throw new TypeError('Invalid execution horizon');
+  return {
+    workspace_id: requiredString(item.workspace_id),
+    role: item.role as ApiExecutionBoard['role'],
+    today,
+    horizon_end: horizonEnd,
+    history_limit: item.history_limit as number,
+    decisions,
+    goals,
+    actions,
+    events,
+    members,
+    sources,
+  };
 }
 
 export function decodeWorkspaceMember(value: unknown): ApiWorkspaceMember {
