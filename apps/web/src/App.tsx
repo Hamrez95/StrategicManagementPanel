@@ -29,6 +29,7 @@ const AccountSettingsPage = lazy(() => import('./features/account/AccountSetting
 const WorkspaceImportPage = lazy(() => import('./features/imports/WorkspaceImportPage'));
 const CompanyProfilePage = lazy(() => import('./features/workspaces/CompanyProfilePage'));
 const SwotPage = lazy(() => import('./features/strategy/SwotPage'));
+const EvaluationMatrixPage = lazy(() => import('./features/analysis/EvaluationMatrixPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
@@ -311,6 +312,7 @@ export function App() {
                   <Route path="settings" element={<Workspace />} />
                   <Route path="tools/company" element={<CompanyProfilePage />} />
                   <Route path="tools/swot" element={<SwotPage />} />
+                  <Route path="tools/matrices" element={<EvaluationMatrixPage />} />
                   <Route path="tools/:toolId" element={<WorkspaceToolPage />} />
                   <Route path="*" element={<LegacyWorkspaceRedirect />} />
                 </Route>

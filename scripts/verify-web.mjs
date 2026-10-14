@@ -79,6 +79,27 @@ try {
   const profileHistory = new Map([['w1', []]]);
   const emptyStrategy = (workspaceId) => ({ workspace_id: workspaceId, factors: [], options: [] });
   const strategyBoards = new Map([['w1', emptyStrategy('w1')]]);
+  const analysisRecords = new Map();
+  const matrixOutput = (kind, rows) => {
+    const total_weight = rows.reduce((sum, row) => sum + (row.weight ?? 0), 0);
+    const ready = rows.length > 0 && rows.every((row) => Number.isFinite(row.weight) && Number.isInteger(row.rating) && row.rating >= 1 && row.rating <= 4) && Math.abs(total_weight - 100) < 0.001;
+    const score = ready ? rows.reduce((sum, row) => sum + row.weight / 100 * row.rating, 0) : null;
+    const issues = [];
+    if (!rows.length) issues.push({ code: 'rows_required', field: 'rows' });
+    if (rows.some((row) => !row.title.trim())) issues.push({ code: 'title_required', field: 'rows.0.title' });
+    if (rows.some((row) => !row.evidence.trim())) issues.push({ code: 'evidence_required', field: 'rows.0.evidence' });
+    if (!ready && rows.length) issues.push({ code: 'weights_must_total_100', field: 'rows' });
+    const can_finalize = ready && rows.every((row) => row.title.trim() && row.evidence.trim());
+    return {
+      kind, total_weight, score, rounded_score: score === null ? null : Math.round(score * 100) / 100,
+      ready, can_finalize, issues,
+      interpretation: score === null ? 'unavailable' : score < 2.5 ? 'below_midpoint' : score > 2.5 ? 'above_midpoint' : 'at_midpoint',
+      midpoint: 2.5,
+      limitations: kind === 'efe'
+        ? ['efe_measures_response', 'midpoint_is_not_success_threshold', 'evidence_quality_is_external']
+        : ['ife_rating_depends_on_factor_type', 'midpoint_is_not_success_threshold', 'evidence_quality_is_external'],
+    };
+  };
   let strategySequence = 0;
   let loseProfilePatchResponse = false;
   let failProfileNextPatch = false;
@@ -214,6 +235,39 @@ try {
         return route.fulfill({ status: 503, json: { code: 'temporary_failure', message: 'پاسخ ذخیره دریافت نشد.' } });
       }
       return route.fulfill({ json: profile });
+    }
+    const analysisCollection = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/analyses\/$/);
+    if (analysisCollection && request.method() === 'GET') {
+      const items = [...analysisRecords.values()].filter((item) => item.workspace_id === analysisCollection[1]);
+      return route.fulfill({ json: { items: structuredClone(items), next_cursor: null } });
+    }
+    if (analysisCollection && request.method() === 'POST') {
+      const body = request.postDataJSON();
+      const key = `${analysisCollection[1]}:${body.kind}`;
+      if (analysisRecords.has(key)) return route.fulfill({ status: 409, json: { code: 'analysis_exists', message: 'این ماتریس قبلاً ساخته شده است.' } });
+      const now = new Date().toISOString();
+      const item = {
+        id: `analysis-${analysisCollection[1]}-${body.kind}`, workspace_id: analysisCollection[1], revision: 1,
+        created_at: now, updated_at: now, kind: body.kind, schema_version: 1, method_version: body.method_version,
+        inputs: body.inputs, output: matrixOutput(body.kind, body.inputs.rows), state: body.state,
+      };
+      analysisRecords.set(key, item);
+      return route.fulfill({ status: 201, json: structuredClone(item) });
+    }
+    const analysisDetail = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/analyses\/([^/]+)\/$/);
+    if (analysisDetail && request.method() === 'PATCH') {
+      const item = [...analysisRecords.values()].find((record) => record.workspace_id === analysisDetail[1] && record.id === analysisDetail[2]);
+      if (!item) return route.fulfill({ status: 404, json: { code: 'analysis_not_found' } });
+      const body = request.postDataJSON();
+      if (body.revision !== item.revision) return route.fulfill({ status: 409, json: { code: 'revision_conflict', message: 'نسخه ماتریس تغییر کرده است.' } });
+      Object.assign(item, { method_version: body.method_version, inputs: body.inputs, output: matrixOutput(body.kind, body.inputs.rows), state: body.state, revision: item.revision + 1, updated_at: new Date().toISOString() });
+      return route.fulfill({ json: structuredClone(item) });
+    }
+    if (analysisDetail && request.method() === 'DELETE') {
+      const item = [...analysisRecords.entries()].find(([, record]) => record.workspace_id === analysisDetail[1] && record.id === analysisDetail[2]);
+      if (!item) return route.fulfill({ status: 404, json: { code: 'analysis_not_found' } });
+      analysisRecords.delete(item[0]);
+      return route.fulfill({ json: { id: item[1].id, deleted: true } });
     }
     const strategyMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/strategy\/$/);
     if (strategyMatch && request.method() === 'GET') {
@@ -482,6 +536,35 @@ try {
   await page.getByRole('status').filter({ hasText: 'Strategy option deleted' }).waitFor();
   assert.equal(strategyBoards.get('w1').options.length, 0, 'an option can be deleted independently');
   assert.equal(strategyBoards.get('w1').factors.length, 2, 'deleting an option must preserve its factors');
+  await page.goto(url + '/app/workspaces/w1/tools/matrices');
+  await page.getByRole('heading', { name: 'Factor evaluation' }).waitFor();
+  await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
+  await page.getByLabel('Weight percent for factor 1').fill('100');
+  await page.getByLabel('Rating for factor 1').selectOption('4');
+  await page.getByRole('button', { name: 'Finalize matrix' }).click();
+  await page.getByRole('status').filter({ hasText: 'Matrix finalized and saved' }).waitFor();
+  assert.equal(analysisRecords.get('w1:efe').output.rounded_score, 4);
+  assert.equal(analysisRecords.get('w1:efe').state, 'finalized');
+  await page.getByRole('button', { name: /IFE/ }).click();
+  await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
+  await page.getByLabel('Weight percent for factor 1').fill('100');
+  await page.getByLabel('Rating for factor 1').selectOption('4');
+  await page.getByRole('button', { name: 'Finalize matrix' }).click();
+  await page.getByRole('status').filter({ hasText: 'Matrix finalized and saved' }).waitFor();
+  assert.equal(analysisRecords.get('w1:ife').output.rounded_score, 4);
+  await page.reload();
+  await page.getByRole('heading', { name: 'Factor evaluation' }).waitFor();
+  assert.equal(await page.locator('.evaluation-result__revision').count(), 1, 'matrix revisions must survive refresh');
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `EFE/IFE overflow ${width}/${theme}`);
+      await page.screenshot({ path: `test-results/web/matrices-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
+    }
+  }
+  await page.getByRole('button', { name: /Copy SWOT factors/ }).focus();
+  assert.notEqual(await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle), 'none', 'matrix controls must keep visible keyboard focus');
   await page.goto(url + '/app/account');
   await page.getByLabel('زبان رابط').selectOption('fa');
   await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
@@ -710,6 +793,9 @@ try {
   await page.getByRole('status').filter({ hasText: 'اطلاعات این فضای کار ذخیره شد' }).waitFor();
   assert.equal(projectProfiles.get('w2').icps[0].name, 'مشتری مستقل پروژه دوم');
   assert.equal(projectProfiles.get('w1').icps[0].name, 'تیم‌های تولید متوسط', 'Workspace ICPs must stay isolated');
+  await page.goto(url + '/app/workspaces/w2/tools/matrices');
+  await page.getByRole('heading', { name: 'ارزیابی عوامل راهبردی' }).waitFor();
+  assert.equal(await page.locator('.evaluation-result h2').innerText(), '— / ۴', 'matrix data must stay isolated between Workspaces');
 
   await page.goto(url + '/app/start');
   await page.waitForURL(/\/app\/workspaces\/w2$/);
@@ -745,6 +831,7 @@ try {
         routeSearchAndLegacyDeepLinks: true,
         workspaceProfileAutosaveConflictAndRecovery: true,
         workspaceSwotTowsFactorsOptionsAndDependencyReview: true,
+        workspaceEfeIfeCalculationPersistenceAndInterpretation: true,
         responsiveScreenshots: 44,
         legacyImportPreviewCommitDownloadUndo: true,
         legacyBrowserStoragePreserved: true,

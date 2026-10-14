@@ -624,7 +624,7 @@
         "STR-018"
       ],
       "lane": "strategy/calculation",
-      "paths": "src/calculations.js; tests/calculations.test.mjs; packages/domain/; API analysis calculations",
+      "paths": "packages/domain/src/evaluation-matrices.ts; packages/domain/tests/evaluation-matrices.test.mjs; apps/api/modules/analysis/; apps/web/src/features/analysis/; docs/fixtures/efe-ife.json; scripts/verify-web.mjs",
       "scope": [
         "منطق EFE/IFE را با fixtures فعلی به TS و سرویس authoritative منتقل کن",
         "weight/rating، جمع وزن، rounding، داده ناقص و evidence را validate کن",
@@ -643,9 +643,10 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 20,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/20"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/20",
+      "progress_evidence": "محاسبه TypeScript و API مرجع، snapshot نسخه‌دار Workspace، رابط EFE/IFE و golden fixtures مشترک پیاده شده‌اند؛ تست API/مرورگر، migration/Docker، screenshot و پذیرش نهایی به اعتبارسنجی کل سیستم موکول است."
     },
     {
       "id": "STR-021",

@@ -140,6 +140,51 @@ export type ApiStrategyFactorDelete = {
 };
 export type ApiStrategyOptionDelete = { id: string; deleted: true };
 
+export type ApiAnalysisKind = 'efe' | 'ife';
+export type ApiAnalysisState = 'draft' | 'finalized';
+export type ApiAnalysisRow = {
+  id: string;
+  title: string;
+  factor_type: ApiStrategyFactorType;
+  weight: number | null;
+  rating: number | null;
+  evidence: string;
+};
+export type ApiAnalysisOutput = {
+  kind: ApiAnalysisKind;
+  total_weight: number;
+  score: number | null;
+  rounded_score: number | null;
+  ready: boolean;
+  can_finalize: boolean;
+  issues: { code: string; field: string }[];
+  interpretation: 'below_midpoint' | 'at_midpoint' | 'above_midpoint' | 'unavailable';
+  midpoint: 2.5;
+  limitations: string[];
+};
+export type ApiAnalysis = {
+  id: string;
+  workspace_id: string;
+  revision: number;
+  created_at: string;
+  updated_at: string;
+  kind: ApiAnalysisKind;
+  schema_version: 1;
+  method_version: string;
+  inputs: { rows: ApiAnalysisRow[] };
+  output: ApiAnalysisOutput;
+  state: ApiAnalysisState;
+};
+export type ApiAnalysisWrite = {
+  revision: number;
+  kind: ApiAnalysisKind;
+  schema_version: 1;
+  method_version: string;
+  inputs: { rows: ApiAnalysisRow[] };
+  state: ApiAnalysisState;
+};
+export type ApiAnalysisDelete = { id: string; deleted: true };
+
 export type ApiWorkspaceMember = {
   user_id: string;
   email: string;
@@ -213,6 +258,32 @@ export type OpenApiPaths = {
     delete: {
       parameters: { path: { workspace_id: string; option_id: string } };
       response: ApiStrategyOptionDelete;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/analyses/': {
+    get: {
+      parameters: { path: { workspace_id: string } };
+      response: { items: ApiAnalysis[]; next_cursor: string | null };
+    };
+    post: {
+      parameters: { path: { workspace_id: string } };
+      requestBody: ApiAnalysisWrite;
+      response: ApiAnalysis;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/analyses/{record_id}/': {
+    get: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      response: ApiAnalysis;
+    };
+    patch: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: ApiAnalysisWrite;
+      response: ApiAnalysis;
+    };
+    delete: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      response: ApiAnalysisDelete;
     };
   };
 };
@@ -544,6 +615,98 @@ export function decodeStrategyBoard(value: unknown): ApiStrategyBoard {
     factors,
     options,
   };
+}
+
+export function decodeAnalysis(value: unknown): ApiAnalysis {
+  const item = record(value);
+  if (item.kind !== 'efe' && item.kind !== 'ife') throw new TypeError('Invalid matrix kind');
+  if (item.state !== 'draft' && item.state !== 'finalized')
+    throw new TypeError('Invalid matrix state');
+  const inputs = record(item.inputs);
+  const rows = decodeRows(inputs.rows, (value) => {
+    const row = record(value);
+    if (!strategyFactorTypes.includes(row.factor_type as ApiStrategyFactorType))
+      throw new TypeError('Invalid matrix factor type');
+    if (row.weight !== null && (typeof row.weight !== 'number' || !Number.isFinite(row.weight)))
+      throw new TypeError('Invalid matrix weight');
+    if (row.rating !== null && (!Number.isInteger(row.rating) || typeof row.rating !== 'number'))
+      throw new TypeError('Invalid matrix rating');
+    return {
+      id: requiredString(row.id),
+      title: boundedString(row.title, 500, 'analysis.title'),
+      factor_type: row.factor_type as ApiStrategyFactorType,
+      weight: row.weight as number | null,
+      rating: row.rating as number | null,
+      evidence: boundedString(row.evidence, 2000, 'analysis.evidence'),
+    };
+  });
+  const output = record(item.output);
+  const interpretation = ['below_midpoint', 'at_midpoint', 'above_midpoint', 'unavailable'];
+  if (
+    output.kind !== item.kind ||
+    typeof output.total_weight !== 'number' ||
+    !Number.isFinite(output.total_weight) ||
+    (output.score !== null &&
+      (typeof output.score !== 'number' || !Number.isFinite(output.score))) ||
+    (output.rounded_score !== null &&
+      (typeof output.rounded_score !== 'number' || !Number.isFinite(output.rounded_score))) ||
+    typeof output.ready !== 'boolean' ||
+    typeof output.can_finalize !== 'boolean' ||
+    output.midpoint !== 2.5 ||
+    !interpretation.includes(String(output.interpretation))
+  )
+    throw new TypeError('Invalid matrix calculation output');
+  const issues = decodeRows(output.issues, (value) => {
+    const issue = record(value);
+    return { code: requiredString(issue.code), field: requiredString(issue.field) };
+  });
+  const limitations = decodeRows(output.limitations, (value) => requiredString(value));
+  if (
+    item.schema_version !== 1 ||
+    typeof item.created_at !== 'string' ||
+    typeof item.updated_at !== 'string'
+  )
+    throw new TypeError('Invalid matrix metadata');
+  return {
+    id: requiredString(item.id),
+    workspace_id: requiredString(item.workspace_id),
+    revision: positiveRevision(item.revision),
+    created_at: item.created_at,
+    updated_at: item.updated_at,
+    kind: item.kind,
+    schema_version: 1,
+    method_version: requiredString(item.method_version),
+    inputs: { rows },
+    output: {
+      kind: item.kind,
+      total_weight: output.total_weight,
+      score: output.score as number | null,
+      rounded_score: output.rounded_score as number | null,
+      ready: output.ready,
+      can_finalize: output.can_finalize,
+      issues,
+      interpretation: output.interpretation as ApiAnalysisOutput['interpretation'],
+      midpoint: 2.5,
+      limitations,
+    },
+    state: item.state,
+  };
+}
+
+export function decodeAnalysisPage(value: unknown) {
+  const page = record(value);
+  if (
+    !Array.isArray(page.items) ||
+    (page.next_cursor !== null && typeof page.next_cursor !== 'string')
+  )
+    throw new ApiError('فهرست تحلیل معتبر نیست.', 502, {}, 'invalid_response');
+  const items = page.items.map(decodeAnalysis);
+  if (
+    new Set(items.map((item) => item.id)).size !== items.length ||
+    new Set(items.map((item) => item.kind)).size !== items.length
+  )
+    throw new ApiError('ماتریس تکراری در پاسخ سرور دریافت شد.', 502, {}, 'invalid_response');
+  return { items, next_cursor: page.next_cursor as string | null };
 }
 
 export function decodeWorkspaceMember(value: unknown): ApiWorkspaceMember {

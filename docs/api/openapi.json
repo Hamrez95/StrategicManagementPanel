@@ -2181,7 +2181,7 @@
       "get": {
         "operationId": "listAnalysis",
         "summary": "listAnalysis",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Live collection for the current Workspace EFE and IFE matrices. Private responses are no-store.",
         "security": [
           {
             "cookieSession": []
@@ -2327,13 +2327,147 @@
             }
           }
         }
+      },
+      "post": {
+        "operationId": "createAnalysis",
+        "summary": "Create an EFE or IFE matrix",
+        "description": "Creates a Workspace-scoped matrix with a registered schema and method version. The server calculates the saved output and requires complete evidence before finalization.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalysisWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created; private responses are no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Analysis"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Field or schema validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden action or CSRF",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or invisible Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Matrix already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Incomplete calculation cannot be finalized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/workspaces/{workspace_id}/analyses/{record_id}/": {
       "get": {
         "operationId": "readAnalysis",
         "summary": "readAnalysis",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Reads a matrix only when the authenticated user can access its Workspace. Private responses are no-store.",
         "security": [
           {
             "cookieSession": []
@@ -2461,7 +2595,7 @@
       "patch": {
         "operationId": "updateAnalysis",
         "summary": "updateAnalysis",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Replaces the matrix snapshot using an optimistic revision. The server recalculates output and validates all finalization requirements.",
         "security": [
           {
             "cookieSession": []
@@ -2600,6 +2734,121 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AnalysisWrite"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteAnalysis",
+        "summary": "Delete an EFE or IFE matrix",
+        "description": "Deletes a matrix from the accessible Workspace. Owner or editor membership and CSRF are required.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisDelete"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden action or CSRF",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or invisible matrix",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
@@ -5415,7 +5664,7 @@
           "undone_at": { "type": "string", "format": "date-time", "nullable": true },
           "duplicate": { "type": "boolean" }
         },
-        "required": ["id", "workspace_id", "created_by_id", "source_schema", "mapping_version", "source_digest", "record_counts", "record_count", "missing_attachment_bytes", "created_at", "undone_at", "duplicate"],
+        "required": ["id", "workspace_id", "created_by_id", "source_schema", "mapping_version", "source_digest", "record_counts", "record_count", "missing_attachment_bytes", "created_at", "undone_at", "duplicate"]
       },
       "ImportBatchDetail": {
         "allOf": [
@@ -5786,6 +6035,177 @@
         ],
         "additionalProperties": false
       },
+      "EvaluationMatrixRow": {
+        "type": "object",
+        "description": "Factor snapshot. Draft fields may be empty; finalization validates each field.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "factor_type": {
+            "type": "string",
+            "enum": [
+              "strength",
+              "weakness",
+              "opportunity",
+              "threat"
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "nullable": true,
+            "description": "Percentage; all weights must total 100 within a strict 0.001 tolerance."
+          },
+          "rating": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "nullable": true
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "factor_type",
+          "weight",
+          "rating",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "EvaluationMatrixInputs": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 100,
+            "items": {
+              "$ref": "#/components/schemas/EvaluationMatrixRow"
+            }
+          }
+        },
+        "required": [
+          "rows"
+        ],
+        "additionalProperties": false
+      },
+      "EvaluationMatrixOutput": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "efe",
+              "ife"
+            ]
+          },
+          "total_weight": {
+            "type": "number"
+          },
+          "score": {
+            "type": "number",
+            "nullable": true,
+            "description": "Full precision weighted score."
+          },
+          "rounded_score": {
+            "type": "number",
+            "nullable": true,
+            "description": "Display value rounded to the nearest hundredth."
+          },
+          "ready": {
+            "type": "boolean"
+          },
+          "can_finalize": {
+            "type": "boolean"
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "field"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "interpretation": {
+            "type": "string",
+            "enum": [
+              "below_midpoint",
+              "at_midpoint",
+              "above_midpoint",
+              "unavailable"
+            ]
+          },
+          "midpoint": {
+            "type": "number",
+            "enum": [
+              2.5
+            ]
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "total_weight",
+          "score",
+          "rounded_score",
+          "ready",
+          "can_finalize",
+          "issues",
+          "interpretation",
+          "midpoint",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "AnalysisDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "deleted"
+        ],
+        "additionalProperties": false
+      },
       "AnalysisWrite": {
         "type": "object",
         "properties": {
@@ -5793,45 +6213,22 @@
             "type": "integer",
             "minimum": 1
           },
-          "kind": {
-            "type": "string",
-            "enum": [
-              "icp",
-              "swot",
-              "efe",
-              "ife",
-              "qspm",
-              "vrio",
-              "cpm",
-              "space",
-              "bcg",
-              "ie",
-              "ge",
-              "ansoff",
-              "grand",
-              "finance",
-              "scenario"
-            ]
-          },
+          "kind": { "type": "string", "enum": ["efe", "ife"], "description": "Only EFE and IFE have registered live methods. Other analysis kinds fail closed." },
           "schema_version": {
             "type": "integer",
             "minimum": 1
           },
-          "method_version": {
-            "type": "string",
-            "maxLength": 100
-          },
-          "inputs": {
-            "type": "object",
-            "description": "Must match the server registry for kind/schema_version. Generic object acceptance alone is insufficient."
-          }
+          "method_version": { "type": "string", "maxLength": 100, "description": "Must equal efe-v1 or ife-v1 for the selected kind." },
+          "inputs": { "$ref": "#/components/schemas/EvaluationMatrixInputs" },
+          "state": { "type": "string", "enum": ["draft", "finalized"] }
         },
         "required": [
           "revision",
           "kind",
           "schema_version",
           "method_version",
-          "inputs"
+          "inputs",
+          "state"
         ],
         "additionalProperties": false
       },
@@ -5876,12 +6273,8 @@
             "type": "string",
             "maxLength": 100
           },
-          "inputs": {
-            "type": "object"
-          },
-          "output": {
-            "type": "object"
-          },
+          "inputs": { "$ref": "#/components/schemas/EvaluationMatrixInputs" },
+          "output": { "$ref": "#/components/schemas/EvaluationMatrixOutput" },
           "state": {
             "type": "string",
             "enum": [
@@ -5900,6 +6293,7 @@
           "schema_version",
           "method_version",
           "inputs",
+          "output",
           "state"
         ],
         "additionalProperties": false
