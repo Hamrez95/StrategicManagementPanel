@@ -1,12 +1,13 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import { Brand, Notice } from '@stratino/ui';
+import { Brand, Button, Notice } from '@stratino/ui';
 import { readSession } from './session';
 const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const Operator = lazy(() => import('./pages/Operator'));
+const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
   const { pathname } = useLocation();
@@ -30,9 +31,7 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     return (
       <Notice title="فضای کار در دسترس نیست">
         <p role="alert">{query.error.message}</p>
-        <button className="button" onClick={() => void query.refetch()}>
-          تلاش دوباره
-        </button>
+        <Button onClick={() => void query.refetch()}>تلاش دوباره</Button>
         <Link className="text-link" to="/demo">
           بازکردن نسخه نمونه
         </Link>
@@ -92,9 +91,9 @@ export function App() {
         <nav aria-label="ناوبری اصلی">
           <Link to="/demo">نمونه تعاملی</Link>
           <Link to="/account/login">حساب کاربری</Link>
-          <button className="theme-button" aria-label="تغییر تم" onClick={toggleTheme}>
+          <Button aria-label="تغییر تم" onClick={toggleTheme}>
             {dark ? 'تم روشن' : 'تم تیره'}
-          </button>
+          </Button>
         </nav>
       </header>
       <main id="content" tabIndex={-1}>
@@ -106,6 +105,7 @@ export function App() {
           }
         >
           <Routes>
+            {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
             <Route path="/" element={<Site />} />
             <Route
               path="/demo"

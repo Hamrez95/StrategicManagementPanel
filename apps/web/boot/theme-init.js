@@ -5,6 +5,7 @@ try {
     saved?.theme === 'dark' ||
     (saved?.theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  document.documentElement.dataset.motion = saved?.motion === 'reduced' ? 'reduced' : 'auto';
 } catch {
   document.documentElement.dataset.theme = 'light';
 }

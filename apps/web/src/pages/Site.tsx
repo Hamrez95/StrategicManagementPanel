@@ -1,3 +1,4 @@
+import { useUIAppearance } from '@stratino/ui';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion } from 'motion/react';
@@ -29,7 +30,9 @@ const steps = [
 ];
 export default function Site() {
   const [active, setActive] = useState(0);
-  const reduced = useReducedMotion();
+  const systemReduced = useReducedMotion();
+  const { motion: motionPreference } = useUIAppearance();
+  const reduced = systemReduced || motionPreference === 'reduced';
   return (
     <>
       <section className="hero">
@@ -45,7 +48,7 @@ export default function Site() {
             همراه با آموزش، درست وقتی به آن نیاز دارید.
           </p>
           <div className="hero-actions">
-            <Link className="button primary" to="/demo">
+            <Link className="ui-button ui-button--primary" to="/demo">
               تجربه نسخه نمونه
             </Link>
             <a className="text-link" href="#workflow">
