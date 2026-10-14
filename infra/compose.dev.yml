@@ -17,7 +17,7 @@ services:
     image: axllent/mailpit:v1.31.5
     ports:
       - '127.0.0.1:${MAILPIT_PORT:-8025}:8025'
-    networks: [private]
+    networks: [private, loopback]
   api:
     build: ../apps/api
     environment:
@@ -34,7 +34,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks: [private]
+    networks: [private, loopback]
     healthcheck:
       test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=3)"]
       interval: 3s
@@ -43,6 +43,9 @@ services:
 networks:
   private:
     internal: true
+  # Published loopback ports need a bridge with host connectivity.
+  # PostgreSQL stays exclusively on the internal network.
+  loopback:
 volumes:
   database:
   private-files:
