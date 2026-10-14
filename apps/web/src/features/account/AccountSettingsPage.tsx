@@ -28,6 +28,7 @@ function firstError(fields: AuthFields, name: string) {
 }
 
 export default function AccountSettingsPage() {
+  const location = useLocation();
   const queryClient = useQueryClient();
   const profileQuery = useQuery({
     queryKey: ['account-profile'],
@@ -72,6 +73,11 @@ export default function AccountSettingsPage() {
       show_tutorial: preferencesQuery.data.show_tutorial,
     });
   }, [preferencesQuery.data]);
+
+  useEffect(() => {
+    const id = location.hash.slice(1);
+    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }));
+  }, [location.hash]);
 
   async function saveProfile(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -191,7 +197,7 @@ export default function AccountSettingsPage() {
         </form>
       </section>
 
-      <section className="account-card" aria-labelledby="preferences-heading">
+      <section id="account-preferences" className="account-card" aria-labelledby="preferences-heading">
         <div className="account-card__heading">
           <div>
             <h2 id="preferences-heading">ظاهر و تجربه</h2>
@@ -291,6 +297,15 @@ export default function AccountSettingsPage() {
         </form>
       </section>
 
+      <section id="subscription" className="account-card" aria-labelledby="subscription-heading">
+        <div className="account-card__heading">
+          <div>
+            <h2 id="subscription-heading">پلن و سهمیه</h2>
+            <p>اطلاعات اشتراک و مصرف پس از آماده‌شدن بخش پرداخت نمایش داده می‌شود.</p>
+          </div>
+        </div>
+        <p role="status">در حال حاضر هیچ قیمت یا سهمیه‌ای برای این حساب ثبت نشده است.</p>
+      </section>
       <p className="account-settings__back"><Link to="/app/start">بازگشت به فضای کار</Link></p>
     </section>
   );

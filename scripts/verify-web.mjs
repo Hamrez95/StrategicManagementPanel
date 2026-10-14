@@ -70,8 +70,14 @@ try {
   let workspaceRows = [workspace];
   let createdWorkspaceCount = 0;
   let accountProfile = { email: 'owner@example.test', display_name: 'مدیر نمونه', role_title: '', pending_email: '' };
+  let accountPreferences = { theme: 'light', language: 'fa', motion: 'auto', show_tutorial: true, device_sync_pending: false, updated_at: new Date().toISOString() };
   const projectProfiles = new Map([['w1', { workspace_id: 'w1', industry: '', stage: '', mission: '', revision: 1, onboarding_completed_at: null }]]);
   const invitations = [];
+  await page.route('**/api/v1/account/preferences/', async (route) => {
+    if (route.request().method() === 'GET') return route.fulfill({ json: accountPreferences });
+    accountPreferences = { ...accountPreferences, ...route.request().postDataJSON(), updated_at: new Date().toISOString() };
+    return route.fulfill({ json: accountPreferences });
+  });
   await page.route('**/api/v1/account/profile/', async (route) => {
     if (route.request().method() === 'GET') return route.fulfill({ json: accountProfile });
     accountProfile = { ...accountProfile, ...route.request().postDataJSON() };
@@ -146,11 +152,16 @@ try {
     }
     return route.fulfill({ status: 404, json: { code: 'workspace_not_found', message: 'فضای کار در دسترس نیست.' } });
   });
-  await page.goto(url + '/app/workspaces/w1/overview');
+  await page.goto(url + '/app/workspaces/w1/settings');
   await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
   await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
+  await page.goto(url + '/app/workspaces/w1/overview');
+  await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+  await page.getByRole('link', { name: 'تنظیمات فضای کار' }).waitFor();
   await page.reload();
   await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+  await page.getByRole('link', { name: 'تنظیمات فضای کار' }).click();
+  await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
   const nameInput = page.getByLabel('نام فضای کار');
   workspace.revision = 2;
   await nameInput.fill('تغییر هم‌زمان');
@@ -165,7 +176,7 @@ try {
   assert.match(cancelDialog.message(), /پروژه مجاز/);
   await cancelDialog.dismiss();
   await cancelSelection;
-  assert.match(page.url(), /\/app\/workspaces\/w1\/overview$/);
+  assert.match(page.url(), /\/app\/workspaces\/w1\/settings$/);
   const switchDialogPromise = page.waitForEvent('dialog');
   const switchSelection = page.getByRole('combobox', { name: 'انتخاب فضای کار' }).selectOption('');
   const switchDialog = await switchDialogPromise;
@@ -175,6 +186,8 @@ try {
   await page.getByRole('heading', { name: 'فضاهای من' }).waitFor();
   await page.getByRole('link', { name: 'پروژه مجاز' }).waitFor();
   await page.getByRole('link', { name: 'پروژه مجاز' }).click();
+  await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+  await page.getByRole('link', { name: 'تنظیمات فضای کار' }).click();
   await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
   await page.getByLabel('دعوت با ایمیل').fill('member@example.test');
   await page.getByLabel('سطح دسترسی').selectOption('viewer');
@@ -184,6 +197,55 @@ try {
   const invitationDialog = page.getByRole('dialog');
   await invitationDialog.getByRole('button', { name: 'لغو دعوت' }).click();
   await page.getByText('member@example.test').waitFor({ state: 'detached' });
+
+  const shellScreenshots = [];
+  for (const theme of ['light', 'dark']) {
+    await page.goto(url + '/app/account');
+    await page.getByRole('heading', { name: 'پروفایل و تنظیمات' }).waitFor();
+    await page.getByLabel('پوسته').selectOption(theme);
+    await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+    await page.getByText('تنظیمات حساب ذخیره و با این دستگاه همگام شد.').waitFor();
+    await page.goto(url + '/app/workspaces/w1/overview');
+    await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `shell overflow ${width}/${theme}`);
+      const path = `test-results/web/shell-${width}-${theme}.png`;
+      await page.screenshot({ path, fullPage: true, animations: 'disabled' });
+      shellScreenshots.push(path);
+    }
+  }
+  await page.setViewportSize({ width: 360, height: 820 });
+  const mobileMenuTrigger = page.getByRole('button', { name: 'بازکردن منوی فضای کار' });
+  await mobileMenuTrigger.click();
+  const mobileMenu = page.getByRole('dialog', { name: 'ناوبری فضای کار' });
+  await mobileMenu.waitFor();
+  assert.equal(await mobileMenu.getByRole('link', { name: 'نمای کلی پروژه' }).count(), 1);
+  assert.equal(await mobileMenu.evaluate((node) => node.contains(document.activeElement)), true, 'mobile menu must receive focus');
+  await page.keyboard.press('Escape');
+  await mobileMenu.waitFor({ state: 'hidden' });
+  assert.equal(await mobileMenuTrigger.evaluate((node) => node === document.activeElement), true, 'mobile menu must restore focus');
+
+  await page.keyboard.press('/');
+  const searchDialog = page.getByRole('dialog', { name: 'جستجو در فضای کار' });
+  await searchDialog.getByLabel('جستجوی صفحه و ابزار').fill('تصمیم');
+  await searchDialog.getByRole('link', { name: 'اتاق تصمیم' }).click();
+  await page.getByRole('heading', { name: 'اتاق تصمیم' }).waitFor();
+  assert.match(await page.locator('.workspace-tool__availability').innerText(), /نمونه قدیمی داده را جداگانه/);
+  await page.goBack();
+  await page.waitForURL(/\/app\/workspaces\/w1\/overview$/);
+  await page.goForward();
+  await page.waitForURL(/\/app\/workspaces\/w1\/tools\/qspm$/);
+  await page.goto(url + '/app/workspaces/w1/matrices/efe');
+  await page.waitForURL(/\/app\/workspaces\/w1\/tools\/matrices\?path=efe$/);
+  assert.equal(await page.getByRole('link', { name: 'بازکردن نسخه نمونه محلی' }).getAttribute('href'), '/prototype/#matrices/efe');
+  await page.reload();
+  await page.getByRole('heading', { name: 'آزمایشگاه ماتریس‌ها' }).waitFor();
+
+  await page.getByRole('button', { name: 'منوی حساب' }).click();
+  await page.getByRole('link', { name: 'پلن و سهمیه' }).click();
+  await page.getByRole('heading', { name: 'پلن و سهمیه' }).waitFor();
+
   await page.goto(url + '/app/workspaces/other/overview');
   await page.getByRole('heading', { name: 'فضای کار در دسترس نیست' }).waitFor();
   await page.goto(url + '/internal');
@@ -274,7 +336,10 @@ try {
         prototypePreserved: true,
         onboardingRefreshAndBack: true,
         inviteeNotForcedToCreateWorkspace: true,
-        responsiveScreenshots: 12,
+        workspaceShellScreenshots: shellScreenshots,
+        workspaceMobileMenuFocusRestored: true,
+        routeSearchAndLegacyDeepLinks: true,
+        responsiveScreenshots: 20,
         errors,
       },
       null,
@@ -282,7 +347,7 @@ try {
     ),
   );
   console.log(
-    'PASS: 12 responsive/theme/onboarding screenshots, onboarding refresh/back, deep links, session failure/401/malformed data, membership/operator boundaries, prototype and API fallback',
+    'PASS: 20 responsive/theme/onboarding/shell screenshots, workspace routes/search/legacy mapping, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
 } finally {
   await browser.close();

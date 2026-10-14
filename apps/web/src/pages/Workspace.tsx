@@ -176,11 +176,6 @@ export default function Workspace() {
         <Link
           to="/app/workspaces"
           className="text-link"
-          onClick={(event) => {
-            if (nameDirty && !window.confirm(english
-              ? `Unsaved changes will be lost. Leave “${workspace.name}”?`
-              : `تغییرات ذخیره‌نشده از بین می‌روند. از «${workspace.name}» خارج شوید؟`)) event.preventDefault();
-          }}
         >
           {english ? 'All Workspaces' : 'همه فضاها'}
         </Link>

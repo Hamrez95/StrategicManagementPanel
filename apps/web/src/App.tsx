@@ -12,11 +12,17 @@ import {
 } from './features/account/api';
 import type { DevicePreferences } from './features/account/api';
 import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
+import { getWorkspaceTool } from './features/workspaces/routeRegistry';
 const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
 const Onboarding = lazy(() => import('./features/onboarding/OnboardingPage'));
+const ApplicationShell = lazy(() => import('./features/workspaces/ApplicationShell'));
+const WorkspaceOverviewPage = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceOverviewPage })));
+const WorkspaceToolPage = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceToolPage })));
+const LegacyWorkspaceRedirect = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.LegacyWorkspaceRedirect })));
+const WorkspaceIndexRedirect = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceIndexRedirect })));
 const Operator = lazy(() => import('./pages/Operator'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
@@ -25,8 +31,18 @@ function RouteFocus() {
   const { pathname } = useLocation();
   useEffect(() => {
     document.querySelector<HTMLElement>('main h1')?.focus();
-    document.title =
-      'استراتینو | ' + (pathname.startsWith('/app') ? 'فضای کار' : 'از تحلیل تا اقدام');
+    const english = document.documentElement.lang === 'en';
+    const toolId = pathname.split('/tools/')[1]?.split('/')[0];
+    const tool = getWorkspaceTool(toolId);
+    const title = tool?.title[english ? 'en' : 'fa']
+      ?? (pathname.endsWith('/settings')
+        ? (english ? 'Workspace settings' : 'تنظیمات فضای کار')
+        : pathname.endsWith('/account')
+          ? (english ? 'Account and preferences' : 'حساب و تنظیمات')
+          : pathname.startsWith('/app')
+            ? (english ? 'Workspace' : 'فضای کار')
+            : (english ? 'From analysis to action' : 'از تحلیل تا اقدام'));
+    document.title = `استراتینو | ${title}`;
   }, [pathname]);
   return null;
 }
@@ -39,6 +55,7 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const queryClient = useQueryClient();
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState('');
+  const appPath = pathname.startsWith('/app');
   const query = useQuery({ queryKey: ['session'], queryFn: ({ signal }) => readSession(signal) });
   useQuery({
     queryKey: ['account-preferences'],
@@ -89,22 +106,26 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   }
   return (
     <WorkspaceSwitchProvider>
-      <div className="session-tools">
-        <WorkspaceSelector session={query.data} activeWorkspace={activeWorkspace} />
-        <Link to="/app/account" className="session-account-link" aria-label={english
-          ? `Account settings for ${query.data.user.name}`
-          : `تنظیمات حساب ${query.data.user.name}`}>
-          <span className="session-account-avatar" aria-hidden="true">
-            {Array.from(query.data.user.name)[0] ?? 'ح'}
-          </span>
-          {english ? 'Account settings' : 'تنظیمات حساب'}
-        </Link>
-        <span>{english ? 'Signed in as' : 'واردشده با'} <strong dir="auto">{query.data.user.name}</strong></span>
-        <Button variant="quiet" pending={loggingOut} pendingLabel={english ? 'Signing out…' : 'در حال خروج…'} onClick={() => void signOut()}>
-          {english ? 'Sign out' : 'خروج از حساب'}
-        </Button>
-      </div>
-      {logoutError && <p className="session-tools__error" role="alert">{logoutError}</p>}
+      {!appPath && (
+        <>
+          <div className="session-tools">
+            <WorkspaceSelector session={query.data} activeWorkspace={activeWorkspace} />
+            <Link to="/app/account" className="session-account-link" aria-label={english
+              ? `Account settings for ${query.data.user.name}`
+              : `تنظیمات حساب ${query.data.user.name}`}>
+              <span className="session-account-avatar" aria-hidden="true">
+                {Array.from(query.data.user.name)[0] ?? 'ح'}
+              </span>
+              {english ? 'Account settings' : 'تنظیمات حساب'}
+            </Link>
+            <span>{english ? 'Signed in as' : 'واردشده با'} <strong dir="auto">{query.data.user.name}</strong></span>
+            <Button variant="quiet" pending={loggingOut} pendingLabel={english ? 'Signing out…' : 'در حال خروج…'} onClick={() => void signOut()}>
+              {english ? 'Sign out' : 'خروج از حساب'}
+            </Button>
+          </div>
+          {logoutError && <p className="session-tools__error" role="alert">{logoutError}</p>}
+        </>
+      )}
       <Outlet context={query.data} />
     </WorkspaceSwitchProvider>
   );
@@ -157,6 +178,8 @@ function WorkspaceSelector({
   );
 }
 export function App() {
+  const location = useLocation();
+  const applicationPath = location.pathname.startsWith('/app');
   const queryClient = useQueryClient();
   const [devicePreferences, setDevicePreferences] = useState<DevicePreferences>(readDevicePreferences);
   const [preferenceSyncError, setPreferenceSyncError] = useState(false);
@@ -213,7 +236,7 @@ export function App() {
       <a className="skip-link" href="#content">
         رفتن به محتوای اصلی
       </a>
-      <header className="site-header">
+      {!applicationPath && <header className="site-header">
         <Link to="/" aria-label="استراتینو، صفحه اصلی">
           <Brand />
         </Link>
@@ -224,13 +247,13 @@ export function App() {
             {dark ? 'تم روشن' : 'تم تیره'}
           </Button>
         </nav>
-      </header>
-      {preferenceSyncError && (
+      </header>}
+      {!applicationPath && preferenceSyncError && (
         <p className="preference-sync-note" role="status">
           ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حساب کامل نشد. در تنظیمات حساب دوباره ذخیره کنید.
         </p>
       )}
-      <main id="content" tabIndex={-1}>
+      <main id="content" className={applicationPath ? 'route-main route-main--application' : 'route-main'} tabIndex={-1}>
         <Suspense
           fallback={
             <p className="loading" role="status">
@@ -257,11 +280,20 @@ export function App() {
               }
             />
             <Route path="/account/*" element={<Account />} />
-            <Route element={<SessionBoundary />}>
-              <Route path="/app/workspaces" element={<WorkspaceManagement />} />
-              <Route path="/app/workspaces/:workspaceId/*" element={<Workspace />} />
-              <Route path="/app/start" element={<Onboarding />} />
-              <Route path="/app/account" element={<AccountSettingsPage />} />
+            <Route path="/app" element={<SessionBoundary />}>
+              <Route element={<ApplicationShell />}>
+                <Route index element={<Navigate to="/app/workspaces" replace />} />
+                <Route path="workspaces" element={<WorkspaceManagement />} />
+                <Route path="start" element={<Onboarding />} />
+                <Route path="account" element={<AccountSettingsPage />} />
+                <Route path="workspaces/:workspaceId">
+                  <Route index element={<WorkspaceIndexRedirect />} />
+                  <Route path="overview" element={<WorkspaceOverviewPage />} />
+                  <Route path="settings" element={<Workspace />} />
+                  <Route path="tools/:toolId" element={<WorkspaceToolPage />} />
+                  <Route path="*" element={<LegacyWorkspaceRedirect />} />
+                </Route>
+              </Route>
             </Route>
             <Route element={<SessionBoundary operator />}>
               <Route path="/internal/*" element={<Operator />} />
@@ -279,11 +311,11 @@ export function App() {
           <RouteFocus />
         </Suspense>
       </main>
-      <footer className="site-footer">
+      {!applicationPath && <footer className="site-footer">
         <Brand />
         <p>از تحلیل به تصمیم؛ از تصمیم به اقدام.</p>
         <span>نسخه در حال توسعه</span>
-      </footer>
+      </footer>}
     </>
   );
 }
