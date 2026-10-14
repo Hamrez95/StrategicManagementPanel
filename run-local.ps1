@@ -72,7 +72,10 @@ function Invoke-Compose {
         & $dockerCommand.Source compose --env-file $Stack.EnvFile --project-name $Stack.Name -f $Stack.Compose @ComposeArgs
         if ($LASTEXITCODE -ne 0) { throw 'اجرای سرویس محلی ناموفق بود. وضعیت Docker، پورت‌ها و گزارش سرویس را بررسی کنید.' }
     } finally {
-        foreach ($key in $saved.Keys) { [Environment]::SetEnvironmentVariable($key, $saved[$key], 'Process') }
+        foreach ($key in $saved.Keys) {
+            if ($null -eq $saved[$key]) { Remove-Item -LiteralPath "Env:$key" -ErrorAction SilentlyContinue }
+            else { [Environment]::SetEnvironmentVariable($key, $saved[$key], 'Process') }
+        }
     }
 }
 

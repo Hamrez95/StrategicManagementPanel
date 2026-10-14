@@ -7,8 +7,28 @@ $before = (& git -C $repo worktree list --porcelain) -join "`n"
 $states = @()
 function Invoke-FixtureCompose {
     param($State, [string[]] $Arguments)
-    & docker compose --env-file $State.FullName --project-name $State.BaseName -f (Join-Path $repo 'infra/compose.dev.yml') @Arguments
-    if ($LASTEXITCODE -ne 0) { throw 'Synthetic Compose fixture failed.' }
+    $values = @{}
+    foreach ($line in [IO.File]::ReadAllLines($State.FullName)) {
+        $parts = $line.Split(@('='), 2)
+        if ($parts.Length -eq 2) { $values[$parts[0]] = $parts[1] }
+    }
+    $slot = [Array]::IndexOf($states, $State)
+    $values['API_PORT'] = [string](8000 + $slot)
+    $values['MAILPIT_PORT'] = [string](8025 + $slot)
+    $saved = @{}
+    try {
+        foreach ($key in $values.Keys) {
+            $saved[$key] = [Environment]::GetEnvironmentVariable($key, 'Process')
+            [Environment]::SetEnvironmentVariable($key, $values[$key], 'Process')
+        }
+        & docker compose --env-file $State.FullName --project-name $State.BaseName -f (Join-Path $repo 'infra/compose.dev.yml') @Arguments
+        if ($LASTEXITCODE -ne 0) { throw 'Synthetic Compose fixture failed.' }
+    } finally {
+        foreach ($key in $saved.Keys) {
+            if ($null -eq $saved[$key]) { Remove-Item -LiteralPath "Env:$key" -ErrorAction SilentlyContinue }
+            else { [Environment]::SetEnvironmentVariable($key, $saved[$key], 'Process') }
+        }
+    }
 }
 try {
     & $runner -WithBackend -NoBrowser -SmokeTest
