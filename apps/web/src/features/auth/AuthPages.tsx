@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
+import { queryKeys } from '../../api/queryKeys';
 import { Button, Input } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth, type AuthFields } from './api';
 
@@ -170,7 +171,7 @@ export function LoginPage() {
     setPending(true);
     try {
       await postAuth('/api/v1/accounts/login/', { email, password });
-      await queryClient.invalidateQueries({ queryKey: ['session'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.session });
       const next = new URLSearchParams(location.search).get('next');
       const safeNext = next?.startsWith('/') && !next.startsWith('//') && !next.includes('\\') ? next : '/app/start';
       navigate(safeNext, { replace: true });

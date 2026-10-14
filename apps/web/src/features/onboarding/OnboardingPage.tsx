@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { Link, Navigate, useNavigate, useOutletContext } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Input, Notice, Skeleton, useToast, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../../api/queryKeys';
 import { AuthApiError } from '../auth/api';
 import { readAccountProfile, saveAccountProfile } from '../account/api';
 import type { Session } from '../../session';
@@ -28,11 +29,11 @@ export default function OnboardingPage() {
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const accountQuery = useQuery({
-    queryKey: ['account-profile'],
+    queryKey: queryKeys.account.profile,
     queryFn: ({ signal }) => readAccountProfile(signal),
   });
   const workspacesQuery = useQuery({
-    queryKey: ['workspaces'],
+    queryKey: queryKeys.workspaces.all,
     queryFn: ({ signal }) => listWorkspaces(signal),
   });
   const workspaces = workspacesQuery.data ?? [];
@@ -40,7 +41,7 @@ export default function OnboardingPage() {
     (workspace) => workspace.owner_id === session.user.id && !workspace.archived_at,
   );
   const profileQuery = useQuery({
-    queryKey: ['workspace', ownedWorkspace?.id ?? '', 'profile'],
+    queryKey: queryKeys.workspace.profile(ownedWorkspace?.id ?? ''),
     queryFn: ({ signal }) => readWorkspaceProfile(ownedWorkspace!.id, signal),
     enabled: Boolean(ownedWorkspace),
   });
@@ -121,7 +122,7 @@ export default function OnboardingPage() {
   }
 
   function updateSessionName(name: string) {
-    queryClient.setQueryData<Session | null>(['session'], (current) => current
+    queryClient.setQueryData<Session | null>(queryKeys.session, (current) => current
       ? { ...current, user: { ...current.user, name } }
       : current);
   }
@@ -153,7 +154,7 @@ export default function OnboardingPage() {
     setPending(true);
     try {
       const saved = await saveAccountProfile({ display_name: normalizedName, role_title: roleTitle.trim() });
-      queryClient.setQueryData(['account-profile'], saved);
+      queryClient.setQueryData(queryKeys.account.profile, saved);
       updateSessionName(saved.display_name || saved.email);
       setDisplayName(saved.display_name);
       setRoleTitle(saved.role_title);
@@ -179,13 +180,13 @@ export default function OnboardingPage() {
         const saved = normalizedName === ownedWorkspace.name
           ? ownedWorkspace
           : await saveWorkspace(ownedWorkspace.id, { name: normalizedName, revision: ownedWorkspace.revision });
-        queryClient.setQueryData<WorkspaceRecord[]>(['workspaces'], (current) => current?.map((item) => item.id === saved.id ? saved : item));
+        queryClient.setQueryData<WorkspaceRecord[]>(queryKeys.workspaces.all, (current) => current?.map((item) => item.id === saved.id ? saved : item));
         setWorkspaceName(saved.name);
       } else {
         const created = await createWorkspace(normalizedName);
         setWorkspaceName(created.name);
-        await queryClient.invalidateQueries({ queryKey: ['workspaces'] });
-        await queryClient.invalidateQueries({ queryKey: ['session'] });
+        await queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all });
+        await queryClient.invalidateQueries({ queryKey: queryKeys.session });
       }
       setStepOverride('project');
     } catch (reason) {
@@ -210,10 +211,10 @@ export default function OnboardingPage() {
         mission: mission.trim(),
         complete: true,
       });
-      queryClient.setQueryData(['workspace', ownedWorkspace.id, 'profile'], saved);
+      queryClient.setQueryData(queryKeys.workspace.profile(ownedWorkspace.id), saved);
       await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ['session'] }),
-        queryClient.invalidateQueries({ queryKey: ['workspaces'] }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.session }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all }),
       ]);
       notify(skip
         ? (english ? 'Setup skipped. You can add project details later.' : 'این مرحله رد شد؛ هر زمان خواستید جزئیات پروژه را اضافه کنید.')

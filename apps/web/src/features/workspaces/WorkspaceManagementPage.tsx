@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Link, useNavigate, useOutletContext } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Dialog, EmptyState, Input, Skeleton, useToast, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../../api/queryKeys';
 import { AuthApiError, firstFieldError } from '../auth/api';
 import type { Session } from '../../session';
 import { createWorkspace, listWorkspaces, saveWorkspace, type WorkspaceRecord } from './api';
@@ -92,7 +93,7 @@ export default function WorkspaceManagementPage() {
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const workspaces = useQuery({
-    queryKey: ['workspaces'],
+    queryKey: queryKeys.workspaces.all,
     queryFn: ({ signal }) => listWorkspaces(signal),
   });
   const [createOpen, setCreateOpen] = useState(false);
@@ -103,8 +104,8 @@ export default function WorkspaceManagementPage() {
   useWorkspaceDirtyGuard('workspace-create', createOpen && name.trim().length > 0);
 
   async function refresh() {
-    await queryClient.invalidateQueries({ queryKey: ['workspaces'] });
-    await queryClient.invalidateQueries({ queryKey: ['session'] });
+    await queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all });
+    await queryClient.invalidateQueries({ queryKey: queryKeys.session });
   }
 
   async function submitCreate(event: FormEvent<HTMLFormElement>) {

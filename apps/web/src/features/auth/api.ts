@@ -1,92 +1,35 @@
+import { requestApi } from '../../api/client';
+
 export type AuthFields = Record<string, string[]>;
+export { ApiError as AuthApiError } from '../../api/client';
 
-export class AuthApiError extends Error {
-  constructor(
-    message: string,
-    readonly status: number,
-    readonly fields: AuthFields = {},
-    readonly code = '',
-  ) {
-    super(message);
-    this.name = 'AuthApiError';
-  }
-}
-
-function readCsrfCookie() {
-  const cookie = document.cookie
-    .split('; ')
-    .find((part) => part.startsWith('csrftoken='))
-    ?.slice('csrftoken='.length);
-  return cookie ? decodeURIComponent(cookie) : '';
-}
-
-async function ensureCsrfCookie() {
-  if (readCsrfCookie()) return readCsrfCookie();
-  try {
-    const response = await fetch('/api/v1/csrf/', {
-      credentials: 'same-origin',
-      cache: 'no-store',
-      headers: { Accept: 'application/json' },
-    });
-    if (!response.ok || !readCsrfCookie()) throw new Error('CSRF bootstrap failed');
-    return readCsrfCookie();
-  } catch {
-    throw new AuthApiError('ارتباط امن با سرویس حساب برقرار نشد. اتصال را بررسی و دوباره تلاش کنید.', 0);
-  }
-}
-
-export async function requestAuth<T = Record<string, unknown>>(
+export function requestAuth<T = Record<string, unknown>>(
   method: 'POST' | 'PATCH' | 'DELETE',
   path: string,
   payload: Record<string, unknown> = {},
+  decode?: (value: unknown) => T,
 ): Promise<T> {
-  const csrfToken = await ensureCsrfCookie();
-  let response: Response;
-  try {
-    response = await fetch(path, {
-      method,
-      credentials: 'same-origin',
-      cache: 'no-store',
-      headers: {
-        Accept: 'application/json',
-        'X-CSRFToken': csrfToken,
-        ...(method === 'DELETE' ? {} : { 'Content-Type': 'application/json' }),
-      },
-      body: method === 'DELETE' ? undefined : JSON.stringify(payload),
-    });
-  } catch {
-    throw new AuthApiError('ارتباط با سرویس حساب قطع شد. اتصال را بررسی و دوباره تلاش کنید.', 0);
-  }
-
-  const body = response.status === 204 ? {} : await response.json().catch(() => ({}));
-  if (!response.ok) {
-    const fields =
-      body && typeof body.fields === 'object' && body.fields !== null
-        ? (body.fields as AuthFields)
-        : {};
-    const message =
-      response.status === 403 && body?.code !== 'workspace_permission_denied'
-        ? 'درخواست امنیتی تأیید نشد. صفحه را تازه کنید و دوباره تلاش کنید.'
-        : typeof body?.message === 'string'
-          ? body.message
-          : 'درخواست کامل نشد. دوباره تلاش کنید.';
-    throw new AuthApiError(message, response.status, fields, typeof body?.code === 'string' ? body.code : '');
-  }
-  return body as T;
+  return requestApi<T>(path, {
+    method,
+    body: method === 'DELETE' ? undefined : payload,
+    decode,
+  });
 }
 
 export function postAuth<T = Record<string, unknown>>(
   path: string,
   payload: Record<string, unknown> = {},
+  decode?: (value: unknown) => T,
 ) {
-  return requestAuth<T>('POST', path, payload);
+  return requestAuth<T>('POST', path, payload, decode);
 }
 
 export function patchAuth<T = Record<string, unknown>>(
   path: string,
   payload: Record<string, unknown>,
+  decode?: (value: unknown) => T,
 ) {
-  return requestAuth<T>('PATCH', path, payload);
+  return requestAuth<T>('PATCH', path, payload, decode);
 }
 
 export function deleteAuth(path: string) {

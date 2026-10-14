@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useOutletContext, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { Button, EmptyState, Notice, Skeleton, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { readWorkspaceProfile } from './api';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
@@ -13,7 +14,7 @@ export function WorkspaceOverviewPage() {
   const english = dir === 'ltr';
   const workspace = session.workspaces.find((item) => item.id === workspaceId);
   const profileQuery = useQuery({
-    queryKey: ['workspace', workspaceId, 'profile'],
+    queryKey: queryKeys.workspace.profile(workspaceId),
     queryFn: ({ signal }) => readWorkspaceProfile(workspaceId, signal),
     enabled: Boolean(workspace),
   });

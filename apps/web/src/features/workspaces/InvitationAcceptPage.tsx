@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Notice, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../../api/queryKeys';
 import { AuthApiError } from '../auth/api';
 import { readSession } from '../../session';
 import { acceptWorkspaceInvitation } from './api';
@@ -11,7 +12,7 @@ export default function InvitationAcceptPage() {
   const queryClient = useQueryClient();
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
-  const session = useQuery({ queryKey: ['session'], queryFn: () => readSession() });
+  const session = useQuery({ queryKey: queryKeys.session, queryFn: () => readSession() });
   const tokenRef = useRef<string | null>(null);
   const acceptStarted = useRef(false);
   const [token, setToken] = useState('');
@@ -39,8 +40,8 @@ export default function InvitationAcceptPage() {
     void acceptWorkspaceInvitation(token)
       .then(async ({ workspace }) => {
         setMessage(english ? 'Invitation accepted. Your Workspace is ready.' : 'دعوت پذیرفته شد. فضای کار آماده است.');
-        await queryClient.invalidateQueries({ queryKey: ['session'] });
-        await queryClient.invalidateQueries({ queryKey: ['workspaces'] });
+        await queryClient.invalidateQueries({ queryKey: queryKeys.session });
+        await queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all });
         navigate(`/app/workspaces/${encodeURIComponent(workspace.id)}`, { replace: true });
       })
       .catch((reason: unknown) => {

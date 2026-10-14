@@ -1,4 +1,5 @@
-import { AuthApiError, patchAuth, postAuth } from '../auth/api';
+import { requestApi } from '../../api/client';
+import { patchAuth, postAuth } from '../auth/api';
 
 export type UserPreferences = {
   theme: 'system' | 'light' | 'dark';
@@ -83,28 +84,8 @@ export function applyAccountPreferences(preferences: UserPreferences | DevicePre
   window.dispatchEvent(new CustomEvent<DevicePreferences>('stratino:preferences', { detail: device }));
 }
 
-async function getAccount<T>(path: string, signal?: AbortSignal): Promise<T> {
-  let response: Response;
-  try {
-    response = await fetch(path, {
-      credentials: 'same-origin',
-      cache: 'no-store',
-      signal,
-      headers: { Accept: 'application/json' },
-    });
-  } catch {
-    throw new AuthApiError('اتصال سرویس حساب قطع شد. دوباره تلاش کنید.', 0);
-  }
-  const body = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new AuthApiError(
-      typeof body?.message === 'string' ? body.message : 'اطلاعات حساب بارگذاری نشد.',
-      response.status,
-      body?.fields && typeof body.fields === 'object' ? body.fields : {},
-      typeof body?.code === 'string' ? body.code : '',
-    );
-  }
-  return body as T;
+function getAccount<T>(path: string, signal?: AbortSignal): Promise<T> {
+  return requestApi<T>(path, { signal });
 }
 
 export async function readAccountProfile(signal?: AbortSignal) {

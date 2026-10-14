@@ -1,7 +1,8 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, useNavigate, useOutletContext, useParams } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Dialog, EmptyState, Input, Notice, Skeleton, useToast, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../api/queryKeys';
 import { AuthApiError, firstFieldError } from '../features/auth/api';
 import type { Session } from '../session';
 import {
@@ -13,7 +14,8 @@ import {
   removeWorkspaceMember,
   revokeWorkspaceInvitation,
   saveWorkspace,
-  saveWorkspaceProfile,
+  saveWorkspaceProfileSafely,
+  WorkspaceProfileConflictError,
   updateWorkspaceMemberRole,
   type MemberRole,
   type ProjectProfile,
@@ -39,17 +41,17 @@ export default function Workspace() {
   const summary = session.workspaces.find((item) => item.id === workspaceId);
   const owner = summary?.role === 'owner';
   const workspaceQuery = useQuery({
-    queryKey: ['workspace', workspaceId, 'detail'],
+    queryKey: queryKeys.workspace.detail(workspaceId),
     queryFn: ({ signal }) => readWorkspace(workspaceId, signal),
     enabled: Boolean(summary && workspaceId),
   });
   const membersQuery = useQuery({
-    queryKey: ['workspace', workspaceId, 'members'],
+    queryKey: queryKeys.workspace.members(workspaceId),
     queryFn: ({ signal }) => listWorkspaceMembers(workspaceId, signal),
     enabled: Boolean(owner && workspaceQuery.data),
   });
   const invitationsQuery = useQuery({
-    queryKey: ['workspace', workspaceId, 'invitations'],
+    queryKey: queryKeys.workspace.invitations(workspaceId),
     queryFn: ({ signal }) => listWorkspaceInvitations(workspaceId, signal),
     enabled: Boolean(owner && workspaceQuery.data),
   });
@@ -77,9 +79,9 @@ export default function Workspace() {
 
   async function invalidateWorkspace() {
     await Promise.all([
-      queryClient.invalidateQueries({ queryKey: ['workspace', workspaceId] }),
-      queryClient.invalidateQueries({ queryKey: ['workspaces'] }),
-      queryClient.invalidateQueries({ queryKey: ['session'] }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.workspace.root(workspaceId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.session }),
     ]);
   }
 
@@ -92,7 +94,7 @@ export default function Workspace() {
     setNameConflict(false);
     try {
       const saved = await saveWorkspace(workspaceId, { name, revision: nameRevision });
-      queryClient.setQueryData(['workspace', workspaceId, 'detail'], saved);
+      queryClient.setQueryData(queryKeys.workspace.detail(workspaceId), saved);
       setName(saved.name);
       setNameRevision(saved.revision);
       await invalidateWorkspace();
@@ -131,8 +133,8 @@ export default function Workspace() {
         predicate: (query) => query.queryKey[0] === 'workspace' && query.queryKey[1] === workspaceId,
       });
       await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ['workspaces'] }),
-        queryClient.invalidateQueries({ queryKey: ['session'] }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.session }),
       ]);
       notify(english ? 'Workspace archived. Its records are kept.' : 'فضا بایگانی شد و اطلاعاتش حفظ شد.');
       navigate('/app/workspaces', { replace: true });
@@ -272,79 +274,126 @@ function WorkspaceProjectProfile({
   english: boolean;
 }) {
   const queryClient = useQueryClient();
-  const notify = useToast();
   const profileQuery = useQuery({
-    queryKey: ['workspace', workspaceId, 'profile'],
+    queryKey: queryKeys.workspace.profile(workspaceId),
     queryFn: ({ signal }) => readWorkspaceProfile(workspaceId, signal),
   });
   const editable = role === 'owner' || role === 'editor';
-  const [industry, setIndustry] = useState('');
-  const [stage, setStage] = useState('');
-  const [mission, setMission] = useState('');
-  const [pending, setPending] = useState(false);
+  const [draft, setDraft] = useState({ industry: '', stage: '', mission: '' });
+  const [saveState, setSaveState] = useState<'idle' | 'dirty' | 'saving' | 'saved' | 'error' | 'conflict'>('idle');
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [revisionConflict, setRevisionConflict] = useState(false);
+  const [conflictProfile, setConflictProfile] = useState<ProjectProfile | null>(null);
+  const hydratedWorkspace = useRef('');
+  const saving = useRef(false);
 
   useEffect(() => {
-    const profile = profileQuery.data;
-    if (!profile || profile.workspace_id !== workspaceId) return;
-    setIndustry(profile.industry);
-    setStage(profile.stage);
-    setMission(profile.mission);
+    if (hydratedWorkspace.current === workspaceId) return;
+    hydratedWorkspace.current = '';
+    setDraft({ industry: '', stage: '', mission: '' });
+    setSaveState('idle');
+    setConflictProfile(null);
     setError('');
     setFieldErrors({});
-  }, [profileQuery.data?.revision, profileQuery.data?.workspace_id, workspaceId]);
+  }, [workspaceId]);
 
   const profile: ProjectProfile | undefined = profileQuery.data?.workspace_id === workspaceId
     ? profileQuery.data
     : undefined;
-  const dirty = Boolean(profile && (
-    industry !== profile.industry || stage !== profile.stage || mission !== profile.mission
-  ));
-  useWorkspaceDirtyGuard(`workspace-profile-${workspaceId}`, editable && (dirty || pending));
+  useEffect(() => {
+    if (!profile || hydratedWorkspace.current === workspaceId) return;
+    setDraft({ industry: profile.industry, stage: profile.stage, mission: profile.mission });
+    setSaveState('saved');
+    hydratedWorkspace.current = workspaceId;
+  }, [profile, workspaceId]);
 
-  async function save(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!profile) return;
-    setPending(true);
+  const dirty = Boolean(profile && hydratedWorkspace.current === workspaceId && (
+    draft.industry !== profile.industry || draft.stage !== profile.stage || draft.mission !== profile.mission
+  ));
+  useWorkspaceDirtyGuard(`workspace-profile-${workspaceId}`, editable && (dirty || saveState === 'saving'));
+
+  const persistDraft = useCallback(async (snapshot: typeof draft, base: ProjectProfile) => {
+    if (saving.current || !editable) return;
+    saving.current = true;
+    setSaveState('saving');
     setError('');
-    setFieldErrors({});
-    setRevisionConflict(false);
     try {
-      const saved = await saveWorkspaceProfile(workspaceId, {
-        revision: profile.revision,
-        industry,
-        stage,
-        mission,
+      const saved = await saveWorkspaceProfileSafely(workspaceId, {
+        revision: base.revision,
+        ...snapshot,
       });
-      queryClient.setQueryData(['workspace', workspaceId, 'profile'], saved);
-      notify(english ? 'Project details saved.' : 'اطلاعات پروژه ذخیره شد.');
+      queryClient.setQueryData(queryKeys.workspace.profile(workspaceId), saved);
+      setConflictProfile(null);
+      setSaveState('saved');
     } catch (reason) {
-      if (reason instanceof AuthApiError) {
+      if (reason instanceof WorkspaceProfileConflictError) {
+        setConflictProfile(reason.latest);
+        setSaveState('conflict');
+        setError(english
+          ? 'This profile changed in another tab. Choose which version to keep.'
+          : 'این اطلاعات در صفحه دیگری تغییر کرده است؛ نسخه موردنظر را انتخاب کنید.');
+      } else if (reason instanceof AuthApiError) {
         setError(reason.message);
-        setRevisionConflict(reason.code === 'revision_conflict');
         setFieldErrors(Object.fromEntries(
           Object.entries(reason.fields).map(([key, values]) => [key, values[0] ?? '']),
         ));
+        setSaveState('error');
       } else {
-        setError(english ? 'Project details could not be saved. Try again.' : 'اطلاعات پروژه ذخیره نشد. دوباره تلاش کنید.');
+        setError(english ? 'Project details could not be saved. Check your connection and retry.' : 'اطلاعات پروژه ذخیره نشد. اتصال را بررسی و دوباره تلاش کنید.');
+        setSaveState('error');
       }
     } finally {
-      setPending(false);
+      saving.current = false;
     }
+  }, [editable, english, queryClient, workspaceId]);
+
+  useEffect(() => {
+    if (!profile || !editable || !dirty || ['saving', 'error', 'conflict'].includes(saveState)) return;
+    const snapshot = { ...draft };
+    const base = profile;
+    const timer = window.setTimeout(() => void persistDraft(snapshot, base), 700);
+    return () => window.clearTimeout(timer);
+  }, [dirty, draft, editable, persistDraft, profile, saveState]);
+
+  function changeField(field: keyof typeof draft, value: string) {
+    setDraft((current) => ({ ...current, [field]: value }));
+    setFieldErrors((current) => ({ ...current, [field]: '' }));
+    setError('');
+    if (saveState !== 'conflict') setSaveState('dirty');
+  }
+
+  function loadLatest(latest: ProjectProfile) {
+    queryClient.setQueryData(queryKeys.workspace.profile(workspaceId), latest);
+    setDraft({ industry: latest.industry, stage: latest.stage, mission: latest.mission });
+    setConflictProfile(null);
+    setError('');
+    setFieldErrors({});
+    setSaveState('saved');
+  }
+
+  function keepDraftAgainstLatest() {
+    if (!conflictProfile) return;
+    queryClient.setQueryData(queryKeys.workspace.profile(workspaceId), conflictProfile);
+    setConflictProfile(null);
+    setError('');
+    setSaveState('dirty');
   }
 
   async function reloadLatest() {
     const result = await profileQuery.refetch();
-    const latest = result.data;
-    if (!latest) return;
-    setIndustry(latest.industry);
-    setStage(latest.stage);
-    setMission(latest.mission);
-    setError('');
-    setFieldErrors({});
-    setRevisionConflict(false);
+    if (result.data?.workspace_id === workspaceId) loadLatest(result.data);
+  }
+
+  function retrySave() {
+    if (!profile) return;
+    setSaveState('dirty');
+    void persistDraft({ ...draft }, profile);
+  }
+
+  function saveNow(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!profile) return;
+    void persistDraft({ ...draft }, profile);
   }
 
   return (
@@ -356,19 +405,50 @@ function WorkspaceProjectProfile({
       {profileQuery.isPending && <Skeleton label={english ? 'Loading project details' : 'در حال بارگذاری اطلاعات پروژه'} lines={3} />}
       {profileQuery.isError && <div className="workspace-error" role="alert"><p>{profileQuery.error.message}</p><Button onClick={() => void profileQuery.refetch()}>{english ? 'Try again' : 'تلاش دوباره'}</Button></div>}
       {profile && editable && (
-        <form className="workspace-form workspace-form--profile" onSubmit={(event) => void save(event)}>
-          <Input label={english ? 'Industry (optional)' : 'حوزه فعالیت (اختیاری)'} value={industry} onChange={(event) => setIndustry(event.currentTarget.value)} maxLength={200} error={fieldErrors.industry} />
-          <Input label={english ? 'Current stage (optional)' : 'مرحله فعلی (اختیاری)'} value={stage} onChange={(event) => setStage(event.currentTarget.value)} maxLength={100} error={fieldErrors.stage} />
+        <form className="workspace-form workspace-form--profile" onSubmit={saveNow}>
+          <Input label={english ? 'Industry (optional)' : 'حوزه فعالیت (اختیاری)'} value={draft.industry} onChange={(event) => changeField('industry', event.currentTarget.value)} maxLength={200} error={fieldErrors.industry} />
+          <Input label={english ? 'Current stage (optional)' : 'مرحله فعلی (اختیاری)'} value={draft.stage} onChange={(event) => changeField('stage', event.currentTarget.value)} maxLength={100} error={fieldErrors.stage} />
           <div className="ui-field">
             <label htmlFor={`workspace-mission-${workspaceId}`}>{english ? 'Main goal or challenge (optional)' : 'هدف یا مسئله اصلی (اختیاری)'}</label>
-            <textarea id={`workspace-mission-${workspaceId}`} className="ui-input onboarding-textarea" value={mission} onChange={(event) => setMission(event.currentTarget.value)} maxLength={2000} rows={4} />
+            <textarea id={`workspace-mission-${workspaceId}`} className="ui-input onboarding-textarea" value={draft.mission} onChange={(event) => changeField('mission', event.currentTarget.value)} maxLength={2000} rows={4} />
             {fieldErrors.mission && <p className="ui-error" role="alert">{fieldErrors.mission}</p>}
           </div>
+          <p className="workspace-save-status" role="status" aria-live="polite" aria-atomic="true">
+            {saveState === 'saving' && (english ? 'Saving…' : 'در حال ذخیره…')}
+            {saveState === 'saved' && (english ? 'All changes saved.' : 'همه تغییرها ذخیره شد.')}
+            {saveState === 'dirty' && (english ? 'Unsaved changes.' : 'تغییر ذخیره‌نشده دارید.')}
+          </p>
           {error && <p className="account-feedback account-feedback--error" role="alert">{error}</p>}
-          {revisionConflict && <Button type="button" variant="secondary" onClick={() => void reloadLatest()}>{english ? 'Load the latest details' : 'بارگیری اطلاعات تازه'}</Button>}
+          {saveState === 'error' && <Button type="button" variant="secondary" onClick={retrySave}>{english ? 'Retry save' : 'تلاش دوباره برای ذخیره'}</Button>}
+          {conflictProfile && (
+            <div className="workspace-profile-conflict" role="group" aria-label={english ? 'Resolve profile conflict' : 'حل تعارض اطلاعات پروژه'}>
+              <p>{english ? `The latest server version is ${new Intl.NumberFormat('en-US').format(conflictProfile.revision)}.` : `نسخه تازه سرور ${new Intl.NumberFormat('fa-IR').format(conflictProfile.revision)} است.`}</p>
+              <div className="workspace-profile-conflict__versions">
+                <section aria-label={english ? 'Your draft' : 'پیش‌نویس شما'}>
+                  <h3>{english ? 'Your edits' : 'تغییرهای شما'}</h3>
+                  <dl>
+                    <div><dt>{english ? 'Industry' : 'حوزه فعالیت'}</dt><dd dir="auto">{draft.industry || '—'}</dd></div>
+                    <div><dt>{english ? 'Stage' : 'مرحله'}</dt><dd dir="auto">{draft.stage || '—'}</dd></div>
+                    <div><dt>{english ? 'Goal or challenge' : 'هدف یا مسئله'}</dt><dd dir="auto">{draft.mission || '—'}</dd></div>
+                  </dl>
+                </section>
+                <section aria-label={english ? 'Server version' : 'نسخه سرور'}>
+                  <h3>{english ? 'Latest server version' : 'آخرین نسخه سرور'}</h3>
+                  <dl>
+                    <div><dt>{english ? 'Industry' : 'حوزه فعالیت'}</dt><dd dir="auto">{conflictProfile.industry || '—'}</dd></div>
+                    <div><dt>{english ? 'Stage' : 'مرحله'}</dt><dd dir="auto">{conflictProfile.stage || '—'}</dd></div>
+                    <div><dt>{english ? 'Goal or challenge' : 'هدف یا مسئله'}</dt><dd dir="auto">{conflictProfile.mission || '—'}</dd></div>
+                  </dl>
+                </section>
+              </div>
+              <Button type="button" variant="secondary" onClick={() => loadLatest(conflictProfile)}>{english ? 'Use server version' : 'استفاده از نسخه سرور'}</Button>
+              <Button type="button" variant="quiet" onClick={keepDraftAgainstLatest}>{english ? 'Keep my edits and save' : 'حفظ و ذخیره تغییرهای من'}</Button>
+            </div>
+          )}
+          {saveState === 'error' && <Button type="button" variant="quiet" onClick={() => void reloadLatest()}>{english ? 'Reload server version' : 'بارگیری دوباره از سرور'}</Button>}
           <div className="workspace-form__actions">
-            <Button type="submit" variant="primary" pending={pending} disabled={!dirty}>{english ? 'Save project details' : 'ذخیره اطلاعات پروژه'}</Button>
-            {dirty && <Button type="button" variant="quiet" onClick={() => { setIndustry(profile.industry); setStage(profile.stage); setMission(profile.mission); }}>{english ? 'Discard changes' : 'لغو تغییرات'}</Button>}
+            <Button type="submit" variant="primary" pending={saveState === 'saving'} disabled={!dirty || saveState === 'conflict'}>{english ? 'Save now' : 'ذخیره اکنون'}</Button>
+            {dirty && <Button type="button" variant="quiet" onClick={() => loadLatest(profile)}>{english ? 'Discard changes' : 'لغو تغییرات'}</Button>}
           </div>
         </form>
       )}
@@ -431,7 +511,7 @@ function WorkspaceMembers({
       const response = await inviteWorkspaceMember(workspaceId, email, role);
       setInviteMessage(response.message);
       setEmail('');
-      await queryClient.invalidateQueries({ queryKey: ['workspace', workspaceId, 'invitations'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.workspace.invitations(workspaceId) });
     } catch (reason) {
       if (reason instanceof AuthApiError) {
         setInviteError(reason.message);
@@ -448,7 +528,7 @@ function WorkspaceMembers({
     setRoleError('');
     try {
       await updateWorkspaceMemberRole(workspaceId, userId, nextRole);
-      await queryClient.invalidateQueries({ queryKey: ['workspace', workspaceId, 'members'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.workspace.members(workspaceId) });
       notify(english ? 'Member role updated.' : 'نقش عضو تغییر کرد.');
     } catch (reason) {
       setRoleError(reason instanceof AuthApiError ? reason.message : english ? 'The role could not be changed.' : 'تغییر نقش انجام نشد.');
@@ -459,7 +539,7 @@ function WorkspaceMembers({
     setRemovingId(userId);
     try {
       await removeWorkspaceMember(workspaceId, userId);
-      await queryClient.invalidateQueries({ queryKey: ['workspace', workspaceId, 'members'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.workspace.members(workspaceId) });
       notify(english ? 'Member access removed.' : 'دسترسی عضو برداشته شد.');
     } catch (reason) {
       setRoleError(reason instanceof AuthApiError ? reason.message : english ? 'Member access could not be removed.' : 'برداشتن دسترسی عضو انجام نشد.');
@@ -472,7 +552,7 @@ function WorkspaceMembers({
     setRevokingId(invitationId);
     try {
       await revokeWorkspaceInvitation(workspaceId, invitationId);
-      await queryClient.invalidateQueries({ queryKey: ['workspace', workspaceId, 'invitations'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.workspace.invitations(workspaceId) });
       notify(english ? 'Invitation revoked.' : 'دعوت لغو شد.');
     } catch (reason) {
       setInviteError(reason instanceof AuthApiError ? reason.message : english ? 'The invitation could not be revoked.' : 'لغو دعوت انجام نشد.');

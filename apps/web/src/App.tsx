@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, Navigate, Outlet, Route, Routes, useLocation, useMatch, useNavigate } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Notice, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from './api/queryKeys';
 import { readSession, type Session } from './session';
 import { postAuth } from './features/auth/api';
 import {
@@ -56,9 +57,9 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState('');
   const appPath = pathname.startsWith('/app');
-  const query = useQuery({ queryKey: ['session'], queryFn: ({ signal }) => readSession(signal) });
+  const query = useQuery({ queryKey: queryKeys.session, queryFn: ({ signal }) => readSession(signal) });
   useQuery({
-    queryKey: ['account-preferences'],
+    queryKey: queryKeys.account.preferences,
     queryFn: ({ signal }) => loadAndSyncAccountPreferences(signal),
     enabled: Boolean(query.data),
     staleTime: 5 * 60 * 1000,
@@ -93,10 +94,11 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     setLoggingOut(true);
     try {
       await postAuth('/api/v1/accounts/logout/');
-      queryClient.setQueryData(['session'], null);
-      queryClient.removeQueries({ queryKey: ['account-preferences'] });
+      queryClient.setQueryData(queryKeys.session, null);
+      queryClient.removeQueries({ queryKey: queryKeys.account.preferences });
+      queryClient.removeQueries({ queryKey: queryKeys.account.profile });
       queryClient.removeQueries({ predicate: (query) => query.queryKey[0] === 'workspace' });
-      queryClient.removeQueries({ queryKey: ['workspaces'] });
+      queryClient.removeQueries({ queryKey: queryKeys.workspaces.all });
       navigate('/account/login', { replace: true });
     } catch {
       setLogoutError('خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
@@ -216,14 +218,25 @@ export function App() {
     window.addEventListener('stratino:preferences', onPreferences);
     return () => window.removeEventListener('stratino:preferences', onPreferences);
   }, []);
+  useEffect(() => {
+    const onSessionExpired = () => {
+      queryClient.setQueryData(queryKeys.session, null);
+      queryClient.removeQueries({ queryKey: queryKeys.account.preferences });
+      queryClient.removeQueries({ queryKey: queryKeys.account.profile });
+      queryClient.removeQueries({ queryKey: queryKeys.workspaces.all });
+      queryClient.removeQueries({ predicate: (query) => query.queryKey[0] === 'workspace' });
+    };
+    window.addEventListener('stratino:session-expired', onSessionExpired);
+    return () => window.removeEventListener('stratino:session-expired', onSessionExpired);
+  }, [queryClient]);
   const toggleTheme = () => {
     const next: DevicePreferences = { ...devicePreferences, theme: dark ? 'light' : 'dark' };
     applyAccountPreferences(next);
     setPreferenceSyncError(false);
-    const session = queryClient.getQueryData<Session | null>(['session']);
+    const session = queryClient.getQueryData<Session | null>(queryKeys.session);
     if (session?.authenticated) {
       void saveAccountPreferences(next)
-        .then((saved) => queryClient.setQueryData(['account-preferences'], saved))
+        .then((saved) => queryClient.setQueryData(queryKeys.account.preferences, saved))
         .catch(() => setPreferenceSyncError(true));
     }
   };

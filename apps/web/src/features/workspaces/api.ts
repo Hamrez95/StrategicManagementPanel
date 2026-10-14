@@ -1,35 +1,24 @@
+import { requestApi, ApiError as AuthApiError } from '../../api/client';
 import {
-  AuthApiError,
-  deleteAuth,
-  patchAuth,
-  postAuth,
-} from '../auth/api';
+  decodeWorkspace,
+  decodeWorkspaceInvitation,
+  decodeWorkspaceMember,
+  decodeWorkspacePage,
+  decodeWorkspaceProfile,
+  type ApiWorkspace,
+  type ApiWorkspaceInvitation,
+  type ApiWorkspaceMember,
+  type ApiWorkspaceProfile,
+  type OpenApiPaths,
+} from '../../api/contracts';
+import { deleteAuth, patchAuth, postAuth } from '../auth/api';
 
 export type WorkspaceRole = 'owner' | 'editor' | 'viewer';
 export type MemberRole = Exclude<WorkspaceRole, 'owner'>;
 
-export type WorkspaceRecord = {
-  id: string;
-  owner_id: string;
-  billing_account_id: string;
-  name: string;
-  revision: number;
-  archived_at: string | null;
-};
-
-export type WorkspaceMember = {
-  user_id: string;
-  email: string;
-  name: string;
-  role: WorkspaceRole;
-};
-
-export type WorkspaceInvitation = {
-  id: string;
-  email: string;
-  role: MemberRole;
-  expires_at: string;
-};
+export type WorkspaceRecord = ApiWorkspace;
+export type WorkspaceMember = ApiWorkspaceMember;
+export type WorkspaceInvitation = ApiWorkspaceInvitation;
 
 export type WorkspaceUpdate = {
   revision: number;
@@ -37,45 +26,19 @@ export type WorkspaceUpdate = {
   archived?: boolean;
 };
 
-export type ProjectProfile = {
-  workspace_id: string;
-  industry: string;
-  stage: string;
-  mission: string;
-  revision: number;
-  onboarding_completed_at: string | null;
-};
+export type ProjectProfile = ApiWorkspaceProfile;
+type WorkspaceProfileEndpoint = OpenApiPaths['/api/v1/workspaces/{workspace_id}/profile/'];
+export type ProjectProfileUpdate = WorkspaceProfileEndpoint['patch']['requestBody'];
 
-export type ProjectProfileUpdate = {
-  revision: number;
-  industry?: string;
-  stage?: string;
-  mission?: string;
-  complete?: true;
-};
+function decodeMessage(value: unknown) {
+  if (!value || typeof value !== 'object' || typeof (value as { message?: unknown }).message !== 'string') {
+    throw new TypeError('Invalid message response');
+  }
+  return { message: (value as { message: string }).message };
+}
 
-async function getWorkspaceData<T>(path: string, signal?: AbortSignal): Promise<T> {
-  let response: Response;
-  try {
-    response = await fetch(path, {
-      credentials: 'same-origin',
-      cache: 'no-store',
-      signal,
-      headers: { Accept: 'application/json' },
-    });
-  } catch {
-    throw new AuthApiError('اتصال به فضای کار قطع شد. دوباره تلاش کنید.', 0);
-  }
-  const body = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new AuthApiError(
-      typeof body?.message === 'string' ? body.message : 'فضای کار بارگذاری نشد.',
-      response.status,
-      body?.fields && typeof body.fields === 'object' ? body.fields : {},
-      typeof body?.code === 'string' ? body.code : '',
-    );
-  }
-  return body as T;
+function getWorkspaceData<T>(path: string, signal?: AbortSignal, decode?: (value: unknown) => T): Promise<T> {
+  return requestApi<T>(path, { signal, decode });
 }
 
 export async function listWorkspaces(signal?: AbortSignal): Promise<WorkspaceRecord[]> {
@@ -85,13 +48,11 @@ export async function listWorkspaces(signal?: AbortSignal): Promise<WorkspaceRec
   do {
     const query = new URLSearchParams({ limit: '100' });
     if (cursor) query.set('cursor', cursor);
-    const page = await getWorkspaceData<{ items: WorkspaceRecord[]; next_cursor: string | null }>(
+    const page = await getWorkspaceData(
       `/api/v1/workspaces/?${query.toString()}`,
       signal,
+      decodeWorkspacePage,
     );
-    if (!Array.isArray(page.items) || (page.next_cursor !== null && typeof page.next_cursor !== 'string')) {
-      throw new AuthApiError('فهرست فضای کار معتبر نیست.', 502);
-    }
     records.push(...page.items);
     cursor = page.next_cursor ?? '';
     if (cursor && seenCursors.has(cursor)) throw new AuthApiError('صفحه‌بندی فهرست کامل نشد.', 502);
@@ -101,41 +62,97 @@ export async function listWorkspaces(signal?: AbortSignal): Promise<WorkspaceRec
 }
 
 export function readWorkspace(workspaceId: string, signal?: AbortSignal) {
-  return getWorkspaceData<WorkspaceRecord>(
+  return getWorkspaceData(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/`,
     signal,
+    decodeWorkspace,
   );
 }
 
 export function createWorkspace(name: string) {
-  return postAuth<WorkspaceRecord>('/api/v1/workspaces/', { name });
+  return postAuth<WorkspaceRecord>('/api/v1/workspaces/', { name }, decodeWorkspace);
 }
 
 export function saveWorkspace(workspaceId: string, update: WorkspaceUpdate) {
   return patchAuth<WorkspaceRecord>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/`,
     update,
+    decodeWorkspace,
   );
 }
 
-export function readWorkspaceProfile(workspaceId: string, signal?: AbortSignal) {
-  return getWorkspaceData<ProjectProfile>(
+export function readWorkspaceProfile(workspaceId: string, signal?: AbortSignal): Promise<WorkspaceProfileEndpoint['get']['response']> {
+  return getWorkspaceData<WorkspaceProfileEndpoint['get']['response']>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
     signal,
+    decodeWorkspaceProfile,
   );
 }
 
-export function saveWorkspaceProfile(workspaceId: string, update: ProjectProfileUpdate) {
-  return patchAuth<ProjectProfile>(
-    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
-    update,
-  );
+export function saveWorkspaceProfile(workspaceId: string, update: ProjectProfileUpdate): Promise<WorkspaceProfileEndpoint['patch']['response']> {
+  return requestApi<WorkspaceProfileEndpoint['patch']['response']>(`/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`, {
+    method: 'PATCH',
+    body: update,
+    decode: decodeWorkspaceProfile,
+  });
+}
+
+export class WorkspaceProfileConflictError extends Error {
+  constructor(readonly latest: ProjectProfile) {
+    super('این اطلاعات در فضای کار دیگری به‌روز شده است. نسخه را انتخاب کنید.');
+    this.name = 'WorkspaceProfileConflictError';
+  }
+}
+
+function matchesProfile(profile: ProjectProfile, update: ProjectProfileUpdate) {
+  return (update.industry === undefined || profile.industry === update.industry.trim())
+    && (update.stage === undefined || profile.stage === update.stage.trim())
+    && (update.mission === undefined || profile.mission === update.mission.trim());
+}
+
+async function currentProfileOrConflict(workspaceId: string, update: ProjectProfileUpdate) {
+  const latest = await readWorkspaceProfile(workspaceId);
+  if (matchesProfile(latest, update)) return latest;
+  if (latest.revision !== update.revision) throw new WorkspaceProfileConflictError(latest);
+  return null;
+}
+
+/** Reconcile uncertain PATCH responses before retrying the same revisioned write. */
+export async function saveWorkspaceProfileSafely(workspaceId: string, update: ProjectProfileUpdate) {
+  try {
+    return await saveWorkspaceProfile(workspaceId, update);
+  } catch (error) {
+    if (!(error instanceof AuthApiError)) throw error;
+    if (error.code === 'revision_conflict') {
+      const latest = await readWorkspaceProfile(workspaceId);
+      if (matchesProfile(latest, update)) return latest;
+      throw new WorkspaceProfileConflictError(latest);
+    }
+    if (error.status !== 0 && error.status < 500) throw error;
+
+    const current = await currentProfileOrConflict(workspaceId, update);
+    if (current) return current;
+    try {
+      return await saveWorkspaceProfile(workspaceId, update);
+    } catch (retryError) {
+      if (retryError instanceof AuthApiError && retryError.code === 'revision_conflict') {
+        const latest = await readWorkspaceProfile(workspaceId);
+        if (matchesProfile(latest, update)) return latest;
+        throw new WorkspaceProfileConflictError(latest);
+      }
+      throw retryError;
+    }
+  }
 }
 
 export async function listWorkspaceMembers(workspaceId: string, signal?: AbortSignal) {
   const response = await getWorkspaceData<{ items: WorkspaceMember[] }>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/members/`,
     signal,
+    (value) => {
+      if (!value || typeof value !== 'object' || !Array.isArray((value as { items?: unknown }).items)) throw new TypeError('Invalid member list');
+      return { items: (value as { items: unknown[] }).items.map(decodeWorkspaceMember) };
+    },
   );
   return response.items;
 }
@@ -144,6 +161,10 @@ export async function listWorkspaceInvitations(workspaceId: string, signal?: Abo
   const response = await getWorkspaceData<{ items: WorkspaceInvitation[] }>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/invitations/`,
     signal,
+    (value) => {
+      if (!value || typeof value !== 'object' || !Array.isArray((value as { items?: unknown }).items)) throw new TypeError('Invalid invitation list');
+      return { items: (value as { items: unknown[] }).items.map(decodeWorkspaceInvitation) };
+    },
   );
   return response.items;
 }
@@ -152,6 +173,7 @@ export function inviteWorkspaceMember(workspaceId: string, email: string, role: 
   return postAuth<{ message: string }>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/invitations/`,
     { email, role },
+    decodeMessage,
   );
 }
 
@@ -165,6 +187,7 @@ export function updateWorkspaceMemberRole(workspaceId: string, userId: string, r
   return patchAuth<WorkspaceMember>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/members/${encodeURIComponent(userId)}/`,
     { role },
+    decodeWorkspaceMember,
   );
 }
 
@@ -178,5 +201,10 @@ export function acceptWorkspaceInvitation(token: string) {
   return postAuth<{ workspace: WorkspaceRecord; membership: WorkspaceMember }>(
     '/api/v1/workspace-invitations/accept/',
     { token },
+    (value) => {
+      if (!value || typeof value !== 'object') throw new TypeError('Invalid invitation response');
+      const result = value as { workspace?: unknown; membership?: unknown };
+      return { workspace: decodeWorkspace(result.workspace), membership: decodeWorkspaceMember(result.membership) };
+    },
   );
 }

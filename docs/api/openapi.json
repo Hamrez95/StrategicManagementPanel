@@ -5422,7 +5422,13 @@
         "required": [
           "revision"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "anyOf": [
+          { "required": ["industry"] },
+          { "required": ["stage"] },
+          { "required": ["mission"] },
+          { "required": ["complete"] }
+        ]
       },
       "WeightedRow": {
         "type": "object",

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, useLocation } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { queryKeys } from '../../api/queryKeys';
 import { Button, Input } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth } from '../auth/api';
 import type { AuthFields } from '../auth/api';
@@ -31,11 +32,11 @@ export default function AccountSettingsPage() {
   const location = useLocation();
   const queryClient = useQueryClient();
   const profileQuery = useQuery({
-    queryKey: ['account-profile'],
+    queryKey: queryKeys.account.profile,
     queryFn: ({ signal }) => readAccountProfile(signal),
   });
   const preferencesQuery = useQuery({
-    queryKey: ['account-preferences'],
+    queryKey: queryKeys.account.preferences,
     queryFn: ({ signal }) => loadAndSyncAccountPreferences(signal),
   });
   const [displayName, setDisplayName] = useState('');
@@ -87,8 +88,8 @@ export default function AccountSettingsPage() {
     setProfileSaved(false);
     try {
       const saved = await saveAccountProfile({ display_name: displayName, role_title: roleTitle });
-      queryClient.setQueryData(['account-profile'], saved);
-      queryClient.setQueryData<Session | null>(['session'], (current) =>
+      queryClient.setQueryData(queryKeys.account.profile, saved);
+      queryClient.setQueryData<Session | null>(queryKeys.session, (current) =>
         current
           ? {
               ...current,
@@ -116,7 +117,7 @@ export default function AccountSettingsPage() {
     setPreferencesError(false);
     try {
       const saved = await saveAccountPreferences(preferences);
-      queryClient.setQueryData(['account-preferences'], saved);
+      queryClient.setQueryData(queryKeys.account.preferences, saved);
       setPreferencesMessage('تنظیمات حساب ذخیره و با این دستگاه همگام شد.');
     } catch (error) {
       setPreferencesError(true);
@@ -138,7 +139,7 @@ export default function AccountSettingsPage() {
     try {
       const response = await requestEmailChange(email);
       setEmailMessage(response.message);
-      await queryClient.invalidateQueries({ queryKey: ['account-profile'] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.account.profile });
     } catch (error) {
       setEmailError(
         error instanceof AuthApiError
@@ -330,8 +331,8 @@ export function EmailChangeConfirmationPage() {
     window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
     void postAuth<{ message: string }>('/api/v1/account/email-change/confirm/', { token })
       .then((response) => {
-        void queryClient.invalidateQueries({ queryKey: ['session'] });
-        void queryClient.invalidateQueries({ queryKey: ['account-profile'] });
+        void queryClient.invalidateQueries({ queryKey: queryKeys.session });
+        void queryClient.invalidateQueries({ queryKey: queryKeys.account.profile });
         setState('success');
         setMessage(response.message);
       })

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, Outlet, useLocation, useMatch, useNavigate, useOutletContext } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Dialog, Input, useUIAppearance } from '@stratino/ui';
+import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { postAuth } from '../auth/api';
 import { applyAccountPreferences, readDevicePreferences, saveAccountPreferences, type DevicePreferences } from '../account/api';
@@ -53,7 +54,7 @@ function WorkspaceSelector({ session, activeWorkspace }: { session: Session; act
           if (!canSwitch(confirmMessage)) return;
           if (activeWorkspace) {
             queryClient.removeQueries({
-              predicate: (query) => query.queryKey[0] === 'workspace' && query.queryKey[1] === activeWorkspace,
+              queryKey: queryKeys.workspace.root(activeWorkspace),
             });
           }
           navigate(next ? `/app/workspaces/${encodeURIComponent(next)}` : '/app/workspaces');
@@ -182,11 +183,11 @@ export default function ApplicationShell() {
     setLogoutPending(true);
     try {
       await postAuth('/api/v1/accounts/logout/');
-      queryClient.setQueryData(['session'], null);
-      queryClient.removeQueries({ queryKey: ['account-preferences'] });
-      queryClient.removeQueries({ queryKey: ['account-profile'] });
+      queryClient.setQueryData(queryKeys.session, null);
+      queryClient.removeQueries({ queryKey: queryKeys.account.preferences });
+      queryClient.removeQueries({ queryKey: queryKeys.account.profile });
       queryClient.removeQueries({ predicate: (query) => query.queryKey[0] === 'workspace' });
-      queryClient.removeQueries({ queryKey: ['workspaces'] });
+      queryClient.removeQueries({ queryKey: queryKeys.workspaces.all });
       navigate('/account/login', { replace: true });
     } catch {
       setLogoutError(english ? 'Sign out failed. Check your connection and try again.' : 'خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
@@ -206,7 +207,7 @@ export default function ApplicationShell() {
     };
     applyAccountPreferences(preferences);
     void saveAccountPreferences(preferences).then((saved) => {
-      queryClient.setQueryData(['account-preferences'], saved);
+      queryClient.setQueryData(queryKeys.account.preferences, saved);
       setLogoutError('');
     }).catch(() => setLogoutError(english
       ? 'Appearance changed on this device but could not sync to your account.'

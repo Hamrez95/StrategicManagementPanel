@@ -72,6 +72,10 @@ try {
   let accountProfile = { email: 'owner@example.test', display_name: 'مدیر نمونه', role_title: '', pending_email: '' };
   let accountPreferences = { theme: 'light', language: 'fa', motion: 'auto', show_tutorial: true, device_sync_pending: false, updated_at: new Date().toISOString() };
   const projectProfiles = new Map([['w1', { workspace_id: 'w1', industry: '', stage: '', mission: '', revision: 1, onboarding_completed_at: null }]]);
+  let loseProfilePatchResponse = false;
+  let failProfileNextPatch = false;
+  let failProfileNextRead = false;
+  let expireProfileNextRead = false;
   const invitations = [];
   await page.route('**/api/v1/account/preferences/', async (route) => {
     if (route.request().method() === 'GET') return route.fulfill({ json: accountPreferences });
@@ -119,10 +123,23 @@ try {
     }
     const profileMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/profile\/$/);
     if (profileMatch && request.method() === 'GET') {
+      if (expireProfileNextRead) {
+        expireProfileNextRead = false;
+        return route.fulfill({ status: 401, json: { code: 'not_authenticated', message: 'نشست پایان یافت.' } });
+      }
+      if (failProfileNextRead) {
+        failProfileNextRead = false;
+        return route.abort();
+      }
       const profile = projectProfiles.get(profileMatch[1]);
       return profile ? route.fulfill({ json: profile }) : route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
     }
     if (profileMatch && request.method() === 'PATCH') {
+      if (failProfileNextPatch) {
+        failProfileNextPatch = false;
+        failProfileNextRead = true;
+        return route.abort();
+      }
       const profile = projectProfiles.get(profileMatch[1]);
       if (!profile) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
       const body = request.postDataJSON();
@@ -130,6 +147,10 @@ try {
       for (const key of ['industry', 'stage', 'mission']) if (typeof body[key] === 'string') profile[key] = body[key].trim();
       if (body.complete === true) profile.onboarding_completed_at = new Date().toISOString();
       profile.revision++;
+      if (loseProfilePatchResponse) {
+        loseProfilePatchResponse = false;
+        return route.fulfill({ status: 503, json: { code: 'temporary_failure', message: 'پاسخ ذخیره دریافت نشد.' } });
+      }
       return route.fulfill({ json: profile });
     }
     const memberMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/members\/$/);
@@ -162,6 +183,39 @@ try {
   await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
   await page.getByRole('link', { name: 'تنظیمات فضای کار' }).click();
   await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
+  const profileIndustry = page.getByLabel('حوزه فعالیت (اختیاری)');
+  await profileIndustry.fill('فناوری');
+  await page.locator('.workspace-save-status').getByText('همه تغییرها ذخیره شد.').waitFor();
+  assert.equal(projectProfiles.get('w1').industry, 'فناوری');
+
+  const competingProfile = projectProfiles.get('w1');
+  competingProfile.mission = 'ویرایش هم‌زمان از تب دیگر';
+  competingProfile.revision++;
+  await page.getByLabel('مرحله فعلی (اختیاری)').fill('رشد');
+  await page.getByRole('group', { name: 'حل تعارض اطلاعات پروژه' }).waitFor();
+  assert.equal(projectProfiles.get('w1').mission, 'ویرایش هم‌زمان از تب دیگر', 'stale edits must not overwrite another tab silently');
+  await page.getByRole('button', { name: 'استفاده از نسخه سرور' }).click();
+  assert.equal(await page.getByLabel('هدف یا مسئله اصلی (اختیاری)').inputValue(), 'ویرایش هم‌زمان از تب دیگر');
+
+  loseProfilePatchResponse = true;
+  await page.getByLabel('مرحله فعلی (اختیاری)').fill('گسترش');
+  await page.locator('.workspace-save-status').getByText('همه تغییرها ذخیره شد.').waitFor();
+  assert.equal(projectProfiles.get('w1').stage, 'گسترش', 'a lost response must be reconciled before retrying');
+
+  failProfileNextPatch = true;
+  await page.getByLabel('حوزه فعالیت (اختیاری)').fill('صنعت');
+  await page.getByRole('alert').filter({ hasText: 'ارتباط با سرویس قطع شد' }).waitFor();
+  assert.notEqual(await page.locator('.workspace-save-status').innerText(), 'همه تغییرها ذخیره شد.');
+  await page.getByRole('button', { name: 'تلاش دوباره برای ذخیره' }).click();
+  await page.locator('.workspace-save-status').getByText('همه تغییرها ذخیره شد.').waitFor();
+  assert.equal(projectProfiles.get('w1').industry, 'صنعت');
+
+  expireProfileNextRead = true;
+  await page.goto(url + '/app/workspaces/w1/overview');
+  await page.waitForURL(/account\/login/);
+  await page.goto(url + '/app/workspaces/w1/settings');
+  await page.getByRole('heading', { name: 'اعضا و دعوت‌ها' }).waitFor();
+
   const nameInput = page.getByLabel('نام فضای کار');
   workspace.revision = 2;
   await nameInput.fill('تغییر هم‌زمان');
@@ -339,6 +393,7 @@ try {
         workspaceShellScreenshots: shellScreenshots,
         workspaceMobileMenuFocusRestored: true,
         routeSearchAndLegacyDeepLinks: true,
+        workspaceProfileAutosaveConflictAndRecovery: true,
         responsiveScreenshots: 20,
         errors,
       },
@@ -347,7 +402,7 @@ try {
     ),
   );
   console.log(
-    'PASS: 20 responsive/theme/onboarding/shell screenshots, workspace routes/search/legacy mapping, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
+    'PASS: 20 responsive/theme/onboarding/shell screenshots, workspace routes/search/legacy mapping, profile autosave/recovery, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
 } finally {
   await browser.close();
