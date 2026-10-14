@@ -19,6 +19,7 @@ function routeChoices(workspaceId: string | undefined, english: boolean): RouteC
   if (!workspaceId) return choices;
   choices.push(
     { title: english ? 'Project overview' : 'نمای کلی پروژه', path: `/app/workspaces/${encodeURIComponent(workspaceId)}/overview`, keywords: 'overview home نمای کلی خانه' },
+    { title: english ? 'Import old backup' : 'واردسازی پشتیبان قدیمی', path: `/app/workspaces/${encodeURIComponent(workspaceId)}/imports`, keywords: 'backup import migration json انتقال پشتیبان مهاجرت' },
     { title: english ? 'Workspace settings' : 'تنظیمات فضای کار', path: `/app/workspaces/${encodeURIComponent(workspaceId)}/settings`, keywords: 'settings members invites تنظیمات اعضا دعوت' },
     ...workspaceToolGroups.flatMap((group) => group.tools.map((tool) => ({
       title: tool.title[english ? 'en' : 'fa'],
@@ -146,6 +147,8 @@ export default function ApplicationShell() {
       ? (english ? 'Workspace settings' : 'تنظیمات فضای کار')
       : location.pathname.endsWith('/account')
         ? (english ? 'Account and preferences' : 'حساب و تنظیمات')
+        : location.pathname.endsWith('/imports')
+          ? (english ? 'Old browser backup' : 'پشتیبان مرورگر قدیمی')
         : location.pathname.endsWith('/workspaces')
           ? (english ? 'Your Workspaces' : 'فضاهای من')
           : location.pathname.endsWith('/start')
@@ -283,6 +286,7 @@ export default function ApplicationShell() {
             </summary>
             <div className="app-account-menu__panel">
               <Link to="/app/account">{english ? 'Account and appearance' : 'حساب و تنظیمات ظاهر'}</Link>
+              {activeWorkspaceId && <Link to={`/app/workspaces/${encodeURIComponent(activeWorkspaceId)}/imports`}>{english ? 'Import old backup' : 'واردسازی پشتیبان قدیمی'}</Link>}
               <Link to={activeWorkspaceId ? workspaceToolPath(activeWorkspaceId, 'learn') : '/app/start'}>{english ? 'Guided learning' : 'آموزش راهنما'}</Link>
               <Link to="/app/account#subscription">{english ? 'Plan and usage' : 'پلن و سهمیه'}</Link>
               <Button variant="quiet" pending={logoutPending} onClick={() => void signOut()}>{english ? 'Sign out' : 'خروج از حساب'}</Button>

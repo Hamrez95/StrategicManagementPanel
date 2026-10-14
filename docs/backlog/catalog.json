@@ -527,9 +527,9 @@
         "STR-016"
       ],
       "lane": "migration",
-      "paths": "src/app.js STORAGE/validateState; apps/api/modules/imports/; apps/web/src/features/import/",
+      "paths": "src/app.js STORAGE/validateState; apps/api/modules/imports/; apps/web/src/features/imports/",
       "scope": [
-        "schemaهای roy esh-strategy-v1 و export قدیمی را شناسایی و mapping versioned بساز",
+        "schemaهای royesh-strategy-v1 و export قدیمی را شناسایی و mapping versioned بساز",
         "import ابتدا preview/dry-run باشد و مقصد Workspace با تأیید کاربر مشخص شود",
         "محاسبات، تصمیم و فایل metadata بدون ادعای وجود بایت منتقل شوند؛ فایل واقعی دوباره upload شود"
       ],
@@ -546,9 +546,10 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 17,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/17"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/17",
+      "progress_evidence": "Versioned mapping, Workspace import API/UI, recoverable batch and authored API/browser coverage implemented; execution, screenshots and acceptance evidence deferred to final verification."
     },
     {
       "id": "STR-018",

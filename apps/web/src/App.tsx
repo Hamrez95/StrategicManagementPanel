@@ -26,6 +26,7 @@ const LegacyWorkspaceRedirect = lazy(() => import('./features/workspaces/Workspa
 const WorkspaceIndexRedirect = lazy(() => import('./features/workspaces/WorkspaceRoutePages').then((module) => ({ default: module.WorkspaceIndexRedirect })));
 const Operator = lazy(() => import('./pages/Operator'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
+const WorkspaceImportPage = lazy(() => import('./features/imports/WorkspaceImportPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
@@ -38,6 +39,8 @@ function RouteFocus() {
     const title = tool?.title[english ? 'en' : 'fa']
       ?? (pathname.endsWith('/settings')
         ? (english ? 'Workspace settings' : 'تنظیمات فضای کار')
+        : pathname.endsWith('/imports')
+          ? (english ? 'Old browser backup' : 'پشتیبان مرورگر قدیمی')
         : pathname.endsWith('/account')
           ? (english ? 'Account and preferences' : 'حساب و تنظیمات')
           : pathname.startsWith('/app')
@@ -302,6 +305,7 @@ export function App() {
                 <Route path="workspaces/:workspaceId">
                   <Route index element={<WorkspaceIndexRedirect />} />
                   <Route path="overview" element={<WorkspaceOverviewPage />} />
+                  <Route path="imports" element={<WorkspaceImportPage />} />
                   <Route path="settings" element={<Workspace />} />
                   <Route path="tools/:toolId" element={<WorkspaceToolPage />} />
                   <Route path="*" element={<LegacyWorkspaceRedirect />} />

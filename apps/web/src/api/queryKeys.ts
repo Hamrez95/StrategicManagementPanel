@@ -13,5 +13,6 @@ export const queryKeys = {
     profile: (workspaceId: string) => ['workspace', workspaceId, 'profile'] as const,
     members: (workspaceId: string) => ['workspace', workspaceId, 'members'] as const,
     invitations: (workspaceId: string) => ['workspace', workspaceId, 'invitations'] as const,
+    imports: (workspaceId: string) => ['workspace', workspaceId, 'imports'] as const,
   },
 };

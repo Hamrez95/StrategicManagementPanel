@@ -77,6 +77,7 @@ try {
   let failProfileNextRead = false;
   let expireProfileNextRead = false;
   const invitations = [];
+  const importBatches = [];
   await page.route('**/api/v1/account/preferences/', async (route) => {
     if (route.request().method() === 'GET') return route.fulfill({ json: accountPreferences });
     accountPreferences = { ...accountPreferences, ...route.request().postDataJSON(), updated_at: new Date().toISOString() };
@@ -120,6 +121,49 @@ try {
       if (typeof body.archived === 'boolean') workspace.archived_at = body.archived ? new Date().toISOString() : null;
       workspace.revision++;
       return route.fulfill({ json: workspace });
+    }
+    if (pathname === '/api/v1/workspaces/w1/imports/preview/' && request.method() === 'POST') {
+      const body = request.postDataJSON();
+      assert.equal(body.schema_version, 1);
+      return route.fulfill({ json: {
+        workspace_id: 'w1',
+        workspace_name: workspace.name,
+        schema_version: 1,
+        recognized: true,
+        record_counts: { analysis_records: 2, decision_records: 4, execution_records: 1, financial_periods: 1, file_metadata: 0 },
+        record_count: 8,
+        missing_attachment_bytes: 0,
+        warnings: ['نسخه مرورگر قدیمی دست‌نخورده می‌ماند.'],
+      } });
+    }
+    if (pathname === '/api/v1/workspaces/w1/imports/' && request.method() === 'GET') {
+      return route.fulfill({ json: { items: importBatches.map(({ data, source_backup, ...batch }) => batch) } });
+    }
+    if (pathname === '/api/v1/workspaces/w1/imports/' && request.method() === 'POST') {
+      const body = request.postDataJSON();
+      const digest = JSON.stringify(body.data);
+      const existing = importBatches.find((batch) => batch.source_digest === digest && batch.undone_at === null);
+      if (existing) return route.fulfill({ json: { ...existing, duplicate: true } });
+      const created = {
+        id: 'batch-1', workspace_id: 'w1', created_by_id: session.user.id,
+        source_schema: 'royesh-strategy-v1', mapping_version: 1, source_digest: digest,
+        record_counts: { analysis_records: 2, decision_records: 4, execution_records: 1, financial_periods: 1, file_metadata: 0 },
+        record_count: 8, missing_attachment_bytes: 0, created_at: new Date().toISOString(),
+        undone_at: null, duplicate: false, data: { decisions: body.data.journal }, source_backup: body.data,
+      };
+      importBatches.push(created);
+      return route.fulfill({ status: 201, json: created });
+    }
+    const importDetailMatch = pathname.match(/^\/api\/v1\/workspaces\/w1\/imports\/([^/]+)\/$/);
+    if (importDetailMatch && request.method() === 'GET') {
+      const batch = importBatches.find((item) => item.id === importDetailMatch[1]);
+      return batch ? route.fulfill({ json: batch }) : route.fulfill({ status: 404, json: { code: 'import_batch_not_found' } });
+    }
+    if (importDetailMatch && request.method() === 'DELETE') {
+      const batch = importBatches.find((item) => item.id === importDetailMatch[1]);
+      if (!batch) return route.fulfill({ status: 404, json: { code: 'import_batch_not_found' } });
+      batch.undone_at = new Date().toISOString();
+      return route.fulfill({ status: 204, body: '' });
     }
     const profileMatch = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/profile\/$/);
     if (profileMatch && request.method() === 'GET') {
@@ -187,6 +231,49 @@ try {
   await profileIndustry.fill('فناوری');
   await page.locator('.workspace-save-status').getByText('همه تغییرها ذخیره شد.').waitFor();
   assert.equal(projectProfiles.get('w1').industry, 'فناوری');
+
+  const legacyImportFixture = {
+    version: 1, org: { name: 'شرکت نمونه' }, completed: [false, false, false, false, false, false],
+    external: [{}], internal: [{}], qScores: {}, space: {}, fin: {}, investment: {},
+    trend: { months: ['1405-01'], revenue: [0], target: [0] }, objectives: [{}], initiatives: [],
+    risks: [], journal: [{}], pestel: [], forces: [1, 2, 3, 4, 5], competitors: [], vrio: [], swot: [],
+    options: [{}, {}, {}], products: [], scenario: {}, bcgThreshold: 0, learning: true,
+    mode: 'startup', period: 'quarter', notes: 'یادداشت قدیمی',
+  };
+  await page.evaluate(() => localStorage.setItem('royesh-strategy-v1', 'preserve-this-browser-copy'));
+  for (const theme of ['light', 'dark']) {
+    await page.goto(url + '/app/account');
+    await page.getByLabel('پوسته').selectOption(theme);
+    await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+    await page.getByText('تنظیمات حساب ذخیره و با این دستگاه همگام شد.').waitFor();
+    await page.goto(url + '/app/workspaces/w1/imports');
+    await page.getByRole('heading', { name: 'پشتیبان مرورگر قدیمی' }).waitFor();
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `import overflow ${width}/${theme}`);
+      await page.screenshot({ path: `test-results/web/import-${width}-${theme}.png`, fullPage: true, animations: 'disabled' });
+      shellScreenshots.push(`test-results/web/import-${width}-${theme}.png`);
+    }
+  }
+  await page.getByLabel('فایل پشتیبان JSON').setInputFiles({
+    name: 'legacy-backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(legacyImportFixture)),
+  });
+  await page.getByRole('button', { name: 'پیش‌نمایش واردسازی' }).click();
+  await page.getByRole('heading', { name: 'مقصد: پروژه مجاز' }).waitFor();
+  await page.getByText('۸ رکورد برای این فضای کار شناسایی شد.').waitFor();
+  await page.getByRole('button', { name: 'واردسازی در پروژه مجاز' }).click();
+  await page.getByRole('status').filter({ hasText: 'نسخه مرورگر قدیمی دست‌نخورده ماند' }).waitFor();
+  assert.equal(await page.evaluate(() => localStorage.getItem('royesh-strategy-v1')), 'preserve-this-browser-copy');
+  await page.getByRole('heading', { name: /پشتیبان واردشده/ }).waitFor();
+  const backupDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'دریافت پشتیبان JSON' }).click();
+  assert.match((await backupDownload).suggestedFilename(), /backup.*\.json$/);
+  await page.getByRole('button', { name: 'بازگردانی واردسازی' }).click();
+  const undoDialog = page.getByRole('dialog');
+  await undoDialog.getByRole('button', { name: 'بازگردانی batch' }).click();
+  await page.getByText('بازگردانی‌شده').waitFor();
 
   const competingProfile = projectProfiles.get('w1');
   competingProfile.mission = 'ویرایش هم‌زمان از تب دیگر';
@@ -394,7 +481,9 @@ try {
         workspaceMobileMenuFocusRestored: true,
         routeSearchAndLegacyDeepLinks: true,
         workspaceProfileAutosaveConflictAndRecovery: true,
-        responsiveScreenshots: 20,
+        responsiveScreenshots: 28,
+        legacyImportPreviewCommitDownloadUndo: true,
+        legacyBrowserStoragePreserved: true,
         errors,
       },
       null,
@@ -402,7 +491,7 @@ try {
     ),
   );
   console.log(
-    'PASS: 20 responsive/theme/onboarding/shell screenshots, workspace routes/search/legacy mapping, profile autosave/recovery, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
+    'PASS: responsive/theme/onboarding/shell/import screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, mobile focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
 } finally {
   await browser.close();

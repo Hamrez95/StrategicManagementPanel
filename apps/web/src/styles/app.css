@@ -1994,6 +1994,193 @@ main {
   white-space: pre-wrap;
 }
 
+.workspace-import-page {
+  width: min(980px, calc(100% - 48px));
+  margin: 34px auto 76px;
+  display: grid;
+  gap: 24px;
+}
+.workspace-import-page__heading {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+}
+.workspace-import-page__heading h1 {
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.35;
+}
+.workspace-import-page__heading > p:last-child {
+  max-width: 70ch;
+}
+.workspace-import-panel,
+.workspace-import-card {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.workspace-import-panel {
+  display: grid;
+  gap: 14px;
+}
+.workspace-import-panel h2,
+.workspace-import-history__heading h2 {
+  font-size: 22px;
+}
+.workspace-import-form {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding-block-end: 18px;
+  border-block-end: 1px solid var(--line);
+}
+.workspace-import-form .ui-field {
+  inline-size: min(100%, 560px);
+}
+.workspace-import-form input[type='file'] {
+  min-block-size: 48px;
+  padding: 8px;
+}
+.workspace-import-file {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+.workspace-import-preview {
+  display: grid;
+  gap: 12px;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--action-fill);
+  border-radius: var(--radius-panel);
+  background: var(--wash);
+}
+.workspace-import-preview h3 {
+  font-size: 19px;
+}
+.workspace-import-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 148px), 1fr));
+  gap: 10px;
+  margin: 0;
+}
+.workspace-import-counts > div {
+  min-inline-size: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+.workspace-import-counts dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+.workspace-import-counts dd {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+.workspace-import-warning,
+.workspace-import-error,
+.workspace-import-success {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+.workspace-import-warning {
+  border-inline-start: 4px solid #b7791f;
+  color: var(--ink);
+}
+.workspace-import-error {
+  border-inline-start: 4px solid #b42318;
+  color: var(--ink);
+}
+.workspace-import-success {
+  border-inline-start: 4px solid #16865a;
+  color: var(--ink);
+}
+.workspace-import-warnings {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-inline-start: 22px;
+  color: var(--muted);
+}
+.workspace-import-preview__actions,
+.workspace-import-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.workspace-import-history {
+  display: grid;
+  gap: 14px;
+}
+.workspace-import-history__heading,
+.workspace-import-card__heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.workspace-import-history__heading > div,
+.workspace-import-card__heading > div {
+  display: grid;
+  gap: 4px;
+}
+.workspace-import-card {
+  display: grid;
+  gap: 16px;
+}
+.workspace-import-status {
+  flex: none;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--wash);
+  color: var(--ink);
+  font-size: 13px;
+}
+.workspace-import-status.is-undone {
+  color: var(--muted);
+}
+.workspace-confirm {
+  display: grid;
+  gap: 14px;
+}
+.workspace-import-page button,
+.workspace-import-page input {
+  min-block-size: 44px;
+}
+@media (max-width: 760px) {
+  .workspace-import-page {
+    width: calc(100% - 32px);
+    margin-block: 24px 56px;
+  }
+}
+@media (max-width: 560px) {
+  .workspace-import-page {
+    width: calc(100% - 24px);
+  }
+  .workspace-import-history__heading,
+  .workspace-import-card__heading {
+    flex-direction: column;
+  }
+  .workspace-import-preview__actions,
+  .workspace-import-card__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .workspace-import-preview__actions button,
+  .workspace-import-card__actions button {
+    inline-size: 100%;
+  }
+}
+
 @media (max-width: 760px) {
   .session-tools {
     display: grid;

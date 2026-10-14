@@ -3889,11 +3889,82 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/imports/": {
+      "get": {
+        "operationId": "listWorkspaceImports",
+        "summary": "List Workspace import batches",
+        "description": "Lists private import batch summaries for Workspace members.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Private import batch summaries", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatchList" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } }
+        }
+      },
+      "post": {
+        "operationId": "createWorkspaceImport",
+        "summary": "Save a Workspace import batch",
+        "description": "Atomically saves a mapped legacy snapshot. An active same-digest batch is idempotent within its Workspace.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } },
+          { "name": "Idempotency-Key", "in": "header", "required": true, "schema": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[A-Za-z0-9._:-]+$" } }
+        ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportRequest" } } } },
+        "responses": {
+          "201": { "description": "Import batch created", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatch" } } } },
+          "200": { "description": "Existing batch returned for an idempotent request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatch" } } } },
+          "400": { "description": "Invalid or unsupported backup", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "403": { "description": "Owner/editor access or CSRF required", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "409": { "description": "Idempotency key conflict or archived Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/imports/{batch_id}/": {
+      "get": {
+        "operationId": "readWorkspaceImport",
+        "summary": "Read a Workspace import batch",
+        "description": "Returns the mapped data and sanitized recovery backup to Workspace members.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "batch_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }
+        ],
+        "responses": {
+          "200": { "description": "Private import batch and recoverable snapshot", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatchDetail" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "404": { "description": "Missing or invisible resource", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } }
+        }
+      },
+      "delete": {
+        "operationId": "undoWorkspaceImport",
+        "summary": "Undo a Workspace import batch",
+        "description": "Soft-undo the active batch while retaining its snapshot for recovery. Owner or batch creator only.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "batch_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } },
+          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } }
+        ],
+        "responses": {
+          "204": { "description": "Batch is undone; its recovery snapshot remains stored" },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "403": { "description": "Only the Workspace owner or creator may undo this batch", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
+          "404": { "description": "Missing or invisible resource", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/imports/preview/": {
       "post": {
         "operationId": "previewImport",
         "summary": "previewImport",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+        "description": "Validates and maps a legacy backup without writing data. Owner/editor only.",
         "security": [
           {
             "cookieSession": []
@@ -3920,24 +3991,23 @@
               "type": "string",
               "maxLength": 200
             }
-          },
-          {
-            "name": "Idempotency-Key",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 100
-            }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ImportRequest" }
+            }
+          }
+        },
         "responses": {
           "400": {
             "description": "Field or schema validation",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3947,7 +4017,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3957,7 +4027,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3967,7 +4037,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3977,7 +4047,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3987,7 +4057,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -3997,7 +4067,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -4007,7 +4077,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/WorkspaceImportError"
                 }
               }
             }
@@ -5148,6 +5218,86 @@
         ],
         "additionalProperties": false
       },
+      "WorkspaceImportError": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string", "maxLength": 80 },
+          "message": { "type": "string", "maxLength": 1000 },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": { "type": "string", "maxLength": 500 }
+            }
+          }
+        },
+        "required": ["code", "message", "fields"],
+        "additionalProperties": false
+      },
+      "ImportRequest": {
+        "type": "object",
+        "properties": {
+          "schema_version": { "type": "integer", "enum": [1] },
+          "data": {
+            "type": "object",
+            "description": "Version-1 royesh-strategy-v1 state or a supported schema envelope.",
+            "additionalProperties": true
+          }
+        },
+        "required": ["schema_version", "data"],
+        "additionalProperties": false
+      },
+      "ImportRecordCounts": {
+        "type": "object",
+        "properties": {
+          "analysis_records": { "type": "integer", "minimum": 0 },
+          "decision_records": { "type": "integer", "minimum": 0 },
+          "execution_records": { "type": "integer", "minimum": 0 },
+          "financial_periods": { "type": "integer", "minimum": 0 },
+          "file_metadata": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["analysis_records", "decision_records", "execution_records", "financial_periods", "file_metadata"],
+        "additionalProperties": false
+      },
+      "ImportBatch": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "workspace_id": { "type": "string", "format": "uuid" },
+          "created_by_id": { "type": "string" },
+          "source_schema": { "type": "string", "maxLength": 80 },
+          "mapping_version": { "type": "integer", "minimum": 1 },
+          "source_digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "record_counts": { "$ref": "#/components/schemas/ImportRecordCounts" },
+          "record_count": { "type": "integer", "minimum": 0 },
+          "missing_attachment_bytes": { "type": "integer", "minimum": 0 },
+          "created_at": { "type": "string", "format": "date-time" },
+          "undone_at": { "type": "string", "format": "date-time", "nullable": true },
+          "duplicate": { "type": "boolean" }
+        },
+        "required": ["id", "workspace_id", "created_by_id", "source_schema", "mapping_version", "source_digest", "record_counts", "record_count", "missing_attachment_bytes", "created_at", "undone_at", "duplicate"],
+      },
+      "ImportBatchDetail": {
+        "allOf": [
+          { "$ref": "#/components/schemas/ImportBatch" },
+          {
+            "type": "object",
+            "properties": {
+              "data": { "type": "object", "additionalProperties": true },
+              "source_backup": { "type": "object", "additionalProperties": true }
+            },
+            "required": ["data", "source_backup"]
+          }
+        ]
+      },
+      "ImportBatchList": {
+        "type": "object",
+        "properties": {
+          "items": { "type": "array", "items": { "$ref": "#/components/schemas/ImportBatch" } }
+        },
+        "required": ["items"],
+        "additionalProperties": false
+      },
       "User": {
         "type": "object",
         "properties": {
@@ -6061,12 +6211,18 @@
       "ImportPreview": {
         "type": "object",
         "properties": {
+          "workspace_id": { "type": "string", "format": "uuid" },
+          "workspace_name": { "type": "string", "maxLength": 120 },
           "schema_version": {
             "type": "integer",
-            "minimum": 1
+            "enum": [1]
           },
           "recognized": {
-            "type": "boolean"
+            "type": "boolean",
+            "enum": [true]
+          },
+          "record_counts": {
+            "$ref": "#/components/schemas/ImportRecordCounts"
           },
           "record_count": {
             "type": "integer",
@@ -6085,8 +6241,11 @@
           }
         },
         "required": [
+          "workspace_id",
+          "workspace_name",
           "schema_version",
           "recognized",
+          "record_counts",
           "record_count",
           "missing_attachment_bytes",
           "warnings"
