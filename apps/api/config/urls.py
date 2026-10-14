@@ -23,6 +23,7 @@ from modules.workspaces.views import (
     workspace_invitations,
     workspace_member_detail,
     workspace_members,
+    workspace_profile,
 )
 
 urlpatterns = [
@@ -32,6 +33,7 @@ urlpatterns = [
     path('api/v1/session/', session_view),
     path('api/v1/workspaces/', list_workspaces),
     path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
+    path('api/v1/workspaces/<str:workspace_id>/profile/', workspace_profile),
     path('api/v1/workspaces/<str:workspace_id>/members/', workspace_members),
     path('api/v1/workspaces/<str:workspace_id>/members/<str:user_id>/', workspace_member_detail),
     path('api/v1/workspaces/<str:workspace_id>/invitations/', workspace_invitations),

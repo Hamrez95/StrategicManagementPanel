@@ -3,13 +3,15 @@ from urllib.parse import parse_qs, urlencode, urlsplit
 from unittest.mock import patch
 
 from django.core.exceptions import ValidationError
+from django.db import connection
 from django.db.models.deletion import ProtectedError
-from django.test import TestCase
+from django.db.migrations.executor import MigrationExecutor
+from django.test import TestCase, TransactionTestCase
 from django.utils import timezone
 from rest_framework.exceptions import NotFound, PermissionDenied
 
 from modules.accounts.models import User
-from modules.workspaces.models import BillingAccount, Membership, Workspace, WorkspaceInvitation
+from modules.workspaces.models import BillingAccount, Membership, Workspace, WorkspaceInvitation, WorkspaceProfile
 from modules.workspaces.permissions import get_workspace_child_or_404
 from modules.workspaces.services import (
     WorkspaceActionError,
@@ -168,6 +170,7 @@ class WorkspaceAuthorizationTests(TestCase):
         self.assertEqual(workspace.name, 'API project')
         self.assertEqual(workspace.billing_account.owner_id, self.owner.pk)
         self.assertEqual(response['Cache-Control'], 'no-store, private')
+        self.assertTrue(WorkspaceProfile.objects.filter(workspace=workspace).exists())
 
     def test_workspace_endpoints_return_only_member_data_and_disable_caching(self):
         self.assertEqual(self.client.get('/api/v1/workspaces/').status_code, 401)
@@ -251,6 +254,96 @@ class WorkspaceAuthorizationTests(TestCase):
         )
         self.assertEqual(response.status_code, 403)
         self.assertEqual(Workspace.objects.get(pk=self.workspace.pk).name, 'Renamed project')
+
+    def test_project_profile_is_scoped_editable_and_revision_protected(self):
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'
+        self.client.force_login(self.owner)
+        initial = self.client.get(endpoint)
+        self.assertEqual(initial.status_code, 200)
+        self.assertEqual(initial.json()['revision'], 1)
+        self.assertEqual(initial.json()['industry'], '')
+        self.assertEqual(initial['Cache-Control'], 'no-store, private')
+
+        owner_update = self.client.patch(
+            endpoint,
+            data={'revision': 1, 'industry': 'فناوری', 'stage': 'آغاز', 'mission': 'افزایش فروش'},
+            content_type='application/json',
+        )
+        self.assertEqual(owner_update.status_code, 200)
+        self.assertEqual(owner_update.json()['revision'], 2)
+        self.assertEqual(owner_update.json()['mission'], 'افزایش فروش')
+
+        self.client.force_login(self.editor)
+        editor_update = self.client.patch(
+            endpoint,
+            data={'revision': 2, 'stage': 'رشد'},
+            content_type='application/json',
+        )
+        self.assertEqual(editor_update.status_code, 200)
+        self.assertEqual(editor_update.json()['stage'], 'رشد')
+        self.assertEqual(editor_update.json()['revision'], 3)
+        cannot_complete = self.client.patch(
+            endpoint,
+            data={'revision': 3, 'complete': True},
+            content_type='application/json',
+        )
+        self.assertEqual(cannot_complete.status_code, 403)
+
+        self.client.force_login(self.viewer)
+        self.assertEqual(self.client.get(endpoint).status_code, 200)
+        denied = self.client.patch(
+            endpoint,
+            data={'revision': 3, 'mission': 'غیرمجاز'},
+            content_type='application/json',
+        )
+        self.assertEqual(denied.status_code, 403)
+
+        self.client.force_login(self.owner)
+        stale = self.client.patch(
+            endpoint,
+            data={'revision': 2, 'mission': 'تغییر قدیمی'},
+            content_type='application/json',
+        )
+        self.assertEqual(stale.status_code, 409)
+        self.assertEqual(stale.json()['code'], 'revision_conflict')
+
+        self.client.force_login(self.outsider)
+        hidden = self.client.get(endpoint)
+        self.assertEqual(hidden.status_code, 404)
+
+    def test_owner_can_complete_profile_with_optional_fields_empty(self):
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'
+        self.client.force_login(self.owner)
+        completed = self.client.patch(
+            endpoint,
+            data={'revision': 1, 'industry': '', 'stage': '', 'mission': '', 'complete': True},
+            content_type='application/json',
+        )
+        self.assertEqual(completed.status_code, 200)
+        self.assertIsNotNone(completed.json()['onboarding_completed_at'])
+        self.assertEqual(completed.json()['revision'], 2)
+
+    def test_project_profile_rejects_oversized_optional_fields(self):
+        self.client.force_login(self.owner)
+        response = self.client.patch(
+            f'/api/v1/workspaces/{self.workspace.pk}/profile/',
+            data={'revision': 1, 'industry': 'x' * 201},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('industry', response.json()['fields'])
+
+    def test_archived_workspace_profile_cannot_be_changed(self):
+        endpoint = f'/api/v1/workspaces/{self.workspace.pk}/profile/'
+        self.client.force_login(self.owner)
+        update_workspace(self.owner, self.workspace, revision=1, archived=True)
+        response = self.client.patch(
+            endpoint,
+            data={'revision': 1, 'industry': 'تغییر بعد از بایگانی'},
+            content_type='application/json',
+        )
+        self.assertEqual(response.status_code, 409)
+        self.assertEqual(response.json()['code'], 'workspace_archived')
 
     @patch('modules.workspaces.services.deliver_email', return_value=True)
     def test_archive_keeps_workspace_and_revokes_pending_invitations(self, _deliver_email):
@@ -413,4 +506,37 @@ class WorkspaceAuthorizationTests(TestCase):
         self.assertEqual(response.json()['membership']['role'], Membership.Role.VIEWER)
         self.assertEqual(response['Cache-Control'], 'no-store, private')
         self.assertEqual(self.client.get('/api/v1/session/').json()['workspaces'][0]['id'], str(self.workspace.pk))
+
+
+class WorkspaceProfileMigrationTests(TransactionTestCase):
+    reset_sequences = True
+
+    def tearDown(self):
+        executor = MigrationExecutor(connection)
+        executor.migrate(executor.loader.graph.leaf_nodes())
+        super().tearDown()
+
+    def test_existing_workspaces_receive_an_empty_profile(self):
+        executor = MigrationExecutor(connection)
+        executor.migrate([('workspaces', '0002_workspace_invitations')])
+
+        owner = User.objects.create_user(
+            'migration-owner@example.test',
+            password='not-a-real-user-password',
+            email_verified_at=timezone.now(),
+        )
+        billing = BillingAccount.objects.create(owner=owner)
+        workspace = Workspace.objects.create(owner=owner, billing_account=billing, name='Legacy project')
+
+        executor = MigrationExecutor(connection)
+        executor.migrate([('workspaces', '0003_workspace_profile')])
+        historical_apps = executor.loader.project_state([('workspaces', '0003_workspace_profile')]).apps
+        historical_profile = historical_apps.get_model('workspaces', 'WorkspaceProfile')
+        profile = historical_profile.objects.get(workspace_id=workspace.pk)
+
+        self.assertEqual(profile.industry, '')
+        self.assertEqual(profile.stage, '')
+        self.assertEqual(profile.mission, '')
+        self.assertEqual(profile.revision, 1)
+        self.assertIsNone(profile.onboarding_completed_at)
 

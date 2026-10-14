@@ -18,3 +18,7 @@ Membership changes are owner-only and transactional. Owner identity is not a Mem
 - Archiving retains Workspace data, removes it from active member sessions and selectors, and revokes all pending invitations. Owners can restore it from their archived list. Authorization is still evaluated from current Workspace state on every request.
 
 API view tests cover authorization, revision conflicts, archived state, role changes, invitation normalization, duplicate/invalid role rejection, expiry, revocation, one-use acceptance, email matching and mail-delivery failure. They are authored but held for the final validation batch.
+
+## STR-014 onboarding and project profile
+
+`GET/PATCH /api/v1/workspaces/{id}/profile/` stores the optional industry, stage and mission fields with an optimistic `revision`. Owners and editors may read and change these fields; viewers may read only. Only the owner may set `complete: true`, which records the onboarding completion timestamp. Existing Workspaces receive an empty profile during migration, and new Workspaces create one in the same transaction. Completion is navigation state only and never grants Workspace access.

@@ -15,7 +15,7 @@ from rest_framework.exceptions import PermissionDenied as ApiPermissionDenied
 from modules.accounts.models import User
 from modules.core.mailer import deliver_email
 
-from .models import BillingAccount, Membership, Workspace, WorkspaceInvitation
+from .models import BillingAccount, Membership, Workspace, WorkspaceInvitation, WorkspaceProfile
 
 INVITATION_TIMEOUT = timedelta(days=7)
 INVITATION_SALT = 'stratino.workspace-invitation'
@@ -103,6 +103,7 @@ def create_owned_workspace(owner, name):
     )
     workspace.full_clean()
     workspace.save(force_insert=True)
+    WorkspaceProfile.objects.create(workspace=workspace)
     return workspace
 
 

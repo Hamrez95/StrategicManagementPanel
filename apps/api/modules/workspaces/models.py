@@ -82,6 +82,21 @@ class Membership(models.Model):
             raise ValidationError({'user': 'Workspace ownership is derived from the owner field.'})
 
 
+class WorkspaceProfile(models.Model):
+    workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, related_name='profile')
+    industry = models.CharField(max_length=200, blank=True, default='')
+    stage = models.CharField(max_length=100, blank=True, default='')
+    mission = models.TextField(max_length=2000, blank=True, default='')
+    revision = models.PositiveIntegerField(default=1)
+    onboarding_completed_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(condition=Q(revision__gte=1), name='workspace_profile_revision_gte_1'),
+        ]
+
+
 class WorkspaceInvitation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='invitations')

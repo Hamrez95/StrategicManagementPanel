@@ -16,6 +16,7 @@ const Site = lazy(() => import('./pages/Site'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
+const Onboarding = lazy(() => import('./features/onboarding/OnboardingPage'));
 const Operator = lazy(() => import('./pages/Operator'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
@@ -259,7 +260,7 @@ export function App() {
             <Route element={<SessionBoundary />}>
               <Route path="/app/workspaces" element={<WorkspaceManagement />} />
               <Route path="/app/workspaces/:workspaceId/*" element={<Workspace />} />
-              <Route path="/app/start" element={<Navigate to="/app/workspaces" replace />} />
+              <Route path="/app/start" element={<Onboarding />} />
               <Route path="/app/account" element={<AccountSettingsPage />} />
             </Route>
             <Route element={<SessionBoundary operator />}>

@@ -37,6 +37,23 @@ export type WorkspaceUpdate = {
   archived?: boolean;
 };
 
+export type ProjectProfile = {
+  workspace_id: string;
+  industry: string;
+  stage: string;
+  mission: string;
+  revision: number;
+  onboarding_completed_at: string | null;
+};
+
+export type ProjectProfileUpdate = {
+  revision: number;
+  industry?: string;
+  stage?: string;
+  mission?: string;
+  complete?: true;
+};
+
 async function getWorkspaceData<T>(path: string, signal?: AbortSignal): Promise<T> {
   let response: Response;
   try {
@@ -97,6 +114,20 @@ export function createWorkspace(name: string) {
 export function saveWorkspace(workspaceId: string, update: WorkspaceUpdate) {
   return patchAuth<WorkspaceRecord>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/`,
+    update,
+  );
+}
+
+export function readWorkspaceProfile(workspaceId: string, signal?: AbortSignal) {
+  return getWorkspaceData<ProjectProfile>(
+    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
+    signal,
+  );
+}
+
+export function saveWorkspaceProfile(workspaceId: string, update: ProjectProfileUpdate) {
+  return patchAuth<ProjectProfile>(
+    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
     update,
   );
 }

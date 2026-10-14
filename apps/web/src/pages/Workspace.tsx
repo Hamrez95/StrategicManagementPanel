@@ -8,12 +8,15 @@ import {
   inviteWorkspaceMember,
   listWorkspaceInvitations,
   listWorkspaceMembers,
+  readWorkspaceProfile,
   readWorkspace,
   removeWorkspaceMember,
   revokeWorkspaceInvitation,
   saveWorkspace,
+  saveWorkspaceProfile,
   updateWorkspaceMemberRole,
   type MemberRole,
+  type ProjectProfile,
   type WorkspaceInvitation,
   type WorkspaceMember,
 } from '../features/workspaces/api';
@@ -251,6 +254,135 @@ export default function Workspace() {
             ? (english ? 'Your role allows you to view this Workspace. Only its owner can change members or details.' : 'نقش شما اجازه مشاهده می‌دهد. تغییر اعضا و مشخصات فقط در اختیار مالک است.')
             : (english ? 'Your role allows you to work with this Workspace. The owner manages its settings and members.' : 'نقش شما اجازه کار در این فضا را می‌دهد. تنظیمات و اعضا را مالک مدیریت می‌کند.')}
         />
+      )}
+      <WorkspaceProjectProfile
+        workspaceId={workspace.id}
+        workspaceName={workspace.name}
+        role={summary.role}
+        english={english}
+      />
+    </section>
+  );
+}
+
+function WorkspaceProjectProfile({
+  workspaceId,
+  workspaceName,
+  role,
+  english,
+}: {
+  workspaceId: string;
+  workspaceName: string;
+  role: WorkspaceMember['role'];
+  english: boolean;
+}) {
+  const queryClient = useQueryClient();
+  const notify = useToast();
+  const profileQuery = useQuery({
+    queryKey: ['workspace', workspaceId, 'profile'],
+    queryFn: ({ signal }) => readWorkspaceProfile(workspaceId, signal),
+  });
+  const editable = role === 'owner' || role === 'editor';
+  const [industry, setIndustry] = useState('');
+  const [stage, setStage] = useState('');
+  const [mission, setMission] = useState('');
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [revisionConflict, setRevisionConflict] = useState(false);
+
+  useEffect(() => {
+    const profile = profileQuery.data;
+    if (!profile || profile.workspace_id !== workspaceId) return;
+    setIndustry(profile.industry);
+    setStage(profile.stage);
+    setMission(profile.mission);
+    setError('');
+    setFieldErrors({});
+  }, [profileQuery.data?.revision, profileQuery.data?.workspace_id, workspaceId]);
+
+  const profile: ProjectProfile | undefined = profileQuery.data?.workspace_id === workspaceId
+    ? profileQuery.data
+    : undefined;
+  const dirty = Boolean(profile && (
+    industry !== profile.industry || stage !== profile.stage || mission !== profile.mission
+  ));
+  useWorkspaceDirtyGuard(`workspace-profile-${workspaceId}`, editable && (dirty || pending));
+
+  async function save(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!profile) return;
+    setPending(true);
+    setError('');
+    setFieldErrors({});
+    setRevisionConflict(false);
+    try {
+      const saved = await saveWorkspaceProfile(workspaceId, {
+        revision: profile.revision,
+        industry,
+        stage,
+        mission,
+      });
+      queryClient.setQueryData(['workspace', workspaceId, 'profile'], saved);
+      notify(english ? 'Project details saved.' : 'اطلاعات پروژه ذخیره شد.');
+    } catch (reason) {
+      if (reason instanceof AuthApiError) {
+        setError(reason.message);
+        setRevisionConflict(reason.code === 'revision_conflict');
+        setFieldErrors(Object.fromEntries(
+          Object.entries(reason.fields).map(([key, values]) => [key, values[0] ?? '']),
+        ));
+      } else {
+        setError(english ? 'Project details could not be saved. Try again.' : 'اطلاعات پروژه ذخیره نشد. دوباره تلاش کنید.');
+      }
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function reloadLatest() {
+    const result = await profileQuery.refetch();
+    const latest = result.data;
+    if (!latest) return;
+    setIndustry(latest.industry);
+    setStage(latest.stage);
+    setMission(latest.mission);
+    setError('');
+    setFieldErrors({});
+    setRevisionConflict(false);
+  }
+
+  return (
+    <section className="workspace-panel workspace-project-profile" aria-labelledby="workspace-profile-title">
+      <header className="workspace-panel__heading">
+        <h2 id="workspace-profile-title">{english ? 'Project direction' : 'جهت پروژه'}</h2>
+        <p>{english ? `Starting details for ${workspaceName}.` : `اطلاعات پایه «${workspaceName}».`}</p>
+      </header>
+      {profileQuery.isPending && <Skeleton label={english ? 'Loading project details' : 'در حال بارگذاری اطلاعات پروژه'} lines={3} />}
+      {profileQuery.isError && <div className="workspace-error" role="alert"><p>{profileQuery.error.message}</p><Button onClick={() => void profileQuery.refetch()}>{english ? 'Try again' : 'تلاش دوباره'}</Button></div>}
+      {profile && editable && (
+        <form className="workspace-form workspace-form--profile" onSubmit={(event) => void save(event)}>
+          <Input label={english ? 'Industry (optional)' : 'حوزه فعالیت (اختیاری)'} value={industry} onChange={(event) => setIndustry(event.currentTarget.value)} maxLength={200} error={fieldErrors.industry} />
+          <Input label={english ? 'Current stage (optional)' : 'مرحله فعلی (اختیاری)'} value={stage} onChange={(event) => setStage(event.currentTarget.value)} maxLength={100} error={fieldErrors.stage} />
+          <div className="ui-field">
+            <label htmlFor={`workspace-mission-${workspaceId}`}>{english ? 'Main goal or challenge (optional)' : 'هدف یا مسئله اصلی (اختیاری)'}</label>
+            <textarea id={`workspace-mission-${workspaceId}`} className="ui-input onboarding-textarea" value={mission} onChange={(event) => setMission(event.currentTarget.value)} maxLength={2000} rows={4} />
+            {fieldErrors.mission && <p className="ui-error" role="alert">{fieldErrors.mission}</p>}
+          </div>
+          {error && <p className="account-feedback account-feedback--error" role="alert">{error}</p>}
+          {revisionConflict && <Button type="button" variant="secondary" onClick={() => void reloadLatest()}>{english ? 'Load the latest details' : 'بارگیری اطلاعات تازه'}</Button>}
+          <div className="workspace-form__actions">
+            <Button type="submit" variant="primary" pending={pending} disabled={!dirty}>{english ? 'Save project details' : 'ذخیره اطلاعات پروژه'}</Button>
+            {dirty && <Button type="button" variant="quiet" onClick={() => { setIndustry(profile.industry); setStage(profile.stage); setMission(profile.mission); }}>{english ? 'Discard changes' : 'لغو تغییرات'}</Button>}
+          </div>
+        </form>
+      )}
+      {profile && !editable && (
+        <dl className="workspace-profile-readonly">
+          <div><dt>{english ? 'Industry' : 'حوزه فعالیت'}</dt><dd>{profile.industry || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
+          <div><dt>{english ? 'Current stage' : 'مرحله فعلی'}</dt><dd>{profile.stage || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
+          <div><dt>{english ? 'Goal or challenge' : 'هدف یا مسئله'}</dt><dd>{profile.mission || (english ? 'Not provided' : 'ثبت نشده')}</dd></div>
+        </dl>
       )}
     </section>
   );

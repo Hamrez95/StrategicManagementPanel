@@ -3,7 +3,7 @@
   "info": {
     "title": "Stratino API contract",
     "version": "0.1.0",
-    "description": "Design contract, not an implemented backend. Expand operations as bounded tasks ship."
+    "description": "Mixed status: operations labeled live are implemented; remaining operations are design contracts. See each operation description."
   },
   "servers": [
     {
@@ -1812,10 +1812,10 @@
       }
     },
     "/api/v1/workspaces/{workspace_id}/profile/": {
-      "patch": {
-        "operationId": "updateProfile",
-        "summary": "updateProfile",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
+      "get": {
+        "operationId": "readWorkspaceProfile",
+        "summary": "readWorkspaceProfile",
+        "description": "Read project-profile details for an authorized Workspace owner, editor, or viewer. Responses are private and not cached.",
         "security": [
           {
             "cookieSession": []
@@ -1830,8 +1830,62 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 80,
-              "pattern": "^[A-Za-z0-9_-]+$",
-              "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project profile; private responses are no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceProfile"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or invisible Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateProfile",
+        "summary": "updateProfile",
+        "description": "Live project-profile update for owners and editors. Viewer writes are denied. Revision mismatch returns 409; only the owner may mark onboarding complete.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
             }
           },
           {
@@ -1895,42 +1949,12 @@
               }
             }
           },
-          "422": {
-            "description": "Quota or incomplete calculation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Rate limited",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Success; private responses are no-store",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/WorkspaceProfile"
                 }
               }
             }
@@ -1942,6 +1966,71 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ProfileWrite"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "readWorkspaceProfile",
+        "summary": "readWorkspaceProfile",
+        "description": "Live private profile read for current Workspace members. Response is private/no-store.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project profile; private responses are no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceProfile"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or invisible Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
@@ -5306,47 +5395,28 @@
       "ProfileWrite": {
         "type": "object",
         "properties": {
-          "revision": {
-            "type": "integer",
-            "minimum": 1
+          "complete": {
+            "type": "boolean",
+            "enum": [
+              true
+            ],
+            "description": "Optional completion marker; owner-only."
           },
           "industry": {
             "type": "string",
             "maxLength": 200
           },
-          "stage": {
-            "type": "string",
-            "maxLength": 100
-          },
           "mission": {
             "type": "string",
             "maxLength": 2000
           },
-          "challenge": {
-            "type": "string",
-            "maxLength": 2000
+          "revision": {
+            "type": "integer",
+            "minimum": 1
           },
-          "icp": {
-            "type": "object",
-            "properties": {
-              "segment": {
-                "type": "string",
-                "maxLength": 2000
-              },
-              "problem": {
-                "type": "string",
-                "maxLength": 2000
-              },
-              "evidence": {
-                "type": "array",
-                "maxItems": 100,
-                "items": {
-                  "type": "string",
-                  "maxLength": 2000
-                }
-              }
-            },
-            "additionalProperties": false
+          "stage": {
+            "type": "string",
+            "maxLength": 100
           }
         },
         "required": [
@@ -6271,6 +6341,44 @@
         },
         "required": [
           "message"
+        ],
+        "additionalProperties": false
+      },
+      "WorkspaceProfile": {
+        "type": "object",
+        "properties": {
+          "workspace_id": {
+            "type": "string"
+          },
+          "industry": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "stage": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "mission": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "onboarding_completed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "required": [
+          "workspace_id",
+          "industry",
+          "stage",
+          "mission",
+          "revision",
+          "onboarding_completed_at"
         ],
         "additionalProperties": false
       }
