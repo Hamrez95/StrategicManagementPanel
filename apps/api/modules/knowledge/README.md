@@ -10,7 +10,9 @@ The root contains `release_id`, `schema_version`, full `source_kb_commit`, `gene
 
 The reader rejects duplicate keys, unknown release-schema versions, unexpected fields, missing or mismatched records/sources, invalid hashes and oversized files. It does not interpret formula prose, source applicability, diagnostic operators or rules. Source adapters and selection/promotion decisions belong to the separate reviewed release-build step. Definitions, records, lists and maps are immutable after load.
 
-Package artifacts belong under `apps/api/modules/knowledge/releases/<release_id>.json`, inside the existing API Docker build context. This packet intentionally adds the contract and reader only. No research file is rewritten, and no production release is promoted until packet 054-B has reviewed its sources and dependencies and packet 054-C reproducibly packages it.
+Package artifacts belong under `apps/api/modules/knowledge/releases/<release_id>.json`, inside the existing API Docker build context. Packet 054-B's reviewed candidate manifest is in `curation/first-slice-v1.json`; it is not read by the runtime loader. `scripts/build-knowledge-release.mjs` reads the exact pinned knowledge commit, checks record and bibliography revisions, uses explicit record adapters, and writes the reviewed package artifact. It never rewrites canonical research. The artifact preserves runtime gates: discovery is blocked on an unresolved mapping, retention waits for scoped input resolution, and contribution margin is definition-only pending STR-058.
+
+From the repository root, run `npm run build:knowledge-release` to regenerate the package file and `npm run check:knowledge-release` to verify it is byte-for-byte reproducible without writing. `npm run test:knowledge-release` covers the builder allowlist, gates, source pin and canonical hash. The API reader resolves only an exact release ID under this package and does not activate any rule or calculation by itself.
 
 ## Local verification
 

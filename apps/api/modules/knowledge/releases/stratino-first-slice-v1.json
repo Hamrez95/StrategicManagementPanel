@@ -1,0 +1,523 @@
+{
+  "release_id": "stratino-first-slice-v1",
+  "schema_version": 1,
+  "source_kb_commit": "19bb2d40b9cb45a569c00b53a35aab3f4ea76002",
+  "content_sha256": "8768192ec7cec6f3e047e2bd4c8effcc9e21d898573f6b5655e7555bf67492ab",
+  "canonicalization": "json-sort-keys-compact-utf8-no-newline-v1",
+  "generated_by": "scripts/build-knowledge-release.mjs",
+  "approved_ids": [
+    "ACT-DISCOVERY",
+    "ACT-RETENTION-BEFORE-SCALE",
+    "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+    "FW-STARTUP-LEAN-STARTUP",
+    "MET-CONTRIBUTION-MARGIN",
+    "REC-DISCOVERY",
+    "REC-RETENTION-BEFORE-SCALE",
+    "RULE-DISCOVERY",
+    "RULE-RETENTION-BEFORE-SCALE"
+  ],
+  "source_ids": [
+    "SRC-CORE-AMPLITUDE-RETENTION",
+    "SRC-FINANCE-contribution",
+    "SRC-STARTUP-BLANK-2010",
+    "SRC-STARTUP-RIES-PRINCIPLES",
+    "SRC-STARTUP-STRATEGYZER-BMC"
+  ],
+  "rejected_records": [
+    {
+      "record_id": "MET-ACTIVATION-RATE",
+      "reason_code": "unmapped_applicability",
+      "source_schema": "0.1.0"
+    },
+    {
+      "record_id": "PLAN-MARKET-SIZING",
+      "reason_code": "unreviewed_record",
+      "source_schema": "0.1.0"
+    }
+  ],
+  "records": {
+    "ACT-DISCOVERY": {
+      "source_schema": "0.1.0",
+      "revision": "e24669467a7e17d28fe74604c6a9a1e9a7e69450064c1ed658e000fbf34f5727",
+      "adapter_id": "kb-json-v1/action",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: customer/problem hypotheses need observed behavior; exact action steps are a product playbook"
+          }
+        ],
+        "rationale": "Product-authored playbook. The cited source supports hypothesis testing generally; it does not prescribe this exact action or promise impact."
+      },
+      "definition": {
+        "id": "ACT-DISCOVERY",
+        "required_information": [
+          "customer_problem_hypothesis",
+          "recent_customer_observation"
+        ],
+        "steps": [
+          {
+            "action": "Clarify one customer/problem hypothesis and test it with relevant people before committing to a full build.",
+            "owner": "Named business decision owner",
+            "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+          }
+        ],
+        "outputs": [
+          "experiment"
+        ],
+        "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+        "risks": [
+          "Selection bias or incomplete records can mislead the investigation."
+        ],
+        "dependencies": [
+          "RULE-DISCOVERY",
+          "SRC-STARTUP-BLANK-2010"
+        ],
+        "runtime_gate": {
+          "status": "blocked_until_typed_mapping",
+          "fields": [
+            "stage",
+            "operating"
+          ],
+          "reason": "stage=idea is explicit, but operating has no reviewed lossless source-field mapping; absent data must remain unknown, not false. Do not execute until a typed mapping and negative fixtures exist.",
+          "inherited_from": "RULE-DISCOVERY"
+        }
+      }
+    },
+    "ACT-RETENTION-BEFORE-SCALE": {
+      "source_schema": "0.1.0",
+      "revision": "a03326a4231664d848555f44fa107fe712d27d381a6e0fc51810f4608da9de25",
+      "adapter_id": "kb-json-v1/action",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: bounded learning can inform a decision; exact acquisition action is product-authored"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: cohort and eligible observation-window mechanics"
+          }
+        ],
+        "rationale": "Product-authored playbook. Bounded acquisition, owner, evidence artifact and risk-budget stop condition are not directly prescribed by the cited sources."
+      },
+      "definition": {
+        "id": "ACT-RETENTION-BEFORE-SCALE",
+        "required_information": [
+          "cohort_definition",
+          "value_event",
+          "observation_window",
+          "cash_risk"
+        ],
+        "steps": [
+          {
+            "action": "Keep acquisition tests bounded while defining a segment-specific retention cohort and completing its observation window.",
+            "owner": "Named business decision owner",
+            "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+          }
+        ],
+        "outputs": [
+          "experiment"
+        ],
+        "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+        "risks": [
+          "Selection bias or incomplete records can mislead the investigation."
+        ],
+        "dependencies": [
+          "RULE-RETENTION-BEFORE-SCALE",
+          "SRC-CORE-AMPLITUDE-RETENTION",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ],
+        "runtime_gate": {
+          "status": "gated_by_STR-061-A",
+          "fields": [
+            "stage",
+            "scale_acquisition_requested",
+            "retention_evidence"
+          ],
+          "reason": "Require same venture/segment scope; only map repeatability evidence when repeatability_scope=cohort_retention. Keep bounded experiments distinct from material acquisition commitments.",
+          "inherited_from": "RULE-RETENTION-BEFORE-SCALE"
+        }
+      }
+    },
+    "FW-STARTUP-BUSINESS-MODEL-CANVAS": {
+      "source_schema": "1.0.0",
+      "revision": "cfb8122f414b473f5e6268968dee838cef805541ef5d56aaf7f6cabb2ff8b5ec",
+      "adapter_id": "kb-json-v1/startup-framework",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-STRATEGYZER-BMC",
+            "section": "Business Model Canvas: value creation/delivery/capture and interdependent blocks; modeling description, not demand validation"
+          },
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: startup tests business-model hypotheses against observed behavior"
+          }
+        ],
+        "rationale": "Original Startino synthesis. Only the interconnected model blocks are directly source-supported; evidence annotations, workflow, and illustrative examples are authored guidance. Requires domain-expert and user validation."
+      },
+      "definition": {
+        "id": "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "name": "Business Model Canvas",
+        "purpose": "Make the interdependencies and assumptions of one business model discussable.",
+        "source_supported_elements": [
+          "Nine interconnected business-model blocks",
+          "Model versions change with evidence"
+        ],
+        "derived_guidance": [
+          "Evidence annotations and decision workflow",
+          "Illustrative distribution-channel dependency example"
+        ],
+        "limitations": [
+          "Does not establish market demand or financial feasibility",
+          "May omit contextual details needed for regulation and execution"
+        ],
+        "validation_status": "requires_domain_expert_and_user_validation",
+        "dependencies": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-STRATEGYZER-BMC"
+        ],
+        "runtime_gate": {
+          "status": "context_only"
+        }
+      }
+    },
+    "FW-STARTUP-LEAN-STARTUP": {
+      "source_schema": "1.0.0",
+      "revision": "60357fcd1cbcd396ea4b2a28e92f443f7f524cfe85026ce476a5522e545cf742",
+      "adapter_id": "kb-json-v1/startup-framework",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: build-measure-learn, validated learning, actionable measurement; no universal scaling threshold"
+          },
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: model assumptions change as customer behavior is observed"
+          }
+        ],
+        "rationale": "Original Startino synthesis. Build-measure-learn and validated learning are source-grounded; the decision-backward workflow and constrained-test adaptation are authored guidance. No guaranteed outcome."
+      },
+      "definition": {
+        "id": "FW-STARTUP-LEAN-STARTUP",
+        "name": "Lean Startup / Build-Measure-Learn",
+        "purpose": "Reduce important uncertainty through iterative, decision-oriented learning.",
+        "source_supported_elements": [
+          "Validated learning",
+          "Build-Measure-Learn and pivot/persevere"
+        ],
+        "derived_guidance": [
+          "Decision-backward workflow",
+          "Permitted-test adaptation for constrained contexts"
+        ],
+        "limitations": [
+          "Does not remove capital, ethical or regulatory constraints",
+          "Method claims are not a guaranteed-success law"
+        ],
+        "validation_status": "requires_domain_expert_and_user_validation",
+        "dependencies": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ],
+        "runtime_gate": {
+          "status": "context_only"
+        }
+      }
+    },
+    "MET-CONTRIBUTION-MARGIN": {
+      "source_schema": "1.0.0",
+      "revision": "977c4fab62a08e0703ec8fcf6d22919076e78f0b37006d114ae8e79a531f647b",
+      "adapter_id": "kb-json-v1/metric-contribution-amount",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-FINANCE-contribution",
+            "section": "§3.1: sales less variable costs is a contribution amount; amount differs from ratio; relevant range limits; product input classification remains unvalidated"
+          }
+        ],
+        "rationale": "The overall record is conservatively labeled product heuristic because interpretation, applicability, input policy and recommended actions are product-authored. OpenStax supports the amount formula and amount-vs-ratio distinction only. Formula is documentation, never executable prose; typed calculation waits for STR-058-B."
+      },
+      "definition": {
+        "id": "MET-CONTRIBUTION-MARGIN",
+        "definition": "فروش پس از هزینه متغیر؛ مبلغی برای پوشش هزینه ثابت.",
+        "formula_prose_non_executable": "net_revenue - variable_costs",
+        "unit": "currency",
+        "required_inputs": [
+          "net_revenue",
+          "variable_costs"
+        ],
+        "limitations": [
+          "هزینه ثابت پله‌ای و ظرفیت محدود، سودآوری سفارش جدید را تغییر می‌دهند."
+        ],
+        "benchmark_available": false,
+        "dependencies": [
+          "SRC-FINANCE-contribution"
+        ],
+        "runtime_gate": {
+          "status": "definition_only_until_STR-058-A_B",
+          "fields": [
+            "business_types",
+            "stages",
+            "net_revenue",
+            "variable_costs",
+            "period",
+            "currency",
+            "cost_scope"
+          ],
+          "reason": "Do not import raw applicability tags. The metric is definition-only in this slice; typed observations and calculation are owned by STR-058-A/B."
+        }
+      }
+    },
+    "REC-DISCOVERY": {
+      "source_schema": "0.1.0",
+      "revision": "2afec180004c07d8cbcfecbb88eaeadf00e8c0d3d832e993911318ae95d443ac",
+      "adapter_id": "kb-json-v1/recommendation",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: business-model hypotheses are tested; candidate wording and confidence gate are product policy"
+          }
+        ],
+        "rationale": "Product-authored recommendation linked to the discovery heuristic. No quantified outcome or universal applicability is claimed; confidence must derive from scoped evidence."
+      },
+      "definition": {
+        "id": "REC-DISCOVERY",
+        "trigger_rule_id": "RULE-DISCOVERY",
+        "reason": "A proposed model has not yet been supported by observed customer behavior.",
+        "severity": "contextual",
+        "confidence_policy": "derived_from_claim_evidence_not_framework_fame",
+        "expected_impact": {
+          "description": "Reduce one important uncertainty; no conversion uplift promised.",
+          "quantified_effect": null
+        },
+        "required_information": [
+          "customer_problem_hypothesis",
+          "recent_customer_observation"
+        ],
+        "alternatives": [
+          "Collect the missing evidence.",
+          "Record no_action with reason and review trigger if action cost exceeds expected value."
+        ],
+        "risks": [
+          "This is a source-informed product heuristic; applicability needs review."
+        ],
+        "next_action_id": "ACT-DISCOVERY",
+        "dependencies": [
+          "ACT-DISCOVERY",
+          "RULE-DISCOVERY",
+          "SRC-STARTUP-BLANK-2010"
+        ],
+        "runtime_gate": {
+          "status": "blocked_until_typed_mapping",
+          "fields": [
+            "stage",
+            "operating"
+          ],
+          "reason": "stage=idea is explicit, but operating has no reviewed lossless source-field mapping; absent data must remain unknown, not false. Do not execute until a typed mapping and negative fixtures exist.",
+          "inherited_from": "RULE-DISCOVERY"
+        }
+      }
+    },
+    "REC-RETENTION-BEFORE-SCALE": {
+      "source_schema": "0.1.0",
+      "revision": "2ca68ddfb82b2ad21580b6a2346ac53727c5ec492aec0a18d70633eb2e7e4044",
+      "adapter_id": "kb-json-v1/recommendation",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: validated learning; recommendation trigger, confidence and alternatives are product policy"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: event/cohort/window mechanics, not a universal target"
+          }
+        ],
+        "rationale": "Product-authored candidate recommendation. The source refs explain learning and measurement mechanics; trigger, severity, confidence and alternatives remain contextual product policy."
+      },
+      "definition": {
+        "id": "REC-RETENTION-BEFORE-SCALE",
+        "trigger_rule_id": "RULE-RETENTION-BEFORE-SCALE",
+        "reason": "Retention evidence is insufficient to justify a large irreversible acquisition commitment.",
+        "severity": "contextual",
+        "confidence_policy": "derived_from_claim_evidence_not_framework_fame",
+        "expected_impact": {
+          "description": "Improve evidence for a scale decision; no claim that all acquisition must stop.",
+          "quantified_effect": null
+        },
+        "required_information": [
+          "cohort_definition",
+          "value_event",
+          "observation_window",
+          "cash_risk"
+        ],
+        "alternatives": [
+          "Collect the missing evidence.",
+          "Record no_action with reason and review trigger if action cost exceeds expected value."
+        ],
+        "risks": [
+          "This is a source-informed product heuristic; applicability needs review."
+        ],
+        "next_action_id": "ACT-RETENTION-BEFORE-SCALE",
+        "dependencies": [
+          "ACT-RETENTION-BEFORE-SCALE",
+          "RULE-RETENTION-BEFORE-SCALE",
+          "SRC-CORE-AMPLITUDE-RETENTION",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ],
+        "runtime_gate": {
+          "status": "gated_by_STR-061-A",
+          "fields": [
+            "stage",
+            "scale_acquisition_requested",
+            "retention_evidence"
+          ],
+          "reason": "Require same venture/segment scope; only map repeatability evidence when repeatability_scope=cohort_retention. Keep bounded experiments distinct from material acquisition commitments.",
+          "inherited_from": "RULE-RETENTION-BEFORE-SCALE"
+        }
+      }
+    },
+    "RULE-DISCOVERY": {
+      "source_schema": "0.1.0",
+      "revision": "ff2b997b1f5d062a6b5e67892c8a9b54efa876aeaac6a905f73d3cce411ac4ea",
+      "adapter_id": "kb-json-v1/decision-rule",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: startup searches through business-model hypotheses; source does not prescribe this exact rule or evidence gate"
+          }
+        ],
+        "rationale": "Explicit product heuristic, not a source-prescribed rule. Source supports hypothesis testing generally, not the exact stage/operating predicates, minimum evidence, confidence, or intervention. Human review remains required."
+      },
+      "definition": {
+        "id": "RULE-DISCOVERY",
+        "conditions": {
+          "all": [
+            {
+              "field": "stage",
+              "op": "eq",
+              "value": "idea"
+            },
+            {
+              "field": "operating",
+              "op": "eq",
+              "value": false
+            }
+          ]
+        },
+        "evidence_required": [
+          "customer_problem_hypothesis",
+          "recent_customer_observation"
+        ],
+        "minimum_candidate_confidence": "low",
+        "candidate_action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "exceptions": [
+          "A mandated technical feasibility study may precede customer testing; document why."
+        ],
+        "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+        "human_review_required": true,
+        "outputs": [
+          "experiment"
+        ],
+        "dependencies": [
+          "ACT-DISCOVERY",
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+          "SRC-STARTUP-BLANK-2010"
+        ],
+        "runtime_gate": {
+          "status": "blocked_until_typed_mapping",
+          "fields": [
+            "stage",
+            "operating"
+          ],
+          "reason": "stage=idea is explicit, but operating has no reviewed lossless source-field mapping; absent data must remain unknown, not false. Do not execute until a typed mapping and negative fixtures exist."
+        }
+      }
+    },
+    "RULE-RETENTION-BEFORE-SCALE": {
+      "source_schema": "0.1.0",
+      "revision": "412c9f588b1d9a89e1be2bca84fd9d30f82f8a0788a280a2c6dcd72703c3ef1e",
+      "adapter_id": "kb-json-v1/decision-rule",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: experiments and actionable learning inform decisions; no acquisition stop rule or retention cutoff"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: event-defined cohort and observation window; incomplete intervals affect interpretation"
+          }
+        ],
+        "rationale": "Explicit product heuristic, not a source-prescribed universal rule. Sources support learning experiments and event/cohort measurement only; no retention threshold, causal churn claim, or mandate to stop all acquisition. Human review, exceptions and bounded-risk policy are retained."
+      },
+      "definition": {
+        "id": "RULE-RETENTION-BEFORE-SCALE",
+        "conditions": {
+          "all": [
+            {
+              "field": "stage",
+              "op": "eq",
+              "value": "early-traction"
+            },
+            {
+              "field": "scale_acquisition_requested",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "field": "retention_evidence",
+              "op": "eq",
+              "value": "insufficient"
+            }
+          ]
+        },
+        "evidence_required": [
+          "cohort_definition",
+          "value_event",
+          "observation_window",
+          "cash_risk"
+        ],
+        "minimum_candidate_confidence": "low",
+        "candidate_action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "exceptions": [
+          "Seasonal or one-time-value businesses need a different repeatability test.",
+          "A deliberately capped experiment may be justified with a risk budget."
+        ],
+        "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+        "human_review_required": true,
+        "outputs": [
+          "experiment"
+        ],
+        "dependencies": [
+          "ACT-RETENTION-BEFORE-SCALE",
+          "FW-STARTUP-LEAN-STARTUP",
+          "SRC-CORE-AMPLITUDE-RETENTION",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ],
+        "runtime_gate": {
+          "status": "gated_by_STR-061-A",
+          "fields": [
+            "stage",
+            "scale_acquisition_requested",
+            "retention_evidence"
+          ],
+          "reason": "Require same venture/segment scope; only map repeatability evidence when repeatability_scope=cohort_retention. Keep bounded experiments distinct from material acquisition commitments."
+        }
+      }
+    }
+  }
+}

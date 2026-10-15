@@ -27,15 +27,17 @@
         ],
         "rationale": "Original Startino synthesis. Only the interconnected model blocks are directly source-supported; evidence annotations, workflow, and illustrative examples are authored guidance. Requires domain-expert and user validation."
       },
-      "depends_on": [
-        "SRC-STARTUP-BLANK-2010",
-        "SRC-STARTUP-STRATEGYZER-BMC"
-      ],
+      "depends_on": ["SRC-STARTUP-BLANK-2010", "SRC-STARTUP-STRATEGYZER-BMC"],
       "allowlisted_projection_fields": [
         "id",
+        "name",
         "purpose",
-        "source_supported_model_blocks",
-        "limitations"
+        "source_supported_elements",
+        "derived_guidance",
+        "limitations",
+        "validation_status",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -59,15 +61,17 @@
         ],
         "rationale": "Original Startino synthesis. Build-measure-learn and validated learning are source-grounded; the decision-backward workflow and constrained-test adaptation are authored guidance. No guaranteed outcome."
       },
-      "depends_on": [
-        "SRC-STARTUP-BLANK-2010",
-        "SRC-STARTUP-RIES-PRINCIPLES"
-      ],
+      "depends_on": ["SRC-STARTUP-BLANK-2010", "SRC-STARTUP-RIES-PRINCIPLES"],
       "allowlisted_projection_fields": [
         "id",
+        "name",
         "purpose",
-        "source_supported_learning_loop",
-        "limitations"
+        "source_supported_elements",
+        "derived_guidance",
+        "limitations",
+        "validation_status",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -87,18 +91,19 @@
         ],
         "rationale": "Explicit product heuristic, not a source-prescribed rule. Source supports hypothesis testing generally, not the exact stage/operating predicates, minimum evidence, confidence, or intervention. Human review remains required."
       },
-      "depends_on": [
-        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
-        "ACT-DISCOVERY"
-      ],
+      "depends_on": ["ACT-DISCOVERY", "FW-STARTUP-BUSINESS-MODEL-CANVAS", "SRC-STARTUP-BLANK-2010"],
       "allowlisted_projection_fields": [
         "id",
         "conditions",
-        "evidence",
+        "evidence_required",
+        "minimum_candidate_confidence",
+        "candidate_action_gate",
+        "exceptions",
         "unknown_behavior",
         "human_review_required",
-        "exceptions",
-        "outputs"
+        "outputs",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -118,17 +123,20 @@
         ],
         "rationale": "Product-authored recommendation linked to the discovery heuristic. No quantified outcome or universal applicability is claimed; confidence must derive from scoped evidence."
       },
-      "depends_on": [
-        "RULE-DISCOVERY",
-        "ACT-DISCOVERY"
-      ],
+      "depends_on": ["ACT-DISCOVERY", "RULE-DISCOVERY", "SRC-STARTUP-BLANK-2010"],
       "allowlisted_projection_fields": [
         "id",
-        "trigger",
+        "trigger_rule_id",
         "reason",
+        "severity",
+        "confidence_policy",
+        "expected_impact",
         "required_information",
+        "alternatives",
         "risks",
-        "alternative_actions"
+        "next_action_id",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -148,16 +156,16 @@
         ],
         "rationale": "Product-authored playbook. The cited source supports hypothesis testing generally; it does not prescribe this exact action or promise impact."
       },
-      "depends_on": [
-        "RULE-DISCOVERY"
-      ],
+      "depends_on": ["RULE-DISCOVERY", "SRC-STARTUP-BLANK-2010"],
       "allowlisted_projection_fields": [
         "id",
         "required_information",
         "steps",
-        "completion_evidence",
+        "outputs",
         "stop_condition",
-        "risks"
+        "risks",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -182,17 +190,23 @@
         "rationale": "Explicit product heuristic, not a source-prescribed universal rule. Sources support learning experiments and event/cohort measurement only; no retention threshold, causal churn claim, or mandate to stop all acquisition. Human review, exceptions and bounded-risk policy are retained."
       },
       "depends_on": [
+        "ACT-RETENTION-BEFORE-SCALE",
         "FW-STARTUP-LEAN-STARTUP",
-        "ACT-RETENTION-BEFORE-SCALE"
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-STARTUP-RIES-PRINCIPLES"
       ],
       "allowlisted_projection_fields": [
         "id",
         "conditions",
-        "evidence",
+        "evidence_required",
+        "minimum_candidate_confidence",
+        "candidate_action_gate",
+        "exceptions",
         "unknown_behavior",
         "human_review_required",
-        "exceptions",
-        "outputs"
+        "outputs",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -217,16 +231,24 @@
         "rationale": "Product-authored candidate recommendation. The source refs explain learning and measurement mechanics; trigger, severity, confidence and alternatives remain contextual product policy."
       },
       "depends_on": [
+        "ACT-RETENTION-BEFORE-SCALE",
         "RULE-RETENTION-BEFORE-SCALE",
-        "ACT-RETENTION-BEFORE-SCALE"
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-STARTUP-RIES-PRINCIPLES"
       ],
       "allowlisted_projection_fields": [
         "id",
-        "trigger",
+        "trigger_rule_id",
         "reason",
+        "severity",
+        "confidence_policy",
+        "expected_impact",
         "required_information",
+        "alternatives",
         "risks",
-        "alternative_actions"
+        "next_action_id",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -251,15 +273,19 @@
         "rationale": "Product-authored playbook. Bounded acquisition, owner, evidence artifact and risk-budget stop condition are not directly prescribed by the cited sources."
       },
       "depends_on": [
-        "RULE-RETENTION-BEFORE-SCALE"
+        "RULE-RETENTION-BEFORE-SCALE",
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-STARTUP-RIES-PRINCIPLES"
       ],
       "allowlisted_projection_fields": [
         "id",
         "required_information",
         "steps",
-        "completion_evidence",
+        "outputs",
         "stop_condition",
-        "risks"
+        "risks",
+        "dependencies",
+        "runtime_gate"
       ]
     },
     {
@@ -279,16 +305,17 @@
         ],
         "rationale": "The overall record is conservatively labeled product heuristic because interpretation, applicability, input policy and recommended actions are product-authored. OpenStax supports the amount formula and amount-vs-ratio distinction only. Formula is documentation, never executable prose; typed calculation waits for STR-058-B."
       },
-      "depends_on": [
-        "SRC-FINANCE-contribution"
-      ],
+      "depends_on": ["SRC-FINANCE-contribution"],
       "allowlisted_projection_fields": [
         "id",
-        "amount_formula_reference",
+        "definition",
+        "formula_prose_non_executable",
         "unit",
         "required_inputs",
         "limitations",
-        "no_benchmark"
+        "benchmark_available",
+        "dependencies",
+        "runtime_gate"
       ]
     }
   ],
@@ -389,20 +416,13 @@
     {
       "record_id": "RULE-DISCOVERY",
       "status": "blocked_until_typed_mapping",
-      "fields": [
-        "stage",
-        "operating"
-      ],
+      "fields": ["stage", "operating"],
       "reason": "stage=idea is explicit, but operating has no reviewed lossless source-field mapping; absent data must remain unknown, not false. Do not execute until a typed mapping and negative fixtures exist."
     },
     {
       "record_id": "RULE-RETENTION-BEFORE-SCALE",
       "status": "gated_by_STR-061-A",
-      "fields": [
-        "stage",
-        "scale_acquisition_requested",
-        "retention_evidence"
-      ],
+      "fields": ["stage", "scale_acquisition_requested", "retention_evidence"],
       "reason": "Require same venture/segment scope; only map repeatability evidence when repeatability_scope=cohort_retention. Keep bounded experiments distinct from material acquisition commitments."
     },
     {
