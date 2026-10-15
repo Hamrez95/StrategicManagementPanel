@@ -984,7 +984,8 @@
         "date": "2026-10-15",
         "decision": "MODIFY",
         "reason": "Own shared coaching/quick-learn-deep/previous-next and global off preference; STR-064 owns adaptive Journey presentation."
-      }
+      },
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-027",
@@ -1023,7 +1024,8 @@
         "date": "2026-10-15",
         "decision": "SUPERSEDE",
         "reason": "Replace arbitrary project health/completion percentage with situation, attention and next action; keep dashboard implementation in this issue."
-      }
+      },
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-028",
@@ -2051,7 +2053,9 @@
         "research/deferred-concepts.json"
       ],
       "issue_number": 66,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/66"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/66",
+      "implementation_design": "docs/management-os/IMPLEMENTATION_GUIDE.md#str-054-delivery-packets--exact-next-foundation",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-055",
@@ -2079,11 +2083,12 @@
       "risk": "high",
       "phase": "Management OS",
       "priority": "P0",
-      "status": "planned",
+      "status": "in_progress",
       "epic": "MOS-QUALITY",
       "knowledge_dependencies": [],
       "issue_number": 67,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/67"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/67",
+      "progress_evidence": "Typecheck, 70 root tests, 6 domain tests, contracts and production build pass. Remaining 8 lint errors and 32 format files: docs/management-os/QUALITY_BASELINE.md. Remote CI/merge and final runtime/UI checks pending."
     },
     {
       "id": "STR-056",
@@ -2120,7 +2125,8 @@
         "taxonomy/business-types.json"
       ],
       "issue_number": 68,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/68"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/68",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-057",
@@ -2157,7 +2163,8 @@
         "taxonomy/field-mapping.json"
       ],
       "issue_number": 69,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/69"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/69",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-058",
@@ -2193,7 +2200,8 @@
         "metrics/finance/met-contribution-margin.json"
       ],
       "issue_number": 70,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/70"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/70",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-059",
@@ -2232,7 +2240,8 @@
         "taxonomy/classification-tree.json"
       ],
       "issue_number": 71,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/71"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/71",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-060",
@@ -2268,7 +2277,8 @@
         "taxonomy/business-stages.json"
       ],
       "issue_number": 72,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/72"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/72",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-061",
@@ -2306,7 +2316,8 @@
         "taxonomy/field-mapping.json"
       ],
       "issue_number": 73,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/73"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/73",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-062",
@@ -2345,7 +2356,8 @@
         "journeys/startup/routing-rules.json"
       ],
       "issue_number": 74,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/74"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/74",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-063",
@@ -2360,7 +2372,8 @@
       "scope": [
         "Persist recommendation instance with frozen inputs, knowledge/rule/evidence/source trace, reasons, confidence, risks and alternatives.",
         "Support accept/dismiss/request-evidence/no-action; accepting idempotently creates a proposed existing Decision and an Action with user-selected owner/date.",
-        "Link existing Goal/KPI where applicable; no generic action copied into an invented experiment entity."
+        "Link existing Goal/KPI where applicable; no generic action copied into an invented experiment entity.",
+        "Add typed recommendation source to existing Decision per ADR-007; preserve analysis/strategy sources and extend source constraint, DTOs, snapshots and same-Workspace tests."
       ],
       "acceptance": [
         "Given Why am I seeing this, API supplies source→framework→rule→evidence/metric→recommendation trace.",
@@ -2382,7 +2395,8 @@
         "evidence/confidence-model.md"
       ],
       "issue_number": 75,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/75"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/75",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-064",
@@ -2421,7 +2435,8 @@
         "evidence/confidence-model.md"
       ],
       "issue_number": 76,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/76"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/76",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-065",
@@ -2459,7 +2474,8 @@
         "metrics/finance/met-contribution-margin.json"
       ],
       "issue_number": 77,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/77"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/77",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-066",
@@ -2494,7 +2510,8 @@
         "diagnostics/operations/trees.json"
       ],
       "issue_number": 78,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/78"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/78",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-067",
@@ -2529,7 +2546,8 @@
         "cadence/registry.json"
       ],
       "issue_number": 79,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/79"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/79",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     },
     {
       "id": "STR-068",
@@ -2602,7 +2620,8 @@
         "research/unresolved-topics.md"
       ],
       "issue_number": 81,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/81"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/81",
+      "design_spec": "docs/management-os/DESIGN_INDEX.md"
     }
   ],
   "management_os": {
@@ -2735,5 +2754,7 @@
       "issue_number": 89,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/89"
     }
-  ]
+  ],
+  "planning_updated": "2026-10-16",
+  "design_index": "docs/management-os/DESIGN_INDEX.md"
 }

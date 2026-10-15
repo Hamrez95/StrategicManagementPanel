@@ -2,17 +2,18 @@
 
 This records real command results for the Luna handoff. No browser/server/Compose result is implied.
 
-| Check | Result |
-|---|---|
-| npm run typecheck | PASS, web/domain/UI exit 0 after STR-055 repairs |
-| npm test | PASS, 70/70, exit 0; includes 18 knowledge mutation tests and 3 new document-contract/decoder tests |
-| npm run check:contracts | PASS, 68 unique operations, exit 0 |
-| npm run build | PASS, legacy + domain + React production build, exit 0 |
-| original KB validator | PASS, 6 synthetic personas / 16 guards; research unchanged |
-| independent knowledge audit | PASS, 120 files; 28 explicit runtime-adapter warnings |
-| npm run quality | NOT GREEN; original lint script failed directory-glob resolution; scripts now use explicit existing workspace paths |
-| npx eslint apps/web/src packages/domain/src packages/ui/src | FAIL, 8 existing baseline errors below |
-| npm run format:check | FAIL, 32 existing source files below |
+| Check                                                       | Result                                                                                                              |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| npm run typecheck                                           | PASS, web/domain/UI exit 0 after STR-055 repairs                                                                    |
+| npm test                                                    | PASS, 70/70, exit 0; includes 18 knowledge mutation tests and 3 new document-contract/decoder tests                 |
+| npm run test:domain                                         | PASS, 6/6, exit 0                                                                                                   |
+| npm run check:contracts                                     | PASS, 68 unique operations, exit 0                                                                                  |
+| npm run build                                               | PASS, legacy + domain + React production build, exit 0                                                              |
+| original KB validator                                       | PASS, 6 synthetic personas / 16 guards; research unchanged                                                          |
+| independent knowledge audit                                 | PASS, 120 files; 28 explicit runtime-adapter warnings                                                               |
+| npm run quality                                             | NOT GREEN; original lint script failed directory-glob resolution; scripts now use explicit existing workspace paths |
+| npx eslint apps/web/src packages/domain/src packages/ui/src | FAIL, 8 existing baseline errors below                                                                              |
+| npm run format:check                                        | FAIL, 32 existing source files below                                                                                |
 
 ## Remaining STR-055 packet A — lint (8 errors)
 

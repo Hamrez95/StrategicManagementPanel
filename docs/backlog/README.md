@@ -142,3 +142,5 @@ P0 order: STR-053 integrity → STR-055 baseline quality → STR-054 reviewed lo
 | [STR-67](STR-67.md) | P2 | چرخه بازبینی مدیریتی از ورودی تا تصمیم و اقدام | STR-063, STR-043 |
 | [STR-68](STR-68.md) | P2 | تکمیل شکاف پژوهش و بازبینی ادعا در منابع اصلی | STR-053 |
 | [STR-69](STR-69.md) | P2 | شکاف مدیریتی و سلامت حوزه‌ای بدون امتیاز ساختگی | STR-063, STR-027 |
+
+Initial architecture and UX are specified in [Management OS design index](../management-os/DESIGN_INDEX.md); Luna implementation follows [bounded packets](../management-os/LUNA_WORK_PACKETS.md). Design completion does not close development or validation tasks.

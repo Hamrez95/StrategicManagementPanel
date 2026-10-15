@@ -9,3 +9,5 @@
 | [006](../adr/006-evidence-confidence.md)  | Claim type, evidence origin, confidence and freshness are independent                  | No invented probability/health weights; preserve contradictions and reported legacy labels    |
 
 Accepted for development planning by the owner's request to proceed after audit. Does not assert implementation or scientific certification. Existing ADR-001 tenant ownership, session/CSRF, private files and billing boundaries remain binding. Brand remains existing Stratino until a separate naming decision; Startino is the requested Management OS vision, not permission for another rebrand.
+
+ADR-007 — [Recommendation decision source](../adr/007-recommendation-decision-source.md): the existing execution source contract must be extended explicitly; no fabricated finalized analysis or source-less bypass.
