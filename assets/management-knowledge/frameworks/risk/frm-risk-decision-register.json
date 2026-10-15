@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "id": "FRM-RISK-DECISION-REGISTER",
+  "name": "ثبت ریسک و فرضِ تصمیم مالی",
+  "domain": "risk",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "purpose": "اتصال عدم قطعیت به شاهد، مالک، نشانۀ هشدار و اقدام مجاز.",
+  "inputs": [
+    "تصمیم معین",
+    "فرض‌های مؤثر بر تصمیم",
+    "شواهد و مجهولات",
+    "مالک تصمیم"
+  ],
+  "record_fields": [
+    "id",
+    "decision_id",
+    "uncertain_event",
+    "cause_hypothesis",
+    "potential_effect",
+    "evidence",
+    "missing_data",
+    "scenario_refs",
+    "owner",
+    "trigger",
+    "response_options",
+    "response_authority",
+    "review_date",
+    "status"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "instruction": "رخداد نامطمئن و پیامد آن بر نقد/ارزش/ظرفیت را با فرض علت جدا ثبت کنید؛ مشکل رخ‌داده را با ریسک آینده مخلوط نکنید.",
+      "output": "بیان دقیق ریسک"
+    },
+    {
+      "order": 2,
+      "instruction": "شواهد، سناریوی مرتبط و داده ناموجود را ثبت کنید؛ احتمال و شدت فقط با مقیاس و دلیل مستند درج شوند.",
+      "output": "دامنۀ عدم قطعیت"
+    },
+    {
+      "order": 3,
+      "instruction": "مالک، علامت قابل مشاهده، پاسخ‌های ممکن و مرجع مجاز تصمیم را مشخص کنید.",
+      "output": "برنامۀ پاسخ قابل اجرا"
+    },
+    {
+      "order": 4,
+      "instruction": "تاریخ بازبینی و نشانۀ تغییر تصمیم را ثبت کنید؛ برآورد با داده جدید بازنگری شود.",
+      "output": "سابقۀ تصمیم و بازبینی"
+    }
+  ],
+  "metric_refs": [
+    "MET-NPV",
+    "MET-CASH-RUNWAY",
+    "MET-BREAK-EVEN"
+  ],
+  "sources": [
+    "SRC-INVESTMENT-damodaran-scenarios"
+  ],
+  "warnings": [
+    "امتیاز احتمال×شدت برای مقیاس رتبه‌ای، احتمال زیان یا زیان موردانتظار نیست.",
+    "این فهرست رخدادهای نامعلوم را حذف نمی‌کند."
+  ],
+  "limitations": [
+    "ساختار ثبت، مالک، موعد و escalation کاملاً طراحی محصول است؛ به Damodaran یا ISO به‌عنوان تجویز این ساختار نسبت داده نشده است."
+  ],
+  "provenance": "product-authored-decision-register; source-only-supports-scenario-uncertainty-concepts",
+  "last_reviewed": "2026-10-15",
+  "use_when": [
+    "عدم قطعیت مهم بر یک تصمیم مالی اثر دارد و مالک پاسخ لازم است."
+  ],
+  "do_not_use_when": [
+    "به‌جای اقدام فوریِ مشکل رخ‌داده صرفاً قصد امتیازدهی دارید.",
+    "به‌دنبال ادعای انطباق رسمی ISO از این ساختار محصول هستید."
+  ],
+  "outputs": [
+    "رخداد نامطمئن با شاهد و مجهول",
+    "مالک و علامت هشدار",
+    "پاسخ مجاز و موعد بازبینی"
+  ],
+  "interpretation": "ثبت ریسک مسئولیت و پیگیری را آشکار می‌کند؛ شمار ریسک‌ها یا رنگ امتیاز اندازه ریسک واقعی نیست.",
+  "common_mistakes": [
+    "احتمال نامستند",
+    "ضرب امتیازهای رتبه‌ای و نامیدن آن زیان موردانتظار",
+    "ثبت اقدام بدون اختیار و مالک",
+    "بستن ریسک فقط با تکمیل فرم"
+  ],
+  "compatible_frameworks": [
+    "FRM-RISK-INVESTMENT-SCENARIOS"
+  ],
+  "conflicting_frameworks": [],
+  "explanation": {
+    "quick": "برای عدم قطعیت تصمیم، شاهد، مالک و موعد تعیین کنید.",
+    "learn": "علت فرضی، رخداد نامطمئن و اثر بالقوه جدا نوشته می‌شوند؛ با تغییر شواهد، پاسخ بازبینی می‌شود.",
+    "deep_dive": "این ثبت برای روشن‌کردن تصمیم و مسئولیت طراحی شده است. اگر احتمال یا اثر قابل برآورد نیست، مجهول بماند؛ سناریوها جایگزین اطمینان کاذب می‌شوند. هیچ ساختار ثبت، رخدادهای ناشناخته را حذف نمی‌کند."
+  },
+  "business_stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ]
+}

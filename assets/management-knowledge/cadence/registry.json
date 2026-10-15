@@ -1,0 +1,278 @@
+{
+  "schema_version": "0.1.0",
+  "epistemic_status": "product_operating_templates_not_universal_prescriptions",
+  "policy": "Frequency, participants and agendas are configurable hypotheses; choose the shortest useful review. Board legal obligations require jurisdiction-specific research.",
+  "cadences": [
+    {
+      "id": "CAD-DAILY",
+      "name": "Daily management",
+      "purpose": "Surface deviations needing a response before the next operating cycle.",
+      "participants": [
+        "frontline owner",
+        "shift/process lead"
+      ],
+      "inputs": [
+        "exceptions",
+        "dated commitments"
+      ],
+      "agenda": [
+        "Review material deviations",
+        "Assign containment or investigation",
+        "Check yesterday’s action"
+      ],
+      "outputs": [
+        "action",
+        "risk"
+      ],
+      "decisions": [
+        "respond",
+        "escalate",
+        "no_action"
+      ],
+      "metrics": [
+        "MET-THROUGHPUT",
+        "MET-DEFECT-RATE"
+      ],
+      "anti_patterns": [
+        "Reading every KPI aloud",
+        "Blaming the reporter",
+        "Founder forced into a daily committee"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-WEEKLY",
+      "name": "Weekly business review",
+      "purpose": "Resolve near-term priorities and cross-team blockers.",
+      "participants": [
+        "business owner",
+        "relevant function owners"
+      ],
+      "inputs": [
+        "weekly comparable outcomes",
+        "open commitments"
+      ],
+      "agenda": [
+        "Inspect exceptions",
+        "Test cause hypotheses",
+        "Agree next actions and owners"
+      ],
+      "outputs": [
+        "action",
+        "decision"
+      ],
+      "decisions": [
+        "continue",
+        "change",
+        "request_evidence"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Turning the review into a status recital",
+        "Comparing incomplete cohorts"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-MONTHLY",
+      "name": "Monthly business review",
+      "purpose": "Reconcile financial and operating outcomes and adjust resource assumptions.",
+      "participants": [
+        "finance owner",
+        "business leader",
+        "function owners"
+      ],
+      "inputs": [
+        "closed financial period",
+        "cash outlook",
+        "initiative evidence"
+      ],
+      "agenda": [
+        "Reconcile actual versus forecast",
+        "Inspect drivers and trade-offs",
+        "Approve revised assumptions"
+      ],
+      "outputs": [
+        "decision",
+        "risk"
+      ],
+      "decisions": [
+        "reforecast",
+        "reallocate",
+        "no_action"
+      ],
+      "metrics": [
+        "MET-GROSS-MARGIN",
+        "MET-OPERATING-CASH-FLOW"
+      ],
+      "anti_patterns": [
+        "Treating budget variance as proven cause",
+        "Confusing profit with available cash"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-QUARTERLY",
+      "name": "Quarterly strategy review",
+      "purpose": "Review strategic assumptions and portfolio choices.",
+      "participants": [
+        "leadership",
+        "initiative owners"
+      ],
+      "inputs": [
+        "strategy hypotheses",
+        "customer and market changes",
+        "resource constraints"
+      ],
+      "agenda": [
+        "Review evidence for strategic assumptions",
+        "Stop or reprioritize initiatives",
+        "Record trade-offs"
+      ],
+      "outputs": [
+        "decision",
+        "initiative"
+      ],
+      "decisions": [
+        "stop",
+        "prioritize",
+        "experiment"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Rewriting strategy every quarter without evidence",
+        "Keeping every project"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-ANNUAL",
+      "name": "Annual planning",
+      "purpose": "Choose direction and capacity envelope with explicit scenarios.",
+      "participants": [
+        "leadership",
+        "finance",
+        "function owners"
+      ],
+      "inputs": [
+        "outcomes",
+        "capability and capacity evidence",
+        "material uncertainties"
+      ],
+      "agenda": [
+        "Review lessons",
+        "Choose strategic priorities",
+        "Align resources and review triggers"
+      ],
+      "outputs": [
+        "decision",
+        "initiative"
+      ],
+      "decisions": [
+        "allocate",
+        "defer",
+        "stop"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "A fixed forecast treated as certainty",
+        "More goals than capacity"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-FORECAST",
+      "name": "Forecast update",
+      "purpose": "Refresh a decision-relevant estimate when its drivers change.",
+      "participants": [
+        "forecast owner",
+        "finance",
+        "relevant driver owners"
+      ],
+      "inputs": [
+        "current actuals",
+        "changed assumptions"
+      ],
+      "agenda": [
+        "Reconcile actuals",
+        "Update drivers and ranges",
+        "Record forecast revision and implications"
+      ],
+      "outputs": [
+        "insight",
+        "decision"
+      ],
+      "decisions": [
+        "revise",
+        "request_data"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Hiding changed assumptions",
+        "Calling a target an unbiased forecast"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    },
+    {
+      "id": "CAD-BOARD",
+      "name": "Board review",
+      "purpose": "Present evidence, material risk and choices reserved for governance.",
+      "participants": [
+        "board or governance body",
+        "authorized executives"
+      ],
+      "inputs": [
+        "approved reporting scope",
+        "material risks",
+        "reserved matters"
+      ],
+      "agenda": [
+        "Review outcomes and risks",
+        "Challenge assumptions",
+        "Record authorized decisions"
+      ],
+      "outputs": [
+        "decision",
+        "risk"
+      ],
+      "decisions": [
+        "approve_within_authority",
+        "defer_for_evidence"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Inventing statutory board duties from a generic template",
+        "Sharing unnecessary personal data"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "source_scope": "Conceptual basis only; exact cadence and agenda are product synthesis."
+    }
+  ]
+}

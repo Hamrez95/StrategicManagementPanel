@@ -1,0 +1,64 @@
+{
+  "schema_version":"1.0.0",
+  "status":"editorial-diagnostic-candidates",
+  "provenance":"All branch logic, evidence requests and route choices are analyst-derived hypotheses informed by the cited framework definitions. They are not validated classifiers, source-authored causal trees or automatic prescriptions.",
+  "trees":[
+    {
+      "id":"DIAG-OPS-INVENTORY","name":"انباشت موجودی یا کمبود مکرر","purpose":"تفکیک خطای داده، ناهمگونی اقلام و مسئله جریان پیش از انتخاب مداخله.",
+      "entry_question":"موجودی یا کمبود کدام قلم، محل و دوره نسبت به کدام نیاز مسئله‌ساز است؟",
+      "required_inputs":["موجودی به تفکیک قلم و محل","مصرف و سفارش در زمان","زمان تأمین واقعی","کسری خدمت و تاریخ شمارش"],
+      "nodes":[
+        {"id":"INV-1","question":"ثبت موجودی با شمارش و واحد اندازه‌گیری سازگار است؟","evidence":["نمونه شمارش","تطبیق واحد و گردش ثبت"],"if_yes":"INV-2","if_no":"INV-DATA","if_unknown":"INV-UNKNOWN"},
+        {"id":"INV-2","question":"هم‌زمان موجودی بالا و کسری اقلام دیگر وجود دارد؟","evidence":["تفکیک قلم/محل و سن موجودی","نمونه کسری در همان دوره"],"if_yes":"INV-MIX","if_no":"INV-3","if_unknown":"INV-UNKNOWN"},
+        {"id":"INV-3","question":"شواهد تولید یا سفارش بالادست بدون نیاز پایین‌دست، یا انتظار پایدار پیش از مرحله‌ای خاص دیده می‌شود؟","evidence":["زمان‌بندی سفارش و مصرف","نقشه جریان و صف","زمان توقف مرحله"],"if_yes":"INV-FLOW","if_no":"INV-OTHER","if_unknown":"INV-UNKNOWN"}
+      ],
+      "outcomes":[
+        {"id":"INV-DATA","hypothesis":"خطای ثبت ممکن است تصویر مسئله را مخدوش کند.","next_action":"تعریف و ثبت را اصلاح و نمونه را دوباره بررسی کنید.","framework_ids":["OPS-DMAIC"]},
+        {"id":"INV-MIX","hypothesis":"میانگین کل ممکن است ناهمگونی اقلام یا محل‌ها را پنهان کند.","next_action":"تحلیل را به خانواده یا قلم و محل محدود کنید؛ کمبود و مازاد را جدا بسنجید.","framework_ids":["OPS-DMAIC","OPS-LEAN-THINKING"]},
+        {"id":"INV-FLOW","hypothesis":"قواعد آزادسازی یا محدودیت جریان ممکن است به انباشت مرتبط باشد.","next_action":"جریان و محدودیت را مشاهده کنید؛ پیش از تغییر بافر، اثر بر خدمت را در پایلوت بسنجید.","framework_ids":["OPS-LEAN-THINKING","OPS-TOC"]},
+        {"id":"INV-OTHER","hypothesis":"شاخه‌های بررسی‌شده علت را روشن نکرده‌اند.","next_action":"تقاضا، فصل، حداقل سفارش، فسادپذیری و نوسان تأمین را با شواهد تخصصی بررسی کنید؛ مقدار سفارش تجویز نکنید.","framework_ids":["OPS-DMAIC"]},
+        {"id":"INV-UNKNOWN","hypothesis":"داده برای تشخیص کافی نیست.","next_action":"نمونه قابل اتکا و تعریف مشترک جمع‌آوری کنید.","framework_ids":["OPS-DMAIC"]}
+      ],
+      "limitations":["حد سفارش، موجودی اطمینان یا سیاست کاهش خودکار تعیین نمی‌کند","درخت علل جامع نیست و چند علت می‌توانند هم‌زمان وجود داشته باشند"],
+      "sources":["SRC-OPS-LEI-OPERATIONS","SRC-OPS-GOLDRATT-TOC","SRC-OPS-ASQ-DMAIC"],"last_reviewed":"2026-10-15"
+    },
+    {
+      "id":"DIAG-OPS-DELIVERY","name":"تحویل دیر یا نامطمئن","purpose":"بررسی تعریف تعهد، انتظار، محدودیت و دوباره‌کاری پیش از راه‌حل ظرفیت.",
+      "entry_question":"تحویل کدام سفارش‌ها نسبت به کدام تعهد قابل سنجش ناموفق است؟",
+      "required_inputs":["تاریخ وعده و تغییرات آن","زمان ورود، شروع و پایان مراحل","صف و دوباره‌کاری","ترکیب سفارش‌ها"],
+      "nodes":[
+        {"id":"DEL-1","question":"تعهد تحویل و زمان واقعی برای نمونه همسان ثبت شده است؟","evidence":["تعریف موعد","تاریخچه تغییر وعده"],"if_yes":"DEL-2","if_no":"DEL-DATA","if_unknown":"DEL-UNKNOWN"},
+        {"id":"DEL-2","question":"بخش مهمی از تأخیر مشاهده‌شده انتظار پیش از مرحله مشخص است؟","evidence":["زمان انتظار جدا از زمان پردازش","صف و ظرفیت مرحله در چند دوره"],"if_yes":"DEL-FLOW","if_no":"DEL-3","if_unknown":"DEL-UNKNOWN"},
+        {"id":"DEL-3","question":"دوباره‌کاری یا تفاوت کیفیت ورودی با تأخیر همراه است؟","evidence":["مسیر نمونه‌های دیر و به‌موقع","ثبت خطا و بازگشت"],"if_yes":"DEL-QUALITY","if_no":"DEL-OTHER","if_unknown":"DEL-UNKNOWN"}
+      ],
+      "outcomes":[
+        {"id":"DEL-DATA","hypothesis":"تعریف یا ثبت تعهد قابل اتکا نیست.","next_action":"تعریف و خط پایه مشترک بسازید.","framework_ids":["OPS-DMAIC"]},
+        {"id":"DEL-FLOW","hypothesis":"صف یا محدودیت جریان نامزد بررسی است، نه علت اثبات‌شده.","next_action":"اثر بهبود زمان مفید مرحله بر خروجی کل را آزمایش کنید.","framework_ids":["OPS-TOC","OPS-LEAN-THINKING"]},
+        {"id":"DEL-QUALITY","hypothesis":"کیفیت ورودی یا دوباره‌کاری ممکن است با تأخیر مرتبط باشد.","next_action":"با تعریف خطا و مقایسه داده، علت‌ها را بررسی کنید.","framework_ids":["OPS-DMAIC"]},
+        {"id":"DEL-OTHER","hypothesis":"شاخه‌های فعلی توضیح کافی ندارند.","next_action":"تعهدگذاری، تغییر دامنه، تأمین‌کننده و حمل را با نمونه سفارش بررسی کنید.","framework_ids":["OPS-DMAIC"]},
+        {"id":"DEL-UNKNOWN","hypothesis":"شواهد کافی نیست.","next_action":"ردیابی نمونه سفارش از ورود تا تحویل را تکمیل کنید.","framework_ids":["OPS-DMAIC"]}
+      ],
+      "limitations":["همراهی دوباره‌کاری و تأخیر رابطه علّی را ثابت نمی‌کند","اختلال حمل، تقاضا و وعده‌گذاری ممکن است خارج از شاخه‌ها باشند"],
+      "sources":["SRC-OPS-LEI-THINKING","SRC-OPS-GOLDRATT-TOC","SRC-OPS-ASQ-DMAIC"],"last_reviewed":"2026-10-15"
+    },
+    {
+      "id":"DIAG-ORG-EXECUTION","name":"توقف اجرای راهبرد","purpose":"تفکیک ابهام هدف، ناهماهنگی سازمانی و موانع مشارکت بدون مقصرسازی.",
+      "entry_question":"کدام تعهد راهبردی با چه شاهدی پیش نمی‌رود؟",
+      "required_inputs":["هدف و معیار نتیجه","اقدام، مالک و اختیار","وابستگی و منابع","دیدگاه گروه‌های درگیر"],
+      "nodes":[
+        {"id":"EXE-1","question":"هدف، رفتار موردنیاز و معیار پیشرفت برای گروه‌ها روشن است؟","evidence":["توصیف مستقل گروه‌ها از هدف","معیار و تعهد مشترک"],"if_yes":"EXE-2","if_no":"EXE-CLARITY","if_unknown":"EXE-UNKNOWN"},
+        {"id":"EXE-2","question":"شاهد مشخصی از تضاد سیستم، اختیار، مهارت یا مشوق با هدف وجود دارد؟","evidence":["نمونه تصمیم مسدود","قواعد پاداش و تأمین منابع","شکاف قابلیت مستند"],"if_yes":"EXE-ALIGNMENT","if_no":"EXE-3","if_unknown":"EXE-UNKNOWN"},
+        {"id":"EXE-3","question":"اعضا گزارش می‌کنند مطرح‌کردن نگرانی یا درخواست کمک پیامد بین‌فردی منفی دارد؟","evidence":["گفت‌وگوی حفاظت‌شده از چند دیدگاه","نمونه واکنش به سؤال و خطا"],"if_yes":"EXE-VOICE","if_no":"EXE-OTHER","if_unknown":"EXE-UNKNOWN"}
+      ],
+      "outcomes":[
+        {"id":"EXE-CLARITY","hypothesis":"ابهام چشم‌انداز یا ترجمه آن به اقدام نامزد بررسی است.","next_action":"هدف، اقدام و شاهد پیشرفت را با مشارکت گروه‌ها روشن کنید.","framework_ids":["ORG-KOTTER-CHANGE"]},
+        {"id":"EXE-ALIGNMENT","hypothesis":"ناهماهنگی عوامل سازمان ممکن است اجرا را دشوار کند.","next_action":"رابطه متعارض را مشخص و بسته تغییر هماهنگ طراحی کنید.","framework_ids":["ORG-MCKINSEY-7S","ORG-KOTTER-CHANGE"]},
+        {"id":"EXE-VOICE","hypothesis":"ریسک بین‌فردی ادراک‌شده ممکن است مانع یادگیری و هشدار زودهنگام باشد.","next_action":"نحوه پاسخ به نگرانی و مسیر کمک را با حفاظت از افراد اصلاح و مرور کنید.","framework_ids":["ORG-PSYCHOLOGICAL-SAFETY"]},
+        {"id":"EXE-OTHER","hypothesis":"این شاخه‌ها شکست اجرا را توضیح نمی‌دهند.","next_action":"اعتبار خود راهبرد، تغییر محیط و کفایت منابع را جدا بازبینی کنید.","framework_ids":["ORG-MCKINSEY-7S"]},
+        {"id":"EXE-UNKNOWN","hypothesis":"داده چنددیدگاهی کافی نیست.","next_action":"نمونه تصمیم و شواهد حفاظت‌شده جمع کنید؛ برچسب مقاومت فردی نزنید.","framework_ids":["ORG-MCKINSEY-7S"]}
+      ],
+      "limitations":["تشخیص بالینی یا رتبه‌بندی کارکنان نیست","مشاهده سکوت یا تأخیر علت قطعی نمی‌دهد","مشکلات راهبرد، محیط و منابع ممکن است هم‌زمان باشند"],
+      "sources":["SRC-ORG-MCKINSEY-7S","SRC-ORG-ILO-7S","SRC-ORG-KOTTER-8","SRC-ORG-EDMONDSON-2002"],"last_reviewed":"2026-10-15"
+    }
+  ]
+}

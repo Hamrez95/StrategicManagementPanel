@@ -1,0 +1,237 @@
+{
+  "reviewed_at": "2026-10-15",
+  "status": "pass",
+  "scope": "Structural and synthetic fixture checks only; no runtime/UI integration or empirical expert validation.",
+  "counts": {
+    "metrics": 31,
+    "frameworks": 33,
+    "sources": 68,
+    "diagnostics": 10,
+    "rules": 11,
+    "actions": 8,
+    "recommendations": 8,
+    "anti_patterns": 8,
+    "terms": 11
+  },
+  "citation_presence": {
+    "metrics": {
+      "total": 31,
+      "with_sources": 31
+    },
+    "frameworks": {
+      "total": 33,
+      "with_sources": 33
+    },
+    "diagnostics": {
+      "total": 10,
+      "with_sources": 10
+    },
+    "rules": {
+      "total": 11,
+      "with_sources": 11
+    },
+    "actions": {
+      "total": 8,
+      "with_sources": 8
+    },
+    "recommendations": {
+      "total": 8,
+      "with_sources": 8
+    },
+    "anti_patterns": {
+      "total": 8,
+      "with_sources": 8
+    },
+    "terms": {
+      "total": 11,
+      "with_sources": 11
+    }
+  },
+  "persona_results": [
+    {
+      "id": "A",
+      "status": "pass",
+      "description": "Solo founder, idea, no revenue",
+      "actual": {
+        "rules": [
+          "RULE-DISCOVERY"
+        ],
+        "questions": [
+          "customer_problem_hypothesis"
+        ],
+        "metrics": [],
+        "journey": "startup"
+      }
+    },
+    {
+      "id": "B",
+      "status": "pass",
+      "description": "SaaS, 10 employees, 20 paying customers, early traction; acquisition expansion request with insufficient retention evidence",
+      "actual": {
+        "rules": [
+          "RULE-RETENTION-BEFORE-SCALE"
+        ],
+        "questions": [
+          "cohort_definition",
+          "observation_window"
+        ],
+        "metrics": [
+          "MET-CAC",
+          "MET-COHORT-RETENTION",
+          "MET-CONTRIBUTION-MARGIN"
+        ],
+        "journey": "startup"
+      }
+    },
+    {
+      "id": "C",
+      "status": "pass",
+      "description": "Ecommerce startup, 50 employees, growing; contribution costs not reconciled; owned inventory",
+      "actual": {
+        "rules": [
+          "RULE-ECOM-ECONOMICS"
+        ],
+        "questions": [
+          "variable_cost_policy"
+        ],
+        "metrics": [
+          "MET-CASH-CONVERSION-CYCLE",
+          "MET-CONTRIBUTION-MARGIN"
+        ],
+        "journey": "startup"
+      }
+    },
+    {
+      "id": "D",
+      "status": "pass",
+      "description": "Established SME services, 80 employees, low profitability",
+      "actual": {
+        "rules": [
+          "RULE-SERVICE-MARGIN"
+        ],
+        "questions": [
+          "project_scope",
+          "delivery_costs"
+        ],
+        "metrics": [
+          "MET-CONTRIBUTION-MARGIN",
+          "MET-OPERATING-MARGIN"
+        ],
+        "journey": "organization"
+      }
+    },
+    {
+      "id": "E",
+      "status": "pass",
+      "description": "Manufacturer, 300 employees, inventory and operations problems",
+      "actual": {
+        "rules": [
+          "RULE-INVENTORY-DIAGNOSIS"
+        ],
+        "questions": [
+          "item_movements",
+          "stockouts"
+        ],
+        "metrics": [
+          "MET-DEFECT-RATE",
+          "MET-DIO",
+          "MET-THROUGHPUT"
+        ],
+        "journey": "organization"
+      }
+    },
+    {
+      "id": "F",
+      "status": "pass",
+      "description": "Enterprise, 2000 employees, strategy execution issue",
+      "actual": {
+        "rules": [
+          "RULE-EXECUTION-ALIGNMENT"
+        ],
+        "questions": [
+          "strategic_priority",
+          "initiative_capacity"
+        ],
+        "metrics": [],
+        "journey": "organization"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "unknown never becomes a positive match",
+      "status": "pass"
+    },
+    {
+      "name": "explicit false suppresses unrelated rule despite other unknowns",
+      "status": "pass"
+    },
+    {
+      "name": "null is not zero or healthy",
+      "status": "pass"
+    },
+    {
+      "name": "cash risk interrupts routine plan",
+      "status": "pass"
+    },
+    {
+      "name": "headcount cannot infer lifecycle",
+      "status": "pass"
+    },
+    {
+      "name": "one-off value does not automatically trigger repeat retention advice",
+      "status": "pass"
+    },
+    {
+      "name": "dropship context does not receive inventory metric",
+      "status": "pass"
+    },
+    {
+      "name": "verified imported fields suppress repeated questions",
+      "status": "pass"
+    },
+    {
+      "name": "recommendation trace resolves to rule, action, framework and source",
+      "status": "pass"
+    },
+    {
+      "name": "actions terminate in allowed practical outputs",
+      "status": "pass"
+    },
+    {
+      "name": "reviewed field aliases give consistent retention caution across two registries",
+      "status": "pass"
+    },
+    {
+      "name": "non-retention repeatability cannot silently become retention evidence",
+      "status": "pass"
+    },
+    {
+      "name": "contradictory aliases require review",
+      "status": "pass"
+    },
+    {
+      "name": "cash, margin and inventory routes link relevant domain knowledge",
+      "status": "pass"
+    },
+    {
+      "name": "finance guard fixtures: margin, negative profit, zero denominator and runway",
+      "status": "pass"
+    },
+    {
+      "name": "cohort fixtures distinguish observation eligibility",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "not_tested": [
+    "Scientific efficacy of each framework",
+    "Real user journey length or usability",
+    "Metric formula execution from record strings",
+    "All startup conditional questions/rules or import mappings",
+    "Statistical confidence calibration",
+    "Local regulatory/accounting applicability",
+    "Live web link availability during this validation"
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0.0",
+  "id": "FRAMEWORK-SET-PRODUCT",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_backed_synthesis",
+  "frameworks": [
+    {
+      "id": "FW-PRODUCT-COHORT-ANALYSIS",
+      "name": "Cohort Analysis",
+      "name_fa": "تحلیل کوهورت",
+      "purpose": "Compare behavior for explicitly defined groups over comparable observation intervals.",
+      "use_when": [
+        "Aggregate activity may hide acquisition quality or lifecycle changes",
+        "Retention differs by segment or entry period"
+      ],
+      "do_not_use_when": [
+        "Identity, event meaning or eligibility is unresolved",
+        "Comparisons use incompatible windows or immature intervals without qualification"
+      ],
+      "inputs": [
+        "Entity and identity rule",
+        "Cohort entry condition/date",
+        "Return/value event",
+        "Observation interval and timezone",
+        "Eligible denominator and exclusions"
+      ],
+      "outputs": [
+        "Retention matrix with counts and maturity flags",
+        "Segment differences to investigate"
+      ],
+      "steps": [
+        "Fix the entity and observation contract.",
+        "Group eligible entities by entry period or a documented behavior.",
+        "Count the selected return behavior in explicitly defined intervals.",
+        "Flag unobservable intervals rather than filling them with zero.",
+        "Compare like-aged cohorts and investigate differences."
+      ],
+      "interpretation": "Different patterns suggest hypotheses; they do not prove the cause of behavior.",
+      "common_mistakes": [
+        "User retention labeled as account or revenue retention",
+        "Blending exact-day and on-or-after definitions",
+        "Selection on post-entry behavior interpreted causally"
+      ],
+      "limitations": [
+        "Small groups, censoring and changed instrumentation weaken comparisons",
+        "Seasonality and acquisition mix can confound differences"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "conflicting_frameworks": [],
+      "business_types": [
+        "Recurring-use digital products",
+        "Subscription",
+        "Repeat-purchase with a suitable cadence"
+      ],
+      "business_stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "established"
+      ],
+      "metrics": [
+        "MET-COHORT-RETENTION"
+      ],
+      "sources": [
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-PG-AMPLITUDE-RETENTION-TIME"
+      ],
+      "author": "General analytical method; reviewed implementation by Amplitude",
+      "year": null,
+      "source_details_ref": "sources/product-growth.json",
+      "last_reviewed": "2026-10-15",
+      "evidence_status": "measurement_method_not_causal_diagnostic",
+      "explanation": {
+        "quick": "گروه‌های مشابه را از نقطه شروع یکسان دنبال کنید تا تفاوت رفتار پشت میانگین‌ها دیده شود.",
+        "learn": "ابتدا مشخص کنید واحد تحلیل کاربر است یا حساب، ورود به گروه چگونه تعریف می‌شود و بازگشت چه رویدادی است. مقایسه باید در سن مشابه گروه‌ها و با بازه و تعریف یکسان انجام شود؛ دوره‌ای که هنوز فرصت مشاهده نداشته، صفر نیست.",
+        "deep_dive": "راهنمای تألیفی استراتینو: هنگام مقایسه دو کانال، اندازه گروه، تاریخ ورود، فرصت مشاهده و تغییرات ابزار ثبت رویداد را کنار درصدها بیاورید. اگر گروه تازه هنوز به بازه تمدید نرسیده، درباره ماندگاری آن حکم ندهید. اختلاف گروه‌ها یک فرضیه برای بررسی می‌سازد؛ ممکن است ترکیب مشتری یا فصل، تفاوت را توضیح دهد و نمودار به‌تنهایی علت را ثابت نمی‌کند."
+      },
+      "provenance": {
+        "source_supported": [
+          "Return definitions and eligible denominators",
+          "Calendar versus rolling time windows",
+          "Incomplete observation intervals"
+        ],
+        "derived_guidance": [
+          "Channel comparison checklist",
+          "Confounding and causal-interpretation safeguards"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-CORE-AMPLITUDE-RETENTION",
+          "SRC-PG-AMPLITUDE-RETENTION-TIME"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "id": "FW-PRODUCT-RICE",
+      "name": "RICE",
+      "name_fa": "اولویت‌بندی RICE",
+      "purpose": "Make estimated reach, impact, confidence and effort trade-offs visible for comparable initiatives.",
+      "use_when": [
+        "A defined product goal has several feasible candidate initiatives",
+        "Teams can estimate on a shared horizon"
+      ],
+      "do_not_use_when": [
+        "Mandatory safety/security work would be discarded by scoring",
+        "Candidates solve unrelated goals or use incomparable units"
+      ],
+      "inputs": [
+        "Reach over one defined period",
+        "Impact estimate tied to the goal",
+        "Evidence-based estimate confidence",
+        "Positive effort in a consistent person-time unit"
+      ],
+      "outputs": [
+        "Provisional ranking",
+        "Uncertainty and override rationale"
+      ],
+      "formula": "score = reach * impact * confidence_fraction / effort",
+      "formula_guards": [
+        "effort > 0",
+        "0 <= confidence_fraction <= 1",
+        "Same reach horizon and effort units across candidates"
+      ],
+      "steps": [
+        "Agree the goal, comparison scope and units.",
+        "Estimate each factor and attach supporting evidence.",
+        "Calculate provisional scores.",
+        "Inspect sensitivity to uncertain inputs.",
+        "Review dependencies and constraints; document any override."
+      ],
+      "interpretation": "The score supports discussion; estimated impact is not measured utility.",
+      "common_mistakes": [
+        "False precision",
+        "Confidence entered as 80 instead of 0.8",
+        "Ignoring dependency order"
+      ],
+      "limitations": [
+        "Subjective estimates and multiplicative scales can dominate ranking",
+        "Confidence is not calibrated success probability"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "conflicting_frameworks": [],
+      "business_types": [
+        "Product teams with comparable initiatives"
+      ],
+      "business_stages": [
+        "validation",
+        "early-traction",
+        "growth",
+        "scale",
+        "established"
+      ],
+      "sources": [
+        "SRC-PG-INTERCOM-RICE-2018"
+      ],
+      "author": "Sean McBride / Intercom",
+      "year": 2018,
+      "source_details_ref": "sources/product-growth.json",
+      "last_reviewed": "2026-10-15",
+      "evidence_status": "practitioner_prioritization_heuristic",
+      "explanation": {
+        "quick": "برای گزینه‌های قابل مقایسه، دسترسی، اثر، اطمینان برآورد و تلاش را آشکار کنید.",
+        "learn": "امتیاز از حاصل‌ضرب دسترسی، اثر و اطمینان تقسیم بر تلاش به دست می‌آید. واحد تلاش و افق دسترسی باید بین گزینه‌ها یکسان باشد؛ اطمینان اینجا یک ورودی برآوردی است و احتمال علمی موفقیت محسوب نمی‌شود.",
+        "deep_dive": "راهنمای تألیفی استراتینو: پیش از رتبه‌بندی، هدف مشترک و شاهد هر برآورد را ثبت کنید. سپس فرض‌های نامطمئن را تغییر دهید و ببینید آیا ترتیب گزینه‌ها عوض می‌شود؛ اگر عوض شد، جمع‌آوری شاهد ممکن است از اجرای فوری ارزشمندتر باشد. وابستگی یا الزام ضروری می‌تواند ترتیب امتیازها را تغییر دهد، به شرط آنکه دلیل تصمیم ثبت شود."
+      },
+      "provenance": {
+        "source_supported": [
+          "Reach-impact-confidence-effort scoring",
+          "Consistent horizon and units",
+          "Dependencies can override score order"
+        ],
+        "derived_guidance": [
+          "Sensitivity review and evidence-collection choice",
+          "Separation from calibrated evidence probability"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-PG-INTERCOM-RICE-2018"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "id": "FW-PRODUCT-NORTH-STAR",
+      "name": "North Star Framework",
+      "name_fa": "چارچوب ستاره شمالی",
+      "purpose": "Align product work around a measurable expression of customer value and its hypothesized drivers.",
+      "use_when": [
+        "Teams need a coherent connection between product work, customer outcomes and business results"
+      ],
+      "do_not_use_when": [
+        "One metric would conceal incompatible businesses or material harms",
+        "A vanity activity count would substitute for customer value"
+      ],
+      "inputs": [
+        "Product strategy and customer-value hypothesis",
+        "Candidate metric and exact counting rule",
+        "Input metrics and business outcomes",
+        "Quality, safety and economics guardrails"
+      ],
+      "outputs": [
+        "Candidate North Star definition",
+        "Hypothesized input tree",
+        "Review plan and guardrails"
+      ],
+      "steps": [
+        "Describe the value customers obtain.",
+        "Choose a measurable candidate representing that value.",
+        "Map actionable inputs and delayed business outcomes.",
+        "Inspect how the metric could be gamed or mislead.",
+        "Test relationships and revise the model when evidence contradicts it."
+      ],
+      "interpretation": "The input tree is a strategy hypothesis; correlation with retention or revenue does not establish causality.",
+      "common_mistakes": [
+        "Choosing raw activity without value",
+        "Optimizing one number while service quality deteriorates",
+        "Equating an input with a guaranteed causal lever"
+      ],
+      "limitations": [
+        "Value may differ across segments and marketplace sides",
+        "No universal metric fits every product"
+      ],
+      "compatible_frameworks": [
+        "FW-PRODUCT-COHORT-ANALYSIS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "conflicting_frameworks": [],
+      "business_types": [
+        "Product businesses with measurable recurring customer value"
+      ],
+      "business_stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "established"
+      ],
+      "sources": [
+        "SRC-PG-AMPLITUDE-NORTH-STAR"
+      ],
+      "author": "Amplitude (reviewed formulation)",
+      "year": null,
+      "source_details_ref": "sources/product-growth.json",
+      "last_reviewed": "2026-10-15",
+      "evidence_status": "strategy_alignment_heuristic",
+      "explanation": {
+        "quick": "یک نشانه روشن از ارزش مشتری انتخاب کنید و فرض‌های اثرگذاری کار تیم بر آن را بسنجید.",
+        "learn": "ستاره شمالی باید ارزش حاصل از محصول را به نتایج کسب‌وکار پیوند دهد و ورودی‌های قابل اقدام را روشن کند. تعداد فعالیت خام ممکن است ارزش را نمایندگی نکند؛ ارتباط ورودی با خروجی هم در ابتدا یک فرض است.",
+        "deep_dive": "راهنمای تألیفی استراتینو: برای یک خدمت همکاری، تعداد جلسه می‌تواند بالا برود بی‌آنکه کار مشتری بهتر پیش برود؛ تعریف ارزش باید این تفاوت را روشن کند. شمارش دقیق، دامنه مشتری و بازه زمانی را مشخص کنید و کنار شاخص، کیفیت تجربه، اقتصاد و آثار ناخواسته را بررسی کنید. اگر ورودی رشد کرد ولی نتیجه مشتری بهتر نشد، رابطه فرض‌شده یا تعریف شاخص را بازبینی کنید."
+      },
+      "provenance": {
+        "source_supported": [
+          "Customer-value metric connected to business outcomes",
+          "Actionable input metrics"
+        ],
+        "derived_guidance": [
+          "Illustrative collaboration-service example",
+          "Guardrails, gaming review and falsification of input relationships"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-PG-AMPLITUDE-NORTH-STAR"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    }
+  ]
+}

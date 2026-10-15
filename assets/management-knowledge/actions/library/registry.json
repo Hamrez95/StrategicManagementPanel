@@ -1,0 +1,401 @@
+{
+  "schema_version": "0.1.0",
+  "actions": [
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-DISCOVERY",
+      "name": "Clarify one customer/problem hypothesis and test it with relevant people before committing to a full build.",
+      "context": {
+        "conditions": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "idea"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "required_information": [
+        "customer_problem_hypothesis",
+        "recent_customer_observation"
+      ],
+      "steps": [
+        {
+          "action": "Clarify one customer/problem hypothesis and test it with relevant people before committing to a full build.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "experiment"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Clarify one customer/problem hypothesis and test it with relevant people before committing to a full build.",
+        "learn": "A proposed model has not yet been supported by observed customer behavior.",
+        "deep_dive": "Context-specific investigation. A mandated technical feasibility study may precede customer testing; document why. Expected impact: Reduce one important uncertainty; no conversion uplift promised."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-RETENTION-BEFORE-SCALE",
+      "name": "Keep acquisition tests bounded while defining a segment-specific retention cohort and completing its observation window.",
+      "context": {
+        "conditions": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "scale_acquisition_requested",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "retention_evidence",
+            "op": "eq",
+            "value": "insufficient"
+          }
+        ]
+      },
+      "required_information": [
+        "cohort_definition",
+        "value_event",
+        "observation_window",
+        "cash_risk"
+      ],
+      "steps": [
+        {
+          "action": "Keep acquisition tests bounded while defining a segment-specific retention cohort and completing its observation window.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "experiment"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Keep acquisition tests bounded while defining a segment-specific retention cohort and completing its observation window.",
+        "learn": "Retention evidence is insufficient to justify a large irreversible acquisition commitment.",
+        "deep_dive": "Context-specific investigation. Seasonal or one-time-value businesses need a different repeatability test. A deliberately capped experiment may be justified with a risk budget. Expected impact: Improve evidence for a scale decision; no claim that all acquisition must stop."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-ECOM-ECONOMICS",
+      "name": "Reconcile order contribution after discounts, returns, fulfillment and relevant variable costs by segment before expanding the channel.",
+      "context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "ecommerce"
+          },
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "growth"
+          },
+          {
+            "field": "contribution_visibility",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "required_information": [
+        "order_net_revenue",
+        "returns",
+        "variable_cost_policy"
+      ],
+      "steps": [
+        {
+          "action": "Reconcile order contribution after discounts, returns, fulfillment and relevant variable costs by segment before expanding the channel.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "insight"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-FINANCE-contribution",
+        "SRC-FINANCE-working-capital"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Reconcile order contribution after discounts, returns, fulfillment and relevant variable costs by segment before expanding the channel.",
+        "learn": "Top-line growth alone does not identify whether incremental orders improve economics.",
+        "deep_dive": "Context-specific investigation. A temporary loss-leader experiment may have an explicit capped purpose and review date. Expected impact: Make the growth trade-off visible; amount of financial improvement is unknown."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-SERVICE-MARGIN",
+      "name": "Compare realized project revenue, direct delivery costs, overruns and scope changes before choosing price, staffing or process changes.",
+      "context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "profitability_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "required_information": [
+        "project_scope",
+        "realized_revenue",
+        "delivery_costs",
+        "overrun_records"
+      ],
+      "steps": [
+        {
+          "action": "Compare realized project revenue, direct delivery costs, overruns and scope changes before choosing price, staffing or process changes.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "insight"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-contribution"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Compare realized project revenue, direct delivery costs, overruns and scope changes before choosing price, staffing or process changes.",
+        "learn": "Low profit has several plausible causes; hiring or price increases cannot be inferred from one ratio.",
+        "deep_dive": "Context-specific investigation. If cash commitments are at immediate risk, cash triage takes precedence. Expected impact: Identify a testable margin driver and an accountable next action."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-INVENTORY-DIAGNOSIS",
+      "name": "Separate stockouts, slow-moving stock, quality holds and lead-time variation by item family before changing inventory targets.",
+      "context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "manufacturing"
+          },
+          {
+            "field": "inventory_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "required_information": [
+        "item_movements",
+        "stockouts",
+        "quality_holds",
+        "lead_time"
+      ],
+      "steps": [
+        {
+          "action": "Separate stockouts, slow-moving stock, quality holds and lead-time variation by item family before changing inventory targets.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "action"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-OPS-LEI-THINKING",
+        "SRC-OPS-LEI-OPERATIONS",
+        "SRC-CORE-ASQ-GLOSSARY"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Separate stockouts, slow-moving stock, quality holds and lead-time variation by item family before changing inventory targets.",
+        "learn": "An aggregate inventory total cannot distinguish availability problems from obsolete stock.",
+        "deep_dive": "Context-specific investigation. Critical safety stock and supply resilience require a separate risk review. Expected impact: Select a specific operational investigation; no blanket inventory cut."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-EXECUTION-ALIGNMENT",
+      "name": "Map one strategic priority to a decision owner, outcome measure, committed capacity and the initiatives to stop or defer.",
+      "context": {
+        "conditions": [
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "strategy_execution_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "required_information": [
+        "strategic_priority",
+        "initiative_capacity",
+        "decision_owner"
+      ],
+      "steps": [
+        {
+          "action": "Map one strategic priority to a decision owner, outcome measure, committed capacity and the initiatives to stop or defer.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "initiative"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-KAPLAN-PARTNERING"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Map one strategic priority to a decision owner, outcome measure, committed capacity and the initiatives to stop or defer.",
+        "learn": "Execution problems can reflect unclear choices and capacity conflicts rather than a lack of KPIs.",
+        "deep_dive": "Context-specific investigation. A coherent funded strategy can still fail because its market hypothesis is wrong; review customer evidence. Expected impact: Expose an actionable alignment or capacity gap."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-CASH-TRIAGE",
+      "name": "Reconcile available unrestricted cash and dated obligations; assign a finance owner to a near-term cash forecast and escalation decision.",
+      "context": {
+        "conditions": [
+          {
+            "field": "cash_obligation_at_risk",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "required_information": [
+        "unrestricted_cash",
+        "dated_obligations",
+        "collections_forecast"
+      ],
+      "steps": [
+        {
+          "action": "Reconcile available unrestricted cash and dated obligations; assign a finance owner to a near-term cash forecast and escalation decision.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "risk"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-FINANCE-ias-7",
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-runway"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Reconcile available unrestricted cash and dated obligations; assign a finance owner to a near-term cash forecast and escalation decision.",
+        "learn": "Dated liquidity obligations need timely review before a longer strategy exercise.",
+        "deep_dive": "Context-specific investigation. Do not infer legal insolvency or automatically stop payments from this heuristic. Expected impact: Clarify timing and size of potential cash shortfalls."
+      }
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "ACT-AI-OVERSIGHT",
+      "name": "Define an accountable owner, representative evaluation, override and monitoring plan before relying on the AI decision.",
+      "context": {
+        "conditions": [
+          {
+            "field": "material_ai_decision",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "ai_evaluation_status",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "required_information": [
+        "use_context",
+        "evaluation_results",
+        "oversight_owner"
+      ],
+      "steps": [
+        {
+          "action": "Define an accountable owner, representative evaluation, override and monitoring plan before relying on the AI decision.",
+          "owner": "Named business decision owner",
+          "completion_evidence": "Dated reviewed artifact and rationale, including contrary evidence."
+        }
+      ],
+      "outputs": [
+        "risk"
+      ],
+      "stop_condition": "The required observation is complete or continuing exceeds the agreed risk budget.",
+      "risks": [
+        "Selection bias or incomplete records can mislead the investigation."
+      ],
+      "sources": [
+        "SRC-CORE-NIST-AIRMF"
+      ],
+      "epistemic_status": "product_authored_playbook",
+      "explanation": {
+        "quick": "Define an accountable owner, representative evaluation, override and monitoring plan before relying on the AI decision.",
+        "learn": "Material decision support lacks evidence of suitability in its intended context.",
+        "deep_dive": "Context-specific investigation. A contained non-production experiment can proceed under an explicit evaluation protocol. Expected impact: Expose and reduce decision risk; no guarantee of compliance or model correctness."
+      }
+    }
+  ]
+}

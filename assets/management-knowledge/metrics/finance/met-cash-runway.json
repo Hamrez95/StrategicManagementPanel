@@ -1,0 +1,85 @@
+{
+  "id": "MET-CASH-RUNWAY",
+  "name": "دوام نقد با نرخ ثابت",
+  "aliases": [
+    "Cash runway"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "ماه‌های پوشش نقد با فرض مصرف ثابت.",
+  "formula": "(unrestricted_cash - minimum_cash_reserve) / net_monthly_burn",
+  "formula_variables": {
+    "unrestricted_cash": "نقد آزاد قابل استفاده در تاریخ سنجش",
+    "minimum_cash_reserve": "ذخیره حداقلی مصوب و غیرمنفی",
+    "net_monthly_burn": "مصرف خالص ماهانه مثبت"
+  },
+  "unit": "months",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "زمان تصمیم نقدینگی را روشن می‌کند.",
+  "leading_or_lagging": "leading-conditional",
+  "dependencies": [
+    "MET-NET-BURN"
+  ],
+  "required_inputs": [
+    "unrestricted_cash",
+    "minimum_cash_reserve",
+    "net_monthly_burn"
+  ],
+  "optional_inputs": [
+    "weekly_cash_forecast",
+    "debt_maturities"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "weekly-review-monthly-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "مصرف صفر/منفی: نتیجه نامعتبر یا قابل اعمال نیست، نه بی‌نهایتِ مطمئن. نقد کمتر از ذخیره: وضعیت کسری، نه ماه منفی عادی."
+  ],
+  "limitations": [
+    "فرض ثابت برای کسب‌وکار فصلی و پرداخت بزرگ کافی نیست؛ تسهیلات تعهدنشده نقد محسوب نمی‌شوند."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-NET-BURN",
+    "MET-OPERATING-CASH-FLOW"
+  ],
+  "recommended_actions": [
+    {
+      "action": "پیش‌بینی هفتگی دریافت/پرداخت و سناریوی بدبینانه بسازید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-runway"
+  ],
+  "explanation": {
+    "quick": "ماه‌های پوشش نقد با فرض مصرف ثابت.",
+    "learn": "نقد آزاد ۱۱۰، ذخیره ۱۰ و مصرف ۲۰، پنج ماه پوشش دارد.",
+    "deep_dive": "مصرف صفر/منفی: نتیجه نامعتبر یا قابل اعمال نیست، نه بی‌نهایتِ مطمئن. نقد کمتر از ذخیره: وضعیت کسری، نه ماه منفی عادی. فرض ثابت برای کسب‌وکار فصلی و پرداخت بزرگ کافی نیست؛ تسهیلات تعهدنشده نقد محسوب نمی‌شوند."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "explicit-product-operationalization-of-source-concept",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

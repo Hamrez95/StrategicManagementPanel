@@ -1,0 +1,20 @@
+{
+  "id": "STR-PORTER-FIVE-FORCES",
+  "name": {"en": "Porter Five Forces", "fa": "پنج نیروی پورتر"},
+  "purpose": "بررسی ساختار صنعت و نحوه تقسیم ارزش اقتصادی میان بازیگران آن.",
+  "use_when": ["انتخاب صنعت یا بخش بازار", "بازنگری موقعیت رقابتی با تغییر ساختار صنعت"],
+  "do_not_use_when": ["نیاز صرفاً رتبه‌بندی رقیبان است", "مرز صنعت و مشتری هنوز تعریف نشده است"],
+  "inputs": ["تعریف صنعت، جغرافیا و دوره", "داده تمرکز خریدار و تأمین‌کننده", "هزینه تغییر، موانع ورود، جانشین‌ها و شدت رقابت"],
+  "outputs": ["پروفایل مستند پنج نیرو", "فرضیه موقعیت قابل دفاع", "فهرست عدم قطعیت‌ها"],
+  "steps": ["مرز تحلیل را مشخص کنید.", "برای ورود، تأمین‌کننده، خریدار، جانشین و رقابت شواهد جمع کنید.", "محرک‌های هر نیرو و روند تغییر را بنویسید.", "اثر ترکیبی بر سودآوری صنعت را تفسیر کنید.", "گزینه موقعیت‌یابی و شواهد لازم برای آزمون آن را ثبت کنید."],
+  "interpretation": "قدرت نیروها فشار بر سودآوری صنعت را توضیح می‌دهد؛ نتیجه به‌تنهایی عملکرد یک شرکت را تعیین نمی‌کند.",
+  "common_mistakes": ["جانشین را با رقیب مستقیم یکی گرفتن", "میانگین‌گیری عددی بدون تعریف مقیاس", "ثابت فرض کردن ساختار صنعت"],
+  "limitations": ["تحلیل به تعریف بازار حساس است", "ساختار صنعت پویاست", "برای ارزیابی منابع داخلی ابزار مکمل لازم است"],
+  "compatible_frameworks": ["STR-PORTER-VALUE-CHAIN", "STR-VRIO", "STR-PESTEL"],
+  "conflicting_frameworks": [],
+  "business_types": ["B2B", "B2C", "manufacturing", "services", "platform"],
+  "business_stages": ["market-entry", "growth", "mature", "turnaround"],
+  "sources": ["SRC-STRATEGY-HBS-FIVE-FORCES"],
+  "explanation": {"quick": "بپرسید چه کسانی سهم ارزش صنعت را می‌گیرند و چرا.", "learn": "پنج نیرو شامل رقابت موجود، ورود، جانشین، قدرت خریدار و قدرت تأمین‌کننده است. عامل ریشه‌ای را بررسی کنید، نه فقط نام بازیگران.", "deep_dive": "راهنمای اجرایی پیشنهادی استراتینو: برای هر نیرو یک ادعا، شاهد، شاهد مخالف و تاریخ مرور ثبت کنید. اگر تعریف صنعت محل اختلاف است، تحلیل را با دو مرز جایگزین تکرار کنید و حساسیت نتیجه را نشان دهید."},
+  "provenance": {"source_supported": ["five forces and their drivers", "dynamic industry structure", "industry attractiveness and positioning"], "derived_guidance": ["steps", "use_when", "do_not_use_when", "evidence workflow", "compatibility", "business applicability"], "conflict_note": "Empty conflicts means no inherent logical incompatibility identified; recommendations may differ with scope and assumptions.", "last_reviewed": "2026-10-15"}
+}

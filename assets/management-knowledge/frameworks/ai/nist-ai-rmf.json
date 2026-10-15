@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1.0",
+  "id": "FW-NIST-AIRMF",
+  "name": "NIST AI RMF 1.0",
+  "purpose": "Organize ongoing contextual AI risk work across Govern, Map, Measure and Manage.",
+  "use_when": [
+    "AI assists or executes a material business decision"
+  ],
+  "do_not_use_when": [
+    "Being used as a claim of legal compliance or certification"
+  ],
+  "inputs": [
+    "use case",
+    "affected parties",
+    "system limits",
+    "evaluation and incident evidence"
+  ],
+  "outputs": [
+    "risk register",
+    "oversight plan",
+    "go/no-go decision"
+  ],
+  "steps": [
+    "Set accountability and context",
+    "Evaluate relevant risks",
+    "Choose treatment and oversight",
+    "Monitor and revise"
+  ],
+  "interpretation": "Functions iterate; they are not four mandatory sequential checklist steps.",
+  "common_mistakes": [
+    "Confusing voluntary guidance with law",
+    "Assuming a human sign-off alone removes risk"
+  ],
+  "limitations": [
+    "Revision in progress on official page at review; jurisdictional obligations need separate legal research"
+  ],
+  "compatible_frameworks": [],
+  "conflicting_frameworks": [],
+  "business_types": [
+    "any_with_ai_use"
+  ],
+  "business_stages": [
+    "any"
+  ],
+  "sources": [
+    "SRC-CORE-NIST-AIRMF"
+  ],
+  "epistemic_status": "source_informed_product_synthesis",
+  "explanation": {
+    "quick": "پیش از اتکا به خروجی AI، کاربرد، مسئول، معیار ارزیابی و راه توقف آن را مشخص کنید.",
+    "learn": "Organize ongoing contextual AI risk work across Govern, Map, Measure and Manage.",
+    "deep_dive": "See the cited original source, the use constraints, and the limits recorded here. Adaptation is not a validated causal intervention."
+  }
+}

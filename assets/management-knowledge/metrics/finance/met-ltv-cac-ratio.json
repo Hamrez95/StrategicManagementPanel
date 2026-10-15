@@ -1,0 +1,89 @@
+{
+  "id": "MET-LTV-CAC-RATIO",
+  "name": "نسبت LTV به CAC",
+  "aliases": [
+    "LTV:CAC"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "saas",
+    "subscription",
+    "repeat-purchase-with-cohort-data"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "ارزش مدل‌شده مشتری نسبت به هزینه جذب.",
+  "formula": "ltv / cac",
+  "formula_variables": {
+    "ltv": "LTV حاشیه‌ای کوهورت با افق و تنزیل معلوم",
+    "cac": "CAC کامل همان کوهورت و ارز، مثبت"
+  },
+  "unit": "ratio",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "کنترل سازگاری ارزش و هزینه را فراهم می‌کند.",
+  "leading_or_lagging": "leading-model-estimate",
+  "dependencies": [
+    "MET-LTV",
+    "MET-CAC"
+  ],
+  "required_inputs": [
+    "ltv",
+    "cac"
+  ],
+  "optional_inputs": [
+    "uncertainty_range",
+    "payback",
+    "capital_constraints"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "نسبت ۳ استاندارد عمومی نیست؛ تغییر روش تنزیل، حاشیه و کوهورت مقایسه را باطل می‌کند."
+  ],
+  "limitations": [
+    "نسبت بالا می‌تواند از خوش‌بینی LTV یا کم‌ثبت‌کردن CAC بیاید؛ نسبت نقدینگی نیست."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-CAC",
+    "MET-LTV",
+    "MET-CAC-PAYBACK"
+  ],
+  "recommended_actions": [
+    {
+      "action": "اجزا و سناریوها را همراه دوره بازگشت بررسی کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-saas-metrics",
+    "SRC-FINANCE-ltv-dcf"
+  ],
+  "explanation": {
+    "quick": "ارزش مدل‌شده مشتری نسبت به هزینه جذب.",
+    "learn": "LTV=۴۰ و CAC=۲۰، نسبت ۲ است؛ حکم سرمایه‌گذاری صادر نمی‌کند.",
+    "deep_dive": "نسبت ۳ استاندارد عمومی نیست؛ تغییر روش تنزیل، حاشیه و کوهورت مقایسه را باطل می‌کند. نسبت بالا می‌تواند از خوش‌بینی LTV یا کم‌ثبت‌کردن CAC بیاید؛ نسبت نقدینگی نیست."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

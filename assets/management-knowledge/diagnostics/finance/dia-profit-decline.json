@@ -1,0 +1,162 @@
+{
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature"
+  ],
+  "provenance": "product-authored-diagnostic-heuristic-informed-by-financial-identities",
+  "causality_policy": "شاخه‌ها فرضیه و سهم حسابداری را نشان می‌دهند؛ علت رفتاری فقط با شواهد مستقل، ترتیب زمانی و کنترل توضیح‌های رقیب پذیرفته شود.",
+  "missing_data_policy": "داده ناموجود=unknown؛ شاخه رد یا تأیید نشود؛ داده لازم و مالک جمع‌آوری نمایش داده شود.",
+  "confidence_policy": "بدون امتیاز اطمینان مصنوعی؛ شواهد ثبت‌شده، ناسازگاری و محدودیت‌ها بیان شوند.",
+  "last_reviewed": "2026-10-15",
+  "id": "DIA-PROFIT-DECLINE",
+  "name": "بررسی افت سود",
+  "trigger": "سود عملیاتی یا خالص در دوره مقایسه‌پذیر کاهش یافته است.",
+  "entry_node": "validate",
+  "metric_refs": [
+    "MET-GROSS-MARGIN",
+    "MET-CONTRIBUTION-MARGIN",
+    "MET-OPERATING-MARGIN",
+    "MET-NET-MARGIN",
+    "MET-OPERATING-CASH-FLOW"
+  ],
+  "sources": [
+    "SRC-FINANCE-sec-statements",
+    "SRC-FINANCE-contribution"
+  ],
+  "nodes": [
+    {
+      "id": "validate",
+      "question": "کدام سطح سود افت کرده و آیا ارقام قابل‌مقایسه‌اند؟",
+      "required_evidence": [
+        "صورت سود و زیان با جزئیات",
+        "سیاست طبقه‌بندی",
+        "اقلام خاص",
+        "دوره/ارز/دامنه"
+      ],
+      "branches": [
+        {
+          "condition": "اشتباه یا تغییر طبقه‌بندی/ارائه وجود دارد",
+          "next_node": "restate",
+          "evidence_to_test": [
+            "تطبیق دفتر و صورت"
+          ],
+          "action": "ابتدا تطبیق ارائه را تکمیل کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "افت واقعی سود تأیید شد",
+          "next_node": "profit-bridge",
+          "evidence_to_test": [
+            "پل حسابداری سطح سود"
+          ],
+          "action": "سطح ناخالص، عملیاتی و خالص را جدا کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "سطح سود را مشخص و صورت بسته‌شده بگیرید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "profit-bridge",
+      "question": "سهم تغییر درآمد، بهای فروش، هزینه عملیاتی و اقلام زیر عملیات چقدر است؟",
+      "required_evidence": [
+        "درآمد و بهای فروش",
+        "هزینه‌های عملیاتی",
+        "بهره/مالیات/سایر اقلام"
+      ],
+      "branches": [
+        {
+          "condition": "حاشیه ناخالص کاهش یافته",
+          "next_node": "gross-review",
+          "evidence_to_test": [
+            "هزینه واحد، قیمت خالص، ترکیب",
+            "تغییر سیاست تخصیص"
+          ],
+          "action": "پل حاشیه را بسازید و خطای هزینه‌یابی را بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "حاشیه ناخالص پایدار، هزینه عملیاتی بیشتر",
+          "next_node": "opex-review",
+          "evidence_to_test": [
+            "هزینه با مالک/مرکز/زمان",
+            "بودجه و تعهد استخدام"
+          ],
+          "action": "هزینه ثابت، پله‌ای و سرمایه‌گذاری مصوب را تفکیک کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "عملیات پایدار، سود خالص کمتر",
+          "next_node": "below-operating-review",
+          "evidence_to_test": [
+            "هزینه مالی",
+            "مالیات مؤثر",
+            "اقلام خاص و تسعیر"
+          ],
+          "action": "اثر بهره، مالیات و اقلام خاص را کمی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "بدون جزئیات هزینه، فقط افت سطح سود را گزارش کنید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "gross-review",
+      "question": "کاهش حاشیه با چه شواهدی همخوان است؟",
+      "required_evidence": [
+        "نرخ خرید و مصرف",
+        "تخفیف و قیمت",
+        "بازده و ضایعات",
+        "ترکیب محصول"
+      ],
+      "branches": [
+        {
+          "condition": "هزینه متغیر واحد بالا رفته",
+          "next_node": "unit-cost-review",
+          "evidence_to_test": [
+            "فاکتور خرید، مصرف واقعی و ضایعات"
+          ],
+          "action": "شواهد را با عملیات و خرید آشتی دهید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "قیمت یا ترکیب سهم دارد",
+          "next_node": "mix-review",
+          "evidence_to_test": [
+            "حاشیه به تفکیک بخش و قیمت خالص"
+          ],
+          "action": "تصمیم تخفیف و ترکیب را با حاشیه مشارکت و ظرفیت ارزیابی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "هزینه و قیمت را تا سطح مناسب تفکیک کنید.",
+        "stop_causal_conclusion": true
+      }
+    }
+  ],
+  "terminal_outcomes": [
+    "restate",
+    "opex-review",
+    "below-operating-review",
+    "unit-cost-review",
+    "mix-review"
+  ],
+  "limitations": [
+    "کاهش هزینه بدون فهم ظرفیت و اثر خدمت تجویز نمی‌شود.",
+    "اقلام حسابداری مؤثر بر سود الزاماً نقد همان دوره نیستند."
+  ],
+  "schema_version": "1.0.0"
+}

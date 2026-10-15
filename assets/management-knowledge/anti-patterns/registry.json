@@ -1,0 +1,126 @@
+{
+  "schema_version": "0.1.0",
+  "epistemic_status": "product_synthesis_detection_prompts_not_proven_causal_rules",
+  "anti_patterns": [
+    {
+      "id": "ANTI-SCALE-BEFORE-EVIDENCE",
+      "name": "Scaling before repeatability evidence",
+      "symptoms": [
+        "Spend rises while cohort evidence is immature"
+      ],
+      "risks": "Losses may be amplified.",
+      "how_to_detect": "Compare spend commitment with the available repeatability evidence.",
+      "recommended_response": "Keep tests bounded and collect cohort evidence.",
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "related_rule": "RULE-RETENTION-BEFORE-SCALE",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-HIRING-BEFORE-CONSTRAINT",
+      "name": "Hiring before validating the constraint",
+      "symptoms": [
+        "Staffing is proposed without observed workload or bottleneck"
+      ],
+      "risks": "Additional cost may leave the limiting constraint unchanged.",
+      "how_to_detect": "Look for observed constraint and capacity evidence.",
+      "recommended_response": "Map capacity and process constraints before committing roles.",
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN"
+      ],
+      "related_rule": "RULE-EXECUTION-ALIGNMENT",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-REVENUE-ONLY-INCENTIVES",
+      "name": "Revenue-only sales incentives",
+      "symptoms": [
+        "Discounting or poor-fit deals grow while delivery economics weaken"
+      ],
+      "risks": "Revenue may grow while contribution and retention deteriorate.",
+      "how_to_detect": "Compare incentive rules with margin and service outcomes.",
+      "recommended_response": "Review local incentive design with finance and the affected team.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "related_rule": "RULE-SERVICE-MARGIN",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-VANITY-METRICS",
+      "name": "Metrics without a decision",
+      "symptoms": [
+        "Activity totals rise without value evidence"
+      ],
+      "risks": "Activity can mask weak customer outcomes.",
+      "how_to_detect": "Ask which decision changes and what evidence supports it.",
+      "recommended_response": "Keep an outcome measure with a named owner and review decision.",
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "related_rule": "RULE-RETENTION-BEFORE-SCALE",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-FEATURE-FACTORY",
+      "name": "Feature output substitutes for learning",
+      "symptoms": [
+        "Roadmap completion is success regardless of observed value"
+      ],
+      "risks": "Effort may continue toward an untested model.",
+      "how_to_detect": "Inspect whether shipped outputs changed the target outcome.",
+      "recommended_response": "Test one explicit hypothesis and review observed behavior.",
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "related_rule": "RULE-DISCOVERY",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-STRATEGY-WITHOUT-TRADEOFFS",
+      "name": "Strategy without resource choices",
+      "symptoms": [
+        "Every initiative is top priority"
+      ],
+      "risks": "Capacity conflicts persist.",
+      "how_to_detect": "Compare committed work with realistic capacity.",
+      "recommended_response": "Choose a priority and explicitly defer competing work.",
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN"
+      ],
+      "related_rule": "RULE-EXECUTION-ALIGNMENT",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-DASHBOARD-OVERLOAD",
+      "name": "Dashboard and meeting overload",
+      "symptoms": [
+        "Many reports repeat without decisions or changed actions"
+      ],
+      "risks": "Decision time and accountability degrade.",
+      "how_to_detect": "Trace each review item to a decision or explicit no-action.",
+      "recommended_response": "Remove or archive items with no actionable purpose.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "related_rule": "RULE-EXECUTION-ALIGNMENT",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    },
+    {
+      "id": "ANTI-AI-UNTESTED-AUTHORITY",
+      "name": "Untested AI output treated as authority",
+      "symptoms": [
+        "Material recommendations lack representative evaluation"
+      ],
+      "risks": "Errors can be propagated at decision speed.",
+      "how_to_detect": "Inspect intended use, evaluation, oversight and incident paths.",
+      "recommended_response": "Establish evaluation and a responsible decision owner.",
+      "sources": [
+        "SRC-CORE-NIST-AIRMF"
+      ],
+      "related_rule": "RULE-AI-OVERSIGHT",
+      "limitations": "Symptoms are prompts for investigation; they do not establish causality or justify automated intervention."
+    }
+  ]
+}

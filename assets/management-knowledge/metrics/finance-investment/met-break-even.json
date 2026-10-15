@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "id": "MET-BREAK-EVEN",
+  "name": "نقطه سربه‌سر عملیاتی برحسب واحد",
+  "aliases": [
+    "Break-even units",
+    "CVP break-even"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "definition": "حجم واحدی که حاشیه مشارکت کل هزینه ثابت را می‌پوشاند.",
+  "formula": "fixed_costs / (unit_net_price - unit_variable_cost)",
+  "formula_variables": {
+    "fixed_costs": "هزینه ثابت غیرمنفی در دورۀ مشخص و محدودۀ فعالیت",
+    "unit_net_price": "قیمت خالص هر واحد همگن",
+    "unit_variable_cost": "هزینه متغیر کامل هر واحد؛ حاشیه واحد باید مثبت باشد"
+  },
+  "unit": "units-per-period",
+  "direction": "context-dependent",
+  "interpretation": "با دوره، واحد، دامنه و روش یکسان مقایسه شود؛ مقدار مثبت به‌تنهایی دستور سرمایه‌گذاری نیست.",
+  "why_it_matters": "حداقل حجم مدل خطی را با ظرفیت و تقاضا مقایسه می‌کند.",
+  "leading_or_lagging": "leading-conditional",
+  "dependencies": [],
+  "required_inputs": [
+    "fixed_costs",
+    "unit_net_price",
+    "unit_variable_cost"
+  ],
+  "optional_inputs": [
+    "capacity",
+    "sales_mix",
+    "step_fixed_costs"
+  ],
+  "data_sources": [
+    "صورت مالی و دفتر کل قابل آشتی",
+    "بودجه/سناریوی دارای مالک و تاریخ",
+    "قرارداد و برآورد هزینه مستند"
+  ],
+  "typical_owner": "مدیر مالی با مالک سرمایه‌گذاری",
+  "update_frequency": "at-decision-and-material-assumption-change",
+  "warnings": [
+    "داده ناموجود صفر نیست؛ ارز، دوره و دامنه یکسان لازم است.",
+    "حاشیۀ واحد صفر/منفی: هیچ سربه‌سر متناهی قابل محاسبه در مدل نیست؛ نتیجه تقسیم نمایش داده نشود. واحد غیرقابل تقسیم رو به بالا گرد شود."
+  ],
+  "limitations": [
+    "فرض قیمت/هزینه واحد ثابت و ترکیب پایدار است؛ هزینه ثابت پله‌ای و محدودیت ظرفیت می‌تواند جواب را خارج از محدودۀ معتبر کند. سربه‌سر سود عملیاتی، نقدینگی را تضمین نمی‌کند."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "آستانۀ عمومی عددی تأیید نشده؛ هزینه سرمایه، ظرفیت و هدف با شواهد و تأیید مالک تعیین می‌شوند.",
+  "related_metrics": [
+    "MET-CONTRIBUTION-MARGIN",
+    "MET-OPERATING-MARGIN"
+  ],
+  "recommended_actions": [
+    {
+      "action": "جواب را با ظرفیت، تقاضای شواهددار و ریسک تغییر قیمت/هزینه مقایسه کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-INVESTMENT-openstax-break-even"
+  ],
+  "explanation": {
+    "quick": "حجم واحدی که حاشیه مشارکت کل هزینه ثابت را می‌پوشاند.",
+    "learn": "هزینه ثابت ۱۰۰، قیمت ۱۰ و هزینه متغیر ۶، سربه‌سر ۲۵ واحد می‌دهد؛ نسخۀ مبلغی ۲۵۰ است.",
+    "deep_dive": "حاشیۀ واحد صفر/منفی: هیچ سربه‌سر متناهی قابل محاسبه در مدل نیست؛ نتیجه تقسیم نمایش داده نشود. واحد غیرقابل تقسیم رو به بالا گرد شود. فرض قیمت/هزینه واحد ثابت و ترکیب پایدار است؛ هزینه ثابت پله‌ای و محدودیت ظرفیت می‌تواند جواب را خارج از محدودۀ معتبر کند. سربه‌سر سود عملیاتی، نقدینگی را تضمین نمی‌کند."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-explicit-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

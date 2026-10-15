@@ -1,0 +1,615 @@
+{
+  "schema_version": "1.0.0",
+  "id": "DIAG-SET-GROWTH",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_informed_product_synthesis",
+  "validation_status": "not_a_validated_causal_classifier",
+  "evaluation_contract": {
+    "logic": "three_valued_true_false_unknown",
+    "unknown_route": "collect_evidence",
+    "multiple_causes": true,
+    "recommendation_guard": "Branches produce hypotheses and bounded investigations, not proven root causes or automatic spending instructions.",
+    "threshold_policy": "Use the company's documented comparable baseline or a justified local decision criterion; no universal high/low cutoffs.",
+    "minimum_question_policy": "Import measurements first; ask a branch question only if its answer changes the investigation.",
+    "collect_evidence": {
+      "action": "Request or import only the missing definition/data for the current node.",
+      "evidence_status": "unknown",
+      "effect": "Pause the dependent inference while independent branches may continue."
+    }
+  },
+  "diagnostics": [
+    {
+      "id": "DIAG-GROWTH-HIGH-CHURN",
+      "name": "High churn or deteriorating retention",
+      "name_fa": "ریزش بالا یا افت ماندگاری",
+      "scope": "Recurring-use or renewal businesses; define customer, account, revenue and activity retention separately.",
+      "trigger": "A comparable retention/churn measure deteriorates against a documented local baseline, or a manager requests investigation.",
+      "metrics": [
+        "MET-COHORT-RETENTION",
+        "MET-CONTRIBUTION-MARGIN"
+      ],
+      "required_inputs": [
+        "Entity and churn definition",
+        "Observation window and cohort eligibility",
+        "Billing/renewal records where applicable",
+        "Segment/channel and product history"
+      ],
+      "optional_inputs": [
+        "Loss interviews",
+        "Support incidents",
+        "Release history"
+      ],
+      "root_node": "churn-measurement",
+      "nodes": [
+        {
+          "id": "churn-measurement",
+          "type": "evidence_gate",
+          "question_fa": "آیا تعریف ریزش، هویت مشتری و بازه‌های مقایسه یکسان و قابل اتکاست؟",
+          "predicate": {
+            "all": [
+              {
+                "field": "metric_definition_comparable",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "identity_and_event_quality_reviewed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "cohort_observation_mature",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          "true": "churn-repeatability",
+          "false": "churn-repair-measurement",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Metric contract",
+            "Source record reconciliation",
+            "Eligible cohort counts and age"
+          ],
+          "sources": [
+            "SRC-CORE-AMPLITUDE-RETENTION",
+            "SRC-PG-AMPLITUDE-RETENTION-TIME"
+          ]
+        },
+        {
+          "id": "churn-repair-measurement",
+          "type": "investigation",
+          "hypothesis": "Part of the apparent change may be a definition, identity, instrumentation or incomplete-window artifact.",
+          "action": "Reconcile definitions and comparable mature cohorts before interpreting business deterioration.",
+          "exit_evidence": [
+            "Recomputed comparable measure",
+            "Documented remaining uncertainty"
+          ],
+          "next": "churn-repeatability"
+        },
+        {
+          "id": "churn-repeatability",
+          "type": "context_gate",
+          "predicate": {
+            "field": "repeat_use_or_renewal_expected_in_window",
+            "op": "eq",
+            "value": true
+          },
+          "question_fa": "آیا در این بازه، تکرار استفاده یا تمدید واقعاً از مشتری انتظار می‌رود؟",
+          "true": "churn-loss-split",
+          "false": "churn-cadence-review",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Product value cadence",
+            "Contract or purchase interval"
+          ],
+          "sources": [
+            "SRC-PG-AMPLITUDE-RETENTION-TIME"
+          ]
+        },
+        {
+          "id": "churn-cadence-review",
+          "type": "investigation",
+          "hypothesis": "The observation cadence may be inappropriate for an infrequent or one-off job.",
+          "action": "Use a model-appropriate outcome, renewal window or repeatable-delivery measure rather than forcing daily retention.",
+          "exit_evidence": [
+            "Justified value-cycle definition"
+          ],
+          "next": null
+        },
+        {
+          "id": "churn-loss-split",
+          "type": "parallel_hypotheses",
+          "branches": [
+            {
+              "predicate": {
+                "field": "billing_failures_linked_to_losses",
+                "op": "eq",
+                "value": true
+              },
+              "target": "churn-billing"
+            },
+            {
+              "predicate": {
+                "field": "losses_concentrated_in_new_channel_or_segment",
+                "op": "eq",
+                "value": true
+              },
+              "target": "churn-mix"
+            },
+            {
+              "predicate": {
+                "field": "value_quality_or_price_concern_observed",
+                "op": "eq",
+                "value": true
+              },
+              "target": "churn-value"
+            }
+          ],
+          "no_branch_supported": "churn-open-investigation",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Cancellation and payment history",
+            "Like-aged cohort breakdowns",
+            "Customer reports matched to behavior"
+          ],
+          "sources": [
+            "SRC-PG-STRIPE-RECOVERY-2024",
+            "SRC-CORE-AMPLITUDE-RETENTION",
+            "SRC-STARTUP-CHRISTENSEN-JTBD"
+          ]
+        },
+        {
+          "id": "churn-billing",
+          "type": "investigation",
+          "hypothesis": "Collection failures may contribute to loss independently of deliberate cancellation.",
+          "action": "Inspect failure reasons, retry/recovery status and customer consent/notice constraints; distinguish outstanding recovery from final loss.",
+          "exit_evidence": [
+            "Attributed payment-failure losses",
+            "Observed recovery outcomes"
+          ],
+          "next": null,
+          "sources": [
+            "SRC-PG-STRIPE-RECOVERY-2024"
+          ]
+        },
+        {
+          "id": "churn-mix",
+          "type": "investigation",
+          "hypothesis": "Acquisition or customer mix may explain part of the aggregate change.",
+          "action": "Compare like-aged cohorts within segment and channel; inspect the promise made at acquisition before changing the product.",
+          "exit_evidence": [
+            "Within-segment trends and mix contribution",
+            "Testable mismatch hypothesis"
+          ],
+          "next": null,
+          "sources": [
+            "SRC-CORE-AMPLITUDE-RETENTION"
+          ]
+        },
+        {
+          "id": "churn-value",
+          "type": "investigation",
+          "hypothesis": "Unmet value, quality, switching circumstances or price/value mismatch may contribute.",
+          "action": "Review recent loss stories, incidents and observed use; design a bounded test of the best supported explanation.",
+          "exit_evidence": [
+            "Triangulated reason evidence",
+            "Predeclared outcome and guardrails"
+          ],
+          "next": null,
+          "sources": [
+            "SRC-STARTUP-CHRISTENSEN-JTBD",
+            "SRC-STARTUP-STRATEGYZER-TEST-2015"
+          ]
+        },
+        {
+          "id": "churn-open-investigation",
+          "type": "investigation",
+          "hypothesis": "No reviewed explanation is yet supported.",
+          "action": "Collect discriminating evidence from recent retained and lost customers; keep competing explanations open.",
+          "exit_evidence": [
+            "A supported investigation branch or explicit unresolved status"
+          ],
+          "next": null
+        }
+      ],
+      "exceptions": [
+        "A company can grow net revenue while losing accounts through expansion among survivors; inspect both scopes.",
+        "Seasonal or one-off jobs need a different expected repeat interval.",
+        "A cancellation reason alone is not proof of its sole causal contribution."
+      ],
+      "confidence": "Qualitative and claim-specific; no probability or universal benchmark assigned.",
+      "sources": [
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-PG-AMPLITUDE-RETENTION-TIME",
+        "SRC-PG-STRIPE-RECOVERY-2024",
+        "SRC-STARTUP-CHRISTENSEN-JTBD"
+      ]
+    },
+    {
+      "id": "DIAG-GROWTH-WEAK-ACTIVATION",
+      "name": "Weak activation",
+      "name_fa": "فعال‌سازی ضعیف",
+      "scope": "An identified first-value milestone for a named user/account segment; signup completion alone may not be value.",
+      "trigger": "Observed activation declines against a comparable local baseline or the team is uncertain where customers first obtain value.",
+      "metrics": [
+        "MET-ACTIVATION-RATE",
+        "MET-COHORT-RETENTION"
+      ],
+      "required_inputs": [
+        "Activation event/value hypothesis",
+        "Eligible denominator",
+        "Conversion window",
+        "Event sequence and segment"
+      ],
+      "optional_inputs": [
+        "Task observations",
+        "Error logs",
+        "Support requests",
+        "Acquisition message"
+      ],
+      "root_node": "activation-value-definition",
+      "nodes": [
+        {
+          "id": "activation-value-definition",
+          "type": "evidence_gate",
+          "question_fa": "رویداد فعال‌سازی چه ارزش قابل مشاهده‌ای برای مشتری نشان می‌دهد؟",
+          "predicate": {
+            "field": "activation_event_represents_reviewed_value_hypothesis",
+            "op": "eq",
+            "value": true
+          },
+          "true": "activation-measurement",
+          "false": "activation-define-value",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Customer outcome evidence",
+            "Exact activation event definition"
+          ],
+          "sources": [
+            "SRC-PG-AMPLITUDE-NORTH-STAR",
+            "SRC-STARTUP-YC-PMF-2016"
+          ]
+        },
+        {
+          "id": "activation-define-value",
+          "type": "investigation",
+          "hypothesis": "The chosen event may measure setup activity rather than first value.",
+          "action": "Observe the intended customer outcome and define a testable milestone; verify its relationship to later value without assuming causality.",
+          "exit_evidence": [
+            "Scoped milestone and counting contract"
+          ],
+          "next": "activation-measurement"
+        },
+        {
+          "id": "activation-measurement",
+          "type": "evidence_gate",
+          "predicate": {
+            "all": [
+              {
+                "field": "funnel_event_quality_reviewed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "eligibility_window_order_comparable",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          "question_fa": "آیا مخرج، ترتیب رویدادها و فرصت زمانی رسیدن به ارزش قابل مقایسه‌اند؟",
+          "true": "activation-friction-split",
+          "false": "activation-repair-measurement",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Event QA",
+            "Identity rule",
+            "Conversion-window and eligibility contract"
+          ],
+          "sources": [
+            "SRC-PG-AMPLITUDE-FUNNEL"
+          ]
+        },
+        {
+          "id": "activation-repair-measurement",
+          "type": "investigation",
+          "hypothesis": "The apparent drop may be caused by tracking, eligibility or window changes.",
+          "action": "Reconcile event and counting rules and recompute a comparable funnel.",
+          "exit_evidence": [
+            "Comparable funnel with counts and conversion time"
+          ],
+          "next": "activation-friction-split"
+        },
+        {
+          "id": "activation-friction-split",
+          "type": "parallel_hypotheses",
+          "branches": [
+            {
+              "predicate": {
+                "field": "technical_failure_at_drop_observed",
+                "op": "eq",
+                "value": true
+              },
+              "target": "activation-technical"
+            },
+            {
+              "predicate": {
+                "field": "task_confusion_or_setup_dependency_observed",
+                "op": "eq",
+                "value": true
+              },
+              "target": "activation-task"
+            },
+            {
+              "predicate": {
+                "field": "low_fit_traffic_or_promise_mismatch_observed",
+                "op": "eq",
+                "value": true
+              },
+              "target": "activation-fit"
+            }
+          ],
+          "no_branch_supported": "activation-observe",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Segmented step drop-off",
+            "Observed attempts/errors",
+            "User expectations"
+          ],
+          "sources": [
+            "SRC-PG-AMPLITUDE-FUNNEL",
+            "SRC-STARTUP-CHRISTENSEN-JTBD"
+          ]
+        },
+        {
+          "id": "activation-technical",
+          "type": "investigation",
+          "hypothesis": "An observed technical failure prevents value delivery.",
+          "action": "Reproduce and repair the relevant failure; verify successful value delivery and downstream quality after repair.",
+          "exit_evidence": [
+            "Failure reproduction",
+            "Successful task/outcome after correction"
+          ],
+          "next": null
+        },
+        {
+          "id": "activation-task",
+          "type": "investigation",
+          "hypothesis": "A task or external dependency may delay first value.",
+          "action": "Observe a real attempt and test the smallest useful clarification or setup aid; preserve safety/quality guardrails.",
+          "exit_evidence": [
+            "Observed task cause",
+            "Measured result of a bounded test"
+          ],
+          "next": null
+        },
+        {
+          "id": "activation-fit",
+          "type": "investigation",
+          "hypothesis": "Some entrants may not have the problem or expect a different outcome.",
+          "action": "Compare channel/segment expectations to delivered value and test a narrower promise or audience.",
+          "exit_evidence": [
+            "Observed mismatch evidence",
+            "Comparable activation and later-value outcome"
+          ],
+          "next": null
+        },
+        {
+          "id": "activation-observe",
+          "type": "investigation",
+          "hypothesis": "The funnel locates a gap but does not explain it.",
+          "action": "Observe consented customer attempts and compare successful and unsuccessful cases before adding onboarding steps.",
+          "exit_evidence": [
+            "Discriminating evidence for a candidate explanation"
+          ],
+          "next": null
+        }
+      ],
+      "exceptions": [
+        "Enterprise activation may require account-level setup and procurement over a longer window.",
+        "Correlation of an event with retention may reflect selection rather than a causal activation lever."
+      ],
+      "confidence": "Diagnostic branches are hypotheses; no cause is assigned from funnel drop-off alone.",
+      "sources": [
+        "SRC-PG-AMPLITUDE-FUNNEL",
+        "SRC-PG-AMPLITUDE-NORTH-STAR",
+        "SRC-STARTUP-CHRISTENSEN-JTBD",
+        "SRC-STARTUP-STRATEGYZER-TEST-2015"
+      ]
+    },
+    {
+      "id": "DIAG-GROWTH-PMF-UNCERTAINTY",
+      "name": "Product-market fit uncertainty",
+      "name_fa": "ابهام در تناسب محصول و بازار",
+      "scope": "A named customer segment, offer, business model and observation period; PMF is not assumed company-wide.",
+      "trigger": "A manager requests broad expansion or declares PMF while demand, value, repeatability or economics evidence remains uncertain.",
+      "metrics": [
+        "MET-COHORT-RETENTION",
+        "MET-ACTIVATION-RATE",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-CAC",
+        "MET-CASH-RUNWAY"
+      ],
+      "required_inputs": [
+        "Segment and value proposition",
+        "Observed delivered value",
+        "Commitment evidence",
+        "Model-appropriate repeatability",
+        "Unit economics and cash constraints"
+      ],
+      "root_node": "pmf-scope",
+      "nodes": [
+        {
+          "id": "pmf-scope",
+          "type": "evidence_gate",
+          "question_fa": "ادعای تناسب دقیقاً برای کدام مشتری، پیشنهاد و مدل کسب‌وکار است؟",
+          "predicate": {
+            "field": "pmf_claim_scope_defined",
+            "op": "eq",
+            "value": true
+          },
+          "true": "pmf-value",
+          "false": "pmf-define-scope",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Dated segment/model scope"
+          ],
+          "sources": [
+            "SRC-STARTUP-BLANK-2010",
+            "SRC-PG-STRATEGYZER-VPC"
+          ]
+        },
+        {
+          "id": "pmf-define-scope",
+          "type": "investigation",
+          "hypothesis": "A broad claim may hide differences between customers or models.",
+          "action": "State a scoped hypothesis and inspect the narrowest meaningful segment with actual evidence.",
+          "exit_evidence": [
+            "Segment, offer, model and time window"
+          ],
+          "next": "pmf-value"
+        },
+        {
+          "id": "pmf-value",
+          "type": "evidence_gate",
+          "predicate": {
+            "all": [
+              {
+                "field": "customer_value_observed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "meaningful_commitment_observed",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          "question_fa": "مشتری چه ارزش واقعی گرفت و چه اقدام معناداری انجام داد؟",
+          "true": "pmf-repeatability",
+          "false": "pmf-value-test",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Customer outcome observations",
+            "Commitment/payment context, with subsidy and relationship effects"
+          ],
+          "sources": [
+            "SRC-STARTUP-YC-PMF-2016",
+            "SRC-STARTUP-MIT-AULET-2024"
+          ]
+        },
+        {
+          "id": "pmf-value-test",
+          "type": "investigation",
+          "hypothesis": "The value or commitment hypothesis is unsupported or contradicted.",
+          "action": "Return to scoped discovery or a permitted value test; do not replace evidence with funding, hiring or a filled canvas.",
+          "exit_evidence": [
+            "Observed value/commitment or explicit invalidation"
+          ],
+          "next": null
+        },
+        {
+          "id": "pmf-repeatability",
+          "type": "evidence_gate",
+          "predicate": {
+            "field": "model_appropriate_repeatability_supported",
+            "op": "eq",
+            "value": true
+          },
+          "question_fa": "آیا شواهد کافی از تداوم ارزش یا تکرارپذیری متناسب با مدل وجود دارد؟",
+          "true": "pmf-economics",
+          "false": "pmf-repeatability-test",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Mature cohorts, renewals or repeatable purchase/delivery appropriate to the model",
+            "Contradictory and lost-customer evidence"
+          ],
+          "sources": [
+            "SRC-STARTUP-YC-PMF-2016",
+            "SRC-CORE-AMPLITUDE-RETENTION"
+          ]
+        },
+        {
+          "id": "pmf-repeatability-test",
+          "type": "investigation",
+          "hypothesis": "Initial demand may not yet be repeatable.",
+          "action": "Investigate retention or equivalent adoption/delivery behavior; use bounded tests to collect missing cohorts rather than aggressive expansion.",
+          "exit_evidence": [
+            "Repeatability evidence in a justified observation window"
+          ],
+          "next": null
+        },
+        {
+          "id": "pmf-economics",
+          "type": "evidence_gate",
+          "predicate": {
+            "all": [
+              {
+                "field": "economics_reviewed_for_proposed_expansion",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "cash_capacity_guardrails_defined",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          "question_fa": "آیا اقتصاد و ظرفیت نقدی و تحویل، توسعه پیشنهادی را پشتیبانی می‌کنند؟",
+          "true": "pmf-bounded-growth",
+          "false": "pmf-economic-test",
+          "unknown": "collect_evidence",
+          "evidence": [
+            "Observed acquisition and delivery costs",
+            "Cash and capacity scenario",
+            "Explicit growth test guardrails"
+          ],
+          "sources": [
+            "SRC-STARTUP-YC-ADVICE-2017",
+            "SRC-STARTUP-MIT-AULET-2024"
+          ]
+        },
+        {
+          "id": "pmf-economic-test",
+          "type": "investigation",
+          "hypothesis": "Demand may exist while expansion remains economically or operationally unsafe.",
+          "action": "Test the uncertain economic driver or capacity limit and specify a bounded budget; retain demand evidence separately from scale readiness.",
+          "exit_evidence": [
+            "Reviewed economics/cash case and uncertainty"
+          ],
+          "next": null
+        },
+        {
+          "id": "pmf-bounded-growth",
+          "type": "recommendation",
+          "assessment": "Evidence supports a scoped and reviewable growth experiment; this is not a permanent PMF certificate.",
+          "action": "Run controlled expansion with customer-value, economics and cash guardrails; revisit when segment, offer or conditions change.",
+          "exit_evidence": [
+            "Owned growth experiment",
+            "Review date",
+            "Stop/adapt conditions"
+          ],
+          "next": null
+        }
+      ],
+      "exceptions": [
+        "One-off or infrequent purchases need model-appropriate repeatability; forced weekly use is not required.",
+        "Pre-revenue science/hardware ventures may require feasibility milestones before meaningful payment tests.",
+        "A strong demand signal and poor current economics should be recorded separately.",
+        "No universal survey percentage, employee threshold, funding round or revenue level certifies PMF."
+      ],
+      "confidence": "Evidence assessment is qualitative and segment-specific; no universal score is computed.",
+      "sources": [
+        "SRC-STARTUP-YC-PMF-2016",
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-CORE-AMPLITUDE-RETENTION",
+        "SRC-PG-STRATEGYZER-VPC"
+      ]
+    }
+  ]
+}

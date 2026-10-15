@@ -1,0 +1,388 @@
+{
+  "schema_version": "0.1.0",
+  "id": "JOURNEY-ORGANIZATION",
+  "epistemic_status": "product_synthesis_not_validated_universal_sequence",
+  "sources": [
+    "SRC-CORE-CIPD-EVIDENCE",
+    "SRC-CORE-LEI-HOSHIN",
+    "SRC-CORE-KAPLAN-PARTNERING"
+  ],
+  "entry": "ORG-TRIAGE",
+  "steps": [
+    {
+      "id": "ORG-TRIAGE",
+      "name": "Triage and objectives",
+      "depends_on": [],
+      "goals": [
+        "Triage and objectives"
+      ],
+      "questions": [
+        {
+          "question": "What decision is urgent and by when?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "objective",
+        "current_operating_state"
+      ],
+      "required_evidence": [
+        "dated obligation evidence when cash is at risk"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "decision"
+      ],
+      "common_mistakes": [
+        "Interrupt normal sequence for immediate cash or safety issues."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-BASELINE",
+      "name": "Comparable business baseline",
+      "depends_on": [
+        "ORG-TRIAGE"
+      ],
+      "goals": [
+        "Comparable business baseline"
+      ],
+      "questions": [
+        {
+          "question": "What changed against a comparable baseline?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "financial_period",
+        "reporting_scope"
+      ],
+      "required_evidence": [
+        "reconciled P&L and cash records"
+      ],
+      "metrics": [
+        "MET-GROSS-MARGIN",
+        "MET-OPERATING-CASH-FLOW"
+      ],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "insight"
+      ],
+      "common_mistakes": [
+        "Do not infer cause from total revenue alone."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-CONTEXT",
+      "name": "Customer, market and competitive context",
+      "depends_on": [
+        "ORG-BASELINE"
+      ],
+      "goals": [
+        "Customer, market and competitive context"
+      ],
+      "questions": [
+        {
+          "question": "Which segment and alternative explain the observed change?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "customer_segment",
+        "change_hypothesis"
+      ],
+      "required_evidence": [
+        "recent segment evidence and named alternatives"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "insight"
+      ],
+      "common_mistakes": [
+        "Do not request full market study for a local process issue."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-CONSTRAINT",
+      "name": "Constraint diagnosis",
+      "depends_on": [
+        "ORG-BASELINE"
+      ],
+      "goals": [
+        "Constraint diagnosis"
+      ],
+      "questions": [
+        {
+          "question": "Which constraint is evidenced and which remains a hypothesis?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "problem_domain",
+        "process_boundary"
+      ],
+      "required_evidence": [
+        "process or economics observations"
+      ],
+      "metrics": [
+        "MET-CONTRIBUTION-MARGIN"
+      ],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "risk"
+      ],
+      "common_mistakes": [
+        "A symptomatic KPI does not prove root cause."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-CHOICE",
+      "name": "Strategic choices and trade-offs",
+      "depends_on": [
+        "ORG-CONTEXT",
+        "ORG-CONSTRAINT"
+      ],
+      "goals": [
+        "Strategic choices and trade-offs"
+      ],
+      "questions": [
+        {
+          "question": "What will be prioritized and what will stop?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "options",
+        "decision_owner"
+      ],
+      "required_evidence": [
+        "alternatives and implications"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "decision"
+      ],
+      "common_mistakes": [
+        "Listing every desirable goal is not a resource choice."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-ALLOCATION",
+      "name": "Resources, people and decision rights",
+      "depends_on": [
+        "ORG-CHOICE"
+      ],
+      "goals": [
+        "Resources, people and decision rights"
+      ],
+      "questions": [
+        {
+          "question": "Can teams accept the scope with available resources?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "capacity",
+        "owners"
+      ],
+      "required_evidence": [
+        "team capacity commitments"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [
+        "FW-HOSHIN"
+      ],
+      "decisions": [
+        "initiative"
+      ],
+      "common_mistakes": [
+        "Do not infer hiring need without constraint evidence."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-EXECUTION",
+      "name": "Initiatives and outcome measures",
+      "depends_on": [
+        "ORG-ALLOCATION"
+      ],
+      "goals": [
+        "Initiatives and outcome measures"
+      ],
+      "questions": [
+        {
+          "question": "Who acts next, by when, and how will outcome be checked?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "initiative",
+        "measure_contract"
+      ],
+      "required_evidence": [
+        "named owner, next milestone, metric baseline"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [
+        "FW-BALANCED-SCORECARD"
+      ],
+      "decisions": [
+        "action"
+      ],
+      "common_mistakes": [
+        "Activity completion alone is not outcome evidence."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    },
+    {
+      "id": "ORG-REVIEW",
+      "name": "Review and adapt",
+      "depends_on": [
+        "ORG-EXECUTION"
+      ],
+      "goals": [
+        "Review and adapt"
+      ],
+      "questions": [
+        {
+          "question": "Continue, change, stop or gather evidence?",
+          "required_only_when": "needed_for_next_decision",
+          "unknown": "ask_for_evidence_or_abstain"
+        }
+      ],
+      "required_inputs": [
+        "outcome_observations"
+      ],
+      "required_evidence": [
+        "comparable outcome plus unexpected effects"
+      ],
+      "metrics": [],
+      "experiments": [],
+      "frameworks": [],
+      "decisions": [
+        "decision"
+      ],
+      "common_mistakes": [
+        "Revisit assumptions when context changes."
+      ],
+      "completion_criteria": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+      "next_stage_criteria": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+      "navigation": {
+        "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+        "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+        "import": true,
+        "bulk_input": true,
+        "expert_mode": true
+      },
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ]
+    }
+  ],
+  "conditional_modules": {
+    "finance": "Required for financial diagnosis; detailed pricing and funding review is deferred.",
+    "operations": "Only for evidenced process/inventory constraints; not a compulsory founder questionnaire.",
+    "people": "Only when role/capability constraint is evidenced; full people library is deferred.",
+    "sales": "Only for commercial funnel decisions.",
+    "risk": "Interrupt/escalate on material risk; a local risk owner must judge response."
+  },
+  "reentry": "Review can return to baseline, context or choice without pretending the graph is an irreversible stage ladder."
+}

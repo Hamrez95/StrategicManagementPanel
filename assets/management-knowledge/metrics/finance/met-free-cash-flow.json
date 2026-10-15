@@ -1,0 +1,83 @@
+{
+  "id": "MET-FREE-CASH-FLOW",
+  "name": "جریان نقد آزاد ساده",
+  "aliases": [
+    "FCF"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "تعریف ساده مدیریتی: نقد عملیاتی پس از مخارج سرمایه‌ای.",
+  "formula": "operating_cash_flow - cash_capex",
+  "formula_variables": {
+    "operating_cash_flow": "جریان نقد عملیاتی گزارش‌شده",
+    "cash_capex": "مخارج سرمایه‌ای نقدی با دامنه اعلام‌شده"
+  },
+  "unit": "currency-per-period",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "مصرف نقد سرمایه‌گذاری را کنار عملیات می‌گذارد.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [
+    "MET-OPERATING-CASH-FLOW"
+  ],
+  "required_inputs": [
+    "operating_cash_flow",
+    "cash_capex"
+  ],
+  "optional_inputs": [
+    "lease_principal",
+    "mandatory_debt_payments"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "غیر GAAP و نیازمند تطبیق؛ نقد قابل توزیع دلخواه نیست. بازپرداخت بدهی و تعهدات دیگر ممکن است باقی بمانند."
+  ],
+  "limitations": [
+    "تعریف ناشران متفاوت است؛ این معیار FCFF یا FCFE مدل ارزش‌گذاری نیست."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-OPERATING-CASH-FLOW",
+    "MET-NET-BURN"
+  ],
+  "recommended_actions": [
+    {
+      "action": "تعریف هزینه سرمایه‌ای را ثابت نگه دارید و تعهدات باقیمانده را جدا ببینید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-fcf-sec-comment"
+  ],
+  "explanation": {
+    "quick": "تعریف ساده مدیریتی: نقد عملیاتی پس از مخارج سرمایه‌ای.",
+    "learn": "جریان عملیاتی ۲۰ و مخارج سرمایه‌ای ۱۵، FCF ساده ۵ می‌شود.",
+    "deep_dive": "غیر GAAP و نیازمند تطبیق؛ نقد قابل توزیع دلخواه نیست. بازپرداخت بدهی و تعهدات دیگر ممکن است باقی بمانند. تعریف ناشران متفاوت است؛ این معیار FCFF یا FCFE مدل ارزش‌گذاری نیست."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

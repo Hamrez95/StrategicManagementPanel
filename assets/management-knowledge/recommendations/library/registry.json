@@ -1,0 +1,385 @@
+{
+  "schema_version": "0.1.0",
+  "recommendations": [
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-DISCOVERY",
+      "recommendation_id": "REC-DISCOVERY",
+      "trigger": "RULE-DISCOVERY",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "idea"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "A proposed model has not yet been supported by observed customer behavior.",
+      "expected_impact": {
+        "description": "Reduce one important uncertainty; no conversion uplift promised.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-DISCOVERY",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "customer_problem_hypothesis",
+        "recent_customer_observation"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "experiment"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-RETENTION-BEFORE-SCALE",
+      "recommendation_id": "REC-RETENTION-BEFORE-SCALE",
+      "trigger": "RULE-RETENTION-BEFORE-SCALE",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "scale_acquisition_requested",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "retention_evidence",
+            "op": "eq",
+            "value": "insufficient"
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Retention evidence is insufficient to justify a large irreversible acquisition commitment.",
+      "expected_impact": {
+        "description": "Improve evidence for a scale decision; no claim that all acquisition must stop.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-RETENTION-BEFORE-SCALE",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "cohort_definition",
+        "value_event",
+        "observation_window",
+        "cash_risk"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "experiment"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-ECOM-ECONOMICS",
+      "recommendation_id": "REC-ECOM-ECONOMICS",
+      "trigger": "RULE-ECOM-ECONOMICS",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "ecommerce"
+          },
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "growth"
+          },
+          {
+            "field": "contribution_visibility",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Top-line growth alone does not identify whether incremental orders improve economics.",
+      "expected_impact": {
+        "description": "Make the growth trade-off visible; amount of financial improvement is unknown.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-ECOM-ECONOMICS",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "order_net_revenue",
+        "returns",
+        "variable_cost_policy"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-FINANCE-contribution",
+        "SRC-FINANCE-working-capital"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "insight"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-SERVICE-MARGIN",
+      "recommendation_id": "REC-SERVICE-MARGIN",
+      "trigger": "RULE-SERVICE-MARGIN",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "profitability_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Low profit has several plausible causes; hiring or price increases cannot be inferred from one ratio.",
+      "expected_impact": {
+        "description": "Identify a testable margin driver and an accountable next action.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-SERVICE-MARGIN",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "project_scope",
+        "realized_revenue",
+        "delivery_costs",
+        "overrun_records"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-contribution"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "insight"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-INVENTORY-DIAGNOSIS",
+      "recommendation_id": "REC-INVENTORY-DIAGNOSIS",
+      "trigger": "RULE-INVENTORY-DIAGNOSIS",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "manufacturing"
+          },
+          {
+            "field": "inventory_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "An aggregate inventory total cannot distinguish availability problems from obsolete stock.",
+      "expected_impact": {
+        "description": "Select a specific operational investigation; no blanket inventory cut.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-INVENTORY-DIAGNOSIS",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "item_movements",
+        "stockouts",
+        "quality_holds",
+        "lead_time"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-OPS-LEI-THINKING",
+        "SRC-OPS-LEI-OPERATIONS",
+        "SRC-CORE-ASQ-GLOSSARY"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "action"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-EXECUTION-ALIGNMENT",
+      "recommendation_id": "REC-EXECUTION-ALIGNMENT",
+      "trigger": "RULE-EXECUTION-ALIGNMENT",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "strategy_execution_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Execution problems can reflect unclear choices and capacity conflicts rather than a lack of KPIs.",
+      "expected_impact": {
+        "description": "Expose an actionable alignment or capacity gap.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-EXECUTION-ALIGNMENT",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "strategic_priority",
+        "initiative_capacity",
+        "decision_owner"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-KAPLAN-PARTNERING"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "initiative"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-CASH-TRIAGE",
+      "recommendation_id": "REC-CASH-TRIAGE",
+      "trigger": "RULE-CASH-TRIAGE",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "cash_obligation_at_risk",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "severity": "high",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Dated liquidity obligations need timely review before a longer strategy exercise.",
+      "expected_impact": {
+        "description": "Clarify timing and size of potential cash shortfalls.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-CASH-TRIAGE",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "unrestricted_cash",
+        "dated_obligations",
+        "collections_forecast"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-FINANCE-ias-7",
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-runway"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "risk"
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "REC-AI-OVERSIGHT",
+      "recommendation_id": "REC-AI-OVERSIGHT",
+      "trigger": "RULE-AI-OVERSIGHT",
+      "business_context": {
+        "conditions": [
+          {
+            "field": "material_ai_decision",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "ai_evaluation_status",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "severity": "contextual",
+      "confidence": "derived_from_claim_evidence_not_framework_fame",
+      "reason": "Material decision support lacks evidence of suitability in its intended context.",
+      "expected_impact": {
+        "description": "Expose and reduce decision risk; no guarantee of compliance or model correctness.",
+        "quantified_effect": null
+      },
+      "next_action": "ACT-AI-OVERSIGHT",
+      "alternative_actions": [
+        "Collect the missing evidence.",
+        "Record no_action with reason and review trigger if action cost exceeds expected value."
+      ],
+      "required_information": [
+        "use_context",
+        "evaluation_results",
+        "oversight_owner"
+      ],
+      "risks": [
+        "This is a source-informed product heuristic; applicability needs review."
+      ],
+      "sources": [
+        "SRC-CORE-NIST-AIRMF"
+      ],
+      "epistemic_status": "product_heuristic",
+      "output_type": "risk"
+    }
+  ]
+}

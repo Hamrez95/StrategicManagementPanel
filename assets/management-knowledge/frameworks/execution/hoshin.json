@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "id": "FW-HOSHIN",
+  "name": "Strategy deployment / Hoshin Kanri",
+  "purpose": "Reconcile a small set of strategic priorities with feasible resources using catchball.",
+  "use_when": [
+    "Cross-functional priorities exceed available capacity"
+  ],
+  "do_not_use_when": [
+    "Urgent cash issue needs immediate dated obligations",
+    "Only a reporting template is requested"
+  ],
+  "inputs": [
+    "priority",
+    "capacity",
+    "team constraints"
+  ],
+  "outputs": [
+    "agreed initiative scope",
+    "resource decisions"
+  ],
+  "steps": [
+    "Propose priority",
+    "Discuss feasibility with teams",
+    "Revise resource commitments",
+    "Review deviations"
+  ],
+  "interpretation": "Commitment requires feasible resources and team dialogue.",
+  "common_mistakes": [
+    "Assigning every initiative at once",
+    "Calling top-down targets alignment"
+  ],
+  "limitations": [
+    "Requires adaptation and willingness to stop lower priorities"
+  ],
+  "compatible_frameworks": [],
+  "conflicting_frameworks": [],
+  "business_types": [
+    "established_organization"
+  ],
+  "business_stages": [
+    "operating",
+    "growth",
+    "mature"
+  ],
+  "sources": [
+    "SRC-CORE-LEI-HOSHIN"
+  ],
+  "epistemic_status": "source_informed_product_synthesis",
+  "explanation": {
+    "quick": "هدف را با ظرفیت واقعی تیم‌ها تطبیق دهید و درباره اولویت‌های کنارگذاشته‌شده تصمیم بگیرید.",
+    "learn": "Reconcile a small set of strategic priorities with feasible resources using catchball.",
+    "deep_dive": "See the cited original source, the use constraints, and the limits recorded here. Adaptation is not a validated causal intervention."
+  }
+}

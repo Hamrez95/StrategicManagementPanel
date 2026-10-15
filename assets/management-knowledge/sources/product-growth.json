@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "id": "SOURCE-SET-PRODUCT-GROWTH",
+  "last_reviewed": "2026-10-15",
+  "sources": [
+    {
+      "id": "SRC-PG-INTERCOM-RICE-2018",
+      "title": "RICE: Simple prioritization for product managers",
+      "author": "Sean McBride / Intercom",
+      "year": 2018,
+      "url": "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers",
+      "type": "primary_method_creator_article",
+      "reliability": "Authoritative for Intercom's heuristic; ordinal estimates are not objective utility or calibrated probabilities.",
+      "notes": "Full public article text read. Scores inform judgment; dependencies can justify a different sequence. Example scales are not universal benchmarks.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "full_text",
+      "supported_claims": [
+        "RICE combines reach, impact and confidence divided by effort",
+        "Consistent time horizons matter",
+        "Ranking can be overridden for dependencies and essential requirements"
+      ],
+      "access_evidence": "full_public_article"
+    },
+    {
+      "id": "SRC-PG-AMPLITUDE-NORTH-STAR",
+      "title": "About North Star Framework",
+      "author": "Amplitude",
+      "year": null,
+      "url": "https://www.amplitude.com/books/north-star/about-north-star-framework",
+      "type": "primary_framework_publisher_explainer",
+      "reliability": "Official practitioner framework; analytics vendor, not independent efficacy research.",
+      "notes": "Public chapter read; whole playbook not read. Customer value, business outcomes and controllable inputs are connected as hypotheses rather than proven causal laws.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "relevant_sections",
+      "supported_claims": [
+        "North Star represents customer value linked to business outcomes",
+        "Input metrics help teams understand how their work can influence it"
+      ],
+      "access_evidence": "public_chapter_not_entire_book"
+    },
+    {
+      "id": "SRC-PG-AMPLITUDE-RETENTION-TIME",
+      "title": "How time works in a retention analysis",
+      "author": "Amplitude Docs",
+      "year": null,
+      "url": "https://www.amplitude.com/docs/analytics/charts/retention-analysis/retention-analysis-time",
+      "type": "primary_software_method_documentation",
+      "reliability": "Authoritative for vendor-specific time windows; general measurement lesson requires matching business cadence.",
+      "notes": "Public text reviewed. Calendar dates and rolling 24-hour windows differ; project timezone affects calendar intervals.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "relevant_sections",
+      "supported_claims": [
+        "Time-window definitions and timezone can change retention values"
+      ],
+      "access_evidence": "public_documentation_text"
+    },
+    {
+      "id": "SRC-PG-AMPLITUDE-FUNNEL",
+      "title": "Interpret your funnel analysis",
+      "author": "Amplitude Docs",
+      "year": null,
+      "url": "https://amplitude.com/docs/analytics/charts/funnel-analysis/funnel-analysis-interpret",
+      "type": "primary_software_method_documentation",
+      "reliability": "Authoritative for chart mechanics; a funnel association does not establish the cause of abandonment.",
+      "notes": "Public documentation read. Conversion window, entry criteria, ordering and counting conventions are essential. No vendor default adopted as a business benchmark.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "full_text",
+      "supported_claims": [
+        "Funnel conversion depends on event sequence and conversion window",
+        "Segment breakdown and conversion times help locate potential friction"
+      ],
+      "access_evidence": "full_public_documentation"
+    },
+    {
+      "id": "SRC-PG-STRATEGYZER-VPC",
+      "title": "The Value Proposition Canvas",
+      "author": "Strategyzer; Alexander Osterwalder and collaborators (framework origin)",
+      "year": null,
+      "url": "https://www.strategyzer.com/library/the-value-proposition-canvas",
+      "type": "primary_tool_publisher_description",
+      "reliability": "Creator's official tool explanation; commercial page, no independent causal validation.",
+      "notes": "Public landing page read, not subscription playbooks. Customer jobs/pains/gains and offer-side value hypotheses are matched then tested; filled canvas does not establish PMF.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "relevant_sections",
+      "supported_claims": [
+        "Describe one customer segment and its jobs, pains and gains",
+        "Map products/services, pain relief and gain creation",
+        "Fit claims require customer evidence"
+      ],
+      "access_evidence": "full_public_landing_page_not_paid_playbook"
+    },
+    {
+      "id": "SRC-PG-STRIPE-RECOVERY-2024",
+      "title": "Revenue recovery 101: A playbook for businesses",
+      "author": "Stripe",
+      "year": 2024,
+      "url": "https://stripe.com/resources/more/revenue-recovery-101",
+      "type": "primary_payment_provider_explainer",
+      "reliability": "Authoritative operational payment context; marketing claims and aggregate recovery statistics are not adopted.",
+      "notes": "Public text reviewed. Failed payments are one possible loss mechanism; retry outcomes and billing state must be inspected before labeling voluntary churn. Does not recommend any particular service purchase.",
+      "last_reviewed": "2026-10-15",
+      "access_depth": "relevant_sections",
+      "supported_claims": [
+        "Unsuccessful payment collection can cause avoidable revenue loss",
+        "Recovery actions depend on the cause of the failure"
+      ],
+      "access_evidence": "public_article_text"
+    }
+  ]
+}

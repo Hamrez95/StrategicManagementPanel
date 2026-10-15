@@ -1,0 +1,83 @@
+{
+  "id": "MET-NET-BURN",
+  "name": "مصرف خالص ماهانه نقد",
+  "aliases": [
+    "Net burn"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "کاهش متوسط نقد پیش از جذب یا بازپرداخت تأمین مالی، با علامت مثبت برای مصرف.",
+  "formula": "(cash_outflows_ex_financing - cash_inflows_ex_financing) / months",
+  "formula_variables": {
+    "cash_outflows_ex_financing": "پرداخت نقدی عملیاتی و سرمایه‌ای؛ بدون تأمین مالی",
+    "cash_inflows_ex_financing": "دریافت نقدی عملیاتی و سرمایه‌گذاری؛ بدون تأمین مالی",
+    "months": "تعداد ماهِ مثبت در پنجره، با طول و روش مشخص"
+  },
+  "unit": "currency-per-month",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "مبنای سنجش دوام نقد است.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "cash_outflows_ex_financing",
+    "cash_inflows_ex_financing",
+    "months"
+  ],
+  "optional_inputs": [
+    "one_off_cash_items",
+    "monthly_series"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "weekly-review-monthly-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "این نسخه محصول، سرمایه‌گذاری را نیز شامل می‌شود؛ نسخۀ burn صرفاً عملیاتی باید برچسب جدا داشته باشد. درآمد تعهدی جای وصول نمی‌نشیند."
+  ],
+  "limitations": [
+    "فروش یکبارۀ دارایی می‌تواند متوسط را مخدوش کند؛ بازپرداخت بدهی خارج از این تعریف است و باید در پیش‌بینی لحاظ شود."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-CASH-RUNWAY",
+    "MET-FREE-CASH-FLOW"
+  ],
+  "recommended_actions": [
+    {
+      "action": "میانگین را با سری ماهانه و سناریوی آتی مقایسه کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-burn"
+  ],
+  "explanation": {
+    "quick": "کاهش متوسط نقد پیش از جذب یا بازپرداخت تأمین مالی، با علامت مثبت برای مصرف.",
+    "learn": "خروج ۱۲۰ و ورود ۹۰ طی ۳ ماه، مصرف ماهانه ۱۰ است.",
+    "deep_dive": "این نسخه محصول، سرمایه‌گذاری را نیز شامل می‌شود؛ نسخۀ burn صرفاً عملیاتی باید برچسب جدا داشته باشد. درآمد تعهدی جای وصول نمی‌نشیند. فروش یکبارۀ دارایی می‌تواند متوسط را مخدوش کند؛ بازپرداخت بدهی خارج از این تعریف است و باید در پیش‌بینی لحاظ شود."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "explicit-product-operationalization-of-source-concept",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

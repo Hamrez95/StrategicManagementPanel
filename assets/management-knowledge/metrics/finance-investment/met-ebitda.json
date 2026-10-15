@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "id": "MET-EBITDA",
+  "name": "سود پیش از بهره، مالیات و استهلاک",
+  "aliases": [
+    "Earnings before interest taxes depreciation and amortization"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "definition": "EBIT با افزودن استهلاک مشهود و نامشهودِ منظورشده در سود.",
+  "formula": "ebit + depreciation_expense_in_net_income + amortization_expense_in_net_income",
+  "formula_variables": {
+    "ebit": "MET-EBIT با آشتی سود خالص",
+    "depreciation_expense_in_net_income": "استهلاک دارایی مشهودِ منظورشده در سود خالص؛ بدون دوباره‌شماری",
+    "amortization_expense_in_net_income": "استهلاک نامشهودِ منظورشده در سود خالص؛ بدون دوباره‌شماری"
+  },
+  "unit": "currency",
+  "direction": "higher-usually-better",
+  "interpretation": "با دوره، واحد، دامنه و روش یکسان مقایسه شود؛ مقدار مثبت به‌تنهایی دستور سرمایه‌گذاری نیست.",
+  "why_it_matters": "برای فهم اثر این هزینه‌های حسابداری مکمل است.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [
+    "MET-EBIT"
+  ],
+  "required_inputs": [
+    "ebit",
+    "depreciation_expense_in_net_income",
+    "amortization_expense_in_net_income"
+  ],
+  "optional_inputs": [
+    "reconciliation",
+    "cash_capex"
+  ],
+  "data_sources": [
+    "صورت مالی و دفتر کل قابل آشتی",
+    "بودجه/سناریوی دارای مالک و تاریخ",
+    "قرارداد و برآورد هزینه مستند"
+  ],
+  "typical_owner": "مدیر مالی با مالک سرمایه‌گذاری",
+  "update_frequency": "quarterly-after-close",
+  "warnings": [
+    "داده ناموجود صفر نیست؛ ارز، دوره و دامنه یکسان لازم است.",
+    "معیار غیر GAAP است؛ تعدیل سهام تشویقی یا اقلام دیگر EBITDA ساده نیست و باید نام و آشتی جدا داشته باشد."
+  ],
+  "limitations": [
+    "هزینه جایگزینی دارایی، سرمایه در گردش، مالیات نقدی و بازپرداخت بدهی را اندازه نمی‌گیرد؛ نقد آزاد نیست."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "آستانۀ عمومی عددی تأیید نشده؛ هزینه سرمایه، ظرفیت و هدف با شواهد و تأیید مالک تعیین می‌شوند.",
+  "related_metrics": [
+    "MET-OPERATING-CASH-FLOW",
+    "MET-FREE-CASH-FLOW"
+  ],
+  "recommended_actions": [
+    {
+      "action": "EBITDA را همراه جریان نقد و مخارج سرمایه‌ای بررسی کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-INVESTMENT-sec-ebit"
+  ],
+  "explanation": {
+    "quick": "EBIT با افزودن استهلاک مشهود و نامشهودِ منظورشده در سود.",
+    "learn": "EBIT=۳۰، استهلاک مشهود=۷ و نامشهود=۳، EBITDA=۴۰ است.",
+    "deep_dive": "معیار غیر GAAP است؛ تعدیل سهام تشویقی یا اقلام دیگر EBITDA ساده نیست و باید نام و آشتی جدا داشته باشد. هزینه جایگزینی دارایی، سرمایه در گردش، مالیات نقدی و بازپرداخت بدهی را اندازه نمی‌گیرد؛ نقد آزاد نیست."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-explicit-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "MET-CAC-PAYBACK",
+  "name": "دوره بازگشت CAC بر پایۀ حاشیه ناخالص",
+  "aliases": [
+    "CAC payback"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "saas",
+    "subscription",
+    "repeat-purchase-with-cohort-data"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "تقریب زمان بازیافت هزینه جذب با حاشیه ثابت.",
+  "formula": "cac / monthly_gross_profit_per_acquired_customer",
+  "formula_variables": {
+    "cac": "CAC کوهورت متناظر",
+    "monthly_gross_profit_per_acquired_customer": "حاشیه ناخالص ماهانه به ازای مشتری جذب‌شده، مثبت"
+  },
+  "unit": "months",
+  "direction": "lower-usually-better",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "فشار سرمایه لازم برای رشد را روشن می‌کند.",
+  "leading_or_lagging": "leading-conditional",
+  "dependencies": [
+    "MET-CAC"
+  ],
+  "required_inputs": [
+    "cac",
+    "monthly_gross_profit_per_acquired_customer"
+  ],
+  "optional_inputs": [
+    "cohort_margin_series",
+    "churn",
+    "upfront_collection"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "محاسبۀ معتبر با حاشیه مثبت؛ اگر متغیر است نخستین ماه تجمع حاشیه کوهورت ≥ CAC را به‌کار ببرید. ریزش باید لحاظ شود."
+  ],
+  "limitations": [
+    "زمان بازیافت اقتصادی با زمان وصول پیش‌پرداخت یکی نیست؛ وصول سالانه مسئله تعهد خدمت دارد."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-CAC",
+    "MET-LTV",
+    "MET-CASH-RUNWAY"
+  ],
+  "recommended_actions": [
+    {
+      "action": "محاسبۀ کوهورت تجمعی را با جریان نقد و runway مقایسه کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-saas-metrics"
+  ],
+  "explanation": {
+    "quick": "تقریب زمان بازیافت هزینه جذب با حاشیه ثابت.",
+    "learn": "CAC=۳۰ و حاشیه ماهانه ثابت ۵، تقریب شش ماه است.",
+    "deep_dive": "محاسبۀ معتبر با حاشیه مثبت؛ اگر متغیر است نخستین ماه تجمع حاشیه کوهورت ≥ CAC را به‌کار ببرید. ریزش باید لحاظ شود. زمان بازیافت اقتصادی با زمان وصول پیش‌پرداخت یکی نیست؛ وصول سالانه مسئله تعهد خدمت دارد."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

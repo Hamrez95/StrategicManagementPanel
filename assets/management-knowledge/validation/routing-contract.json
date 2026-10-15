@@ -1,0 +1,15 @@
+{
+ "schema_version":"0.1.0","status":"offline_fixture_contract_only",
+ "journey_policy":{"startup_stages":["idea","discovery","validation","early-traction","growth","scale"],"organization_stages":["operating","mature"],"unknown":"ask_search_vs_execution","cash_interrupt":"RULE-CASH-TRIAGE"},
+ "candidates":[
+  {"rule":"RULE-DISCOVERY","questions":["customer_problem_hypothesis"],"metrics":[]},
+  {"rule":"RULE-RETENTION-BEFORE-SCALE","questions":["cohort_definition","observation_window"],"metrics":["MET-COHORT-RETENTION","MET-CAC","MET-CONTRIBUTION-MARGIN"]},
+  {"rule":"RULE-ECOM-ECONOMICS","questions":["variable_cost_policy"],"metrics":["MET-CONTRIBUTION-MARGIN"],"conditional_metrics":[{"metric":"MET-CASH-CONVERSION-CYCLE","when":{"field":"inventory_owned","op":"eq","value":true}}]},
+  {"rule":"RULE-SERVICE-MARGIN","questions":["project_scope","delivery_costs"],"metrics":["MET-CONTRIBUTION-MARGIN","MET-OPERATING-MARGIN"]},
+  {"rule":"RULE-INVENTORY-DIAGNOSIS","questions":["item_movements","stockouts"],"metrics":["MET-DIO","MET-THROUGHPUT","MET-DEFECT-RATE"]},
+  {"rule":"RULE-EXECUTION-ALIGNMENT","questions":["strategic_priority","initiative_capacity"],"metrics":[]},
+  {"rule":"RULE-CASH-TRIAGE","questions":["unrestricted_cash","dated_obligations"],"metrics":["MET-OPERATING-CASH-FLOW","MET-CASH-RUNWAY"]},
+  {"rule":"RULE-AI-OVERSIGHT","questions":["use_context","oversight_owner"],"metrics":[]}
+ ],
+ "notes":["These question budgets are proposed constraints, not a measured optimal UX.","Metrics identify investigation candidates; calculations still require their own input contracts.","Missing condition fields defer that rule; no match does not mean a healthy business."]
+}

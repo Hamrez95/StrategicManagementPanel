@@ -1,0 +1,407 @@
+{
+  "schema_version": "0.1.0",
+  "condition_semantics": {
+    "operators": [
+      "eq"
+    ],
+    "all": "All conditions true; any false => not applicable; otherwise unknown.",
+    "null": "Explicit null or absent input is unknown, never false, zero or healthy.",
+    "priority": "Cash triage interrupts routine candidates; priority is editorial, not scientific severity."
+  },
+  "rules": [
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-DISCOVERY",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "idea"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "evidence": [
+        "customer_problem_hypothesis",
+        "recent_customer_observation"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "A mandated technical feasibility study may precede customer testing; document why."
+      ],
+      "recommended_action": "ACT-DISCOVERY",
+      "explanation": "A proposed model has not yet been supported by observed customer behavior.",
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS"
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "experiment"
+      ],
+      "human_review_required": true
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-RETENTION-BEFORE-SCALE",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "scale_acquisition_requested",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "retention_evidence",
+            "op": "eq",
+            "value": "insufficient"
+          }
+        ]
+      },
+      "evidence": [
+        "cohort_definition",
+        "value_event",
+        "observation_window",
+        "cash_risk"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "Seasonal or one-time-value businesses need a different repeatability test.",
+        "A deliberately capped experiment may be justified with a risk budget."
+      ],
+      "recommended_action": "ACT-RETENTION-BEFORE-SCALE",
+      "explanation": "Retention evidence is insufficient to justify a large irreversible acquisition commitment.",
+      "frameworks": [
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "experiment"
+      ],
+      "human_review_required": true
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-ECOM-ECONOMICS",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "ecommerce"
+          },
+          {
+            "field": "stage",
+            "op": "eq",
+            "value": "growth"
+          },
+          {
+            "field": "contribution_visibility",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "evidence": [
+        "order_net_revenue",
+        "returns",
+        "variable_cost_policy"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "A temporary loss-leader experiment may have an explicit capped purpose and review date."
+      ],
+      "recommended_action": "ACT-ECOM-ECONOMICS",
+      "explanation": "Top-line growth alone does not identify whether incremental orders improve economics.",
+      "frameworks": [
+        "FRM-FINANCE-COHORT-UNIT-ECONOMICS"
+      ],
+      "sources": [
+        "SRC-FINANCE-contribution",
+        "SRC-FINANCE-working-capital"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "insight"
+      ],
+      "human_review_required": true,
+      "source_scope": "Sources support the financial/operational concepts; exact trigger, urgency and investigation remain product-authored."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-SERVICE-MARGIN",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "profitability_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "project_scope",
+        "realized_revenue",
+        "delivery_costs",
+        "overrun_records"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "If cash commitments are at immediate risk, cash triage takes precedence."
+      ],
+      "recommended_action": "ACT-SERVICE-MARGIN",
+      "explanation": "Low profit has several plausible causes; hiring or price increases cannot be inferred from one ratio.",
+      "frameworks": [
+        "FRM-FINANCE-PROFIT-CASH-BRIDGE"
+      ],
+      "sources": [
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-contribution"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "insight"
+      ],
+      "human_review_required": true,
+      "source_scope": "Sources support the financial/operational concepts; exact trigger, urgency and investigation remain product-authored."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-INVENTORY-DIAGNOSIS",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "archetype",
+            "op": "eq",
+            "value": "manufacturing"
+          },
+          {
+            "field": "inventory_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "item_movements",
+        "stockouts",
+        "quality_holds",
+        "lead_time"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "Critical safety stock and supply resilience require a separate risk review."
+      ],
+      "recommended_action": "ACT-INVENTORY-DIAGNOSIS",
+      "explanation": "An aggregate inventory total cannot distinguish availability problems from obsolete stock.",
+      "frameworks": [
+        "OPS-LEAN-THINKING",
+        "OPS-DMAIC"
+      ],
+      "sources": [
+        "SRC-OPS-LEI-THINKING",
+        "SRC-OPS-LEI-OPERATIONS",
+        "SRC-CORE-ASQ-GLOSSARY"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "action"
+      ],
+      "human_review_required": true,
+      "source_scope": "Sources support the financial/operational concepts; exact trigger, urgency and investigation remain product-authored."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-EXECUTION-ALIGNMENT",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "operating",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "strategy_execution_problem",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "strategic_priority",
+        "initiative_capacity",
+        "decision_owner"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "A coherent funded strategy can still fail because its market hypothesis is wrong; review customer evidence."
+      ],
+      "recommended_action": "ACT-EXECUTION-ALIGNMENT",
+      "explanation": "Execution problems can reflect unclear choices and capacity conflicts rather than a lack of KPIs.",
+      "frameworks": [
+        "FW-HOSHIN"
+      ],
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN",
+        "SRC-CORE-KAPLAN-PARTNERING"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "initiative"
+      ],
+      "human_review_required": true
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-CASH-TRIAGE",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "cash_obligation_at_risk",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "unrestricted_cash",
+        "dated_obligations",
+        "collections_forecast"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "Do not infer legal insolvency or automatically stop payments from this heuristic."
+      ],
+      "recommended_action": "ACT-CASH-TRIAGE",
+      "explanation": "Dated liquidity obligations need timely review before a longer strategy exercise.",
+      "frameworks": [
+        "FRM-FINANCE-PROFIT-CASH-BRIDGE"
+      ],
+      "sources": [
+        "SRC-FINANCE-ias-7",
+        "SRC-FINANCE-sec-statements",
+        "SRC-FINANCE-runway"
+      ],
+      "priority": 100,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "risk"
+      ],
+      "human_review_required": true,
+      "source_scope": "Sources support the financial/operational concepts; exact trigger, urgency and investigation remain product-authored."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "RULE-AI-OVERSIGHT",
+      "epistemic_status": "product_heuristic_not_source_prescription",
+      "conditions": {
+        "all": [
+          {
+            "field": "material_ai_decision",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "ai_evaluation_status",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "evidence": [
+        "use_context",
+        "evaluation_results",
+        "oversight_owner"
+      ],
+      "confidence": {
+        "minimum_for_candidate": "low",
+        "action_gate": "A candidate is an investigation prompt; obtain required evidence before a material commitment.",
+        "model": "evidence/confidence-model.md"
+      },
+      "exceptions": [
+        "A contained non-production experiment can proceed under an explicit evaluation protocol."
+      ],
+      "recommended_action": "ACT-AI-OVERSIGHT",
+      "explanation": "Material decision support lacks evidence of suitability in its intended context.",
+      "frameworks": [
+        "FW-NIST-AIRMF"
+      ],
+      "sources": [
+        "SRC-CORE-NIST-AIRMF"
+      ],
+      "priority": 20,
+      "unknown_behavior": "defer_and_request_only_missing_condition_fields",
+      "outputs": [
+        "risk"
+      ],
+      "human_review_required": true
+    }
+  ]
+}

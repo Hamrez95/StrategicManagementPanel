@@ -1,0 +1,231 @@
+{
+  "schema_version": "0.1.0",
+  "epistemic_status": "product_synthesis_definitions",
+  "terms": [
+    {
+      "id": "TERM-EVIDENCE",
+      "name": "شاهد",
+      "simple_explanation": "اطلاعات قابل بررسی درباره یک ادعا.",
+      "professional_definition": "Observation with provenance and context that can support or refute a claim.",
+      "formula": null,
+      "example": "مصاحبه درباره آخرین خرید، شاهد تجربه همان فرد است.",
+      "related_concepts": [
+        "claim",
+        "confidence"
+      ],
+      "common_confusion": "تعداد نقل‌قول، معادل شیوع در بازار نیست.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "explanation": {
+        "quick": "اطلاعات قابل بررسی درباره یک ادعا.",
+        "learn": "Observation with provenance and context that can support or refute a claim.",
+        "deep_dive": "مصاحبه درباره آخرین خرید، شاهد تجربه همان فرد است. تعداد نقل‌قول، معادل شیوع در بازار نیست."
+      }
+    },
+    {
+      "id": "TERM-CONFIDENCE",
+      "name": "اطمینان",
+      "simple_explanation": "چقدر شواهد این ادعا برای این تصمیم قابل اتکاست.",
+      "professional_definition": "Explainable editorial judgment about claim support; not a probability in this product.",
+      "formula": null,
+      "example": "داده مستقیم اما از نمونه کوچک ممکن است Low باشد.",
+      "related_concepts": [
+        "evidence"
+      ],
+      "common_confusion": "اعتبار نویسنده با اطمینان به نتیجه شرکت یکی نیست.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "explanation": {
+        "quick": "چقدر شواهد این ادعا برای این تصمیم قابل اتکاست.",
+        "learn": "Explainable editorial judgment about claim support; not a probability in this product.",
+        "deep_dive": "داده مستقیم اما از نمونه کوچک ممکن است Low باشد. اعتبار نویسنده با اطمینان به نتیجه شرکت یکی نیست."
+      }
+    },
+    {
+      "id": "TERM-STAGE",
+      "name": "مرحله کسب‌وکار",
+      "simple_explanation": "نوع عدم قطعیتی که اکنون باید رفع شود.",
+      "professional_definition": "Product-defined lifecycle descriptor per venture and segment, independent of headcount.",
+      "formula": null,
+      "example": "سازمان بزرگ می‌تواند برای محصول تازه در discovery باشد.",
+      "related_concepts": [
+        "maturity"
+      ],
+      "common_confusion": "تعداد کارکنان مرحله را ثابت نمی‌کند.",
+      "sources": [
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "explanation": {
+        "quick": "نوع عدم قطعیتی که اکنون باید رفع شود.",
+        "learn": "Product-defined lifecycle descriptor per venture and segment, independent of headcount.",
+        "deep_dive": "سازمان بزرگ می‌تواند برای محصول تازه در discovery باشد. تعداد کارکنان مرحله را ثابت نمی‌کند."
+      }
+    },
+    {
+      "id": "TERM-MATURITY",
+      "name": "بلوغ قابلیت",
+      "simple_explanation": "چقدر یک کار مدیریتی قابل تکرار و بازبینی است.",
+      "professional_definition": "Descriptive capability profile; no validated universal score is supplied.",
+      "formula": null,
+      "example": "فرایند فروش تکرارپذیر ولی پیش‌بینی نقد هنوز ad hoc است.",
+      "related_concepts": [
+        "stage"
+      ],
+      "common_confusion": "یک میانگین عددی لزوماً ظرفیت واقعی را نشان نمی‌دهد.",
+      "sources": [
+        "SRC-CORE-OECD-OSLO-CAPABILITIES"
+      ],
+      "explanation": {
+        "quick": "چقدر یک کار مدیریتی قابل تکرار و بازبینی است.",
+        "learn": "Descriptive capability profile; no validated universal score is supplied.",
+        "deep_dive": "فرایند فروش تکرارپذیر ولی پیش‌بینی نقد هنوز ad hoc است. یک میانگین عددی لزوماً ظرفیت واقعی را نشان نمی‌دهد."
+      }
+    },
+    {
+      "id": "TERM-PMF",
+      "name": "تناسب محصول و بازار",
+      "simple_explanation": "شواهد کافی از ارزش و تقاضای پایدار در یک بازار مشخص.",
+      "professional_definition": "Context-sensitive commercial evidence, not a universal headcount or survey threshold.",
+      "formula": null,
+      "example": "بازگشت و پرداخت تکرارشونده همراه با علت انتخاب مشتری بررسی می‌شود.",
+      "related_concepts": [
+        "retention",
+        "stage"
+      ],
+      "common_confusion": "درآمد اولیه یا یک نظرسنجی به‌تنهایی PMF را قطعی نمی‌کند.",
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "explanation": {
+        "quick": "شواهد کافی از ارزش و تقاضای پایدار در یک بازار مشخص.",
+        "learn": "Context-sensitive commercial evidence, not a universal headcount or survey threshold.",
+        "deep_dive": "بازگشت و پرداخت تکرارشونده همراه با علت انتخاب مشتری بررسی می‌شود. درآمد اولیه یا یک نظرسنجی به‌تنهایی PMF را قطعی نمی‌کند."
+      }
+    },
+    {
+      "id": "TERM-STRATEGY",
+      "name": "استراتژی",
+      "simple_explanation": "انتخاب جهت و کارهایی که برای آن اولویت می‌گیرند.",
+      "professional_definition": "A coherent set of choices connecting context, positioning and resource commitments.",
+      "formula": null,
+      "example": "برای یک بخش مشتری سرمایه‌گذاری می‌کنیم و بخش دیگر را فعلاً کنار می‌گذاریم.",
+      "related_concepts": [
+        "tradeoff",
+        "initiative"
+      ],
+      "common_confusion": "فهرست هدف‌های مطلوب به‌تنهایی استراتژی نیست.",
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN"
+      ],
+      "explanation": {
+        "quick": "انتخاب جهت و کارهایی که برای آن اولویت می‌گیرند.",
+        "learn": "A coherent set of choices connecting context, positioning and resource commitments.",
+        "deep_dive": "برای یک بخش مشتری سرمایه‌گذاری می‌کنیم و بخش دیگر را فعلاً کنار می‌گذاریم. فهرست هدف‌های مطلوب به‌تنهایی استراتژی نیست."
+      }
+    },
+    {
+      "id": "TERM-KPI",
+      "name": "شاخص کلیدی عملکرد",
+      "simple_explanation": "معیاری که برای یک نتیجه و تصمیم مشخص مهم است.",
+      "professional_definition": "Selected measure tied to an objective, owner, scope, time and review action.",
+      "formula": null,
+      "example": "حاشیه پروژه با baseline و مالک بررسی می‌شود.",
+      "related_concepts": [
+        "metric",
+        "outcome"
+      ],
+      "common_confusion": "هر عدد داشبورد KPI نیست.",
+      "sources": [
+        "SRC-CORE-KAPLAN-PARTNERING"
+      ],
+      "explanation": {
+        "quick": "معیاری که برای یک نتیجه و تصمیم مشخص مهم است.",
+        "learn": "Selected measure tied to an objective, owner, scope, time and review action.",
+        "deep_dive": "حاشیه پروژه با baseline و مالک بررسی می‌شود. هر عدد داشبورد KPI نیست."
+      }
+    },
+    {
+      "id": "TERM-CASH-VS-PROFIT",
+      "name": "نقد در برابر سود",
+      "simple_explanation": "سود و پول قابل پرداخت یک چیز نیستند.",
+      "professional_definition": "Accrual performance and cash availability have different timing and recognition.",
+      "formula": null,
+      "example": "فروش نسیه می‌تواند سود ایجاد کند ولی هنوز وصول نشده باشد.",
+      "related_concepts": [
+        "working-capital"
+      ],
+      "common_confusion": "سود مثبت خطر کمبود نقد را حذف نمی‌کند.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "explanation": {
+        "quick": "سود و پول قابل پرداخت یک چیز نیستند.",
+        "learn": "Accrual performance and cash availability have different timing and recognition.",
+        "deep_dive": "فروش نسیه می‌تواند سود ایجاد کند ولی هنوز وصول نشده باشد. سود مثبت خطر کمبود نقد را حذف نمی‌کند."
+      }
+    },
+    {
+      "id": "TERM-RETENTION",
+      "name": "ماندگاری",
+      "simple_explanation": "بازگشت یا ادامه رابطه یک گروه مشخص در بازه معلوم.",
+      "professional_definition": "A family of cohort-based measures; event, eligibility, time and unit must be explicit.",
+      "formula": null,
+      "example": "Return-on روز ۳۰ با return-on-or-after روز ۳۰ فرق دارد.",
+      "related_concepts": [
+        "cohort"
+      ],
+      "common_confusion": "ماندگاری درآمد و کاربر قابل جایگزینی نیستند.",
+      "sources": [
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "explanation": {
+        "quick": "بازگشت یا ادامه رابطه یک گروه مشخص در بازه معلوم.",
+        "learn": "A family of cohort-based measures; event, eligibility, time and unit must be explicit.",
+        "deep_dive": "Return-on روز ۳۰ با return-on-or-after روز ۳۰ فرق دارد. ماندگاری درآمد و کاربر قابل جایگزینی نیستند."
+      }
+    },
+    {
+      "id": "TERM-BOTTLENECK",
+      "name": "گلوگاه",
+      "simple_explanation": "محدودیتی که در مرز تعریف‌شده جریان خروجی را محدود می‌کند.",
+      "professional_definition": "A hypothesized limiting constraint requiring process evidence before intervention.",
+      "formula": null,
+      "example": "صف جلوی یک فرایند باید با ظرفیت و تقاضای آن بررسی شود.",
+      "related_concepts": [
+        "throughput"
+      ],
+      "common_confusion": "شلوغ‌ترین فرد همیشه گلوگاه کل سیستم نیست.",
+      "sources": [
+        "SRC-CORE-LEI-HOSHIN"
+      ],
+      "explanation": {
+        "quick": "محدودیتی که در مرز تعریف‌شده جریان خروجی را محدود می‌کند.",
+        "learn": "A hypothesized limiting constraint requiring process evidence before intervention.",
+        "deep_dive": "صف جلوی یک فرایند باید با ظرفیت و تقاضای آن بررسی شود. شلوغ‌ترین فرد همیشه گلوگاه کل سیستم نیست."
+      }
+    },
+    {
+      "id": "TERM-NO-ACTION",
+      "name": "عدم اقدام آگاهانه",
+      "simple_explanation": "فعلاً تغییری نمی‌دهیم و دلیل و زمان بازبینی را ثبت می‌کنیم.",
+      "professional_definition": "Explicit reviewed disposition when evidence or expected net value does not justify intervention.",
+      "formula": null,
+      "example": "برای داده کم‌نمونه منتظر تکمیل پنجره مشاهده می‌مانیم.",
+      "related_concepts": [
+        "decision",
+        "evidence"
+      ],
+      "common_confusion": "عدم اقدام با فراموش‌کردن مسئله یکسان نیست.",
+      "sources": [
+        "SRC-CORE-CIPD-EVIDENCE"
+      ],
+      "explanation": {
+        "quick": "فعلاً تغییری نمی‌دهیم و دلیل و زمان بازبینی را ثبت می‌کنیم.",
+        "learn": "Explicit reviewed disposition when evidence or expected net value does not justify intervention.",
+        "deep_dive": "برای داده کم‌نمونه منتظر تکمیل پنجره مشاهده می‌مانیم. عدم اقدام با فراموش‌کردن مسئله یکسان نیست."
+      }
+    }
+  ]
+}

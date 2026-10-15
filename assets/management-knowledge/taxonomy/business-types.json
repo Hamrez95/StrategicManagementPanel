@@ -1,0 +1,21 @@
+{
+  "schema_version":"0.1.0","epistemic_status":"product_synthesis",
+  "classification_policy":"Multi-axis and multi-value; unit of classification is a business unit. Unknown stays unknown; headcount cannot infer lifecycle or PMF.",
+  "axes":{
+    "customer":["b2b","b2c","b2g","mixed","unknown"],
+    "delivery":["software","physical_goods","professional_service","manufacturing","marketplace","mixed","unknown"],
+    "revenue_model":["subscription","transaction","commission","project","usage","advertising","licensing","mixed","unknown"],
+    "motion":["product_led","sales_led","marketing_led","partner_led","mixed","unknown"],
+    "ownership":["independent","group_member","public","nonprofit","unknown"],
+    "operating_state":["normal","distress","turnaround","transformation","unknown"]
+  },
+  "archetypes":[
+    {"id":"saas","requires":{"delivery":"software","revenue_model":"subscription"},"exclude_metrics_without_evidence":["inventory_days"]},
+    {"id":"ecommerce","requires":{"delivery":"physical_goods"},"clarification":"Owned inventory versus dropship versus marketplace changes working capital and revenue recognition."},
+    {"id":"service","requires":{"delivery":"professional_service"},"clarification":"Project and recurring services require different cohort and margin definitions."},
+    {"id":"manufacturing","requires":{"delivery":"manufacturing"},"clarification":"Engineer-to-order and make-to-stock differ; capacity is not interchangeable."},
+    {"id":"marketplace","requires":{"delivery":"marketplace"},"clarification":"Track both sides; gross merchandise value is not automatically accounting revenue."}
+  ],
+  "size":{"employee_count":"nonnegative integer or null","turnover":"amount, currency, period, accounting basis or null","sme_label":"Only from a named jurisdiction-specific definition; do not infer from 50/250 thresholds globally."},
+  "sources":["SRC-CORE-OECD-OSLO-CAPABILITIES"]
+}

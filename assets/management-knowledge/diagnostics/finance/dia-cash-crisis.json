@@ -1,0 +1,172 @@
+{
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature"
+  ],
+  "provenance": "product-authored-diagnostic-heuristic-informed-by-financial-identities",
+  "causality_policy": "شاخه‌ها فرضیه و سهم حسابداری را نشان می‌دهند؛ علت رفتاری فقط با شواهد مستقل، ترتیب زمانی و کنترل توضیح‌های رقیب پذیرفته شود.",
+  "missing_data_policy": "داده ناموجود=unknown؛ شاخه رد یا تأیید نشود؛ داده لازم و مالک جمع‌آوری نمایش داده شود.",
+  "confidence_policy": "بدون امتیاز اطمینان مصنوعی؛ شواهد ثبت‌شده، ناسازگاری و محدودیت‌ها بیان شوند.",
+  "last_reviewed": "2026-10-15",
+  "id": "DIA-CASH-CRISIS",
+  "name": "بررسی کسری و بحران نقد",
+  "trigger": "پیش‌بینی تاریخ‌دار نشان می‌دهد موجودی قابل استفاده از حداقل مصوب کمتر می‌شود یا پرداخت سررسیدشده پوشش ندارد.",
+  "entry_node": "cash-integrity",
+  "metric_refs": [
+    "MET-NET-BURN",
+    "MET-CASH-RUNWAY",
+    "MET-OPERATING-CASH-FLOW",
+    "MET-FREE-CASH-FLOW",
+    "MET-DSO",
+    "MET-DIO",
+    "MET-DPO"
+  ],
+  "sources": [
+    "SRC-FINANCE-ias-7",
+    "SRC-FINANCE-working-capital",
+    "SRC-FINANCE-burn",
+    "SRC-FINANCE-runway"
+  ],
+  "nodes": [
+    {
+      "id": "cash-integrity",
+      "question": "نقد قابل استفاده و پرداخت‌های قطعی با بانک تطبیق شده‌اند؟",
+      "required_evidence": [
+        "صورت بانک",
+        "نقد مسدود/محدود",
+        "سررسید حقوق، مالیات، بدهی و تأمین‌کننده"
+      ],
+      "branches": [
+        {
+          "condition": "پوشش پرداخت نزدیک ناکافی است",
+          "next_node": "urgent-review",
+          "evidence_to_test": [
+            "تقویم پرداخت و نقد آزاد تاریخ‌دار"
+          ],
+          "action": "مالک مالی و مدیر مجاز فوراً برنامه نقد و تصمیم‌های قابل اجرا را مرور کنند؛ تعهد حقوقی بدون بررسی تغییر نکند.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "داده کامل، کسری فقط در سناریوی آتی",
+          "next_node": "cash-bridge",
+          "evidence_to_test": [
+            "پیش‌بینی تاریخ‌دار پایه و بدبینانه"
+          ],
+          "action": "اجزای مصرف نقد را آشتی دهید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "موجودی تخمینی را قطعی نشان ندهید؛ تطبیق بانک و تقویم تعهد را در اولویت قرار دهید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "cash-bridge",
+      "question": "کدام جریان مصرف نقد را توضیح می‌دهد؟",
+      "required_evidence": [
+        "دریافت/پرداخت عملیاتی",
+        "سرمایه‌گذاری",
+        "تأمین مالی",
+        "اقلام یکباره"
+      ],
+      "branches": [
+        {
+          "condition": "عملیات نقد منفی دارد",
+          "next_node": "working-capital",
+          "evidence_to_test": [
+            "پل سود تا نقد و عمر مطالبات"
+          ],
+          "action": "افت حاشیه و جذب سرمایه در گردش را جدا بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "عملیات مثبت، سرمایه‌گذاری/بدهی نقد مصرف می‌کند",
+          "next_node": "commitment-review",
+          "evidence_to_test": [
+            "مخارج سرمایه‌ای",
+            "برنامۀ اصل بدهی و تعهدات"
+          ],
+          "action": "زمان‌بندی و اختیار تغییر تعهدات را با مالک مجاز بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "پیش‌بینی به تأمین مالی تعهدنشده متکی است",
+          "next_node": "funding-risk",
+          "evidence_to_test": [
+            "تعهد کتبی، شروط برداشت و تاریخ واریز"
+          ],
+          "action": "سناریوی بدون آن تأمین مالی را محاسبه کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "تغییر کل مانده بانک به‌تنهایی نوع مصرف را تعیین نمی‌کند؛ جریان‌ها را طبقه‌بندی کنید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "working-capital",
+      "question": "نقد در وصول، موجودی یا کاهش مهلت تأمین‌کننده جذب شده است؟",
+      "required_evidence": [
+        "DSO و عمر فاکتور",
+        "DIO و موجودی کندگردش",
+        "DPO و قراردادها"
+      ],
+      "branches": [
+        {
+          "condition": "مطالبات دیرتر وصول شده",
+          "next_node": "collections-review",
+          "evidence_to_test": [
+            "فاکتور سررسیدگذشته، اختلاف و وعده وصول"
+          ],
+          "action": "فهرست وصول تاریخ‌دار با احتمال و مالک تهیه کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "موجودی افزایش یافته",
+          "next_node": "inventory-review",
+          "evidence_to_test": [
+            "سن موجودی و نیاز خدمت"
+          ],
+          "action": "نقد قابل آزادسازی را همراه هزینه و ریسک خدمت تخمین بزنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "پرداخت سریع‌تر یا بدهی معوق وجود دارد",
+          "next_node": "supplier-review",
+          "evidence_to_test": [
+            "سررسید قراردادی و جرائم"
+          ],
+          "action": "گزینۀ مذاکره را با اثر تأمین و مجوز بررسی کنید؛ پرداخت را خودکار متوقف نکنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "کاهش نقد را به ضعف وصول نسبت ندهید؛ جزئیات عمر مطالبات و موجودی را بگیرید.",
+        "stop_causal_conclusion": true
+      }
+    }
+  ],
+  "terminal_outcomes": [
+    "urgent-review",
+    "commitment-review",
+    "funding-risk",
+    "collections-review",
+    "inventory-review",
+    "supplier-review"
+  ],
+  "limitations": [
+    "runway ثابت جای پیش‌بینی پرداخت‌های تاریخ‌دار را نمی‌گیرد.",
+    "پیش‌بینی نقد مشاورۀ حقوقی ورشکستگی یا ضمانت تأمین مالی نیست."
+  ],
+  "schema_version": "1.0.0"
+}

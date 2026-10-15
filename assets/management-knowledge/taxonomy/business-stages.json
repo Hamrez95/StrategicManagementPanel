@@ -1,0 +1,646 @@
+{
+  "schema_version": "1.0.0",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_backed_product_synthesis",
+  "validation_status": "requires_domain_expert_and_user_validation",
+  "id": "TAX-BUSINESS-STAGES",
+  "classification_scope": "business_model_segment_or_venture_not_necessarily_whole_company",
+  "definition": "Stage describes the dominant commercial uncertainty and work required, not employee count or a universal timeline.",
+  "orthogonal_dimensions": [
+    "company_size",
+    "capability_maturity",
+    "performance_trend",
+    "intervention_state",
+    "funding_state"
+  ],
+  "universal_thresholds": false,
+  "stage_assignment": {
+    "inputs": [
+      "Customer/problem evidence",
+      "Value-delivery observations",
+      "Repeatability and cohort evidence",
+      "Economics/cash evidence",
+      "Replication readiness"
+    ],
+    "output_fields": [
+      "stage_id",
+      "status",
+      "evidence_refs",
+      "scope",
+      "review_date",
+      "rationale",
+      "contradictions"
+    ],
+    "status_values": [
+      "provisional",
+      "supported",
+      "conflicted",
+      "unknown"
+    ],
+    "rules": [
+      "Evidence outranks self-declared stage; disagreement remains visible.",
+      "Unknown evidence does not mean the business failed a stage.",
+      "Assign per material business model or segment when one company contains several stages.",
+      "Manual override requires reason, reviewer and expiry; it does not create missing evidence."
+    ]
+  },
+  "stages": [
+    {
+      "id": "idea",
+      "name": "Idea",
+      "name_fa": "ایده",
+      "definition": "A candidate opportunity exists, with customer, problem and value claims still largely untested.",
+      "entry_criteria": [
+        "An opportunity or technology hypothesis is named; no external validation is presumed."
+      ],
+      "exit_criteria": [
+        "One initial customer/problem hypothesis and its riskiest assumption are explicit.",
+        "A feasible, permitted route to contact relevant customers is identified."
+      ],
+      "typical_problems": [
+        "Solution-first enthusiasm",
+        "Unbounded target market"
+      ],
+      "primary_risks": [
+        "Building for a nonexistent or low-priority problem",
+        "Unidentified feasibility or permission barrier"
+      ],
+      "primary_management_priorities": [
+        "Choose an initial segment and learning objective",
+        "Separate assumptions from evidence"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Treating a market-size slide as demand proof",
+        "Using funding or company age to assign stage"
+      ],
+      "recommended_actions": [
+        "Write a dated hypothesis and list alternative explanations",
+        "Choose a low-cost learning test before a feature roadmap"
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ],
+      "goals": [
+        "Turn an idea into a falsifiable problem/customer hypothesis"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-OPPORTUNITY"
+      ],
+      "experiments": [
+        "Interview recruitment smoke test; success means reaching relevant people, not proving demand"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Investigate, reframe or stop this opportunity"
+      ],
+      "completion_criteria": [
+        "Initial segment, circumstances and uncertainty are recorded, including unknowns."
+      ],
+      "next_stage_criteria": [
+        "Customer access exists and a discovery plan addresses the highest uncertainty."
+      ],
+      "optional": [
+        "Detailed brand identity",
+        "Long-term product architecture"
+      ],
+      "deferred": [
+        "ROIC and LTV calculations without meaningful operating history"
+      ],
+      "blocking_data": [
+        "Target customer or access route missing for discovery recruitment"
+      ],
+      "non_blocking_data": [
+        "Exact TAM",
+        "Five-year financial forecast"
+      ]
+    },
+    {
+      "id": "discovery",
+      "name": "Discovery",
+      "name_fa": "کشف مسئله و مشتری",
+      "definition": "Customer circumstances, existing alternatives and the significance of the problem are being investigated.",
+      "entry_criteria": [
+        "A target segment and interview/research access route are explicit."
+      ],
+      "exit_criteria": [
+        "Traceable observations support a recurring problem in a defined context, with contradictory cases retained.",
+        "A proposed value hypothesis and experiment are justified by the observations."
+      ],
+      "typical_problems": [
+        "Polite interest mistaken for urgency",
+        "Mixing users, buyers and beneficiaries"
+      ],
+      "primary_risks": [
+        "Leading interviews and selection bias",
+        "Generalizing from friends or a single anecdote"
+      ],
+      "primary_management_priorities": [
+        "Investigate recent behavior and alternatives",
+        "Identify buying actors and constraints"
+      ],
+      "metrics": [],
+      "anti_patterns": [
+        "Counting interviews as proof of demand",
+        "Asking hypothetical willingness-to-pay questions as decisive proof"
+      ],
+      "recommended_actions": [
+        "Research how a recent problem was handled",
+        "Include non-adopters and record counterexamples"
+      ],
+      "sources": [
+        "SRC-STARTUP-CHRISTENSEN-JTBD",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "goals": [
+        "Understand whose problem matters and why current alternatives fail"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-PROBLEM"
+      ],
+      "experiments": [
+        "Recent-event interviews and observation",
+        "Concierge walkthrough of a proposed outcome without implying a finished product"
+      ],
+      "frameworks": [
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Select or change segment/problem",
+        "Test solution value or return to idea"
+      ],
+      "completion_criteria": [
+        "Problem claims have source-linked observations and explicit limitations."
+      ],
+      "next_stage_criteria": [
+        "A solution hypothesis can be tested safely with a relevant segment and predeclared evidence criteria."
+      ],
+      "optional": [
+        "Detailed persona illustration"
+      ],
+      "deferred": [
+        "Acquisition scaling",
+        "Precise retention forecasts"
+      ],
+      "blocking_data": [
+        "No credible observations about a problem for the selected segment"
+      ],
+      "non_blocking_data": [
+        "Fully quantified market share",
+        "Product feature preference ranking"
+      ]
+    },
+    {
+      "id": "validation",
+      "name": "Validation",
+      "name_fa": "اعتبارسنجی راه‌حل و مدل",
+      "definition": "Experiments test whether a proposed offer creates useful outcomes and whether customers will make meaningful commitments.",
+      "entry_criteria": [
+        "Problem evidence and a testable solution/value hypothesis exist."
+      ],
+      "exit_criteria": [
+        "A relevant customer can obtain the intended value through an MVP or permitted prototype.",
+        "Commitment evidence and delivery feasibility are reviewed against predeclared context-specific criteria."
+      ],
+      "typical_problems": [
+        "Confusing sign-ups with payment intent",
+        "Building a comprehensive product before testing its key assumption"
+      ],
+      "primary_risks": [
+        "False positives from subsidies or founder relationships",
+        "Prototype outcomes that cannot be delivered economically"
+      ],
+      "primary_management_priorities": [
+        "Test value, price and delivery assumptions",
+        "Instrument the first meaningful outcome and preserve test limitations"
+      ],
+      "metrics": [
+        "MET-ACTIVATION-RATE",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-CASH-RUNWAY"
+      ],
+      "anti_patterns": [
+        "Declaring PMF from one sale",
+        "Changing the success threshold after seeing results"
+      ],
+      "recommended_actions": [
+        "Run a small, safe MVP/concierge/pilot test",
+        "Distinguish usage, non-binding intent, binding commitment and collected cash"
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-STARTUP-STRATEGYZER-TEST-2015",
+        "SRC-STARTUP-STRATEGYZER-LEARNING-2015",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ],
+      "goals": [
+        "Test problem–solution fit and business-model assumptions"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-VALUE-TEST",
+        "EV-STARTUP-COMMITMENT"
+      ],
+      "experiments": [
+        "Time-boxed outcome pilot",
+        "Price/offer test with an explicit commitment action",
+        "Technical/operational feasibility test when delivery is uncertain"
+      ],
+      "frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-LEAN-STARTUP",
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS"
+      ],
+      "decisions": [
+        "Persevere, pivot, retest inconclusive evidence or stop",
+        "Choose the smallest next delivery commitment"
+      ],
+      "completion_criteria": [
+        "Test observations, interpretation and action are recorded separately.",
+        "Failed and inconclusive tests remain visible."
+      ],
+      "next_stage_criteria": [
+        "Initial customers actually receive value and return/renewal or repeatable adoption can now be observed."
+      ],
+      "optional": [
+        "A/B testing when traffic and identification support it"
+      ],
+      "deferred": [
+        "Large-scale paid acquisition",
+        "Stable long-horizon LTV estimates"
+      ],
+      "blocking_data": [
+        "No value-delivery or customer-commitment observations for the key hypothesis"
+      ],
+      "non_blocking_data": [
+        "Statistically powered A/B result when a safer qualitative/behavioral test is appropriate"
+      ]
+    },
+    {
+      "id": "early-traction",
+      "name": "Early traction",
+      "name_fa": "کشش اولیه",
+      "definition": "Real customers use or buy the offer; repeatability, retention, value and economics remain uncertain.",
+      "entry_criteria": [
+        "Documented customers have received the intended outcome."
+      ],
+      "exit_criteria": [
+        "Retention/renewal or business-model-appropriate repeatability evidence is reviewed by segment/cohort.",
+        "Acquisition and delivery economics and cash requirements have credible observed inputs.",
+        "A bounded growth test has explicit guardrails."
+      ],
+      "typical_problems": [
+        "Aggregate sign-up growth conceals weak value",
+        "Heavy manual effort is omitted from costs"
+      ],
+      "primary_risks": [
+        "Premature scaling",
+        "Cohorts are too recent to reveal failure or renewal"
+      ],
+      "primary_management_priorities": [
+        "Improve value and repeatability",
+        "Measure relevant cohorts and economic drivers"
+      ],
+      "metrics": [
+        "MET-COHORT-RETENTION",
+        "MET-ACTIVATION-RATE",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-CAC",
+        "MET-CASH-RUNWAY"
+      ],
+      "anti_patterns": [
+        "Universal PMF score",
+        "Using funding rounds or headcount as proof",
+        "Demanding repeated purchase from a naturally one-off product"
+      ],
+      "recommended_actions": [
+        "Review retained value, losses and customer reasons together",
+        "Run limited acquisition tests while investigating weak retention"
+      ],
+      "sources": [
+        "SRC-STARTUP-YC-PMF-2016",
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ],
+      "goals": [
+        "Assess segment-specific PMF evidence and repeatable delivery"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-COHORTS",
+        "EV-STARTUP-UNIT-ECONOMICS"
+      ],
+      "experiments": [
+        "Activation friction test",
+        "Churn/renewal reason investigation",
+        "Bounded channel test with spending limit"
+      ],
+      "frameworks": [
+        "FW-STARTUP-LEAN-STARTUP",
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-JOBS-TO-BE-DONE"
+      ],
+      "decisions": [
+        "Continue learning, refine segment, or authorize a bounded growth test",
+        "Assess PMF as supported/contradicted/unknown for a named segment"
+      ],
+      "completion_criteria": [
+        "Observed repeatability and limitations are documented, including cohort age."
+      ],
+      "next_stage_criteria": [
+        "Context-specific demand/value and economics evidence justify controlled growth; no universal benchmark is applied."
+      ],
+      "optional": [
+        "Advanced attribution model"
+      ],
+      "deferred": [
+        "Broad geographic rollout before local assumptions are tested"
+      ],
+      "blocking_data": [
+        "Retention or equivalent repeatability evidence missing when material acquisition expansion is requested",
+        "Cash exposure unknown before spending commitment"
+      ],
+      "non_blocking_data": [
+        "Perfect causal attribution",
+        "Stable LTV when cohorts are immature"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "name_fa": "رشد",
+      "definition": "The company is testing and improving a repeatable acquisition and delivery engine in validated segments.",
+      "entry_criteria": [
+        "A reviewed evidence case supports controlled expansion in a named segment."
+      ],
+      "exit_criteria": [
+        "Multiple measured growth cycles preserve customer outcomes and economic guardrails.",
+        "Capacity, cash and management constraints for broader replication are explicit."
+      ],
+      "typical_problems": [
+        "Marginal channel costs rise",
+        "Service quality deteriorates with volume"
+      ],
+      "primary_risks": [
+        "Channel saturation",
+        "Cash requirements exceed financing",
+        "Evidence from one segment is applied to another"
+      ],
+      "primary_management_priorities": [
+        "Test incremental rather than only blended economics",
+        "Coordinate growth with cash and delivery constraints"
+      ],
+      "metrics": [
+        "MET-REVENUE-GROWTH",
+        "MET-CAC",
+        "MET-CAC-PAYBACK",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-COHORT-RETENTION",
+        "MET-CASH-RUNWAY",
+        "MET-SALES-CYCLE"
+      ],
+      "anti_patterns": [
+        "Growth at any cost",
+        "Assuming historical LTV persists after changing channel or segment"
+      ],
+      "recommended_actions": [
+        "Release growth spending in bounded increments",
+        "Monitor new-cohort quality and cash scenarios together"
+      ],
+      "sources": [
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "goals": [
+        "Expand a proven segment while preserving sustainable value delivery"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-GROWTH-REPLICATION",
+        "EV-STARTUP-CAPACITY"
+      ],
+      "experiments": [
+        "Incremental channel budget test",
+        "Sales process bottleneck test",
+        "Capacity stress pilot within safe service limits"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "decisions": [
+        "Expand, hold or reduce a channel",
+        "Invest in capacity or revisit value proposition"
+      ],
+      "completion_criteria": [
+        "Growth case includes customer value, incremental economics, cash and operational constraints."
+      ],
+      "next_stage_criteria": [
+        "The operating model can be replicated with defined accountabilities and monitored guardrails."
+      ],
+      "optional": [
+        "New product/region exploration as a separate discovery branch"
+      ],
+      "deferred": [
+        "Assuming every business must pursue venture-scale expansion"
+      ],
+      "blocking_data": [
+        "Marginal acquisition/fulfillment costs or material cash constraints unknown for the proposed expansion"
+      ],
+      "non_blocking_data": [
+        "Complete multi-touch attribution"
+      ]
+    },
+    {
+      "id": "scale",
+      "name": "Scale",
+      "name_fa": "مقیاس‌پذیری و توسعه",
+      "definition": "A repeatable operating model is being replicated across greater volume, units or markets with explicit governance and adaptation.",
+      "entry_criteria": [
+        "Repeated growth evidence and operating constraints support a specified replication plan."
+      ],
+      "exit_criteria": [
+        "No universal terminal completion; review whether each replication meets its own customer, economic and control criteria."
+      ],
+      "typical_problems": [
+        "Coordination and decision delays",
+        "Local differences invalidate copied assumptions"
+      ],
+      "primary_risks": [
+        "Control failures or inconsistent service",
+        "Complexity hides unprofitable units",
+        "Overextension"
+      ],
+      "primary_management_priorities": [
+        "Assign accountability for replicated operations",
+        "Preserve feedback and challenge assumptions in new contexts"
+      ],
+      "metrics": [
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-COHORT-RETENTION",
+        "MET-THROUGHPUT",
+        "MET-DEFECT-RATE",
+        "MET-CASH-RUNWAY",
+        "MET-REVENUE-GROWTH"
+      ],
+      "anti_patterns": [
+        "Treating scale as permanently achieved",
+        "Copying a playbook to new geography without validation",
+        "Equating large headcount with mature capabilities"
+      ],
+      "recommended_actions": [
+        "Pilot a new unit/region before broad replication",
+        "Review local exceptions and decision rights; route established operations to organization journey"
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-YC-ADVICE-2017"
+      ],
+      "goals": [
+        "Replicate reliably while retaining learning capacity"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-SCALE-READINESS"
+      ],
+      "experiments": [
+        "Controlled unit/market rollout",
+        "Operational resilience exercise with documented limits"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Replicate, pause, adapt locally or withdraw",
+        "Move stable operations to established-organization review while preserving discovery for new bets"
+      ],
+      "completion_criteria": [
+        "Each rollout has owned outcomes, cash exposure and a review date."
+      ],
+      "next_stage_criteria": [
+        "Stable execution can enter the established-organization journey; innovation can restart at discovery."
+      ],
+      "optional": [
+        "Additional venture exploration"
+      ],
+      "deferred": [
+        "Exit/funding transaction recommendations pending jurisdiction-specific research"
+      ],
+      "blocking_data": [
+        "Undefined accountability or unmeasured material operating risk for a proposed rollout"
+      ],
+      "non_blocking_data": [
+        "Exact employee-size category"
+      ]
+    }
+  ],
+  "classification_tree": {
+    "id": "TREE-STARTUP-STAGE",
+    "status": "product_synthesis_requires_validation",
+    "entry_node": "replication",
+    "unknown_behavior": "Return candidate stages plus missing evidence; do not treat unknown as false or force a lower-stage label.",
+    "assignment_behavior": "A supported leaf is provisional until dependencies, scope, counterevidence and context are reviewed.",
+    "nodes": [
+      {
+        "id": "replication",
+        "input": "replicated_operating_model_evidence",
+        "predicate": "supported_in_scope",
+        "if_true": {
+          "candidate": "scale",
+          "review_evidence": [
+            "EV-STARTUP-SCALE-READINESS"
+          ]
+        },
+        "if_false": "growth_engine",
+        "if_unknown": "collect_evidence"
+      },
+      {
+        "id": "growth_engine",
+        "input": "repeatable_growth_with_guardrails_evidence",
+        "predicate": "supported_in_scope",
+        "if_true": {
+          "candidate": "growth",
+          "review_evidence": [
+            "EV-STARTUP-GROWTH-REPLICATION",
+            "EV-STARTUP-CAPACITY"
+          ]
+        },
+        "if_false": "real_delivery",
+        "if_unknown": "collect_evidence"
+      },
+      {
+        "id": "real_delivery",
+        "input": "real_customers_received_value_evidence",
+        "predicate": "supported_in_scope",
+        "if_true": {
+          "candidate": "early-traction",
+          "review_evidence": [
+            "EV-STARTUP-VALUE-TEST",
+            "EV-STARTUP-COMMITMENT",
+            "EV-STARTUP-COHORTS"
+          ]
+        },
+        "if_false": "value_testing",
+        "if_unknown": "collect_evidence"
+      },
+      {
+        "id": "value_testing",
+        "input": "problem_evidence_and_permitted_value_test",
+        "predicate": "supported_in_scope",
+        "if_true": {
+          "candidate": "validation",
+          "review_evidence": [
+            "EV-STARTUP-PROBLEM",
+            "EV-STARTUP-VALUE-TEST"
+          ]
+        },
+        "if_false": "customer_access",
+        "if_unknown": "collect_evidence"
+      },
+      {
+        "id": "customer_access",
+        "input": "scoped_hypothesis_with_customer_access",
+        "predicate": "supported_in_scope",
+        "if_true": {
+          "candidate": "discovery",
+          "review_evidence": [
+            "EV-STARTUP-OPPORTUNITY",
+            "EV-STARTUP-PROBLEM"
+          ]
+        },
+        "if_false": "opportunity",
+        "if_unknown": "collect_evidence"
+      },
+      {
+        "id": "opportunity",
+        "input": "named_opportunity_hypothesis",
+        "predicate": "present",
+        "if_true": {
+          "candidate": "idea",
+          "review_evidence": [
+            "EV-STARTUP-OPPORTUNITY"
+          ]
+        },
+        "if_false": {
+          "candidate": null,
+          "status": "unclassified",
+          "action": "Clarify venture scope and decision before starting stage questions."
+        },
+        "if_unknown": "collect_evidence"
+      }
+    ],
+    "sources": [
+      "SRC-STARTUP-BLANK-2010",
+      "SRC-STARTUP-RIES-PRINCIPLES",
+      "SRC-STARTUP-MIT-AULET-2024"
+    ],
+    "source_limit": "Sources support underlying search and learning concepts, not this exact tree or its classification validity."
+  }
+}

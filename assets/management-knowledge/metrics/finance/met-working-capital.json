@@ -1,0 +1,84 @@
+{
+  "id": "MET-WORKING-CAPITAL",
+  "name": "سرمایه در گردش خالص حسابداری",
+  "aliases": [
+    "Net working capital"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "تفاضل دارایی و بدهی جاری.",
+  "formula": "current_assets - current_liabilities",
+  "formula_variables": {
+    "current_assets": "دارایی جاری در تاریخ گزارش",
+    "current_liabilities": "بدهی جاری در همان تاریخ"
+  },
+  "unit": "currency",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "تعهدات کوتاه‌مدت را در برابر دارایی جاری قرار می‌دهد.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "current_assets",
+    "current_liabilities"
+  ],
+  "optional_inputs": [
+    "restricted_cash",
+    "receivables_aging",
+    "inventory_quality"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "این تعریف شامل نقد و بدهی جاری است؛ با سرمایه در گردش عملیاتی غیرنقدی در ارزش‌گذاری یکی نیست."
+  ],
+  "limitations": [
+    "ماندۀ مثبت می‌تواند در موجودی کم‌کیفیت یا مطالبات غیرقابل وصول محبوس باشد."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-DSO",
+    "MET-DIO",
+    "MET-DPO"
+  ],
+  "recommended_actions": [
+    {
+      "action": "کیفیت و سررسید اجزا را بررسی کنید، فقط جمع را قضاوت نکنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-working-capital",
+    "SRC-FINANCE-damodaran-wc"
+  ],
+  "explanation": {
+    "quick": "تفاضل دارایی و بدهی جاری.",
+    "learn": "دارایی جاری ۱۵۰ و بدهی جاری ۱۰۰، سرمایه در گردش ۵۰ است.",
+    "deep_dive": "این تعریف شامل نقد و بدهی جاری است؛ با سرمایه در گردش عملیاتی غیرنقدی در ارزش‌گذاری یکی نیست. ماندۀ مثبت می‌تواند در موجودی کم‌کیفیت یا مطالبات غیرقابل وصول محبوس باشد."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

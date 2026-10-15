@@ -1,0 +1,414 @@
+{
+  "schema_version": "0.1.0",
+  "metrics": [
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-COHORT-RETENTION",
+      "name": "Cohort retention, exact interval",
+      "aliases": [],
+      "domain": "customer",
+      "business_types": [
+        "saas",
+        "ecommerce",
+        "service"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Share of an entry cohort returning with the specified value event in interval N.",
+      "formula": "100 * returning_eligible / eligible_cohort",
+      "formula_variables": {
+        "returning_eligible": "Distinct cohort members with return event in interval N",
+        "eligible_cohort": "Cohort members with completed observation interval; >0",
+        "interval": "Specified window, timezone and return-on convention"
+      },
+      "unit": "percent",
+      "direction": "contextual_higher",
+      "interpretation": "Improvement may reflect value, targeting or changed event definition; compare matched cohorts.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "returning_eligible",
+        "eligible_cohort",
+        "interval"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "product analytics owner",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Return-on is not return-on-or-after.",
+        "Immature intervals are excluded, not counted as failures.",
+        "Cannot equate usage retention with revenue retention."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "چند درصد از یک گروه مشتری، پس از فاصله مشخص دوباره ارزش دریافت کردند؟",
+        "learn": "Improvement may reflect value, targeting or changed event definition; compare matched cohorts.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-ACTIVATION-RATE",
+      "name": "Activation rate, qualified value event",
+      "aliases": [],
+      "domain": "product",
+      "business_types": [
+        "saas",
+        "marketplace"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Eligible entrants reaching a validated first-value event within a fixed window.",
+      "formula": "100 * activated / eligible_entrants",
+      "formula_variables": {
+        "activated": "Unique eligible entrants with defined activation event before deadline",
+        "eligible_entrants": "Unique entrants with complete observation window; >0"
+      },
+      "unit": "percent",
+      "direction": "contextual_higher",
+      "interpretation": "A rise is useful only if activation event predicts subsequent customer value.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "activated",
+        "eligible_entrants"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "product analytics owner",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Sign-up is not automatically activation.",
+        "Event and deadline are local hypotheses, not source-prescribed universal events."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-AMPLITUDE-RETENTION"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "چه سهمی از کاربران واجد شرایط به اولین ارزش واقعی رسیدند؟",
+        "learn": "A rise is useful only if activation event predicts subsequent customer value.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-SALES-CYCLE",
+      "name": "Mean sales cycle for won deals",
+      "aliases": [],
+      "domain": "sales",
+      "business_types": [
+        "b2b",
+        "service",
+        "saas"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Mean elapsed calendar days from agreed qualified date to won date for won deals closing in the period.",
+      "formula": "sum_elapsed_days / won_deals",
+      "formula_variables": {
+        "sum_elapsed_days": "Sum close-won date minus qualified date for cohort",
+        "won_deals": "Number of won deals in same cohort; >0"
+      },
+      "unit": "days",
+      "direction": "contextual_lower",
+      "interpretation": "Shortening may reflect faster decisions or excluding complex deals; inspect win rate and margin.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "sum_elapsed_days",
+        "won_deals"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "sales operations",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Won-only survivor bias; report open aging and lost deals separately.",
+        "Do not mix created-cohort and closed-period denominator."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-SALESFORCE-VELOCITY"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "زمان متوسط از فرصت واجد شرایط تا فروش موفق، با مرز زمانی ثابت.",
+        "learn": "Shortening may reflect faster decisions or excluding complex deals; inspect win rate and margin.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-WIN-RATE",
+      "name": "Resolved opportunity win rate",
+      "aliases": [],
+      "domain": "sales",
+      "business_types": [
+        "b2b",
+        "service",
+        "saas"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Won as a share of resolved qualified opportunities during the period.",
+      "formula": "100 * won / (won + lost)",
+      "formula_variables": {
+        "won": "Qualified closed-won opportunities",
+        "lost": "Qualified closed-lost opportunities including explicitly defined no-decision cases"
+      },
+      "unit": "percent",
+      "direction": "contextual_higher",
+      "interpretation": "May rise because easy deals dominate; review qualification, pricing and deal mix.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "won",
+        "lost"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "sales operations",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Zero resolved denominator is undefined.",
+        "Resolved-period variant differs from all-qualified-cohort variant on source page.",
+        "Open deals excluded; do not hide stalled opportunities."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-SALESFORCE-WIN"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "سهم برد از فرصت‌های تعیین‌تکلیف‌شده؛ فرصت باز جدا بررسی می‌شود.",
+        "learn": "May rise because easy deals dominate; review qualification, pricing and deal mix.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-THROUGHPUT",
+      "name": "Accepted output throughput",
+      "aliases": [],
+      "domain": "operations",
+      "business_types": [
+        "manufacturing",
+        "service"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Accepted completed units crossing a fixed process boundary per observation time.",
+      "formula": "accepted_units / elapsed_time",
+      "formula_variables": {
+        "accepted_units": "Completed accepted units, fixed product/process scope",
+        "elapsed_time": "Positive observation duration with stated time unit"
+      },
+      "unit": "units_per_time",
+      "direction": "contextual_higher",
+      "interpretation": "More accepted output matters only with demand, quality and cash consequences.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "accepted_units",
+        "elapsed_time"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "operations owner",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Not TOC throughput accounting money measure.",
+        "Do not count rework twice or mix unlike units."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-LEI-CYCLE"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "تعداد خروجی پذیرفته‌شده در واحد زمان، با مرز فرایند مشخص.",
+        "learn": "More accepted output matters only with demand, quality and cash consequences.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    },
+    {
+      "schema_version": "0.1.0",
+      "id": "MET-DEFECT-RATE",
+      "name": "Nonconforming unit rate",
+      "aliases": [],
+      "domain": "operations",
+      "business_types": [
+        "manufacturing",
+        "service"
+      ],
+      "stages": [
+        "early-traction",
+        "growth",
+        "scale",
+        "operating",
+        "mature"
+      ],
+      "definition": "Inspected units failing at least one stated requirement divided by inspected units.",
+      "formula": "100 * nonconforming_units / inspected_units",
+      "formula_variables": {
+        "nonconforming_units": "Unique inspected units with >=1 nonconformance",
+        "inspected_units": "Units evaluated under a stated sampling plan; >0"
+      },
+      "unit": "percent",
+      "direction": "contextual_lower",
+      "interpretation": "Drop may show quality improvement or weaker inspection; inspect method and escapes.",
+      "why_it_matters": "Supports a specific diagnosis when scope, time and denominator remain comparable.",
+      "leading_or_lagging": "lagging_for_own_outcome_not_proof_of_future_causality",
+      "dependencies": [],
+      "required_inputs": [
+        "nonconforming_units",
+        "inspected_units"
+      ],
+      "optional_inputs": [
+        "segment",
+        "comparator",
+        "uncertainty"
+      ],
+      "data_sources": [
+        "validated operational records"
+      ],
+      "typical_owner": "operations owner",
+      "update_frequency": "At a cadence suitable for complete observation windows.",
+      "warnings": [
+        "Defects-per-unit is a different measure and may exceed one.",
+        "Sample composition affects trend."
+      ],
+      "limitations": [
+        "No universal threshold; data quality and selection bias need review."
+      ],
+      "benchmarks": [],
+      "benchmark_context": "No external benchmark adopted; compare like-for-like local cohorts.",
+      "related_metrics": [],
+      "recommended_actions": [
+        "Verify denominator and cohort; investigate segment changes before intervention."
+      ],
+      "sources": [
+        "SRC-CORE-ASQ-GLOSSARY"
+      ],
+      "epistemic_status": "explicit_product_operationalization",
+      "explanation": {
+        "quick": "سهم واحدهای نامنطبق از نمونه بازرسی‌شده؛ با تعداد عیب در هر واحد متفاوت است.",
+        "learn": "Drop may show quality improvement or weaker inspection; inspect method and escapes.",
+        "deep_dive": "Definition and calculation variant are explicit here; source supplies background. The metric does not identify causation on its own."
+      },
+      "applicability_note": "Stage is a broad inclusion, not sufficient evidence to calculate. The defined value event/process and eligible denominator must exist; no invented metric value for missing inputs."
+    }
+  ]
+}

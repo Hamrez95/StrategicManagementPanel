@@ -1,0 +1,18 @@
+{
+ "schema_version":"0.1.0","id":"CLASSIFY-BUSINESS","epistemic_status":"product_heuristic",
+ "initial_questions":[
+  {"field":"objective","question_fa":"اکنون چه تصمیم یا مسئله‌ای مهم‌تر است؟","unknown":"offer_problem_categories"},
+  {"field":"delivery","question_fa":"چه چیزی به چه کسی تحویل می‌دهید؟","unknown":"retain_unknown"},
+  {"field":"revenue_model","question_fa":"مشتری چگونه و بابت چه چیزی پرداخت می‌کند؟","unknown":"retain_unknown"},
+  {"field":"operating","question_fa":"آیا کسب‌وکار اکنون مشتری و عملیات واقعی دارد؟","unknown":"request_one_example"}
+ ],
+ "branches":[
+  {"when":{"operating":false},"route":"startup","next_question":"What is the riskiest customer/problem assumption?"},
+  {"when":{"operating":true},"route":"clarify_search_vs_execution","next_question":"Are you still testing a repeatable business model, expanding it, or improving an established operation? Revenue alone cannot choose the journey."},
+  {"when":{"cash_obligation_at_risk":true},"interrupt":"cash_triage","policy":"Seek dated obligations and available cash before lengthy strategy work; do not infer insolvency."}
+ ],
+ "unknown_policy":"Ask only the field required for the next decision; no forced classification or default healthy state.",
+ "size_policy":"Collect optionally through import; never derive startup phase from employee count.",
+ "question_budget":{"initial_max":4,"basis":"Product design constraint; validate with users."},
+ "sources":["SRC-CORE-CIPD-EVIDENCE"]
+}

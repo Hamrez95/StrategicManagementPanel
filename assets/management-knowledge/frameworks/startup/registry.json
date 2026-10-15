@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.0.0",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_backed_product_synthesis",
+  "validation_status": "requires_domain_expert_and_user_validation",
+  "id": "FRAMEWORK-SET-STARTUP",
+  "frameworks": [
+    {
+      "schema_version": "1.0.0",
+      "last_reviewed": "2026-10-15",
+      "content_status": "research_backed_product_synthesis",
+      "validation_status": "requires_domain_expert_and_user_validation",
+      "domain": "startup",
+      "business_types": [
+        "B2B",
+        "B2C",
+        "B2B2C",
+        "services",
+        "hardware",
+        "digital",
+        "nonprofit_with_adaptation"
+      ],
+      "business_stages": [
+        "idea",
+        "discovery",
+        "validation",
+        "early-traction",
+        "growth",
+        "scale"
+      ],
+      "conflicting_frameworks": [],
+      "conflict_note": "No intrinsic logical conflict asserted; choosing incompatible assumptions or treating hypotheses as proof causes misuse.",
+      "copyright_note": "Original synthesis of method; no full text or proprietary template graphic reproduced.",
+      "id": "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+      "name": "Business Model Canvas",
+      "name_fa": "بوم مدل کسب‌وکار",
+      "purpose": "Make the interdependencies and assumptions of one business model discussable.",
+      "use_when": [
+        "Business model is unclear or changing",
+        "Compare alternative models before committing resources"
+      ],
+      "do_not_use_when": [
+        "The immediate task is verifying a causal effect or financial statement",
+        "A completed workshop would be mistaken for validation"
+      ],
+      "inputs": [
+        "A defined model/venture scope",
+        "Current assumptions and evidence by segment"
+      ],
+      "outputs": [
+        "Versioned model with uncertain blocks",
+        "Prioritized hypotheses for experiments"
+      ],
+      "steps": [
+        "Set scope and date.",
+        "Describe customer segments, value propositions, channels, relationships, revenues, resources, activities, partners and costs in original language.",
+        "Mark each statement as assumed, supported, conflicted or unknown.",
+        "Examine dependencies and alternatives.",
+        "Select the material uncertain claim to test; update the model after evidence."
+      ],
+      "interpretation": "A coherent model is a map of claims. Internal consistency and external validation are different checks.",
+      "common_mistakes": [
+        "Filling boxes without decisions",
+        "Combining unrelated business models in one canvas",
+        "Recording unsupported revenue as fact"
+      ],
+      "limitations": [
+        "Does not establish market demand or financial feasibility",
+        "May omit contextual details needed for regulation and execution"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "sources": [
+        "SRC-STARTUP-STRATEGYZER-BMC",
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "author": "Alexander Osterwalder and Yves Pigneur",
+      "year": 2010,
+      "year_note": "Framework book publication year; current tool page undated.",
+      "source_details_ref": "sources/startup.json",
+      "completion_evidence": [
+        "Versioned model",
+        "Uncertainty annotations",
+        "Next hypothesis/decision"
+      ],
+      "explanation": {
+        "quick": "مدل کسب‌وکار را به مجموعه‌ای روشن از فرض‌های به‌هم‌وابسته تبدیل کنید.",
+        "learn": "بوم نشان می‌دهد برای چه مشتری ارزش می‌سازید، چگونه آن را تحویل می‌دهید و چگونه درآمد و هزینه شکل می‌گیرد. تغییر مشتری می‌تواند کانال، فعالیت، منابع و اقتصاد مدل را نیز تغییر دهد؛ تکمیل بوم به معنای تأیید بازار نیست.",
+        "deep_dive": "راهنمای تألیفی استراتینو: برای یک مدل مشخص، نسخه و تاریخ ثبت کنید و هر گزاره را به فرض یا شاهد پیوند دهید. مثلاً اگر فروش مستقیم را با شریک توزیع جایگزین می‌کنید، اثر آن بر دسترسی به مشتری، حاشیه، ارتباط و فعالیت‌های لازم را هم بررسی کنید. سپس مهم‌ترین فرض حل‌نشده را به یک آزمون قابل بررسی تبدیل کنید."
+      },
+      "provenance": {
+        "source_supported": [
+          "Nine interconnected business-model blocks",
+          "Model versions change with evidence"
+        ],
+        "derived_guidance": [
+          "Evidence annotations and decision workflow",
+          "Illustrative distribution-channel dependency example"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-STARTUP-STRATEGYZER-BMC",
+          "SRC-STARTUP-BLANK-2010"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "last_reviewed": "2026-10-15",
+      "content_status": "research_backed_product_synthesis",
+      "validation_status": "requires_domain_expert_and_user_validation",
+      "domain": "startup",
+      "business_types": [
+        "B2B",
+        "B2C",
+        "B2B2C",
+        "services",
+        "hardware",
+        "digital",
+        "nonprofit_with_adaptation"
+      ],
+      "business_stages": [
+        "idea",
+        "discovery",
+        "validation",
+        "early-traction",
+        "growth",
+        "scale"
+      ],
+      "conflicting_frameworks": [],
+      "conflict_note": "No intrinsic logical conflict asserted; choosing incompatible assumptions or treating hypotheses as proof causes misuse.",
+      "copyright_note": "Original synthesis of method; no full text or proprietary template graphic reproduced.",
+      "id": "FW-STARTUP-JOBS-TO-BE-DONE",
+      "name": "Jobs To Be Done",
+      "name_fa": "کارهایی که مشتری می‌خواهد پیش ببرد",
+      "purpose": "Explain customer choice through desired progress in specific circumstances.",
+      "use_when": [
+        "Motivation or switching barriers are poorly understood",
+        "Demographic segments do not explain adoption"
+      ],
+      "do_not_use_when": [
+        "Customer stories would substitute for willingness-to-pay evidence",
+        "Question is accounting, capacity calculation or causal attribution"
+      ],
+      "inputs": [
+        "Recent choice/switch/non-adoption stories",
+        "Circumstances and alternatives"
+      ],
+      "outputs": [
+        "Scoped job hypotheses",
+        "Functional, emotional and social outcome hypotheses",
+        "Evidence-backed barriers and triggers"
+      ],
+      "steps": [
+        "Choose a consequential decision and relevant participants.",
+        "Reconstruct recent circumstances and alternatives without pitching a solution.",
+        "Separate observed story details from inferred motivations.",
+        "Compare stories and retain contradictory cases.",
+        "Translate a proposed job into testable value and adoption hypotheses."
+      ],
+      "interpretation": "Similar desired progress can cross demographic categories; a compelling story remains a hypothesis about wider demand.",
+      "common_mistakes": [
+        "Renaming a feature as a job",
+        "Leading respondents toward the proposed product",
+        "Generalizing from one story"
+      ],
+      "limitations": [
+        "Recall and sampling bias",
+        "Requires skilled interpretation",
+        "Does not quantify demand or establish causation by itself"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "sources": [
+        "SRC-STARTUP-CHRISTENSEN-JTBD"
+      ],
+      "author": "Clayton Christensen, Bob Moesta and collaborators",
+      "year": null,
+      "year_note": "Theory has multiple contributions; reviewed institute page is undated.",
+      "source_details_ref": "sources/startup.json",
+      "completion_evidence": [
+        "Traceable observation set",
+        "Job and contradiction summary",
+        "Next value/adoption test"
+      ],
+      "explanation": {
+        "quick": "بفهمید مشتری در چه شرایطی می‌خواهد چه پیشرفتی کند و چرا یک راه‌حل را انتخاب می‌کند.",
+        "learn": "این نگاه، انتخاب مشتری را با شرایط و پیشرفت مطلوب توضیح می‌دهد؛ ابعاد کاربردی، احساسی و اجتماعی ممکن است هم‌زمان مهم باشند. یک روایت جذاب هنوز اندازه بازار یا تمایل واقعی به پرداخت را ثابت نمی‌کند.",
+        "deep_dive": "راهنمای تألیفی استراتینو: یک انتخاب اخیر را بازسازی کنید؛ چه اتفاقی افتاد، چه گزینه‌هایی وجود داشت و چه چیزی تغییر را آسان یا دشوار کرد؟ مشاهده را از تفسیر مصاحبه‌گر جدا نگه دارید و موارد مخالف را نیز ثبت کنید. خروجی را به فرضی درباره ارزش یا پذیرش تبدیل کنید که با رفتار بعدی بتوان آن را به چالش کشید."
+      },
+      "provenance": {
+        "source_supported": [
+          "Progress in circumstances",
+          "Functional, emotional and social dimensions"
+        ],
+        "derived_guidance": [
+          "Recent-choice interview workflow",
+          "Contradiction tracking and behavioral follow-up"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-STARTUP-CHRISTENSEN-JTBD"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "last_reviewed": "2026-10-15",
+      "content_status": "research_backed_product_synthesis",
+      "validation_status": "requires_domain_expert_and_user_validation",
+      "domain": "startup",
+      "business_types": [
+        "B2B",
+        "B2C",
+        "B2B2C",
+        "services",
+        "hardware",
+        "digital",
+        "nonprofit_with_adaptation"
+      ],
+      "business_stages": [
+        "idea",
+        "discovery",
+        "validation",
+        "early-traction",
+        "growth",
+        "scale"
+      ],
+      "conflicting_frameworks": [],
+      "conflict_note": "No intrinsic logical conflict asserted; choosing incompatible assumptions or treating hypotheses as proof causes misuse.",
+      "copyright_note": "Original synthesis of method; no full text or proprietary template graphic reproduced.",
+      "id": "FW-STARTUP-TEST-LEARNING-CARDS",
+      "name": "Test Card and Learning Card",
+      "name_fa": "کارت آزمون و کارت یادگیری",
+      "purpose": "Predeclare an assumption test and connect observations to a reviewable decision.",
+      "use_when": [
+        "A consequential business assumption is uncertain",
+        "Teams collect activity without explicit learning"
+      ],
+      "do_not_use_when": [
+        "A test would violate safety, legal or consent constraints",
+        "A trivial reversible action costs less than designing an experiment; use proportional judgment"
+      ],
+      "inputs": [
+        "Hypothesis and context",
+        "Test method, metric and predeclared criterion",
+        "Time, owner, budget and safety constraints"
+      ],
+      "outputs": [
+        "Test plan",
+        "Observed evidence with limitations",
+        "Separate interpretation and next action"
+      ],
+      "steps": [
+        "State what must be true and why the decision depends on it.",
+        "Choose a permitted test whose observation matches the hypothesis.",
+        "Predeclare measurement and success/failure/inconclusive criteria for this context.",
+        "Run and preserve observations, including anomalies.",
+        "Record what the evidence suggests and alternative explanations.",
+        "Choose persevere, pivot, stop or collect more evidence; attach an owner and review date."
+      ],
+      "interpretation": "Meeting a local threshold supports only the tested claim in the tested context; it does not validate the whole venture.",
+      "common_mistakes": [
+        "Moving thresholds after seeing results",
+        "Measuring sign-ups for a payment hypothesis",
+        "Hiding inconclusive or failed tests"
+      ],
+      "limitations": [
+        "Weak designs produce weak evidence despite neat cards",
+        "Thresholds require domain judgment; no default universal cut-off"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "sources": [
+        "SRC-STARTUP-STRATEGYZER-TEST-2015",
+        "SRC-STARTUP-STRATEGYZER-LEARNING-2015"
+      ],
+      "author": "Alexander Osterwalder; Strategyzer; Learning Card article by Nabila Amarsy",
+      "year": 2015,
+      "source_details_ref": "sources/startup.json",
+      "completion_evidence": [
+        "Original test criteria",
+        "Observed data/provenance",
+        "Learning and decision record"
+      ],
+      "explanation": {
+        "quick": "پیش از آزمون بنویسید چه چیزی باید درست باشد، چه می‌سنجید و نتیجه چه تصمیمی را تغییر می‌دهد.",
+        "learn": "کارت آزمون، فرض، روش، اندازه‌گیری و معیار نتیجه را روشن می‌کند. کارت یادگیری، مشاهده را از برداشت و اقدام بعدی جدا نگه می‌دارد؛ نتیجه نامشخص هم یک وضعیت معتبر است.",
+        "deep_dive": "راهنمای تألیفی استراتینو: اگر فرض درباره پرداخت است، شمار ثبت‌نام را به‌تنهایی معیار تأیید نگذارید. پیش از اجرا، بازه مشاهده و معیار تصمیم متناسب با زمینه را ثبت کنید؛ پس از اجرا، داده خام، محدودیت و توضیح‌های جایگزین را نگه دارید. تصمیم ادامه، تغییر یا تکرار آزمون باید به همین شواهد پیوند بخورد و تغییر معیار پس از دیدن نتیجه آشکار باشد."
+      },
+      "provenance": {
+        "source_supported": [
+          "Hypothesis/test/metric/threshold fields",
+          "Observation/insight/action separation"
+        ],
+        "derived_guidance": [
+          "Decision record and inconclusive state",
+          "Payment-versus-signup illustration and audit trail"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-STARTUP-STRATEGYZER-TEST-2015",
+          "SRC-STARTUP-STRATEGYZER-LEARNING-2015"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "last_reviewed": "2026-10-15",
+      "content_status": "research_backed_product_synthesis",
+      "validation_status": "requires_domain_expert_and_user_validation",
+      "domain": "startup",
+      "business_types": [
+        "B2B",
+        "B2C",
+        "B2B2C",
+        "services",
+        "hardware",
+        "digital",
+        "nonprofit_with_adaptation"
+      ],
+      "business_stages": [
+        "idea",
+        "discovery",
+        "validation",
+        "early-traction",
+        "growth",
+        "scale"
+      ],
+      "conflicting_frameworks": [],
+      "conflict_note": "No intrinsic logical conflict asserted; choosing incompatible assumptions or treating hypotheses as proof causes misuse.",
+      "copyright_note": "Original synthesis of method; no full text or proprietary template graphic reproduced.",
+      "id": "FW-STARTUP-LEAN-STARTUP",
+      "name": "Lean Startup / Build-Measure-Learn",
+      "name_fa": "استارتاپ ناب و چرخه ساخت، سنجش، یادگیری",
+      "purpose": "Reduce important uncertainty through iterative, decision-oriented learning.",
+      "use_when": [
+        "A venture faces material uncertainty about value or its model",
+        "A small experiment can inform a meaningful next commitment"
+      ],
+      "do_not_use_when": [
+        "Fast release would create unacceptable safety or regulatory exposure",
+        "A known production-control task requires established operational standards"
+      ],
+      "inputs": [
+        "Business-model hypothesis",
+        "Learning objective",
+        "Permitted smallest useful experiment",
+        "Actionable measurements"
+      ],
+      "outputs": [
+        "Evidence about a hypothesis",
+        "Pivot/persevere decision",
+        "Revised learning priorities"
+      ],
+      "steps": [
+        "Identify the decision and uncertainty.",
+        "Work backward to the observation needed.",
+        "Create the smallest permitted artifact or process that produces useful evidence.",
+        "Measure behavior and outcomes in context.",
+        "Review whether the hypothesis is supported, contradicted or inconclusive.",
+        "Revise direction or continue with a bounded next commitment."
+      ],
+      "interpretation": "The learning loop is iterative; output speed and a shipped MVP alone do not demonstrate learning.",
+      "common_mistakes": [
+        "Treating MVP as low-quality final product",
+        "Optimizing vanity measures",
+        "Calling every incremental edit a strategic pivot"
+      ],
+      "limitations": [
+        "Does not remove capital, ethical or regulatory constraints",
+        "Method claims are not a guaranteed-success law"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-JOBS-TO-BE-DONE"
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-STARTUP-BLANK-2010"
+      ],
+      "author": "Eric Ries",
+      "year": 2011,
+      "year_note": "Book publication year; reviewed official methodology page undated and book not fully accessed.",
+      "source_details_ref": "sources/startup.json",
+      "completion_evidence": [
+        "Learning objective",
+        "Observed outcome",
+        "Explicit direction decision"
+      ],
+      "explanation": {
+        "quick": "با کوچک‌ترین آزمایش مفید، عدم‌قطعیتی را کم کنید که تصمیم بعدی شما به آن وابسته است.",
+        "learn": "چرخه ساخت، سنجش و یادگیری برای بررسی فرض‌های مدل کسب‌وکار است. معیار پیشرفت، یادگیری قابل اتکا درباره ساخت کسب‌وکار پایدار است؛ صرف عرضه محصول یا زیادشدن فعالیت کافی نیست.",
+        "deep_dive": "راهنمای تألیفی استراتینو: از تصمیم آغاز کنید و به عقب برگردید: برای انتخاب ادامه یا تغییر مسیر، چه مشاهده‌ای لازم است؟ نمونه، خدمت دستی یا آزمون مجاز را متناسب با همان مشاهده انتخاب کنید. اگر آزمایش به‌دلیل محدودیت ایمنی یا مقرراتی قابل اجرا نیست، روش یادگیری را عوض کنید؛ سرعت عرضه به‌تنهایی دلیل پذیرش ریسک نیست."
+      },
+      "provenance": {
+        "source_supported": [
+          "Validated learning",
+          "Build-Measure-Learn and pivot/persevere"
+        ],
+        "derived_guidance": [
+          "Decision-backward workflow",
+          "Permitted-test adaptation for constrained contexts"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-STARTUP-RIES-PRINCIPLES",
+          "SRC-STARTUP-BLANK-2010"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    }
+  ]
+}

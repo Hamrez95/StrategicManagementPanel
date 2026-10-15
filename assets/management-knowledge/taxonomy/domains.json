@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "epistemic_status": "product_synthesis",
+  "note": "Information architecture, not an empirically validated universal management ontology. Domain presence does not mean research completion.",
+  "domains": [
+    {"id":"foundation","name_fa":"مبانی کسب‌وکار","concepts":["vision","mission","purpose","values","objectives","business-model","governance"]},
+    {"id":"strategy","name_fa":"استراتژی","concepts":["diagnosis","choice","positioning","advantage","corporate-strategy","business-strategy","functional-strategy","planning","control","renewal"]},
+    {"id":"market","name_fa":"بازار","concepts":["research","tam","sam","som","growth","structure","segmentation","attractiveness"]},
+    {"id":"customer","name_fa":"مشتری","concepts":["icp","personas","jtbd","discovery","journey","satisfaction","nps","retention","churn","economics"]},
+    {"id":"competition","name_fa":"رقابت","concepts":["competitors","five-forces","positioning","strategic-groups","benchmarking"]},
+    {"id":"startup","name_fa":"استارتاپ","concepts":["idea","discovery","validation","mvp","traction","pmf","growth","scale","funding","exit"]},
+    {"id":"product","name_fa":"محصول","concepts":["strategy","discovery","development","analytics","roadmap","prioritization","experimentation","pmf"]},
+    {"id":"growth","name_fa":"رشد","concepts":["acquisition","activation","retention","revenue","referral","loops","channels","plg","sales-led","marketing-led"]},
+    {"id":"sales","name_fa":"فروش","concepts":["pipeline","funnel","forecast","win-rate","cycle","territory","quota","pricing","discount","key-accounts"]},
+    {"id":"marketing","name_fa":"بازاریابی","concepts":["positioning","messaging","brand","channels","performance","content","demand","attribution"]},
+    {"id":"finance","name_fa":"مالی","concepts":["statements","revenue","profit","cash","working-capital","unit-economics","valuation","capital-budgeting","forecast","funding"]},
+    {"id":"operations","name_fa":"عملیات","concepts":["process","workflow","bottleneck","throughput","cycle-time","quality","capacity","inventory","supply-chain","procurement","lean","six-sigma","toc"]},
+    {"id":"organization","name_fa":"سازمان","concepts":["design","structure","roles","raci","span","decision-rights","governance","health"]},
+    {"id":"people","name_fa":"افراد","concepts":["hiring","talent","performance","compensation","incentives","culture","engagement","succession","capability"]},
+    {"id":"leadership","name_fa":"رهبری","concepts":["decision-making","delegation","conflict","communication","coaching","change"]},
+    {"id":"execution","name_fa":"اجرا","concepts":["okr","kpi","balanced-scorecard","initiatives","portfolio","projects","reviews","cadence"]},
+    {"id":"innovation","name_fa":"نوآوری","concepts":["portfolio","experimentation","disruption","adjacency","new-venture","rd"]},
+    {"id":"risk","name_fa":"ریسک","concepts":["strategic","operational","financial","market","compliance","technology","register","mitigation"]},
+    {"id":"transformation","name_fa":"تحول","concepts":["turnaround","digital","business","change","restructuring"]},
+    {"id":"data","name_fa":"داده و تحلیل","concepts":["quality","metric-design","leading","lagging","metric-trees","causal-inference","forecasting"]},
+    {"id":"ai","name_fa":"مدیریت در عصر هوش مصنوعی","concepts":["decision-support","governance","human-oversight","strategy","operations","productivity","limitations"]}
+  ],
+  "canonicalization": {"pmf":"startup","retention":"customer","positioning":"strategy","experimentation":"product","governance":"foundation","pricing":"sales"}
+}

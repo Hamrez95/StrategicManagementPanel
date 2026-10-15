@@ -1,0 +1,37 @@
+{
+ "schema_version":"0.1.0",
+ "epistemic_status":"product_normalization_contract",
+ "status":"editorial_tags_require_explicit_adapter_before_runtime_use",
+ "policy":"Raw business_types and business_stages in researched records are descriptive tags. They are NOT executable predicates. Only explicit typed rule conditions in decisions/rules/registry.json are covered by offline persona fixtures. A production importer must map axes and reject unmapped/ambiguous terms.",
+ "type_aliases":{
+  "B2B":{"axis":"customer","value":"b2b"},"b2b":{"axis":"customer","value":"b2b"},
+  "B2C":{"axis":"customer","value":"b2c"},
+  "service":{"axis":"delivery","value":"professional_service"},"services":{"axis":"delivery","value":"professional_service"},"Services":{"axis":"delivery","value":"professional_service"},
+  "manufacturing":{"axis":"delivery","value":"manufacturing"},
+  "software":{"axis":"delivery","value":"software"},
+  "marketplace":{"axis":"delivery","value":"marketplace"},"platform":{"axis":"delivery","value":"marketplace","requires_review":"A technology platform is not necessarily a marketplace."},
+  "subscription":{"axis":"revenue_model","value":"subscription"},"Subscription":{"axis":"revenue_model","value":"subscription"},
+  "saas":{"archetype":"saas","requires":["software delivery","subscription revenue"]},
+  "ecommerce":{"archetype":"ecommerce","requires_review":"Owned inventory, dropship and marketplace need different metric applicability."},
+  "project-based":{"axis":"revenue_model","value":"project"},
+  "all":{"scope":"all_contexts_subject_to_use_constraints"},
+  "any_with_ai_use":{"requires":{"material_or_routine_ai_use":true}},
+  "established_organization":{"journey_mode":"organization"}
+ },
+ "stage_aliases":{
+  "idea":{"axis":"venture_stage","value":"idea"},
+  "discovery":{"axis":"venture_stage","value":"discovery"},
+  "validation":{"axis":"venture_stage","value":"validation"},
+  "early-traction":{"axis":"venture_stage","value":"early-traction"},
+  "growth":{"axis":"venture_stage","value":"growth","warning":"A growing established operation need not be a startup."},
+  "scale":{"axis":"venture_stage","value":"scale"},
+  "operating":{"axis":"journey_mode","value":"organization"},
+  "mature":{"axis":"organization_lifecycle","value":"mature"},
+  "established":{"axis":"journey_mode","value":"organization"},
+  "turnaround":{"axis":"operating_state","value":"turnaround"},
+  "market-entry":{"axis":"decision_context","value":"market_entry"},
+  "any":{"scope":"all_stages_subject_to_use_constraints"}
+ },
+ "unmapped_tag_policy":"Require explicit review and add a versioned mapping; do not silently coerce. B2B2C, nonprofit payer/beneficiary, multi-business and recurring-use descriptors need expanded axes and are deliberately not collapsed into one false business type.",
+ "sources":["SRC-CORE-OECD-OSLO-CAPABILITIES","SRC-STARTUP-BLANK-2010"]
+}

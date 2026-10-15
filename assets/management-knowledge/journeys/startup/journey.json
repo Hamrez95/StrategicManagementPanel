@@ -1,0 +1,1404 @@
+{
+  "schema_version": "1.0.0",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_backed_product_synthesis",
+  "validation_status": "requires_domain_expert_and_user_validation",
+  "id": "JOURNEY-STARTUP",
+  "name_fa": "مسیر تطبیقی استارتاپ",
+  "scope": "Idea to scale; knowledge and dependency graph only.",
+  "sources": [
+    "SRC-STARTUP-BLANK-2010",
+    "SRC-STARTUP-RIES-PRINCIPLES",
+    "SRC-STARTUP-STRATEGYZER-BMC",
+    "SRC-STARTUP-STRATEGYZER-TEST-2015",
+    "SRC-STARTUP-STRATEGYZER-LEARNING-2015",
+    "SRC-STARTUP-YC-ADVICE-2017",
+    "SRC-STARTUP-YC-PMF-2016",
+    "SRC-STARTUP-MIT-AULET-2024",
+    "SRC-STARTUP-CHRISTENSEN-JTBD"
+  ],
+  "principles": [
+    "Read/import existing evidence before asking.",
+    "Use the few questions whose answers change the next decision.",
+    "A phase can be provisionally selected with missing evidence; dependent commitments remain gated.",
+    "Completion is a reviewed decision, not a percentage of filled fields.",
+    "Stage assignment is per venture/model/segment; several stages may coexist."
+  ],
+  "modes": {
+    "guided": {
+      "behavior": "Ask the next unresolved decision-relevant question only.",
+      "question_budget": "Initial budget: context plus one stage question; a product hypothesis to validate, not a scientific optimum."
+    },
+    "expert": {
+      "behavior": "Start at a selected decision; inspect imported evidence and expose only gaps/contradictions.",
+      "override": "Reason, reviewer, date and expiry required; uncertainty remains visible."
+    },
+    "import": {
+      "behavior": "Map imported records to evidence fields; preserve provenance, unit, window and segment; require review of inferred mappings.",
+      "cannot_do": "Treat a file upload, a signed LOI or aggregate revenue as sufficient proof of all gates."
+    },
+    "skip": {
+      "behavior": "Skip optional questions; record unknown for decision dependencies and explain the deferred consequence.",
+      "cannot_do": "Convert skipped evidence to a successful gate."
+    }
+  },
+  "context_fields": [
+    {
+      "id": "journey_scope",
+      "why": "Separates the venture/segment from the whole company.",
+      "required_for": "Any recommendation",
+      "derive_from": "Existing workspace/business model records"
+    },
+    {
+      "id": "business_model_and_value_cycle",
+      "why": "Determines relevant repeatability, payer and unit-economics evidence.",
+      "required_for": "Retention/commitment gate",
+      "derive_from": "Business model, contracts, billing and product definitions"
+    },
+    {
+      "id": "material_regulatory_or_safety_constraint",
+      "why": "Chooses a permitted experiment before launch advice.",
+      "required_for": "Potentially unsafe or regulated experiment",
+      "derive_from": "Existing risk register; ask only if unknown and material"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-STARTUP-IDEA-CUSTOMER",
+      "stage_id": "idea",
+      "prompt_fa": "چه کسی در چه شرایطی با این مسئله روبه‌رو است؟",
+      "answer_field": "customer_problem_hypothesis",
+      "why_needed": "Chooses discovery participants",
+      "decision_changed": "select_discovery_scope",
+      "evidence_ref": "EV-STARTUP-OPPORTUNITY",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "idea"
+          },
+          {
+            "field": "customer_problem_hypothesis",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Discovery scope cannot be selected",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-IDEA-CONSTRAINT",
+      "stage_id": "idea",
+      "prompt_fa": "کدام فرض یا محدودیت می‌تواند کل ایده را متوقف کند؟",
+      "answer_field": "critical_assumption",
+      "why_needed": "Chooses first test and permission review",
+      "decision_changed": "prioritize_assumption_test",
+      "evidence_ref": "EV-STARTUP-OPPORTUNITY",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "idea"
+          },
+          {
+            "field": "critical_assumption",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "May defer detailed sizing; keep critical uncertainty open",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-DISCOVERY-BEHAVIOR",
+      "stage_id": "discovery",
+      "prompt_fa": "آخرین بار مشتری این مسئله را چگونه حل کرد؟",
+      "answer_field": "recent_problem_observations",
+      "why_needed": "Distinguishes observed pain from hypothetical preference",
+      "decision_changed": "select_problem_hypothesis",
+      "evidence_ref": "EV-STARTUP-PROBLEM",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "discovery"
+          },
+          {
+            "field": "recent_problem_observations",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Problem inference remains unknown",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-DISCOVERY-BUYER",
+      "stage_id": "discovery",
+      "prompt_fa": "استفاده‌کننده، تصمیم‌گیر و پرداخت‌کننده چه کسانی‌اند؟",
+      "answer_field": "buying_actors",
+      "why_needed": "Selects adoption and pricing test",
+      "decision_changed": "select_buyer_test",
+      "evidence_ref": "EV-STARTUP-PROBLEM",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "discovery"
+          },
+          {
+            "field": "buying_actors",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Unknown actors block payment/adoption assumptions only",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-VALIDATION-VALUE",
+      "stage_id": "validation",
+      "prompt_fa": "آزمون چه نتیجه‌ای برای مشتری ایجاد کرد؟",
+      "answer_field": "observed_value",
+      "why_needed": "Determines whether to retest, pivot or deliver further",
+      "decision_changed": "evaluate_value_test",
+      "evidence_ref": "EV-STARTUP-VALUE-TEST",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "validation"
+          },
+          {
+            "field": "observed_value",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Blocks supported value claim, not all learning",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-VALIDATION-COMMITMENT",
+      "stage_id": "validation",
+      "prompt_fa": "مشتری چه تعهد واقعی داد و تحت چه شرایطی؟",
+      "answer_field": "commitment_observations",
+      "why_needed": "Separates stated interest from a meaningful action",
+      "decision_changed": "evaluate_commitment",
+      "evidence_ref": "EV-STARTUP-COMMITMENT",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "validation"
+          },
+          {
+            "field": "commitment_observations",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Commitment remains unknown",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-EARLY-TRACTION-REPEATABILITY",
+      "stage_id": "early-traction",
+      "prompt_fa": "کدام مشتریان در بازه مناسب دوباره ارزش گرفتند یا تمدید کردند؟",
+      "answer_field": "repeatability_evidence",
+      "why_needed": "Changes growth authorization and retention investigation",
+      "decision_changed": "review_pmf_evidence",
+      "evidence_ref": "EV-STARTUP-COHORTS",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "repeatability_evidence",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Blocks aggressive scaling recommendation when repeatability is material",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-EARLY-TRACTION-ECONOMICS",
+      "stage_id": "early-traction",
+      "prompt_fa": "در خدمت‌رسانی و جذب هر مشتری چه هزینه و جریان نقدی رخ داد؟",
+      "answer_field": "observed_economics",
+      "why_needed": "Sets a bounded learning budget and cost investigation",
+      "decision_changed": "bound_growth_test",
+      "evidence_ref": "EV-STARTUP-UNIT-ECONOMICS",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "observed_economics",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Expansion exposure remains unknown",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-GROWTH-INCREMENTAL",
+      "stage_id": "growth",
+      "prompt_fa": "افزایش هزینه جذب چه مشتری و حاشیه‌ای اضافه کرد؟",
+      "answer_field": "incremental_growth_economics",
+      "why_needed": "Changes next channel spend decision",
+      "decision_changed": "allocate_growth_budget",
+      "evidence_ref": "EV-STARTUP-GROWTH-REPLICATION",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "growth"
+          },
+          {
+            "field": "incremental_growth_economics",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Defer larger spend and improve measurement",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-GROWTH-CAPACITY",
+      "stage_id": "growth",
+      "prompt_fa": "با رشد بعدی کدام محدودیت نقدی یا تحویل فعال می‌شود؟",
+      "answer_field": "capacity_cash_constraints",
+      "why_needed": "Chooses capacity investment or slower expansion",
+      "decision_changed": "sequence_capacity_and_growth",
+      "evidence_ref": "EV-STARTUP-CAPACITY",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "growth"
+          },
+          {
+            "field": "capacity_cash_constraints",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Unbounded rollout cannot be recommended",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-SCALE-REPLICATION",
+      "stage_id": "scale",
+      "prompt_fa": "کدام فرض‌های واحد یا بازار تازه هنوز آزموده نشده‌اند؟",
+      "answer_field": "replication_assumptions",
+      "why_needed": "Routes unfamiliar market to discovery or pilot",
+      "decision_changed": "authorize_replication",
+      "evidence_ref": "EV-STARTUP-SCALE-READINESS",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "scale"
+          },
+          {
+            "field": "replication_assumptions",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Holds broad replication; bounded discovery remains available",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    },
+    {
+      "id": "Q-STARTUP-SCALE-OWNERSHIP",
+      "stage_id": "scale",
+      "prompt_fa": "مالک نتیجه، حدود اختیار و زمان بازبینی این توسعه چیست؟",
+      "answer_field": "rollout_accountability",
+      "why_needed": "Sets rollout control and review",
+      "decision_changed": "assign_rollout_review",
+      "evidence_ref": "EV-STARTUP-SCALE-READINESS",
+      "ask_when": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "scale"
+          },
+          {
+            "field": "rollout_accountability",
+            "op": "missing_or_unverified",
+            "value": true
+          }
+        ]
+      },
+      "derive_first": true,
+      "infer_from": [
+        "Verified existing evidence with matching segment, time window and method"
+      ],
+      "import_from": [
+        "Interview repository",
+        "Experiment log",
+        "Product events/CRM/billing where relevant"
+      ],
+      "direct_question_when": "Relevant evidence is absent, contradictory or needs interpretation; ask only the unresolved portion.",
+      "skip_allowed": true,
+      "skip_effect": "Blocks unowned rollout recommendation",
+      "branching": true,
+      "unknown_behavior": "Record unknown and request evidence only at the dependent decision gate."
+    }
+  ],
+  "evidence_requirements": [
+    {
+      "id": "EV-STARTUP-OPPORTUNITY",
+      "name": "Opportunity hypothesis",
+      "required_fields": [
+        "segment",
+        "problem_or_job",
+        "current_alternative",
+        "key_assumption",
+        "contact_route"
+      ],
+      "blocking_effect": "Customer/problem hypothesis absent",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-PROBLEM",
+      "name": "Problem observations",
+      "required_fields": [
+        "recent_event_observations",
+        "recruitment_criteria",
+        "current_alternatives",
+        "buying_actors",
+        "counterexamples"
+      ],
+      "blocking_effect": "Cannot support a problem inference",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-VALUE-TEST",
+      "name": "Value experiment",
+      "required_fields": [
+        "hypothesis",
+        "permitted_test",
+        "intended_outcome",
+        "observed_outcome",
+        "success_criteria_set_before_test",
+        "limitations"
+      ],
+      "blocking_effect": "Cannot infer value delivery",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-COMMITMENT",
+      "name": "Customer commitment",
+      "required_fields": [
+        "commitment_type",
+        "binding_status",
+        "terms",
+        "payer",
+        "observed_action",
+        "subsidy_or_relationship_bias"
+      ],
+      "blocking_effect": "Interest is not identified as a stronger commitment",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-COHORTS",
+      "name": "Retention or repeatability",
+      "required_fields": [
+        "model_appropriate_repeat_behavior",
+        "segment",
+        "cohort_start",
+        "eligibility",
+        "observation_window",
+        "right_censoring",
+        "loss_reasons"
+      ],
+      "blocking_effect": "Cannot assess repeatability for expansion",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-UNIT-ECONOMICS",
+      "name": "Observed economics",
+      "required_fields": [
+        "revenue_basis",
+        "variable_costs",
+        "acquisition_cost_scope",
+        "manual_effort",
+        "cash_timing",
+        "time_window",
+        "unknown_costs"
+      ],
+      "blocking_effect": "Cannot assess proposed expansion exposure",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-GROWTH-REPLICATION",
+      "name": "Growth replication",
+      "required_fields": [
+        "channel",
+        "incremental_cost",
+        "customer_value_guardrail",
+        "cohort_quality",
+        "spend_limit",
+        "cash_scenario"
+      ],
+      "blocking_effect": "Cannot justify broad expansion",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-CAPACITY",
+      "name": "Delivery capacity",
+      "required_fields": [
+        "volume_assumption",
+        "bottleneck",
+        "quality_guardrail",
+        "resource_need",
+        "cash_need",
+        "owner"
+      ],
+      "blocking_effect": "Cannot evaluate delivery under greater volume",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    },
+    {
+      "id": "EV-STARTUP-SCALE-READINESS",
+      "name": "Replication readiness",
+      "required_fields": [
+        "unit_or_market",
+        "local_assumptions",
+        "responsible_owner",
+        "decision_rights",
+        "customer_guardrails",
+        "cost_and_cash_case",
+        "review_date"
+      ],
+      "blocking_effect": "Cannot authorize an unbounded rollout",
+      "common_provenance_fields": [
+        "source_ref",
+        "collected_at",
+        "method",
+        "segment",
+        "geography",
+        "business_model",
+        "sample_limitations",
+        "contradictions",
+        "owner",
+        "review_due"
+      ],
+      "status_values": [
+        "missing",
+        "reported",
+        "observed",
+        "corroborated",
+        "conflicted",
+        "stale",
+        "not_applicable"
+      ],
+      "not_applicable_requires": "Reason, scope and reviewer; cannot silently erase a decision dependency."
+    }
+  ],
+  "phases": [
+    {
+      "stage_id": "idea",
+      "goals": [
+        "Turn an idea into a falsifiable problem/customer hypothesis"
+      ],
+      "question_ids": [
+        "Q-STARTUP-IDEA-CUSTOMER",
+        "Q-STARTUP-IDEA-CONSTRAINT"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-OPPORTUNITY"
+      ],
+      "metrics": [],
+      "experiments": [
+        "Interview recruitment smoke test; success means reaching relevant people, not proving demand"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Investigate, reframe or stop this opportunity"
+      ],
+      "common_mistakes": [
+        "Treating a market-size slide as demand proof",
+        "Using funding or company age to assign stage"
+      ],
+      "completion_criteria": [
+        "Initial segment, circumstances and uncertainty are recorded, including unknowns."
+      ],
+      "next_stage_criteria": [
+        "Customer access exists and a discovery plan addresses the highest uncertainty."
+      ],
+      "critical": [
+        "Choose an initial segment and learning objective",
+        "Separate assumptions from evidence"
+      ],
+      "optional": [
+        "Detailed brand identity",
+        "Long-term product architecture"
+      ],
+      "deferred": [
+        "ROIC and LTV calculations without meaningful operating history"
+      ],
+      "blocking_data": [
+        "Target customer or access route missing for discovery recruitment"
+      ],
+      "non_blocking_data": [
+        "Exact TAM",
+        "Five-year financial forecast"
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ]
+    },
+    {
+      "stage_id": "discovery",
+      "goals": [
+        "Understand whose problem matters and why current alternatives fail"
+      ],
+      "question_ids": [
+        "Q-STARTUP-DISCOVERY-BEHAVIOR",
+        "Q-STARTUP-DISCOVERY-BUYER"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-PROBLEM"
+      ],
+      "metrics": [],
+      "experiments": [
+        "Recent-event interviews and observation",
+        "Concierge walkthrough of a proposed outcome without implying a finished product"
+      ],
+      "frameworks": [
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Select or change segment/problem",
+        "Test solution value or return to idea"
+      ],
+      "common_mistakes": [
+        "Counting interviews as proof of demand",
+        "Asking hypothetical willingness-to-pay questions as decisive proof"
+      ],
+      "completion_criteria": [
+        "Problem claims have source-linked observations and explicit limitations."
+      ],
+      "next_stage_criteria": [
+        "A solution hypothesis can be tested safely with a relevant segment and predeclared evidence criteria."
+      ],
+      "critical": [
+        "Investigate recent behavior and alternatives",
+        "Identify buying actors and constraints"
+      ],
+      "optional": [
+        "Detailed persona illustration"
+      ],
+      "deferred": [
+        "Acquisition scaling",
+        "Precise retention forecasts"
+      ],
+      "blocking_data": [
+        "No credible observations about a problem for the selected segment"
+      ],
+      "non_blocking_data": [
+        "Fully quantified market share",
+        "Product feature preference ranking"
+      ],
+      "sources": [
+        "SRC-STARTUP-CHRISTENSEN-JTBD",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-BLANK-2010"
+      ]
+    },
+    {
+      "stage_id": "validation",
+      "goals": [
+        "Test problem–solution fit and business-model assumptions"
+      ],
+      "question_ids": [
+        "Q-STARTUP-VALIDATION-VALUE",
+        "Q-STARTUP-VALIDATION-COMMITMENT"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-VALUE-TEST",
+        "EV-STARTUP-COMMITMENT"
+      ],
+      "metrics": [
+        "MET-ACTIVATION-RATE",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-CASH-RUNWAY"
+      ],
+      "experiments": [
+        "Time-boxed outcome pilot",
+        "Price/offer test with an explicit commitment action",
+        "Technical/operational feasibility test when delivery is uncertain"
+      ],
+      "frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-LEAN-STARTUP",
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS"
+      ],
+      "decisions": [
+        "Persevere, pivot, retest inconclusive evidence or stop",
+        "Choose the smallest next delivery commitment"
+      ],
+      "common_mistakes": [
+        "Declaring PMF from one sale",
+        "Changing the success threshold after seeing results"
+      ],
+      "completion_criteria": [
+        "Test observations, interpretation and action are recorded separately.",
+        "Failed and inconclusive tests remain visible."
+      ],
+      "next_stage_criteria": [
+        "Initial customers actually receive value and return/renewal or repeatable adoption can now be observed."
+      ],
+      "critical": [
+        "Test value, price and delivery assumptions",
+        "Instrument the first meaningful outcome and preserve test limitations"
+      ],
+      "optional": [
+        "A/B testing when traffic and identification support it"
+      ],
+      "deferred": [
+        "Large-scale paid acquisition",
+        "Stable long-horizon LTV estimates"
+      ],
+      "blocking_data": [
+        "No value-delivery or customer-commitment observations for the key hypothesis"
+      ],
+      "non_blocking_data": [
+        "Statistically powered A/B result when a safer qualitative/behavioral test is appropriate"
+      ],
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES",
+        "SRC-STARTUP-STRATEGYZER-TEST-2015",
+        "SRC-STARTUP-STRATEGYZER-LEARNING-2015",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ]
+    },
+    {
+      "stage_id": "early-traction",
+      "goals": [
+        "Assess segment-specific PMF evidence and repeatable delivery"
+      ],
+      "question_ids": [
+        "Q-STARTUP-EARLY-TRACTION-REPEATABILITY",
+        "Q-STARTUP-EARLY-TRACTION-ECONOMICS"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-COHORTS",
+        "EV-STARTUP-UNIT-ECONOMICS"
+      ],
+      "metrics": [
+        "MET-COHORT-RETENTION",
+        "MET-ACTIVATION-RATE",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-CAC",
+        "MET-CASH-RUNWAY"
+      ],
+      "experiments": [
+        "Activation friction test",
+        "Churn/renewal reason investigation",
+        "Bounded channel test with spending limit"
+      ],
+      "frameworks": [
+        "FW-STARTUP-LEAN-STARTUP",
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-JOBS-TO-BE-DONE"
+      ],
+      "decisions": [
+        "Continue learning, refine segment, or authorize a bounded growth test",
+        "Assess PMF as supported/contradicted/unknown for a named segment"
+      ],
+      "common_mistakes": [
+        "Universal PMF score",
+        "Using funding rounds or headcount as proof",
+        "Demanding repeated purchase from a naturally one-off product"
+      ],
+      "completion_criteria": [
+        "Observed repeatability and limitations are documented, including cohort age."
+      ],
+      "next_stage_criteria": [
+        "Context-specific demand/value and economics evidence justify controlled growth; no universal benchmark is applied."
+      ],
+      "critical": [
+        "Improve value and repeatability",
+        "Measure relevant cohorts and economic drivers"
+      ],
+      "optional": [
+        "Advanced attribution model"
+      ],
+      "deferred": [
+        "Broad geographic rollout before local assumptions are tested"
+      ],
+      "blocking_data": [
+        "Retention or equivalent repeatability evidence missing when material acquisition expansion is requested",
+        "Cash exposure unknown before spending commitment"
+      ],
+      "non_blocking_data": [
+        "Perfect causal attribution",
+        "Stable LTV when cohorts are immature"
+      ],
+      "sources": [
+        "SRC-STARTUP-YC-PMF-2016",
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ]
+    },
+    {
+      "stage_id": "growth",
+      "goals": [
+        "Expand a proven segment while preserving sustainable value delivery"
+      ],
+      "question_ids": [
+        "Q-STARTUP-GROWTH-INCREMENTAL",
+        "Q-STARTUP-GROWTH-CAPACITY"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-GROWTH-REPLICATION",
+        "EV-STARTUP-CAPACITY"
+      ],
+      "metrics": [
+        "MET-REVENUE-GROWTH",
+        "MET-CAC",
+        "MET-CAC-PAYBACK",
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-COHORT-RETENTION",
+        "MET-CASH-RUNWAY",
+        "MET-SALES-CYCLE"
+      ],
+      "experiments": [
+        "Incremental channel budget test",
+        "Sales process bottleneck test",
+        "Capacity stress pilot within safe service limits"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "decisions": [
+        "Expand, hold or reduce a channel",
+        "Invest in capacity or revisit value proposition"
+      ],
+      "common_mistakes": [
+        "Growth at any cost",
+        "Assuming historical LTV persists after changing channel or segment"
+      ],
+      "completion_criteria": [
+        "Growth case includes customer value, incremental economics, cash and operational constraints."
+      ],
+      "next_stage_criteria": [
+        "The operating model can be replicated with defined accountabilities and monitored guardrails."
+      ],
+      "critical": [
+        "Test incremental rather than only blended economics",
+        "Coordinate growth with cash and delivery constraints"
+      ],
+      "optional": [
+        "New product/region exploration as a separate discovery branch"
+      ],
+      "deferred": [
+        "Assuming every business must pursue venture-scale expansion"
+      ],
+      "blocking_data": [
+        "Marginal acquisition/fulfillment costs or material cash constraints unknown for the proposed expansion"
+      ],
+      "non_blocking_data": [
+        "Complete multi-touch attribution"
+      ],
+      "sources": [
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-BLANK-2010"
+      ]
+    },
+    {
+      "stage_id": "scale",
+      "goals": [
+        "Replicate reliably while retaining learning capacity"
+      ],
+      "question_ids": [
+        "Q-STARTUP-SCALE-REPLICATION",
+        "Q-STARTUP-SCALE-OWNERSHIP"
+      ],
+      "required_evidence": [
+        "EV-STARTUP-SCALE-READINESS"
+      ],
+      "metrics": [
+        "MET-CONTRIBUTION-MARGIN",
+        "MET-COHORT-RETENTION",
+        "MET-THROUGHPUT",
+        "MET-DEFECT-RATE",
+        "MET-CASH-RUNWAY",
+        "MET-REVENUE-GROWTH"
+      ],
+      "experiments": [
+        "Controlled unit/market rollout",
+        "Operational resilience exercise with documented limits"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "decisions": [
+        "Replicate, pause, adapt locally or withdraw",
+        "Move stable operations to established-organization review while preserving discovery for new bets"
+      ],
+      "common_mistakes": [
+        "Treating scale as permanently achieved",
+        "Copying a playbook to new geography without validation",
+        "Equating large headcount with mature capabilities"
+      ],
+      "completion_criteria": [
+        "Each rollout has owned outcomes, cash exposure and a review date."
+      ],
+      "next_stage_criteria": [
+        "Stable execution can enter the established-organization journey; innovation can restart at discovery."
+      ],
+      "critical": [
+        "Assign accountability for replicated operations",
+        "Preserve feedback and challenge assumptions in new contexts"
+      ],
+      "optional": [
+        "Additional venture exploration"
+      ],
+      "deferred": [
+        "Exit/funding transaction recommendations pending jurisdiction-specific research"
+      ],
+      "blocking_data": [
+        "Undefined accountability or unmeasured material operating risk for a proposed rollout"
+      ],
+      "non_blocking_data": [
+        "Exact employee-size category"
+      ],
+      "sources": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-MIT-AULET-2024",
+        "SRC-STARTUP-YC-ADVICE-2017"
+      ]
+    }
+  ],
+  "dependency_graph": {
+    "nodes": [
+      "idea",
+      "discovery",
+      "validation",
+      "early-traction",
+      "growth",
+      "scale"
+    ],
+    "edges": [
+      {
+        "from": "idea",
+        "to": "discovery",
+        "type": "conditional_transition",
+        "requires": [
+          "EV-STARTUP-OPPORTUNITY"
+        ],
+        "condition": "A scoped hypothesis and research access exist.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "discovery",
+        "to": "validation",
+        "type": "conditional_transition",
+        "requires": [
+          "EV-STARTUP-PROBLEM"
+        ],
+        "condition": "Observed problem warrants a permitted value test.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "validation",
+        "to": "early-traction",
+        "type": "conditional_transition",
+        "requires": [
+          "EV-STARTUP-VALUE-TEST",
+          "EV-STARTUP-COMMITMENT"
+        ],
+        "condition": "Real delivery and meaningful customer action enable observation of repeatability.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "early-traction",
+        "to": "growth",
+        "type": "conditional_transition",
+        "requires": [
+          "EV-STARTUP-COHORTS",
+          "EV-STARTUP-UNIT-ECONOMICS"
+        ],
+        "condition": "Evidence supports bounded expansion in the stated segment; reviewer defines context-specific criteria.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "growth",
+        "to": "scale",
+        "type": "conditional_transition",
+        "requires": [
+          "EV-STARTUP-GROWTH-REPLICATION",
+          "EV-STARTUP-CAPACITY"
+        ],
+        "condition": "Repeated evidence supports a specific replication plan.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "validation",
+        "to": "discovery",
+        "type": "conditional_transition",
+        "requires": [],
+        "condition": "Problem/value evidence contradicts the selected segment or problem.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "early-traction",
+        "to": "validation",
+        "type": "conditional_transition",
+        "requires": [],
+        "condition": "Delivered value or commitment hypotheses need retesting.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "growth",
+        "to": "early-traction",
+        "type": "conditional_transition",
+        "requires": [],
+        "condition": "New cohorts weaken or prior PMF evidence becomes uncertain.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "scale",
+        "to": "discovery",
+        "type": "conditional_transition",
+        "requires": [],
+        "condition": "A new geography/segment has unfamiliar customer or purchase assumptions.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      },
+      {
+        "from": "scale",
+        "to": "growth",
+        "type": "conditional_transition",
+        "requires": [],
+        "condition": "Replication economics/capacity need revalidation.",
+        "on_unknown": "Remain provisionally assigned; recommend smallest evidence task; no automatic advance.",
+        "source_basis": "product_synthesis",
+        "sources": [
+          "SRC-STARTUP-BLANK-2010",
+          "SRC-STARTUP-RIES-PRINCIPLES"
+        ]
+      }
+    ],
+    "additional_routes": [
+      {
+        "from": "any",
+        "to": "cash_distress_review",
+        "condition": "Credible cash distress or near-term obligations threaten continuity.",
+        "effect": "Prioritize cash evidence and human review; do not assign turnaround as a mandatory lifecycle stage."
+      },
+      {
+        "from": "any",
+        "to": "existing_stage",
+        "condition": "Imported evidence covers earlier dependencies.",
+        "effect": "Permit direct entry after scoped evidence review; preserve earlier unresolved gaps."
+      },
+      {
+        "from": "scale",
+        "to": "established_organization_journey",
+        "condition": "Operating model is stable enough for execution-focused management.",
+        "effect": "Keep new ventures in separate discovery branches."
+      }
+    ]
+  },
+  "assessment_guards": [
+    "No universal PMF cutoff or health-score formula.",
+    "A positive interview does not validate price.",
+    "Funding and hiring do not validate demand.",
+    "No metric is mandatory when not meaningful to the business model.",
+    "Absence of ROIC or LTV before revenue is non-blocking.",
+    "Observed non-repeat purchase can be normal for a one-off product."
+  ],
+  "limitations": [
+    "Six stages, questions, gates and capability rubric are proposed product synthesis.",
+    "Funding, exit, regulated-market execution and detailed scale governance are deferred research.",
+    "No causal evidence that following this sequence improves success has been established here."
+  ]
+}

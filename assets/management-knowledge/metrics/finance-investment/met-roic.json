@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "id": "MET-ROIC",
+  "name": "بازده سرمایه به‌کارگرفته‌شده",
+  "aliases": [
+    "Return on invested capital"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "nonfinancial-organization"
+  ],
+  "stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "definition": "سود عملیاتی پس از مالیات نسبت به سرمایه عملیاتی مثبت.",
+  "formula": "100 * nopat / average_invested_capital",
+  "formula_variables": {
+    "nopat": "سود عملیاتی پس از مالیاتِ عملیات، با سیاست مالیاتی مستند",
+    "average_invested_capital": "میانگین سرمایه دفتری عملیاتی: بدهی بهره‌دار + حقوق صاحبان سهام - نقد/سرمایه‌گذاری غیرعملیاتی؛ دامنه و تعدیل‌ها مستند"
+  },
+  "unit": "percent",
+  "direction": "higher-usually-better",
+  "interpretation": "با دوره، واحد، دامنه و روش یکسان مقایسه شود؛ مقدار مثبت به‌تنهایی دستور سرمایه‌گذاری نیست.",
+  "why_it_matters": "بازده دارایی‌های موجود را به سرمایۀ لازم پیوند می‌دهد.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "nopat",
+    "average_invested_capital"
+  ],
+  "optional_inputs": [
+    "cost_of_capital",
+    "lease_adjustments",
+    "r_and_d_policy",
+    "goodwill_policy"
+  ],
+  "data_sources": [
+    "صورت مالی و دفتر کل قابل آشتی",
+    "بودجه/سناریوی دارای مالک و تاریخ",
+    "قرارداد و برآورد هزینه مستند"
+  ],
+  "typical_owner": "مدیر مالی با مالک سرمایه‌گذاری",
+  "update_frequency": "quarterly-after-close",
+  "warnings": [
+    "داده ناموجود صفر نیست؛ ارز، دوره و دامنه یکسان لازم است.",
+    "سرمایه صفر، منفی یا نزدیک صفر، نسبت را نامعتبر/ناپایدار می‌کند. میانگین یا ابتدای دوره برچسب بخورد؛ این نسخه میانگین است."
+  ],
+  "limitations": [
+    "NOPAT لزوماً EBIT تعریف SEC ضربدر (۱-مالیات) نیست؛ زیان، مالیات انتقالی و اقلام غیرعملیاتی به تعدیل نیاز دارند. بانک و بیمه چارچوب جدا می‌خواهند."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "آستانۀ عمومی عددی تأیید نشده؛ هزینه سرمایه، ظرفیت و هدف با شواهد و تأیید مالک تعیین می‌شوند.",
+  "related_metrics": [
+    "MET-EBIT",
+    "MET-NPV"
+  ],
+  "recommended_actions": [
+    {
+      "action": "پل سرمایه و سود عملیاتی پس از مالیات را به صورت مالی آشتی دهید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-INVESTMENT-damodaran-returns"
+  ],
+  "explanation": {
+    "quick": "سود عملیاتی پس از مالیات نسبت به سرمایه عملیاتی مثبت.",
+    "learn": "NOPAT=۱۵ و سرمایه متوسط=۱۰۰، ROIC=۱۵٪ دارد؛ مقایسه با هزینه سرمایه نیازمند ریسک و ارز همسان است.",
+    "deep_dive": "سرمایه صفر، منفی یا نزدیک صفر، نسبت را نامعتبر/ناپایدار می‌کند. میانگین یا ابتدای دوره برچسب بخورد؛ این نسخه میانگین است. NOPAT لزوماً EBIT تعریف SEC ضربدر (۱-مالیات) نیست؛ زیان، مالیات انتقالی و اقلام غیرعملیاتی به تعدیل نیاز دارند. بانک و بیمه چارچوب جدا می‌خواهند."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-explicit-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

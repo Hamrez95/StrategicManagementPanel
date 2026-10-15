@@ -1,0 +1,81 @@
+{
+  "id": "MET-GROSS-MARGIN",
+  "name": "حاشیه سود ناخالص",
+  "aliases": [
+    "Gross margin"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "سهم درآمد پس از بهای فروش.",
+  "formula": "100 * (net_revenue - cost_of_sales) / net_revenue",
+  "formula_variables": {
+    "net_revenue": "درآمد خالص مثبت",
+    "cost_of_sales": "بهای فروش مطابق سیاست حسابداری"
+  },
+  "unit": "percent",
+  "direction": "higher-usually-better",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "ساختار هزینه تحویل را آشکار می‌کند.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "net_revenue",
+    "cost_of_sales"
+  ],
+  "optional_inputs": [
+    "cost_policy",
+    "segment"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "حاشیه درصدی را با مبلغ سود ناخالص اشتباه نگیرید؛ مخرج صفر/منفی گزارش تفسیری جدا می‌خواهد."
+  ],
+  "limitations": [
+    "طبقه‌بندی میزبانی، پشتیبانی و استهلاک مقایسه شرکت‌ها را تغییر می‌دهد."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-CONTRIBUTION-MARGIN",
+    "MET-OPERATING-MARGIN"
+  ],
+  "recommended_actions": [
+    {
+      "action": "تغییر حاشیه را با تغییر هزینه واحد و ترکیب فروش تطبیق دهید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-sec-statements"
+  ],
+  "explanation": {
+    "quick": "سهم درآمد پس از بهای فروش.",
+    "learn": "درآمد ۱۰۰ و بهای فروش ۶۰، حاشیه ۴۰٪ می‌دهد.",
+    "deep_dive": "حاشیه درصدی را با مبلغ سود ناخالص اشتباه نگیرید؛ مخرج صفر/منفی گزارش تفسیری جدا می‌خواهد. طبقه‌بندی میزبانی، پشتیبانی و استهلاک مقایسه شرکت‌ها را تغییر می‌دهد."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

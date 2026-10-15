@@ -1,0 +1,82 @@
+{
+  "id": "MET-CONTRIBUTION-MARGIN",
+  "name": "حاشیه مشارکت",
+  "aliases": [
+    "Contribution margin"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "فروش پس از هزینه متغیر؛ مبلغی برای پوشش هزینه ثابت.",
+  "formula": "net_revenue - variable_costs",
+  "formula_variables": {
+    "net_revenue": "درآمد خالص دورۀ تصمیم",
+    "variable_costs": "کل هزینه‌های متغیرِ صریح در محدودۀ فعالیت"
+  },
+  "unit": "currency",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "برای تصمیم حجم، ترکیب و سفارش اضافی مفید است.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "net_revenue",
+    "variable_costs"
+  ],
+  "optional_inputs": [
+    "units",
+    "capacity",
+    "cost_scope"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "هزینه پرداخت، ارسال، مرجوعی، کمیسیون و خدمت متغیر را طبق دامنه ثبت کنید؛ با سود ناخالص یکسان فرض نشود."
+  ],
+  "limitations": [
+    "هزینه ثابت پله‌ای و ظرفیت محدود، سودآوری سفارش جدید را تغییر می‌دهند."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-GROSS-MARGIN",
+    "MET-CAC-PAYBACK"
+  ],
+  "recommended_actions": [
+    {
+      "action": "پیش از افزایش حجم، هزینۀ افزایشی و ظرفیت را بررسی کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-contribution"
+  ],
+  "explanation": {
+    "quick": "فروش پس از هزینه متغیر؛ مبلغی برای پوشش هزینه ثابت.",
+    "learn": "فروش ۱۰۰ و هزینه متغیر ۷۰، مشارکت ۳۰ دارد؛ نسبت آن ۳۰٪ است.",
+    "deep_dive": "هزینه پرداخت، ارسال، مرجوعی، کمیسیون و خدمت متغیر را طبق دامنه ثبت کنید؛ با سود ناخالص یکسان فرض نشود. هزینه ثابت پله‌ای و ظرفیت محدود، سودآوری سفارش جدید را تغییر می‌دهند."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

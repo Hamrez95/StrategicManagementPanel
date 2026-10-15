@@ -1,0 +1,159 @@
+{
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature"
+  ],
+  "provenance": "product-authored-diagnostic-heuristic-informed-by-financial-identities",
+  "causality_policy": "شاخه‌ها فرضیه و سهم حسابداری را نشان می‌دهند؛ علت رفتاری فقط با شواهد مستقل، ترتیب زمانی و کنترل توضیح‌های رقیب پذیرفته شود.",
+  "missing_data_policy": "داده ناموجود=unknown؛ شاخه رد یا تأیید نشود؛ داده لازم و مالک جمع‌آوری نمایش داده شود.",
+  "confidence_policy": "بدون امتیاز اطمینان مصنوعی؛ شواهد ثبت‌شده، ناسازگاری و محدودیت‌ها بیان شوند.",
+  "last_reviewed": "2026-10-15",
+  "id": "DIA-REVENUE-DECLINE",
+  "name": "بررسی افت درآمد",
+  "trigger": "درآمد شناسایی‌شده در دوره هم‌سنخ کاهش یافته یا از هدف مصوب عقب است.",
+  "entry_node": "validate",
+  "metric_refs": [
+    "MET-REVENUE-GROWTH",
+    "MET-GROSS-MARGIN"
+  ],
+  "sources": [
+    "SRC-FINANCE-ifrs-15",
+    "SRC-FINANCE-saas-metrics"
+  ],
+  "nodes": [
+    {
+      "id": "validate",
+      "question": "آیا دوره، ارز، دامنه و سیاست شناسایی قابل‌مقایسه‌اند؟",
+      "required_evidence": [
+        "صورت مالی بسته‌شده",
+        "برگشت/تخفیف",
+        "تغییر دامنه تلفیق",
+        "اثر ارز و تقویم"
+      ],
+      "branches": [
+        {
+          "condition": "ناسازگاری با مدرک یافت شد",
+          "next_node": "restate",
+          "evidence_to_test": [
+            "تطبیق قبل و بعد"
+          ],
+          "action": "ابتدا سری قابل‌مقایسه بسازید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "قابل‌مقایسه و افت باقی است",
+          "next_node": "decompose",
+          "evidence_to_test": [
+            "تطبیق صورت مالی"
+          ],
+          "action": "افت مبلغی و نسبی با مبنای معتبر گزارش شود.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "از مالی تطبیق دوره و سیاست بگیرید؛ افت واقعی هنوز تأیید نشده.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "decompose",
+      "question": "کدام جزء در پل درآمد کاهش را توضیح می‌دهد؟",
+      "required_evidence": [
+        "تراکنش با محصول/کانال/تاریخ",
+        "قیمت خالص",
+        "حجم",
+        "ترکیب",
+        "کوهورت قراردادهای تکرارشونده"
+      ],
+      "branches": [
+        {
+          "condition": "حجم کمتر با قیمت/ترکیب کنترل‌شده",
+          "next_node": "volume",
+          "evidence_to_test": [
+            "حجم تحویل/فروش و موجودی",
+            "قیف و سفارش لغوشده"
+          ],
+          "action": "تقاضا، ظرفیت و دسترسی را به‌صورت فرضیه جدا بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "قیمت خالص/ترکیب/برگشت سهم دارد",
+          "next_node": "price-mix",
+          "evidence_to_test": [
+            "تخفیف مصوب",
+            "ترکیب SKU",
+            "برگشت فاکتور"
+          ],
+          "action": "سهم هر جزء را کمی کنید؛ افت قیمت را خودکار به رقابت نسبت ندهید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "درآمد تکرارشونده موجود کاهش یافته",
+          "next_node": "retention",
+          "evidence_to_test": [
+            "افت، لغو و توسعۀ همان کوهورت؛ مشتری جدید جدا"
+          ],
+          "action": "دامنه قرارداد و تاریخ اجرای تغییرات را بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "به‌جای علت‌سازی، پل درآمد را با داده تراکنش کامل کنید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "volume",
+      "question": "شاهد مستقل افت تقاضا، تأخیر تحویل یا محدودیت ظرفیت چیست؟",
+      "required_evidence": [
+        "سفارش ثبت‌شده و تحویل‌شده",
+        "موجودی/ظرفیت",
+        "مصاحبه فروش ازدست‌رفته"
+      ],
+      "branches": [
+        {
+          "condition": "سفارش ثابت، تحویل افت کرده",
+          "next_node": "capacity-review",
+          "evidence_to_test": [
+            "تأخیر و کمبود تاریخ‌دار"
+          ],
+          "action": "فرضیۀ محدودیت تحویل را با عملیات بررسی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        },
+        {
+          "condition": "سفارش یا تبدیل کاهش یافته",
+          "next_node": "demand-review",
+          "evidence_to_test": [
+            "قیف هم‌تعریف و تحلیل فروش ازدست‌رفته"
+          ],
+          "action": "آزمایش محدود برای فرضیۀ تقاضا طراحی کنید.",
+          "action_provenance": "product-authored-decision-heuristic"
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "داده سفارش و تحویل را متصل کنید؛ علت تقاضا یا عرضه نامعلوم است.",
+        "stop_causal_conclusion": true
+      }
+    }
+  ],
+  "terminal_outcomes": [
+    "restate",
+    "price-mix",
+    "retention",
+    "capacity-review",
+    "demand-review"
+  ],
+  "limitations": [
+    "پل قیمت/حجم در محصولات ناهمگن به روش تخصیص نیاز دارد.",
+    "این درخت افت درآمد را معادل افت نقد یا کاهش ارزش مشتری نمی‌داند."
+  ],
+  "schema_version": "1.0.0"
+}

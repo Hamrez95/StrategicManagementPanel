@@ -1,0 +1,88 @@
+{
+  "id": "MET-CASH-CONVERSION-CYCLE",
+  "name": "چرخه تبدیل وجه نقد",
+  "aliases": [
+    "CCC"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "زمان تقریبی بین پرداخت تأمین و وصول فروش.",
+  "formula": "dio + dso - dpo",
+  "formula_variables": {
+    "dio": "MET-DIO با دوره سازگار",
+    "dso": "MET-DSO با دوره سازگار",
+    "dpo": "MET-DPO با دوره سازگار"
+  },
+  "unit": "days",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "پیوند موجودی، وصول و پرداخت را نشان می‌دهد.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [
+    "MET-DSO",
+    "MET-DIO",
+    "MET-DPO"
+  ],
+  "required_inputs": [
+    "dio",
+    "dso",
+    "dpo"
+  ],
+  "optional_inputs": [
+    "seasonality",
+    "supplier_terms"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "اجزا با مخرج و میانگین سازگار لازم‌اند؛ مقدار منفی ممکن است طبیعی باشد."
+  ],
+  "limitations": [
+    "برای SaaS یا خدمات بدون موجودی شاخص اصلی مناسبی نیست؛ بدهی سرمایه‌ای وارد نشود."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-DSO",
+    "MET-DIO",
+    "MET-DPO"
+  ],
+  "recommended_actions": [
+    {
+      "action": "جزء تغییریافته را بررسی کنید؛ نسخه واحدِ کاهش برای همه اجزا نسازید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-working-capital"
+  ],
+  "explanation": {
+    "quick": "زمان تقریبی بین پرداخت تأمین و وصول فروش.",
+    "learn": "DIO=۲۰، DSO=۳۰ و DPO=۲۵، چرخه ۲۵ روز است.",
+    "deep_dive": "اجزا با مخرج و میانگین سازگار لازم‌اند؛ مقدار منفی ممکن است طبیعی باشد. برای SaaS یا خدمات بدون موجودی شاخص اصلی مناسبی نیست؛ بدهی سرمایه‌ای وارد نشود."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

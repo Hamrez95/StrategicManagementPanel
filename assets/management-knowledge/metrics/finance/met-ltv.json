@@ -1,0 +1,87 @@
+{
+  "id": "MET-LTV",
+  "name": "ارزش طول عمر مشتری مبتنی بر حاشیه",
+  "aliases": [
+    "CLV",
+    "Customer lifetime value"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "saas",
+    "subscription",
+    "repeat-purchase-with-cohort-data"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "برآورد ارزش تنزیل‌شدۀ حاشیه آینده کوهورت، پیش از CAC.",
+  "formula": "sum(expected_margin_per_initial_customer_t / (1 + discount_rate_per_period)^t, t=1..horizon)",
+  "formula_variables": {
+    "expected_margin_per_initial_customer_t": "حاشیه موردانتظار در t به ازای هر مشتری اولیه، شامل احتمال بقا و هزینه حفظ/توسعه اعلام‌شده",
+    "discount_rate_per_period": "نرخ تنزیل سازگار با طول دوره و ریسک",
+    "horizon": "افق محدود و مستند؛ ارزش انتهایی فقط جداگانه"
+  },
+  "unit": "currency-per-customer",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "مقایسه سرمایه جذب با ارزش آتی را ممکن می‌کند.",
+  "leading_or_lagging": "leading-model-estimate",
+  "dependencies": [],
+  "required_inputs": [
+    "expected_margin_series",
+    "discount_rate_per_period",
+    "horizon"
+  ],
+  "optional_inputs": [
+    "survival_curve",
+    "cohort_age",
+    "retention_expansion_cost"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "ARPU/churn فقط تقریبِ شرایط پایدار است؛ churn صفر یا منفی فرمول ساده را نامعتبر می‌کند. افق، حاشیه و عدم قطعیت باید نمایش داده شوند."
+  ],
+  "limitations": [
+    "کوهورت نابالغ و ریزش کم مشاهده‌شده شواهد عمر بی‌نهایت نیست؛ ارزش درآمدی با ارزش حاشیه‌ای متفاوت است."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-CAC",
+    "MET-LTV-CAC-RATIO"
+  ],
+  "recommended_actions": [
+    {
+      "action": "سناریوی بقا، هزینه خدمت و تنزیل را منتشر کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-ltv-dcf"
+  ],
+  "explanation": {
+    "quick": "برآورد ارزش تنزیل‌شدۀ حاشیه آینده کوهورت، پیش از CAC.",
+    "learn": "حاشیه‌های موردانتظار ۱۰ و ۸ با تنزیل صفر در دو دوره، ارزش ۱۸ دارند؛ این مثال پیش‌بینی نیست.",
+    "deep_dive": "ARPU/churn فقط تقریبِ شرایط پایدار است؛ churn صفر یا منفی فرمول ساده را نامعتبر می‌کند. افق، حاشیه و عدم قطعیت باید نمایش داده شوند. کوهورت نابالغ و ریزش کم مشاهده‌شده شواهد عمر بی‌نهایت نیست؛ ارزش درآمدی با ارزش حاشیه‌ای متفاوت است."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "explicit-product-operationalization-of-source-concept",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

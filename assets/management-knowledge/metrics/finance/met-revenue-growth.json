@@ -1,0 +1,82 @@
+{
+  "id": "MET-REVENUE-GROWTH",
+  "name": "نرخ رشد درآمد",
+  "aliases": [
+    "Revenue growth"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "mature",
+    "scale",
+    "operating"
+  ],
+  "definition": "تغییر نسبی درآمد نسبت به دوره هم‌سنخ.",
+  "formula": "100 * (revenue_current - revenue_prior) / revenue_prior",
+  "formula_variables": {
+    "revenue_current": "درآمد خالص شناسایی‌شده دوره جاری",
+    "revenue_prior": "درآمد خالص دوره قابل‌مقایسه، مثبت"
+  },
+  "unit": "percent",
+  "direction": "context-dependent",
+  "interpretation": "با روند خودِ کسب‌وکار و دامنه محاسبه تفسیر شود؛ تغییر شاخص به‌تنهایی علت را ثابت نمی‌کند.",
+  "why_it_matters": "تغییر مقیاس فروش را از سودآوری جدا می‌کند.",
+  "leading_or_lagging": "lagging",
+  "dependencies": [],
+  "required_inputs": [
+    "revenue_current",
+    "revenue_prior"
+  ],
+  "optional_inputs": [
+    "product_mix",
+    "fx_bridge",
+    "price_volume_bridge"
+  ],
+  "data_sources": [
+    "دفتر کل و صورت مالی",
+    "بانک/خزانه",
+    "صورتحساب و قرارداد مشتری با دسترسی مجاز"
+  ],
+  "typical_owner": "مدیر مالی با مالک عملیاتی داده",
+  "update_frequency": "monthly-after-close",
+  "warnings": [
+    "دوره، ارز و دامنه تلفیق یکسان؛ مقدار ناموجود را صفر تلقی نکنید.",
+    "اگر مبنا صفر یا منفی است درصد نمایش ندهید؛ تغییر مبلغی و توضیح مبنا لازم است. تورم و ارز می‌توانند رشد اسمی بسازند."
+  ],
+  "limitations": [
+    "رشد درآمد به‌تنهایی اثر قیمت، حجم یا حفظ مشتری را اثبات نمی‌کند."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "بنچمارک عددی عمومی تأیید نشده؛ صنعت، مرحله، کشور، فصل و سیاست حسابداری باید هم‌سنخ باشند.",
+  "related_metrics": [
+    "MET-GROSS-MARGIN",
+    "MET-OPERATING-CASH-FLOW"
+  ],
+  "recommended_actions": [
+    {
+      "action": "پل مبلغی قیمت/حجم/ترکیب و اثر ارز بسازید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-FINANCE-ifrs-15"
+  ],
+  "explanation": {
+    "quick": "تغییر نسبی درآمد نسبت به دوره هم‌سنخ.",
+    "learn": "درآمد ۱۲۰ در برابر ۱۰۰، رشد ۲۰٪ دارد؛ وصول نقد ممکن است متفاوت باشد.",
+    "deep_dive": "اگر مبنا صفر یا منفی است درصد نمایش ندهید؛ تغییر مبلغی و توضیح مبنا لازم است. تورم و ارز می‌توانند رشد اسمی بسازند. رشد درآمد به‌تنهایی اثر قیمت، حجم یا حفظ مشتری را اثبات نمی‌کند."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-disclosed-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "schema_version": "1.0.0",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

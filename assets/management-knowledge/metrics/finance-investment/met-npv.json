@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "id": "MET-NPV",
+  "name": "ارزش فعلی خالص",
+  "aliases": [
+    "Net present value"
+  ],
+  "domain": "finance",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "validation",
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "definition": "جمع ارزش فعلی جریان‌های نقد افزایشی سناریو.",
+  "formula": "sum(cash_flow_t / (1 + discount_rate_per_period)^t, t=0..horizon)",
+  "formula_variables": {
+    "cash_flow_t": "جریان نقد افزایشی پس از مالیات در زمان t، با علامت خروج منفی؛ t=0 سرمایه اولیه را شامل می‌شود",
+    "discount_rate_per_period": "نرخ فرصت متناسب با ریسک، ارز، تورم و طول هر دورۀ نقد؛ بزرگ‌تر از منفی یک",
+    "horizon": "افق سناریوی مصوب؛ ارزش پایانی فقط با فرض‌های آشکار و بدون دوباره‌شماری"
+  },
+  "unit": "currency-at-valuation-date",
+  "direction": "context-dependent",
+  "interpretation": "با دوره، واحد، دامنه و روش یکسان مقایسه شود؛ مقدار مثبت به‌تنهایی دستور سرمایه‌گذاری نیست.",
+  "why_it_matters": "اثر مقیاس و زمان نقد را وارد تصمیم می‌کند.",
+  "leading_or_lagging": "leading-model-estimate",
+  "dependencies": [],
+  "required_inputs": [
+    "cash_flow_series",
+    "discount_rate_per_period",
+    "horizon",
+    "currency",
+    "valuation_date"
+  ],
+  "optional_inputs": [
+    "terminal_value",
+    "working_capital_recovery",
+    "scenario_assumptions"
+  ],
+  "data_sources": [
+    "صورت مالی و دفتر کل قابل آشتی",
+    "بودجه/سناریوی دارای مالک و تاریخ",
+    "قرارداد و برآورد هزینه مستند"
+  ],
+  "typical_owner": "مدیر مالی با مالک سرمایه‌گذاری",
+  "update_frequency": "at-decision-and-material-assumption-change",
+  "warnings": [
+    "داده ناموجود صفر نیست؛ ارز، دوره و دامنه یکسان لازم است.",
+    "جریان اسمی با نرخ اسمی، واقعی با واقعی و ارز واحد لازم است. جریان بنگاه با WACC و جریان سهامدار با هزینه حقوق صاحبان سهام تطبیق یابد؛ بهره دوباره کسر نشود."
+  ],
+  "limitations": [
+    "داده پیش‌بینی‌شده حقیقت نیست؛ هزینه فرصت و اثر بر دیگر فروش‌ها وارد، هزینه غرق‌شده خارج. جریان‌های نامنظم مدل تاریخ‌دار می‌خواهند؛ فرمول دوره‌ای کافی نیست."
+  ],
+  "benchmarks": [],
+  "benchmark_context": "آستانۀ عمومی عددی تأیید نشده؛ هزینه سرمایه، ظرفیت و هدف با شواهد و تأیید مالک تعیین می‌شوند.",
+  "related_metrics": [
+    "MET-IRR",
+    "MET-ROI",
+    "MET-CASH-RUNWAY"
+  ],
+  "recommended_actions": [
+    {
+      "action": "سناریو، منبع فرض‌ها و حساسیت به نرخ/حجم/قیمت/تاخیر را ثبت کنید.",
+      "provenance": "product-authored-decision-heuristic",
+      "requires_human_review": true
+    }
+  ],
+  "sources": [
+    "SRC-INVESTMENT-openstax-npv",
+    "SRC-INVESTMENT-damodaran-returns"
+  ],
+  "explanation": {
+    "quick": "جمع ارزش فعلی جریان‌های نقد افزایشی سناریو.",
+    "learn": "سرمایه اولیه منفی ۱۰۰ و دریافت پایان سال ۱۱۰ با نرخ ۱۰٪، NPV صفر دارد؛ مثال ساختگی است.",
+    "deep_dive": "جریان اسمی با نرخ اسمی، واقعی با واقعی و ارز واحد لازم است. جریان بنگاه با WACC و جریان سهامدار با هزینه حقوق صاحبان سهام تطبیق یابد؛ بهره دوباره کسر نشود. داده پیش‌بینی‌شده حقیقت نیست؛ هزینه فرصت و اثر بر دیگر فروش‌ها وارد، هزینه غرق‌شده خارج. جریان‌های نامنظم مدل تاریخ‌دار می‌خواهند؛ فرمول دوره‌ای کافی نیست."
+  },
+  "provenance": {
+    "definition": "source-grounded-adaptation",
+    "formula": "source-grounded-with-explicit-conventions",
+    "interpretation_and_actions": "product-authored-decision-heuristics"
+  },
+  "last_reviewed": "2026-10-15",
+  "applicability_note": "Operating and scale contexts may use this metric when its input contract and business model apply; stage does not supply missing data."
+}

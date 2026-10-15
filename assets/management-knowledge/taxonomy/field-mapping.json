@@ -1,0 +1,20 @@
+{
+ "schema_version":"0.1.0","epistemic_status":"product_integration_contract",
+ "policy":"No silent coercion. Preserve imported fields and provenance. Contradictory aliases require review and suspend dependent suggestions.",
+ "canonical_fields":{"stage":"venture or operating stage in its explicit scope","scale_acquisition_requested":"Boolean request for a material acquisition commitment; capped experiments do not automatically set this true","retention_evidence":"sufficient / insufficient / not_applicable_one_off / unknown"},
+ "aliases":[
+  {"from":"stage_id","to":"stage","mapping":"identity","requires":"Same venture/segment scope; disagreement with an existing stage is a conflict."},
+  {"from":"material_acquisition_expansion_requested","to":"scale_acquisition_requested","mapping":"identity","requires":"Both fields refer to the same material request, not a bounded learning test."}
+ ],
+ "conditional_aggregation":{
+  "from":"repeatability_evidence_status","to":"retention_evidence",
+  "requires":{"repeatability_scope":"cohort_retention"},
+  "mapping":{"missing":"insufficient","stale":"insufficient","conflicted":"insufficient"},
+  "preserve_original":true,
+  "unsupported":"Other repeatability scopes (delivery, one-off acquisition, unit economics) cannot be mapped to retention. Retain unknown. A value outside the listed map is not automatically sufficient.",
+  "claim":"This mapping chooses a cautionary evidence task. It does not prove low retention, failed PMF or any causal diagnosis."
+ },
+ "evidence_status_axes":{"observation_status":["missing","reported","observed","corroborated"],"quality_status":["fresh","stale","conflicted","unknown"],"claim_confidence":["insufficient","low","medium","high"]},
+ "status_policy":"Observation status, recency/conflict and claim confidence are independent axes. Never map observed or corroborated directly to high confidence. Existing detailed startup evidence labels remain in their original fields until a reviewed mapping is supplied.",
+ "sources":["SRC-CORE-CIPD-EVIDENCE"]
+}

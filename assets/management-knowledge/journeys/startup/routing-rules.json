@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0.0",
+  "id": "RULE-SET-STARTUP-ROUTING",
+  "last_reviewed": "2026-10-15",
+  "content_status": "research_backed_product_synthesis",
+  "execution_status": "knowledge_only_not_runtime_code",
+  "predicate_semantics": {
+    "logic": "three_valued_true_false_unknown",
+    "unknown": "A missing input is unknown; never silently false or satisfied.",
+    "all": "True only if all clauses are true; false if a clause is false; otherwise unknown.",
+    "effects": "Recommendations require human review proportionate to decision exposure; predicates do not automatically authorize spending."
+  },
+  "rules": [
+    {
+      "id": "RULE-STARTUP-RETENTION-BEFORE-EXPANSION",
+      "conditions": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "eq",
+            "value": "early-traction"
+          },
+          {
+            "field": "material_acquisition_expansion_requested",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "repeatability_evidence_status",
+            "op": "in",
+            "value": [
+              "missing",
+              "stale",
+              "conflicted"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        "EV-STARTUP-COHORTS"
+      ],
+      "confidence": {
+        "basis": "Practitioner advice supports caution; exact routing and threshold are product synthesis.",
+        "calibrated_probability": null
+      },
+      "exceptions": [
+        "One-off purchase models require repeatable acquisition, outcomes and delivery evidence rather than mandatory repeat use.",
+        "A small bounded acquisition test may be necessary to obtain cohorts; its learning and cash limits must be explicit."
+      ],
+      "recommended_action": "Collect model-appropriate cohort or repeatability evidence before recommending broad acquisition expansion.",
+      "explanation": "Observed demand alone may conceal weak ongoing value. Unknown evidence warrants a learning action rather than a PMF verdict.",
+      "sources": [
+        "SRC-STARTUP-YC-ADVICE-2017",
+        "SRC-STARTUP-YC-PMF-2016"
+      ],
+      "frameworks": [
+        "FW-PRODUCT-COHORT-ANALYSIS",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "unknown_behavior": "Ask only for the unresolved input relevant to the expansion decision.",
+      "provenance": {
+        "basis": "Product-authored conditional routing informed by the cited practitioner concepts; exact predicates and actions are not a validated universal decision law.",
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "id": "RULE-STARTUP-SAFE-EXPERIMENT",
+      "conditions": {
+        "all": [
+          {
+            "field": "proposed_experiment_has_material_safety_or_regulatory_constraint",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "permission_and_controls_reviewed",
+            "op": "neq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "Constraint description",
+        "Qualified review and permitted test scope"
+      ],
+      "confidence": {
+        "basis": "Context safeguard added by Startino; no jurisdiction-specific legal rule asserted.",
+        "calibrated_probability": null
+      },
+      "exceptions": [
+        "A harmless simulation or interview may proceed when it does not expose the constrained activity; review its actual scope."
+      ],
+      "recommended_action": "Use a permitted prototype or obtain domain review before deployment or customer exposure.",
+      "explanation": "Fast learning guidance does not establish permission for a risky launch.",
+      "sources": [
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "source_basis": "product_contextual_adaptation_not_a_legal_source",
+      "frameworks": [
+        "FW-STARTUP-TEST-LEARNING-CARDS",
+        "FW-STARTUP-LEAN-STARTUP"
+      ],
+      "unknown_behavior": "Clarify the material constraint before recommending exposure.",
+      "provenance": {
+        "basis": "product_contextual_adaptation_not_a_legal_source",
+        "last_reviewed": "2026-10-15"
+      }
+    },
+    {
+      "id": "RULE-STARTUP-NEW-SEGMENT-REVALIDATE",
+      "conditions": {
+        "all": [
+          {
+            "field": "stage_id",
+            "op": "in",
+            "value": [
+              "growth",
+              "scale"
+            ]
+          },
+          {
+            "field": "new_segment_or_market",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "customer_purchase_assumptions_changed",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "EV-STARTUP-PROBLEM",
+        "EV-STARTUP-SCALE-READINESS"
+      ],
+      "confidence": {
+        "basis": "Business-model search and beachhead guidance; exact trigger is product synthesis.",
+        "calibrated_probability": null
+      },
+      "exceptions": [
+        "Reviewed evidence may transfer when the relevant circumstances and purchase process are comparable; document the rationale."
+      ],
+      "recommended_action": "Open a discovery/validation branch for the new scope while keeping the established model in its current stage.",
+      "explanation": "Validation belongs to a customer/model/context, and does not automatically transfer to every market.",
+      "sources": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-MIT-AULET-2024"
+      ],
+      "frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "unknown_behavior": "Review which assumptions actually differ before creating a questionnaire branch.",
+      "provenance": {
+        "basis": "Product-authored conditional routing informed by the cited practitioner concepts; exact predicates and actions are not a validated universal decision law.",
+        "last_reviewed": "2026-10-15"
+      }
+    }
+  ],
+  "policies": [
+    {
+      "id": "RULE-STARTUP-IMPORT-BEFORE-QUESTION",
+      "conditions": {
+        "all": [
+          {
+            "field": "relevant_import_exists",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "import_context_matches",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "import_mapping_verified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "import_evidence_fresh",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "Matched provenance, segment, measurement window and definition"
+      ],
+      "confidence": {
+        "basis": "Product requirement: derive before asking; not an externally validated optimal questionnaire policy.",
+        "calibrated_probability": null
+      },
+      "exceptions": [
+        "Evidence conflicts require clarification even if an import exists.",
+        "An inferred mapping needs review before it can satisfy a gate."
+      ],
+      "recommended_action": "Populate the known evidence and ask only about its unresolved interpretation or gaps.",
+      "explanation": "Repeating already answered questions adds effort without improving the decision.",
+      "sources": [],
+      "source_basis": "explicit_user_requirement_and_product_synthesis",
+      "kind": "product_ux_policy",
+      "provenance": {
+        "basis": "Explicit user requirements on cognitive load, import and skip behavior; authored product policy, not an externally established management finding.",
+        "external_authority_claimed": false,
+        "last_reviewed": "2026-10-15"
+      },
+      "unknown_behavior": "Inspect the import mapping; preserve unknown fields rather than guessing."
+    },
+    {
+      "id": "RULE-STARTUP-SKIP-PRESERVES-UNKNOWN",
+      "conditions": {
+        "all": [
+          {
+            "field": "question_skipped",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "answer_required_for_current_decision",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "evidence": [
+        "Skipped question ID",
+        "Dependent decision ID"
+      ],
+      "confidence": {
+        "basis": "Proposed product evidence contract.",
+        "calibrated_probability": null
+      },
+      "exceptions": [
+        "An independently verified import can resolve the missing answer.",
+        "A reviewer can mark the input not applicable with scope and rationale."
+      ],
+      "recommended_action": "Allow navigation, preserve unknown evidence and defer the dependent recommendation with a short explanation.",
+      "explanation": "Skipping an input should not silently convert uncertainty into successful validation.",
+      "sources": [],
+      "source_basis": "explicit_user_requirement_and_product_synthesis",
+      "kind": "product_ux_policy",
+      "provenance": {
+        "basis": "Explicit user requirements on cognitive load, import and skip behavior; authored product policy, not an externally established management finding.",
+        "external_authority_claimed": false,
+        "last_reviewed": "2026-10-15"
+      },
+      "unknown_behavior": "Keep the dependency unresolved and offer an evidence collection action."
+    }
+  ],
+  "contract": {
+    "rule_required_fields": [
+      "id",
+      "conditions",
+      "evidence",
+      "confidence",
+      "exceptions",
+      "recommended_action",
+      "explanation",
+      "sources",
+      "frameworks",
+      "unknown_behavior",
+      "provenance"
+    ],
+    "policy_semantics": "Product UX policies are validated as authored requirements separately; an empty source list makes no external evidence claim.",
+    "rule_semantics": "Rules require nonempty sources, framework references and explicit unknown behavior; source support remains scoped by provenance."
+  }
+}

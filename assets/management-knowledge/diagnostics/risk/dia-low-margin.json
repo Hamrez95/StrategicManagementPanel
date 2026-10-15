@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "id": "DIA-LOW-MARGIN",
+  "name": "بررسی حاشیه کم یا سربه‌سر دست‌نیافتنی",
+  "domain": "risk",
+  "business_types": [
+    "all"
+  ],
+  "stages": [
+    "early-traction",
+    "growth",
+    "scale",
+    "operating",
+    "mature",
+    "turnaround"
+  ],
+  "trigger": "حاشیه با هدف مصوب هم‌تعریف فاصله دارد یا سربه‌سر از ظرفیت معتبر فراتر می‌رود؛ آستانۀ عمومی کم‌بودن تعیین نشده است.",
+  "entry_node": "validate",
+  "metric_refs": [
+    "MET-GROSS-MARGIN",
+    "MET-CONTRIBUTION-MARGIN",
+    "MET-OPERATING-MARGIN",
+    "MET-BREAK-EVEN",
+    "MET-EBITDA"
+  ],
+  "sources": [
+    "SRC-INVESTMENT-openstax-break-even",
+    "SRC-INVESTMENT-sec-ebit"
+  ],
+  "provenance": "product-authored-diagnostic-heuristic",
+  "causality_policy": "افت نسبت، علت رقابتی یا رفتاری را اثبات نمی‌کند؛ هر توضیح به شاهد مستقل نیاز دارد.",
+  "missing_data_policy": "فیلد ناموجود unknown است؛ شاخه قابل تأیید نیست و مالک داده باید مشخص شود.",
+  "confidence_policy": "اطمینان عددی بدون مدل کالیبره‌شده نمایش داده نشود.",
+  "nodes": [
+    {
+      "id": "validate",
+      "question": "کدام حاشیه و کدام دامنه هزینه با هدف مقایسه می‌شود؟",
+      "required_evidence": [
+        "سیاست بهای فروش/هزینه متغیر",
+        "دوره و ارز",
+        "هدف مصوب هم‌تعریف"
+      ],
+      "branches": [
+        {
+          "condition": "دامنه یا طبقه‌بندی ناسازگار است",
+          "next_node": "restate",
+          "evidence_to_test": [
+            "جدول آشتی هزینه"
+          ],
+          "action": "تعریف را همسان کنید و پیش از آن حکم کم‌بودن صادر نکنید."
+        },
+        {
+          "condition": "حاشیه قابل‌مقایسه و کمبود تأیید شد",
+          "next_node": "unit-margin",
+          "evidence_to_test": [
+            "فروش خالص و هزینه قابل آشتی"
+          ],
+          "action": "حاشیه واحد و هزینه ثابت را جدا کنید."
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "از مالی سیاست هزینه و هدف مصوب بگیرید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "unit-margin",
+      "question": "آیا حاشیه مشارکت واحد مثبت و در محدودۀ فعالیت معتبر است؟",
+      "required_evidence": [
+        "قیمت خالص واحد",
+        "هزینه متغیر کامل واحد",
+        "محدودۀ فعالیت و ظرفیت"
+      ],
+      "branches": [
+        {
+          "condition": "حاشیه واحد صفر یا منفی است",
+          "next_node": "unit-economics-review",
+          "evidence_to_test": [
+            "قیمت، تخفیف، هزینه خدمت و ضایعات"
+          ],
+          "action": "رشد حجم در مدل فعلی پوشش هزینه ثابت نمی‌سازد؛ قیمت/هزینه/ترکیب را با فرض‌های قابل آزمون بررسی کنید."
+        },
+        {
+          "condition": "حاشیه واحد مثبت است",
+          "next_node": "capacity",
+          "evidence_to_test": [
+            "هزینه ثابت و سربه‌سر مدل"
+          ],
+          "action": "حجم لازم را با ظرفیت و تقاضا مقایسه کنید."
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "هزینه متغیر و ثابت را با سیاست مستند تفکیک کنید.",
+        "stop_causal_conclusion": true
+      }
+    },
+    {
+      "id": "capacity",
+      "question": "حجم سربه‌سر در ظرفیت و محدودۀ فرض معتبر جا می‌گیرد؟",
+      "required_evidence": [
+        "سربه‌سر محاسبه‌شده",
+        "ظرفیت عملی",
+        "هزینه پله‌ای",
+        "شاهد تقاضا"
+      ],
+      "branches": [
+        {
+          "condition": "حجم لازم از ظرفیت معتبر بیشتر است",
+          "next_node": "model-redesign",
+          "evidence_to_test": [
+            "محدودیت فنی و هزینه توسعۀ ظرفیت"
+          ],
+          "action": "مدل قیمت/ترکیب/ظرفیت را سناریوسازی کنید؛ سربه‌سر خارج از محدودۀ خطی را جواب اجرایی ننامید."
+        },
+        {
+          "condition": "ظرفیت کافی، تقاضای لازم هنوز تأیید نشده",
+          "next_node": "demand-validation",
+          "evidence_to_test": [
+            "سفارش، تبدیل و آزمون فروش"
+          ],
+          "action": "تقاضا را به‌صورت فرضیه اعتبارسنجی کنید؛ حجم لازم به معنی حجم قابل فروش نیست."
+        },
+        {
+          "condition": "حجم و تقاضا قابل دفاع است اما سود عملیاتی پایین می‌ماند",
+          "next_node": "fixed-cost-review",
+          "evidence_to_test": [
+            "تخصیص هزینه ثابت",
+            "هزینه پله‌ای",
+            "اقلام ثبت‌نشده"
+          ],
+          "action": "پل هزینه ثابت و اقلام خاص را با مالک مالی بررسی کنید."
+        }
+      ],
+      "if_missing_data": {
+        "status": "insufficient-evidence",
+        "action": "ظرفیت و شاهد تقاضا را از عملیات و فروش بگیرید.",
+        "stop_causal_conclusion": true
+      }
+    }
+  ],
+  "terminal_outcomes": [
+    "restate",
+    "unit-economics-review",
+    "model-redesign",
+    "demand-validation",
+    "fixed-cost-review"
+  ],
+  "limitations": [
+    "EBITDA مثبت جای حاشیه مشارکت و جریان نقد را نمی‌گیرد.",
+    "حذف محصول یا کاهش خدمت از شاخص تنها نتیجه نمی‌شود؛ اثر متقابل فروش و تعهدات لازم است."
+  ],
+  "last_reviewed": "2026-10-15"
+}

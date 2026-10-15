@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "id": "FRAMEWORK-SET-MARKET-VPC",
+  "last_reviewed": "2026-10-15",
+  "frameworks": [
+    {
+      "id": "FW-MARKET-VALUE-PROPOSITION-CANVAS",
+      "name": "Value Proposition Canvas",
+      "name_fa": "بوم ارزش پیشنهادی",
+      "purpose": "Make customer needs and offer-side value assumptions explicit for one selected segment.",
+      "use_when": [
+        "An offer's connection to customer outcomes is unclear",
+        "A team needs to choose a value hypothesis to test"
+      ],
+      "do_not_use_when": [
+        "A completed canvas would be declared PMF",
+        "The task requires market-size, pricing or financial validation alone"
+      ],
+      "inputs": [
+        "A scoped customer segment",
+        "Observed customer jobs, pains and gains",
+        "Proposed offer and evidence gaps"
+      ],
+      "outputs": [
+        "Customer profile",
+        "Offer value map",
+        "Prioritized fit assumptions to test"
+      ],
+      "steps": [
+        "Choose one segment and distinguish observation from assumption.",
+        "Map jobs, pains and desired gains.",
+        "Describe products/services, pain relief and gain creation.",
+        "Identify the important claimed matches and gaps.",
+        "Test the selected claim with customers and revise the map."
+      ],
+      "interpretation": "A plausible match identifies a testable value proposition; customer evidence must confirm the claim.",
+      "common_mistakes": [
+        "Starting with features and inventing pains afterward",
+        "Combining incompatible segments",
+        "Trying to address every possible gain"
+      ],
+      "limitations": [
+        "Does not validate the entire business model",
+        "Cannot establish payment intent from a workshop"
+      ],
+      "compatible_frameworks": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "FW-STARTUP-JOBS-TO-BE-DONE",
+        "FW-STARTUP-TEST-LEARNING-CARDS"
+      ],
+      "conflicting_frameworks": [],
+      "business_types": [
+        "B2B",
+        "B2C",
+        "B2B2C",
+        "Services",
+        "Hardware",
+        "Nonprofit with payer/beneficiary distinction"
+      ],
+      "business_stages": [
+        "idea",
+        "discovery",
+        "validation",
+        "early-traction",
+        "growth",
+        "scale",
+        "established"
+      ],
+      "sources": [
+        "SRC-PG-STRATEGYZER-VPC"
+      ],
+      "source_details_ref": "sources/product-growth.json",
+      "author": "Alexander Osterwalder and collaborators / Strategyzer",
+      "year": null,
+      "year_note": "Reviewed official page is undated; historical origin not inferred from review date.",
+      "last_reviewed": "2026-10-15",
+      "content_status": "research_backed_synthesis",
+      "copyright_note": "Original explanatory synthesis; official template artwork is not reproduced.",
+      "explanation": {
+        "quick": "نشان دهید پیشنهاد شما کدام مسئله و نتیجه مهمِ یک گروه مشخص از مشتریان را هدف می‌گیرد.",
+        "learn": "سمت مشتری، کارها، دشواری‌ها و دستاوردهای مطلوب را روشن می‌کند؛ سمت پیشنهاد، محصول یا خدمت و شیوه کاهش دشواری و ایجاد دستاورد را توصیف می‌کند. تطبیق روی بوم یک ادعای ارزش است و باید با مشتری آزموده شود.",
+        "deep_dive": "راهنمای تألیفی استراتینو: یک گروه مشتری را انتخاب کنید و برای هر نیاز مهم بپرسید شاهد آن چیست. سپس فقط تطبیق‌هایی را نگه دارید که توضیح می‌دهند پیشنهاد چگونه نتیجه مشتری را تغییر می‌دهد؛ افزودن ویژگی بدون این پیوند کافی نیست. مهم‌ترین تطبیق نامطمئن را آزمون کنید و ارزیابی قیمت، تقاضا و اقتصاد کل مدل را جدا ادامه دهید."
+      },
+      "provenance": {
+        "source_supported": [
+          "Customer jobs/pains/gains",
+          "Offer-side value map",
+          "Fit claims require customer evidence"
+        ],
+        "derived_guidance": [
+          "Evidence-prioritized workflow",
+          "Separation from pricing and full-model validation"
+        ],
+        "explanation_authorship": "Original Persian educational synthesis by Startino research; not source quotations or a validated learning intervention.",
+        "sources": [
+          "SRC-PG-STRATEGYZER-VPC"
+        ],
+        "last_reviewed": "2026-10-15"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status":"proposal-only",
+  "last_reviewed":"2026-10-15",
+  "policy":"Prefer authoritative parent taxonomy IDs. Suggested IDs below describe semantic targets and must not be assumed to exist. Preserve raw tags during migration and record lossy mappings explicitly.",
+  "business_type_mapping":[
+    {"raw":"B2B","suggested_id":"b2b","dimension":"customer_relationship","lossless":true},
+    {"raw":"B2C","suggested_id":"b2c","dimension":"customer_relationship","lossless":true},
+    {"raw":"services","suggested_id":"services","dimension":"offering","lossless":true},
+    {"raw":"manufacturing","suggested_id":"manufacturing","dimension":"operating_model","lossless":true},
+    {"raw":"software","suggested_id":"software","dimension":"offering","lossless":true},
+    {"raw":"platform","suggested_id":"platform","dimension":"business_model","lossless":true},
+    {"raw":"nonprofit","suggested_id":"nonprofit","dimension":"organizational_purpose","lossless":true},
+    {"raw":"logistics","suggested_id":"logistics","dimension":"sector","lossless":true},
+    {"raw":"project-based","suggested_id":"project-based","dimension":"operating_model","lossless":true},
+    {"raw":"multibusiness","suggested_id":"multibusiness","dimension":"portfolio_structure","lossless":true},
+    {"raw":"holding","suggested_id":"holding","dimension":"portfolio_structure","lossless":true,"note":"A holding is not automatically interchangeable with every multibusiness company."},
+    {"raw":"multi-product","suggested_id":"multi-product","dimension":"offering_portfolio","lossless":true,"note":"Multiple products do not automatically constitute separate business units."}
+  ],
+  "business_stage_mapping":[
+    {"raw":"idea","suggested_id":"ideation","dimension":"lifecycle","lossless":true},
+    {"raw":"market-entry","suggested_id":"launch","dimension":"lifecycle","lossless":false,"note":"Market entry may be a new market for an otherwise mature business; preserve entry context separately."},
+    {"raw":"growth","suggested_id":"growth","dimension":"lifecycle","lossless":true},
+    {"raw":"mature","suggested_id":"maturity","dimension":"lifecycle","lossless":true},
+    {"raw":"turnaround","suggested_id":"turnaround","dimension":"condition","lossless":true,"note":"Can coexist with multiple lifecycle stages; do not force into maturity or decline."}
+  ],
+  "fallback":"If only a single business_types list is supported now, preserve multidimensional tags and publish dimension metadata. Do not use a blanket all-businesses alias to erase narrower applicability.",
+  "evidence_status":"Editorial taxonomy design proposal, not source-derived business categorization or validated recommendation rules."
+}
