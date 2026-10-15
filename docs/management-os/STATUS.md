@@ -17,12 +17,13 @@ Repository: `D:\Hamidreza\Projects\StrategicManagementPanel`. Branch: `feat/stra
 | STR-055-A lint/hydration                 | 542635c; all web/domain/UI ESLint and typecheck pass                           | Local packet complete                                               |
 | STR-055-B formatting/quality             | 3ad2f53; all previously noncompliant files formatted; `npm run quality` exit 0 | Local dev acceptance complete; issue #67 open pending push/merge/CI |
 | STR-054-A reader                         | 602eaf0; exact-ID immutable versioned Python reader; 11/11 fixtures pass       | Local packet complete; STR-054/#66 in progress                      |
+| STR-054-B source curation                 | 850e724; 9 exact records, 5 source IDs, dependency/revision check passes        | Local packet complete; runtime promotion remains gated              |
 
 The complete root quality gate passed: lint, format, web/domain/UI typechecks, 68 API contract operations, structural KB audit, 70 root tests, 6 domain tests and production build. The structural audit still reports 28 runtime-promotion warnings; this does not certify scientific efficacy. Focused 054-A reader tests use the bundled Python and standard library; no Django database was started.
 
 ## Next development packet
 
-Continue **STR-054-B**: review claim/source support and exact dependencies for the minimal first-slice release. Separate evidence-backed claims from explicit product heuristics; quarantine unsupported/unknown records. Then 054-C adds the reproducible release artifact inside `apps/api/modules/knowledge/releases/` and CI drift check; 054-D expands rejection/pinning cases. Read [NEXT_ACTIONS](NEXT_ACTIONS.md), [implementation guide](IMPLEMENTATION_GUIDE.md), ADR-002 and only relevant audit findings. Do not edit canonical research as a side effect or promote a record without explicit review.
+Continue **STR-054-C**: build the reproducible, package-relative candidate artifact from the reviewed curation input and add a drift check. The reviewed 054-B manifest selects nine records and five sources; direct source-supported claims are separated from product-authored heuristic policy in [KNOWLEDGE_RELEASE_REVIEW](KNOWLEDGE_RELEASE_REVIEW.md). `RULE-DISCOVERY` remains blocked until a typed `operating` mapping exists; retention waits for the scoped resolver; contribution margin remains definition-only until STR-058-A/B. No runtime release is active. Then 054-D expands rejection/pinning cases. Do not edit canonical research as a side effect.
 
 Do not create a product endpoint just to show the reader works. Keep the API package within its existing `apps/api` build context. Historical runs select exact release IDs; no latest fallback.
 
