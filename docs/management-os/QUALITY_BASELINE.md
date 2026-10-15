@@ -1,38 +1,32 @@
 # Quality checkpoint — 2026-10-16
 
-This records real command results for the Luna handoff. No browser/server/Compose result is implied.
+`npm run quality` completed successfully (exit 0) after STR-055-A/B. This was local static/compiler/unit/contract/build verification. Backend execution, live server, Docker/Compose, physical Windows setup and product browser QA remain deferred and have not been claimed.
 
-| Check                                                       | Result                                                                                                              |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| npm run typecheck                                           | PASS, web/domain/UI exit 0 after STR-055 repairs                                                                    |
-| npm test                                                    | PASS, 70/70, exit 0; includes 18 knowledge mutation tests and 3 new document-contract/decoder tests                 |
-| npm run test:domain                                         | PASS, 6/6, exit 0                                                                                                   |
-| npm run check:contracts                                     | PASS, 68 unique operations, exit 0                                                                                  |
-| npm run build                                               | PASS, legacy + domain + React production build, exit 0                                                              |
-| original KB validator                                       | PASS, 6 synthetic personas / 16 guards; research unchanged                                                          |
-| independent knowledge audit                                 | PASS, 120 files; 28 explicit runtime-adapter warnings                                                               |
-| npm run quality                                             | NOT GREEN; original lint script failed directory-glob resolution; scripts now use explicit existing workspace paths |
-| npx eslint apps/web/src packages/domain/src packages/ui/src | FAIL, 8 existing baseline errors below                                                                              |
-| npm run format:check                                        | FAIL, 32 existing source files below                                                                                |
+| Check                                          | Result                                                                             |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------- |
+| lint (repository check + ESLint web/domain/UI) | PASS                                                                               |
+| format:check (web/domain/UI)                   | PASS; all prior 32 files formatted                                                 |
+| typecheck                                      | PASS: web, domain and UI                                                           |
+| check:contracts                                | PASS: OpenAPI, 68 unique operations and structural security contracts              |
+| check:knowledge                                | PASS: 120 research files read/hashed; 28 runtime-promotion warnings remain visible |
+| npm test                                       | PASS: 70/70                                                                        |
+| test:domain                                    | PASS: 6/6                                                                          |
+| build                                          | PASS: legacy static build, domain TypeScript build and Vite production build       |
 
-## Remaining STR-055 packet A — lint (8 errors)
+Knowledge audit pass means structural integrity only; it does not certify scientific source efficacy or promote all content to runtime.
 
-- `apps/web/src/api/client.ts:150`: prefer const for payload.
-- `features/auth/AuthPages.tsx:278,351`: effect dependencies omit errors. Review whether dependency should be a stable derived field; do not blindly add an object and create a loop.
-- `features/auth/api.ts:36`: default generic `{}` is too broad; choose the correct object/unknown contract without weakening decoding.
-- `features/onboarding/OnboardingPage.tsx:64,69,76`: effects omit accountQuery.data, ownedWorkspace and profileQuery.data. Preserve resume/prefill and unsaved user edits; prove no fetch/update loop.
-- `pages/Workspace.tsx:75`: effect omits workspaceQuery.data; preserve editable local draft during query refresh.
+## STR-055-A — semantic lint repairs
 
-These refer to source under `apps/web/src/` unless a full prefix is given. Use Graphify before reading the related code. Fix behavior deliberately; no eslint-disable or dependency suppression.
+All eight baseline errors resolved without ESLint suppression. Auth effects depend on stable callbacks; onboarding form data hydrates once for each account/workspace identity and retains same-identity in-progress edits across background refetches; Workspace name hydration follows the full query result while workspace changes still reset state. The upload binding is immutable and DELETE correctly returns `void`.
 
-## Remaining STR-055 packet B — formatting
+Commit: `542635c fix(web): stabilize form hydration and hook dependencies`.
 
-Prettier currently reports 32 files: api/client; ErrorBoundary; features/account (AccountSettingsPage/api); analysis (api/EvaluationMatrixPage); auth (api/AuthPages); documents (api/DocumentAttachmentsPanel); onboarding/OnboardingPage; strategy (api/SwotPage); workspaces (api/CompanyProfilePage/InvitationAcceptPage/switchContext/WorkspaceManagementPage/WorkspaceRoutePages); main/session; pages (Account/component-lab.css/ComponentLab/Operator/Site/Workspace); packages/domain/src (evaluation-matrices/index); packages/ui/src (index/primitives/styles).
+## STR-055-B — formatting and gate
 
-Formatting-only changes can be a separate coherent commit after semantic lint fixes. Do not reformat OpenAPI wholesale; preserve the targeted document-outline schema diff. Then run root quality once. If it passes, record its actual exit; browser/physical/API validation is still the separate final queue.
+Formatted the 32 pre-existing source files reported by Prettier in `apps/web/src`, `packages/domain/src` and `packages/ui/src`; formatting only, no generated OpenAPI rewrite. Then the complete root `npm run quality` gate above passed.
 
-## Repairs already made
+The source behavior in A and broad style normalization in B are separate commits. STR-055 development acceptance is locally complete; keep issue #67 open until the verified branch is pushed/merged and the remote check gate is satisfied.
 
-Typed flatMap preserves route union; explicit factor type for strategy pairing; execution status/source type exports; narrowed decision source captured before async closure; browser Location.replace used for legacy hash redirect; missing Notice content; removed unreachable duplicate theme handler while keeping account appearance controls; real bilingual document outline arrays validated by frontend and OpenAPI; preference test covers boolean global education setting. No broad casts, any or suppressed compiler checks.
+## Remaining acceptance queue
 
-The nullable allOf wrappers elsewhere in the existing OpenAPI are not compiled by the new outline-only AJV test; that test deliberately verifies the affected outline contract. Full response/nullability coverage remains part of STR-005/016 contract hardening, not a claimed result here.
+Run live API and database permissions/concurrency, migration/restore, Docker/Compose, physical Windows runner, real product screenshots and keyboard/zoom checks, and observed founder/expert reviews at the final development acceptance milestone. Record each result independently; none is implied by the local quality run.

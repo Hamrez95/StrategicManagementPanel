@@ -33,13 +33,21 @@ type WorkspaceProfileEndpoint = OpenApiPaths['/api/v1/workspaces/{workspace_id}/
 export type ProjectProfileUpdate = WorkspaceProfileEndpoint['patch']['requestBody'];
 
 function decodeMessage(value: unknown) {
-  if (!value || typeof value !== 'object' || typeof (value as { message?: unknown }).message !== 'string') {
+  if (
+    !value ||
+    typeof value !== 'object' ||
+    typeof (value as { message?: unknown }).message !== 'string'
+  ) {
     throw new TypeError('Invalid message response');
   }
   return { message: (value as { message: string }).message };
 }
 
-function getWorkspaceData<T>(path: string, signal?: AbortSignal, decode?: (value: unknown) => T): Promise<T> {
+function getWorkspaceData<T>(
+  path: string,
+  signal?: AbortSignal,
+  decode?: (value: unknown) => T,
+): Promise<T> {
   return requestApi<T>(path, { signal, decode });
 }
 
@@ -83,7 +91,10 @@ export function saveWorkspace(workspaceId: string, update: WorkspaceUpdate) {
   );
 }
 
-export function readWorkspaceProfile(workspaceId: string, signal?: AbortSignal): Promise<WorkspaceProfileEndpoint['get']['response']> {
+export function readWorkspaceProfile(
+  workspaceId: string,
+  signal?: AbortSignal,
+): Promise<WorkspaceProfileEndpoint['get']['response']> {
   return getWorkspaceData<WorkspaceProfileEndpoint['get']['response']>(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
     signal,
@@ -91,12 +102,18 @@ export function readWorkspaceProfile(workspaceId: string, signal?: AbortSignal):
   );
 }
 
-export function saveWorkspaceProfile(workspaceId: string, update: ProjectProfileUpdate): Promise<WorkspaceProfileEndpoint['patch']['response']> {
-  return requestApi<WorkspaceProfileEndpoint['patch']['response']>(`/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`, {
-    method: 'PATCH',
-    body: update,
-    decode: decodeWorkspaceProfile,
-  });
+export function saveWorkspaceProfile(
+  workspaceId: string,
+  update: ProjectProfileUpdate,
+): Promise<WorkspaceProfileEndpoint['patch']['response']> {
+  return requestApi<WorkspaceProfileEndpoint['patch']['response']>(
+    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
+    {
+      method: 'PATCH',
+      body: update,
+      decode: decodeWorkspaceProfile,
+    },
+  );
 }
 
 export class WorkspaceProfileConflictError extends Error {
@@ -117,12 +134,17 @@ function matchesProfile(profile: ProjectProfile, update: ProjectProfileUpdate) {
     if (typeof value === 'string') return value.trim();
     if (Array.isArray(value)) return value.map(normalize);
     if (value && typeof value === 'object') {
-      return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, normalize(entry)]));
+      return Object.fromEntries(
+        Object.entries(value).map(([key, entry]) => [key, normalize(entry)]),
+      );
     }
     return value;
   };
-  const collectionsMatch = collectionFields.every((field) => update[field] === undefined
-    || JSON.stringify(normalize(profile[field])) === JSON.stringify(normalize(update[field])));
+  const collectionsMatch = collectionFields.every(
+    (field) =>
+      update[field] === undefined ||
+      JSON.stringify(normalize(profile[field])) === JSON.stringify(normalize(update[field])),
+  );
   return textMatches && collectionsMatch;
 }
 
@@ -134,7 +156,10 @@ async function currentProfileOrConflict(workspaceId: string, update: ProjectProf
 }
 
 /** Reconcile uncertain PATCH responses before retrying the same revisioned write. */
-export async function saveWorkspaceProfileSafely(workspaceId: string, update: ProjectProfileUpdate) {
+export async function saveWorkspaceProfileSafely(
+  workspaceId: string,
+  update: ProjectProfileUpdate,
+) {
   try {
     return await saveWorkspaceProfile(workspaceId, update);
   } catch (error) {
@@ -161,7 +186,10 @@ export async function saveWorkspaceProfileSafely(workspaceId: string, update: Pr
   }
 }
 
-export async function listWorkspaceProfileRevisions(workspaceId: string, signal?: AbortSignal): Promise<ApiWorkspaceProfileRevision[]> {
+export async function listWorkspaceProfileRevisions(
+  workspaceId: string,
+  signal?: AbortSignal,
+): Promise<ApiWorkspaceProfileRevision[]> {
   return getWorkspaceData(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/revisions/`,
     signal,
@@ -174,7 +202,12 @@ export async function listWorkspaceMembers(workspaceId: string, signal?: AbortSi
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/members/`,
     signal,
     (value) => {
-      if (!value || typeof value !== 'object' || !Array.isArray((value as { items?: unknown }).items)) throw new TypeError('Invalid member list');
+      if (
+        !value ||
+        typeof value !== 'object' ||
+        !Array.isArray((value as { items?: unknown }).items)
+      )
+        throw new TypeError('Invalid member list');
       return { items: (value as { items: unknown[] }).items.map(decodeWorkspaceMember) };
     },
   );
@@ -186,7 +219,12 @@ export async function listWorkspaceInvitations(workspaceId: string, signal?: Abo
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/invitations/`,
     signal,
     (value) => {
-      if (!value || typeof value !== 'object' || !Array.isArray((value as { items?: unknown }).items)) throw new TypeError('Invalid invitation list');
+      if (
+        !value ||
+        typeof value !== 'object' ||
+        !Array.isArray((value as { items?: unknown }).items)
+      )
+        throw new TypeError('Invalid invitation list');
       return { items: (value as { items: unknown[] }).items.map(decodeWorkspaceInvitation) };
     },
   );
@@ -228,7 +266,10 @@ export function acceptWorkspaceInvitation(token: string) {
     (value) => {
       if (!value || typeof value !== 'object') throw new TypeError('Invalid invitation response');
       const result = value as { workspace?: unknown; membership?: unknown };
-      return { workspace: decodeWorkspace(result.workspace), membership: decodeWorkspaceMember(result.membership) };
+      return {
+        workspace: decodeWorkspace(result.workspace),
+        membership: decodeWorkspaceMember(result.membership),
+      };
     },
   );
 }

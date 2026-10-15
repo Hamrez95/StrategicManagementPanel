@@ -26,9 +26,7 @@ function AuthFrame({
       <aside className="auth-context" aria-label="مراحل امن‌سازی حساب">
         <span className="auth-context__eyebrow">حساب استراتینو</span>
         <h2>کارهای مهمتان را در فضای کار خود ادامه دهید.</h2>
-        <p>
-          با حساب تأییدشده، تصمیم‌ها و برنامه‌های هر پروژه در فضای اختصاصی شما نگهداری می‌شوند.
-        </p>
+        <p>با حساب تأییدشده، تصمیم‌ها و برنامه‌های هر پروژه در فضای اختصاصی شما نگهداری می‌شوند.</p>
         <ol className="auth-steps">
           {steps.map((item) => (
             <li key={item.id} aria-current={step === item.id ? 'step' : undefined}>
@@ -99,7 +97,10 @@ function PasswordField({
 
 function FormMessage({ children, error = false }: { children: ReactNode; error?: boolean }) {
   return (
-    <p className={`auth-message${error ? ' auth-message--error' : ''}`} role={error ? 'alert' : 'status'}>
+    <p
+      className={`auth-message${error ? ' auth-message--error' : ''}`}
+      role={error ? 'alert' : 'status'}
+    >
       {children}
     </p>
   );
@@ -173,7 +174,10 @@ export function LoginPage() {
       await postAuth('/api/v1/accounts/login/', { email, password });
       await queryClient.invalidateQueries({ queryKey: queryKeys.session });
       const next = new URLSearchParams(location.search).get('next');
-      const safeNext = next?.startsWith('/') && !next.startsWith('//') && !next.includes('\\') ? next : '/app/start';
+      const safeNext =
+        next?.startsWith('/') && !next.startsWith('//') && !next.includes('\\')
+          ? next
+          : '/app/start';
       navigate(safeNext, { replace: true });
     } catch (error) {
       errors.capture(error, 'ورود انجام نشد. اطلاعات را بررسی و دوباره تلاش کنید.');
@@ -183,15 +187,41 @@ export function LoginPage() {
   }
 
   return (
-    <AuthFrame title="ورود به حساب" description="با ایمیل تأییدشده وارد فضای کار خود شوید." step="account">
+    <AuthFrame
+      title="ورود به حساب"
+      description="با ایمیل تأییدشده وارد فضای کار خود شوید."
+      step="account"
+    >
       <form className="auth-form" onSubmit={submit} noValidate>
-        <EmailField email={email} setEmail={(value) => { setEmail(value); errors.clear('email'); }} error={firstFieldError(errors.fields, 'email')} />
-        <PasswordField label="گذرواژه" value={password} onChange={(value) => { setPassword(value); errors.clear('password'); }} error={firstFieldError(errors.fields, 'password')} autoComplete="current-password" />
+        <EmailField
+          email={email}
+          setEmail={(value) => {
+            setEmail(value);
+            errors.clear('email');
+          }}
+          error={firstFieldError(errors.fields, 'email')}
+        />
+        <PasswordField
+          label="گذرواژه"
+          value={password}
+          onChange={(value) => {
+            setPassword(value);
+            errors.clear('password');
+          }}
+          error={firstFieldError(errors.fields, 'password')}
+          autoComplete="current-password"
+        />
         {errors.message && <FormMessage error={errors.failed}>{errors.message}</FormMessage>}
         <div className="auth-form__meta">
           <Link to="/account/reset-password">گذرواژه را فراموش کرده‌اید؟</Link>
         </div>
-        <Button type="submit" variant="primary" pending={pending} pendingLabel="در حال ورود…" className="auth-submit">
+        <Button
+          type="submit"
+          variant="primary"
+          pending={pending}
+          pendingLabel="در حال ورود…"
+          className="auth-submit"
+        >
           ورود به فضای کار
         </Button>
         <p className="auth-switch">
@@ -233,14 +263,51 @@ export function SignupPage() {
   }
 
   return (
-    <AuthFrame title="ساخت حساب" description="برای شروع فقط ایمیل و یک گذرواژه امن لازم است." step="account">
+    <AuthFrame
+      title="ساخت حساب"
+      description="برای شروع فقط ایمیل و یک گذرواژه امن لازم است."
+      step="account"
+    >
       <form className="auth-form" onSubmit={submit} noValidate>
-        <EmailField email={email} setEmail={(value) => { setEmail(value); errors.clear('email'); }} error={firstFieldError(errors.fields, 'email')} />
-        <PasswordField label="گذرواژه" value={password} onChange={(value) => { setPassword(value); errors.clear('password'); }} error={firstFieldError(errors.fields, 'password')} autoComplete="new-password" />
-        <p className="auth-field-hint">دست‌کم ۱۲ نویسه انتخاب کنید؛ اطلاعات ورود در این مرورگر ذخیره نمی‌شود.</p>
-        <PasswordField label="تکرار گذرواژه" value={confirmation} onChange={(value) => { setConfirmation(value); errors.clear('confirmation'); }} error={firstFieldError(errors.fields, 'confirmation')} autoComplete="new-password" />
+        <EmailField
+          email={email}
+          setEmail={(value) => {
+            setEmail(value);
+            errors.clear('email');
+          }}
+          error={firstFieldError(errors.fields, 'email')}
+        />
+        <PasswordField
+          label="گذرواژه"
+          value={password}
+          onChange={(value) => {
+            setPassword(value);
+            errors.clear('password');
+          }}
+          error={firstFieldError(errors.fields, 'password')}
+          autoComplete="new-password"
+        />
+        <p className="auth-field-hint">
+          دست‌کم ۱۲ نویسه انتخاب کنید؛ اطلاعات ورود در این مرورگر ذخیره نمی‌شود.
+        </p>
+        <PasswordField
+          label="تکرار گذرواژه"
+          value={confirmation}
+          onChange={(value) => {
+            setConfirmation(value);
+            errors.clear('confirmation');
+          }}
+          error={firstFieldError(errors.fields, 'confirmation')}
+          autoComplete="new-password"
+        />
         {errors.message && <FormMessage error={errors.failed}>{errors.message}</FormMessage>}
-        <Button type="submit" variant="primary" pending={pending} pendingLabel="در حال ساخت حساب…" className="auth-submit">
+        <Button
+          type="submit"
+          variant="primary"
+          pending={pending}
+          pendingLabel="در حال ساخت حساب…"
+          className="auth-submit"
+        >
           ساخت حساب و ارسال پیوند تأیید
         </Button>
         <p className="auth-switch">
@@ -268,7 +335,11 @@ export function VerifyEmailPage() {
     const token = new URLSearchParams(location.hash.slice(1)).get('token');
     if (!token) return;
     handled.current = true;
-    window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+    window.history.replaceState(
+      window.history.state,
+      '',
+      window.location.pathname + window.location.search,
+    );
     setResult('checking');
     void postAuth('/api/v1/accounts/verify-email/', { token })
       .then(() => setResult('verified'))
@@ -283,7 +354,10 @@ export function VerifyEmailPage() {
     errors.clear();
     setPending(true);
     try {
-      const response = await postAuth<{ message: string }>('/api/v1/accounts/resend-verification/', { email });
+      const response = await postAuth<{ message: string }>(
+        '/api/v1/accounts/resend-verification/',
+        { email },
+      );
       errors.setMessage(response.message);
       errors.setFailed(false);
       setResult('sent');
@@ -295,24 +369,53 @@ export function VerifyEmailPage() {
   }
 
   return (
-    <AuthFrame title={result === 'verified' ? 'ایمیل تأیید شد' : 'تأیید نشانی ایمیل'} description="این مرحله کمک می‌کند دسترسی به حساب فقط در اختیار صاحب ایمیل باشد." step="confirm">
+    <AuthFrame
+      title={result === 'verified' ? 'ایمیل تأیید شد' : 'تأیید نشانی ایمیل'}
+      description="این مرحله کمک می‌کند دسترسی به حساب فقط در اختیار صاحب ایمیل باشد."
+      step="confirm"
+    >
       {result === 'checking' && <FormMessage>در حال بررسی پیوند تأیید…</FormMessage>}
       {result === 'verified' ? (
         <div className="auth-form">
           <FormMessage>نشانی ایمیل تأیید شد. حالا می‌توانید وارد شوید.</FormMessage>
-          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">ورود به حساب</Link>
+          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">
+            ورود به حساب
+          </Link>
         </div>
       ) : (
         <>
-          {result === 'sent' && !errors.message && <FormMessage>اگر این ایمیل به حساب تأییدنشده‌ای وصل باشد، پیوند تازه‌ای برای آن فرستادیم.</FormMessage>}
-          {result === 'invalid' && errors.message && <FormMessage error>{errors.message}</FormMessage>}
+          {result === 'sent' && !errors.message && (
+            <FormMessage>
+              اگر این ایمیل به حساب تأییدنشده‌ای وصل باشد، پیوند تازه‌ای برای آن فرستادیم.
+            </FormMessage>
+          )}
+          {result === 'invalid' && errors.message && (
+            <FormMessage error>{errors.message}</FormMessage>
+          )}
           <form className="auth-form" onSubmit={resend} noValidate>
-            <EmailField email={email} setEmail={(value) => { setEmail(value); errors.clear('email'); }} error={firstFieldError(errors.fields, 'email')} />
-            {errors.message && result !== 'invalid' && <FormMessage error={errors.failed}>{errors.message}</FormMessage>}
-            <Button type="submit" variant="primary" pending={pending} pendingLabel="در حال ارسال…" className="auth-submit">
+            <EmailField
+              email={email}
+              setEmail={(value) => {
+                setEmail(value);
+                errors.clear('email');
+              }}
+              error={firstFieldError(errors.fields, 'email')}
+            />
+            {errors.message && result !== 'invalid' && (
+              <FormMessage error={errors.failed}>{errors.message}</FormMessage>
+            )}
+            <Button
+              type="submit"
+              variant="primary"
+              pending={pending}
+              pendingLabel="در حال ارسال…"
+              className="auth-submit"
+            >
               ارسال دوباره پیوند تأیید
             </Button>
-            <p className="auth-switch"><Link to="/account/login">بازگشت به ورود</Link></p>
+            <p className="auth-switch">
+              <Link to="/account/login">بازگشت به ورود</Link>
+            </p>
           </form>
         </>
       )}
@@ -341,7 +444,11 @@ export function PasswordResetPage() {
     const nextUid = fragment.get('uid') ?? '';
     if (!nextToken && !nextUid) return;
     handled.current = true;
-    window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+    window.history.replaceState(
+      window.history.state,
+      '',
+      window.location.pathname + window.location.search,
+    );
     if (!nextToken || !nextUid) {
       setMode('invalid');
       setMessage('پیوند بازیابی کامل نیست. یک پیوند تازه درخواست کنید.');
@@ -358,7 +465,10 @@ export function PasswordResetPage() {
     errors.clear();
     setPending(true);
     try {
-      const response = await postAuth<{ message: string }>('/api/v1/accounts/password-reset/request/', { email });
+      const response = await postAuth<{ message: string }>(
+        '/api/v1/accounts/password-reset/request/',
+        { email },
+      );
       errors.setMessage(response.message);
       errors.setFailed(false);
       setMode('sent');
@@ -382,7 +492,10 @@ export function PasswordResetPage() {
     }
     setPending(true);
     try {
-      const response = await postAuth<{ message: string }>('/api/v1/accounts/password-reset/confirm/', { uid, token, password });
+      const response = await postAuth<{ message: string }>(
+        '/api/v1/accounts/password-reset/confirm/',
+        { uid, token, password },
+      );
       setToken('');
       setUid('');
       setPassword('');
@@ -403,27 +516,88 @@ export function PasswordResetPage() {
   }
 
   return (
-    <AuthFrame title={mode === 'confirm' ? 'گذرواژه تازه' : mode === 'done' ? 'گذرواژه ذخیره شد' : 'بازیابی گذرواژه'} description="پیوند بازیابی یک‌بارمصرف است و پس از یک ساعت منقضی می‌شود." step="recover">
+    <AuthFrame
+      title={
+        mode === 'confirm'
+          ? 'گذرواژه تازه'
+          : mode === 'done'
+            ? 'گذرواژه ذخیره شد'
+            : 'بازیابی گذرواژه'
+      }
+      description="پیوند بازیابی یک‌بارمصرف است و پس از یک ساعت منقضی می‌شود."
+      step="recover"
+    >
       {mode === 'sent' || mode === 'done' ? (
         <div className="auth-form">
           <FormMessage>{errors.message}</FormMessage>
-          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">رفتن به ورود</Link>
+          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">
+            رفتن به ورود
+          </Link>
         </div>
       ) : mode === 'confirm' ? (
         <form className="auth-form" onSubmit={confirmReset} noValidate>
-          <PasswordField label="گذرواژه تازه" value={password} onChange={(value) => { setPassword(value); errors.clear('password'); }} error={firstFieldError(errors.fields, 'password')} autoComplete="new-password" />
-          <p className="auth-field-hint">دست‌کم ۱۲ نویسه انتخاب کنید. با ذخیره گذرواژه، نشست‌های قبلی باطل می‌شوند.</p>
-          <PasswordField label="تکرار گذرواژه تازه" value={confirmation} onChange={(value) => { setConfirmation(value); errors.clear('confirmation'); }} error={firstFieldError(errors.fields, 'confirmation')} autoComplete="new-password" />
+          <PasswordField
+            label="گذرواژه تازه"
+            value={password}
+            onChange={(value) => {
+              setPassword(value);
+              errors.clear('password');
+            }}
+            error={firstFieldError(errors.fields, 'password')}
+            autoComplete="new-password"
+          />
+          <p className="auth-field-hint">
+            دست‌کم ۱۲ نویسه انتخاب کنید. با ذخیره گذرواژه، نشست‌های قبلی باطل می‌شوند.
+          </p>
+          <PasswordField
+            label="تکرار گذرواژه تازه"
+            value={confirmation}
+            onChange={(value) => {
+              setConfirmation(value);
+              errors.clear('confirmation');
+            }}
+            error={firstFieldError(errors.fields, 'confirmation')}
+            autoComplete="new-password"
+          />
           {errors.message && <FormMessage error={errors.failed}>{errors.message}</FormMessage>}
-          <Button type="submit" variant="primary" pending={pending} pendingLabel="در حال ذخیره…" className="auth-submit">ذخیره گذرواژه تازه</Button>
+          <Button
+            type="submit"
+            variant="primary"
+            pending={pending}
+            pendingLabel="در حال ذخیره…"
+            className="auth-submit"
+          >
+            ذخیره گذرواژه تازه
+          </Button>
         </form>
       ) : (
         <form className="auth-form" onSubmit={requestReset} noValidate>
-          {mode === 'invalid' && errors.message && <FormMessage error>{errors.message}</FormMessage>}
-          <EmailField email={email} setEmail={(value) => { setEmail(value); errors.clear('email'); }} error={firstFieldError(errors.fields, 'email')} />
-          {mode !== 'invalid' && errors.message && <FormMessage error={errors.failed}>{errors.message}</FormMessage>}
-          <Button type="submit" variant="primary" pending={pending} pendingLabel="در حال ارسال…" className="auth-submit">ارسال پیوند بازیابی</Button>
-          <p className="auth-switch"><Link to="/account/login">بازگشت به ورود</Link></p>
+          {mode === 'invalid' && errors.message && (
+            <FormMessage error>{errors.message}</FormMessage>
+          )}
+          <EmailField
+            email={email}
+            setEmail={(value) => {
+              setEmail(value);
+              errors.clear('email');
+            }}
+            error={firstFieldError(errors.fields, 'email')}
+          />
+          {mode !== 'invalid' && errors.message && (
+            <FormMessage error={errors.failed}>{errors.message}</FormMessage>
+          )}
+          <Button
+            type="submit"
+            variant="primary"
+            pending={pending}
+            pendingLabel="در حال ارسال…"
+            className="auth-submit"
+          >
+            ارسال پیوند بازیابی
+          </Button>
+          <p className="auth-switch">
+            <Link to="/account/login">بازگشت به ورود</Link>
+          </p>
         </form>
       )}
     </AuthFrame>

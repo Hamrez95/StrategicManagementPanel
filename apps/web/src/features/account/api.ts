@@ -38,10 +38,14 @@ function parsePreferences(value: string | null): Partial<DevicePreferences> | nu
     if (candidate.theme === 'light' || candidate.theme === 'dark' || candidate.theme === 'system') {
       result.theme = candidate.theme;
     }
-    if (candidate.language === 'en' || candidate.language === 'fa') result.language = candidate.language;
-    if (candidate.motion === 'reduced' || candidate.motion === 'auto') result.motion = candidate.motion;
-    if (typeof candidate.show_tutorial === 'boolean') result.show_tutorial = candidate.show_tutorial;
-    else if (typeof candidate.showTutorial === 'boolean') result.show_tutorial = candidate.showTutorial;
+    if (candidate.language === 'en' || candidate.language === 'fa')
+      result.language = candidate.language;
+    if (candidate.motion === 'reduced' || candidate.motion === 'auto')
+      result.motion = candidate.motion;
+    if (typeof candidate.show_tutorial === 'boolean')
+      result.show_tutorial = candidate.show_tutorial;
+    else if (typeof candidate.showTutorial === 'boolean')
+      result.show_tutorial = candidate.showTutorial;
     return result;
   } catch {
     return null;
@@ -51,7 +55,10 @@ function parsePreferences(value: string | null): Partial<DevicePreferences> | nu
 export function readDevicePreferences(): DevicePreferences {
   try {
     const current = parsePreferences(localStorage.getItem(DEVICE_KEY));
-    const saved = current && Object.keys(current).length > 0 ? current : parsePreferences(localStorage.getItem(LEGACY_KEY));
+    const saved =
+      current && Object.keys(current).length > 0
+        ? current
+        : parsePreferences(localStorage.getItem(LEGACY_KEY));
     return { ...DEFAULT_DEVICE_PREFERENCES, ...saved };
   } catch {
     return { ...DEFAULT_DEVICE_PREFERENCES };
@@ -81,7 +88,9 @@ export function applyAccountPreferences(preferences: UserPreferences | DevicePre
   } catch {
     /* Preferences remain active in this page when storage is unavailable. */
   }
-  window.dispatchEvent(new CustomEvent<DevicePreferences>('stratino:preferences', { detail: device }));
+  window.dispatchEvent(
+    new CustomEvent<DevicePreferences>('stratino:preferences', { detail: device }),
+  );
 }
 
 function getAccount<T>(path: string, signal?: AbortSignal): Promise<T> {
@@ -92,7 +101,9 @@ export async function readAccountProfile(signal?: AbortSignal) {
   return getAccount<AccountProfile>('/api/v1/account/profile/', signal);
 }
 
-export async function saveAccountProfile(profile: Pick<AccountProfile, 'display_name' | 'role_title'>) {
+export async function saveAccountProfile(
+  profile: Pick<AccountProfile, 'display_name' | 'role_title'>,
+) {
   return patchAuth<AccountProfile>('/api/v1/account/profile/', profile);
 }
 
@@ -104,7 +115,10 @@ export async function loadAndSyncAccountPreferences(signal?: AbortSignal) {
   let preferences = await readAccountPreferences(signal);
   if (preferences.device_sync_pending) {
     const devicePreferences = readDevicePreferences();
-    preferences = await patchAuth<UserPreferences>('/api/v1/account/preferences/', devicePreferences);
+    preferences = await patchAuth<UserPreferences>(
+      '/api/v1/account/preferences/',
+      devicePreferences,
+    );
   }
   applyAccountPreferences(preferences);
   return preferences;

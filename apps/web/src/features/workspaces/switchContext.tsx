@@ -19,7 +19,10 @@ export function WorkspaceSwitchProvider({ children }: { children: ReactNode }) {
   }, []);
   const canSwitch = useCallback((message?: string) => {
     const hasUnsavedChanges = Array.from(guards.current.values()).some((isDirty) => isDirty());
-    return !hasUnsavedChanges || window.confirm(message ?? 'تغییرات ذخیره‌نشده باقی می‌مانند. از این فضا خارج شوید؟');
+    return (
+      !hasUnsavedChanges ||
+      window.confirm(message ?? 'تغییرات ذخیره‌نشده باقی می‌مانند. از این فضا خارج شوید؟')
+    );
   }, []);
 
   return (
@@ -37,8 +40,5 @@ export function useWorkspaceDirtyGuard(key: string, isDirty: boolean) {
   const { registerDirtyGuard } = useWorkspaceSwitch();
   const dirtyRef = useRef(isDirty);
   dirtyRef.current = isDirty;
-  useEffect(
-    () => registerDirtyGuard(key, () => dirtyRef.current),
-    [key, registerDirtyGuard],
-  );
+  useEffect(() => registerDirtyGuard(key, () => dirtyRef.current), [key, registerDirtyGuard]);
 }

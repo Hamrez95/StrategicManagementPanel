@@ -18,7 +18,10 @@ import {
 function Feedback({ message, error = false }: { message: string; error?: boolean }) {
   if (!message) return null;
   return (
-    <p className={`account-feedback${error ? ' account-feedback--error' : ''}`} role={error ? 'alert' : 'status'}>
+    <p
+      className={`account-feedback${error ? ' account-feedback--error' : ''}`}
+      role={error ? 'alert' : 'status'}
+    >
       {message}
     </p>
   );
@@ -77,7 +80,8 @@ export default function AccountSettingsPage() {
 
   useEffect(() => {
     const id = location.hash.slice(1);
-    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }));
+    if (id)
+      requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }));
   }, [location.hash]);
 
   async function saveProfile(event: FormEvent<HTMLFormElement>) {
@@ -155,7 +159,9 @@ export default function AccountSettingsPage() {
     <section className="account-settings" aria-labelledby="account-settings-title">
       <header className="account-settings__header">
         <p className="auth-kicker">حساب شخصی</p>
-        <h1 id="account-settings-title" tabIndex={-1}>پروفایل و تنظیمات</h1>
+        <h1 id="account-settings-title" tabIndex={-1}>
+          پروفایل و تنظیمات
+        </h1>
         <p>اطلاعات حساب شما از جزئیات هر فضای کار جدا نگهداری می‌شود.</p>
       </header>
 
@@ -171,14 +177,20 @@ export default function AccountSettingsPage() {
         <div className="account-card__heading">
           <div>
             <h2 id="profile-heading">اطلاعات شخصی</h2>
-            <p>نام و عنوان شما در حساب نمایش داده می‌شود؛ نقش‌های فضای کار در تنظیمات همان پروژه هستند.</p>
+            <p>
+              نام و عنوان شما در حساب نمایش داده می‌شود؛ نقش‌های فضای کار در تنظیمات همان پروژه
+              هستند.
+            </p>
           </div>
         </div>
         <form className="account-form" onSubmit={saveProfile} noValidate>
           <Input
             label="نام نمایشی"
             value={displayName}
-            onChange={(event) => { setDisplayName(event.target.value); setProfileSaved(false); }}
+            onChange={(event) => {
+              setDisplayName(event.target.value);
+              setProfileSaved(false);
+            }}
             error={firstError(profileFields, 'display_name')}
             maxLength={80}
             autoComplete="name"
@@ -186,23 +198,38 @@ export default function AccountSettingsPage() {
           <Input
             label="عنوان حرفه‌ای (اختیاری)"
             value={roleTitle}
-            onChange={(event) => { setRoleTitle(event.target.value); setProfileSaved(false); }}
+            onChange={(event) => {
+              setRoleTitle(event.target.value);
+              setProfileSaved(false);
+            }}
             error={firstError(profileFields, 'role_title')}
             maxLength={80}
           />
           {profileError && <Feedback error message={profileError} />}
           {profileSaved && <Feedback message="اطلاعات شخصی ذخیره شد." />}
-          <Button type="submit" variant="primary" pending={profilePending} pendingLabel="در حال ذخیره…">
+          <Button
+            type="submit"
+            variant="primary"
+            pending={profilePending}
+            pendingLabel="در حال ذخیره…"
+          >
             ذخیره اطلاعات
           </Button>
         </form>
       </section>
 
-      <section id="account-preferences" className="account-card" aria-labelledby="preferences-heading">
+      <section
+        id="account-preferences"
+        className="account-card"
+        aria-labelledby="preferences-heading"
+      >
         <div className="account-card__heading">
           <div>
             <h2 id="preferences-heading">ظاهر و تجربه</h2>
-            <p>این انتخاب‌ها با حساب شما همگام می‌شوند. در اولین ورود، تنظیمات همین دستگاه به حساب منتقل می‌شود.</p>
+            <p>
+              این انتخاب‌ها با حساب شما همگام می‌شوند. در اولین ورود، تنظیمات همین دستگاه به حساب
+              منتقل می‌شود.
+            </p>
           </div>
         </div>
         <form className="account-form" onSubmit={savePreferences}>
@@ -213,7 +240,12 @@ export default function AccountSettingsPage() {
                 id="account-theme"
                 className="ui-input"
                 value={preferences.theme}
-                onChange={(event) => setPreferences((current) => ({ ...current, theme: event.target.value as DevicePreferences['theme'] }))}
+                onChange={(event) =>
+                  setPreferences((current) => ({
+                    ...current,
+                    theme: event.target.value as DevicePreferences['theme'],
+                  }))
+                }
               >
                 <option value="system">هماهنگ با دستگاه</option>
                 <option value="light">روشن</option>
@@ -226,7 +258,12 @@ export default function AccountSettingsPage() {
                 id="account-language"
                 className="ui-input"
                 value={preferences.language}
-                onChange={(event) => setPreferences((current) => ({ ...current, language: event.target.value as DevicePreferences['language'] }))}
+                onChange={(event) =>
+                  setPreferences((current) => ({
+                    ...current,
+                    language: event.target.value as DevicePreferences['language'],
+                  }))
+                }
               >
                 <option value="fa">فارسی</option>
                 <option value="en">English</option>
@@ -238,7 +275,12 @@ export default function AccountSettingsPage() {
                 id="account-motion"
                 className="ui-input"
                 value={preferences.motion}
-                onChange={(event) => setPreferences((current) => ({ ...current, motion: event.target.value as DevicePreferences['motion'] }))}
+                onChange={(event) =>
+                  setPreferences((current) => ({
+                    ...current,
+                    motion: event.target.value as DevicePreferences['motion'],
+                  }))
+                }
               >
                 <option value="auto">هماهنگ با تنظیم دستگاه</option>
                 <option value="reduced">حرکت کمتر</option>
@@ -247,20 +289,31 @@ export default function AccountSettingsPage() {
           </div>
           {preferences.language === 'en' && (
             <p className="account-form__hint">
-              نسخه نمونه استراتینو انگلیسی است؛ صفحه‌های تازه حساب فعلاً به فارسی نمایش داده می‌شوند.
+              نسخه نمونه استراتینو انگلیسی است؛ صفحه‌های تازه حساب فعلاً به فارسی نمایش داده
+              می‌شوند.
             </p>
           )}
           <label className="account-check">
             <input
               type="checkbox"
               checked={preferences.show_tutorial}
-              onChange={(event) => setPreferences((current) => ({ ...current, show_tutorial: event.target.checked }))}
+              onChange={(event) =>
+                setPreferences((current) => ({ ...current, show_tutorial: event.target.checked }))
+              }
             />
             <span>نمایش راهنمای تعاملی در نسخه نمونه</span>
           </label>
-          <p className="account-form__hint">خاموش‌کردن راهنما فقط تور آموزشی را می‌بندد؛ هشدارهای اعتبار داده و محاسبات همچنان نمایش داده می‌شوند.</p>
+          <p className="account-form__hint">
+            خاموش‌کردن راهنما فقط تور آموزشی را می‌بندد؛ هشدارهای اعتبار داده و محاسبات همچنان نمایش
+            داده می‌شوند.
+          </p>
           {preferencesMessage && <Feedback error={preferencesError} message={preferencesMessage} />}
-          <Button type="submit" variant="primary" pending={preferencesPending} pendingLabel="در حال ذخیره…">
+          <Button
+            type="submit"
+            variant="primary"
+            pending={preferencesPending}
+            pendingLabel="در حال ذخیره…"
+          >
             ذخیره تنظیمات
           </Button>
         </form>
@@ -270,11 +323,15 @@ export default function AccountSettingsPage() {
         <div className="account-card__heading">
           <div>
             <h2 id="email-heading">نشانی ایمیل</h2>
-            <p>ایمیل فعلی <strong dir="ltr">{profileQuery.data?.email ?? 'در حال بارگذاری…'}</strong></p>
+            <p>
+              ایمیل فعلی <strong dir="ltr">{profileQuery.data?.email ?? 'در حال بارگذاری…'}</strong>
+            </p>
           </div>
         </div>
         {profileQuery.data?.pending_email && (
-          <Feedback message={`برای ثبت ${profileQuery.data.pending_email} پیوند تأیید را باز کنید. تا آن زمان با ایمیل فعلی وارد می‌شوید.`} />
+          <Feedback
+            message={`برای ثبت ${profileQuery.data.pending_email} پیوند تأیید را باز کنید. تا آن زمان با ایمیل فعلی وارد می‌شوید.`}
+          />
         )}
         <form className="account-form account-form--email" onSubmit={changeEmail} noValidate>
           <Input
@@ -292,7 +349,12 @@ export default function AccountSettingsPage() {
             maxLength={254}
           />
           {emailMessage && <Feedback message={emailMessage} />}
-          <Button type="submit" variant="secondary" pending={emailPending} pendingLabel="در حال ارسال…">
+          <Button
+            type="submit"
+            variant="secondary"
+            pending={emailPending}
+            pendingLabel="در حال ارسال…"
+          >
             ارسال پیوند تأیید به ایمیل تازه
           </Button>
         </form>
@@ -307,7 +369,9 @@ export default function AccountSettingsPage() {
         </div>
         <p role="status">در حال حاضر هیچ قیمت یا سهمیه‌ای برای این حساب ثبت نشده است.</p>
       </section>
-      <p className="account-settings__back"><Link to="/app/start">بازگشت به فضای کار</Link></p>
+      <p className="account-settings__back">
+        <Link to="/app/start">بازگشت به فضای کار</Link>
+      </p>
     </section>
   );
 }
@@ -324,11 +388,17 @@ export function EmailChangeConfirmationPage() {
     const token = new URLSearchParams(location.hash.slice(1)).get('token');
     if (!token) {
       setState('error');
-      setMessage('پیوند تغییر ایمیل پیدا نشد یا منقضی شده است. از تنظیمات حساب درخواست تازه‌ای بفرستید.');
+      setMessage(
+        'پیوند تغییر ایمیل پیدا نشد یا منقضی شده است. از تنظیمات حساب درخواست تازه‌ای بفرستید.',
+      );
       return;
     }
     handled.current = true;
-    window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+    window.history.replaceState(
+      window.history.state,
+      '',
+      window.location.pathname + window.location.search,
+    );
     void postAuth<{ message: string }>('/api/v1/account/email-change/confirm/', { token })
       .then((response) => {
         void queryClient.invalidateQueries({ queryKey: queryKeys.session });
@@ -355,9 +425,13 @@ export function EmailChangeConfirmationPage() {
         </h1>
         <Feedback error={state === 'error'} message={message} />
         {state === 'success' ? (
-          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">بازگشت به حساب</Link>
+          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">
+            بازگشت به حساب
+          </Link>
         ) : (
-          <Link className="auth-context__link" to="/account/login">بازگشت به ورود</Link>
+          <Link className="auth-context__link" to="/account/login">
+            بازگشت به ورود
+          </Link>
         )}
       </div>
     </section>

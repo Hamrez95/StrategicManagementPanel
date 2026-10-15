@@ -86,9 +86,8 @@ export default function OnboardingPage() {
 
   const savedDisplayName = accountQuery.data?.display_name ?? '';
   const savedRoleTitle = accountQuery.data?.role_title ?? '';
-  const savedProfile: ProjectProfile | undefined = profileQuery.data?.workspace_id === ownedWorkspace?.id
-    ? profileQuery.data
-    : undefined;
+  const savedProfile: ProjectProfile | undefined =
+    profileQuery.data?.workspace_id === ownedWorkspace?.id ? profileQuery.data : undefined;
   const derivedStep: OnboardingStep = !savedDisplayName.trim()
     ? 'person'
     : !ownedWorkspace
@@ -97,14 +96,19 @@ export default function OnboardingPage() {
   const step = stepOverride ?? derivedStep;
   const personalDirty = displayName !== savedDisplayName || roleTitle !== savedRoleTitle;
   const workspaceDirty = Boolean(ownedWorkspace && workspaceName.trim() !== ownedWorkspace.name);
-  const projectDirty = Boolean(savedProfile && (
-    industry !== savedProfile.industry || stage !== savedProfile.stage || mission !== savedProfile.mission
-  ));
-  const hasUnsavedChanges = pending || (step === 'person'
-    ? personalDirty
-    : step === 'workspace'
-      ? workspaceDirty || (!ownedWorkspace && workspaceName.trim().length > 0)
-      : projectDirty);
+  const projectDirty = Boolean(
+    savedProfile &&
+    (industry !== savedProfile.industry ||
+      stage !== savedProfile.stage ||
+      mission !== savedProfile.mission),
+  );
+  const hasUnsavedChanges =
+    pending ||
+    (step === 'person'
+      ? personalDirty
+      : step === 'workspace'
+        ? workspaceDirty || (!ownedWorkspace && workspaceName.trim().length > 0)
+        : projectDirty);
   useWorkspaceDirtyGuard('onboarding-form', hasUnsavedChanges);
 
   const loading = accountQuery.isPending || workspacesQuery.isPending;
@@ -121,9 +125,11 @@ export default function OnboardingPage() {
   function setApiError(reason: unknown, fallback: string) {
     if (reason instanceof AuthApiError) {
       setError(reason.message);
-      setFieldErrors(Object.fromEntries(
-        Object.entries(reason.fields).map(([key, values]) => [key, values[0] ?? '']),
-      ));
+      setFieldErrors(
+        Object.fromEntries(
+          Object.entries(reason.fields).map(([key, values]) => [key, values[0] ?? '']),
+        ),
+      );
       setNameConflict(reason.code === 'revision_conflict');
       return;
     }
@@ -131,9 +137,9 @@ export default function OnboardingPage() {
   }
 
   function updateSessionName(name: string) {
-    queryClient.setQueryData<Session | null>(queryKeys.session, (current) => current
-      ? { ...current, user: { ...current.user, name } }
-      : current);
+    queryClient.setQueryData<Session | null>(queryKeys.session, (current) =>
+      current ? { ...current, user: { ...current.user, name } } : current,
+    );
   }
 
   async function reloadLatestProject() {
@@ -157,19 +163,29 @@ export default function OnboardingPage() {
     clearFeedback();
     const normalizedName = displayName.trim();
     if (!normalizedName) {
-      setFieldErrors({ display_name: english ? 'Enter your name to continue.' : 'نام خود را وارد کنید.' });
+      setFieldErrors({
+        display_name: english ? 'Enter your name to continue.' : 'نام خود را وارد کنید.',
+      });
       return;
     }
     setPending(true);
     try {
-      const saved = await saveAccountProfile({ display_name: normalizedName, role_title: roleTitle.trim() });
+      const saved = await saveAccountProfile({
+        display_name: normalizedName,
+        role_title: roleTitle.trim(),
+      });
       queryClient.setQueryData(queryKeys.account.profile, saved);
       updateSessionName(saved.display_name || saved.email);
       setDisplayName(saved.display_name);
       setRoleTitle(saved.role_title);
       setStepOverride('workspace');
     } catch (reason) {
-      setApiError(reason, english ? 'Your details could not be saved. Try again.' : 'اطلاعات شما ذخیره نشد. دوباره تلاش کنید.');
+      setApiError(
+        reason,
+        english
+          ? 'Your details could not be saved. Try again.'
+          : 'اطلاعات شما ذخیره نشد. دوباره تلاش کنید.',
+      );
     } finally {
       setPending(false);
     }
@@ -180,16 +196,24 @@ export default function OnboardingPage() {
     clearFeedback();
     const normalizedName = workspaceName.trim();
     if (!normalizedName) {
-      setFieldErrors({ name: english ? 'Enter a project name to continue.' : 'نام پروژه را وارد کنید.' });
+      setFieldErrors({
+        name: english ? 'Enter a project name to continue.' : 'نام پروژه را وارد کنید.',
+      });
       return;
     }
     setPending(true);
     try {
       if (ownedWorkspace) {
-        const saved = normalizedName === ownedWorkspace.name
-          ? ownedWorkspace
-          : await saveWorkspace(ownedWorkspace.id, { name: normalizedName, revision: ownedWorkspace.revision });
-        queryClient.setQueryData<WorkspaceRecord[]>(queryKeys.workspaces.all, (current) => current?.map((item) => item.id === saved.id ? saved : item));
+        const saved =
+          normalizedName === ownedWorkspace.name
+            ? ownedWorkspace
+            : await saveWorkspace(ownedWorkspace.id, {
+                name: normalizedName,
+                revision: ownedWorkspace.revision,
+              });
+        queryClient.setQueryData<WorkspaceRecord[]>(queryKeys.workspaces.all, (current) =>
+          current?.map((item) => (item.id === saved.id ? saved : item)),
+        );
         setWorkspaceName(saved.name);
       } else {
         const created = await createWorkspace(normalizedName);
@@ -199,7 +223,12 @@ export default function OnboardingPage() {
       }
       setStepOverride('project');
     } catch (reason) {
-      setApiError(reason, english ? 'The project could not be saved. Check your connection and try again.' : 'پروژه ذخیره نشد. اتصال را بررسی و دوباره تلاش کنید.');
+      setApiError(
+        reason,
+        english
+          ? 'The project could not be saved. Check your connection and try again.'
+          : 'پروژه ذخیره نشد. اتصال را بررسی و دوباره تلاش کنید.',
+      );
     } finally {
       setPending(false);
     }
@@ -208,7 +237,11 @@ export default function OnboardingPage() {
   async function finishProject(skip = false) {
     clearFeedback();
     if (!ownedWorkspace || !savedProfile) {
-      setError(english ? 'The new project is still loading. Try again in a moment.' : 'فضای تازه هنوز بارگذاری نشده است. کمی بعد دوباره تلاش کنید.');
+      setError(
+        english
+          ? 'The new project is still loading. Try again in a moment.'
+          : 'فضای تازه هنوز بارگذاری نشده است. کمی بعد دوباره تلاش کنید.',
+      );
       return;
     }
     setPending(true);
@@ -225,12 +258,23 @@ export default function OnboardingPage() {
         queryClient.invalidateQueries({ queryKey: queryKeys.session }),
         queryClient.invalidateQueries({ queryKey: queryKeys.workspaces.all }),
       ]);
-      notify(skip
-        ? (english ? 'Setup skipped. You can add project details later.' : 'این مرحله رد شد؛ هر زمان خواستید جزئیات پروژه را اضافه کنید.')
-        : (english ? 'Project setup saved.' : 'اطلاعات اولیه پروژه ذخیره شد.'));
+      notify(
+        skip
+          ? english
+            ? 'Setup skipped. You can add project details later.'
+            : 'این مرحله رد شد؛ هر زمان خواستید جزئیات پروژه را اضافه کنید.'
+          : english
+            ? 'Project setup saved.'
+            : 'اطلاعات اولیه پروژه ذخیره شد.',
+      );
       navigate(`/app/workspaces/${encodeURIComponent(ownedWorkspace.id)}`, { replace: true });
     } catch (reason) {
-      setApiError(reason, english ? 'Project details could not be saved. Try again.' : 'اطلاعات پروژه ذخیره نشد. دوباره تلاش کنید.');
+      setApiError(
+        reason,
+        english
+          ? 'Project details could not be saved. Try again.'
+          : 'اطلاعات پروژه ذخیره نشد. دوباره تلاش کنید.',
+      );
     } finally {
       setPending(false);
     }
@@ -243,24 +287,43 @@ export default function OnboardingPage() {
   }
 
   if (loading || profileLoading) {
-    return <section className="onboarding-shell"><Skeleton label={english ? 'Loading your setup' : 'در حال آماده‌سازی شروع کار'} lines={5} /></section>;
+    return (
+      <section className="onboarding-shell">
+        <Skeleton label={english ? 'Loading your setup' : 'در حال آماده‌سازی شروع کار'} lines={5} />
+      </section>
+    );
   }
   if (accountQuery.isError || workspacesQuery.isError || profileQuery.isError) {
     const refetch = async () => {
-      await Promise.all([accountQuery.refetch(), workspacesQuery.refetch(), profileQuery.refetch()]);
+      await Promise.all([
+        accountQuery.refetch(),
+        workspacesQuery.refetch(),
+        profileQuery.refetch(),
+      ]);
     };
     return (
       <section className="onboarding-shell">
         <Notice title={english ? 'Setup could not be loaded' : 'اطلاعات شروع کار بارگیری نشد'}>
-          <p role="alert">{accountQuery.error?.message || workspacesQuery.error?.message || profileQuery.error?.message || (english ? 'Check your connection and try again.' : 'اتصال را بررسی و دوباره تلاش کنید.')}</p>
+          <p role="alert">
+            {accountQuery.error?.message ||
+              workspacesQuery.error?.message ||
+              profileQuery.error?.message ||
+              (english
+                ? 'Check your connection and try again.'
+                : 'اتصال را بررسی و دوباره تلاش کنید.')}
+          </p>
           <Button onClick={() => void refetch()}>{english ? 'Try again' : 'تلاش دوباره'}</Button>
-          <Link className="text-link" to="/app/workspaces">{english ? 'Your Workspaces' : 'فضاهای من'}</Link>
+          <Link className="text-link" to="/app/workspaces">
+            {english ? 'Your Workspaces' : 'فضاهای من'}
+          </Link>
         </Notice>
       </section>
     );
   }
 
-  const hasAnyOwnedWorkspace = workspaces.some((workspace) => workspace.owner_id === session.user.id);
+  const hasAnyOwnedWorkspace = workspaces.some(
+    (workspace) => workspace.owner_id === session.user.id,
+  );
   if (!loading) {
     if (!ownedWorkspace && (hasAnyOwnedWorkspace || session.workspaces.length > 0)) {
       return <Navigate to="/app/workspaces" replace />;
@@ -276,25 +339,49 @@ export default function OnboardingPage() {
     project: english ? 'Set a starting direction' : 'برای شروع، جهت پروژه را مشخص کنید',
   }[step];
   const stepDescription = {
-    person: english ? 'Your name helps people recognize you in shared Workspaces.' : 'نام شما در فضاهای مشترک به دیگران کمک می‌کند شما را بشناسند.',
-    workspace: english ? 'Each business or product gets its own Workspace.' : 'برای هر کسب‌وکار یا محصول، یک فضای جدا ساخته می‌شود.',
-    project: english ? 'These details are optional and can be changed whenever you like.' : 'این اطلاعات اختیاری‌اند و هر زمان بخواهید می‌توانید تغییرشان دهید.',
+    person: english
+      ? 'Your name helps people recognize you in shared Workspaces.'
+      : 'نام شما در فضاهای مشترک به دیگران کمک می‌کند شما را بشناسند.',
+    workspace: english
+      ? 'Each business or product gets its own Workspace.'
+      : 'برای هر کسب‌وکار یا محصول، یک فضای جدا ساخته می‌شود.',
+    project: english
+      ? 'These details are optional and can be changed whenever you like.'
+      : 'این اطلاعات اختیاری‌اند و هر زمان بخواهید می‌توانید تغییرشان دهید.',
   }[step];
 
   return (
     <section className="onboarding-shell" aria-labelledby="onboarding-title">
       <div className="onboarding-topline">
         <div>
-          <p className="auth-kicker">{english ? 'Build your strategy workspace' : 'آماده‌سازی فضای استراتژی'}</p>
-          <p>{english ? `Step ${currentIndex + 1} of ${STEP_ORDER.length}` : `گام ${new Intl.NumberFormat('fa-IR').format(currentIndex + 1)} از ${new Intl.NumberFormat('fa-IR').format(STEP_ORDER.length)}`}</p>
+          <p className="auth-kicker">
+            {english ? 'Build your strategy workspace' : 'آماده‌سازی فضای استراتژی'}
+          </p>
+          <p>
+            {english
+              ? `Step ${currentIndex + 1} of ${STEP_ORDER.length}`
+              : `گام ${new Intl.NumberFormat('fa-IR').format(currentIndex + 1)} از ${new Intl.NumberFormat('fa-IR').format(STEP_ORDER.length)}`}
+          </p>
         </div>
-        <Link to="/demo" className="text-link">{english ? 'Explore the demo' : 'دیدن نسخه نمونه'}</Link>
+        <Link to="/demo" className="text-link">
+          {english ? 'Explore the demo' : 'دیدن نسخه نمونه'}
+        </Link>
       </div>
-      <div className="onboarding-progress" role="progressbar" aria-label={english ? 'Setup progress' : 'پیشرفت راه‌اندازی'} aria-valuemin={1} aria-valuemax={STEP_ORDER.length} aria-valuenow={currentIndex + 1}>
+      <div
+        className="onboarding-progress"
+        role="progressbar"
+        aria-label={english ? 'Setup progress' : 'پیشرفت راه‌اندازی'}
+        aria-valuemin={1}
+        aria-valuemax={STEP_ORDER.length}
+        aria-valuenow={currentIndex + 1}
+      >
         <span style={{ inlineSize: `${progressValue}%` }} />
       </div>
       <div className="onboarding-layout">
-        <nav className="onboarding-steps" aria-label={english ? 'Setup steps' : 'گام‌های راه‌اندازی'}>
+        <nav
+          className="onboarding-steps"
+          aria-label={english ? 'Setup steps' : 'گام‌های راه‌اندازی'}
+        >
           {STEP_ORDER.map((item, index) => {
             const labels = english
               ? ['Your details', 'Project name', 'Project direction']
@@ -302,8 +389,16 @@ export default function OnboardingPage() {
             const current = item === step;
             const complete = index < currentIndex;
             return (
-              <div key={item} className={`onboarding-step${current ? ' onboarding-step--current' : ''}${complete ? ' onboarding-step--complete' : ''}`} aria-current={current ? 'step' : undefined}>
-                <span className="onboarding-step__number">{complete ? '✓' : new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(index + 1)}</span>
+              <div
+                key={item}
+                className={`onboarding-step${current ? ' onboarding-step--current' : ''}${complete ? ' onboarding-step--complete' : ''}`}
+                aria-current={current ? 'step' : undefined}
+              >
+                <span className="onboarding-step__number">
+                  {complete
+                    ? '✓'
+                    : new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(index + 1)}
+                </span>
                 <span>{labels[index]}</span>
               </div>
             );
@@ -311,8 +406,14 @@ export default function OnboardingPage() {
         </nav>
         <div className="onboarding-content">
           <header className="onboarding-heading">
-            {ownedWorkspace && step === 'project' && <p className="onboarding-project-name">{english ? 'Project' : 'پروژه'}: <strong>{ownedWorkspace.name}</strong></p>}
-            <h1 id="onboarding-title" tabIndex={-1}>{stepTitle}</h1>
+            {ownedWorkspace && step === 'project' && (
+              <p className="onboarding-project-name">
+                {english ? 'Project' : 'پروژه'}: <strong>{ownedWorkspace.name}</strong>
+              </p>
+            )}
+            <h1 id="onboarding-title" tabIndex={-1}>
+              {stepTitle}
+            </h1>
             <p>{stepDescription}</p>
           </header>
 
@@ -321,7 +422,10 @@ export default function OnboardingPage() {
               <Input
                 label={english ? 'Your name' : 'نام شما'}
                 value={displayName}
-                onChange={(event) => { setDisplayName(event.currentTarget.value); clearFeedback(); }}
+                onChange={(event) => {
+                  setDisplayName(event.currentTarget.value);
+                  clearFeedback();
+                }}
                 maxLength={80}
                 autoComplete="name"
                 required
@@ -331,15 +435,24 @@ export default function OnboardingPage() {
               <Input
                 label={english ? 'Role or title (optional)' : 'نقش یا عنوان شغلی (اختیاری)'}
                 value={roleTitle}
-                onChange={(event) => { setRoleTitle(event.currentTarget.value); clearFeedback(); }}
+                onChange={(event) => {
+                  setRoleTitle(event.currentTarget.value);
+                  clearFeedback();
+                }}
                 maxLength={80}
                 autoComplete="organization-title"
                 error={fieldErrors.role_title}
               />
-              {error && <p className="onboarding-feedback onboarding-feedback--error" role="alert">{error}</p>}
+              {error && (
+                <p className="onboarding-feedback onboarding-feedback--error" role="alert">
+                  {error}
+                </p>
+              )}
               <div className="onboarding-actions">
                 <span />
-                <Button variant="primary" type="submit" pending={pending}>{english ? 'Continue' : 'ادامه'}</Button>
+                <Button variant="primary" type="submit" pending={pending}>
+                  {english ? 'Continue' : 'ادامه'}
+                </Button>
               </div>
             </form>
           )}
@@ -349,59 +462,127 @@ export default function OnboardingPage() {
               <Input
                 label={english ? 'Project or business name' : 'نام کسب‌وکار یا پروژه'}
                 value={workspaceName}
-                onChange={(event) => { setWorkspaceName(event.currentTarget.value); clearFeedback(); }}
+                onChange={(event) => {
+                  setWorkspaceName(event.currentTarget.value);
+                  clearFeedback();
+                }}
                 maxLength={120}
                 required
                 autoFocus
                 error={fieldErrors.name}
               />
-              <p className="onboarding-hint">{english ? 'You can rename it later. Nothing is pre-filled with demo data.' : 'بعداً هم می‌توانید نام را عوض کنید. هیچ داده نمایشی به‌جای اطلاعات شما وارد نمی‌شود.'}</p>
-              {error && <p className="onboarding-feedback onboarding-feedback--error" role="alert">{error}</p>}
-              {nameConflict && <Button type="button" variant="secondary" onClick={() => void reloadLatestProject()}>{english ? 'Load the latest project name' : 'بارگیری نام تازه پروژه'}</Button>}
+              <p className="onboarding-hint">
+                {english
+                  ? 'You can rename it later. Nothing is pre-filled with demo data.'
+                  : 'بعداً هم می‌توانید نام را عوض کنید. هیچ داده نمایشی به‌جای اطلاعات شما وارد نمی‌شود.'}
+              </p>
+              {error && (
+                <p className="onboarding-feedback onboarding-feedback--error" role="alert">
+                  {error}
+                </p>
+              )}
+              {nameConflict && (
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => void reloadLatestProject()}
+                >
+                  {english ? 'Load the latest project name' : 'بارگیری نام تازه پروژه'}
+                </Button>
+              )}
               <div className="onboarding-actions">
-                <Button type="button" variant="quiet" onClick={goBack}>{english ? 'Back' : 'بازگشت'}</Button>
-                <Button variant="primary" type="submit" pending={pending}>{english ? 'Create project' : 'ساخت پروژه'}</Button>
+                <Button type="button" variant="quiet" onClick={goBack}>
+                  {english ? 'Back' : 'بازگشت'}
+                </Button>
+                <Button variant="primary" type="submit" pending={pending}>
+                  {english ? 'Create project' : 'ساخت پروژه'}
+                </Button>
               </div>
             </form>
           )}
 
           {step === 'project' && (
-            <form className="onboarding-form" onSubmit={(event) => { event.preventDefault(); void finishProject(); }}>
+            <form
+              className="onboarding-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                void finishProject();
+              }}
+            >
               <Input
                 label={english ? 'Industry (optional)' : 'حوزه فعالیت (اختیاری)'}
                 value={industry}
-                onChange={(event) => { setIndustry(event.currentTarget.value); clearFeedback(); }}
+                onChange={(event) => {
+                  setIndustry(event.currentTarget.value);
+                  clearFeedback();
+                }}
                 maxLength={200}
                 error={fieldErrors.industry}
               />
               <Input
                 label={english ? 'Current stage (optional)' : 'مرحله فعلی (اختیاری)'}
                 value={stage}
-                onChange={(event) => { setStage(event.currentTarget.value); clearFeedback(); }}
+                onChange={(event) => {
+                  setStage(event.currentTarget.value);
+                  clearFeedback();
+                }}
                 maxLength={100}
                 error={fieldErrors.stage}
               />
               <div className="ui-field">
-                <label htmlFor="onboarding-mission">{english ? 'Main goal or challenge (optional)' : 'هدف یا مسئله اصلی (اختیاری)'}</label>
+                <label htmlFor="onboarding-mission">
+                  {english ? 'Main goal or challenge (optional)' : 'هدف یا مسئله اصلی (اختیاری)'}
+                </label>
                 <textarea
                   id="onboarding-mission"
                   className="ui-input onboarding-textarea"
                   value={mission}
-                  onChange={(event) => { setMission(event.currentTarget.value); clearFeedback(); }}
+                  onChange={(event) => {
+                    setMission(event.currentTarget.value);
+                    clearFeedback();
+                  }}
                   maxLength={2000}
                   rows={4}
                   aria-describedby="onboarding-mission-hint"
                   aria-invalid={Boolean(fieldErrors.mission) || undefined}
                 />
-                <p id="onboarding-mission-hint" className="ui-hint">{fieldErrors.mission || (english ? 'A sentence is enough. You can update it later.' : 'یک جمله کافی است؛ بعداً می‌توانید آن را ویرایش کنید.')}</p>
+                <p id="onboarding-mission-hint" className="ui-hint">
+                  {fieldErrors.mission ||
+                    (english
+                      ? 'A sentence is enough. You can update it later.'
+                      : 'یک جمله کافی است؛ بعداً می‌توانید آن را ویرایش کنید.')}
+                </p>
               </div>
-              {error && <p className="onboarding-feedback onboarding-feedback--error" role="alert">{error}</p>}
-              {nameConflict && <Button type="button" variant="secondary" onClick={() => void reloadLatestProfile()}>{english ? 'Load the latest project details' : 'بارگیری اطلاعات تازه پروژه'}</Button>}
+              {error && (
+                <p className="onboarding-feedback onboarding-feedback--error" role="alert">
+                  {error}
+                </p>
+              )}
+              {nameConflict && (
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => void reloadLatestProfile()}
+                >
+                  {english ? 'Load the latest project details' : 'بارگیری اطلاعات تازه پروژه'}
+                </Button>
+              )}
               <div className="onboarding-actions onboarding-actions--project">
-                <Button type="button" variant="quiet" onClick={goBack}>{english ? 'Back' : 'بازگشت'}</Button>
+                <Button type="button" variant="quiet" onClick={goBack}>
+                  {english ? 'Back' : 'بازگشت'}
+                </Button>
                 <div>
-                  <Button type="button" variant="quiet" pending={pending} onClick={() => void finishProject(true)}>{english ? 'Skip for now' : 'فعلاً رد می‌کنم'}</Button>
-                  <Button variant="primary" type="submit" pending={pending}>{english ? 'Save and open Workspace' : 'ذخیره و ورود به فضا'}</Button>
+                  <Button
+                    type="button"
+                    variant="quiet"
+                    pending={pending}
+                    onClick={() => void finishProject(true)}
+                  >
+                    {english ? 'Skip for now' : 'فعلاً رد می‌کنم'}
+                  </Button>
+                  <Button variant="primary" type="submit" pending={pending}>
+                    {english ? 'Save and open Workspace' : 'ذخیره و ورود به فضا'}
+                  </Button>
                 </div>
               </div>
             </form>
