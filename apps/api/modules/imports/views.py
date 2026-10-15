@@ -57,13 +57,13 @@ def _request_preview(request):
     if request.META.get('CONTENT_LENGTH'):
         try:
             if int(request.META['CONTENT_LENGTH']) > MAX_REQUEST_BYTES:
-                raise ImportValidationError('فایل پشتیبان بیش از یک مگابایت است.', fields={'file': ['حداکثر اندازه فایل یک مگابایت است.']}, code='import_too_large')
+                raise ImportValidationError('فایل پشتیبان بیش از پنج مگابایت است.', fields={'file': ['حداکثر اندازه فایل پنج مگابایت است.']}, code='import_too_large')
         except ValueError:
             raise ImportValidationError('اندازه درخواست معتبر نیست.') from None
     try:
         return parse_import_request(request.body)
     except RequestDataTooBig:
-        raise ImportValidationError('فایل پشتیبان بیش از یک مگابایت است.', fields={'file': ['حداکثر اندازه فایل یک مگابایت است.']}, code='import_too_large') from None
+        raise ImportValidationError('فایل پشتیبان بیش از پنج مگابایت است.', fields={'file': ['حداکثر اندازه فایل پنج مگابایت است.']}, code='import_too_large') from None
 
 
 def _batch_payload(batch, *, include_data=False, duplicate=False):

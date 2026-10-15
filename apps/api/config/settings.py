@@ -19,7 +19,7 @@ elif not SECRET_KEY:
     # Ephemeral development only: restart invalidates sessions unless configured.
     SECRET_KEY = secrets.token_urlsafe(64)
 
-INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.core']
+INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.exports', 'modules.core']
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'modules.core.middleware.PrivateResponseMiddleware']
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
@@ -58,7 +58,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = PRODUCTION
 SECURE_HSTS_PRELOAD = PRODUCTION
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
-DATA_UPLOAD_MAX_MEMORY_SIZE = 2 * 1024 * 1024
+DATA_UPLOAD_MAX_MEMORY_SIZE = 6 * 1024 * 1024
 MEDIA_ROOT = Path(os.environ.get('STRATINO_PRIVATE_FILES', str(BASE_DIR / '.private-files')))
 STORAGES = {'default': {'BACKEND': 'modules.core.storage.PrivateFileStorage'}}
 DOCUMENT_ATTACHMENT_MAX_BYTES = int(os.environ.get('STRATINO_ATTACHMENT_MAX_BYTES', str(20 * 1024 * 1024)))

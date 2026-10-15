@@ -2,7 +2,7 @@ import hashlib
 import json
 import math
 
-MAX_IMPORT_BYTES = 1_000_000
+MAX_IMPORT_BYTES = 5_000_000
 MAX_REQUEST_BYTES = MAX_IMPORT_BYTES + 256
 MAX_DEPTH = 16
 MAX_ARRAY_ITEMS = 400
@@ -17,6 +17,11 @@ REQUIRED_FIELDS = {
 OPTIONAL_FIELDS = {'schema', 'schema_version', 'exported_at', 'attachments', 'file_metadata', 'files', 'documents'}
 RECORD_FIELDS = ('external', 'internal', 'objectives', 'initiatives', 'risks', 'journal', 'pestel', 'competitors', 'vrio', 'swot', 'options', 'products')
 BYTE_FIELDS = {'file_bytes', 'bytes_base64', 'content_base64', 'data_url', 'blob'}
+STRATINO_EXPORT_SCHEMA = 'stratino-workspace-v1'
+STRATINO_EXPORT_SCOPE = {
+    'workspace', 'workspace_profile', 'profile_history', 'analyses', 'strategy_factors', 'strategy_options',
+    'decisions', 'goals', 'actions', 'execution_history', 'documents', 'document_templates', 'document_history', 'ready_attachments',
+}
 
 
 class ImportValidationError(Exception):
@@ -191,6 +196,8 @@ def _strip_file_bytes(value):
 
 def inspect_legacy_backup(value):
     """Validate and map the old browser backup without mutating its source."""
+    if isinstance(value, dict) and value.get('schema') == STRATINO_EXPORT_SCHEMA:
+        return inspect_stratino_export(value)
     state, source_schema, source_envelope = _source_state(value)
     _validate_legacy_state(state)
     metadata_fields = ('attachments', 'file_metadata', 'files', 'documents')
@@ -269,13 +276,82 @@ def inspect_legacy_backup(value):
     }
 
 
+def inspect_stratino_export(value):
+    """Validate a versioned Workspace export for safe, non-destructive import archiving."""
+    required = {'schema', 'schema_version', 'exported_at', 'method_version', 'scope', 'data'}
+    if set(value) != required:
+        _bad('ساختار فایل خروجی استراتینو معتبر نیست.')
+    if value.get('schema') != STRATINO_EXPORT_SCHEMA or value.get('schema_version') != 1 or isinstance(value.get('schema_version'), bool):
+        _bad('نسخه فایل خروجی استراتینو پشتیبانی نمی‌شود.')
+    if not isinstance(value.get('exported_at'), str) or not isinstance(value.get('method_version'), str):
+        _bad('نسخه روش یا زمان ساخت فایل معتبر نیست.')
+    scope = value.get('scope')
+    if (
+        not isinstance(scope, list)
+        or any(not isinstance(item, str) for item in scope)
+        or set(scope) != STRATINO_EXPORT_SCOPE
+        or len(scope) != len(STRATINO_EXPORT_SCOPE)
+    ):
+        _bad('دامنه داده فایل با دامنه مجاز این نسخه هماهنگ نیست.')
+    data = value.get('data')
+    required_sections = {
+        'workspace', 'workspace_profile', 'profile_history', 'analyses', 'strategy_factors',
+        'strategy_options', 'decisions', 'goals', 'actions', 'execution_history', 'documents', 'document_templates',
+        'ready_attachments', 'document_history',
+    }
+    if not isinstance(data, dict) or set(data) != required_sections:
+        _bad('بخش‌های فایل خروجی کامل یا شناخته‌شده نیستند.')
+    if not isinstance(data['workspace'], dict) or not isinstance(data['workspace'].get('id'), str):
+        _bad('شناسه فضای کار در فایل معتبر نیست.')
+    for field in required_sections - {'workspace', 'workspace_profile'}:
+        if not isinstance(data[field], list):
+            _bad('ساختار یکی از فهرست‌های فایل معتبر نیست.', field)
+    if data['workspace_profile'] is not None and not isinstance(data['workspace_profile'], dict):
+        _bad('مشخصات فضای کار در فایل معتبر نیست.', 'workspace_profile')
+    _finite_json(value)
+
+    record_counts = {
+        'analysis_records': len(data['analyses']),
+        'decision_records': len(data['decisions']),
+        'execution_records': len(data['goals']) + len(data['actions']) + len(data['execution_history']),
+        'financial_periods': 0,
+        'file_metadata': sum(len(item.get('attachments', [])) for item in data['documents'] if isinstance(item, dict)),
+        'strategy_records': len(data['strategy_factors']) + len(data['strategy_options']),
+        'document_records': len(data['documents']),
+    }
+    canonical = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
+    return {
+        'source_schema': STRATINO_EXPORT_SCHEMA,
+        'source_digest': hashlib.sha256(canonical.encode('utf-8')).hexdigest(),
+        'record_counts': record_counts,
+        'record_count': sum(record_counts.values()),
+        'missing_attachment_bytes': record_counts['file_metadata'],
+        'warnings': [
+            'این نسخه در تاریخچهٔ واردسازی ثبت می‌شود و دادهٔ فعال فضای کار را بازنویسی نمی‌کند.',
+            *(['فایل JSON فراداده پیوست‌ها را دارد؛ بایت فایل‌ها فقط در آرشیو ZIP خروجی قرار می‌گیرند.'] if record_counts['file_metadata'] else []),
+        ],
+        'data': {
+            'mapping_version': MAPPING_VERSION,
+            'source_workspace': data['workspace'],
+            'workspace_profile': data['workspace_profile'],
+            'project_records': {key: data[key] for key in required_sections if key not in {'workspace', 'workspace_profile'}},
+            'export_scope': scope,
+            'method_version': value['method_version'],
+            'exported_at': value['exported_at'],
+        },
+        'source_backup': value,
+    }
+
+
 def parse_import_request(raw_body):
     if len(raw_body) > MAX_REQUEST_BYTES:
-        raise ImportValidationError('فایل پشتیبان بیش از یک مگابایت است.', fields={'file': ['حداکثر اندازه فایل یک مگابایت است.']}, code='import_too_large')
+        raise ImportValidationError('فایل پشتیبان بیش از پنج مگابایت است.', fields={'file': ['حداکثر اندازه فایل پنج مگابایت است.']}, code='import_too_large')
     try:
         body = json.loads(raw_body or b'{}', parse_constant=_reject_constant, object_pairs_hook=_unique_object)
     except (UnicodeDecodeError, json.JSONDecodeError, ValueError, RecursionError):
         _bad('فایل JSON معتبر نیست.')
+    if isinstance(body, dict) and body.get('schema') == STRATINO_EXPORT_SCHEMA:
+        return inspect_stratino_export(body)
     if not isinstance(body, dict) or set(body) != {'schema_version', 'data'}:
         _bad('درخواست باید شامل نسخه طرح و داده فایل باشد.')
     if not isinstance(body.get('schema_version'), int) or isinstance(body.get('schema_version'), bool) or body.get('schema_version') != 1:

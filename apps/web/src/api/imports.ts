@@ -6,6 +6,8 @@ export type ImportRecordCounts = {
   execution_records: number;
   financial_periods: number;
   file_metadata: number;
+  strategy_records?: number;
+  document_records?: number;
 };
 
 export type ImportPreview = {
@@ -37,17 +39,20 @@ export type WorkspaceImportBatch = {
 };
 
 function asRecord(value: unknown): Record<string, unknown> {
-  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new TypeError('Expected an object');
+  if (!value || typeof value !== 'object' || Array.isArray(value))
+    throw new TypeError('Expected an object');
   return value as Record<string, unknown>;
 }
 
 function nonNegativeInteger(value: unknown) {
-  if (!Number.isInteger(value) || (value as number) < 0) throw new TypeError('Expected a non-negative count');
+  if (!Number.isInteger(value) || (value as number) < 0)
+    throw new TypeError('Expected a non-negative count');
   return value as number;
 }
 
 function positiveInteger(value: unknown) {
-  if (!Number.isInteger(value) || (value as number) < 1) throw new TypeError('Expected a positive integer');
+  if (!Number.isInteger(value) || (value as number) < 1)
+    throw new TypeError('Expected a positive integer');
   return value as number;
 }
 
@@ -64,12 +69,17 @@ function decodeCounts(value: unknown): ImportRecordCounts {
     execution_records: nonNegativeInteger(counts.execution_records),
     financial_periods: nonNegativeInteger(counts.financial_periods),
     file_metadata: nonNegativeInteger(counts.file_metadata),
+    strategy_records:
+      counts.strategy_records === undefined ? 0 : nonNegativeInteger(counts.strategy_records),
+    document_records:
+      counts.document_records === undefined ? 0 : nonNegativeInteger(counts.document_records),
   };
 }
 
 export function decodeImportPreview(value: unknown): ImportPreview {
   const item = asRecord(value);
-  if (!Array.isArray(item.warnings) || item.warnings.some((warning) => typeof warning !== 'string')) throw new TypeError('Expected preview warnings');
+  if (!Array.isArray(item.warnings) || item.warnings.some((warning) => typeof warning !== 'string'))
+    throw new TypeError('Expected preview warnings');
   if (item.recognized !== true) throw new TypeError('Expected a recognized legacy backup');
   const schemaVersion = positiveInteger(item.schema_version);
   if (schemaVersion !== 1) throw new TypeError('Unsupported import preview version');
@@ -108,7 +118,9 @@ export function decodeWorkspaceImportBatch(value: unknown): WorkspaceImportBatch
   };
 }
 
-function decodeWorkspaceImportDetail(value: unknown): WorkspaceImportBatch & { data: unknown; source_backup: unknown } {
+function decodeWorkspaceImportDetail(
+  value: unknown,
+): WorkspaceImportBatch & { data: unknown; source_backup: unknown } {
   const item = asRecord(value);
   const batch = decodeWorkspaceImportBatch(item);
   asRecord(item.data);
@@ -126,7 +138,7 @@ function workspaceImportPath(workspaceId: string) {
   return `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/imports/`;
 }
 
-export function previewLegacyBackup(workspaceId: string, data: unknown) {
+export function previewWorkspaceImport(workspaceId: string, data: unknown) {
   return requestApi<ImportPreview>(`${workspaceImportPath(workspaceId)}preview/`, {
     method: 'POST',
     body: { schema_version: 1, data },
@@ -134,7 +146,7 @@ export function previewLegacyBackup(workspaceId: string, data: unknown) {
   });
 }
 
-export function importLegacyBackup(workspaceId: string, data: unknown, idempotencyKey: string) {
+export function createWorkspaceImport(workspaceId: string, data: unknown, idempotencyKey: string) {
   return requestApi<WorkspaceImportBatch>(workspaceImportPath(workspaceId), {
     method: 'POST',
     body: { schema_version: 1, data },
@@ -151,9 +163,12 @@ export function listWorkspaceImports(workspaceId: string, signal?: AbortSignal) 
 }
 
 export function readWorkspaceImport(workspaceId: string, batchId: string) {
-  return requestApi<WorkspaceImportBatch & { data: unknown; source_backup: unknown }>(`${workspaceImportPath(workspaceId)}${encodeURIComponent(batchId)}/`, {
-    decode: decodeWorkspaceImportDetail,
-  });
+  return requestApi<WorkspaceImportBatch & { data: unknown; source_backup: unknown }>(
+    `${workspaceImportPath(workspaceId)}${encodeURIComponent(batchId)}/`,
+    {
+      decode: decodeWorkspaceImportDetail,
+    },
+  );
 }
 
 export function undoWorkspaceImport(workspaceId: string, batchId: string) {

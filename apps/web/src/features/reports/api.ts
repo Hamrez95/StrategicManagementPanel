@@ -1,0 +1,229 @@
+import { ApiError, requestApi } from '../../api/client';
+
+export type ReportData = {
+  workspace: {
+    id: string;
+    name: string;
+    revision: number;
+    created_at: string;
+    updated_at: string;
+    archived_at: string | null;
+  };
+  workspace_profile: Record<string, unknown> | null;
+  profile_history: Record<string, unknown>[];
+  analyses: Record<string, unknown>[];
+  strategy_factors: Record<string, unknown>[];
+  strategy_options: Record<string, unknown>[];
+  decisions: Record<string, unknown>[];
+  goals: Record<string, unknown>[];
+  actions: Record<string, unknown>[];
+  execution_history: Record<string, unknown>[];
+  documents: Record<string, unknown>[];
+  document_templates: Record<string, unknown>[];
+  ready_attachments: Record<string, unknown>[];
+  document_history: Record<string, unknown>[];
+};
+
+export type ReportEnvelope = {
+  schema: 'stratino-workspace-v1';
+  schema_version: 1;
+  exported_at: string;
+  method_version: string;
+  scope: string[];
+  data: ReportData;
+};
+
+export type ExportSnapshot = {
+  id: string;
+  workspace_id: string;
+  schema_version: number;
+  method_version: string;
+  scope: string[];
+  state: 'ready';
+  created_at: string;
+  artifact: { format: 'zip'; size_bytes: number; sha256: string };
+  snapshot?: ReportEnvelope;
+};
+
+export type ExportSnapshotList = { workspace_id: string; items: ExportSnapshot[] };
+
+function asRecord(value: unknown): Record<string, unknown> {
+  if (!value || typeof value !== 'object' || Array.isArray(value))
+    throw new TypeError('Expected an object');
+  return value as Record<string, unknown>;
+}
+
+function requiredString(value: unknown, field: string) {
+  if (typeof value !== 'string' || !value) throw new TypeError(`Expected ${field}`);
+  return value;
+}
+
+function decodeSnapshotData(value: unknown): ReportEnvelope {
+  const envelope = asRecord(value);
+  const data = asRecord(envelope.data);
+  const arrayFields = [
+    'profile_history',
+    'analyses',
+    'strategy_factors',
+    'strategy_options',
+    'decisions',
+    'goals',
+    'actions',
+    'execution_history',
+    'documents',
+    'document_templates',
+    'ready_attachments',
+    'document_history',
+  ];
+  for (const field of arrayFields) {
+    if (
+      !Array.isArray(data[field]) ||
+      data[field].some((item) => !item || typeof item !== 'object' || Array.isArray(item))
+    ) {
+      throw new TypeError(`Expected ${field}`);
+    }
+  }
+  const workspace = asRecord(data.workspace);
+  if (typeof workspace.id !== 'string' || typeof workspace.name !== 'string')
+    throw new TypeError('Expected Workspace');
+  if (data.workspace_profile !== null) asRecord(data.workspace_profile);
+  if (
+    envelope.schema !== 'stratino-workspace-v1' ||
+    envelope.schema_version !== 1 ||
+    !Array.isArray(envelope.scope)
+  ) {
+    throw new TypeError('Unsupported report schema');
+  }
+  return {
+    schema: 'stratino-workspace-v1',
+    schema_version: 1,
+    exported_at: requiredString(envelope.exported_at, 'export date'),
+    method_version: requiredString(envelope.method_version, 'method version'),
+    scope: envelope.scope.map((item) => requiredString(item, 'scope item')),
+    data: data as unknown as ReportData,
+  };
+}
+
+export function decodeExportSnapshot(value: unknown): ExportSnapshot {
+  const item = asRecord(value);
+  const artifact = asRecord(item.artifact);
+  if (
+    item.schema_version !== 1 ||
+    item.state !== 'ready' ||
+    artifact.format !== 'zip' ||
+    !Number.isInteger(artifact.size_bytes) ||
+    (artifact.size_bytes as number) < 0 ||
+    typeof artifact.sha256 !== 'string' ||
+    !/^[a-f0-9]{64}$/.test(artifact.sha256)
+  ) {
+    throw new TypeError('Invalid export artifact');
+  }
+  if (!Array.isArray(item.scope) || item.scope.some((scope) => typeof scope !== 'string'))
+    throw new TypeError('Invalid export scope');
+  return {
+    id: requiredString(item.id, 'export ID'),
+    workspace_id: requiredString(item.workspace_id, 'Workspace ID'),
+    schema_version: Number(item.schema_version),
+    method_version: requiredString(item.method_version, 'method version'),
+    scope: item.scope as string[],
+    state: 'ready',
+    created_at: requiredString(item.created_at, 'creation date'),
+    artifact: {
+      format: 'zip',
+      size_bytes: artifact.size_bytes as number,
+      sha256: requiredString(artifact.sha256, 'artifact digest'),
+    },
+    ...(Object.hasOwn(item, 'snapshot') ? { snapshot: decodeSnapshotData(item.snapshot) } : {}),
+  };
+}
+
+function exportPath(workspaceId: string) {
+  return `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/exports/`;
+}
+
+function decodeList(value: unknown): ExportSnapshotList {
+  const response = asRecord(value);
+  if (!Array.isArray(response.items)) throw new TypeError('Expected export list');
+  return {
+    workspace_id: requiredString(response.workspace_id, 'Workspace ID'),
+    items: response.items.map(decodeExportSnapshot),
+  };
+}
+
+export function listWorkspaceExports(workspaceId: string, signal?: AbortSignal) {
+  return requestApi<ExportSnapshotList>(exportPath(workspaceId), {
+    signal,
+    decode: (value) => {
+      const result = decodeList(value);
+      if (result.workspace_id !== workspaceId)
+        throw new TypeError('Export list belongs to another Workspace');
+      return result;
+    },
+  });
+}
+
+export function createWorkspaceExport(workspaceId: string, idempotencyKey: string) {
+  return requestApi<ExportSnapshot>(exportPath(workspaceId), {
+    method: 'POST',
+    body: {},
+    headers: { 'Idempotency-Key': idempotencyKey },
+    decode: (value) => {
+      const result = decodeExportSnapshot(value);
+      if (result.workspace_id !== workspaceId)
+        throw new TypeError('Export belongs to another Workspace');
+      return result;
+    },
+  });
+}
+
+export function readWorkspaceExport(workspaceId: string, exportId: string, signal?: AbortSignal) {
+  return requestApi<ExportSnapshot>(`${exportPath(workspaceId)}${encodeURIComponent(exportId)}/`, {
+    signal,
+    decode: (value) => {
+      const result = decodeExportSnapshot(value);
+      if (result.workspace_id !== workspaceId || result.id !== exportId || !result.snapshot) {
+        throw new TypeError('Export detail belongs to another Workspace');
+      }
+      return result;
+    },
+  });
+}
+
+export async function downloadWorkspaceExport(
+  workspaceId: string,
+  exportId: string,
+  format: 'json' | 'csv' | 'zip',
+) {
+  let response: Response;
+  try {
+    response = await fetch(
+      `${exportPath(workspaceId)}${encodeURIComponent(exportId)}/download/?format=${format}`,
+      { credentials: 'same-origin', cache: 'no-store', headers: { Accept: '*/*' } },
+    );
+  } catch {
+    throw new ApiError('ارتباط قطع شد. اتصال را بررسی کنید و دوباره تلاش کنید.', 0);
+  }
+  if (!response.ok) {
+    if (response.status === 401) window.dispatchEvent(new Event('stratino:session-expired'));
+    const payload = (await response.json().catch(() => undefined)) as
+      Record<string, unknown> | undefined;
+    throw new ApiError(
+      typeof payload?.message === 'string'
+        ? payload.message
+        : 'دریافت فایل کامل نشد. دوباره تلاش کنید.',
+      response.status,
+      {},
+      typeof payload?.code === 'string' ? payload.code : '',
+    );
+  }
+  const blob = await response.blob();
+  const href = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.hidden = true;
+  anchor.href = href;
+  anchor.download = `stratino-${exportId}.${format}`;
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  window.setTimeout(() => URL.revokeObjectURL(href), 30_000);
+}

@@ -3356,285 +3356,458 @@
     },
     "/api/v1/workspaces/{workspace_id}/exports/": {
       "get": {
-        "operationId": "listExportSnapshot",
-        "summary": "listExportSnapshot",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
-        "security": [
-          {
-            "cookieSession": []
+          "operationId": "listExportSnapshots",
+          "summary": "List report snapshots",
+          "description": "Lists saved immutable report snapshots for a Workspace after checking current membership. Private responses are not cached.",
+          "security": [
+            {
+              "cookieSession": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "description": "Workspace UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Workspace-scoped report snapshots",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "workspace_id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/ExportSnapshot"
+                        }
+                      }
+                    },
+                    "required": [
+                      "workspace_id",
+                      "items"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
           }
-        ],
-        "parameters": [
-          {
-            "name": "workspace_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 80,
-              "pattern": "^[A-Za-z0-9_-]+$",
-              "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+        },
+      "post": {
+          "operationId": "createExportSnapshot",
+          "summary": "Create a report snapshot",
+          "description": "Creates a versioned, immutable snapshot and a private ZIP archive containing JSON, CSV, and ready scanned attachments. Repeating the same idempotency key for this user and Workspace returns the existing snapshot.",
+          "security": [
+            {
+              "cookieSession": []
             }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 25
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "maxLength": 500
-            }
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Field or schema validation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "description": "Workspace UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "Idempotency-Key",
+              "in": "header",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "pattern": "^[A-Za-z0-9._:-]+$"
+              }
+            },
+            {
+              "name": "X-CSRFToken",
+              "in": "header",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minLength": 1
               }
             }
-          },
-          "401": {
-            "description": "Unauthenticated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden action or CSRF",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Missing or invisible resource",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Revision or idempotency conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Quota or incomplete calculation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Rate limited",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success; private responses are no-store",
+          ],
+          "requestBody": {
+            "required": false,
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ExportSnapshot"
-                      }
-                    },
-                    "next_cursor": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  },
-                  "required": [
-                    "items",
-                    "next_cursor"
-                  ]
+                  "properties": {},
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Existing snapshot returned for an idempotent retry",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ExportSnapshot"
+                  }
+                }
+              }
+            },
+            "201": {
+              "description": "New snapshot created",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ExportSnapshot"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "413": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
                 }
               }
             }
           }
         }
-      }
     },
     "/api/v1/workspaces/{workspace_id}/exports/{record_id}/": {
       "get": {
-        "operationId": "readExportSnapshot",
-        "summary": "readExportSnapshot",
-        "description": "Implementation contract only; this endpoint is not live yet. Server enforces Workspace ownership and standard session/CSRF.",
-        "security": [
-          {
-            "cookieSession": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "workspace_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 80,
-              "pattern": "^[A-Za-z0-9_-]+$",
-              "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+          "operationId": "readExportSnapshot",
+          "summary": "Read a report snapshot",
+          "description": "Returns the frozen report data after checking current Workspace membership. Private responses are not cached.",
+          "security": [
+            {
+              "cookieSession": []
             }
-          },
-          {
-            "name": "record_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 80,
-              "pattern": "^[A-Za-z0-9_-]+$",
-              "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
-            }
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Field or schema validation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "description": "Workspace UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "record_id",
+              "in": "path",
+              "required": true,
+              "description": "Export snapshot UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
               }
             }
-          },
-          "401": {
-            "description": "Unauthenticated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+          ],
+          "responses": {
+            "200": {
+              "description": "Immutable report snapshot",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ExportSnapshot"
+                  }
                 }
               }
-            }
-          },
-          "403": {
-            "description": "Forbidden action or CSRF",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+            },
+            "401": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
                 }
               }
-            }
-          },
-          "404": {
-            "description": "Missing or invisible resource",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+            },
+            "403": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
                 }
               }
-            }
-          },
-          "409": {
-            "description": "Revision or idempotency conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+            },
+            "404": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
                 }
-              }
-            }
-          },
-          "422": {
-            "description": "Quota or incomplete calculation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Rate limited",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success; private responses are no-store",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ExportSnapshot"
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
                 }
               }
             }
           }
         }
-      }
     },
     "/api/v1/workspaces/{workspace_id}/attachments/": {
       "post": {
@@ -3947,26 +4120,127 @@
         }
       },
       "post": {
-        "operationId": "createWorkspaceImport",
-        "summary": "Save a Workspace import batch",
-        "description": "Atomically saves a mapped legacy snapshot. An active same-digest batch is idempotent within its Workspace.",
-        "security": [{ "cookieSession": [] }],
-        "parameters": [
-          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "X-CSRFToken", "in": "header", "required": true, "schema": { "type": "string", "maxLength": 200 } },
-          { "name": "Idempotency-Key", "in": "header", "required": true, "schema": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[A-Za-z0-9._:-]+$" } }
-        ],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportRequest" } } } },
-        "responses": {
-          "201": { "description": "Import batch created", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatch" } } } },
-          "200": { "description": "Existing batch returned for an idempotent request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ImportBatch" } } } },
-          "400": { "description": "Invalid or unsupported backup", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
-          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
-          "403": { "description": "Owner/editor access or CSRF required", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
-          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } },
-          "409": { "description": "Idempotency key conflict or archived Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceImportError" } } } }
+          "operationId": "createWorkspaceImport",
+          "summary": "Save a Workspace import batch",
+          "description": "Atomically saves a legacy snapshot or a versioned Stratino export for recovery. Export imports do not overwrite active Workspace records. An active same-digest batch is idempotent within its Workspace.",
+          "security": [
+            {
+              "cookieSession": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "X-CSRFToken",
+              "in": "header",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "maxLength": 200
+              }
+            },
+            {
+              "name": "Idempotency-Key",
+              "in": "header",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "pattern": "^[A-Za-z0-9._:-]+$"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Existing batch returned for an idempotent request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ImportBatch"
+                  }
+                }
+              }
+            },
+            "201": {
+              "description": "Import batch created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ImportBatch"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid or unsupported backup",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthenticated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Owner/editor access or CSRF required",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Missing or invisible Workspace",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Idempotency key conflict or archived Workspace",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            }
+          }
         }
-      }
     },
     "/api/v1/workspaces/{workspace_id}/imports/{batch_id}/": {
       "get": {
@@ -4004,138 +4278,140 @@
     },
     "/api/v1/workspaces/{workspace_id}/imports/preview/": {
       "post": {
-        "operationId": "previewImport",
-        "summary": "previewImport",
-        "description": "Validates and maps a legacy backup without writing data. Owner/editor only.",
-        "security": [
-          {
-            "cookieSession": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "workspace_id",
-            "in": "path",
+          "operationId": "previewImport",
+          "summary": "previewImport",
+          "description": "Validates a legacy backup or a versioned Stratino Workspace export without writing active data. Owner/editor only.",
+          "security": [
+            {
+              "cookieSession": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+              }
+            },
+            {
+              "name": "X-CSRFToken",
+              "in": "header",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          ],
+          "requestBody": {
             "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 80,
-              "pattern": "^[A-Za-z0-9_-]+$",
-              "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
-            }
-          },
-          {
-            "name": "X-CSRFToken",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 200
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/ImportRequest" }
-            }
-          }
-        },
-        "responses": {
-          "400": {
-            "description": "Field or schema validation",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+                  "$ref": "#/components/schemas/ImportRequest"
                 }
               }
             }
           },
-          "401": {
-            "description": "Unauthenticated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+          "responses": {
+            "200": {
+              "description": "Success; private responses are no-store",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ImportPreview"
+                  }
                 }
               }
-            }
-          },
-          "403": {
-            "description": "Forbidden action or CSRF",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "400": {
+              "description": "Field or schema validation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "404": {
-            "description": "Missing or invisible resource",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "401": {
+              "description": "Unauthenticated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "409": {
-            "description": "Revision or idempotency conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "403": {
+              "description": "Forbidden action or CSRF",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "422": {
-            "description": "Quota or incomplete calculation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "404": {
+              "description": "Missing or invisible resource",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "429": {
-            "description": "Rate limited",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "409": {
+              "description": "Revision or idempotency conflict",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "503": {
-            "description": "Service unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkspaceImportError"
+            },
+            "422": {
+              "description": "Quota or incomplete calculation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
-            }
-          },
-          "200": {
-            "description": "Success; private responses are no-store",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ImportPreview"
+            },
+            "429": {
+              "description": "Rate limited",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service unavailable",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/WorkspaceImportError"
+                  }
                 }
               }
             }
           }
         }
-      }
     },
     "/api/v1/workspaces/{workspace_id}/search/": {
       "get": {
@@ -6318,6 +6594,7 @@
         "responses": {
           "201": { "description": "Quota reserved", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DocumentAttachment" } } } },
           "400": { "description": "Invalid metadata", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Workspace or document is not visible", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "409": { "description": "Document limit or Workspace quota exceeded", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "413": { "description": "Per-file size limit exceeded", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
         }
@@ -6361,6 +6638,7 @@
         "responses": {
           "200": { "description": "Attachment scanned and finalized", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DocumentAttachment" } } } },
           "202": { "description": "Still quarantined; scanner unavailable", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/DocumentAttachment" } } } },
+          "404": { "description": "Workspace, document, or attachment is not visible", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "422": { "description": "Malware detected", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
         }
       }
@@ -6400,7 +6678,199 @@
           "404": { "description": "Workspace, document, or attachment is not visible", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
         }
       }
-    }
+    },
+    "/api/v1/workspaces/{workspace_id}/exports/{record_id}/download/": {
+        "get": {
+          "operationId": "downloadExportSnapshot",
+          "summary": "Download a report export",
+          "description": "Rechecks current Workspace membership before returning the JSON, CSV, or private ZIP artifact. ZIP contains workspace.json, records.csv, and ready scanned attachment bytes.",
+          "security": [
+            {
+              "cookieSession": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "path",
+              "required": true,
+              "description": "Workspace UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "record_id",
+              "in": "path",
+              "required": true,
+              "description": "Export snapshot UUID",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "format",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "json",
+                  "csv",
+                  "zip"
+                ],
+                "default": "zip"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Selected export file; responses are private and not cached.",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                },
+                "Content-Disposition": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "ETag": {
+                  "description": "SHA-256 digest for ZIP artifacts",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ReportEnvelope"
+                  }
+                },
+                "text/csv": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/zip": {
+                  "schema": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "410": {
+              "description": "Request or access error",
+              "headers": {
+                "Cache-Control": {
+                  "schema": {
+                    "type": "string",
+                    "enum": [
+                      "no-store, private"
+                    ]
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
   },
   "components": {
     "securitySchemes": {
@@ -6462,30 +6932,59 @@
         "additionalProperties": false
       },
       "ImportRequest": {
-        "type": "object",
-        "properties": {
-          "schema_version": { "type": "integer", "enum": [1] },
-          "data": {
-            "type": "object",
-            "description": "Version-1 royesh-strategy-v1 state or a supported schema envelope.",
-            "additionalProperties": true
-          }
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/LegacyImportRequest"
+            },
+            {
+              "$ref": "#/components/schemas/ReportEnvelope"
+            }
+          ],
+          "description": "A version-1 legacy backup request or a versioned Stratino Workspace export envelope. Export imports are archived for review and do not overwrite active Workspace records."
         },
-        "required": ["schema_version", "data"],
-        "additionalProperties": false
-      },
       "ImportRecordCounts": {
-        "type": "object",
-        "properties": {
-          "analysis_records": { "type": "integer", "minimum": 0 },
-          "decision_records": { "type": "integer", "minimum": 0 },
-          "execution_records": { "type": "integer", "minimum": 0 },
-          "financial_periods": { "type": "integer", "minimum": 0 },
-          "file_metadata": { "type": "integer", "minimum": 0 }
+          "type": "object",
+          "properties": {
+            "analysis_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "decision_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "execution_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "financial_periods": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "file_metadata": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "strategy_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "document_records": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "analysis_records",
+            "decision_records",
+            "execution_records",
+            "financial_periods",
+            "file_metadata",
+            "strategy_records",
+            "document_records"
+          ],
+          "additionalProperties": false
         },
-        "required": ["analysis_records", "decision_records", "execution_records", "financial_periods", "file_metadata"],
-        "additionalProperties": false
-      },
       "ImportBatch": {
         "type": "object",
         "properties": {
@@ -7432,64 +7931,84 @@
         "additionalProperties": false
       },
       "ExportSnapshot": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 80,
-            "pattern": "^[A-Za-z0-9_-]+$",
-            "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "workspace_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "schema_version": {
+              "type": "integer",
+              "enum": [
+                1
+              ]
+            },
+            "method_version": {
+              "type": "string",
+              "maxLength": 32
+            },
+            "scope": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 40
+              }
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "ready"
+              ]
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "artifact": {
+              "type": "object",
+              "properties": {
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "zip"
+                  ]
+                },
+                "size_bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "format",
+                "size_bytes",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "snapshot": {
+              "$ref": "#/components/schemas/ReportEnvelope"
+            }
           },
-          "workspace_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 80,
-            "pattern": "^[A-Za-z0-9_-]+$",
-            "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
-          },
-          "revision": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "state": {
-            "type": "string",
-            "enum": [
-              "pending",
-              "ready",
-              "failed",
-              "expired"
-            ]
-          },
-          "schema_version": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "expires_at": {
-            "type": "string",
-            "format": "date-time"
-          }
+          "required": [
+            "id",
+            "workspace_id",
+            "schema_version",
+            "method_version",
+            "scope",
+            "state",
+            "created_at",
+            "artifact"
+          ],
+          "additionalProperties": false
         },
-        "required": [
-          "id",
-          "workspace_id",
-          "revision",
-          "created_at",
-          "updated_at",
-          "state",
-          "schema_version",
-          "expires_at"
-        ],
-        "additionalProperties": false
-      },
       "Plan": {
         "type": "object",
         "properties": {
@@ -9485,7 +10004,236 @@
       },
       "required": ["document_id", "limits", "items"],
       "additionalProperties": false
-    }
+    },
+      "LegacyImportRequest": {
+          "type": "object",
+          "properties": {
+            "schema_version": {
+              "type": "integer",
+              "enum": [
+                1
+              ]
+            },
+            "data": {
+              "type": "object",
+              "description": "Version-1 royesh-strategy-v1 state or a supported schema envelope.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "schema_version",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+      "ReportEnvelope": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "stratino-workspace-v1"
+              ]
+            },
+            "schema_version": {
+              "type": "integer",
+              "enum": [
+                1
+              ]
+            },
+            "exported_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "method_version": {
+              "type": "string",
+              "maxLength": 32
+            },
+            "scope": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "workspace",
+                  "workspace_profile",
+                  "profile_history",
+                  "analyses",
+                  "strategy_factors",
+                  "strategy_options",
+                  "decisions",
+                  "goals",
+                  "actions",
+                  "execution_history",
+                  "documents",
+                  "document_templates",
+                  "ready_attachments",
+                  "document_history"
+                ]
+              },
+              "minItems": 14,
+              "maxItems": 14,
+              "uniqueItems": true
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "workspace": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "revision",
+                    "created_at",
+                    "updated_at",
+                    "archived_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "archived_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "workspace_profile": {
+                  "type": "object",
+                  "nullable": true,
+                  "additionalProperties": true
+                },
+                "profile_history": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "analyses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "strategy_factors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "strategy_options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "decisions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "goals": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "execution_history": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "documents": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "document_templates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "ready_attachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "document_history": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "required": [
+                "workspace",
+                "workspace_profile",
+                "profile_history",
+                "analyses",
+                "strategy_factors",
+                "strategy_options",
+                "decisions",
+                "goals",
+                "actions",
+                "execution_history",
+                "documents",
+                "document_templates",
+                "ready_attachments",
+                "document_history"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schema",
+            "schema_version",
+            "exported_at",
+            "method_version",
+            "scope",
+            "data"
+          ],
+          "additionalProperties": false
+        }
     }
   }
 }

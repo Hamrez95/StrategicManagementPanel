@@ -7,6 +7,7 @@ from modules.accounts.models import User
 from modules.imports.models import WorkspaceImportBatch
 from modules.imports.services import ImportValidationError, inspect_legacy_backup, parse_import_request
 from modules.workspaces.models import BillingAccount, Membership, Workspace
+from modules.exports.services import EXPORT_SCOPE
 
 
 def legacy_backup(**changes):
@@ -141,6 +142,61 @@ class WorkspaceImportApiTests(TestCase):
         self.assertEqual(preview.json()['workspace_name'], self.workspace.name)
         self.assertEqual(WorkspaceImportBatch.objects.count(), 0)
 
+    def test_versioned_workspace_export_roundtrips_to_a_non_destructive_import_archive(self):
+        data = {
+            'workspace': {'id': str(self.workspace.pk), 'name': self.workspace.name, 'revision': 1},
+            'workspace_profile': None,
+            'profile_history': [],
+            'analyses': [],
+            'strategy_factors': [],
+            'strategy_options': [],
+            'decisions': [],
+            'goals': [],
+            'actions': [],
+            'execution_history': [],
+            'documents': [],
+            'document_templates': [],
+            'ready_attachments': [],
+            'document_history': [],
+        }
+        envelope = {
+            'schema': 'stratino-workspace-v1',
+            'schema_version': 1,
+            'exported_at': '2026-10-15T10:00:00+03:30',
+            'method_version': 'stratino-report-v1',
+            'scope': EXPORT_SCOPE,
+            'data': data,
+        }
+        invalid = {**envelope, 'scope': envelope['scope'][:-1]}
+        self.client.force_login(self.owner)
+        rejected = self.client.post(
+            self.path + 'preview/',
+            data=json.dumps(invalid),
+            content_type='application/json',
+        )
+        self.assertEqual(rejected.status_code, 400)
+
+        preview = self.client.post(
+            self.path + 'preview/',
+            data=json.dumps({'schema_version': 1, 'data': envelope}),
+            content_type='application/json',
+        )
+        self.assertEqual(preview.status_code, 200, preview.content)
+        self.assertEqual(preview.json()['record_counts']['analysis_records'], 0)
+        self.assertEqual(WorkspaceImportBatch.objects.count(), 0)
+
+        committed = self.post_import(
+            self.owner,
+            key='workspace-export-import',
+            body={'schema_version': 1, 'data': envelope},
+        )
+        self.assertEqual(committed.status_code, 201, committed.content)
+        batch = WorkspaceImportBatch.objects.get(pk=committed.json()['id'])
+        self.assertEqual(batch.source_schema, 'stratino-workspace-v1')
+        self.assertEqual(batch.source_backup, envelope)
+        self.assertEqual(batch.data['source_workspace']['id'], str(self.workspace.pk))
+        self.assertEqual(Workspace.objects.get(pk=self.workspace.pk).name, 'Import destination')
+
         denied = self.post_import(self.viewer)
         self.assertEqual(denied.status_code, 403)
         invisible = self.post_import(self.outsider)
@@ -184,7 +240,7 @@ class WorkspaceImportApiTests(TestCase):
         oversized = self.client.generic(
             'POST',
             self.path,
-            b' ' * 1_001_025,
+            b' ' * 5_000_025,
             content_type='application/json',
             HTTP_IDEMPOTENCY_KEY='large-file',
         )
