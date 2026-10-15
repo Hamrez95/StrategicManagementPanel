@@ -32,7 +32,12 @@
       "status": "completed",
       "issue_number": 1,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/1",
-      "completion_evidence": "خط پایه و جدول parity، ابزار و دستور Windows ثبت شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ مرحله تور، آفلاین و حفظ داده پاس شدند؛ چهار تصویر واقعی breakpoint ثبت شد؛ Graphify در worktree تازه build/query شد؛ دو ترجمه ناقص تنظیمات اصلاح شد."
+      "completion_evidence": "خط پایه و جدول parity، ابزار و دستور Windows ثبت شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ مرحله تور، آفلاین و حفظ داده پاس شدند؛ چهار تصویر واقعی breakpoint ثبت شد؛ Graphify در worktree تازه build/query شد؛ دو ترجمه ناقص تنظیمات اصلاح شد.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-002",
@@ -64,7 +69,12 @@
       "status": "completed",
       "issue_number": 2,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/2",
-      "completion_evidence": "هویت محصول و نشان S، HTML/manifest و نام خروجی استراتینو شد؛ شرکت نمونه آوند است؛ داده قدیمی بدون بازنویسی با تست مرورگر حفظ شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ تور و چهار breakpoint پاس شدند."
+      "completion_evidence": "هویت محصول و نشان S، HTML/manifest و نام خروجی استراتینو شد؛ شرکت نمونه آوند است؛ داده قدیمی بدون بازنویسی با تست مرورگر حفظ شد؛ ۳۹ تست و ۱۵۶ بررسی صفحه/۲۹ تور و چهار breakpoint پاس شدند.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-003",
@@ -97,7 +107,12 @@
       "status": "completed",
       "issue_number": 3,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/3",
-      "completion_evidence": "پایه npm workspace با React/TS strict/Vite، routes عمومی/حساب/پنل/اپراتور و domain/UI ساخته شد؛ prototype کامل حفظ شد؛ typecheck و parity و ۳۹ تست و ۱۵۶ بررسی صفحه پاس شدند؛ هشت بررسی تم/breakpoint و قرارداد session mock، داده نامعتبر، عضویت و deep link بررسی شد. ورود سروری هنوز پیاده‌سازی نشده است."
+      "completion_evidence": "پایه npm workspace با React/TS strict/Vite، routes عمومی/حساب/پنل/اپراتور و domain/UI ساخته شد؛ prototype کامل حفظ شد؛ typecheck و parity و ۳۹ تست و ۱۵۶ بررسی صفحه پاس شدند؛ هشت بررسی تم/breakpoint و قرارداد session mock، داده نامعتبر، عضویت و deep link بررسی شد. ورود سروری هنوز پیاده‌سازی نشده است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-004",
@@ -129,7 +144,12 @@
       "status": "in_progress",
       "issue_number": 4,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/4",
-      "progress_evidence": "پروتکل مصاحبه و پایلوت آماده؛ پژوهش واقعی و تأیید قیمت انجام نشده."
+      "progress_evidence": "پروتکل مصاحبه و پایلوت آماده؛ پژوهش واقعی و تأیید قیمت انجام نشده.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Validate the three Management OS questions and observed question burden with personas; retain pricing research as a separate hypothesis."
+      }
     },
     {
       "id": "STR-005",
@@ -161,7 +181,12 @@
       "status": "completed",
       "issue_number": 5,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/5",
-      "completion_evidence": "ADR-001 و ERD مالکیت، نقش‌ها، revision، سهمیه و migration؛ OpenAPI با ۳۱ عملیات؛ check:contracts و ۵ آزمون مثبت/منفی schema پاس شدند. قرارداد طراحی است؛ اجرای auth/ACL/پرداخت/فایل در تسک‌های مربوط باقی است."
+      "completion_evidence": "ADR-001 و ERD مالکیت، نقش‌ها، revision، سهمیه و migration؛ OpenAPI با ۳۱ عملیات؛ check:contracts و ۵ آزمون مثبت/منفی schema پاس شدند. قرارداد طراحی است؛ اجرای auth/ACL/پرداخت/فایل در تسک‌های مربوط باقی است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Extend accepted ownership ADR with Business Twin projection and additive migration; do not reopen established tenant boundaries."
+      }
     },
     {
       "id": "STR-006",
@@ -194,7 +219,12 @@
       "status": "completed",
       "issue_number": 6,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/6",
-      "completion_evidence": "design system مشترک با tokens روشن/تیره و ۸ primitive؛ ۱۶ بررسی اندازه/تم/زبان، axe و کنتراست، کیبورد، حفظ متن، کاهش حرکت و zoom ۲۰۰٪ پاس؛ صفحه توسعه از production حذف است. typecheck، format، ۴۴ تست، parity محاسبات، build، ۸ بررسی سایت و ۱۵۶ صفحه/۲۹ مرحله آموزش prototype پاس. شواهد docs/qa/ui و docs/design/SYSTEM.md."
+      "completion_evidence": "design system مشترک با tokens روشن/تیره و ۸ primitive؛ ۱۶ بررسی اندازه/تم/زبان، axe و کنتراست، کیبورد، حفظ متن، کاهش حرکت و zoom ۲۰۰٪ پاس؛ صفحه توسعه از production حذف است. typecheck، format، ۴۴ تست، parity محاسبات، build، ۸ بررسی سایت و ۱۵۶ صفحه/۲۹ مرحله آموزش prototype پاس. شواهد docs/qa/ui و docs/design/SYSTEM.md.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-007",
@@ -227,7 +257,12 @@
       "status": "in_progress",
       "issue_number": 7,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/7",
-      "progress_evidence": "گیت frontend و schema آماده؛ PostgreSQL/API/migration gate در STR-009 باقی است."
+      "progress_evidence": "گیت frontend و schema آماده؛ PostgreSQL/API/migration gate در STR-009 باقی است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Include independent knowledge integrity and negative mutation checks; API/runner gates remain required."
+      }
     },
     {
       "id": "STR-008",
@@ -257,9 +292,15 @@
       "risk": "متوسط",
       "phase": "Foundation",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 8,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/8"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/8",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Reuse existing root run-local.ps1; final physical Windows/Compose tests still pending."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-009",
@@ -289,9 +330,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 9,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/9"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/9",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Keep modular monolith/Postgres and infrastructure; code presence does not complete runtime acceptance."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-010",
@@ -321,9 +368,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P0",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 10,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/10"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/10",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-011",
@@ -352,9 +405,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 11,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/11"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/11",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-012",
@@ -384,9 +443,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P0",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 12,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/12"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/12",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-013",
@@ -416,9 +481,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 13,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/13"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/13",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-014",
@@ -448,9 +519,15 @@
       "risk": "متوسط",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 14,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/14"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/14",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Keep onboarding short; reuse canonical profile and defer assessment questions to the dependent decision. Canonical migration is a follow-up in STR-056, not a prerequisite that reopens existing onboarding."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-015",
@@ -480,9 +557,15 @@
       "risk": "متوسط",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 15,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/15"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/15",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-016",
@@ -513,9 +596,15 @@
       "risk": "بالا",
       "phase": "MVP",
       "priority": "P1",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 16,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/16"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/16",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      },
+      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
     },
     {
       "id": "STR-017",
@@ -549,7 +638,12 @@
       "status": "in_progress",
       "issue_number": 17,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/17",
-      "progress_evidence": "Versioned mapping, Workspace import API/UI, recoverable batch and authored API/browser coverage implemented; execution, screenshots and acceptance evidence deferred to final verification."
+      "progress_evidence": "Versioned mapping, Workspace import API/UI, recoverable batch and authored API/browser coverage implemented; execution, screenshots and acceptance evidence deferred to final verification.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Extend safe import mappings to canonical identities/provenance only through dry-run and versioned merge preview in follow-up STR-056; existing import is a migration input, not dependent on its own migration."
+      }
     },
     {
       "id": "STR-018",
@@ -582,7 +676,12 @@
       "status": "in_progress",
       "issue_number": 18,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/18",
-      "progress_evidence": "Workspace-specific profile/ICP model, strict API schema and revision history, responsive company profile UI, guide/search route, and authored API/browser coverage implemented; all test execution, screenshots and acceptance proof deferred to final verification."
+      "progress_evidence": "Workspace-specific profile/ICP model, strict API schema and revision history, responsive company profile UI, guide/search route, and authored API/browser coverage implemented; all test execution, screenshots and acceptance proof deferred to final verification.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Reuse/migrate profile products/segments/ICPs/evidence; do not create a parallel Journey ICP store."
+      }
     },
     {
       "id": "STR-019",
@@ -614,7 +713,12 @@
       "status": "in_progress",
       "issue_number": 19,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/19",
-      "progress_evidence": "Workspace-scoped SWOT factors and manually authored TOWS options, factor dependency review/repair, API contract, responsive RTL/LTR UI and authored API/browser coverage implemented; tests, migration, screenshots and acceptance evidence are deferred to final verification."
+      "progress_evidence": "Workspace-scoped SWOT factors and manually authored TOWS options, factor dependency review/repair, API contract, responsive RTL/LTR UI and authored API/browser coverage implemented; tests, migration, screenshots and acceptance evidence are deferred to final verification.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Keep existing SWOT/TOWS tool and method provenance; KB TOWS research is deferred, not evidence for new automatic advice."
+      }
     },
     {
       "id": "STR-020",
@@ -646,7 +750,12 @@
       "status": "in_progress",
       "issue_number": 20,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/20",
-      "progress_evidence": "محاسبه TypeScript و API مرجع، snapshot نسخه‌دار Workspace، رابط EFE/IFE و golden fixtures مشترک پیاده شده‌اند؛ تست API/مرورگر، migration/Docker، screenshot و پذیرش نهایی به اعتبارسنجی کل سیستم موکول است."
+      "progress_evidence": "محاسبه TypeScript و API مرجع، snapshot نسخه‌دار Workspace، رابط EFE/IFE و golden fixtures مشترک پیاده شده‌اند؛ تست API/مرورگر، migration/Docker، screenshot و پذیرش نهایی به اعتبارسنجی کل سیستم موکول است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Preserve reviewed EFE/IFE calculation/method snapshots; do not reinterpret them as universal business health."
+      }
     },
     {
       "id": "STR-021",
@@ -679,7 +788,12 @@
       "status": "in_progress",
       "issue_number": 21,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/21",
-      "progress_evidence": "دفتر تصمیم مبتنی بر منبع، هدف‌های Workspace، اقدام‌های مسئول‌دار با موعد/وضعیت، برنامه ۹۰روزه و رویدادهای تاریخچه همراه API، migration و رابط RTL/LTR پیاده شده‌اند؛ تست‌ها authored اما اجرا نشده‌اند و migration/Docker/screenshot و شواهد پذیرش به اعتبارسنجی پایانی موکول است."
+      "progress_evidence": "دفتر تصمیم مبتنی بر منبع، هدف‌های Workspace، اقدام‌های مسئول‌دار با موعد/وضعیت، برنامه ۹۰روزه و رویدادهای تاریخچه همراه API، migration و رابط RTL/LTR پیاده شده‌اند؛ تست‌ها authored اما اجرا نشده‌اند و migration/Docker/screenshot و شواهد پذیرش به اعتبارسنجی پایانی موکول است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Existing Goal/Decision/Action are canonical; accept recommendation transactionally through this module."
+      }
     },
     {
       "id": "STR-022",
@@ -712,7 +826,12 @@
       "status": "in_progress",
       "issue_number": 22,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/22",
-      "progress_evidence": "کاتالوگ عمومی دوزبانه ۶۰‌مدرکی، API فضای کار با کنترل owner/reviewer و نسخه محتوا، رابط راهنما و سناریوهای تست API/قرارداد/مرورگر نوشته شده‌اند. تست و build اجرا نشده‌اند؛ بازبینی محتوا، migration و تصاویر responsive/theme برای اعتبارسنجی نهایی باقی است."
+      "progress_evidence": "کاتالوگ عمومی دوزبانه ۶۰‌مدرکی، API فضای کار با کنترل owner/reviewer و نسخه محتوا، رابط راهنما و سناریوهای تست API/قرارداد/مرورگر نوشته شده‌اند. تست و build اجرا نشده‌اند؛ بازبینی محتوا، migration و تصاویر responsive/theme برای اعتبارسنجی نهایی باقی است.",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Documents may link knowledge/evidence context; attachment existence is not verified evidence or successful completion."
+      }
     },
     {
       "id": "STR-023",
@@ -744,7 +863,12 @@
       "priority": "P0",
       "status": "in_progress",
       "issue_number": 23,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/23"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/23",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-024",
@@ -777,7 +901,12 @@
       "priority": "P1",
       "status": "in_progress",
       "issue_number": 24,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/24"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/24",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Extend exports with release/input/evidence trace and compatible schema only after canonical migration; preserve current snapshots."
+      }
     },
     {
       "id": "STR-025",
@@ -810,7 +939,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 25,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/25"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/25",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Search both approved public knowledge and permitted Workspace content with distinct provenance; retain membership filters."
+      }
     },
     {
       "id": "STR-026",
@@ -845,7 +979,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 26,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/26"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/26",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Own shared coaching/quick-learn-deep/previous-next and global off preference; STR-064 owns adaptive Journey presentation."
+      }
     },
     {
       "id": "STR-027",
@@ -854,7 +993,8 @@
       "dependencies": [
         "STR-021",
         "STR-022",
-        "STR-024"
+        "STR-024",
+        "STR-063"
       ],
       "lane": "dashboard",
       "paths": "apps/web/src/features/dashboard/; workspace summary API",
@@ -878,7 +1018,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 27,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/27"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/27",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "SUPERSEDE",
+        "reason": "Replace arbitrary project health/completion percentage with situation, attention and next action; keep dashboard implementation in this issue."
+      }
     },
     {
       "id": "STR-028",
@@ -911,7 +1056,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 28,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/28"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/28",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-029",
@@ -942,7 +1092,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 29,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/29"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/29",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-030",
@@ -975,7 +1130,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 30,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/30"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/30",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-031",
@@ -1007,7 +1167,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 31,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/31"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/31",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-032",
@@ -1040,7 +1205,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 32,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/32"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/32",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Add redacted knowledge release/evaluation trace and data revisions; never log company evidence text."
+      }
     },
     {
       "id": "STR-033",
@@ -1075,7 +1245,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 33,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/33"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/33",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-034",
@@ -1108,7 +1283,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 34,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/34"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/34",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Describe actual Management OS capabilities and limits; no unimplemented AI/health claims."
+      }
     },
     {
       "id": "STR-035",
@@ -1141,7 +1321,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 35,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/35"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/35",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-036",
@@ -1153,7 +1338,8 @@
         "STR-026",
         "STR-027",
         "STR-029",
-        "STR-034"
+        "STR-034",
+        "STR-065"
       ],
       "lane": "quality/design",
       "paths": "apps/web/; Playwright; docs/UX_STANDARD.md; performance reports",
@@ -1177,7 +1363,12 @@
       "priority": "P1",
       "status": "planned",
       "issue_number": 36,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/36"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/36",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Include guided/expert journey and operating dashboard regression scenarios, all themes/locales/motion."
+      }
     },
     {
       "id": "STR-037",
@@ -1211,7 +1402,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 37,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/37"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/37",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-038",
@@ -1227,7 +1423,8 @@
         "STR-033",
         "STR-035",
         "STR-036",
-        "STR-037"
+        "STR-037",
+        "STR-065"
       ],
       "lane": "launch",
       "paths": "docs/launch/; release checklist; open issues; pilot feedback",
@@ -1251,7 +1448,12 @@
       "priority": "P0",
       "status": "planned",
       "issue_number": 38,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/38"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/38",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Add end-to-end Management OS slice, traceability and real observed journey validation to release gates."
+      }
     },
     {
       "id": "STR-039",
@@ -1284,7 +1486,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 39,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/39"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/39",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Map existing QSPM/VRIO to versioned knowledge assessments without replacing legacy calculation semantics."
+      }
     },
     {
       "id": "STR-040",
@@ -1315,7 +1522,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 40,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/40"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/40",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Reuse canonical competitor/market records; no duplicate BCG/SPACE/CPM state."
+      }
     },
     {
       "id": "STR-041",
@@ -1346,14 +1558,20 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 41,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/41"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/41",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Preserve legacy tools; new Ansoff runtime promotion requires primary-source review, no invented universal thresholds."
+      }
     },
     {
       "id": "STR-042",
       "order": 42,
       "title": "ابزار مالی و سناریو با واحد و فرض‌های روشن",
       "dependencies": [
-        "STR-038"
+        "STR-038",
+        "STR-058"
       ],
       "lane": "finance",
       "paths": "src/calculations.js NPV/IRR; finance/scenario routes; API decimal schemas",
@@ -1377,7 +1595,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 42,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/42"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/42",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MERGE",
+        "reason": "Shared MetricValue/calculation foundation moves to STR-058; this issue retains advanced calculations and Scenario Lab after foundations."
+      }
     },
     {
       "id": "STR-043",
@@ -1386,7 +1609,9 @@
       "dependencies": [
         "STR-021",
         "STR-027",
-        "STR-038"
+        "STR-038",
+        "STR-057",
+        "STR-058"
       ],
       "lane": "execution",
       "paths": "existing BSC/risk/journal routes; execution API; metrics models",
@@ -1410,7 +1635,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 43,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/43"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/43",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MERGE",
+        "reason": "Reuse canonical KPI/Goal/Decision; review scheduling/agenda engine belongs to STR-067, this issue retains BSC and Risk."
+      }
     },
     {
       "id": "STR-044",
@@ -1441,7 +1671,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 44,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/44"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/44",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-045",
@@ -1472,7 +1707,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 45,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/45"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/45",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-046",
@@ -1504,7 +1744,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 46,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/46"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/46",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-047",
@@ -1514,7 +1759,8 @@
         "STR-022",
         "STR-028",
         "STR-032",
-        "STR-038"
+        "STR-038",
+        "STR-063"
       ],
       "lane": "future-ai",
       "paths": "AI provider interface; document assist UX; cost ledger; policy",
@@ -1538,7 +1784,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 47,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/47"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/47",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Keep opt-in contextual copilot; deterministic engines own formulas, branching/completion/confidence; drafts require review."
+      }
     },
     {
       "id": "STR-048",
@@ -1570,7 +1821,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 48,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/48"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/48",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Organizational collaboration/integrations remain future; Business Twin does not justify microservices or graph DB."
+      }
     },
     {
       "id": "STR-049",
@@ -1602,7 +1858,12 @@
       "priority": "P3",
       "status": "planned",
       "issue_number": 49,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/49"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/49",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "KEEP",
+        "reason": "Still necessary for secure operation, parity or staged launch; Management OS does not replace this responsibility."
+      }
     },
     {
       "id": "STR-050",
@@ -1635,7 +1896,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 50,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/50"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/50",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Measure actual first-slice activation, question burden and return; distinguish product analytics from customers’ business metrics."
+      }
     },
     {
       "id": "STR-051",
@@ -1644,7 +1910,8 @@
       "dependencies": [
         "STR-018",
         "STR-020",
-        "STR-038"
+        "STR-038",
+        "STR-057"
       ],
       "lane": "strategy/research",
       "paths": "existing environment/industry routes; strategy research models; evidence sources",
@@ -1668,7 +1935,12 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 51,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/51"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/51",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Reuse canonical dated market/competitor observations with sources and explicit scope; no blanket industry recommendation."
+      }
     },
     {
       "id": "STR-052",
@@ -1701,7 +1973,766 @@
       "priority": "P2",
       "status": "planned",
       "issue_number": 52,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/52"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/52",
+      "reconciliation": {
+        "date": "2026-10-15",
+        "decision": "MODIFY",
+        "reason": "Use actual action/review events and cadence links; opt-in/idempotency/tenant membership remain essential."
+      }
+    },
+    {
+      "id": "STR-053",
+      "order": 53,
+      "title": "گیت یکپارچگی دانش و آزمون رگرسیون منفی",
+      "dependencies": [
+        "STR-005"
+      ],
+      "lane": "MOS-KNOWLEDGE",
+      "paths": "assets/management-knowledge/validation/validate.mjs; assets/management-knowledge/validation/record-contracts.json; assets/management-knowledge/catalog.json",
+      "scope": [
+        "Read-only traversal of every JSON/YAML/frontmatter with stable hash inventory; independently reconstruct IDs and typed references.",
+        "Validate source aliases, question/evidence links, metric prerequisites, startup reachability; distinguish legal transition returns from forbidden prerequisite cycles.",
+        "Add isolated CI gate and mutation tests; report research limitations without claiming scientific certification."
+      ],
+      "acceptance": [
+        "Given a removed metric still referenced by a rule, validation fails and names the file/ID.",
+        "Given duplicate JSON keys, unknown schema or unreachable startup node, CI fails; intentional startup return edges pass.",
+        "Given normal KB, audit leaves every KB byte unchanged and reports all eight recommendation chains."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Delete referenced MET-CAC; inject duplicate ID and JSON key; break source alias; add prerequisite cycle; unknown schema; unreachable stage; compare hashes before/after.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-KNOWLEDGE",
+      "knowledge_dependencies": [
+        "validation/validate.mjs",
+        "validation/record-contracts.json",
+        "catalog.json"
+      ],
+      "issue_number": 65,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/65"
+    },
+    {
+      "id": "STR-054",
+      "order": 54,
+      "title": "بارگذار نسخه‌دار و ترفیع صریح رکوردهای دانش",
+      "dependencies": [
+        "STR-053"
+      ],
+      "lane": "MOS-KNOWLEDGE",
+      "paths": "assets/management-knowledge/taxonomy/applicability-contract.json; assets/management-knowledge/taxonomy/field-mapping.json; assets/management-knowledge/research/deferred-concepts.json",
+      "scope": [
+        "Define immutable release manifest with file hash, record revision, adapter and approved IDs; preserve raw research.",
+        "Explicit adapters for selected research shapes/versions; reject unknown versions/operators/tags; no heuristic coercion.",
+        "Promote only first-slice discovery/retention routes and contribution metric after claim-to-source review; expose read-only registry to Django services."
+      ],
+      "acceptance": [
+        "Given version 99 or unmapped platform applicability, record is rejected with a bounded error and no guessed behavior.",
+        "Given PLAN-* research or unreviewed activation definition, it is excluded from executable registry.",
+        "Given a historical run pinned to release A, loading release B never changes its stored meaning."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Golden manifest of promoted IDs, unsupported version/tag/shape, missing approved source, changed hash, repeat load and immutable historic release.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-KNOWLEDGE",
+      "knowledge_dependencies": [
+        "taxonomy/applicability-contract.json",
+        "taxonomy/field-mapping.json",
+        "research/deferred-concepts.json"
+      ],
+      "issue_number": 66,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/66"
+    },
+    {
+      "id": "STR-055",
+      "order": 55,
+      "title": "رفع خطاهای TypeScript خط پایه و تثبیت گیت کیفیت",
+      "dependencies": [
+        "STR-016"
+      ],
+      "lane": "MOS-QUALITY",
+      "paths": "",
+      "scope": [
+        "Repair concrete decoder/write-contract/nullability and route inference errors without any/blanket suppressions.",
+        "Remove dead controls only when behavior is preserved through existing account/shell controls; preserve fa/en errors.",
+        "Verify root typecheck, targeted contracts/domain tests and production build; document unrelated gate failures separately."
+      ],
+      "acceptance": [
+        "Given current source tree, npm run typecheck exits zero for web/domain/UI.",
+        "Given null optional source or server string validation error, client decodes and renders safely; invalid data still rejects.",
+        "Given any registered tool ID, lookup has its real type and deep links remain unchanged."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Decoder valid/invalid/null fixtures, decision source absence, route membership, root typecheck and build; no ts-ignore/as-any workaround.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-QUALITY",
+      "knowledge_dependencies": [],
+      "issue_number": 67,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/67"
+    },
+    {
+      "id": "STR-056",
+      "order": 56,
+      "title": "مالکیت canonical داده و مهاجرت تدریجی پروفایل",
+      "dependencies": [
+        "STR-005",
+        "STR-018",
+        "STR-021"
+      ],
+      "lane": "MOS-TWIN",
+      "paths": "assets/management-knowledge/evidence/evidence-model.md; assets/management-knowledge/taxonomy/business-types.json",
+      "scope": [
+        "Define canonical ownership/bindings for profile, segments, ICP, product/service and existing execution.Goal; no new duplicate Business entity.",
+        "Implement additive scoped records and dry-run importer with stable old-ID mapping, conflict report, backup and idempotent apply.",
+        "Keep compatibility projections for profile/import/report consumers; one write owner with revision and auditable rollback."
+      ],
+      "acceptance": [
+        "Given an ICP already saved in profile, journey and customer view reference the same migrated identity and ask no duplicate input.",
+        "Given two goal records with uncertain equivalence, dry-run reports a conflict instead of merging by title.",
+        "Given migration run twice or rolled back to compatibility reads, no entity/history is lost and cross-Workspace IDs are rejected."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Existing profile with JSON IDs, duplicate IDs, goal conflict, empty profile, rerun, revision race, viewer and foreign nested IDs; PostgreSQL migration/restore queued for final validation.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-TWIN",
+      "knowledge_dependencies": [
+        "evidence/evidence-model.md",
+        "taxonomy/business-types.json"
+      ],
+      "issue_number": 68,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/68"
+    },
+    {
+      "id": "STR-057",
+      "order": 57,
+      "title": "شواهد، ادعا، اطمینان توضیح‌پذیر و تازگی داده",
+      "dependencies": [
+        "STR-056",
+        "STR-012"
+      ],
+      "lane": "MOS-TWIN",
+      "paths": "assets/management-knowledge/evidence/evidence-model.md; assets/management-knowledge/evidence/confidence-model.md; assets/management-knowledge/taxonomy/field-mapping.json",
+      "scope": [
+        "Persist Claim and Evidence separately with support/refutation, origin/method/sample/scope, observed/review dates and source identity.",
+        "Implement ordinal confidence rubric with axis reasons, reviewer and version; legacy confidence remains reported provenance.",
+        "Define freshness from owner review_due/context and preserve contradictory evidence and revoked source permissions."
+      ],
+      "acceptance": [
+        "Given a claim with an unresolved material contradiction, reviewed confidence is at most low; essential missing dependency yields insufficient.",
+        "Given the same interview imported twice, it is not counted as independent corroboration.",
+        "Given stale competitor evidence or a removed member, UI/API clearly reports freshness or denies access without exposing content."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "fact vs interview axes, missing provenance, stale/future dates, duplicate external source, conflicting support/refutation, viewer and cross-tenant access.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-TWIN",
+      "knowledge_dependencies": [
+        "evidence/evidence-model.md",
+        "evidence/confidence-model.md",
+        "taxonomy/field-mapping.json"
+      ],
+      "issue_number": 69,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/69"
+    },
+    {
+      "id": "STR-058",
+      "order": 58,
+      "title": "MetricValue و محاسبه مرجع حاشیه مشارکت",
+      "dependencies": [
+        "STR-054",
+        "STR-056",
+        "STR-057"
+      ],
+      "lane": "MOS-TWIN",
+      "paths": "assets/management-knowledge/metrics/finance/met-contribution-margin.json",
+      "scope": [
+        "Persist metric values and calculation runs by metric/method/variant/scope/period/unit/currency/basis with input and evidence revisions.",
+        "Implement only MET-CONTRIBUTION-MARGIN amount using Decimal and explicit variable-cost policy; TS preview shares reviewed fixtures.",
+        "Return unknown/invalid/not_applicable separately from zero; preserve historical snapshots and no eval execution path."
+      ],
+      "acceptance": [
+        "Given revenue 100 and reviewed variable costs 60 in identical units/period, authoritative contribution amount is 40.",
+        "Given missing cost or mixed IRR/IRT, mismatched scope/period, no numeric result is fabricated.",
+        "Given canonical metric exists for the current context, Journey reuses it without asking revenue again; input revision invalidates stale cache."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "zero, negative margin, null, nonfinite, decimal rounding, currency/period mismatch, client/server parity, foreign evidence and snapshot immutability.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P0",
+      "status": "planned",
+      "epic": "MOS-TWIN",
+      "knowledge_dependencies": [
+        "metrics/finance/met-contribution-margin.json"
+      ],
+      "issue_number": 70,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/70"
+    },
+    {
+      "id": "STR-059",
+      "order": 59,
+      "title": "ارزیابی زمینه و طبقه‌بندی مرحله با حفظ unknown",
+      "dependencies": [
+        "STR-054",
+        "STR-056",
+        "STR-057"
+      ],
+      "lane": "MOS-JOURNEY",
+      "paths": "assets/management-knowledge/taxonomy/business-types.json; assets/management-knowledge/taxonomy/business-stages.json; assets/management-knowledge/taxonomy/company-maturity.json; assets/management-knowledge/taxonomy/classification-tree.json",
+      "scope": [
+        "Map existing profile axes with explicit unknown/conflict states; support venture/segment scope inside established businesses.",
+        "Produce provisional/supported/conflicted/unknown assessment with reviewed evidence and rationale; manual override requires reason/reviewer/expiry.",
+        "Reuse imports/profile and ask only context that changes routing; no mandatory financial questionnaire."
+      ],
+      "acceptance": [
+        "Given persona A with no revenue, assessment does not demand CAC/LTV/ROIC.",
+        "Given 2000 employees and no lifecycle evidence, stage remains unknown rather than mature by headcount.",
+        "Given an enterprise new venture, discovery and existing operation coexist in distinct scopes."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "All six personas, multi-model, missing/contradicting evidence, stale override, stage alias disagreement and revoked Workspace access.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-JOURNEY",
+      "knowledge_dependencies": [
+        "taxonomy/business-types.json",
+        "taxonomy/business-stages.json",
+        "taxonomy/company-maturity.json",
+        "taxonomy/classification-tree.json"
+      ],
+      "issue_number": 71,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/71"
+    },
+    {
+      "id": "STR-060",
+      "order": 60,
+      "title": "موتور Journey با prerequisite و گذار قابل بازگشت",
+      "dependencies": [
+        "STR-054",
+        "STR-059"
+      ],
+      "lane": "MOS-JOURNEY",
+      "paths": "assets/management-knowledge/journeys/startup/journey.json; assets/management-knowledge/taxonomy/business-stages.json",
+      "scope": [
+        "Persist release-pinned JourneyRun/StepState and canonical input references; separate prerequisite DAG from stage transitions.",
+        "Implement reviewed first-slice entry/completion/skip/defer/auto-complete gates, limited traversal and revision conflicts.",
+        "Allow cash interruption and scoped re-entry; invalidated evidence blocks dependent commitment without erasing history."
+      ],
+      "acceptance": [
+        "Given skipped required evidence, navigation continues but dependent completion is unknown/blocked.",
+        "Given verified matching imported evidence, step may auto-complete with trace and no repeated question.",
+        "Given growth→early-traction re-evaluation, legal transition succeeds; circular prerequisite is rejected."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "reachable path, blocked prerequisite, skip/defer, imported auto-complete, explicit no-action, return transition, cash interruption and concurrent revisions.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-JOURNEY",
+      "knowledge_dependencies": [
+        "journeys/startup/journey.json",
+        "taxonomy/business-stages.json"
+      ],
+      "issue_number": 72,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/72"
+    },
+    {
+      "id": "STR-061",
+      "order": 61,
+      "title": "موتور ورودی شرطی با derive/import پیش از پرسش",
+      "dependencies": [
+        "STR-060",
+        "STR-056",
+        "STR-057"
+      ],
+      "lane": "MOS-JOURNEY",
+      "paths": "assets/management-knowledge/journeys/startup/journey.json; assets/management-knowledge/journeys/startup/routing-rules.json; assets/management-knowledge/taxonomy/field-mapping.json",
+      "scope": [
+        "Bind approved question IDs to canonical fields; resolve existing → reviewed derived → verified import → unresolved question.",
+        "Return why, affected decision/dependencies, required status and skip/defer impact; implement allowlisted missing_or_unverified semantics.",
+        "Keep UX policies separate from externally sourced rules; guided/expert share one selection result."
+      ],
+      "acceptance": [
+        "Given a fresh verified ICP answer in the same segment, its question is suppressed.",
+        "Given a stale/conflicting import, only unresolved interpretation is requested and prior evidence is retained.",
+        "Given education disabled or expert mode, branch/completion/calculation decisions are identical."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "12 startup questions metadata, unknown/false/zero, import mapping conflict, non-retention repeatability, skipped dependent input, cross-scope prefill and stable question order.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-JOURNEY",
+      "knowledge_dependencies": [
+        "journeys/startup/journey.json",
+        "journeys/startup/routing-rules.json",
+        "taxonomy/field-mapping.json"
+      ],
+      "issue_number": 73,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/73"
+    },
+    {
+      "id": "STR-062",
+      "order": 62,
+      "title": "تشخیص و قواعد مرورشده با منطق سه‌ارزشی",
+      "dependencies": [
+        "STR-054",
+        "STR-057",
+        "STR-058",
+        "STR-060"
+      ],
+      "lane": "MOS-INTELLIGENCE",
+      "paths": "assets/management-knowledge/decisions/rules/registry.json; assets/management-knowledge/diagnostics/growth/registry.json; assets/management-knowledge/journeys/startup/routing-rules.json",
+      "scope": [
+        "Implement approved eq/neq/in predicates and unknown handling; adapt only promoted diagnostic node shapes.",
+        "Evaluate reviewed retention-before-scale rule and required inquiry path with multiple plausible branches and terminal evidence requests.",
+        "Return rule/source/input trace and bounded diagnostics; unsupported conditions reject, cash review overrides routine candidate ordering."
+      ],
+      "acceptance": [
+        "Given early-traction with insufficient retention evidence and expansion requested, suggest investigation; do not label PMF failed.",
+        "Given a one-off product or null material condition, inappropriate retention prescription is suppressed or deferred.",
+        "Given an unsupported operator or graph loop, execution terminates with a named definition error."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Three-valued truth tables, all six personas, conflicting evidence, bounded tests exception, cash interruption, branch targets and input/knowledge pinning.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-INTELLIGENCE",
+      "knowledge_dependencies": [
+        "decisions/rules/registry.json",
+        "diagnostics/growth/registry.json",
+        "journeys/startup/routing-rules.json"
+      ],
+      "issue_number": 74,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/74"
+    },
+    {
+      "id": "STR-063",
+      "order": 63,
+      "title": "پیشنهاد قابل توضیح تا تصمیم و اقدام واقعی",
+      "dependencies": [
+        "STR-062",
+        "STR-021"
+      ],
+      "lane": "MOS-INTELLIGENCE",
+      "paths": "assets/management-knowledge/recommendations/library/registry.json; assets/management-knowledge/actions/library/registry.json; assets/management-knowledge/evidence/confidence-model.md",
+      "scope": [
+        "Persist recommendation instance with frozen inputs, knowledge/rule/evidence/source trace, reasons, confidence, risks and alternatives.",
+        "Support accept/dismiss/request-evidence/no-action; accepting idempotently creates a proposed existing Decision and an Action with user-selected owner/date.",
+        "Link existing Goal/KPI where applicable; no generic action copied into an invented experiment entity."
+      ],
+      "acceptance": [
+        "Given Why am I seeing this, API supplies source→framework→rule→evidence/metric→recommendation trace.",
+        "Given accept retried with same key, exactly one decision/action exists.",
+        "Given missing owner/date or necessary evidence, no fabricated commitment or unsupported expected-impact number is stored."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "double-submit, revoked membership, foreign Goal/owner, stale input revision, no-action rationale, evidence permission and immutable old explanation.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-INTELLIGENCE",
+      "knowledge_dependencies": [
+        "recommendations/library/registry.json",
+        "actions/library/registry.json",
+        "evidence/confidence-model.md"
+      ],
+      "issue_number": 75,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/75"
+    },
+    {
+      "id": "STR-064",
+      "order": 64,
+      "title": "رابط Journey هدایت‌شده و حرفه‌ای روی design system فعلی",
+      "dependencies": [
+        "STR-061",
+        "STR-063",
+        "STR-011",
+        "STR-006",
+        "STR-055"
+      ],
+      "lane": "MOS-JOURNEY",
+      "paths": "assets/management-knowledge/journeys/startup/journey.json; assets/management-knowledge/evidence/confidence-model.md",
+      "scope": [
+        "Design/review before UI; reuse tokens/primitives, account preferences, Workspace routes and autosave.",
+        "Guided view quick/learn/deep/source, previous/next; expert compact inputs/import/skip/defer/keyboard; both read same backend plan.",
+        "Show unknown/conflict/freshness and Why panel; preserve content and focus across save failures and Workspace switching."
+      ],
+      "acceptance": [
+        "Given show_tutorial=false, coaching stays off globally while errors and uncertainty remain visible.",
+        "Given verified existing metric/ICP, neither mode requests duplicate values.",
+        "Given keyboard-only fa/en light/dark reduced-motion user at required widths, next/previous/Why and deferred steps remain usable."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "RTL/LTR, both themes, 360/768/1280/1440, 200% zoom, focus restoration, reduced motion, empty/loading/error/conflict and identical rule outputs in both modes.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-JOURNEY",
+      "knowledge_dependencies": [
+        "journeys/startup/journey.json",
+        "evidence/confidence-model.md"
+      ],
+      "issue_number": 76,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/76"
+    },
+    {
+      "id": "STR-065",
+      "order": 65,
+      "title": "برش عمودی استارتاپ از شناخت تا اقدام در داشبورد",
+      "dependencies": [
+        "STR-064",
+        "STR-027",
+        "STR-026"
+      ],
+      "lane": "MOS-SLICE",
+      "paths": "assets/management-knowledge/journeys/startup/journey.json; assets/management-knowledge/validation/personas.json; assets/management-knowledge/metrics/finance/met-contribution-margin.json",
+      "scope": [
+        "Integrate initial assessment, stage hypothesis, goals/problem and canonical ICP, one contribution calculation, retention evidence diagnostic and next action.",
+        "Reuse STR-027 dashboard and STR-021 decision/action records; no duplicate dashboard or goal store.",
+        "Instrument synthetic and observed validation separately; prevent promotion beyond explicitly reviewed KB scope."
+      ],
+      "acceptance": [
+        "Given persona B with supplied scoped evidence, refresh preserves the same metric, candidate, decision and action on dashboard.",
+        "Given persona A without revenue, offer discovery/evidence action without CAC/LTV/ROIC or fake financial values.",
+        "Given a viewer or foreign Workspace, no write or data leak; disabling new routes preserves existing tools."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "End-to-end A/B, no duplicate ICP/Goal/revenue, partial inputs, session expiry, refresh, rollback flag; C–F regression routing checks and real observed pilot queued.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P1",
+      "status": "planned",
+      "epic": "MOS-SLICE",
+      "knowledge_dependencies": [
+        "journeys/startup/journey.json",
+        "validation/personas.json",
+        "metrics/finance/met-contribution-margin.json"
+      ],
+      "issue_number": 77,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/77"
+    },
+    {
+      "id": "STR-066",
+      "order": 66,
+      "title": "گسترش مسیر سازمان با ورودی مستقیم و نیازمحوری",
+      "dependencies": [
+        "STR-065"
+      ],
+      "lane": "MOS-OPERATIONS",
+      "paths": "assets/management-knowledge/journeys/organization/journey.json; assets/management-knowledge/diagnostics/operations/trees.json",
+      "scope": [
+        "Author stable question/input bindings and typed relevance/completion gates for eight steps; preserve source/heuristic distinction.",
+        "Enable import/direct entry and optional unrelated prerequisites; share Business Twin/engines with startup ventures.",
+        "Add only reviewed modules for ecommerce/service/manufacturing/enterprise; keep missing HR/sales research blocked."
+      ],
+      "acceptance": [
+        "Given persona E inventory issue, relevant operations evidence opens without compulsory market-sizing study.",
+        "Given D low service profitability, project cost scope precedes any hiring recommendation.",
+        "Given F execution problem, strategic priority/capacity/action review reuses existing Goal/Decision records."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "C/D/E/F routing, enterprise new venture, partial imported baseline, changed scope, no blanket inventory cuts or employee scoring.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P2",
+      "status": "planned",
+      "epic": "MOS-OPERATIONS",
+      "knowledge_dependencies": [
+        "journeys/organization/journey.json",
+        "diagnostics/operations/trees.json"
+      ],
+      "issue_number": 78,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/78"
+    },
+    {
+      "id": "STR-067",
+      "order": 67,
+      "title": "چرخه بازبینی مدیریتی از ورودی تا تصمیم و اقدام",
+      "dependencies": [
+        "STR-063",
+        "STR-043"
+      ],
+      "lane": "MOS-OPERATIONS",
+      "paths": "assets/management-knowledge/cadence/registry.json",
+      "scope": [
+        "Persist ManagementReview with scoped input snapshot, agenda, participant rights and linked decisions/actions/metrics.",
+        "Support daily/weekly/monthly/quarterly/annual templates as configurable choices plus outcome-based re-entry.",
+        "Use STR-052 for opt-in reminders; no scheduler side effect until configured and idempotent."
+      ],
+      "acceptance": [
+        "Given monthly review, actual/forecast comparisons preserve basis/period and record revised assumptions.",
+        "Given a decision/action from review, dashboard links to canonical record without copying it.",
+        "Given removed member/timezone/retry, reminder exposes nothing and does not duplicate delivery."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "Review permission/history, missing/closed financial period, no-action outcome, due-date timezone, reminder retry and no opt-in.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P2",
+      "status": "planned",
+      "epic": "MOS-OPERATIONS",
+      "knowledge_dependencies": [
+        "cadence/registry.json"
+      ],
+      "issue_number": 79,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/79"
+    },
+    {
+      "id": "STR-068",
+      "order": 68,
+      "title": "تکمیل شکاف پژوهش و بازبینی ادعا در منابع اصلی",
+      "dependencies": [
+        "STR-053"
+      ],
+      "lane": "MOS-KNOWLEDGE",
+      "paths": "assets/management-knowledge/research/deferred-concepts.json; assets/management-knowledge/research/conflicting-evidence.md; assets/management-knowledge/NEXT_ACTIONS.md",
+      "scope": [
+        "Prioritize one domain per small research batch; map each claim to inspected source sections and access depth, preserve competing findings.",
+        "Review activation source, TOWS/Ansoff, local finance, sales/people/operations and AI gaps only from primary sources; never promote metadata-only detail.",
+        "Update canonical records/indices/status and domain fixtures; expert/user outcome evidence remains distinct from structural coverage."
+      ],
+      "acceptance": [
+        "Given inaccessible original content, item remains deferred with exact missing evidence.",
+        "Given a changed metric definition, new semantic revision and dependent migration/fixtures are required.",
+        "Given conflicting sources, both contexts and implications remain visible; no fabricated benchmark or citation closes the gap."
+      ],
+      "ux": [
+        "Actionable bounded validation errors."
+      ],
+      "validation": "Source ID/URL/claim trace, duplicate concept/alias, regression fixtures, explanation levels, context applicability and promotion-review checklist.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P2",
+      "status": "planned",
+      "epic": "MOS-KNOWLEDGE",
+      "knowledge_dependencies": [
+        "research/deferred-concepts.json",
+        "research/conflicting-evidence.md",
+        "NEXT_ACTIONS.md"
+      ],
+      "issue_number": 80,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/80"
+    },
+    {
+      "id": "STR-069",
+      "order": 69,
+      "title": "شکاف مدیریتی و سلامت حوزه‌ای بدون امتیاز ساختگی",
+      "dependencies": [
+        "STR-063",
+        "STR-027"
+      ],
+      "lane": "MOS-INTELLIGENCE",
+      "paths": "assets/management-knowledge/evidence/confidence-model.md; assets/management-knowledge/taxonomy/company-maturity.json; assets/management-knowledge/research/unresolved-topics.md",
+      "scope": [
+        "Define KB-backed domain gaps with input dependency, relevance, freshness, confidence and evidence action.",
+        "Show situation/attention/next step using STR-027 dashboard; separate insufficient data from poor performance.",
+        "Allow ranked attention only with explicit reviewed priority rationale; numeric aggregate scoring remains blocked pending calibration."
+      ],
+      "acceptance": [
+        "Given runway unknown, UI says unknown and offers relevant data action rather than healthy/zero.",
+        "Given irrelevant inventory metric for SaaS, no gap is generated.",
+        "Given high-risk low-confidence evidence, show limited investigation/escalation and explain uncertainty."
+      ],
+      "ux": [
+        "Reuse existing system; guided/expert parity and accessibility."
+      ],
+      "validation": "All six personas, stage/model relevance, stale competitor/ICP, conflicting metrics, no-score default and Why trace.",
+      "risk": "high",
+      "phase": "Management OS",
+      "priority": "P2",
+      "status": "planned",
+      "epic": "MOS-INTELLIGENCE",
+      "knowledge_dependencies": [
+        "evidence/confidence-model.md",
+        "taxonomy/company-maturity.json",
+        "research/unresolved-topics.md"
+      ],
+      "issue_number": 81,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/81"
+    }
+  ],
+  "management_os": {
+    "date": "2026-10-15",
+    "architecture": "docs/management-os/ARCHITECTURE.md",
+    "audit": "docs/management-os/AUDIT.md",
+    "priorities": {
+      "P0": "Dependency foundations; existing security/release blockers remain P0.",
+      "P1": "First usable reviewed vertical slice.",
+      "P2": "Organization/deeper intelligence/scenarios.",
+      "P3": "Scale and optional AI/international expansion."
+    },
+    "execution_order": [
+      "STR-053",
+      "STR-055",
+      "STR-054",
+      "STR-056",
+      "STR-057",
+      "STR-058",
+      "STR-059",
+      "STR-060",
+      "STR-061",
+      "STR-062",
+      "STR-063",
+      "STR-026",
+      "STR-064",
+      "STR-027",
+      "STR-065"
+    ],
+    "first_slice": "docs/management-os/VERTICAL_SLICE.md"
+  },
+  "epics": [
+    {
+      "id": "MOS-KNOWLEDGE",
+      "title": "Knowledge release and scientific traceability",
+      "task_ids": [
+        "STR-053",
+        "STR-054",
+        "STR-068"
+      ],
+      "status": "planned",
+      "issue_number": 82,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/82"
+    },
+    {
+      "id": "MOS-QUALITY",
+      "title": "Regression-safe application foundation",
+      "task_ids": [
+        "STR-007",
+        "STR-008",
+        "STR-055",
+        "STR-036"
+      ],
+      "status": "planned",
+      "issue_number": 83,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/83"
+    },
+    {
+      "id": "MOS-TWIN",
+      "title": "Canonical business data and evidence",
+      "task_ids": [
+        "STR-056",
+        "STR-057",
+        "STR-058",
+        "STR-018"
+      ],
+      "status": "planned",
+      "issue_number": 84,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/84"
+    },
+    {
+      "id": "MOS-JOURNEY",
+      "title": "Assessment and adaptive inputs",
+      "task_ids": [
+        "STR-059",
+        "STR-060",
+        "STR-061",
+        "STR-064",
+        "STR-026"
+      ],
+      "status": "planned",
+      "issue_number": 85,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/85"
+    },
+    {
+      "id": "MOS-INTELLIGENCE",
+      "title": "Explainable diagnosis and next action",
+      "task_ids": [
+        "STR-062",
+        "STR-063",
+        "STR-069"
+      ],
+      "status": "planned",
+      "issue_number": 86,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/86"
+    },
+    {
+      "id": "MOS-SLICE",
+      "title": "First usable Management OS slice",
+      "task_ids": [
+        "STR-065",
+        "STR-027"
+      ],
+      "status": "planned",
+      "issue_number": 87,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/87"
+    },
+    {
+      "id": "MOS-OPERATIONS",
+      "title": "Organization management and review loop",
+      "task_ids": [
+        "STR-066",
+        "STR-067",
+        "STR-042",
+        "STR-043",
+        "STR-051",
+        "STR-052"
+      ],
+      "status": "planned",
+      "issue_number": 88,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/88"
+    },
+    {
+      "id": "MOS-COPILOT",
+      "title": "Optional contextual AI after deterministic foundations",
+      "task_ids": [
+        "STR-047"
+      ],
+      "status": "planned",
+      "issue_number": 89,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/89"
     }
   ]
 }

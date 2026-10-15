@@ -1,5 +1,7 @@
 # Stratino architecture decision — accepted development direction
 
+Current Management OS extension (2026-10-15): [audited architecture](management-os/ARCHITECTURE.md), [ownership and ADR decisions](management-os/DECISIONS.md), [first vertical slice](management-os/VERTICAL_SLICE.md). The stack/security boundaries below remain in force; the linked plan supplies canonical data, knowledge-release, journey and evidence contracts. These documents describe intended development, not completed runtime features.
+
 ## Stack and boundaries
 
 React + TypeScript + Vite, React Router, TanStack Query, accessible headless primitives, CSS design tokens and Motion for React. Use small feature modules rather than another giant app component. Pin compatible stable versions and lockfiles at implementation time; do not guess version numbers from this document.

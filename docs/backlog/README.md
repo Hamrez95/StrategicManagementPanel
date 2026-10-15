@@ -1,6 +1,6 @@
 # استراتینو — فهرست اجرای پروژه
 
-۵۲ تسک تفصیلی در GitHub و در همین پوشه ثبت شده‌اند. وضعیت اولیه تسک‌ها برنامه‌ریزی‌شده است؛ ایجاد تسک به معنی پیاده‌سازی نیست. وضعیت اجرا در بخش زیر و GitHub ثبت می‌شود.
+۶۹ تسک تفصیلی و ۸ Epic در برنامه یکپارچه ثبت شده‌اند؛ ۵۲ تسک قبلی حفظ و با معماری Management OS تطبیق داده شده‌اند. ایجاد تسک به معنی پیاده‌سازی نیست. وضعیت اجرا در catalog و GitHub و ادامه دقیق در docs/management-os ثبت می‌شود.
 
 ## ترتیب اجرا
 
@@ -116,3 +116,29 @@ React + TypeScript + Vite؛ Django/DRF modular monolith؛ PostgreSQL؛ فایل 
 - STR-018: پروفایل مستقل کسب‌وکار و ICP، شواهد/فرضیه‌های جدا، راهنما، جست‌وجو و تاریخچه نسخه ساخته شد؛ تست‌های API/مرورگر نوشته شده‌اند و اجرای آن‌ها با بررسی بصری برای مرحلهٔ نهایی مانده است.
 - STR-019: عامل‌های SWOT و گزینه‌های دستی TOWS با پیوند عامل، جداسازی Workspace، کنترل revision و بازبینی وابستگی حذف توسعه یافت؛ تست API/مرورگر و بررسی responsive/theme/keyboard نوشته شده‌اند اما اجرا، migration و شواهد پذیرش برای پایان کار مانده و issue باز است.
 - STR-024: گزارش مدیریتی، snapshot غیرقابل‌تغییر، خروجی JSON/CSV/ZIP و پیش‌نمایش چاپ فارسی در شاخه کاری توسعه یافت؛ API/مجوز/آرشیو فایل و roundtrip تست نوشته شده‌اند یا در حال تکمیل‌اند، اما تست‌های سرور، ZIP/فایل، import و QA تصویری عمداً برای دور پایانی نگه داشته شده‌اند؛ issue باز است.
+
+## Management OS — unified execution plan
+
+Vision is now Understand → Diagnose → Decide → Plan → Execute → Measure → Learn → Adjust. [Audit](../management-os/AUDIT.md), [architecture](../management-os/ARCHITECTURE.md), [all reconciliation decisions](../management-os/TASK_MAP.md), [first slice](../management-os/VERTICAL_SLICE.md), [current status](../management-os/STATUS.md). This extends the existing plan, not a separate backlog. Existing security/payment/recovery/release gates and prototype parity remain in force.
+
+P0 order: STR-053 integrity → STR-055 baseline quality → STR-054 reviewed loader → STR-056 canonical ownership/migration → STR-057 evidence/freshness → STR-058 canonical contribution calculation. P1 then builds a restricted reviewed journey through STR-059–065 and reuses STR-026/027. Later P2 expands organization/cadence/gaps and existing Scenario Lab; P3 keeps optional AI/international/scale gates.
+
+| ID | Priority | Task | Dependencies |
+|---|---|---|---|
+| [STR-53](STR-53.md) | P0 | گیت یکپارچگی دانش و آزمون رگرسیون منفی | STR-005 |
+| [STR-54](STR-54.md) | P0 | بارگذار نسخه‌دار و ترفیع صریح رکوردهای دانش | STR-053 |
+| [STR-55](STR-55.md) | P0 | رفع خطاهای TypeScript خط پایه و تثبیت گیت کیفیت | STR-016 |
+| [STR-56](STR-56.md) | P0 | مالکیت canonical داده و مهاجرت تدریجی پروفایل | STR-005, STR-018, STR-021 |
+| [STR-57](STR-57.md) | P0 | شواهد، ادعا، اطمینان توضیح‌پذیر و تازگی داده | STR-056, STR-012 |
+| [STR-58](STR-58.md) | P0 | MetricValue و محاسبه مرجع حاشیه مشارکت | STR-054, STR-056, STR-057 |
+| [STR-59](STR-59.md) | P1 | ارزیابی زمینه و طبقه‌بندی مرحله با حفظ unknown | STR-054, STR-056, STR-057 |
+| [STR-60](STR-60.md) | P1 | موتور Journey با prerequisite و گذار قابل بازگشت | STR-054, STR-059 |
+| [STR-61](STR-61.md) | P1 | موتور ورودی شرطی با derive/import پیش از پرسش | STR-060, STR-056, STR-057 |
+| [STR-62](STR-62.md) | P1 | تشخیص و قواعد مرورشده با منطق سه‌ارزشی | STR-054, STR-057, STR-058, STR-060 |
+| [STR-63](STR-63.md) | P1 | پیشنهاد قابل توضیح تا تصمیم و اقدام واقعی | STR-062, STR-021 |
+| [STR-64](STR-64.md) | P1 | رابط Journey هدایت‌شده و حرفه‌ای روی design system فعلی | STR-061, STR-063, STR-011, STR-006, STR-055 |
+| [STR-65](STR-65.md) | P1 | برش عمودی استارتاپ از شناخت تا اقدام در داشبورد | STR-064, STR-027, STR-026 |
+| [STR-66](STR-66.md) | P2 | گسترش مسیر سازمان با ورودی مستقیم و نیازمحوری | STR-065 |
+| [STR-67](STR-67.md) | P2 | چرخه بازبینی مدیریتی از ورودی تا تصمیم و اقدام | STR-063, STR-043 |
+| [STR-68](STR-68.md) | P2 | تکمیل شکاف پژوهش و بازبینی ادعا در منابع اصلی | STR-053 |
+| [STR-69](STR-69.md) | P2 | شکاف مدیریتی و سلامت حوزه‌ای بدون امتیاز ساختگی | STR-063, STR-027 |
