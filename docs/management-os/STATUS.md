@@ -18,12 +18,13 @@ Repository: `D:\Hamidreza\Projects\StrategicManagementPanel`. Branch: `feat/stra
 | STR-055-B formatting/quality             | 3ad2f53; all previously noncompliant files formatted; `npm run quality` exit 0 | Local dev acceptance complete; issue #67 open pending push/merge/CI |
 | STR-054-A reader                         | 602eaf0; exact-ID immutable versioned Python reader; 11/11 fixtures pass       | Local packet complete; STR-054/#66 in progress                      |
 | STR-054-B source curation                 | 850e724; 9 exact records, 5 source IDs, dependency/revision check passes        | Local packet complete; runtime promotion remains gated              |
+| STR-054-C reproducible package             | 504581d; package release/hash drift, Node 2/2, Python 12/12, root quality pass  | Local packet complete; 054-D negative matrix remains                |
 
-The complete root quality gate passed: lint, format, web/domain/UI typechecks, 68 API contract operations, structural KB audit, 70 root tests, 6 domain tests and production build. The structural audit still reports 28 runtime-promotion warnings; this does not certify scientific efficacy. Focused 054-A reader tests use the bundled Python and standard library; no Django database was started.
+The latest complete root quality gate passed with exit code 0: lint, format, web/domain/UI typechecks, 68 API contract operations, structural KB audit, 72 root tests, 6 domain tests and production build. The focused release-builder tests pass 2/2; packaged reader tests pass 12/12. The structural audit still reports 28 runtime-promotion warnings; this does not certify scientific efficacy. No Django database or Docker service was started.
 
 ## Next development packet
 
-Continue **STR-054-C**: build the reproducible, package-relative candidate artifact from the reviewed curation input and add a drift check. The reviewed 054-B manifest selects nine records and five sources; direct source-supported claims are separated from product-authored heuristic policy in [KNOWLEDGE_RELEASE_REVIEW](KNOWLEDGE_RELEASE_REVIEW.md). `RULE-DISCOVERY` remains blocked until a typed `operating` mapping exists; retention waits for the scoped resolver; contribution margin remains definition-only until STR-058-A/B. No runtime release is active. Then 054-D expands rejection/pinning cases. Do not edit canonical research as a side effect.
+Continue **STR-054-D**: expand the negative release matrix for unknown schemas, operators/applicability, missing dependencies/source references, tampering, PLAN-* exclusion and exact historical pinning. 054-C packages the nine reviewed candidates, but no route or calculation is activated: discovery inherits its blocked mapping gate, retention waits for scoped input resolution, and contribution remains definition-only until STR-058-A/B. See [NEXT_ACTIONS](NEXT_ACTIONS.md) and the packet contract; do not edit canonical research.
 
 Do not create a product endpoint just to show the reader works. Keep the API package within its existing `apps/api` build context. Historical runs select exact release IDs; no latest fallback.
 
