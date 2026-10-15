@@ -176,7 +176,11 @@ export default function DocumentsPage() {
   if (!workspace)
     return (
       <section className="documents-page">
-        <Notice title={english ? 'Workspace is unavailable' : 'فضای کار در دسترس نیست'} />
+        <Notice title={english ? 'Workspace is unavailable' : 'فضای کار در دسترس نیست'}>
+          <p>
+            {english ? 'Select a Workspace you can access.' : 'یک فضای کار مجاز را انتخاب کنید.'}
+          </p>
+        </Notice>
       </section>
     );
   if (boardQuery.isPending)

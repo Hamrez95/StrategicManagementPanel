@@ -323,8 +323,8 @@ export function App() {
   };
   useEffect(() => {
     if (location.hash.startsWith('#') && location.pathname === '/')
-      location.replace('/prototype/' + location.hash);
-  }, []);
+      window.location.replace('/prototype/' + location.hash);
+  }, [location.hash, location.pathname]);
   return (
     <>
       <a className="skip-link" href="#content">

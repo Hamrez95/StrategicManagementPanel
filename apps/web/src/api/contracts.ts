@@ -285,6 +285,7 @@ export type ApiExecutionActionUpdate = { revision: number } & Partial<ApiExecuti
 export type ApiDocumentStatus = 'draft' | 'review' | 'ready';
 export type ApiDocumentCatalogState = 'mvp' | 'catalog_only';
 export type ApiDocumentText = { fa: string; en: string };
+export type ApiDocumentOutline = { fa: string[]; en: string[] };
 export type ApiDocumentExample = ApiDocumentText & { note: ApiDocumentText };
 export type ApiDocumentRecord = {
   id: string;
@@ -318,7 +319,7 @@ export type ApiDocumentTemplate = {
   catalog_state: ApiDocumentCatalogState;
   stages: string[];
   industries: string[];
-  structure: ApiDocumentText;
+  structure: ApiDocumentOutline;
   writing_guide: ApiDocumentText;
   example: ApiDocumentExample | null;
   advisory_note: ApiDocumentText | null;
@@ -862,7 +863,7 @@ export function decodeStrategyBoard(value: unknown): ApiStrategyBoard {
         throw new TypeError('Stale strategy factor reference');
     }
     if (!option.needs_review) {
-      const expected =
+      const expected: ApiStrategyFactorType[] =
         option.category === 'SO'
           ? ['strength', 'opportunity']
           : option.category === 'WO'
@@ -1201,6 +1202,16 @@ function decodeDocumentText(value: unknown): ApiDocumentText {
   };
 }
 
+function decodeDocumentOutline(value: unknown): ApiDocumentOutline {
+  const item = record(value);
+  const lines = (value: unknown) => {
+    if (!Array.isArray(value) || value.length < 1 || value.length > 20)
+      throw new TypeError('Invalid document outline');
+    return value.map((line) => boundedString(line, 6000, 'document.structure', true));
+  };
+  return { fa: lines(item.fa), en: lines(item.en) };
+}
+
 export function decodeDocumentRecord(value: unknown): ApiDocumentRecord {
   const item = record(value);
   if (!documentStatuses.includes(item.status as ApiDocumentStatus))
@@ -1258,7 +1269,7 @@ function decodeDocumentTemplate(value: unknown): ApiDocumentTemplate {
     catalog_state: item.catalog_state,
     stages: item.stages.map(requiredString),
     industries: item.industries.map(requiredString),
-    structure: decodeDocumentText(item.structure),
+    structure: decodeDocumentOutline(item.structure),
     writing_guide: decodeDocumentText(item.writing_guide),
     example: example
       ? {

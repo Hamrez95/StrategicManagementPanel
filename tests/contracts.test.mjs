@@ -7,6 +7,17 @@ import Ajv from 'ajv';
 const spec = await SwaggerParser.dereference('docs/api/openapi.json');
 const ajv = new Ajv({ strict: false, validateFormats: false });
 const check = (name, value) => ajv.compile(spec.components.schemas[name])(value);
+
+test('document outline contract preserves bilingual arrays', async () => {
+  const { default: catalog } = await import('../src/document-catalog.json', {
+    with: { type: 'json' },
+  });
+  const validate = ajv.compile(spec.components.schemas.DocumentTemplate.properties.structure);
+  for (const document of catalog.documents) {
+    assert.equal(validate(document.structure), true, document.id);
+  }
+  assert.equal(validate({ fa: 'scalar', en: ['line'] }), false);
+});
 const workspace = {
   id: 'project-a',
   owner_id: 'user-a',

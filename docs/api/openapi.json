@@ -9600,7 +9600,34 @@
           "maxItems": 10
         },
         "structure": {
-          "$ref": "#/components/schemas/DocumentText"
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fa",
+            "en"
+          ],
+          "properties": {
+            "fa": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 20,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000
+              }
+            },
+            "en": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 20,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000
+              }
+            }
+          }
         },
         "writing_guide": {
           "$ref": "#/components/schemas/DocumentText"

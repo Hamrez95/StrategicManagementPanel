@@ -402,9 +402,10 @@ export default function ExecutionPlanPage() {
 
   async function submitDecision(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!decisionDraft.source_id || !decisionDraft.source_kind) return;
+    const { source_id, source_kind } = decisionDraft;
+    if (!source_id || !source_kind) return;
     const done = await saveRequest(
-      () => createExecutionDecision(workspaceId, decisionDraft),
+      () => createExecutionDecision(workspaceId, { ...decisionDraft, source_id, source_kind }),
       english ? 'Decision recorded.' : 'تصمیم ثبت شد.',
     );
     if (done) setDecisionDraft(emptyDecision);

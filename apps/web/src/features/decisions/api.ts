@@ -18,6 +18,13 @@ import {
 import { patchAuth, postAuth } from '../auth/api';
 
 export type {
+  ApiExecutionActionStatus,
+  ApiExecutionSourceKind,
+  ApiExecutionDecisionStatus,
+  ApiExecutionGoalStatus,
+} from '../../api/contracts';
+
+export type {
   ApiExecutionAction,
   ApiExecutionActionUpdate,
   ApiExecutionActionWrite,
