@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
+import documentCatalog from '../src/document-catalog.json' with { type: 'json' };
 const browser = await chromium.launch({
   headless: true,
   executablePath: process.env.STRATEGY_BROWSER_EXECUTABLE || undefined,
@@ -123,6 +124,20 @@ try {
     };
   };
   const executionBoards = new Map([['w1', executionBoardFor('w1')]]);
+  const documentBoardFor = (workspaceId) => ({
+    workspace_id: workspaceId,
+    role: session.workspaces.find((item) => item.id === workspaceId)?.role ?? 'viewer',
+    history_limit: 50,
+    stages: documentCatalog.stages,
+    industries: documentCatalog.industries,
+    sections: documentCatalog.sections,
+    priorities: documentCatalog.priorities,
+    items: documentCatalog.documents.map((item) => ({ ...item, record: null })),
+    members: [{ id: session.user.id, name: session.user.name || 'مدیر نمونه', role: 'owner' }],
+    events: [],
+  });
+  const documentBoards = new Map([['w1', documentBoardFor('w1')]]);
+  let documentSequence = 0;
   let executionSequence = 0;
   const recordExecutionEvent = (board, entityType, record, eventType, changes) => {
     board.events.unshift({
@@ -234,6 +249,7 @@ try {
       profileHistory.set('w2', []);
       strategyBoards.set('w2', emptyStrategy('w2'));
       executionBoards.set('w2', executionBoardFor('w2'));
+      documentBoards.set('w2', documentBoardFor('w2'));
       session = {
         ...session,
         workspaces: [...session.workspaces, { id: 'w2', name: created.name, role: 'owner' }],
@@ -406,6 +422,125 @@ try {
         });
       }
       return route.fulfill({ json: profile });
+    }
+    const documentCollection = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/documents\/$/);
+    if (documentCollection && request.method() === 'GET') {
+      const board = documentBoards.get(documentCollection[1]);
+      if (!board) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
+      board.role =
+        session.workspaces.find((item) => item.id === documentCollection[1])?.role ?? 'viewer';
+      const query = new URL(request.url()).searchParams;
+      const stage = query.get('stage') || '';
+      const industry = query.get('industry') || '';
+      const items = board.items.filter((item) => {
+        const stageMatches =
+          !stage || (item.record ? item.record.stage === stage : item.stages.includes(stage));
+        const industryMatches =
+          !industry ||
+          (item.record
+            ? item.record.industry === industry
+            : industry === 'general' ||
+              item.industries.includes(industry) ||
+              item.industries.includes('general'));
+        return stageMatches && industryMatches;
+      });
+      return route.fulfill({ json: { ...structuredClone(board), items: structuredClone(items) } });
+    }
+    if (documentCollection && request.method() === 'POST') {
+      const board = documentBoards.get(documentCollection[1]);
+      if (!board) return route.fulfill({ status: 404, json: { code: 'workspace_not_found' } });
+      const body = request.postDataJSON();
+      const item = board.items.find((entry) => entry.id === body.template_id);
+      if (!item || item.record)
+        return route.fulfill({
+          status: 400,
+          json: { code: 'validation_error', message: 'راهنما از قبل ثبت شده است.' },
+        });
+      const owner = board.members.find((member) => member.id === body.owner_id);
+      const reviewer = board.members.find((member) => member.id === body.reviewer_id);
+      const now = new Date().toISOString();
+      const record = {
+        id: `document-${++documentSequence}`,
+        template_id: item.id,
+        stage: body.stage,
+        industry: body.industry,
+        owner_id: body.owner_id,
+        owner_name: owner?.name ?? 'عضو پیشین',
+        reviewer_id: body.reviewer_id,
+        reviewer_name: reviewer?.name ?? null,
+        status: body.status,
+        content: body.content,
+        content_version: 1,
+        revision: 1,
+        created_at: now,
+        updated_at: now,
+      };
+      item.record = record;
+      board.events.unshift({
+        id: `document-event-${documentSequence}`,
+        template_id: item.id,
+        event_type: 'created',
+        changes: {
+          status: { from: null, to: record.status },
+          content_version: { from: null, to: 1 },
+        },
+        actor_name: session.user.name || 'مدیر نمونه',
+        created_at: now,
+      });
+      return route.fulfill({ status: 201, json: structuredClone(record) });
+    }
+    const documentDetail = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/$/);
+    if (documentDetail && request.method() === 'PATCH') {
+      const [, workspaceId, recordId] = documentDetail;
+      const board = documentBoards.get(workspaceId);
+      const item = board?.items.find((entry) => entry.record?.id === recordId);
+      if (!item?.record)
+        return route.fulfill({ status: 404, json: { code: 'document_not_found' } });
+      const body = request.postDataJSON();
+      if (body.revision !== item.record.revision)
+        return route.fulfill({
+          status: 409,
+          json: { code: 'revision_conflict', message: 'نسخه تازه را بارگیری کنید.' },
+        });
+      const before = item.record;
+      const owner = board.members.find(
+        (member) => member.id === (body.owner_id ?? before.owner_id),
+      );
+      const reviewerId = body.reviewer_id === undefined ? before.reviewer_id : body.reviewer_id;
+      const reviewer = board.members.find((member) => member.id === reviewerId);
+      const content = body.content ?? before.content;
+      const record = {
+        ...before,
+        ...body,
+        owner_name: owner?.name ?? before.owner_name,
+        reviewer_id: reviewerId,
+        reviewer_name: reviewer?.name ?? null,
+        content,
+        content_version: before.content_version + Number(content !== before.content),
+        revision: before.revision + 1,
+        updated_at: new Date().toISOString(),
+      };
+      const changes = {};
+      for (const key of ['stage', 'industry', 'owner_id', 'reviewer_id', 'status']) {
+        if (before[key] !== record[key]) changes[key] = { from: before[key], to: record[key] };
+      }
+      if (content !== before.content)
+        changes.content = {
+          from_version: before.content_version,
+          to_version: record.content_version,
+        };
+      item.record = record;
+      if (Object.keys(changes).length)
+        board.events.unshift({
+          id: `document-event-${++documentSequence}`,
+          template_id: item.id,
+          event_type:
+            Object.keys(changes).length === 1 && changes.status ? 'status_changed' : 'updated',
+          changes,
+          actor_name: session.user.name || 'مدیر نمونه',
+          created_at: record.updated_at,
+        });
+      return route.fulfill({ json: structuredClone(record) });
     }
     const executionCollection = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/execution\/$/);
     if (executionCollection && request.method() === 'GET') {
@@ -1292,6 +1427,106 @@ try {
     ),
   };
 
+  await page.goto(url + '/app/workspaces/w1/tools/documents');
+  await page.getByRole('heading', { name: 'کتابخانه مدارک مدیریتی' }).waitFor();
+  await page.getByLabel('مرحله کسب‌وکار').selectOption('growth');
+  await page.getByLabel('صنعت').selectOption('technology');
+  await page.locator('.documents-index__item').first().waitFor();
+  assert.ok(
+    (await page.locator('.documents-index__item').count()) > 0,
+    'stage and industry filters must leave matching guides',
+  );
+  await page.getByLabel('مرحله کسب‌وکار').selectOption('');
+  await page.getByLabel('صنعت').selectOption('');
+  await page.getByRole('heading', { name: 'کتابخانه مدارک مدیریتی' }).waitFor();
+
+  const advisoryTemplate = documentCatalog.documents.find((item) => item.advisory_note);
+  assert.ok(advisoryTemplate, 'the catalog must distinguish professional-review guidance');
+  await page
+    .locator('.documents-index__item')
+    .filter({ hasText: advisoryTemplate.title.fa })
+    .click();
+  await page.locator('.documents-advisory').waitFor();
+  const executiveTemplate = documentCatalog.documents.find(
+    (item) => item.id === 'executive-onepage',
+  );
+  assert.ok(executiveTemplate, 'the executive guide must remain in the catalog');
+  await page
+    .locator('.documents-index__item')
+    .filter({ hasText: executiveTemplate.title.fa })
+    .click();
+  await page.getByLabel('پیش‌نویس سند').fill('پیش‌نویس اختصاصی برای مرور مدیر پروژه');
+  await page.getByLabel('بازبین').selectOption('u1');
+  await page.getByLabel('وضعیت سند').selectOption('review');
+  await page.getByRole('button', { name: 'ثبت در فضای کار' }).click();
+  await page.getByRole('status').filter({ hasText: 'راهنمای سند در فضای کار ذخیره شد' }).waitFor();
+  const documentBoard = documentBoards.get('w1');
+  let executiveRecord = documentBoard.items.find((item) => item.id === 'executive-onepage').record;
+  assert.equal(executiveRecord.status, 'review');
+  assert.equal(executiveRecord.content_version, 1);
+  await page.getByText('بازبین تعیین‌شده محتوا را بررسی کند و سپس آن را آماده کند.').waitFor();
+  await page.getByLabel('پیش‌نویس سند').fill('نسخه دوم راهنمای مدیریتی پس از اصلاح');
+  await page.getByLabel('وضعیت سند').selectOption('ready');
+  await page.getByRole('button', { name: 'ذخیره تغییرات' }).click();
+  await page.getByRole('status').filter({ hasText: 'راهنمای سند در فضای کار ذخیره شد' }).waitFor();
+  executiveRecord = documentBoard.items.find((item) => item.id === 'executive-onepage').record;
+  assert.equal(executiveRecord.status, 'ready');
+  assert.equal(executiveRecord.content_version, 2);
+  assert.equal(
+    JSON.stringify(documentBoard.events).includes('نسخه دوم راهنمای مدیریتی پس از اصلاح'),
+    false,
+    'document event history must keep content private',
+  );
+  await page.reload();
+  await page.getByRole('heading', { name: 'کتابخانه مدارک مدیریتی' }).waitFor();
+  assert.equal(
+    await page.getByLabel('پیش‌نویس سند').inputValue(),
+    'نسخه دوم راهنمای مدیریتی پس از اصلاح',
+  );
+  await page.getByLabel('پیش‌نویس سند').focus();
+  assert.notEqual(
+    await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle),
+    'none',
+    'document editor must keep visible keyboard focus',
+  );
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => {
+      document.documentElement.dataset.theme = value;
+    }, theme);
+    for (const width of [360, 768, 1280, 1440]) {
+      await page.setViewportSize({ width, height: 920 });
+      assert.equal(
+        await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+        true,
+        `document library overflow ${width}/${theme}`,
+      );
+      await page.screenshot({
+        path: `test-results/web/documents-${width}-${theme}.png`,
+        fullPage: true,
+        animations: 'disabled',
+      });
+    }
+  }
+  session = {
+    ...session,
+    workspaces: session.workspaces.map((item) =>
+      item.id === 'w1' ? { ...item, role: 'viewer' } : item,
+    ),
+  };
+  await page.reload();
+  await page.getByText('دسترسی شما به این فضای کار فقط خواندنی است.').waitFor();
+  assert.equal(
+    await page.getByLabel('پیش‌نویس سند').isDisabled(),
+    true,
+    'viewer document content must be read-only',
+  );
+  session = {
+    ...session,
+    workspaces: session.workspaces.map((item) =>
+      item.id === 'w1' ? { ...item, role: 'owner' } : item,
+    ),
+  };
+
   await page.goto(url + '/app/account');
   await page.getByLabel('زبان رابط').selectOption('fa');
   await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
@@ -1673,6 +1908,8 @@ try {
         workspaceSwotTowsFactorsOptionsAndDependencyReview: true,
         workspaceEfeIfeCalculationPersistenceAndInterpretation: true,
         workspaceExecutionDecisionActionHistoryRoleIsolation: true,
+        workspaceDocumentsFiltersAssignmentsContentVersionsAndRoleIsolation: true,
+        documentLibraryScreenshots: 8,
         responsiveScreenshots: 52,
         legacyImportPreviewCommitDownloadUndo: true,
         legacyBrowserStoragePreserved: true,
@@ -1683,7 +1920,7 @@ try {
     ),
   );
   console.log(
-    'PASS: responsive/theme/onboarding/shell/import/profile/SWOT/execution RTL/LTR screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, SWOT/TOWS factor links and dependency review, decision-to-action ownership/history/role isolation, keyboard focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
+    'PASS: responsive/theme/onboarding/shell/import/profile/SWOT/execution/documents RTL/LTR screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, SWOT/TOWS factor links and dependency review, decision-to-action and document ownership/history/role isolation, keyboard focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
 } finally {
   await browser.close();

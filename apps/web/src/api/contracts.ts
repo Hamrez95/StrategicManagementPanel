@@ -282,6 +282,81 @@ export type ApiExecutionDecisionUpdate = { revision: number } & Partial<ApiExecu
 export type ApiExecutionGoalUpdate = { revision: number } & Partial<ApiExecutionGoalWrite>;
 export type ApiExecutionActionUpdate = { revision: number } & Partial<ApiExecutionActionWrite>;
 
+export type ApiDocumentStatus = 'draft' | 'review' | 'ready';
+export type ApiDocumentCatalogState = 'mvp' | 'catalog_only';
+export type ApiDocumentText = { fa: string; en: string };
+export type ApiDocumentExample = ApiDocumentText & { note: ApiDocumentText };
+export type ApiDocumentRecord = {
+  id: string;
+  template_id: string;
+  stage: string;
+  industry: string;
+  owner_id: string;
+  owner_name: string;
+  reviewer_id: string | null;
+  reviewer_name: string | null;
+  status: ApiDocumentStatus;
+  content: string;
+  content_version: number;
+  revision: number;
+  created_at: string;
+  updated_at: string;
+};
+export type ApiDocumentTemplate = {
+  id: string;
+  section: string;
+  priority: 'P0' | 'P1' | 'P2';
+  title: ApiDocumentText;
+  topic: ApiDocumentText;
+  kind: ApiDocumentText;
+  use: ApiDocumentText;
+  timing: ApiDocumentText;
+  audience: ApiDocumentText;
+  recommended_owner: ApiDocumentText;
+  recommended_reviewer: ApiDocumentText;
+  access: ApiDocumentText;
+  catalog_state: ApiDocumentCatalogState;
+  stages: string[];
+  industries: string[];
+  structure: ApiDocumentText;
+  writing_guide: ApiDocumentText;
+  example: ApiDocumentExample | null;
+  advisory_note: ApiDocumentText | null;
+  status: ApiDocumentText;
+  keywords: string;
+  record: ApiDocumentRecord | null;
+};
+export type ApiDocumentEvent = {
+  id: string;
+  template_id: string;
+  event_type: 'created' | 'updated' | 'status_changed';
+  changes: Record<string, unknown>;
+  actor_name: string;
+  created_at: string;
+};
+export type ApiDocumentBoard = {
+  workspace_id: string;
+  role: 'owner' | 'editor' | 'viewer';
+  history_limit: number;
+  stages: { id: string; title: ApiDocumentText }[];
+  industries: { id: string; title: ApiDocumentText }[];
+  sections: { id: string; title: ApiDocumentText; description: ApiDocumentText; access: string }[];
+  priorities: Record<string, ApiDocumentText>;
+  items: ApiDocumentTemplate[];
+  members: { id: string; name: string; role: 'owner' | 'editor' | 'viewer' }[];
+  events: ApiDocumentEvent[];
+};
+export type ApiDocumentWrite = {
+  template_id: string;
+  stage: string;
+  industry: string;
+  owner_id: string;
+  reviewer_id: string | null;
+  status: ApiDocumentStatus;
+  content: string;
+};
+export type ApiDocumentUpdate = { revision: number } & Partial<ApiDocumentWrite>;
+
 export type ApiWorkspaceMember = {
   user_id: string;
   email: string;
@@ -424,6 +499,24 @@ export type OpenApiPaths = {
       parameters: { path: { workspace_id: string; record_id: string } };
       requestBody: ApiExecutionGoalUpdate;
       response: ApiExecutionGoal;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/': {
+    get: {
+      parameters: { path: { workspace_id: string }; query?: { stage?: string; industry?: string } };
+      response: ApiDocumentBoard;
+    };
+    post: {
+      parameters: { path: { workspace_id: string } };
+      requestBody: ApiDocumentWrite;
+      response: ApiDocumentRecord;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/': {
+    patch: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: ApiDocumentUpdate;
+      response: ApiDocumentRecord;
     };
   };
 };
@@ -1038,6 +1131,165 @@ export function decodeExecutionBoard(value: unknown): ApiExecutionBoard {
     events,
     members,
     sources,
+  };
+}
+
+const documentStatuses: ApiDocumentStatus[] = ['draft', 'review', 'ready'];
+
+function decodeDocumentText(value: unknown): ApiDocumentText {
+  const item = record(value);
+  return {
+    fa: boundedString(item.fa, 6000, 'document.fa', true),
+    en: boundedString(item.en, 6000, 'document.en', true),
+  };
+}
+
+export function decodeDocumentRecord(value: unknown): ApiDocumentRecord {
+  const item = record(value);
+  if (!documentStatuses.includes(item.status as ApiDocumentStatus))
+    throw new TypeError('Invalid document status');
+  if (!Number.isInteger(item.content_version) || (item.content_version as number) < 1)
+    throw new TypeError('Invalid document content version');
+  return {
+    id: requiredString(item.id),
+    template_id: requiredString(item.template_id),
+    stage: requiredString(item.stage),
+    industry: requiredString(item.industry),
+    owner_id: requiredString(item.owner_id),
+    owner_name: boundedString(item.owner_name, 254, 'document.owner_name', true),
+    reviewer_id: item.reviewer_id === null ? null : requiredString(item.reviewer_id),
+    reviewer_name:
+      item.reviewer_name === null
+        ? null
+        : boundedString(item.reviewer_name, 254, 'document.reviewer_name', true),
+    status: item.status as ApiDocumentStatus,
+    content: boundedString(item.content, 16000, 'document.content'),
+    content_version: item.content_version as number,
+    revision: positiveRevision(item.revision),
+    created_at: requiredString(item.created_at),
+    updated_at: requiredString(item.updated_at),
+  };
+}
+
+function decodeDocumentTemplate(value: unknown): ApiDocumentTemplate {
+  const item = record(value);
+  if (item.priority !== 'P0' && item.priority !== 'P1' && item.priority !== 'P2')
+    throw new TypeError('Invalid document priority');
+  if (item.catalog_state !== 'mvp' && item.catalog_state !== 'catalog_only')
+    throw new TypeError('Invalid document catalog state');
+  if (!Array.isArray(item.stages) || !Array.isArray(item.industries))
+    throw new TypeError('Invalid document filters');
+  const example = item.example === null ? null : record(item.example);
+  const recordValue = item.record === null ? null : decodeDocumentRecord(item.record);
+  if (recordValue && recordValue.template_id !== item.id)
+    throw new TypeError('Document record is linked to another template');
+  if (item.catalog_state === 'catalog_only' && example !== null)
+    throw new TypeError('Catalog-only entries cannot expose a completed example');
+  return {
+    id: requiredString(item.id),
+    section: requiredString(item.section),
+    priority: item.priority,
+    title: decodeDocumentText(item.title),
+    topic: decodeDocumentText(item.topic),
+    kind: decodeDocumentText(item.kind),
+    use: decodeDocumentText(item.use),
+    timing: decodeDocumentText(item.timing),
+    audience: decodeDocumentText(item.audience),
+    recommended_owner: decodeDocumentText(item.recommended_owner),
+    recommended_reviewer: decodeDocumentText(item.recommended_reviewer),
+    access: decodeDocumentText(item.access),
+    catalog_state: item.catalog_state,
+    stages: item.stages.map(requiredString),
+    industries: item.industries.map(requiredString),
+    structure: decodeDocumentText(item.structure),
+    writing_guide: decodeDocumentText(item.writing_guide),
+    example: example
+      ? {
+          fa: boundedString(example.fa, 4000, 'document.example.fa', true),
+          en: boundedString(example.en, 4000, 'document.example.en', true),
+          note: decodeDocumentText(example.note),
+        }
+      : null,
+    advisory_note: item.advisory_note === null ? null : decodeDocumentText(item.advisory_note),
+    status: decodeDocumentText(item.status),
+    keywords: boundedString(item.keywords, 20000, 'document.keywords'),
+    record: recordValue,
+  };
+}
+
+export function decodeDocumentBoard(value: unknown): ApiDocumentBoard {
+  const item = record(value);
+  if (!['owner', 'editor', 'viewer'].includes(String(item.role)))
+    throw new TypeError('Invalid document board role');
+  if (
+    !Number.isInteger(item.history_limit) ||
+    (item.history_limit as number) < 1 ||
+    (item.history_limit as number) > 500
+  )
+    throw new TypeError('Invalid document history limit');
+  const items = decodeRows(item.items, decodeDocumentTemplate);
+  const stages = decodeRows(item.stages, (value) => {
+    const stage = record(value);
+    return { id: requiredString(stage.id), title: decodeDocumentText(stage.title) };
+  });
+  const industries = decodeRows(item.industries, (value) => {
+    const industry = record(value);
+    return { id: requiredString(industry.id), title: decodeDocumentText(industry.title) };
+  });
+  const sections = decodeRows(item.sections, (value) => {
+    const section = record(value);
+    return {
+      id: requiredString(section.id),
+      title: decodeDocumentText(section.title),
+      description: decodeDocumentText(section.description),
+      access: requiredString(section.access),
+    };
+  });
+  const prioritiesValue = record(item.priorities);
+  const priorities = Object.fromEntries(
+    Object.entries(prioritiesValue).map(([key, label]) => [key, decodeDocumentText(label)]),
+  );
+  const members = decodeRows(item.members, (value) => {
+    const member = record(value);
+    if (!['owner', 'editor', 'viewer'].includes(String(member.role)))
+      throw new TypeError('Invalid document member role');
+    return {
+      id: requiredString(member.id),
+      name: boundedString(member.name, 254, 'document.member.name', true),
+      role: member.role as 'owner' | 'editor' | 'viewer',
+    };
+  });
+  const events = decodeRows(item.events, (value) => {
+    const event = record(value);
+    if (!['created', 'updated', 'status_changed'].includes(String(event.event_type)))
+      throw new TypeError('Invalid document event type');
+    return {
+      id: requiredString(event.id),
+      template_id: requiredString(event.template_id),
+      event_type: event.event_type as ApiDocumentEvent['event_type'],
+      changes: record(event.changes),
+      actor_name: boundedString(event.actor_name, 254, 'document.event.actor_name', true),
+      created_at: requiredString(event.created_at),
+    };
+  });
+  if (items.length > 60 || events.length > (item.history_limit as number))
+    throw new TypeError('Document board exceeds a supported limit');
+  if (
+    new Set(items.map((entry) => entry.id)).size !== items.length ||
+    new Set(members.map((entry) => entry.id)).size !== members.length
+  )
+    throw new TypeError('Duplicate document board record');
+  return {
+    workspace_id: requiredString(item.workspace_id),
+    role: item.role as ApiDocumentBoard['role'],
+    history_limit: item.history_limit as number,
+    stages,
+    industries,
+    sections,
+    priorities,
+    items,
+    members,
+    events,
   };
 }
 

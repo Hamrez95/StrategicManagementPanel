@@ -6310,6 +6310,330 @@
           }
         }
       }
+    },
+    "/api/v1/workspaces/{workspace_id}/documents/": {
+      "get": {
+        "operationId": "readDocumentLibrary",
+        "summary": "Read document library and Workspace assignments",
+        "description": "Live Workspace document library. Catalog entries are generic guidance; document content is stored only for the five MVP templates.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "stage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 24
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Read document library and Workspace assignments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentBoard"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or archived Workspace conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createDocumentRecord",
+        "summary": "Assign a catalog guide to this Workspace",
+        "description": "Live Workspace document library. Catalog entries are generic guidance; document content is stored only for the five MVP templates.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Assign a catalog guide to this Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or archived Workspace conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/documents/{record_id}/": {
+      "patch": {
+        "operationId": "updateDocumentRecord",
+        "summary": "Update document owner, review state, or MVP content",
+        "description": "Live Workspace document library. Catalog entries are generic guidance; document content is stored only for the five MVP templates.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update document owner, review state, or MVP content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or archived Workspace conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -8797,7 +9121,631 @@
           "revision"
         ],
         "additionalProperties": false
-      }
+      },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+        },
+        "workspace_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "template_key": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "template_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "author_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs."
+        },
+        "reviewer_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Opaque server-issued ID. Production entity IDs are UUIDs; analysis row IDs can be stable short IDs.",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "ready"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "revision",
+        "created_at",
+        "updated_at",
+        "template_key",
+        "template_version",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentText": {
+      "type": "object",
+      "properties": {
+        "fa": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 6000
+        }
+      },
+      "required": [
+        "fa",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentExample": {
+      "type": "object",
+      "properties": {
+        "fa": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "note": {
+          "$ref": "#/components/schemas/DocumentText"
+        }
+      },
+      "required": [
+        "fa",
+        "en",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "template_id": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "stage": {
+          "type": "string",
+          "maxLength": 24
+        },
+        "industry": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "owner_name": {
+          "type": "string",
+          "maxLength": 254
+        },
+        "reviewer_id": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "reviewer_name": {
+          "type": "string",
+          "maxLength": 254,
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "ready"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "content_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "template_id",
+        "stage",
+        "industry",
+        "owner_id",
+        "owner_name",
+        "reviewer_id",
+        "reviewer_name",
+        "status",
+        "content",
+        "content_version",
+        "revision",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentTemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "section": {
+          "type": "string",
+          "maxLength": 8
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "P0",
+            "P1",
+            "P2"
+          ]
+        },
+        "title": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "topic": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "use": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "audience": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "recommended_owner": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "recommended_reviewer": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "access": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "catalog_state": {
+          "type": "string",
+          "enum": [
+            "mvp",
+            "catalog_only"
+          ]
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "maxItems": 10
+        },
+        "industries": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "maxItems": 10
+        },
+        "structure": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "writing_guide": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "example": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/DocumentExample"
+            }
+          ],
+          "nullable": true
+        },
+        "advisory_note": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/DocumentText"
+            }
+          ],
+          "nullable": true
+        },
+        "status": {
+          "$ref": "#/components/schemas/DocumentText"
+        },
+        "keywords": {
+          "type": "string",
+          "maxLength": 20000
+        },
+        "record": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/DocumentRecord"
+            }
+          ],
+          "nullable": true
+        },
+        "timing": {
+          "$ref": "#/components/schemas/DocumentText"
+        }
+      },
+      "required": [
+        "id",
+        "section",
+        "priority",
+        "title",
+        "topic",
+        "kind",
+        "use",
+        "audience",
+        "recommended_owner",
+        "recommended_reviewer",
+        "access",
+        "catalog_state",
+        "stages",
+        "industries",
+        "structure",
+        "writing_guide",
+        "example",
+        "advisory_note",
+        "status",
+        "keywords",
+        "record",
+        "timing"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "template_id": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "created",
+            "updated",
+            "status_changed"
+          ]
+        },
+        "changes": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "actor_name": {
+          "type": "string",
+          "maxLength": 254
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "template_id",
+        "event_type",
+        "changes",
+        "actor_name",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentBoard": {
+      "type": "object",
+      "properties": {
+        "workspace_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "owner",
+            "editor",
+            "viewer"
+          ]
+        },
+        "history_limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "$ref": "#/components/schemas/DocumentText"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "industries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "$ref": "#/components/schemas/DocumentText"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "$ref": "#/components/schemas/DocumentText"
+              },
+              "description": {
+                "$ref": "#/components/schemas/DocumentText"
+              },
+              "access": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "description",
+              "access"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "priorities": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/DocumentText"
+          }
+        },
+        "items": {
+          "type": "array",
+          "maxItems": 60,
+          "items": {
+            "$ref": "#/components/schemas/DocumentTemplate"
+          }
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 254
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "owner",
+                  "editor",
+                  "viewer"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "$ref": "#/components/schemas/DocumentEvent"
+          }
+        }
+      },
+      "required": [
+        "workspace_id",
+        "role",
+        "history_limit",
+        "stages",
+        "industries",
+        "sections",
+        "priorities",
+        "items",
+        "members",
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentWrite": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "stage": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24
+        },
+        "industry": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "reviewer_id": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "ready"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 16000
+        }
+      },
+      "required": [
+        "template_id",
+        "stage",
+        "industry",
+        "owner_id",
+        "reviewer_id",
+        "status",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentUpdate": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "template_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "stage": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24
+        },
+        "industry": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "owner_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "reviewer_id": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "ready"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 16000
+        }
+      },
+      "required": [
+        "revision"
+      ],
+      "additionalProperties": false
+    }
     }
   }
 }

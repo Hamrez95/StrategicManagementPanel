@@ -29,5 +29,16 @@ test('priority guidance is defined for critical, high and supporting documents',
   assert.ok(documents.some(record=>record.id==='mvp-prd'&&record.priority==='P0'));
   assert.ok(documents.some(record=>record.id==='scenario-strategy'&&record.priority==='P0'));
   assert.ok(documents.some(record=>record.id==='brand-identity'&&record.priority==='P1'));
-  assert.ok(documents.some(record=>record.id==='life-finance-workbook'&&record.title.en.includes('scope to confirm')));
+  assert.ok(documents.some(record=>record.id==='business-finance-workbook'&&record.title.en.includes('scope to confirm')));
+});
+test('catalog entries are generic, bilingual, and explicit about the five complete MVP guides',()=>{
+  const serialized=JSON.stringify(documents).toLowerCase();
+  for(const term of ['lifemate','medmate','caremate','medication','drive.google.com','google drive','source-folder','source folder','پوشه منبع','گوگل درایو'])assert.ok(!serialized.includes(term),term);
+  assert.equal(documents.filter(record=>record.catalog_state==='mvp').length,5);
+  for(const record of documents){
+    assert.ok(record.structure.fa&&record.structure.en,record.id);
+    assert.ok(record.guide.fa&&record.guide.en,record.id);
+    if(record.catalog_state==='mvp')assert.ok(record.example?.fa&&record.example?.en,record.id);
+    else assert.equal(record.example,null,record.id);
+  }
 });

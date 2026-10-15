@@ -96,6 +96,27 @@ test('execution decisions, goals, actions and history stay explicitly linked', (
   assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/execution/decisions/{record_id}/']);
   assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/execution/goals/{record_id}/']);
 });
+test('document library records have bounded content and explicit review metadata', () => {
+  const document = {
+    template_id: 'executive-onepage',
+    stage: 'mvp',
+    industry: 'general',
+    owner_id: '11111111-1111-4111-8111-111111111111',
+    reviewer_id: null,
+    status: 'draft',
+    content: '[Business name] helps [customer group] address [problem].',
+  };
+  assert.equal(check('DocumentWrite', document), true);
+  assert.equal(check('DocumentWrite', { ...document, status: 'approved' }), false);
+  assert.equal(check('DocumentWrite', { ...document, workspace_id: 'other' }), false);
+  assert.equal(
+    check('DocumentUpdate', { revision: 1, status: 'review', reviewer_id: document.owner_id }),
+    true,
+  );
+  assert.equal(check('DocumentUpdate', { revision: 0, status: 'ready' }), false);
+  assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/documents/']);
+  assert.ok(spec.paths['/api/v1/workspaces/{workspace_id}/documents/{record_id}/']);
+});
 test('weighted matrix row rejects invalid ratings, weights and extra fields', () => {
   const row = { id: 'r1', title: 'عامل نمونه', weight: 50, rating: 3 };
   assert.equal(check('WeightedInputs', { rows: [row] }), true);

@@ -69,7 +69,7 @@ test('global search resolves ICP page and indexed specialized data',()=>{
 });
 test('document library has bilingual records, no external-folder links, and multi-file controls',async()=>{
   let content=go('documents');assert.equal(documentSections.length,12);assert.equal(documents.length,60);
-  assert.equal([...content.matchAll(/data-document-upload=/g)].length,documents.length);assert.match(content,/کتابخانه اسناد مدیریتی/);assert.match(content,/راهنمای نگارش/);assert.match(content,/سناریو و راهبردهای صلح/);
+  assert.equal([...content.matchAll(/data-document-upload=/g)].length,documents.length);assert.match(content,/کتابخانه اسناد مدیریتی/);assert.match(content,/راهنمای نگارش/);assert.match(content,/سند سناریو و راهبردهای رشد، رکود و بحران/);
   assert.equal([...content.matchAll(/type="file" multiple/g)].length,documents.length);assert.doesNotMatch(content,/drive\.google\.com|\bDrive\b|بازکردن فایل منبع|Open source file/i);
   await change({preference:'language'},'en','select-one');content=html();assert.match(content,/Management document library/);assert.match(content,/data-document-upload=/);assert.match(content,/Add files/);assert.doesNotMatch(content,/drive\.google\.com|\bDrive\b|Open source file/i);
   await change({preference:'language'},'fa','select-one');

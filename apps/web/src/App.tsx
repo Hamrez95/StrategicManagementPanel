@@ -56,6 +56,7 @@ const CompanyProfilePage = lazy(() => import('./features/workspaces/CompanyProfi
 const SwotPage = lazy(() => import('./features/strategy/SwotPage'));
 const EvaluationMatrixPage = lazy(() => import('./features/analysis/EvaluationMatrixPage'));
 const ExecutionPlanPage = lazy(() => import('./features/decisions/ExecutionPlanPage'));
+const DocumentsPage = lazy(() => import('./features/documents/DocumentsPage'));
 const ComponentLab = import.meta.env.DEV ? lazy(() => import('./pages/ComponentLab')) : null;
 
 function RouteFocus() {
@@ -394,6 +395,7 @@ export function App() {
                   <Route path="tools/swot" element={<SwotPage />} />
                   <Route path="tools/matrices" element={<EvaluationMatrixPage />} />
                   <Route path="tools/execution" element={<ExecutionPlanPage />} />
+                  <Route path="tools/documents" element={<DocumentsPage />} />
                   <Route path="tools/:toolId" element={<WorkspaceToolPage />} />
                   <Route path="*" element={<LegacyWorkspaceRedirect />} />
                 </Route>

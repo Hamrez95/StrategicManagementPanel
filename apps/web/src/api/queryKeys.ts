@@ -16,6 +16,8 @@ export const queryKeys = {
     strategyBoard: (workspaceId: string) => ['workspace', workspaceId, 'strategy-board'] as const,
     analyses: (workspaceId: string) => ['workspace', workspaceId, 'analyses'] as const,
     execution: (workspaceId: string) => ['workspace', workspaceId, 'execution'] as const,
+    documents: (workspaceId: string, stage: string, industry: string) =>
+      ['workspace', workspaceId, 'documents', stage, industry] as const,
     members: (workspaceId: string) => ['workspace', workspaceId, 'members'] as const,
     invitations: (workspaceId: string) => ['workspace', workspaceId, 'invitations'] as const,
     imports: (workspaceId: string) => ['workspace', workspaceId, 'imports'] as const,

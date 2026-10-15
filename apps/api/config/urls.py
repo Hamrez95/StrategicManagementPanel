@@ -53,6 +53,7 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/analyses/', analysis_collection),
     path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/', analysis_detail),
     path('api/v1/workspaces/<str:workspace_id>/execution/', include('modules.execution.urls')),
+    path('api/v1/workspaces/<str:workspace_id>/documents/', include('modules.documents.urls')),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),
     path('api/v1/workspaces/<str:workspace_id>/imports/<uuid:batch_id>/', workspace_import_detail),
