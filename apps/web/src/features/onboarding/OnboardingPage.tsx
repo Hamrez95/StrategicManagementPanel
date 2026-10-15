@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Navigate, useNavigate, useOutletContext } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Input, Notice, Skeleton, useToast, useUIAppearance } from '@stratino/ui';
@@ -56,24 +56,33 @@ export default function OnboardingPage() {
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [nameConflict, setNameConflict] = useState(false);
+  const hydratedAccount = useRef('');
+  const hydratedWorkspace = useRef('');
+  const hydratedProfile = useRef('');
 
   useEffect(() => {
     if (!accountQuery.data) return;
+    if (hydratedAccount.current === accountQuery.data.email) return;
+    hydratedAccount.current = accountQuery.data.email;
     setDisplayName(accountQuery.data.display_name);
     setRoleTitle(accountQuery.data.role_title);
-  }, [accountQuery.data?.email]);
+  }, [accountQuery.data]);
 
   useEffect(() => {
     if (!ownedWorkspace) return;
-    setWorkspaceName((current) => current || ownedWorkspace.name);
-  }, [ownedWorkspace?.id]);
+    if (hydratedWorkspace.current === ownedWorkspace.id) return;
+    hydratedWorkspace.current = ownedWorkspace.id;
+    setWorkspaceName(ownedWorkspace.name);
+  }, [ownedWorkspace]);
 
   useEffect(() => {
     if (!profileQuery.data || profileQuery.data.workspace_id !== ownedWorkspace?.id) return;
+    if (hydratedProfile.current === profileQuery.data.workspace_id) return;
+    hydratedProfile.current = profileQuery.data.workspace_id;
     setIndustry(profileQuery.data.industry);
     setStage(profileQuery.data.stage);
     setMission(profileQuery.data.mission);
-  }, [profileQuery.data?.workspace_id]);
+  }, [ownedWorkspace?.id, profileQuery.data]);
 
   const savedDisplayName = accountQuery.data?.display_name ?? '';
   const savedRoleTitle = accountQuery.data?.role_title ?? '';

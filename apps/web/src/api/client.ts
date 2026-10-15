@@ -147,7 +147,7 @@ export async function uploadFileApi<T>(
     }
     xhr.addEventListener('load', () => {
       cleanup();
-      let payload: unknown = xhr.response;
+      const payload: unknown = xhr.response;
       if (xhr.status < 200 || xhr.status >= 300) {
         reportSessionExpiry(path, xhr.status);
         const record =

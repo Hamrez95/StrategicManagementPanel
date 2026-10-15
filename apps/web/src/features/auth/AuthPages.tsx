@@ -260,6 +260,7 @@ export function VerifyEmailPage() {
   );
   const [pending, setPending] = useState(false);
   const errors = useFormErrors();
+  const captureError = errors.capture;
   const handled = useRef(false);
 
   useEffect(() => {
@@ -273,9 +274,9 @@ export function VerifyEmailPage() {
       .then(() => setResult('verified'))
       .catch((error: unknown) => {
         setResult('invalid');
-        errors.capture(error, 'پیوند تأیید باز نشد. نشانی را بررسی یا پیوند تازه‌ای درخواست کنید.');
+        captureError(error, 'پیوند تأیید باز نشد. نشانی را بررسی یا پیوند تازه‌ای درخواست کنید.');
       });
-  }, [errors.capture, location.hash]);
+  }, [captureError, location.hash]);
 
   async function resend(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -329,6 +330,8 @@ export function PasswordResetPage() {
   const [mode, setMode] = useState<'request' | 'confirm' | 'sent' | 'done' | 'invalid'>('request');
   const [pending, setPending] = useState(false);
   const errors = useFormErrors();
+  const setFailed = errors.setFailed;
+  const setMessage = errors.setMessage;
   const handled = useRef(false);
 
   useEffect(() => {
@@ -341,14 +344,14 @@ export function PasswordResetPage() {
     window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
     if (!nextToken || !nextUid) {
       setMode('invalid');
-      errors.setMessage('پیوند بازیابی کامل نیست. یک پیوند تازه درخواست کنید.');
-      errors.setFailed(true);
+      setMessage('پیوند بازیابی کامل نیست. یک پیوند تازه درخواست کنید.');
+      setFailed(true);
       return;
     }
     setToken(nextToken);
     setUid(nextUid);
     setMode('confirm');
-  }, [errors.setFailed, errors.setMessage, location.hash]);
+  }, [location.hash, setFailed, setMessage]);
 
   async function requestReset(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

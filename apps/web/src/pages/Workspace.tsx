@@ -72,7 +72,7 @@ export default function Workspace() {
     setNameError('');
     setNameFieldError('');
     setNameConflict(false);
-  }, [workspaceQuery.data?.id]);
+  }, [workspaceId, workspaceQuery.data]);
 
   const nameDirty = Boolean(workspaceQuery.data && name !== workspaceQuery.data.name);
   useWorkspaceDirtyGuard(`workspace-name-${workspaceId}`, Boolean(owner && nameDirty));

@@ -33,7 +33,7 @@ export function patchAuth<T = Record<string, unknown>>(
 }
 
 export function deleteAuth(path: string) {
-  return requestAuth<{}>('DELETE', path);
+  return requestAuth<void>('DELETE', path);
 }
 
 export function firstFieldError(fields: AuthFields, name: string) {

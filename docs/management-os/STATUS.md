@@ -36,3 +36,9 @@ Server, real PostgreSQL migrations/restore, Docker, physical Windows runner, pro
 Design inspection evidence: standalone preview rendered via installed Edge; 40 screen selections, zero uncaught script errors, Why/Escape, five state selections and no whole-page overflow at 360px. Three screenshots visually reviewed; duplicated mobile step primary action corrected. This does not execute the real application or remove the deferred product-browser validation queue.
 
 Planning sync: 18 existing task descriptions and roadmap #53 were updated through the verified Hamrez95 GitHub connector. No issue was closed. Local design links await branch publication. Design coherence checks passed: 119 local links resolve, 69 task IDs map to real issues, 8 epics, acyclic prerequisites, all P01-P40 and J01-J11 present. Graphify AST update completed: 4130 nodes / 7845 edges / 261 communities; no cloud/semantic labeling.
+
+## 055-A completion — 2026-10-16
+
+All 8 prior ESLint errors resolved, with no disable or dependency suppression. Auth hook dependencies now name stable callbacks; onboarding account/workspace/profile values hydrate once per identity so background query refreshes retain in-progress drafts; workspace switching still clears and hydrates by new identity. DELETE response type narrowed to `void` and upload response made immutable.
+
+Evidence: full existing web/domain/UI ESLint command exit 0; npm run typecheck exit 0; git diff --check exit 0; Graphify local AST rebuilt (4130 nodes/7845 edges/261 communities). 055-A is locally complete. 055-B still pending: format 32 existing files, then root quality. Server, Docker, physical and real-browser checks remain deferred to the final queue.
