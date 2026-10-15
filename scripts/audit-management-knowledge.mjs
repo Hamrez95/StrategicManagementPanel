@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { load as loadYaml } from 'js-yaml';
+import Ajv from 'ajv';
 
 const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -96,6 +97,26 @@ export function auditKnowledge(root) {
       add(directory, document, file);
   }
   const read = (file) => documents.get(file);
+  for (const required of [
+    'catalog.json',
+    'validation/record-contracts.json',
+    'journeys/startup/journey.json',
+    'journeys/organization/journey.json',
+    'taxonomy/applicability-contract.json',
+    'taxonomy/field-mapping.json',
+  ])
+    if (!documents.has(required)) errors.push(`Missing required document: ${required}`);
+  const ajv = new Ajv({ allErrors: true, strict: false });
+  for (const [kind, schema] of Object.entries(
+    read('validation/record-contracts.json')?.contracts ?? {},
+  )) {
+    const validate = ajv.compile(schema);
+    for (const value of groups[kind] ?? [])
+      if (!validate(value))
+        errors.push(
+          `${canonical.get(value.id)?.path}: ${value.id}: ${ajv.errorsText(validate.errors)}`,
+        );
+  }
   const startup = read('journeys/startup/journey.json');
   const organization = read('journeys/organization/journey.json');
   const extraIds = new Set();
@@ -179,6 +200,101 @@ export function auditKnowledge(root) {
   };
   assertDag(groups.metrics, 'dependencies', 'metrics');
   assertDag(organization?.steps ?? [], 'depends_on', 'organization');
+  for (const metric of groups.metrics) {
+    for (const input of metric.required_inputs ?? []) {
+      if (!Object.hasOwn(metric.formula_variables ?? {}, input))
+        warnings.push(
+          `${metric.id}: required input ${input} needs an explicit variable/context adapter before runtime promotion`,
+        );
+    }
+    if (!metric.formula?.trim() || !Object.keys(metric.formula_variables ?? {}).length)
+      errors.push(`${metric.id}: missing formula contract`);
+    if (/^[a-z_0-9\s()+*/.%^=-]+$/i.test(metric.formula ?? '')) {
+      for (const variable of metric.formula.match(/[a-z_][a-z_0-9]*/gi) ?? [])
+        if (!Object.hasOwn(metric.formula_variables ?? {}, variable))
+          errors.push(`${metric.id}: undefined formula variable ${variable}`);
+    }
+  }
+  const inspectPredicates = (value, file) => {
+    if (!value || typeof value !== 'object') return;
+    if (Object.hasOwn(value, 'op')) {
+      if (!['eq', 'neq', 'in', 'missing_or_unverified'].includes(value.op))
+        errors.push(`${file}: unsupported research operator ${value.op}`);
+      if (typeof value.field !== 'string' || !value.field || !Object.hasOwn(value, 'value'))
+        errors.push(`${file}: incomplete predicate`);
+      if (value.op === 'in' && !Array.isArray(value.value))
+        errors.push(`${file}: in predicate needs an array`);
+    }
+    Object.values(value).forEach((child) => inspectPredicates(child, file));
+  };
+  for (const [file, document] of documents)
+    if (!document?.generated_by && !file.startsWith('validation/'))
+      inspectPredicates(document, file);
+  for (const diagnostic of groups.diagnostics) {
+    const nodes = diagnostic.nodes;
+    if (!Array.isArray(nodes) || nodes.length === 0) {
+      errors.push(`${diagnostic.id}: missing diagnostic nodes`);
+      continue;
+    }
+    const map = new Map(nodes.map((node) => [node.id, node]));
+    const terminal = new Set(
+      [...(diagnostic.terminal_outcomes ?? []), ...(diagnostic.outcomes ?? [])].map((node) =>
+        typeof node === 'string' ? node : node.id,
+      ),
+    );
+    if (map.size !== nodes.length || [...terminal].some((id) => map.has(id)))
+      errors.push(`${diagnostic.id}: duplicate diagnostic node/terminal`);
+    const entry = diagnostic.entry_node ?? diagnostic.root_node ?? diagnostic.entry;
+    if (entry !== undefined && !map.has(entry)) {
+      errors.push(`${diagnostic.id}: invalid diagnostic entry ${entry}`);
+      continue;
+    }
+    if (entry === undefined)
+      warnings.push(
+        `${diagnostic.id}: no explicit entry node; runtime promotion requires a reviewed entry adapter`,
+      );
+    const targets = (node) =>
+      [
+        ...(node.branches ?? []).map((branch) => branch.next_node ?? branch.target),
+        ...[
+          'if_yes',
+          'if_no',
+          'if_unknown',
+          'true',
+          'false',
+          'unknown',
+          'next',
+          'no_branch_supported',
+        ].map((key) => node[key]),
+      ].filter((target) => target !== undefined && target !== null);
+    const container = read(canonical.get(diagnostic.id).path);
+    const external = new Set(
+      container?.evaluation_contract?.collect_evidence ? ['collect_evidence'] : [],
+    );
+    const active = new Set();
+    const reached = new Set();
+    const visit = (id) => {
+      if (terminal.has(id) || external.has(id)) return;
+      if (!map.has(id)) {
+        errors.push(`${diagnostic.id}: missing diagnostic target ${id}`);
+        return;
+      }
+      if (active.has(id)) {
+        errors.push(`${diagnostic.id}: diagnostic traversal cycle at ${id}`);
+        return;
+      }
+      if (reached.has(id)) return;
+      reached.add(id);
+      active.add(id);
+      for (const target of targets(map.get(id))) visit(target);
+      active.delete(id);
+    };
+    if (entry !== undefined) {
+      visit(entry);
+      for (const id of map.keys())
+        if (!reached.has(id)) errors.push(`${diagnostic.id}: unreachable diagnostic node ${id}`);
+    } else for (const id of map.keys()) visit(id);
+  }
   if (startup) {
     const stages = new Set(startup.dependency_graph.nodes);
     const reachable = new Set(['idea']);
@@ -225,8 +341,58 @@ export function auditKnowledge(root) {
     for (const id of canonical.keys()) if (!indexed.has(id)) errors.push(`Catalog omits ${id}`);
   }
   const sourceDepth = {};
-  for (const source of groups.sources)
+  const sourceUrls = new Set();
+  for (const source of groups.sources) {
     sourceDepth[source.access_depth] = (sourceDepth[source.access_depth] ?? 0) + 1;
+    try {
+      const url = new URL(source.url);
+      if (!['https:', 'http:'].includes(url.protocol)) throw new Error('unsupported protocol');
+      if (sourceUrls.has(url.href))
+        errors.push(`Duplicate source URL: ${url.href}; use an explicit alias`);
+      sourceUrls.add(url.href);
+    } catch {
+      errors.push(`${source.id}: invalid source URL`);
+    }
+  }
+  const journeyCoverage = {
+    startup: (startup?.phases ?? []).map((phase) => {
+      const stage = read('taxonomy/business-stages.json')?.stages.find(
+        (value) => value.id === phase.stage_id,
+      );
+      return {
+        stage: phase.stage_id,
+        entry_criteria: stage?.entry_criteria ?? [],
+        exit_criteria: stage?.exit_criteria ?? [],
+        required_evidence: phase.required_evidence,
+        question_ids: phase.question_ids,
+        required_inputs: (startup.questions ?? [])
+          .filter((question) => phase.question_ids.includes(question.id))
+          .map((question) => question.answer_field),
+        optional: phase.optional,
+        deferred: phase.deferred,
+        blocking: phase.blocking_data,
+        non_blocking: phase.non_blocking_data,
+        metrics: phase.metrics,
+        frameworks: phase.frameworks,
+        decisions: phase.decisions,
+        completion: phase.completion_criteria,
+        status: 'research_prose_requires_reviewed_executable_adapters',
+      };
+    }),
+    organization: (organization?.steps ?? []).map((step) => ({
+      id: step.id,
+      dependencies: step.depends_on,
+      required_inputs: step.required_inputs,
+      required_evidence: step.required_evidence,
+      metrics: step.metrics,
+      frameworks: step.frameworks,
+      decisions: step.decisions,
+      completion: step.completion_criteria,
+      next_stage: step.next_stage_criteria,
+      navigation: step.navigation,
+      status: 'stable_question_ids_and_typed_relevance_gates_missing',
+    })),
+  };
   const recommendations = groups.recommendations.map((value) => {
     const rule = canonical.get(value.trigger)?.value;
     return {
@@ -244,6 +410,7 @@ export function auditKnowledge(root) {
     inventory,
     counts: Object.fromEntries(Object.entries(groups).map(([key, values]) => [key, values.length])),
     source_depth: sourceDepth,
+    journey_coverage: journeyCoverage,
     recommendations,
     errors: [...new Set(errors)],
     warnings: [...new Set(warnings)],
@@ -271,6 +438,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
         ...report,
         inventory: `${report.inventory.length} files read and hashed`,
         recommendations: `${report.recommendations.length} trace chains inspected`,
+        journey_coverage: {
+          startup: report.journey_coverage.startup.length,
+          organization: report.journey_coverage.organization.length,
+        },
       },
       null,
       2,

@@ -14,6 +14,14 @@ GitHub planning synchronized as Hamrez95: new tasks #65–81, epics #82–89, al
 
 HTTPS push is blocked by cached Git Credential Manager account akbarAbdiX (403). GitHub connector identifies Hamrez95 and can update issues. User was asked to sign Git into Hamrez95; do not request secrets or change global spouse credentials. Main is not updated until a successful push/merge and fetch verification. Root runner remains `run-local.ps1`.
 
+## STR-053 development checkpoint
+
+Knowledge integrity implementation is complete locally: 18/18 targeted mutation tests passed; original research validator passed 6 personas/16 guards and left research unchanged; all 120 files are read and hashed. An independent knowledge CI workflow and direct pinned js-yaml dependency are added. The extended audit records 28 runtime-adapter warnings, including explicit diagnostic-root and financial context gaps. Historical research stays unchanged. Remote CI/merge evidence is still pending, so #65 remains open/in_progress.
+
+Full `npm test` run: 66/67 pass; the old preference test expects a record without showTutorial, while the current implementation explicitly includes it. Track/repair this baseline contract with STR-055 alongside the TypeScript errors; do not disable the test or claim full quality passed.
+
+Planning commit: `fc52c7a`; knowledge research commit: `19bb2d4`. Next development task is STR-055, then STR-054.
+
 ## Continue
 
 Follow NEXT_ACTIONS.md; no need to regenerate the KB or repeat its entire research. Update this checkpoint after every coherent task with commit, exact test results, blocker and next action. Production engine/UI implementation starts only from the dependency order in the unified catalog.

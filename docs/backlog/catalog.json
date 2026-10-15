@@ -2006,7 +2006,7 @@
       "risk": "high",
       "phase": "Management OS",
       "priority": "P0",
-      "status": "planned",
+      "status": "in_progress",
       "epic": "MOS-KNOWLEDGE",
       "knowledge_dependencies": [
         "validation/validate.mjs",
@@ -2014,7 +2014,8 @@
         "catalog.json"
       ],
       "issue_number": 65,
-      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/65"
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/65",
+      "progress_evidence": "18/18 knowledge mutation tests pass; independent read-only audit and isolated CI defined. Remote CI and merge pending; 28 explicit runtime-adapter warnings remain research promotion gates."
     },
     {
       "id": "STR-054",

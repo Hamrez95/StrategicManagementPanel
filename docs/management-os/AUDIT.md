@@ -36,6 +36,13 @@ Findings:
 | K09 | Confidence is editorial ordinal and uncalibrated; freshness is phenomenon-specific                                                                           | Preserve axis reasons and contradictory evidence; no averaged score or global expiry (STR-057/069)                 |
 | K10 | Scientific efficacy, Iranian accounting applicability and real usability are unverified                                                                      | Explicit research/release gates; six fixture passes are not user research (STR-004/038/068)                        |
 
+Additional findings from the extended STR-053 audit:
+
+- **K11:** LTV/NPV/IRR required inputs include series/context fields that are not one-to-one formula variables. Preserve series/window/currency semantics; explicit typed input adapters are required before promotion (STR-054/058/042).
+- **K12:** Three operations/execution diagnostic trees contain entry_question prose, not an entry node ID. Edge targets/cycles can be checked, but a root must not be guessed. A reviewed entry adapter is required (STR-054/062/066).
+
+The extended audit reports 28 warnings: 19 missing document versions, 6 variable/context mappings and 3 diagnostic entry contracts. These are research-to-runtime promotion blockers. Per-stage input/evidence/framework/decision/completion coverage for all six startup phases and eight organization steps is in `journey_coverage` in knowledge-audit.json.
+
 ## Can the KB answer the three product questions?
 
 | Question              | Current ability                                                             | Missing bridge                                                                           |

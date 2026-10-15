@@ -620,6 +620,558 @@
     "full_text": 9,
     "abstract_only": 2
   },
+  "journey_coverage": {
+    "startup": [
+      {
+        "stage": "idea",
+        "entry_criteria": [
+          "An opportunity or technology hypothesis is named; no external validation is presumed."
+        ],
+        "exit_criteria": [
+          "One initial customer/problem hypothesis and its riskiest assumption are explicit.",
+          "A feasible, permitted route to contact relevant customers is identified."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-OPPORTUNITY"
+        ],
+        "question_ids": [
+          "Q-STARTUP-IDEA-CUSTOMER",
+          "Q-STARTUP-IDEA-CONSTRAINT"
+        ],
+        "required_inputs": [
+          "customer_problem_hypothesis",
+          "critical_assumption"
+        ],
+        "optional": [
+          "Detailed brand identity",
+          "Long-term product architecture"
+        ],
+        "deferred": [
+          "ROIC and LTV calculations without meaningful operating history"
+        ],
+        "blocking": [
+          "Target customer or access route missing for discovery recruitment"
+        ],
+        "non_blocking": [
+          "Exact TAM",
+          "Five-year financial forecast"
+        ],
+        "metrics": [],
+        "frameworks": [
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+          "FW-STARTUP-TEST-LEARNING-CARDS"
+        ],
+        "decisions": [
+          "Investigate, reframe or stop this opportunity"
+        ],
+        "completion": [
+          "Initial segment, circumstances and uncertainty are recorded, including unknowns."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      },
+      {
+        "stage": "discovery",
+        "entry_criteria": [
+          "A target segment and interview/research access route are explicit."
+        ],
+        "exit_criteria": [
+          "Traceable observations support a recurring problem in a defined context, with contradictory cases retained.",
+          "A proposed value hypothesis and experiment are justified by the observations."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-PROBLEM"
+        ],
+        "question_ids": [
+          "Q-STARTUP-DISCOVERY-BEHAVIOR",
+          "Q-STARTUP-DISCOVERY-BUYER"
+        ],
+        "required_inputs": [
+          "recent_problem_observations",
+          "buying_actors"
+        ],
+        "optional": [
+          "Detailed persona illustration"
+        ],
+        "deferred": [
+          "Acquisition scaling",
+          "Precise retention forecasts"
+        ],
+        "blocking": [
+          "No credible observations about a problem for the selected segment"
+        ],
+        "non_blocking": [
+          "Fully quantified market share",
+          "Product feature preference ranking"
+        ],
+        "metrics": [],
+        "frameworks": [
+          "FW-STARTUP-JOBS-TO-BE-DONE",
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+          "FW-STARTUP-TEST-LEARNING-CARDS"
+        ],
+        "decisions": [
+          "Select or change segment/problem",
+          "Test solution value or return to idea"
+        ],
+        "completion": [
+          "Problem claims have source-linked observations and explicit limitations."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      },
+      {
+        "stage": "validation",
+        "entry_criteria": [
+          "Problem evidence and a testable solution/value hypothesis exist."
+        ],
+        "exit_criteria": [
+          "A relevant customer can obtain the intended value through an MVP or permitted prototype.",
+          "Commitment evidence and delivery feasibility are reviewed against predeclared context-specific criteria."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-VALUE-TEST",
+          "EV-STARTUP-COMMITMENT"
+        ],
+        "question_ids": [
+          "Q-STARTUP-VALIDATION-VALUE",
+          "Q-STARTUP-VALIDATION-COMMITMENT"
+        ],
+        "required_inputs": [
+          "observed_value",
+          "commitment_observations"
+        ],
+        "optional": [
+          "A/B testing when traffic and identification support it"
+        ],
+        "deferred": [
+          "Large-scale paid acquisition",
+          "Stable long-horizon LTV estimates"
+        ],
+        "blocking": [
+          "No value-delivery or customer-commitment observations for the key hypothesis"
+        ],
+        "non_blocking": [
+          "Statistically powered A/B result when a safer qualitative/behavioral test is appropriate"
+        ],
+        "metrics": [
+          "MET-ACTIVATION-RATE",
+          "MET-CONTRIBUTION-MARGIN",
+          "MET-CASH-RUNWAY"
+        ],
+        "frameworks": [
+          "FW-STARTUP-TEST-LEARNING-CARDS",
+          "FW-STARTUP-LEAN-STARTUP",
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS"
+        ],
+        "decisions": [
+          "Persevere, pivot, retest inconclusive evidence or stop",
+          "Choose the smallest next delivery commitment"
+        ],
+        "completion": [
+          "Test observations, interpretation and action are recorded separately.",
+          "Failed and inconclusive tests remain visible."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      },
+      {
+        "stage": "early-traction",
+        "entry_criteria": [
+          "Documented customers have received the intended outcome."
+        ],
+        "exit_criteria": [
+          "Retention/renewal or business-model-appropriate repeatability evidence is reviewed by segment/cohort.",
+          "Acquisition and delivery economics and cash requirements have credible observed inputs.",
+          "A bounded growth test has explicit guardrails."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-COHORTS",
+          "EV-STARTUP-UNIT-ECONOMICS"
+        ],
+        "question_ids": [
+          "Q-STARTUP-EARLY-TRACTION-REPEATABILITY",
+          "Q-STARTUP-EARLY-TRACTION-ECONOMICS"
+        ],
+        "required_inputs": [
+          "repeatability_evidence",
+          "observed_economics"
+        ],
+        "optional": [
+          "Advanced attribution model"
+        ],
+        "deferred": [
+          "Broad geographic rollout before local assumptions are tested"
+        ],
+        "blocking": [
+          "Retention or equivalent repeatability evidence missing when material acquisition expansion is requested",
+          "Cash exposure unknown before spending commitment"
+        ],
+        "non_blocking": [
+          "Perfect causal attribution",
+          "Stable LTV when cohorts are immature"
+        ],
+        "metrics": [
+          "MET-COHORT-RETENTION",
+          "MET-ACTIVATION-RATE",
+          "MET-CONTRIBUTION-MARGIN",
+          "MET-CAC",
+          "MET-CASH-RUNWAY"
+        ],
+        "frameworks": [
+          "FW-STARTUP-LEAN-STARTUP",
+          "FW-STARTUP-TEST-LEARNING-CARDS",
+          "FW-STARTUP-JOBS-TO-BE-DONE"
+        ],
+        "decisions": [
+          "Continue learning, refine segment, or authorize a bounded growth test",
+          "Assess PMF as supported/contradicted/unknown for a named segment"
+        ],
+        "completion": [
+          "Observed repeatability and limitations are documented, including cohort age."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      },
+      {
+        "stage": "growth",
+        "entry_criteria": [
+          "A reviewed evidence case supports controlled expansion in a named segment."
+        ],
+        "exit_criteria": [
+          "Multiple measured growth cycles preserve customer outcomes and economic guardrails.",
+          "Capacity, cash and management constraints for broader replication are explicit."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-GROWTH-REPLICATION",
+          "EV-STARTUP-CAPACITY"
+        ],
+        "question_ids": [
+          "Q-STARTUP-GROWTH-INCREMENTAL",
+          "Q-STARTUP-GROWTH-CAPACITY"
+        ],
+        "required_inputs": [
+          "incremental_growth_economics",
+          "capacity_cash_constraints"
+        ],
+        "optional": [
+          "New product/region exploration as a separate discovery branch"
+        ],
+        "deferred": [
+          "Assuming every business must pursue venture-scale expansion"
+        ],
+        "blocking": [
+          "Marginal acquisition/fulfillment costs or material cash constraints unknown for the proposed expansion"
+        ],
+        "non_blocking": [
+          "Complete multi-touch attribution"
+        ],
+        "metrics": [
+          "MET-REVENUE-GROWTH",
+          "MET-CAC",
+          "MET-CAC-PAYBACK",
+          "MET-CONTRIBUTION-MARGIN",
+          "MET-COHORT-RETENTION",
+          "MET-CASH-RUNWAY",
+          "MET-SALES-CYCLE"
+        ],
+        "frameworks": [
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+          "FW-STARTUP-TEST-LEARNING-CARDS",
+          "FW-STARTUP-LEAN-STARTUP"
+        ],
+        "decisions": [
+          "Expand, hold or reduce a channel",
+          "Invest in capacity or revisit value proposition"
+        ],
+        "completion": [
+          "Growth case includes customer value, incremental economics, cash and operational constraints."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      },
+      {
+        "stage": "scale",
+        "entry_criteria": [
+          "Repeated growth evidence and operating constraints support a specified replication plan."
+        ],
+        "exit_criteria": [
+          "No universal terminal completion; review whether each replication meets its own customer, economic and control criteria."
+        ],
+        "required_evidence": [
+          "EV-STARTUP-SCALE-READINESS"
+        ],
+        "question_ids": [
+          "Q-STARTUP-SCALE-REPLICATION",
+          "Q-STARTUP-SCALE-OWNERSHIP"
+        ],
+        "required_inputs": [
+          "replication_assumptions",
+          "rollout_accountability"
+        ],
+        "optional": [
+          "Additional venture exploration"
+        ],
+        "deferred": [
+          "Exit/funding transaction recommendations pending jurisdiction-specific research"
+        ],
+        "blocking": [
+          "Undefined accountability or unmeasured material operating risk for a proposed rollout"
+        ],
+        "non_blocking": [
+          "Exact employee-size category"
+        ],
+        "metrics": [
+          "MET-CONTRIBUTION-MARGIN",
+          "MET-COHORT-RETENTION",
+          "MET-THROUGHPUT",
+          "MET-DEFECT-RATE",
+          "MET-CASH-RUNWAY",
+          "MET-REVENUE-GROWTH"
+        ],
+        "frameworks": [
+          "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+          "FW-STARTUP-TEST-LEARNING-CARDS"
+        ],
+        "decisions": [
+          "Replicate, pause, adapt locally or withdraw",
+          "Move stable operations to established-organization review while preserving discovery for new bets"
+        ],
+        "completion": [
+          "Each rollout has owned outcomes, cash exposure and a review date."
+        ],
+        "status": "research_prose_requires_reviewed_executable_adapters"
+      }
+    ],
+    "organization": [
+      {
+        "id": "ORG-TRIAGE",
+        "dependencies": [],
+        "required_inputs": [
+          "objective",
+          "current_operating_state"
+        ],
+        "required_evidence": [
+          "dated obligation evidence when cash is at risk"
+        ],
+        "metrics": [],
+        "frameworks": [],
+        "decisions": [
+          "decision"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-BASELINE",
+        "dependencies": [
+          "ORG-TRIAGE"
+        ],
+        "required_inputs": [
+          "financial_period",
+          "reporting_scope"
+        ],
+        "required_evidence": [
+          "reconciled P&L and cash records"
+        ],
+        "metrics": [
+          "MET-GROSS-MARGIN",
+          "MET-OPERATING-CASH-FLOW"
+        ],
+        "frameworks": [],
+        "decisions": [
+          "insight"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-CONTEXT",
+        "dependencies": [
+          "ORG-BASELINE"
+        ],
+        "required_inputs": [
+          "customer_segment",
+          "change_hypothesis"
+        ],
+        "required_evidence": [
+          "recent segment evidence and named alternatives"
+        ],
+        "metrics": [],
+        "frameworks": [],
+        "decisions": [
+          "insight"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-CONSTRAINT",
+        "dependencies": [
+          "ORG-BASELINE"
+        ],
+        "required_inputs": [
+          "problem_domain",
+          "process_boundary"
+        ],
+        "required_evidence": [
+          "process or economics observations"
+        ],
+        "metrics": [
+          "MET-CONTRIBUTION-MARGIN"
+        ],
+        "frameworks": [],
+        "decisions": [
+          "risk"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-CHOICE",
+        "dependencies": [
+          "ORG-CONTEXT",
+          "ORG-CONSTRAINT"
+        ],
+        "required_inputs": [
+          "options",
+          "decision_owner"
+        ],
+        "required_evidence": [
+          "alternatives and implications"
+        ],
+        "metrics": [],
+        "frameworks": [],
+        "decisions": [
+          "decision"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-ALLOCATION",
+        "dependencies": [
+          "ORG-CHOICE"
+        ],
+        "required_inputs": [
+          "capacity",
+          "owners"
+        ],
+        "required_evidence": [
+          "team capacity commitments"
+        ],
+        "metrics": [],
+        "frameworks": [
+          "FW-HOSHIN"
+        ],
+        "decisions": [
+          "initiative"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-EXECUTION",
+        "dependencies": [
+          "ORG-ALLOCATION"
+        ],
+        "required_inputs": [
+          "initiative",
+          "measure_contract"
+        ],
+        "required_evidence": [
+          "named owner, next milestone, metric baseline"
+        ],
+        "metrics": [],
+        "frameworks": [
+          "FW-BALANCED-SCORECARD"
+        ],
+        "decisions": [
+          "action"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      },
+      {
+        "id": "ORG-REVIEW",
+        "dependencies": [
+          "ORG-EXECUTION"
+        ],
+        "required_inputs": [
+          "outcome_observations"
+        ],
+        "required_evidence": [
+          "comparable outcome plus unexpected effects"
+        ],
+        "metrics": [],
+        "frameworks": [],
+        "decisions": [
+          "decision"
+        ],
+        "completion": "Required decision has an owner, evidence snapshot and recorded limitations; or explicit no-action with reason.",
+        "next_stage": "Dependencies accepted; incomplete essential evidence cannot silently auto-complete.",
+        "navigation": {
+          "skip": "Allowed with reason if irrelevant; retain unresolved prerequisite.",
+          "auto_complete": "Only from reviewed imported evidence matching scope and period.",
+          "import": true,
+          "bulk_input": true,
+          "expert_mode": true
+        },
+        "status": "stable_question_ids_and_typed_relevance_gates_missing"
+      }
+    ]
+  },
   "recommendations": [
     {
       "id": "REC-DISCOVERY",
@@ -721,6 +1273,15 @@
   ],
   "errors": [],
   "warnings": [
+    "MET-LTV: required input expected_margin_series needs an explicit variable/context adapter before runtime promotion",
+    "MET-IRR: required input cash_flow_series needs an explicit variable/context adapter before runtime promotion",
+    "MET-IRR: required input period_length needs an explicit variable/context adapter before runtime promotion",
+    "MET-NPV: required input cash_flow_series needs an explicit variable/context adapter before runtime promotion",
+    "MET-NPV: required input currency needs an explicit variable/context adapter before runtime promotion",
+    "MET-NPV: required input valuation_date needs an explicit variable/context adapter before runtime promotion",
+    "DIAG-OPS-INVENTORY: no explicit entry node; runtime promotion requires a reviewed entry adapter",
+    "DIAG-OPS-DELIVERY: no explicit entry node; runtime promotion requires a reviewed entry adapter",
+    "DIAG-ORG-EXECUTION: no explicit entry node; runtime promotion requires a reviewed entry adapter",
     "frameworks/execution-additional/moscow.json: no document schema_version; explicit loader adapter required",
     "frameworks/execution-additional/okr.json: no document schema_version; explicit loader adapter required",
     "frameworks/execution-additional/raci.json: no document schema_version; explicit loader adapter required",
