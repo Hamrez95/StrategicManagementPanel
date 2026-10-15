@@ -35,7 +35,7 @@ This is a dataflow, not a mandatory waterfall across engines. Evidence quality i
 | ----------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | Business                                  | existing Workspace                                    | One business context; optional BusinessUnit/venture scope later; no duplicate Business table              |
 | Profile, mission, vision, business axes   | workspaces                                            | Extend profile via reviewed schema; legacy stage remains reported until assessed                          |
-| Product/service, Segment, ICP             | new customer/context submodule behind profile service | Stable IDs, explicit Workspace FK; migrate embedded JSON with compatibility projection                    |
+| Product/service, Segment, ICP             | `modules.customer_context` behind profile service | Stable IDs, explicit Workspace FK; migrate embedded JSON with compatibility projection                    |
 | Goal, Decision, Action                    | execution                                             | Existing normalized entities remain authoritative; profile goal JSON becomes a projection after migration |
 | Competitor, Market                        | future market submodule, STR-040/051                  | Stable scoped observations and versioned provenance; not a new profile JSON copy                          |
 | FrameworkAssessment                       | analysis.Analysis                                     | Existing method/input/output/revision snapshots; link KB release/method; preserve EFE/IFE versions        |
@@ -79,6 +79,8 @@ The first manifest promotes only reviewed discovery/early-traction routes, requi
 ## Migration and rollback
 
 Additive migrations first. Dry-run reads every existing profile and produces deterministic old-ID → canonical-ID mapping, invalid/duplicate/conflict report and untouched source backup. Normalize products/segments/ICPs and goal ownership in small stages. Keep legacy read projection and compatibility write adapter during transition; a write has one owner, not unsynchronized dual writers. Preserve revisions/history and report/import schemas with explicit new versions. Re-run is idempotent. Rollback switches feature/read projection off and restores tested backup where needed; git revert is not database recovery. No destructive drop until parity and restore evidence pass STR-031/038.
+
+STR-056-A adds Workspace-scoped Product, Segment and ICP schemas in `modules.customer_context`. `ContextRef` is a typed value object: whole-business scope is the existing Workspace; segment scope uses a canonical Segment ID; periods are start-inclusive/end-exclusive. Venture and BusinessUnit scopes remain unsupported until their owning task. `LegacyProfileIdentityMap` references exactly one typed target and pairs it with source namespace, exact legacy ID and profile revision; UUIDv5 derives repeatable canonical IDs. The resolver must verify target existence and same-Workspace ownership inside its transaction. These additive tables remain empty until the reviewed STR-056-B/C importer; profile JSON and `execution.Goal` remain authoritative during this packet.
 
 ## UX, AI and release
 
