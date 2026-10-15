@@ -1,5 +1,9 @@
 # Stratino / استراتینو — project instructions
 
+## Owner identity — mandatory
+
+The owner is Hamidreza Pakpour, GitHub **Hamrez95**. Every commit must use author and committer `Hamidreza Pakpour <136631329+Hamrez95@users.noreply.github.com>`. Verify repository-local Git identity before committing and authenticated GitHub login before remote mutations. Do not use, alter, sign out, delete or publish through the unrelated akbarAbdiX account or its credentials. If Git authenticates as another account, stop that remote operation and use an already-authorized Hamrez95 connection; never claim a push/merge succeeded when it failed.
+
 Read the selected issue and its dependencies, then only the relevant sections of docs/PRODUCT_CONTEXT_FA.md and docs/ARCHITECTURE_STRATINO.md. The prioritized catalog is docs/backlog/README.md.
 
 - Product: Persian-first strategy management for independent project Workspaces; preserve current tools while migrating safely.
