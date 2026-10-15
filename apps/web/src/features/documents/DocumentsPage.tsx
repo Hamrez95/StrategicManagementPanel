@@ -12,6 +12,7 @@ import type {
 } from '../../api/contracts';
 import type { Session } from '../../session';
 import { useWorkspaceDirtyGuard } from '../workspaces/switchContext';
+import DocumentAttachmentsPanel from './DocumentAttachmentsPanel';
 import { createDocumentRecord, readDocumentBoard, updateDocumentRecord } from './api';
 
 const statusLabels: Record<ApiDocumentStatus, { fa: string; en: string }> = {
@@ -659,6 +660,21 @@ export default function DocumentsPage() {
                   </Button>
                 </div>
               </form>
+              {selected.record ? (
+                <DocumentAttachmentsPanel
+                  key={selected.record.id}
+                  workspaceId={workspaceId}
+                  document={selected.record.id}
+                  canWrite={Boolean(canWrite)}
+                  english={english}
+                />
+              ) : (
+                <p className="document-attachments__readonly">
+                  {english
+                    ? 'Save this document to the Workspace before attaching files.'
+                    : 'برای پیوست فایل، ابتدا این مدرک را در فضای کار ثبت کنید.'}
+                </p>
+              )}
             </article>
           )}
         </div>

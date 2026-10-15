@@ -356,6 +356,27 @@ export type ApiDocumentWrite = {
   content: string;
 };
 export type ApiDocumentUpdate = { revision: number } & Partial<ApiDocumentWrite>;
+export type ApiDocumentAttachmentStatus =
+  'reserved' | 'uploading' | 'cancel_requested' | 'quarantined' | 'ready' | 'rejected';
+export type ApiDocumentAttachment = {
+  id: string;
+  document_id: string;
+  name: string;
+  extension: string;
+  media_type: string;
+  version: number;
+  size_bytes: number;
+  sha256: string;
+  status: ApiDocumentAttachmentStatus;
+  created_by: string;
+  created_at: string;
+  updated_at: string;
+};
+export type ApiDocumentAttachmentList = {
+  document_id: string;
+  limits: { max_file_bytes: number; document_attachment_limit: number };
+  items: ApiDocumentAttachment[];
+};
 
 export type ApiWorkspaceMember = {
   user_id: string;
@@ -517,6 +538,42 @@ export type OpenApiPaths = {
       parameters: { path: { workspace_id: string; record_id: string } };
       requestBody: ApiDocumentUpdate;
       response: ApiDocumentRecord;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/attachments/': {
+    get: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      response: ApiDocumentAttachmentList;
+    };
+    post: {
+      parameters: { path: { workspace_id: string; record_id: string } };
+      requestBody: { name: string; size_bytes: number; request_id: string };
+      response: ApiDocumentAttachment;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/attachments/{attachment_id}/content/': {
+    put: {
+      parameters: { path: { workspace_id: string; record_id: string; attachment_id: string } };
+      requestBody: FormData;
+      response: ApiDocumentAttachment;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/attachments/{attachment_id}/scan/': {
+    post: {
+      parameters: { path: { workspace_id: string; record_id: string; attachment_id: string } };
+      response: ApiDocumentAttachment;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/attachments/{attachment_id}/download/': {
+    get: {
+      parameters: { path: { workspace_id: string; record_id: string; attachment_id: string } };
+      response: Blob;
+    };
+  };
+  '/api/v1/workspaces/{workspace_id}/documents/{record_id}/attachments/{attachment_id}/': {
+    delete: {
+      parameters: { path: { workspace_id: string; record_id: string; attachment_id: string } };
+      response: void;
     };
   };
 };
@@ -1290,6 +1347,69 @@ export function decodeDocumentBoard(value: unknown): ApiDocumentBoard {
     items,
     members,
     events,
+  };
+}
+
+export function decodeDocumentAttachment(value: unknown): ApiDocumentAttachment {
+  const item = record(value);
+  const statuses: ApiDocumentAttachmentStatus[] = [
+    'reserved',
+    'uploading',
+    'cancel_requested',
+    'quarantined',
+    'ready',
+    'rejected',
+  ];
+  if (!statuses.includes(item.status as ApiDocumentAttachmentStatus))
+    throw new TypeError('Invalid attachment status');
+  if (!Number.isInteger(item.version) || (item.version as number) < 1)
+    throw new TypeError('Invalid attachment version');
+  if (!Number.isInteger(item.size_bytes) || (item.size_bytes as number) < 1)
+    throw new TypeError('Invalid attachment size');
+  if (
+    typeof item.sha256 !== 'string' ||
+    (item.sha256 !== '' && !/^[a-f0-9]{64}$/.test(item.sha256))
+  )
+    throw new TypeError('Invalid attachment checksum');
+  return {
+    id: requiredString(item.id),
+    document_id: requiredString(item.document_id),
+    name: boundedString(item.name, 180, 'attachment.name'),
+    extension: boundedString(item.extension, 12, 'attachment.extension'),
+    media_type: boundedString(item.media_type, 128, 'attachment.media_type'),
+    version: item.version as number,
+    size_bytes: item.size_bytes as number,
+    sha256: item.sha256,
+    status: item.status as ApiDocumentAttachmentStatus,
+    created_by: boundedString(item.created_by, 254, 'attachment.created_by', true),
+    created_at: requiredString(item.created_at),
+    updated_at: requiredString(item.updated_at),
+  };
+}
+
+export function decodeDocumentAttachmentList(value: unknown): ApiDocumentAttachmentList {
+  const item = record(value);
+  const items = decodeRows(item.items, decodeDocumentAttachment);
+  const documentId = requiredString(item.document_id);
+  const limits = record(item.limits);
+  if (
+    !Number.isInteger(limits.max_file_bytes) ||
+    (limits.max_file_bytes as number) < 1 ||
+    !Number.isInteger(limits.document_attachment_limit) ||
+    (limits.document_attachment_limit as number) < 1
+  )
+    throw new TypeError('Invalid attachment upload limits');
+  if (items.some((attachment) => attachment.document_id !== documentId))
+    throw new TypeError('Attachment belongs to a different document');
+  if (items.length > 100 || new Set(items.map((attachment) => attachment.id)).size !== items.length)
+    throw new TypeError('Attachment list exceeds a supported limit');
+  return {
+    document_id: documentId,
+    limits: {
+      max_file_bytes: limits.max_file_bytes as number,
+      document_attachment_limit: limits.document_attachment_limit as number,
+    },
+    items,
   };
 }
 

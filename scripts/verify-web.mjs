@@ -138,6 +138,11 @@ try {
   });
   const documentBoards = new Map([['w1', documentBoardFor('w1')]]);
   let documentSequence = 0;
+  let attachmentSequence = 0;
+  const documentAttachments = new Map();
+  let failNextAttachmentUpload = false;
+  let holdNextAttachmentUpload = false;
+  let signalAttachmentUploadStarted;
   let executionSequence = 0;
   const recordExecutionEvent = (board, entityType, record, eventType, changes) => {
     board.events.unshift({
@@ -488,6 +493,104 @@ try {
         created_at: now,
       });
       return route.fulfill({ status: 201, json: structuredClone(record) });
+    }
+    const attachmentCollection = pathname.match(
+      /^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/attachments\/$/,
+    );
+    if (attachmentCollection) {
+      const [, workspaceId, recordId] = attachmentCollection;
+      const key = `${workspaceId}/${recordId}`;
+      const rows = documentAttachments.get(key) ?? [];
+      if (request.method() === 'GET')
+        return route.fulfill({
+          json: {
+            document_id: recordId,
+            limits: { max_file_bytes: 20 * 1024 * 1024, document_attachment_limit: 20 },
+            items: structuredClone(rows),
+          },
+        });
+      if (request.method() === 'POST') {
+        const body = request.postDataJSON();
+        const extension = body.name.split('.').at(-1).toLowerCase();
+        const mediaTypes = {
+          pdf: 'application/pdf',
+          docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+          txt: 'text/plain',
+          csv: 'text/csv',
+          png: 'image/png',
+          jpg: 'image/jpeg',
+          jpeg: 'image/jpeg',
+          webp: 'image/webp',
+        };
+        const now = new Date().toISOString();
+        const item = {
+          id: `attachment-${++attachmentSequence}`,
+          document_id: recordId,
+          name: body.name,
+          extension,
+          media_type: mediaTypes[extension] ?? 'application/octet-stream',
+          version: rows.length + 1,
+          size_bytes: body.size_bytes,
+          sha256: '',
+          status: 'reserved',
+          created_by: session.user.name || 'مدیر نمونه',
+          created_at: now,
+          updated_at: now,
+        };
+        rows.unshift(item);
+        documentAttachments.set(key, rows);
+        return route.fulfill({ status: 201, json: structuredClone(item) });
+      }
+    }
+    const attachmentContent = pathname.match(
+      /^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/attachments\/([^/]+)\/content\/$/,
+    );
+    if (attachmentContent && request.method() === 'PUT') {
+      if (signalAttachmentUploadStarted) signalAttachmentUploadStarted();
+      if (holdNextAttachmentUpload) await new Promise((resolve) => setTimeout(resolve, 900));
+      if (failNextAttachmentUpload) {
+        failNextAttachmentUpload = false;
+        return route.fulfill({
+          status: 503,
+          json: { code: 'temporary_failure', message: 'سرویس موقتاً در دسترس نیست.' },
+        });
+      }
+      const rows = documentAttachments.get(`${attachmentContent[1]}/${attachmentContent[2]}`) ?? [];
+      const item = rows.find((entry) => entry.id === attachmentContent[3]);
+      if (!item) return route.fulfill({ status: 404, json: { code: 'attachment_not_found' } });
+      item.status = 'ready';
+      item.sha256 = 'a'.repeat(64);
+      item.updated_at = new Date().toISOString();
+      holdNextAttachmentUpload = false;
+      try {
+        return await route.fulfill({ status: 201, json: structuredClone(item) });
+      } catch {
+        return;
+      }
+    }
+    const attachmentScan = pathname.match(
+      /^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/attachments\/([^/]+)\/scan\/$/,
+    );
+    if (attachmentScan && request.method() === 'POST') {
+      const rows = documentAttachments.get(`${attachmentScan[1]}/${attachmentScan[2]}`) ?? [];
+      const item = rows.find((entry) => entry.id === attachmentScan[3]);
+      if (!item) return route.fulfill({ status: 404, json: { code: 'attachment_not_found' } });
+      item.status = 'ready';
+      item.sha256 = 'a'.repeat(64);
+      return route.fulfill({ json: structuredClone(item) });
+    }
+    const attachmentDetail = pathname.match(
+      /^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/attachments\/([^/]+)\/$/,
+    );
+    if (attachmentDetail && request.method() === 'DELETE') {
+      const key = `${attachmentDetail[1]}/${attachmentDetail[2]}`;
+      documentAttachments.set(
+        key,
+        (documentAttachments.get(key) ?? []).filter((item) => item.id !== attachmentDetail[3]),
+      );
+      return route.fulfill({ status: 204, body: '' });
     }
     const documentDetail = pathname.match(/^\/api\/v1\/workspaces\/([^/]+)\/documents\/([^/]+)\/$/);
     if (documentDetail && request.method() === 'PATCH') {
@@ -1464,6 +1567,52 @@ try {
   let executiveRecord = documentBoard.items.find((item) => item.id === 'executive-onepage').record;
   assert.equal(executiveRecord.status, 'review');
   assert.equal(executiveRecord.content_version, 1);
+  failNextAttachmentUpload = true;
+  await page.locator('.document-attachments__input').setInputFiles({
+    name: 'صورتجلسه.pdf',
+    mimeType: 'application/pdf',
+    buffer: Buffer.from('%PDF-1.7 minutes'),
+  });
+  await page.getByText('بارگذاری ناموفق بود').waitFor();
+  await page.getByRole('button', { name: 'تلاش دوباره برای بارگذاری' }).click();
+  await page.getByRole('link', { name: 'دریافت فایل' }).waitFor();
+  assert.equal(
+    await page.getByText('صورتجلسه.pdf').count(),
+    2,
+    'uploaded file appears in both queue and private list',
+  );
+  assert.match(
+    await page.locator('.document-attachment__list code').innerText(),
+    /^SHA-256 · a{64}$/,
+  );
+  await page.locator('.document-attachments__input').setInputFiles([
+    { name: 'پیوست-الف.pdf', mimeType: 'application/pdf', buffer: Buffer.from('%PDF-1.7 a') },
+    { name: 'پیوست-ب.csv', mimeType: 'text/csv', buffer: Buffer.from('name,value\nA,1') },
+  ]);
+  await page.getByText('پیوست-الف.pdf').last().waitFor();
+  await page.getByText('پیوست-ب.csv').last().waitFor();
+  await page.waitForFunction(
+    () =>
+      document.querySelectorAll('.document-attachments__list .document-attachment').length === 3,
+  );
+  const uploadDone = new Promise((resolve) => {
+    signalAttachmentUploadStarted = resolve;
+  });
+  holdNextAttachmentUpload = true;
+  await page.locator('.document-attachments__input').setInputFiles({
+    name: 'یادداشت.pdf',
+    mimeType: 'application/pdf',
+    buffer: Buffer.from('%PDF-1.7 notes'),
+  });
+  await uploadDone;
+  await page.getByRole('button', { name: 'لغو' }).last().click();
+  await page.getByText('لغو شد').waitFor();
+  signalAttachmentUploadStarted = undefined;
+  while (await page.getByRole('button', { name: 'حذف فایل' }).count()) {
+    await page.getByRole('button', { name: 'حذف فایل' }).first().click();
+    await page.getByText('این فایل و نسخه‌های ذخیره‌شده آن حذف شود؟').first().waitFor();
+    await page.getByRole('button', { name: 'حذف نهایی' }).click();
+  }
   await page.getByText('بازبین تعیین‌شده محتوا را بررسی کند و سپس آن را آماده کند.').waitFor();
   await page.getByLabel('پیش‌نویس سند').fill('نسخه دوم راهنمای مدیریتی پس از اصلاح');
   await page.getByLabel('وضعیت سند').selectOption('ready');

@@ -61,6 +61,18 @@ X_FRAME_OPTIONS = 'DENY'
 DATA_UPLOAD_MAX_MEMORY_SIZE = 2 * 1024 * 1024
 MEDIA_ROOT = Path(os.environ.get('STRATINO_PRIVATE_FILES', str(BASE_DIR / '.private-files')))
 STORAGES = {'default': {'BACKEND': 'modules.core.storage.PrivateFileStorage'}}
+DOCUMENT_ATTACHMENT_MAX_BYTES = int(os.environ.get('STRATINO_ATTACHMENT_MAX_BYTES', str(20 * 1024 * 1024)))
+DOCUMENT_WORKSPACE_QUOTA_BYTES = int(os.environ.get('STRATINO_WORKSPACE_FILE_QUOTA_BYTES', str(100 * 1024 * 1024)))
+DOCUMENT_ATTACHMENT_LIMIT = int(os.environ.get('STRATINO_DOCUMENT_ATTACHMENT_LIMIT', '20'))
+DOCUMENT_ATTACHMENT_RESERVATION_MINUTES = int(os.environ.get('STRATINO_ATTACHMENT_RESERVATION_MINUTES', '30'))
+CLAMAV_HOST = os.environ.get('CLAMAV_HOST', '').strip()
+CLAMAV_PORT = int(os.environ.get('CLAMAV_PORT', '3310'))
+CLAMAV_TIMEOUT_SECONDS = int(os.environ.get('CLAMAV_TIMEOUT_SECONDS', '30'))
+if min(DOCUMENT_ATTACHMENT_MAX_BYTES, DOCUMENT_WORKSPACE_QUOTA_BYTES, DOCUMENT_ATTACHMENT_LIMIT,
+       DOCUMENT_ATTACHMENT_RESERVATION_MINUTES, CLAMAV_PORT, CLAMAV_TIMEOUT_SECONDS) <= 0:
+    raise ImproperlyConfigured('Attachment limits and ClamAV connection settings must be positive integers.')
+if PRODUCTION and not CLAMAV_HOST:
+    raise ImproperlyConfigured('Production requires a private ClamAV service for document attachment scanning.')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST', '127.0.0.1')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '1025'))

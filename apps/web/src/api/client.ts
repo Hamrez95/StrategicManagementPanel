@@ -46,18 +46,24 @@ async function ensureCsrfCookie() {
 
 function errorFields(value: unknown): ApiFields {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
-  return Object.fromEntries(Object.entries(value).map(([key, messages]) => [
-    key,
-    Array.isArray(messages) ? messages.filter((message): message is string => typeof message === 'string') : [],
-  ]));
+  return Object.fromEntries(
+    Object.entries(value).map(([key, messages]) => [
+      key,
+      Array.isArray(messages)
+        ? messages.filter((message): message is string => typeof message === 'string')
+        : [],
+    ]),
+  );
 }
 
 function errorMessage(response: Response, body: unknown) {
-  const record = body && typeof body === 'object' ? body as Record<string, unknown> : {};
+  const record = body && typeof body === 'object' ? (body as Record<string, unknown>) : {};
   if (response.status === 403 && record.code !== 'workspace_permission_denied') {
     return 'درخواست امنیتی تأیید نشد. صفحه را تازه کنید و دوباره تلاش کنید.';
   }
-  return typeof record.message === 'string' ? record.message : 'درخواست کامل نشد. دوباره تلاش کنید.';
+  return typeof record.message === 'string'
+    ? record.message
+    : 'درخواست کامل نشد. دوباره تلاش کنید.';
 }
 
 function reportSessionExpiry(path: string, status: number) {
@@ -82,19 +88,22 @@ export async function requestApi<T>(path: string, options: ApiRequestOptions<T> 
       cache: 'no-store',
       signal: options.signal,
       headers,
-      body: method === 'GET' || method === 'DELETE' || options.body === undefined
-        ? undefined
-        : JSON.stringify(options.body),
+      body:
+        method === 'GET' || method === 'DELETE' || options.body === undefined
+          ? undefined
+          : JSON.stringify(options.body),
     });
   } catch (error) {
     if (error instanceof DOMException && error.name === 'AbortError') throw error;
     throw new ApiError('ارتباط با سرویس قطع شد. اتصال را بررسی و دوباره تلاش کنید.', 0);
   }
 
-  const payload: unknown = response.status === 204 ? undefined : await response.json().catch(() => undefined);
+  const payload: unknown =
+    response.status === 204 ? undefined : await response.json().catch(() => undefined);
   if (!response.ok) {
     reportSessionExpiry(path, response.status);
-    const record = payload && typeof payload === 'object' ? payload as Record<string, unknown> : {};
+    const record =
+      payload && typeof payload === 'object' ? (payload as Record<string, unknown>) : {};
     throw new ApiError(
       errorMessage(response, payload),
       response.status,
@@ -109,4 +118,77 @@ export async function requestApi<T>(path: string, options: ApiRequestOptions<T> 
   } catch {
     throw new ApiError('پاسخ سرویس معتبر نیست. دوباره تلاش کنید.', 502, {}, 'invalid_response');
   }
+}
+
+export async function uploadFileApi<T>(
+  path: string,
+  form: FormData,
+  options: {
+    signal?: AbortSignal;
+    onProgress?: (loaded: number, total: number) => void;
+    decode?: (value: unknown) => T;
+  } = {},
+): Promise<T> {
+  const csrf = await ensureCsrfCookie();
+  if (options.signal?.aborted) throw new DOMException('Upload canceled', 'AbortError');
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    const abort = () => xhr.abort();
+    const cleanup = () => options.signal?.removeEventListener('abort', abort);
+    xhr.open('PUT', path);
+    xhr.withCredentials = true;
+    xhr.responseType = 'json';
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.setRequestHeader('X-CSRFToken', csrf);
+    if (options.onProgress) {
+      xhr.upload.addEventListener('progress', (event) => {
+        if (event.lengthComputable) options.onProgress?.(event.loaded, event.total);
+      });
+    }
+    xhr.addEventListener('load', () => {
+      cleanup();
+      let payload: unknown = xhr.response;
+      if (xhr.status < 200 || xhr.status >= 300) {
+        reportSessionExpiry(path, xhr.status);
+        const record =
+          payload && typeof payload === 'object' ? (payload as Record<string, unknown>) : {};
+        const response = new Response(JSON.stringify(payload ?? {}), { status: xhr.status });
+        reject(
+          new ApiError(
+            errorMessage(response, payload),
+            xhr.status,
+            errorFields(record.fields),
+            typeof record.code === 'string' ? record.code : '',
+          ),
+        );
+        return;
+      }
+      if (!options.decode) {
+        resolve(payload as T);
+        return;
+      }
+      try {
+        resolve(options.decode(payload));
+      } catch {
+        reject(
+          new ApiError('پاسخ سرویس معتبر نیست. دوباره تلاش کنید.', 502, {}, 'invalid_response'),
+        );
+      }
+    });
+    xhr.addEventListener('error', () => {
+      cleanup();
+      reject(new ApiError('ارتباط با سرویس قطع شد. اتصال را بررسی و دوباره تلاش کنید.', 0));
+    });
+    xhr.addEventListener('abort', () => {
+      cleanup();
+      reject(new DOMException('Upload canceled', 'AbortError'));
+    });
+    options.signal?.addEventListener('abort', abort, { once: true });
+    if (options.signal?.aborted) {
+      cleanup();
+      reject(new DOMException('Upload canceled', 'AbortError'));
+      return;
+    }
+    xhr.send(form);
+  });
 }
