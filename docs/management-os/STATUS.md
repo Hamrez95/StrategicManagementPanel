@@ -18,13 +18,14 @@ Repository: `D:\Hamidreza\Projects\StrategicManagementPanel`. Branch: `feat/stra
 | STR-055-B formatting/quality             | 3ad2f53; all previously noncompliant files formatted; `npm run quality` exit 0 | Local dev acceptance complete; issue #67 open pending push/merge/CI |
 | STR-054-A reader                         | 602eaf0; exact-ID immutable versioned Python reader; 11/11 fixtures pass       | Local packet complete; STR-054/#66 in progress                      |
 | STR-054-B source curation                 | 850e724; 9 exact records, 5 source IDs, dependency/revision check passes        | Local packet complete; runtime promotion remains gated              |
-| STR-054-C reproducible package             | 504581d; package release/hash drift, Node 2/2, Python 12/12, root quality pass  | Local packet complete; 054-D negative matrix remains                |
+| STR-054-C reproducible package             | 504581d; pinned release, projection gates, local drift check                   | Local packet complete                                               |
+| STR-054-D reader/build negative matrix     | 96f8415; Node 8/8, Python 14/14, root quality 78/78                             | Local packet complete; final runtime QA remains                     |
 
-The latest complete root quality gate passed with exit code 0: lint, format, web/domain/UI typechecks, 68 API contract operations, structural KB audit, 72 root tests, 6 domain tests and production build. The focused release-builder tests pass 2/2; packaged reader tests pass 12/12. The structural audit still reports 28 runtime-promotion warnings; this does not certify scientific efficacy. No Django database or Docker service was started.
+The latest complete root quality gate passed with exit code 0: lint, format, web/domain/UI typechecks, 68 API contract operations, structural KB audit, 78 root tests, 6 domain tests and production build. The focused release-builder suite passes 8/8; packaged reader suite passes 14/14, including bounded rejection diagnostics, reserved `latest`, source/dependency failures, tampering and historical pinning. The structural audit still reports 28 runtime-promotion warnings; this does not certify scientific efficacy. No Django database or Docker service was started.
 
 ## Next development packet
 
-Continue **STR-054-D**: expand the negative release matrix for unknown schemas, operators/applicability, missing dependencies/source references, tampering, PLAN-* exclusion and exact historical pinning. 054-C packages the nine reviewed candidates, but no route or calculation is activated: discovery inherits its blocked mapping gate, retention waits for scoped input resolution, and contribution remains definition-only until STR-058-A/B. See [NEXT_ACTIONS](NEXT_ACTIONS.md) and the packet contract; do not edit canonical research.
+Continue **STR-056-A**: add typed Product/Segment/ICP schema and stable legacy-ID mapping while preserving existing execution Goal data. STR-054 packets A–D are complete locally in `602eaf0`, `850e724`, `504581d` and `96f8415`; the candidate release remains inactive. Discovery inherits its blocked mapping gate, retention waits for scoped input resolution, and contribution remains definition-only until STR-058-A/B. Server, Docker, physical/browser validation and source merge remain in the final acceptance queue.
 
 Do not create a product endpoint just to show the reader works. Keep the API package within its existing `apps/api` build context. Historical runs select exact release IDs; no latest fallback.
 
