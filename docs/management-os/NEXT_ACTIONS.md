@@ -1,25 +1,25 @@
 # Exact continuation — 2026-10-16
 
-1. Read AGENTS.md, STATUS.md, DESIGN_INDEX.md and selected task/packet. Check status/history and preserve new owner work. Do not regenerate the one-off planning script, research or issue catalog.
-2. Finish STR-055-A: the 8 lint errors listed in QUALITY_BASELINE. Preserve onboarding resume, local drafts and effect stability; do not silence lint or add broad casts.
-3. Finish STR-055-B: format the 32 existing source files in a separate formatting commit. Run root quality once and record actual results. Current typecheck, 70 tests, 6 domain tests, contracts and build already passed; quality as a whole has not.
-4. Implement STR-054-A/B/C: explicit reviewed release, allowlisted adapters and deterministic artifact inside the API package. Follow IMPLEMENTATION_GUIDE/ADR-002; current Docker build context cannot read root/assets. Do not promote all research or execute prose/formulas.
-5. STR-056-A/B/C → 057-A/B → 058-A/B: canonical ownership/recoverable migration, evidence/confidence/freshness and reviewed contribution amount. DOMAIN_BLUEPRINT fixes ownership and InputObservation bindings. Existing Workspace/Decision/Goal/Action IDs remain canonical.
-6. STR-059-A → 060-A → 061-A → 062-A → 063-A/B: assessment, release-pinned journey, canonical input resolver, typed rules, explainable recommendation and transactional acceptance. Follow STATE_AND_EVENT_MODEL. ADR-007 adds the real recommendation Decision source; no fake finalized analysis.
-7. Implement UI 026-A, 064-A/B, 063-C and 027-A, then integrate 065-A. USER_JOURNEYS J01/J02, PAGE_SPECIFICATIONS P07–P18 and INTERACTION_CONTRACTS are the design contract. Do not invent page hierarchy, health scores, eligibility or copy while implementing.
-8. Organization/cadence/financial scenarios follow their owning tasks after the first slice. Research STR-068 resolves scientific gaps separately. All 40 initial pages have an owner and design direction; planned pages are not automatically enabled product routes.
-9. Record development evidence and update existing issue bodies as Hamrez95. STR-053 remains open until remote checks/merge; no duplicate roadmap or issues. Use issue-map.json for real numbers. Root roadmap remains #53.
+1. Read AGENTS.md, STATUS.md, DESIGN_INDEX.md and the selected packet. Check branch/status/history and preserve owner work. Do not regenerate the one-off task plan or research.
+2. STR-055-A/B are locally complete. Full `npm run quality` exited 0. Commits: `542635c` semantic lint/hydration repair; `3ad2f53` formatting. Keep issue #67 open until source branch push/merge and remote CI are verified.
+3. Continue STR-054-B: review the minimal first-slice IDs and all framework/source/action/recommendation dependencies. Record direct source support versus explicit product heuristic and claim/section references. Keep unknown schemas, raw platform tags, PLAN-* concepts and unreviewed activation candidates out of executable release output. Do not rewrite assets/management-knowledge.
+4. STR-054-C: reproducibly build the reviewed artifact under `apps/api/modules/knowledge/releases/<release_id>.json`, reuse the canonical hash implementation, verify drift in CI, retain package-relative runtime access and avoid root/assets or network dependencies. STR-054-D: test unknown source schema/operator/applicability, rejected IDs/dependencies/source refs, tampering and exact historical pin. Current packet A commit `602eaf0` has 11 focused reader fixtures passing. No server/Docker test until final acceptance.
+5. STR-056-A/B/C → 057-A/B → 058-A/B: canonical ownership/recoverable migration, evidence/confidence/freshness, reviewed contribution amount. Keep existing Workspace/Decision/Goal/Action IDs canonical.
+6. STR-059-A → 060-A → 061-A → 062-A → 063-A/B: assessment, pinned Journey, canonical input resolver, typed rules, explainable recommendation and transactional acceptance. Follow state/event model and ADR-007; no fabricated analysis.
+7. Implement UI 026-A, 064-A/B, 063-C, 027-A, then integrate 065-A using approved journeys/pages/interactions. Do not invent UX hierarchy, thresholds, health score, eligibility or copy.
+8. Organization/cadence/advanced financial scenarios follow their owning tasks. Research gaps stay explicit. All planned page routes remain disabled until implemented and accepted.
+9. Update existing GitHub issues as Hamrez95; do not duplicate tasks or close work before remote merge/check and required acceptance evidence. Roadmap is issue #53; mapping is `docs/backlog/issue-map.json`.
 
-## Final validation queue — owner-requested deferral
+## Final validation queue — deferred at owner request
 
 - STR-007/008/009: PostgreSQL/API migrations, production settings, Compose health and physical Windows two-ref PowerShell runner/cleanup.
 - STR-010–024 and new persisted modules: auth/session/CSRF, nested membership, revoked access, concurrent writes, idempotency, private file quarantine/scan/download, report round-trip/backup/restore.
-- Any canonical migration: empty DB + upgrade + dry-run + repeated apply + rollback/restore with preserved IDs/history and exports.
-- STR-026/027/064/065: real browser screenshots and critique at 360/768/1280/1440, fa/en RTL/LTR, both themes, 200% zoom, keyboard/focus, reduced motion, guided/expert, education off; network/session/conflict states.
-- STR-004/038/068: actual consenting manager sessions and expert source/domain review. Synthetic A–F fixtures are not observed research.
+- Every canonical migration: empty DB, upgrade, dry-run, repeated apply, rollback/restore, preserved IDs/history and exports.
+- STR-026/027/064/065: product browser/screenshots at 360/768/1280/1440, fa/en RTL/LTR, both themes, 200% zoom, keyboard/focus, reduced motion, guided/expert, education off, network/session/conflict.
+- STR-004/038/068: actual consenting manager sessions and expert source/domain review. Synthetic A–F fixtures are not user research.
 
-Deferral does not make tests passed or tasks Done. Keep a validation_pending item and exact command/scenario when implementation is ready. No buying services, deploying publicly or contacting people is authorized by this queue.
+Deferred checks are not passed. Record exact command/scenario and evidence when run; do not buy services or deploy publicly.
 
 ## Git completion
 
-After Hamrez95 signs into Git Credential Manager, use a repository-scoped username selection; verify author/committer and remote before push. Push coherent branch commits, create/attach a PR and merge only after required checks have completed successfully (unless owner explicitly changes the gate policy). Fetch and verify local/remote main equality. Current main merge request remains open work; a connector issue update is not a Git push.
+Before any source push/PR/merge, verify the active authenticated account is Hamrez95. Never use or modify unrelated credentials. Push coherent commits through the approved identity, wait for required remote checks/review, merge, fetch and verify local/remote main equality. GitHub issue synchronization is not a source push or merge.
