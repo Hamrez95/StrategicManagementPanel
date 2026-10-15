@@ -1,0 +1,423 @@
+{
+  "manifest_schema_version": 1,
+  "candidate_id": "stratino-first-slice-v1",
+  "status": "reviewed_curation_only_not_packaged_or_active",
+  "reviewed_on": "2026-10-16",
+  "source_kb_commit": "19bb2d40b9cb45a569c00b53a35aab3f4ea76002",
+  "revision_scheme": "sha256-canonical-json-record-v1: SHA-256 of each selected record serialized as sorted-key compact UTF-8 JSON with no trailing newline.",
+  "records": [
+    {
+      "id": "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+      "source_path": "assets/management-knowledge/frameworks/startup/registry.json",
+      "source_schema": "1.0.0",
+      "revision": "cfb8122f414b473f5e6268968dee838cef805541ef5d56aaf7f6cabb2ff8b5ec",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/startup-framework",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-STRATEGYZER-BMC",
+            "section": "Business Model Canvas: value creation/delivery/capture and interdependent blocks; modeling description, not demand validation"
+          },
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: startup tests business-model hypotheses against observed behavior"
+          }
+        ],
+        "rationale": "Original Startino synthesis. Only the interconnected model blocks are directly source-supported; evidence annotations, workflow, and illustrative examples are authored guidance. Requires domain-expert and user validation."
+      },
+      "depends_on": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-STRATEGYZER-BMC"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "purpose",
+        "source_supported_model_blocks",
+        "limitations"
+      ]
+    },
+    {
+      "id": "FW-STARTUP-LEAN-STARTUP",
+      "source_path": "assets/management-knowledge/frameworks/startup/registry.json",
+      "source_schema": "1.0.0",
+      "revision": "60357fcd1cbcd396ea4b2a28e92f443f7f524cfe85026ce476a5522e545cf742",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/startup-framework",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: build-measure-learn, validated learning, actionable measurement; no universal scaling threshold"
+          },
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: model assumptions change as customer behavior is observed"
+          }
+        ],
+        "rationale": "Original Startino synthesis. Build-measure-learn and validated learning are source-grounded; the decision-backward workflow and constrained-test adaptation are authored guidance. No guaranteed outcome."
+      },
+      "depends_on": [
+        "SRC-STARTUP-BLANK-2010",
+        "SRC-STARTUP-RIES-PRINCIPLES"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "purpose",
+        "source_supported_learning_loop",
+        "limitations"
+      ]
+    },
+    {
+      "id": "RULE-DISCOVERY",
+      "source_path": "assets/management-knowledge/decisions/rules/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "ff2b997b1f5d062a6b5e67892c8a9b54efa876aeaac6a905f73d3cce411ac4ea",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/decision-rule",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: startup searches through business-model hypotheses; source does not prescribe this exact rule or evidence gate"
+          }
+        ],
+        "rationale": "Explicit product heuristic, not a source-prescribed rule. Source supports hypothesis testing generally, not the exact stage/operating predicates, minimum evidence, confidence, or intervention. Human review remains required."
+      },
+      "depends_on": [
+        "FW-STARTUP-BUSINESS-MODEL-CANVAS",
+        "ACT-DISCOVERY"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "conditions",
+        "evidence",
+        "unknown_behavior",
+        "human_review_required",
+        "exceptions",
+        "outputs"
+      ]
+    },
+    {
+      "id": "REC-DISCOVERY",
+      "source_path": "assets/management-knowledge/recommendations/library/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "2afec180004c07d8cbcfecbb88eaeadf00e8c0d3d832e993911318ae95d443ac",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/recommendation",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: business-model hypotheses are tested; candidate wording and confidence gate are product policy"
+          }
+        ],
+        "rationale": "Product-authored recommendation linked to the discovery heuristic. No quantified outcome or universal applicability is claimed; confidence must derive from scoped evidence."
+      },
+      "depends_on": [
+        "RULE-DISCOVERY",
+        "ACT-DISCOVERY"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "trigger",
+        "reason",
+        "required_information",
+        "risks",
+        "alternative_actions"
+      ]
+    },
+    {
+      "id": "ACT-DISCOVERY",
+      "source_path": "assets/management-knowledge/actions/library/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "e24669467a7e17d28fe74604c6a9a1e9a7e69450064c1ed658e000fbf34f5727",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/action",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-BLANK-2010",
+            "section": "First principles: customer/problem hypotheses need observed behavior; exact action steps are a product playbook"
+          }
+        ],
+        "rationale": "Product-authored playbook. The cited source supports hypothesis testing generally; it does not prescribe this exact action or promise impact."
+      },
+      "depends_on": [
+        "RULE-DISCOVERY"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "required_information",
+        "steps",
+        "completion_evidence",
+        "stop_condition",
+        "risks"
+      ]
+    },
+    {
+      "id": "RULE-RETENTION-BEFORE-SCALE",
+      "source_path": "assets/management-knowledge/decisions/rules/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "412c9f588b1d9a89e1be2bca84fd9d30f82f8a0788a280a2c6dcd72703c3ef1e",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/decision-rule",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: experiments and actionable learning inform decisions; no acquisition stop rule or retention cutoff"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: event-defined cohort and observation window; incomplete intervals affect interpretation"
+          }
+        ],
+        "rationale": "Explicit product heuristic, not a source-prescribed universal rule. Sources support learning experiments and event/cohort measurement only; no retention threshold, causal churn claim, or mandate to stop all acquisition. Human review, exceptions and bounded-risk policy are retained."
+      },
+      "depends_on": [
+        "FW-STARTUP-LEAN-STARTUP",
+        "ACT-RETENTION-BEFORE-SCALE"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "conditions",
+        "evidence",
+        "unknown_behavior",
+        "human_review_required",
+        "exceptions",
+        "outputs"
+      ]
+    },
+    {
+      "id": "REC-RETENTION-BEFORE-SCALE",
+      "source_path": "assets/management-knowledge/recommendations/library/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "2ca68ddfb82b2ad21580b6a2346ac53727c5ec492aec0a18d70633eb2e7e4044",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/recommendation",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: validated learning; recommendation trigger, confidence and alternatives are product policy"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: event/cohort/window mechanics, not a universal target"
+          }
+        ],
+        "rationale": "Product-authored candidate recommendation. The source refs explain learning and measurement mechanics; trigger, severity, confidence and alternatives remain contextual product policy."
+      },
+      "depends_on": [
+        "RULE-RETENTION-BEFORE-SCALE",
+        "ACT-RETENTION-BEFORE-SCALE"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "trigger",
+        "reason",
+        "required_information",
+        "risks",
+        "alternative_actions"
+      ]
+    },
+    {
+      "id": "ACT-RETENTION-BEFORE-SCALE",
+      "source_path": "assets/management-knowledge/actions/library/registry.json",
+      "source_schema": "0.1.0",
+      "revision": "a03326a4231664d848555f44fa107fe712d27d381a6e0fc51810f4608da9de25",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/action",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-STARTUP-RIES-PRINCIPLES",
+            "section": "Methodology: bounded learning can inform a decision; exact acquisition action is product-authored"
+          },
+          {
+            "source_id": "SRC-CORE-AMPLITUDE-RETENTION",
+            "section": "Retention Analysis calculation: cohort and eligible observation-window mechanics"
+          }
+        ],
+        "rationale": "Product-authored playbook. Bounded acquisition, owner, evidence artifact and risk-budget stop condition are not directly prescribed by the cited sources."
+      },
+      "depends_on": [
+        "RULE-RETENTION-BEFORE-SCALE"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "required_information",
+        "steps",
+        "completion_evidence",
+        "stop_condition",
+        "risks"
+      ]
+    },
+    {
+      "id": "MET-CONTRIBUTION-MARGIN",
+      "source_path": "assets/management-knowledge/metrics/finance/met-contribution-margin.json",
+      "source_schema": "1.0.0",
+      "revision": "977c4fab62a08e0703ec8fcf6d22919076e78f0b37006d114ae8e79a531f647b",
+      "revision_scheme": "sha256-canonical-json-record-v1",
+      "adapter_id": "kb-json-v1/metric-contribution-amount",
+      "source_support": {
+        "status": "product_heuristic",
+        "refs": [
+          {
+            "source_id": "SRC-FINANCE-contribution",
+            "section": "§3.1: sales less variable costs is a contribution amount; amount differs from ratio; relevant range limits; product input classification remains unvalidated"
+          }
+        ],
+        "rationale": "The overall record is conservatively labeled product heuristic because interpretation, applicability, input policy and recommended actions are product-authored. OpenStax supports the amount formula and amount-vs-ratio distinction only. Formula is documentation, never executable prose; typed calculation waits for STR-058-B."
+      },
+      "depends_on": [
+        "SRC-FINANCE-contribution"
+      ],
+      "allowlisted_projection_fields": [
+        "id",
+        "amount_formula_reference",
+        "unit",
+        "required_inputs",
+        "limitations",
+        "no_benchmark"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-STARTUP-BLANK-2010",
+      "canonical_evidence_path": "assets/management-knowledge/sources/startup.json",
+      "bibliography_path": "assets/management-knowledge/sources/bibliography.json",
+      "source_schema": "unversioned-bibliography-entry",
+      "bibliography_revision": "4f1f3ef5b7aacf7c106d379d1d94e1c3d3e83d6fa7833f0072bf6a43c2bbc761",
+      "reviewed_on": "2026-10-15",
+      "supported_claims": [
+        "Startup work tests business-model hypotheses",
+        "Models may change repeatedly as observed behavior contradicts assumptions"
+      ],
+      "boundary": "Supports only the named claim; does not establish a universal intervention or applicability rule."
+    },
+    {
+      "id": "SRC-STARTUP-RIES-PRINCIPLES",
+      "canonical_evidence_path": "assets/management-knowledge/sources/startup.json",
+      "bibliography_path": "assets/management-knowledge/sources/bibliography.json",
+      "source_schema": "unversioned-bibliography-entry",
+      "bibliography_revision": "39c213766a962228903652e5cbb986a164cdb7c1fe2324af1083ae7dd2c92b62",
+      "reviewed_on": "2026-10-15",
+      "supported_claims": [
+        "Validated learning is progress under uncertainty",
+        "Experiments inform pivot or persevere decisions",
+        "Actionable measurement is preferable to output counts"
+      ],
+      "boundary": "Supports only the named claim; does not establish a universal intervention or applicability rule."
+    },
+    {
+      "id": "SRC-STARTUP-STRATEGYZER-BMC",
+      "canonical_evidence_path": "assets/management-knowledge/sources/startup.json",
+      "bibliography_path": "assets/management-knowledge/sources/bibliography.json",
+      "source_schema": "unversioned-bibliography-entry",
+      "bibliography_revision": "2c49c274123e0ba67bc4d0cd4ad00a9480375f7b7c197c49deef50f2265f3ff9",
+      "reviewed_on": "2026-10-15",
+      "supported_claims": [
+        "Canvas models how value is created, delivered and captured",
+        "Model blocks are interdependent",
+        "Canvas versions should change with evidence"
+      ],
+      "boundary": "Supports only the named claim; does not establish a universal intervention or applicability rule."
+    },
+    {
+      "id": "SRC-CORE-AMPLITUDE-RETENTION",
+      "canonical_evidence_path": "assets/management-knowledge/sources/core.json",
+      "bibliography_path": "assets/management-knowledge/sources/bibliography.json",
+      "source_schema": "unversioned-bibliography-entry",
+      "bibliography_revision": "2d19cd975b0bfbbec0d7f2e102d0226ebd66e570f5db60ee0095f00bd4fae809",
+      "reviewed_on": "2026-10-15",
+      "supported_claims": [
+        "Return On and Return On or After are distinct retention definitions",
+        "Retention requires explicit start/return events and cohort/window semantics",
+        "Incomplete observation intervals can mislead"
+      ],
+      "boundary": "Supports only the named claim; does not establish a universal intervention or applicability rule."
+    },
+    {
+      "id": "SRC-FINANCE-contribution",
+      "canonical_evidence_path": "assets/management-knowledge/sources/finance.json",
+      "bibliography_path": "assets/management-knowledge/sources/bibliography.json",
+      "source_schema": "unversioned-bibliography-entry",
+      "bibliography_revision": "3a9a16fd0204d5abe724e4c85f27bf1ee67301fc6a407c52f3716f3b65bafd4e",
+      "reviewed_on": "2026-10-15",
+      "supported_claims": [
+        "Sales less variable costs gives contribution amount",
+        "Contribution amount differs from contribution ratio",
+        "Relevant range and stepped fixed costs limit interpretation"
+      ],
+      "boundary": "Supports only the named claim; does not establish a universal intervention or applicability rule."
+    }
+  ],
+  "excluded_families": [
+    {
+      "family": "activation rules and MET-ACTIVATION-RATE",
+      "reason": "Activation event/eligibility definitions are not sufficiently reviewed; no implicit mapping from retention events."
+    },
+    {
+      "family": "organization, cadence and operating diagnostics",
+      "reason": "Outside the first-slice venture journeys; retain unmapped tags and unresolved diagnostic roots."
+    },
+    {
+      "family": "other financial metrics and six financial input families",
+      "reason": "Require separate typed input, unit, period, currency, provenance and method reviews."
+    },
+    {
+      "family": "PLAN-* records",
+      "reason": "Plans are not executable strategy evidence or approved runtime rules."
+    },
+    {
+      "family": "raw business_types/stages applicability tags",
+      "reason": "Descriptive tags only; require explicit versioned axis adapters and reject unmapped/ambiguous values."
+    }
+  ],
+  "runtime_gates": [
+    {
+      "record_id": "RULE-DISCOVERY",
+      "status": "blocked_until_typed_mapping",
+      "fields": [
+        "stage",
+        "operating"
+      ],
+      "reason": "stage=idea is explicit, but operating has no reviewed lossless source-field mapping; absent data must remain unknown, not false. Do not execute until a typed mapping and negative fixtures exist."
+    },
+    {
+      "record_id": "RULE-RETENTION-BEFORE-SCALE",
+      "status": "gated_by_STR-061-A",
+      "fields": [
+        "stage",
+        "scale_acquisition_requested",
+        "retention_evidence"
+      ],
+      "reason": "Require same venture/segment scope; only map repeatability evidence when repeatability_scope=cohort_retention. Keep bounded experiments distinct from material acquisition commitments."
+    },
+    {
+      "record_id": "MET-CONTRIBUTION-MARGIN",
+      "status": "definition_only_until_STR-058-A_B",
+      "fields": [
+        "business_types",
+        "stages",
+        "net_revenue",
+        "variable_costs",
+        "period",
+        "currency",
+        "cost_scope"
+      ],
+      "reason": "Do not import raw applicability tags. The metric is definition-only in this slice; typed observations and calculation are owned by STR-058-A/B."
+    }
+  ]
+}
