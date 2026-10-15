@@ -1,7 +1,16 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import test from 'node:test';
-import { buildKnowledgeRelease, canonicalJson } from '../scripts/build-knowledge-release.mjs';
+import {
+  assertDependencyClosure,
+  assertNoRawApplicabilityTags,
+  assertRecordRevision,
+  assertRuleOperators,
+  assertSourceReferences,
+  assertSourceSchema,
+  buildKnowledgeRelease,
+  canonicalJson,
+} from '../scripts/build-knowledge-release.mjs';
 
 test('builds the exact reviewed first-slice allowlist from its pinned KB commit', () => {
   const release = buildKnowledgeRelease();
@@ -59,4 +68,77 @@ test('canonical release hash omits only the digest and sorts nested object keys'
   const { content_sha256: digest, ...unsigned } = release;
   assert.equal(digest, createHash('sha256').update(canonicalJson(unsigned)).digest('hex'));
   assert.equal(canonicalJson({ z: 1, a: { y: 2, b: 3 } }), '{"a":{"b":3,"y":2},"z":1}');
+});
+
+test('unknown source schema is rejected rather than adapted by guess', () => {
+  assert.throws(
+    () => assertSourceSchema('RULE-TEST', { schema_version: '99.0.0' }, { source_schema: '0.1.0' }),
+    /source schema changed/,
+  );
+});
+
+test('unsupported rule operators fail closed', () => {
+  assert.throws(
+    () => assertRuleOperators('RULE-TEST', { conditions: { all: [{ op: 'contains' }] } }),
+    /unapproved condition operator/,
+  );
+});
+
+test('raw or unknown applicability tags cannot enter normalized definitions', () => {
+  assert.throws(
+    () => assertNoRawApplicabilityTags('MET-TEST', { business_types: ['unknown-platform'] }),
+    /raw applicability tags/,
+  );
+  assert.throws(
+    () => assertNoRawApplicabilityTags('MET-TEST', { stages: ['undocumented-stage'] }),
+    /raw applicability tags/,
+  );
+});
+
+test('missing and unreviewed dependencies are rejected', () => {
+  assert.throws(
+    () =>
+      assertDependencyClosure('RULE-TEST', ['FW-TEST'], new Set(['RULE-TEST']), new Set(), [
+        'FW-TEST',
+      ]),
+    /unreviewed dependency FW-TEST/,
+  );
+  assert.throws(
+    () => assertDependencyClosure('RULE-TEST', [], new Set(), new Set(), ['SRC-MISSING']),
+    /missing its direct reviewed dependency SRC-MISSING/,
+  );
+});
+
+test('missing or unreviewed claim-level sources are rejected', () => {
+  assert.throws(
+    () =>
+      assertSourceReferences(
+        'RULE-TEST',
+        [{ source_id: 'SRC-MISSING', section: 'claim' }],
+        new Set(),
+      ),
+    /unreviewed source SRC-MISSING/,
+  );
+  assert.throws(
+    () =>
+      assertSourceReferences(
+        'RULE-TEST',
+        [{ source_id: 'SRC-OK', section: '' }],
+        new Set(['SRC-OK']),
+      ),
+    /empty claim-level source section/,
+  );
+});
+
+test('record tampering changes the pinned revision and blocks packaging', () => {
+  const source = { id: 'RULE-TEST', schema_version: '0.1.0', claim: 'reviewed' };
+  assert.throws(
+    () =>
+      assertRecordRevision(
+        'RULE-TEST',
+        { ...source, claim: 'tampered' },
+        { revision: 'a'.repeat(64) },
+      ),
+    /revision changed/,
+  );
 });

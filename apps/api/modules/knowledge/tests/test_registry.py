@@ -9,6 +9,7 @@ from typing import Any
 from modules.knowledge.registry import (
     CANONICALIZATION,
     MAX_RELEASE_BYTES,
+    MAX_REJECTED_RECORDS,
     KnowledgeReleaseError,
     KnowledgeReleaseNotFound,
     calculate_release_sha256,
@@ -111,8 +112,11 @@ class KnowledgeReleaseReaderTests(unittest.TestCase):
         self.assertEqual(load_release("test-release-a", self.release_dir).content_sha256, document["content_sha256"])
 
     def test_unavailable_release_is_reported_without_latest_fallback(self) -> None:
+        self.write_release(release_document(release_id="latest", source_kb_commit="c" * 40))
         with self.assertRaises(KnowledgeReleaseNotFound):
             load_release("unknown-release", self.release_dir)
+        with self.assertRaisesRegex(KnowledgeReleaseError, "latest alias is reserved"):
+            load_release("latest", self.release_dir)
 
     def test_release_identifier_cannot_traverse_package_path(self) -> None:
         for identifier in ("../outside", "nested/release", "", "../test-release-a"):
@@ -165,9 +169,35 @@ class KnowledgeReleaseReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(KnowledgeReleaseError, "exactly match"):
             load_release("test-release-a", self.release_dir)
 
+    def test_record_cannot_be_both_approved_and_rejected(self) -> None:
+        diagnostics = release_document()["rejected_records"]
+        diagnostics.append(
+            {
+                "record_id": "MET-CONTRIBUTION-MARGIN",
+                "reason_code": "unreviewed_record",
+                "source_schema": "1.0.0",
+            }
+        )
+        self.write_release(release_document(rejected_records=diagnostics))
+        with self.assertRaisesRegex(KnowledgeReleaseError, "duplicated or both approved and rejected"):
+            load_release("test-release-a", self.release_dir)
+
     def test_oversized_file_is_rejected_before_json_parsing(self) -> None:
         (self.release_dir / "test-release-a.json").write_bytes(b" " * (MAX_RELEASE_BYTES + 1))
         with self.assertRaisesRegex(KnowledgeReleaseError, "size limit"):
+            load_release("test-release-a", self.release_dir)
+
+    def test_rejected_record_diagnostics_have_a_bounded_count(self) -> None:
+        diagnostics = [
+            {
+                "record_id": f"REJECT-{index:03}",
+                "reason_code": "unreviewed_record",
+                "source_schema": "1.0.0",
+            }
+            for index in range(MAX_REJECTED_RECORDS + 1)
+        ]
+        self.write_release(release_document(rejected_records=diagnostics))
+        with self.assertRaisesRegex(KnowledgeReleaseError, "diagnostic limit"):
             load_release("test-release-a", self.release_dir)
 
 

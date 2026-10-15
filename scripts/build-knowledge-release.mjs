@@ -81,6 +81,66 @@ function findRecord(value, id) {
   return null;
 }
 
+export function assertSourceSchema(id, source, curation) {
+  if (String(source.schema_version) !== curation.source_schema)
+    throw new Error(`${id} source schema changed.`);
+}
+
+export function assertRecordRevision(id, source, curation) {
+  if (sha256(canonicalJson(source)) !== curation.revision)
+    throw new Error(`${id} revision changed; review the source before rebuilding.`);
+}
+
+export function assertRuleOperators(id, source) {
+  const operators = source.conditions?.all?.map((condition) => condition.op) ?? [];
+  if (operators.some((operator) => operator !== 'eq'))
+    throw new Error(`${id} contains an unapproved condition operator.`);
+}
+
+export function assertDependencyClosure(
+  id,
+  declared,
+  candidates,
+  sources,
+  directDependencies = [],
+) {
+  for (const dependency of directDependencies) {
+    if (!declared.includes(dependency)) {
+      throw new Error(`${id} is missing its direct reviewed dependency ${dependency}.`);
+    }
+  }
+  for (const dependency of declared) {
+    if (!candidates.has(dependency) && !sources.has(dependency))
+      throw new Error(`${id} has an unreviewed dependency ${dependency}.`);
+  }
+}
+
+export function assertSourceReferences(id, refs, sources) {
+  for (const ref of refs) {
+    if (!sources.has(ref.source_id))
+      throw new Error(`${id} refers to an unreviewed source ${ref.source_id}.`);
+    if (!ref.section?.trim()) throw new Error(`${id} has an empty claim-level source section.`);
+  }
+}
+
+export function assertNoRawApplicabilityTags(id, definition) {
+  if (Object.hasOwn(definition, 'business_types') || Object.hasOwn(definition, 'stages')) {
+    throw new Error(`${id} may not project raw applicability tags.`);
+  }
+}
+
+function collectDirectDependencies(id, source) {
+  const dependencies = new Set(source.sources ?? []);
+  if (id.startsWith('RULE-')) {
+    for (const dependency of source.frameworks ?? []) dependencies.add(dependency);
+    if (source.recommended_action) dependencies.add(source.recommended_action);
+  } else if (id.startsWith('REC-')) {
+    if (source.trigger) dependencies.add(source.trigger);
+    if (source.next_action) dependencies.add(source.next_action);
+  }
+  return dependencies;
+}
+
 function normalizeDefinition(id, source, curation, runtimeGates) {
   let gate = runtimeGates.find((item) => item.record_id === id);
   if (!gate && (id.startsWith('REC-') || id.startsWith('ACT-'))) {
@@ -114,9 +174,7 @@ function normalizeDefinition(id, source, curation, runtimeGates) {
   }
 
   if (id.startsWith('RULE-')) {
-    const operators = source.conditions?.all?.map((condition) => condition.op) ?? [];
-    if (operators.some((operator) => operator !== 'eq'))
-      throw new Error(`${id} contains an unapproved condition operator.`);
+    assertRuleOperators(id, source);
     return {
       id,
       conditions: source.conditions,
@@ -210,47 +268,29 @@ export function buildKnowledgeRelease() {
     const sourceFile = parsePinnedFile(manifest.source_kb_commit, normalizedSourcePath);
     const source = findRecord(sourceFile, id);
     if (!source) throw new Error(`${id} does not exist at the pinned knowledge commit.`);
-    if (String(source.schema_version) !== curation.source_schema)
-      throw new Error(`${id} source schema changed.`);
-    if (sha256(canonicalJson(source)) !== curation.revision)
-      throw new Error(`${id} revision changed; review the source before rebuilding.`);
+    assertSourceSchema(id, source, curation);
+    assertRecordRevision(id, source, curation);
     if (
       curation.source_support?.status !== 'product_heuristic' ||
       !curation.source_support.rationale?.trim()
     ) {
       throw new Error(`${id} must retain its reviewed product-heuristic label and rationale.`);
     }
-    const directDependencies = new Set(source.sources ?? []);
-    if (id.startsWith('RULE-')) {
-      for (const dependency of source.frameworks ?? []) directDependencies.add(dependency);
-      if (source.recommended_action) directDependencies.add(source.recommended_action);
-    } else if (id.startsWith('REC-')) {
-      if (source.trigger) directDependencies.add(source.trigger);
-      if (source.next_action) directDependencies.add(source.next_action);
-    }
-    for (const dependency of directDependencies) {
-      if (!curation.depends_on.includes(dependency)) {
-        throw new Error(`${id} is missing its direct reviewed dependency ${dependency}.`);
-      }
-    }
-    for (const dep of curation.depends_on) {
-      if (!candidates.has(dep) && !sources.has(dep))
-        throw new Error(`${id} has an unreviewed dependency ${dep}.`);
-    }
-    for (const ref of curation.source_support.refs) {
-      if (!sources.has(ref.source_id))
-        throw new Error(`${id} refers to an unreviewed source ${ref.source_id}.`);
-      if (!ref.section?.trim()) throw new Error(`${id} has an empty claim-level source section.`);
-    }
+    assertDependencyClosure(
+      id,
+      curation.depends_on,
+      candidates,
+      sources,
+      collectDirectDependencies(id, source),
+    );
+    assertSourceReferences(id, curation.source_support.refs, sources);
     const definition = normalizeDefinition(id, source, curation, manifest.runtime_gates);
     const allowedProjection = [...curation.allowlisted_projection_fields].sort();
     const actualProjection = Object.keys(definition).sort();
     if (JSON.stringify(actualProjection) !== JSON.stringify(allowedProjection)) {
       throw new Error(`${id} normalized projection differs from its reviewed field allowlist.`);
     }
-    if (Object.hasOwn(definition, 'business_types') || Object.hasOwn(definition, 'stages')) {
-      throw new Error(`${id} may not project raw applicability tags.`);
-    }
+    assertNoRawApplicabilityTags(id, definition);
     normalizedRecords[id] = {
       source_schema: curation.source_schema,
       revision: curation.revision,

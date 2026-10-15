@@ -20,6 +20,7 @@ from typing import Any, Mapping
 RELEASE_SCHEMA_VERSION = 1
 CANONICALIZATION = "json-sort-keys-compact-utf8-no-newline-v1"
 MAX_RELEASE_BYTES = 4 * 1024 * 1024
+MAX_REJECTED_RECORDS = 256
 DEFAULT_RELEASE_DIRECTORY = Path(__file__).resolve().parent / "releases"
 _RELEASE_ID = re.compile(r"[a-z0-9][a-z0-9._-]{0,63}\Z")
 _KNOWLEDGE_ID = re.compile(r"[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*\Z")
@@ -248,6 +249,8 @@ def _parse_release(document: Any) -> KnowledgeRelease:
     rejected_value = root["rejected_records"]
     if not isinstance(rejected_value, list):
         raise KnowledgeReleaseError("rejected_records must be a list of bounded diagnostics.")
+    if len(rejected_value) > MAX_REJECTED_RECORDS:
+        raise KnowledgeReleaseError("rejected_records exceeds the configured diagnostic limit.")
     rejected: list[Mapping[str, str]] = []
     rejected_ids: set[str] = set()
     allowed_reasons = {
@@ -302,6 +305,8 @@ def load_release(release_id: str, release_directory: Path | None = None) -> Know
     release ID. A release path may not escape the configured package directory,
     and files are size-bounded before parsing.
     """
+    if release_id == "latest":
+        raise KnowledgeReleaseError("The latest alias is reserved; request an exact immutable release ID.")
     if not isinstance(release_id, str) or not _RELEASE_ID.fullmatch(release_id):
         raise KnowledgeReleaseError("Invalid knowledge release ID.")
     root = (release_directory or DEFAULT_RELEASE_DIRECTORY).resolve()
