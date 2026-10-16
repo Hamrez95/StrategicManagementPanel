@@ -1,5 +1,9 @@
 # تحویل توسعه Management OS به Luna
 
+## اولویت تازهٔ مالک — طراحی خلوت و اتصال بک‌اند
+
+طراحی و فرانت‌اند تجربهٔ تازه در `features/experience` آمادهٔ بررسی محلی است. برای ادامهٔ بک‌اند، ابتدا [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) و [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md) را بخوان. ترتیب فعلی اتصال: 010-D → 013-D → 014-D → 015-D → 027-D، سپس بسته‌های مستقل و 065-D. طراحی را دوباره نساز؛ حساب local را session واقعی فرض نکن. packetهای علمی پیشین و گیت‌های پژوهشی همچنان معتبرند؛ flow ساخت Workspace به اجرای موتور تشخیص وابسته نیست.
+
 به‌روزشدن: ۲۰۲۶-۱۰-۱۶. ریپو: `D:\Hamidreza\Projects\StrategicManagementPanel`. این فایل نقطه شروع ادامه است؛ کل گفت‌وگو یا تمام تحقیق را دوباره نخوان.
 
 ## الزام‌های مالک

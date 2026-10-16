@@ -4,11 +4,12 @@ import { useQueryClient } from '@tanstack/react-query';
 import { queryKeys } from '../../api/queryKeys';
 import { Button, Input } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth, type AuthFields } from './api';
+import { BoardIllustration, Mark } from '../experience/ExperienceUI';
+import { localExperienceEnabled, loadSpaces, loginLocal, TEST_EMAIL } from '../experience/local';
 
 function AuthFrame({
   title,
   description,
-  step,
   children,
 }: {
   title: string;
@@ -16,38 +17,22 @@ function AuthFrame({
   step: 'account' | 'confirm' | 'recover';
   children: ReactNode;
 }) {
-  const steps = [
-    { id: 'account', title: 'حساب', number: '۱' },
-    { id: 'confirm', title: 'تأیید ایمیل', number: '۲' },
-    { id: 'recover', title: 'بازیابی', number: '۳' },
-  ];
   return (
-    <section className="auth-shell" aria-labelledby="auth-title">
-      <aside className="auth-context" aria-label="مراحل امن‌سازی حساب">
-        <span className="auth-context__eyebrow">حساب استراتینو</span>
-        <h2>کارهای مهمتان را در فضای کار خود ادامه دهید.</h2>
-        <p>با حساب تأییدشده، تصمیم‌ها و برنامه‌های هر پروژه در فضای اختصاصی شما نگهداری می‌شوند.</p>
-        <ol className="auth-steps">
-          {steps.map((item) => (
-            <li key={item.id} aria-current={step === item.id ? 'step' : undefined}>
-              <span aria-hidden="true">{item.number}</span>
-              {item.title}
-            </li>
-          ))}
-        </ol>
-        <Link to="/demo" className="auth-context__link">
-          پیش از ورود، نسخه نمونه را ببینید
-        </Link>
-      </aside>
-      <div className="auth-panel">
-        <div className="auth-panel__heading">
-          <p className="auth-kicker">فضای امن کار شما</p>
-          <h1 id="auth-title" tabIndex={-1}>
-            {title}
-          </h1>
-          <p>{description}</p>
-        </div>
+    <section className="ex-auth" aria-labelledby="auth-title" dir="rtl">
+      <Mark />
+      <div className="ex-auth-card">
+        <h1 id="auth-title" tabIndex={-1}>
+          {title}
+        </h1>
+        <p>{description}</p>
         {children}
+      </div>
+      <small>استراتینو؛ فضای روشن کسب‌وکار شما.</small>
+      <div className="ex-auth-art" aria-hidden="true">
+        <BoardIllustration compact />
+      </div>
+      <div className="ex-auth-art" aria-hidden="true">
+        <BoardIllustration compact />
       </div>
     </section>
   );
@@ -171,6 +156,21 @@ export function LoginPage() {
     errors.clear();
     setPending(true);
     try {
+      if (localExperienceEnabled() && email.trim().toLowerCase() === TEST_EMAIL) {
+        if (!loginLocal(email, password)) {
+          errors.setMessage('ایمیل یا گذرواژهٔ حساب تست درست نیست.');
+          errors.setFailed(true);
+          return;
+        }
+        let returning = false;
+        try {
+          returning = loadSpaces().length > 0;
+        } catch {
+          returning = true;
+        }
+        navigate(returning ? '/preview/workspaces' : '/preview/welcome', { replace: true });
+        return;
+      }
       await postAuth('/api/v1/accounts/login/', { email, password });
       await queryClient.invalidateQueries({ queryKey: queryKeys.session });
       const next = new URLSearchParams(location.search).get('next');
@@ -228,6 +228,26 @@ export function LoginPage() {
           حساب ندارید؟ <Link to="/account/signup">ثبت‌نام کنید</Link>
         </p>
       </form>
+      {localExperienceEnabled() && (
+        <details className="ex-test-login">
+          <summary>ورود برای بررسی طراحی</summary>
+          <p>حساب تست محلی، با دسترسی کامل به نمونه. به سرور متصل نیست.</p>
+          <code dir="ltr">
+            {TEST_EMAIL}
+            <br />
+            Password: 123456
+          </code>
+          <button
+            className="ex-text-button"
+            onClick={() => {
+              setEmail(TEST_EMAIL);
+              setPassword('123456');
+            }}
+          >
+            پرکردن اطلاعات حساب تست
+          </button>
+        </details>
+      )}
     </AuthFrame>
   );
 }

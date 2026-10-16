@@ -1,5 +1,9 @@
 # Luna implementation packets — decisions already made
 
+## Owner-prioritized experience integration — 2026-10-16
+
+The owner replaced the dense preview hierarchy with a Trello-informed, separated public/auth/welcome/home/discovery/Workspace design. The implemented frontend and its exact backend work are in [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) and [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md). Start its 010-D → 013-D → 014-D → 015-D → 027-D integration sequence; these refine the existing issues, not a second catalog. Keep the scientific packets and acceptance gates below intact. Do not connect local fixture authentication or generic toolNotes to production APIs.
+
 2026-10-16. These packets refine the existing STR tasks; they are not new tasks or another tracker. Architecture, journeys, page hierarchy and interaction behavior are fixed in this design package. Luna implements small packets and records evidence. It must not redesign ownership, rules, scientific criteria, privacy or migration strategy.
 
 ## Execution protocol

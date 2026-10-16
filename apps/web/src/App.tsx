@@ -22,9 +22,9 @@ import {
 } from './features/account/api';
 import type { DevicePreferences } from './features/account/api';
 import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
-import { getWorkspaceTool } from './features/workspaces/routeRegistry';
+import { getWorkspaceTool, workspaceTools } from './features/workspaces/routeRegistry';
 const Site = lazy(() => import('./pages/Site'));
-const ManagementPreview = lazy(() => import('./pages/ManagementPreview'));
+const ProductExperience = lazy(() => import('./features/experience/ProductExperience'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
@@ -264,6 +264,11 @@ export function App() {
   const location = useLocation();
   const applicationPath = location.pathname.startsWith('/app');
   const managementPreviewPath = location.pathname === '/management-preview';
+  const independentChrome =
+    location.pathname === '/' ||
+    location.pathname.startsWith('/account') ||
+    location.pathname.startsWith('/preview') ||
+    managementPreviewPath;
   const queryClient = useQueryClient();
   const [devicePreferences, setDevicePreferences] =
     useState<DevicePreferences>(readDevicePreferences);
@@ -324,7 +329,10 @@ export function App() {
     }
   };
   useEffect(() => {
-    if (location.hash.startsWith('#') && location.pathname === '/')
+    if (
+      location.pathname === '/' &&
+      workspaceTools.some((tool) => location.hash === '#' + tool.legacyHash)
+    )
       window.location.replace('/prototype/' + location.hash);
   }, [location.hash, location.pathname]);
   return (
@@ -332,7 +340,7 @@ export function App() {
       <a className="skip-link" href="#content">
         رفتن به محتوای اصلی
       </a>
-      {!applicationPath && (
+      {!applicationPath && !independentChrome && (
         <header className={`site-header${managementPreviewPath ? ' site-header--preview' : ''}`}>
           <Link to="/" aria-label="استراتینو، صفحه اصلی">
             <Brand />
@@ -355,7 +363,9 @@ export function App() {
       )}
       <main
         id="content"
-        className={applicationPath ? 'route-main route-main--application' : 'route-main'}
+        className={
+          applicationPath || independentChrome ? 'route-main route-main--application' : 'route-main'
+        }
         tabIndex={-1}
       >
         <Suspense
@@ -368,7 +378,11 @@ export function App() {
           <Routes>
             {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
             <Route path="/" element={<Site />} />
-            <Route path="/management-preview" element={<ManagementPreview />} />
+            <Route
+              path="/management-preview"
+              element={<Navigate to="/preview/workspaces" replace />}
+            />
+            <Route path="/preview/*" element={<ProductExperience />} />
             <Route
               path="/demo"
               element={
@@ -423,7 +437,7 @@ export function App() {
           <RouteFocus />
         </Suspense>
       </main>
-      {!applicationPath && (
+      {!applicationPath && !independentChrome && (
         <footer className="site-footer">
           <Brand />
           <p>از تحلیل به تصمیم؛ از تصمیم به اقدام.</p>
