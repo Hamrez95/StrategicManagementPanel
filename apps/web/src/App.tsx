@@ -24,6 +24,7 @@ import type { DevicePreferences } from './features/account/api';
 import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
 import { getWorkspaceTool } from './features/workspaces/routeRegistry';
 const Site = lazy(() => import('./pages/Site'));
+const ManagementPreview = lazy(() => import('./pages/ManagementPreview'));
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
@@ -262,6 +263,7 @@ function WorkspaceSelector({
 export function App() {
   const location = useLocation();
   const applicationPath = location.pathname.startsWith('/app');
+  const managementPreviewPath = location.pathname === '/management-preview';
   const queryClient = useQueryClient();
   const [devicePreferences, setDevicePreferences] =
     useState<DevicePreferences>(readDevicePreferences);
@@ -331,11 +333,12 @@ export function App() {
         رفتن به محتوای اصلی
       </a>
       {!applicationPath && (
-        <header className="site-header">
+        <header className={`site-header${managementPreviewPath ? ' site-header--preview' : ''}`}>
           <Link to="/" aria-label="استراتینو، صفحه اصلی">
             <Brand />
           </Link>
           <nav aria-label="ناوبری اصلی">
+            <Link to="/management-preview">پیش‌نمایش پنل مدیریت</Link>
             <Link to="/demo">نمونه تعاملی</Link>
             <Link to="/account/login">حساب کاربری</Link>
             <Button aria-label="تغییر تم" onClick={toggleTheme}>
@@ -365,6 +368,7 @@ export function App() {
           <Routes>
             {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
             <Route path="/" element={<Site />} />
+            <Route path="/management-preview" element={<ManagementPreview />} />
             <Route
               path="/demo"
               element={

@@ -12,6 +12,7 @@
 10. Implement UI 026-A, 064-A/B, 063-C, 027-A, then integrate 065-A using approved journeys/pages/interactions. Do not invent UX hierarchy, thresholds, health score, eligibility or copy.
 11. Organization/cadence/advanced financial scenarios follow their owning tasks. Research gaps stay explicit. All planned page routes remain disabled until implemented and accepted.
 12. Update existing GitHub issues as Hamrez95; do not duplicate tasks or close work before remote merge/check and required acceptance evidence. Roadmap is issue #53; mapping is `docs/backlog/issue-map.json`.
+13. A first reviewable UI slice is available at `/management-preview`: sample scenarios A/B, business-context state, a guided-flow illustration, local-only notes and a directory of authenticated Workspace modules. It is presentation-only where labeled; sample records never reach the server. Start the frontend with `npm run dev` or the root `run-local.ps1`; Docker/API remain opt-in through `run-local.ps1 -WithBackend`. Before activating Journey logic, capture the owner's expert decision on stable first-slice step IDs, prerequisites, completion/skip/defer/return rules, and the supported business scope; then implement and package that exact reviewed contract. The authenticated assessment projection still needs a scoped API route and UI wiring.
 
 ## Final validation queue — deferred at owner request
 

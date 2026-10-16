@@ -48,15 +48,15 @@ export default function Site() {
             همراه با آموزش، درست وقتی به آن نیاز دارید.
           </p>
           <div className="hero-actions">
-            <Link className="ui-button ui-button--primary" to="/demo">
-              تجربه نسخه نمونه
+            <Link className="ui-button ui-button--primary" to="/management-preview">
+              دیدن پنل مدیریت
             </Link>
-            <a className="text-link" href="#workflow">
-              دیدن مسیر کار
-            </a>
+            <Link className="text-link" to="/demo">
+              نسخه تعاملی ابزارهای قبلی
+            </Link>
           </div>
           <p className="availability">
-            نسخه تعاملی اکنون قابل استفاده است؛ حساب و فضای ابری در حال توسعه‌اند.
+            پیش‌نمایش مدیریت با دادهٔ نمونه آماده است؛ فضای واقعی با ورود به حساب باز می‌شود.
           </p>
         </div>
         <div className="strategy-scene" aria-label="نمایش مسیر تحلیل تا اقدام">
