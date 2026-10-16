@@ -35,6 +35,6 @@ Do not create a product endpoint just to show the reader works. Keep the API pac
 
 ## Git and acceptance
 
-GitHub connector login was verified as Hamrez95. Existing issues #66, #67, #68 and roadmap #53 were updated with current packet/gate evidence; no issue was closed. Local `main` was fast-forwarded through `465a26b` from `feat/stratino-files-023`. Source commits are **not pushed** and GitHub `main` is **not merged**. The previous HTTPS transport authenticated as an unrelated cached user and returned 403. The owner explicitly forbade using or changing that account; continue to use only a verified Hamrez95 transport. Do not claim remote source sync from issue updates.
+GitHub connector login was verified as Hamrez95. Existing issues #66–69 and roadmap #53 were updated with current packet/gate evidence; no issue was closed. Local `main` was fast-forwarded through `44ce557` from `feat/stratino-files-023`. Source commits are **not pushed** and GitHub `main` is **not merged**. The previous HTTPS transport authenticated as an unrelated cached user and returned 403. The owner explicitly forbade using or changing that account; continue to use only a verified Hamrez95 transport. Do not claim remote source sync from issue updates.
 
 Server/database, Docker/Compose, physical Windows runner, actual product-browser QA and founder/expert review remain in the owner-requested final queue. See NEXT_ACTIONS for exact scope. Their absence does not invalidate local packet tests, but they remain acceptance gates for affected product tasks.
