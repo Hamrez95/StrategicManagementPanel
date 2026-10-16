@@ -5,9 +5,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const curationPath = 'apps/api/modules/knowledge/curation/first-slice-v1.json';
-const releasePath = 'apps/api/modules/knowledge/releases/stratino-first-slice-v1.json';
-const releaseId = 'stratino-first-slice-v1';
+const releaseCandidates = {
+  'stratino-first-slice-v1': {
+    curationPath: 'apps/api/modules/knowledge/curation/first-slice-v1.json',
+    releasePath: 'apps/api/modules/knowledge/releases/stratino-first-slice-v1.json',
+  },
+  'stratino-first-slice-v2': {
+    curationPath: 'apps/api/modules/knowledge/curation/first-slice-v2.json',
+    releasePath: 'apps/api/modules/knowledge/releases/stratino-first-slice-v2.json',
+  },
+};
+const defaultReleaseId = 'stratino-first-slice-v1';
 const releaseSchemaVersion = 1;
 const canonicalization = 'json-sort-keys-compact-utf8-no-newline-v1';
 
@@ -239,10 +247,12 @@ function normalizeDefinition(id, source, curation, runtimeGates) {
   throw new Error(`No explicit reviewed adapter exists for ${id}.`);
 }
 
-export function buildKnowledgeRelease() {
+export function buildKnowledgeRelease(releaseId = defaultReleaseId) {
+  const candidate = releaseCandidates[releaseId];
+  if (!candidate) throw new Error(`Unknown reviewed release candidate ${releaseId}.`);
   const manifest = readJsonBuffer(
-    readFileSync(path.join(repositoryRoot, curationPath)),
-    curationPath,
+    readFileSync(path.join(repositoryRoot, candidate.curationPath)),
+    candidate.curationPath,
   );
   if (manifest.manifest_schema_version !== 1 || manifest.candidate_id !== releaseId) {
     throw new Error('Unsupported curation manifest schema or candidate ID.');
@@ -351,18 +361,25 @@ export function renderKnowledgeRelease(release) {
 
 const checkOnly = process.argv.includes('--check');
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const target = path.join(repositoryRoot, releasePath);
-  const expected = renderKnowledgeRelease(buildKnowledgeRelease());
+  const releaseArgumentIndex = process.argv.indexOf('--release');
+  const selectedReleaseId =
+    releaseArgumentIndex === -1
+      ? defaultReleaseId
+      : process.argv[releaseArgumentIndex + 1];
+  const candidate = releaseCandidates[selectedReleaseId];
+  if (!candidate) throw new Error(`Unknown reviewed release candidate ${selectedReleaseId}.`);
+  const target = path.join(repositoryRoot, candidate.releasePath);
+  const expected = renderKnowledgeRelease(buildKnowledgeRelease(selectedReleaseId));
   if (checkOnly) {
     if (!existsSync(target) || readFileSync(target, 'utf8') !== expected) {
-      console.error(`Knowledge release is missing or stale: ${releasePath}`);
+      console.error(`Knowledge release is missing or stale: ${candidate.releasePath}`);
       process.exitCode = 1;
     } else {
-      console.log(`Knowledge release is reproducible: ${releasePath}`);
+      console.log(`Knowledge release is reproducible: ${candidate.releasePath}`);
     }
   } else {
     mkdirSync(path.dirname(target), { recursive: true });
     writeFileSync(target, expected, { encoding: 'utf8' });
-    console.log(`Wrote ${releasePath}`);
+    console.log(`Wrote ${candidate.releasePath}`);
   }
 }

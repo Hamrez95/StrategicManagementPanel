@@ -63,6 +63,24 @@ test('builds the exact reviewed first-slice allowlist from its pinned KB commit'
   }
 });
 
+test('STR-058 v2 enables only the typed amount calculation and preserves v1', () => {
+  const v1 = buildKnowledgeRelease('stratino-first-slice-v1');
+  const v2 = buildKnowledgeRelease('stratino-first-slice-v2');
+
+  assert.equal(v1.release_id, 'stratino-first-slice-v1');
+  assert.equal(
+    v1.records['MET-CONTRIBUTION-MARGIN'].definition.runtime_gate.status,
+    'definition_only_until_STR-058-A_B',
+  );
+  assert.equal(v2.release_id, 'stratino-first-slice-v2');
+  const metric = v2.records['MET-CONTRIBUTION-MARGIN'].definition;
+  assert.equal(metric.runtime_gate.status, 'typed_calculation_only');
+  assert.ok(metric.runtime_gate.fields.includes('cost_scope'));
+  assert.ok(!metric.runtime_gate.fields.includes('business_types'));
+  assert.ok(!metric.runtime_gate.fields.includes('stages'));
+  assert.equal(v1.content_sha256 === v2.content_sha256, false);
+});
+
 test('canonical release hash omits only the digest and sorts nested object keys', () => {
   const release = buildKnowledgeRelease();
   const { content_sha256: digest, ...unsigned } = release;

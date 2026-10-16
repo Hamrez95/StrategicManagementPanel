@@ -1,0 +1,630 @@
+{
+  "fixture_version": 1,
+  "scale": 6,
+  "cases": [
+    {
+      "id": "standard-amount",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های پرداخت و ارسال ثبت‌شده"
+        }
+      },
+      "expected": {
+        "status": "observed",
+        "value": "40.000000",
+        "currency": "IRR",
+        "cost_scope": "هزینه‌های پرداخت و ارسال ثبت‌شده",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "observed-zero",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "0",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "0",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر ثبت‌شده"
+        }
+      },
+      "expected": {
+        "status": "observed",
+        "value": "0.000000",
+        "currency": "IRR",
+        "cost_scope": "هزینه‌های متغیر ثبت‌شده",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "negative-margin",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "10",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "12.5",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "observed",
+        "value": "-2.500000",
+        "currency": "IRR",
+        "cost_scope": "هزینه‌های متغیر اعلام‌شده",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "exact-six-decimal-amount",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "12.345678",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "2.111111",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "observed",
+        "value": "10.234567",
+        "currency": "IRR",
+        "cost_scope": "هزینه‌های متغیر اعلام‌شده",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "missing-variable-costs",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": null
+      },
+      "expected": {
+        "status": "unknown",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": [
+          "variable_costs"
+        ]
+      }
+    },
+    {
+      "id": "unknown-variable-costs",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "unknown",
+          "value": null,
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر تعیین نشده"
+        }
+      },
+      "expected": {
+        "status": "unknown",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "هزینه‌های متغیر تعیین نشده",
+        "missing_inputs": [
+          "variable_costs"
+        ]
+      }
+    },
+    {
+      "id": "not-applicable-input",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "not_applicable",
+          "value": null,
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "",
+          "reason": "این دوره فروش نداشته است."
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "0",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "not_applicable",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "currency-mismatch",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60",
+          "unit": "currency",
+          "currency": "IRT",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "period-mismatch",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-02-01",
+          "period_end": "2026-03-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "decimal-overflow-precision",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "1.1234567",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "0",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های متغیر اعلام‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "nonfinite-decimal",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "NaN",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های پرداخت و ارسال ثبت‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "scope-mismatch",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "segment",
+          "segment_id": "segment-a",
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": "هزینه‌های پرداخت و ارسال ثبت‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "accounting-basis-mismatch",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "accrual",
+          "cost_scope": "هزینه‌های پرداخت و ارسال ثبت‌شده"
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    },
+    {
+      "id": "missing-variable-cost-policy",
+      "context": {
+        "workspace_id": "workspace-a",
+        "scope_kind": "workspace",
+        "segment_id": null,
+        "period_start": "2026-01-01",
+        "period_end": "2026-02-01",
+        "currency": "IRR",
+        "accounting_basis": "cash"
+      },
+      "inputs": {
+        "net_revenue": {
+          "state": "observed",
+          "value": "100.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        },
+        "variable_costs": {
+          "state": "observed",
+          "value": "60.000000",
+          "unit": "currency",
+          "currency": "IRR",
+          "scope_kind": "workspace",
+          "segment_id": null,
+          "period_start": "2026-01-01",
+          "period_end": "2026-02-01",
+          "accounting_basis": "cash",
+          "cost_scope": ""
+        }
+      },
+      "expected": {
+        "status": "invalid",
+        "value": null,
+        "currency": "IRR",
+        "cost_scope": "",
+        "missing_inputs": []
+      }
+    }
+  ]
+}

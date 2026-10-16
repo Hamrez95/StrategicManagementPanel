@@ -17,7 +17,11 @@ from .models import (
     MetricValue,
     ObservationState,
 )
-from .services import link_input_evidence, snapshot_inputs
+from .services import (
+    calculate_and_store_contribution_margin,
+    link_input_evidence,
+    snapshot_inputs,
+)
 
 
 class MetricPersistenceTests(TestCase):
@@ -56,12 +60,15 @@ class MetricPersistenceTests(TestCase):
             "unit": "currency",
             "currency": "IRR",
             "accounting_basis": "cash",
+            "cost_scope": "",
             "source_kind": "owner_reported",
             "source_id": "ledger:2026-01",
             "source_revision": "close-1",
             "recorded_by": self.owner,
         }
         values.update(changes)
+        if values["binding_id"] == "variable_costs" and not values["cost_scope"]:
+            values["cost_scope"] = "هزینه‌های متغیر اعلام‌شده برای این دوره"
         return InputObservation(**values)
 
     def test_observed_zero_is_distinct_from_unknown(self):
@@ -321,6 +328,70 @@ class MetricPersistenceTests(TestCase):
         )
         with self.assertRaises(ValidationError):
             unknown.full_clean()
+
+    def test_authorized_service_pins_current_release_and_persists_decimal_amount(self):
+        revenue = self.observation(value=Decimal("100"))
+        costs = self.observation(
+            binding_id="variable_costs",
+            value=Decimal("60"),
+            cost_scope="هزینه پرداخت و ارسال ثبت‌شده",
+        )
+        for observation in (revenue, costs):
+            observation.full_clean()
+            observation.save()
+
+        run, metric_value = calculate_and_store_contribution_margin(
+            workspace_id=self.workspace.pk,
+            actor=self.owner,
+            observation_ids=[revenue.pk, costs.pk],
+            scope_kind="workspace",
+            segment_id=None,
+            period_start=date(2026, 1, 1),
+            period_end=date(2026, 2, 1),
+            currency="IRR",
+            accounting_basis="cash",
+            knowledge_release_id="stratino-first-slice-v2",
+        )
+
+        self.assertEqual(metric_value.status, MetricValue.Status.OBSERVED)
+        self.assertEqual(metric_value.value, Decimal("40.000000"))
+        self.assertEqual(run.knowledge_release_id, "stratino-first-slice-v2")
+        self.assertEqual(run.cost_scope, costs.cost_scope)
+        self.assertEqual(run.input_snapshot[0]["source_revision"], "close-1")
+
+    def test_authorized_service_keeps_unknown_and_rejects_old_release_or_viewer(self):
+        revenue = self.observation(value=Decimal("100"))
+        revenue.full_clean()
+        revenue.save()
+        viewer = User.objects.create_user(
+            "viewer@example.test",
+            password="not-a-real-user-password",
+            email_verified_at=timezone.now(),
+        )
+        Membership.objects.create(
+            workspace=self.workspace, user=viewer, role=Membership.Role.VIEWER
+        )
+        args = {
+            "workspace_id": self.workspace.pk,
+            "observation_ids": [revenue.pk],
+            "scope_kind": "workspace",
+            "segment_id": None,
+            "period_start": date(2026, 1, 1),
+            "period_end": date(2026, 2, 1),
+            "currency": "IRR",
+            "accounting_basis": "cash",
+            "knowledge_release_id": "stratino-first-slice-v2",
+        }
+        with self.assertRaises(PermissionDenied):
+            calculate_and_store_contribution_margin(actor=viewer, **args)
+        with self.assertRaises(ValidationError):
+            calculate_and_store_contribution_margin(
+                actor=self.owner,
+                **{**args, "knowledge_release_id": "stratino-first-slice-v1"},
+            )
+        _, unknown = calculate_and_store_contribution_margin(actor=self.owner, **args)
+        self.assertEqual(unknown.status, MetricValue.Status.UNKNOWN)
+        self.assertIsNone(unknown.value)
 
     def create_run(self):
         run = CalculationRun(

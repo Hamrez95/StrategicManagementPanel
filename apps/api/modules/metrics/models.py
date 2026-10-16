@@ -49,6 +49,7 @@ class InputObservation(models.Model):
     unit = models.CharField(max_length=32)
     currency = models.CharField(max_length=3)
     accounting_basis = models.CharField(max_length=64)
+    cost_scope = models.CharField(max_length=240, blank=True, default="")
     source_kind = models.CharField(max_length=24, choices=ObservationSource.choices)
     source_id = models.CharField(max_length=160)
     source_revision = models.CharField(max_length=80)
@@ -150,6 +151,16 @@ class InputObservation(models.Model):
             raise ValidationError(
                 {"recorded_by": "The recorder must be an active Workspace editor."}
             )
+        if self.binding_id == "variable_costs" and not self.cost_scope.strip():
+            raise ValidationError(
+                {
+                    "cost_scope": "Describe which variable costs this observation includes."
+                }
+            )
+        if self.binding_id != "variable_costs" and self.cost_scope:
+            raise ValidationError(
+                {"cost_scope": "Cost policy applies only to the variable-cost binding."}
+            )
 
     def save(self, *args, **kwargs):
         if not self._state.adding:
@@ -235,6 +246,7 @@ class CalculationRun(models.Model):
     period_end = models.DateField()
     currency = models.CharField(max_length=3)
     accounting_basis = models.CharField(max_length=64)
+    cost_scope = models.CharField(max_length=240, blank=True, default="")
     input_revision = models.PositiveIntegerField()
     input_snapshot = models.JSONField(blank=True)
     created_by = models.ForeignKey(
@@ -326,6 +338,7 @@ class CalculationRun(models.Model):
             "unit",
             "currency",
             "accounting_basis",
+            "cost_scope",
             "source_id",
             "source_kind",
             "source_revision",
@@ -390,6 +403,22 @@ class CalculationRun(models.Model):
                 raise ValidationError(
                     {
                         "input_snapshot": "Every input must match the run's scope, period, currency and accounting basis."
+                    }
+                )
+            if snapshot["binding_id"] == "variable_costs":
+                if (
+                    not snapshot["cost_scope"].strip()
+                    or snapshot["cost_scope"] != self.cost_scope
+                ):
+                    raise ValidationError(
+                        {
+                            "input_snapshot": "The variable-cost policy must be explicit and match the run."
+                        }
+                    )
+            elif snapshot["cost_scope"]:
+                raise ValidationError(
+                    {
+                        "input_snapshot": "Cost policy may only be attached to variable-cost inputs."
                     }
                 )
             if not all(
