@@ -1,5 +1,5 @@
 param(
-    [string[]] $Refs = @('main', 'HEAD'),
+    [string[]] $Refs = @('main'),
     [int] $FirstPort = 4173,
     [switch] $NoBrowser,
     [switch] $SmokeTest,
@@ -17,28 +17,29 @@ $gitCommand = Get-Command git -ErrorAction SilentlyContinue
 $npmCommand = Get-Command npm -ErrorAction SilentlyContinue
 $dockerCommand = Get-Command docker -ErrorAction SilentlyContinue
 if ($WithBackend) {
-    if (-not $dockerCommand) { throw 'Docker پیدا نشد. Docker Desktop را نصب و اجرا کنید؛ برای اجرای فقط وب، -WithBackend را حذف کنید.' }
+    if (-not $dockerCommand) { throw 'Docker was not found. Install and start Docker Desktop, or omit -WithBackend to run the web app only.' }
     & $dockerCommand.Source info --format '{{.ServerVersion}}' | Out-Null
-    if ($LASTEXITCODE -ne 0) { throw 'Docker آماده نیست. Docker Desktop را اجرا کنید و دوباره تلاش کنید.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Docker is not ready. Start Docker Desktop and try again.' }
     & $dockerCommand.Source compose version | Out-Null
-    if ($LASTEXITCODE -ne 0) { throw 'Docker Compose v2 لازم است. Docker Desktop را به‌روزرسانی کنید.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Docker Compose v2 is required. Update Docker Desktop and try again.' }
 }
 
-if (-not $nodeCommand) { throw 'Node.js پیدا نشد. Node.js 22 یا جدیدتر را نصب کنید.' }
-if (-not $gitCommand) { throw 'Git پیدا نشد. Git را نصب کنید و دوباره اجرا کنید.' }
-if (-not $npmCommand) { throw 'npm پیدا نشد. نصب Node.js را بررسی کنید.' }
+if (-not $nodeCommand) { throw 'Node.js was not found. Install Node.js 22 or newer.' }
+if (-not $gitCommand) { throw 'Git was not found. Install Git and try again.' }
+if (-not $npmCommand) { throw 'npm was not found. Check your Node.js installation.' }
 $nodeVersion = [version]((& $nodeCommand.Source --version).Trim().TrimStart('v'))
-if ($nodeVersion -lt [version]'22.12.0') { throw 'Node.js 22.12 یا جدیدتر لازم است. Node.js را به‌روزرسانی کنید.' }
-if (-not (Test-Path $serverScript)) { throw "فایل سرور پیدا نشد: $serverScript" }
-if ($Refs.Count -lt 1) { throw 'حداقل یک ref مانند main یا HEAD وارد کنید.' }
-if ($FirstPort -lt 1024 -or $FirstPort + $Refs.Count - 1 -gt 65535) {
-    throw 'شماره پورت باید در بازه 1024 تا 65535 باشد.'
-}
+if ($nodeVersion -lt [version]'22.12.0') { throw 'Node.js 22.12 or newer is required. Update Node.js and try again.' }
+if (-not (Test-Path $serverScript)) { throw "The local server script was not found: $serverScript" }
+if ($Refs.Count -lt 1) { throw 'Provide at least one Git ref, such as main or HEAD.' }
+if ($FirstPort -lt 1024 -or $FirstPort -gt 65535) { throw 'FirstPort must be between 1024 and 65535.' }
 
 $worktrees = [Collections.Generic.List[string]]::new()
 $servers = [Collections.Generic.List[object]]::new()
 $stacks = [Collections.Generic.List[object]]::new()
 $urls = [Collections.Generic.List[string]]::new()
+$webPorts = [Collections.Generic.List[int]]::new()
+$apiPorts = [Collections.Generic.List[int]]::new()
+$mailPorts = [Collections.Generic.List[int]]::new()
 $usedPorts = [Collections.Generic.HashSet[int]]::new()
 
 function Invoke-Git {
@@ -56,9 +57,22 @@ function Quote-ProcessArgument {
 function Test-PortAvailable {
     param([int] $Port)
     $listener = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $Port)
-    try { $listener.Start(); return $true }
+    $started = $false
+    try { $listener.Start(); $started = $true; return $true }
     catch { return $false }
-    finally { $listener.Stop() }
+    finally { if ($started) { $listener.Stop() } }
+}
+
+function Find-FreePort {
+    param([int] $StartAt, [Collections.Generic.HashSet[int]] $ReservedPorts)
+    for ($candidate = $StartAt; $candidate -le 65535; $candidate++) {
+        if ($ReservedPorts.Contains($candidate)) { continue }
+        if (Test-PortAvailable -Port $candidate) {
+            [void]$ReservedPorts.Add($candidate)
+            return $candidate
+        }
+    }
+    throw "No free localhost port was found at or above $StartAt. Choose a different starting port."
 }
 
 function Invoke-Compose {
@@ -70,7 +84,7 @@ function Invoke-Compose {
             [Environment]::SetEnvironmentVariable($key, $Stack.Env[$key], 'Process')
         }
         & $dockerCommand.Source compose --env-file $Stack.EnvFile --project-name $Stack.Name -f $Stack.Compose @ComposeArgs
-        if ($LASTEXITCODE -ne 0) { throw 'اجرای سرویس محلی ناموفق بود. وضعیت Docker، پورت‌ها و گزارش سرویس را بررسی کنید.' }
+        if ($LASTEXITCODE -ne 0) { throw 'A local service command failed. Check Docker status, port availability, and the service logs.' }
     } finally {
         foreach ($key in $saved.Keys) {
             if ($null -eq $saved[$key]) { Remove-Item -LiteralPath "Env:$key" -ErrorAction SilentlyContinue }
@@ -80,7 +94,7 @@ function Invoke-Compose {
 }
 
 function New-LocalStack {
-    param([int] $Index, [string] $Commit, [string] $Checkout)
+    param([int] $Index, [string] $Commit, [string] $Checkout, [int] $WebPort, [int] $ApiPort, [int] $MailPort)
     $hash = [Security.Cryptography.SHA256]::Create()
     try { $repoId = [BitConverter]::ToString($hash.ComputeHash([Text.Encoding]::UTF8.GetBytes($repoRoot))).Replace('-', '').Substring(0, 12).ToLowerInvariant() }
     finally { $hash.Dispose() }
@@ -105,10 +119,10 @@ function New-LocalStack {
         $parts = $line.Split(@('='), 2)
         if ($parts.Length -eq 2 -and $parts[0] -in @('DJANGO_SECRET_KEY', 'POSTGRES_PASSWORD')) { $localEnv[$parts[0]] = $parts[1] }
     }
-    if (-not $localEnv['DJANGO_SECRET_KEY'] -or -not $localEnv['POSTGRES_PASSWORD']) { throw 'تنظیم محلی ناقص است؛ فایل .local-dev مربوط به این نسخه را بررسی کنید.' }
-    $localEnv['API_PORT'] = [string]($FirstApiPort + $Index)
-    $localEnv['MAILPIT_PORT'] = [string]($FirstMailPort + $Index)
-    $localEnv['STRATINO_PUBLIC_URL'] = "http://127.0.0.1:$($FirstPort + $Index)"
+    if (-not $localEnv['DJANGO_SECRET_KEY'] -or -not $localEnv['POSTGRES_PASSWORD']) { throw 'Local environment settings are incomplete. Check this version''s file under .local-dev.' }
+    $localEnv['API_PORT'] = [string]$ApiPort
+    $localEnv['MAILPIT_PORT'] = [string]$MailPort
+    $localEnv['STRATINO_PUBLIC_URL'] = "http://127.0.0.1:$WebPort"
     return [pscustomobject]@{Name=$name; EnvFile=$envFile; Env=$localEnv; Compose=(Join-Path $Checkout 'infra/compose.dev.yml')}
 }
 
@@ -123,34 +137,30 @@ function Get-ServerFailure {
     $details = @()
     $stdout = Get-ServerLog -Path $Server.Stdout
     $stderr = Get-ServerLog -Path $Server.Stderr
-    if ($stdout) { $details += ("خروجی سرور:" + [Environment]::NewLine + $stdout) }
-    if ($stderr) { $details += ("خطای سرور:" + [Environment]::NewLine + $stderr) }
-    if ($Server.ProbeError) { $details += "خطای بررسی اتصال: $($Server.ProbeError)" }
-    if (-not $details.Count) { $details += "گزارش سرور: $($Server.Stdout) و $($Server.Stderr)" }
-    return ("سرور محلی روی $($Server.Url) بالا نماند (PID $($Server.Process.Id))." + [Environment]::NewLine + ($details -join [Environment]::NewLine))
+    if ($stdout) { $details += ("Server output:" + [Environment]::NewLine + $stdout) }
+    if ($stderr) { $details += ("Server errors:" + [Environment]::NewLine + $stderr) }
+    if ($Server.ProbeError) { $details += "Connection check: $($Server.ProbeError)" }
+    if (-not $details.Count) { $details += "Server logs: $($Server.Stdout) and $($Server.Stderr)" }
+    return ("The local server did not stay running at $($Server.Url) (PID $($Server.Process.Id))." + [Environment]::NewLine + ($details -join [Environment]::NewLine))
 }
 
 try {
-    # Validate every ref and port before creating a checkout or installing anything.
+    # Validate refs and reserve distinct available localhost ports before creating worktrees.
     $commits = @()
     for ($index = 0; $index -lt $Refs.Count; $index++) {
         $commits += Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$($Refs[$index])^{commit}")
-        $port = $FirstPort + $index
-        $ports = @($port)
+        $webPorts.Add((Find-FreePort -StartAt ($FirstPort + $index) -ReservedPorts $usedPorts))
         if ($WithBackend) {
             Invoke-Git -GitArgs @('cat-file', '-e', "$($commits[$index]):infra/compose.dev.yml") | Out-Null
-            $ports += @(($FirstApiPort + $index), ($FirstMailPort + $index))
-        }
-        foreach ($candidate in $ports) {
-            if ($candidate -lt 1024 -or $candidate -gt 65535 -or -not $usedPorts.Add($candidate)) { throw 'بازه پورت‌های وب، API و ایمیل باید معتبر و جدا باشد.' }
-            if (-not (Test-PortAvailable -Port $candidate)) { throw "پورت $candidate اشغال است. برنامه مالک پورت را ببندید یا بازه پورت دیگری انتخاب کنید." }
+            $apiPorts.Add((Find-FreePort -StartAt ($FirstApiPort + $index) -ReservedPorts $usedPorts))
+            $mailPorts.Add((Find-FreePort -StartAt ($FirstMailPort + $index) -ReservedPorts $usedPorts))
         }
     }
     New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
     for ($index = 0; $index -lt $Refs.Count; $index++) {
         $ref = $Refs[$index]
         $commit = $commits[$index]
-        if (-not $commit) { throw "Git ref پیدا نشد: $ref" }
+        if (-not $commit) { throw "Git ref was not found: $ref" }
 
         $safeName = ($ref -replace '[^A-Za-z0-9._-]', '_')
         $worktreePath = Join-Path $tempRoot ("{0}-{1}-{2}" -f $safeName, $commit.Substring(0, 8), [guid]::NewGuid().ToString('N').Substring(0, 6))
@@ -158,9 +168,9 @@ try {
         $worktrees.Add($worktreePath)
 
         if ($WithBackend) {
-            $stack = New-LocalStack -Index $index -Commit $commit -Checkout $worktreePath
+            $stack = New-LocalStack -Index $index -Commit $commit -Checkout $worktreePath -WebPort $webPorts[$index] -ApiPort $apiPorts[$index] -MailPort $mailPorts[$index]
             $stacks.Add($stack)
-            Write-Host "آماده‌سازی سرویس‌های محلی نسخه $ref..."
+            Write-Host "Starting local services for $ref..."
             Invoke-Compose -Stack $stack -ComposeArgs @('build', 'api')
             Invoke-Compose -Stack $stack -ComposeArgs @('up', '-d', '--wait', 'db', 'mailpit')
             Invoke-Compose -Stack $stack -ComposeArgs @('run', '--rm', 'api', 'python', 'manage.py', 'migrate', '--noinput')
@@ -169,28 +179,35 @@ try {
 
         Push-Location $worktreePath
         try {
-            Write-Host "ساخت نسخه $ref ($($commit.Substring(0, 8)))..."
-            if (-not (Test-Path -LiteralPath (Join-Path $worktreePath 'package-lock.json'))) { throw "نسخه $ref فایل قفل وابستگی ندارد؛ نصب قابل تکرار ممکن نیست." }
+            Write-Host "Building $ref ($($commit.Substring(0, 8)))..."
+            if (-not (Test-Path -LiteralPath (Join-Path $worktreePath 'package-lock.json'))) { throw "$ref does not contain package-lock.json; a reproducible install is not possible." }
             & $npmCommand.Source ci --no-audit --no-fund
-            if ($LASTEXITCODE -ne 0) { throw "نصب وابستگی نسخه $ref ناموفق بود. اتصال به registry و فایل قفل را بررسی کنید." }
+            if ($LASTEXITCODE -ne 0) { throw "Dependency installation failed for $ref. Check registry access and the lockfile." }
             & $npmCommand.Source run build
-            if ($LASTEXITCODE -ne 0) { throw "ساخت نسخه $ref ناموفق بود." }
+            if ($LASTEXITCODE -ne 0) { throw "The build failed for $ref." }
         }
         finally { Pop-Location }
 
-        $port = $FirstPort + $index
-        if (-not (Test-PortAvailable -Port $port)) { throw "پورت $port هنگام ساخت اشغال شد؛ -FirstPort دیگری انتخاب کنید." }
-        [void]$usedPorts.Add($port)
+        $port = $webPorts[$index]
+        if (-not (Test-PortAvailable -Port $port)) {
+            $port = Find-FreePort -StartAt ($port + 1) -ReservedPorts $usedPorts
+            $webPorts[$index] = $port
+            if ($WithBackend) {
+                $stack = $stacks[$index]
+                $stack.Env['STRATINO_PUBLIC_URL'] = "http://127.0.0.1:$port"
+                Invoke-Compose -Stack $stack -ComposeArgs @('up', '-d', '--wait', '--force-recreate', 'api')
+            }
+        }
         $distPath = Join-Path $worktreePath 'dist'
         $arguments = "$(Quote-ProcessArgument $serverScript) $port $(Quote-ProcessArgument $distPath)"
-        if ($WithBackend) { $arguments += " $($FirstApiPort + $index)" }
+        if ($WithBackend) { $arguments += " $($apiPorts[$index])" }
         $stdout = Join-Path $tempRoot "$safeName-$port.stdout.log"
         $stderr = Join-Path $tempRoot "$safeName-$port.stderr.log"
         Remove-Item $stdout, $stderr -Force -ErrorAction SilentlyContinue
         $processOptions = @{FilePath=$nodeCommand.Source; ArgumentList=$arguments; WorkingDirectory=$worktreePath; PassThru=$true; RedirectStandardOutput=$stdout; RedirectStandardError=$stderr}
         if ($env:OS -eq 'Windows_NT') { $processOptions['WindowStyle'] = 'Hidden' }
         $process = Start-Process @processOptions
-        $url = "http://localhost:$port"
+        $url = "http://127.0.0.1:$port"
         $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr; ProbeError = '' }
         $servers.Add($server)
 
@@ -219,22 +236,22 @@ try {
             $request.Proxy = $null
             $request.Timeout = 5000
             $response = $request.GetResponse()
-            try { if ([int]$response.StatusCode -ne 200) { throw 'API آماده نیست.' } }
+            try { if ([int]$response.StatusCode -ne 200) { throw 'The API is not ready.' } }
             finally { $response.Close() }
-            Write-Host "API: http://127.0.0.1:$($FirstApiPort + $index) | ایمیل محلی: http://127.0.0.1:$($FirstMailPort + $index)"
+            Write-Host "API: http://127.0.0.1:$($apiPorts[$index]) | Local email: http://127.0.0.1:$($mailPorts[$index])"
         }
 
         $urls.Add($url)
         Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
     }
 
-    if ($SmokeTest) { Write-Host 'بررسی اجرا موفق بود؛ سرورها بسته می‌شوند.' -ForegroundColor Green; return }
+    if ($SmokeTest) { Write-Host 'Smoke test passed. The local servers will now shut down.' -ForegroundColor Green; return }
 
     if (-not $NoBrowser) {
         foreach ($url in $urls) { Start-Process $url }
     }
 
-    Write-Host 'برای بستن سرورها Ctrl+C را بزنید.' -ForegroundColor Green
+    Write-Host 'Press Ctrl+C to stop the local servers.' -ForegroundColor Green
     while ($true) {
         foreach ($server in $servers) {
             $server.Process.Refresh()
@@ -253,12 +270,12 @@ finally {
     }
     foreach ($stack in $stacks) {
         try { Invoke-Compose -Stack $stack -ComposeArgs @('down', '--timeout', '5') }
-        catch { Write-Warning "توقف سرویس‌های محلی $($stack.Name) ناموفق بود؛ Docker را بررسی کنید." }
+        catch { Write-Warning "Could not stop local services for $($stack.Name). Check Docker." }
     }
     foreach ($worktree in $worktrees) {
         $resolved = [IO.Path]::GetFullPath($worktree)
         $allowed = [IO.Path]::GetFullPath($tempRoot) + [IO.Path]::DirectorySeparatorChar
-        if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'مسیر پاک‌سازی خارج از پوشه موقت این اجرا است.' }
+        if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'Cleanup resolved outside this run''s temporary directory.' }
         # Unlink npm's workspace junctions without traversing or deleting their targets.
         # Git's recursive removal otherwise reaches a dangling junction on Windows.
         $workspaceLinks = Join-Path $resolved 'node_modules/@stratino'
@@ -270,7 +287,7 @@ finally {
         }
         $cleanupResult = & $gitCommand.Source -c core.longpaths=true -C $repoRoot worktree remove --force $resolved 2>&1
         $cleanupExit = $LASTEXITCODE
-        if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "پاک‌سازی worktree ناموفق بود؛ مسیر برای بررسی نگه داشته شد: $resolved ($cleanupResult)" }
+        if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "Could not remove the temporary worktree; it was kept for inspection: $resolved ($cleanupResult)" }
     }
-    Write-Host "گزارش این اجرا: $tempRoot"
+    Write-Host "Run logs and temporary files: $tempRoot"
 }
