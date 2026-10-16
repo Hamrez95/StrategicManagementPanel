@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
 
 from modules.workspaces.services import workspace_role
 
@@ -151,6 +152,7 @@ class Evidence(ScopedEvidenceRecord):
     method = models.CharField(max_length=160, blank=True, default="")
     observed_at = models.DateTimeField()
     imported_at = models.DateTimeField(auto_now_add=True)
+    review_due = models.DateField(null=True, blank=True)
     period_start = models.DateField(null=True, blank=True)
     period_end = models.DateField(null=True, blank=True)
     sample = models.CharField(max_length=500, blank=True, default="")
@@ -247,6 +249,10 @@ class Evidence(ScopedEvidenceRecord):
             raise ValidationError(
                 {"permission_scope": "Source permission scope is required."}
             )
+        if self.observed_at and self.observed_at > timezone.now():
+            raise ValidationError(
+                {"observed_at": "An observation cannot be dated in the future."}
+            )
         if (self.scope_kind == ScopeKind.SEGMENT) != (self.segment_id is not None):
             raise ValidationError(
                 {"segment": "Segment scope requires exactly one Segment."}
@@ -320,9 +326,7 @@ class ClaimEvidenceLink(models.Model):
             "owner",
             "editor",
         }:
-            raise ValidationError(
-                {"reviewer": "Reviewer must be a Workspace editor."}
-            )
+            raise ValidationError({"reviewer": "Reviewer must be a Workspace editor."})
         if self.claim_id and self.claim.workspace_id != self.workspace_id:
             raise ValidationError({"claim": "Claim belongs to another Workspace."})
         if self.evidence_id and self.evidence.workspace_id != self.workspace_id:
@@ -334,3 +338,149 @@ class ClaimEvidenceLink(models.Model):
                 raise ValidationError(
                     {"evidence": "Claim and Evidence must share a Workspace."}
                 )
+
+
+class ConfidenceAssessment(models.Model):
+    class Level(models.TextChoices):
+        INSUFFICIENT = "insufficient", "Insufficient"
+        LOW = "low", "Low"
+        MEDIUM = "medium", "Medium"
+        HIGH = "high", "High"
+
+    class Freshness(models.TextChoices):
+        CURRENT = "current", "Current"
+        STALE = "stale", "Stale"
+        UNKNOWN = "unknown", "Unknown"
+        UNAVAILABLE = "unavailable", "Unavailable"
+
+    class ContradictionStatus(models.TextChoices):
+        NONE = "none", "None identified"
+        RESOLVED = "resolved", "Resolved with review"
+        UNRESOLVED = "unresolved", "Material contradiction unresolved"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    workspace = models.ForeignKey(
+        "workspaces.Workspace",
+        on_delete=models.CASCADE,
+        related_name="confidence_assessments",
+    )
+    claim = models.ForeignKey(
+        Claim,
+        on_delete=models.CASCADE,
+        related_name="confidence_assessments",
+    )
+    claim_revision = models.PositiveIntegerField()
+    revision = models.PositiveIntegerField()
+    confidence = models.CharField(max_length=12, choices=Level.choices)
+    freshness = models.CharField(max_length=16, choices=Freshness.choices)
+    axis_reviews = models.JSONField()
+    contradiction_status = models.CharField(
+        max_length=12, choices=ContradictionStatus.choices
+    )
+    contradiction_reason = models.CharField(max_length=1000)
+    essential_information_missing = models.BooleanField(default=False)
+    missing_information_reason = models.CharField(
+        max_length=1000, blank=True, default=""
+    )
+    limitations_known = models.BooleanField(default=False)
+    limitations_reason = models.CharField(max_length=1000, blank=True, default="")
+    rationale = models.CharField(max_length=2000)
+    rule_revision = models.CharField(max_length=40)
+    source_trace = models.JSONField(blank=True)
+    reviewer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name="confidence_reviews",
+    )
+    reviewed_at = models.DateTimeField()
+
+    class Meta:
+        ordering = ("claim_id", "-revision")
+        indexes = [
+            models.Index(
+                fields=("workspace", "claim", "revision"),
+                name="confidence_claim_revision_idx",
+            )
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=("claim", "revision"), name="confidence_claim_revision_uniq"
+            ),
+            models.CheckConstraint(
+                condition=Q(claim_revision__gte=1) & Q(revision__gte=1),
+                name="confidence_revisions_gte1",
+            ),
+            models.CheckConstraint(
+                condition=Q(confidence__in=("insufficient", "low", "medium", "high")),
+                name="confidence_level_valid",
+            ),
+            models.CheckConstraint(
+                condition=Q(
+                    freshness__in=("current", "stale", "unknown", "unavailable")
+                ),
+                name="confidence_freshness_valid",
+            ),
+            models.CheckConstraint(
+                condition=Q(
+                    contradiction_status__in=("none", "resolved", "unresolved")
+                ),
+                name="confidence_contradiction_valid",
+            ),
+            models.CheckConstraint(
+                condition=~Q(rationale="")
+                & ~Q(contradiction_reason="")
+                & ~Q(rule_revision=""),
+                name="confidence_review_text_required",
+            ),
+            models.CheckConstraint(
+                condition=~Q(essential_information_missing=True)
+                | ~Q(missing_information_reason=""),
+                name="confidence_missing_reason_required",
+            ),
+            models.CheckConstraint(
+                condition=~Q(limitations_known=True) | ~Q(limitations_reason=""),
+                name="confidence_limits_reason_required",
+            ),
+        ]
+
+    def clean(self):
+        super().clean()
+        if not self.rationale or not self.rationale.strip():
+            raise ValidationError(
+                {"rationale": "An overall reviewer rationale is required."}
+            )
+        if not self.contradiction_reason or not self.contradiction_reason.strip():
+            raise ValidationError(
+                {"contradiction_reason": "Contradiction review needs an explanation."}
+            )
+        if (
+            self.essential_information_missing
+            and not self.missing_information_reason.strip()
+        ):
+            raise ValidationError(
+                {
+                    "missing_information_reason": (
+                        "Required missing information needs a reason."
+                    )
+                }
+            )
+        if self.limitations_known and not self.limitations_reason.strip():
+            raise ValidationError(
+                {"limitations_reason": "Known limitations need an explanation."}
+            )
+        if self.claim_id and self.claim.workspace_id != self.workspace_id:
+            raise ValidationError({"claim": "Claim belongs to another Workspace."})
+        if self.reviewer_id and workspace_role(self.reviewer, self.workspace) not in {
+            "owner",
+            "editor",
+        }:
+            raise ValidationError({"reviewer": "Reviewer must be a Workspace editor."})
+        if self.claim_id and self.claim_revision != self.claim.revision:
+            raise ValidationError(
+                {"claim_revision": "The assessed Claim revision is no longer current."}
+            )
+
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            raise ValidationError("Confidence assessments are append-only.")
+        return super().save(*args, **kwargs)

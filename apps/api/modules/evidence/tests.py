@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, transaction
 from django.http import Http404
@@ -9,8 +11,19 @@ from modules.customer_context.models import Segment
 from modules.workspaces.models import BillingAccount, Membership, Workspace
 from modules.workspaces.services import WorkspaceActionError
 
-from .models import Claim, ClaimEvidenceLink, Evidence, ScopeKind
-from .services import link_claim_evidence
+from .confidence import (
+    CONFIDENCE_AXES,
+    ConfidenceReviewError,
+    evaluate_claim_confidence,
+)
+from .models import (
+    Claim,
+    ClaimEvidenceLink,
+    ConfidenceAssessment,
+    Evidence,
+    ScopeKind,
+)
+from .services import create_confidence_assessment, link_claim_evidence
 
 
 class EvidencePersistenceTests(TransactionTestCase):
@@ -216,3 +229,129 @@ class EvidencePersistenceTests(TransactionTestCase):
             Evidence.objects.get(pk=evidence.pk).permission_status, "revoked"
         )
         self.assertFalse(ClaimEvidenceLink.objects.exists())
+
+    def confidence_axes(self, default="adequate"):
+        return {
+            axis: {"state": default, "reason": f"بازبینی {axis} انجام شد."}
+            for axis in CONFIDENCE_AXES
+        }
+
+    def review_confidence(self, *, actor=None, contradiction_status="none", **changes):
+        values = {
+            "claim_id": self.claim.pk,
+            "expected_claim_revision": self.claim.revision,
+            "axis_reviews": self.confidence_axes(),
+            "contradiction_status": contradiction_status,
+            "contradiction_reason": "تعارض‌های پیوندخورده بررسی شدند.",
+            "essential_information_missing": False,
+            "limitations_known": True,
+            "limitations_reason": "محدودیت نمونه ثبت شد.",
+            "rationale": "ارزیابی با توجه به دامنه و منبع انجام شد.",
+        }
+        values.update(changes)
+        return create_confidence_assessment(
+            actor or self.editor, self.workspace, **values
+        )
+
+    def test_ordinal_rubric_requires_reasons_and_has_no_numeric_score(self):
+        evidence = self.create_evidence(
+            "interview-001", review_due=timezone.localdate() + timedelta(days=2)
+        )
+        self.link(evidence)
+        assessment = self.review_confidence()
+
+        self.assertEqual(assessment["confidence"], "high")
+        self.assertEqual(assessment["freshness"], "current")
+        self.assertEqual(assessment["rule_revision"], "editorial-v0.1")
+        self.assertEqual(assessment["source_trace"][0]["evidence_revision"], 1)
+        self.assertNotIn("score", assessment)
+        saved = ConfidenceAssessment.objects.get(pk=assessment["id"])
+        with self.assertRaises(ValidationError):
+            saved.save()
+
+    def test_unresolved_material_contradiction_caps_confidence_at_low(self):
+        evidence = self.create_evidence(
+            "interview-001", review_due=timezone.localdate() + timedelta(days=2)
+        )
+        self.link(evidence)
+
+        assessment = self.review_confidence(contradiction_status="unresolved")
+
+        self.assertEqual(assessment["confidence"], "low")
+        self.assertEqual(assessment["revision"], 1)
+
+    def test_essential_missing_or_stale_evidence_yields_insufficient(self):
+        missing = self.review_confidence(
+            essential_information_missing=True,
+            missing_information_reason="بازهٔ زمانی لازم ثبت نشده است.",
+        )
+        self.assertEqual(missing["confidence"], "insufficient")
+        self.assertEqual(missing["freshness"], "unknown")
+
+        stale = self.create_evidence(
+            "interview-001", review_due=timezone.localdate() - timedelta(days=1)
+        )
+        self.link(stale)
+        stale_assessment = self.review_confidence()
+        self.assertEqual(stale_assessment["confidence"], "insufficient")
+        self.assertEqual(stale_assessment["freshness"], "stale")
+
+    def test_medium_requires_direct_provenance_recency_and_disclosed_limits(self):
+        evidence = self.create_evidence(
+            "interview-001", review_due=timezone.localdate() + timedelta(days=2)
+        )
+        self.link(evidence)
+        axes = self.confidence_axes(default="limited")
+        for axis in ("provenance_quality", "directness_to_decision", "recency"):
+            axes[axis] = {
+                "state": "adequate",
+                "reason": "با دامنهٔ تصمیم هم‌خوان است.",
+            }
+
+        assessment = self.review_confidence(axis_reviews=axes)
+
+        self.assertEqual(assessment["confidence"], "medium")
+
+    def test_future_observations_are_rejected_and_missing_review_due_is_unknown(self):
+        with self.assertRaises(ValidationError):
+            self.create_evidence(
+                "future-interview",
+                observed_at=timezone.now() + timedelta(days=1),
+            )
+        unknown = self.create_evidence("undated-review")
+        self.link(unknown)
+
+        assessment = self.review_confidence()
+
+        self.assertEqual(assessment["confidence"], "insufficient")
+        self.assertEqual(assessment["freshness"], "unknown")
+
+    def test_viewer_cannot_review_and_assessments_are_versioned(self):
+        evidence = self.create_evidence(
+            "interview-001", review_due=timezone.localdate() + timedelta(days=2)
+        )
+        self.link(evidence)
+        with self.assertRaises(WorkspaceActionError) as error:
+            self.review_confidence(actor=self.viewer)
+        self.assertEqual(error.exception.code, "workspace_permission_denied")
+
+        first = self.review_confidence()
+        second = self.review_confidence(contradiction_status="resolved")
+        self.assertEqual((first["revision"], second["revision"]), (1, 2))
+        self.assertEqual(ConfidenceAssessment.objects.count(), 2)
+
+    def test_incomplete_axis_review_is_rejected_without_synthesizing_a_score(self):
+        with self.assertRaises(ConfidenceReviewError):
+            evaluate_claim_confidence(
+                axis_reviews={
+                    "provenance_quality": {"state": "adequate", "reason": "ok"}
+                },
+                contradiction_status="none",
+                contradiction_reason="تعارض‌ها بررسی شد.",
+                essential_information_missing=False,
+                missing_information_reason="",
+                limitations_known=False,
+                limitations_reason="",
+                rationale="review",
+                linked_evidence=[],
+            )
