@@ -213,10 +213,12 @@ def update_workspace_profile(
         'customer_segments': (customer_segments, 20, CUSTOMER_FIELDS, ('id', 'name')),
         'goals': (goals, 30, GOAL_FIELDS, ('id', 'title')),
     }
+    cleaned_collections = {}
     for field, (value, maximum, schema, required_fields) in collection_values.items():
         if value is None:
             continue
         cleaned = _clean_rows(value, field, maximum, schema, required_fields=required_fields)
+        cleaned_collections[field] = cleaned
         if getattr(profile, field) != cleaned:
             setattr(profile, field, cleaned)
             changed.append(field)
@@ -225,6 +227,27 @@ def update_workspace_profile(
         if profile.icps != cleaned_icps:
             profile.icps = cleaned_icps
             changed.append('icps')
+
+    # STR-056 cutover keeps this existing service as the one write boundary.
+    # Canonical rows and the legacy-shaped profile projection commit together.
+    from modules.customer_context.models import ProfileMigrationBatch
+
+    if ProfileMigrationBatch.objects.filter(workspace=locked_workspace).exists():
+        from modules.customer_context.profile_migration import sync_profile_entities
+
+        projection = sync_profile_entities(
+            profile,
+            products=cleaned_collections.get('products'),
+            customer_segments=cleaned_collections.get('customer_segments'),
+            icps=cleaned_icps if icps is not None else None,
+            source_revision=profile.revision + 1,
+        )
+        for field in ('products', 'customer_segments', 'icps'):
+            projected = projection[field]
+            if getattr(profile, field) != projected:
+                setattr(profile, field, projected)
+                if field not in changed:
+                    changed.append(field)
 
     if complete is True and profile.onboarding_completed_at is None:
         profile.onboarding_completed_at = timezone.now()

@@ -1,5 +1,6 @@
 import uuid
 
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
@@ -221,3 +222,44 @@ class LegacyProfileIdentityMap(models.Model):
         if self.entity_type not in {"product", "segment", "icp"}:
             return None
         return getattr(self, f"{self.entity_type}_id")
+
+
+class ProfileMigrationBatch(models.Model):
+    """Auditable source backup and idempotency marker for one reviewed cutover."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    workspace = models.OneToOneField(
+        "workspaces.Workspace",
+        on_delete=models.CASCADE,
+        related_name="customer_context_migration",
+    )
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name="profile_migration_batches",
+    )
+    idempotency_key = models.CharField(max_length=100)
+    source_profile_revision = models.PositiveIntegerField()
+    migrated_profile_revision = models.PositiveIntegerField()
+    source_digest = models.CharField(max_length=64)
+    source_backup = models.JSONField()
+    plan_snapshot = models.JSONField()
+    applied_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("-applied_at", "id")
+        constraints = [
+            models.UniqueConstraint(
+                fields=("workspace", "idempotency_key"),
+                name="cust_migration_idempotency_uniq",
+            ),
+            models.CheckConstraint(
+                condition=Q(source_profile_revision__gte=1)
+                & Q(migrated_profile_revision__gte=1),
+                name="cust_migration_revisions_gte1",
+            ),
+            models.CheckConstraint(
+                condition=~Q(idempotency_key="") & ~Q(source_digest=""),
+                name="cust_migration_identity_valid",
+            ),
+        ]
