@@ -72,6 +72,7 @@ class IdealCustomerProfile(WorkspaceScopedRecord):
     persona_goals = models.CharField(max_length=500, blank=True, default="")
     persona_pains = models.CharField(max_length=500, blank=True, default="")
     problem = models.CharField(max_length=1000, blank=True, default="")
+    legacy_segment_snapshot = models.JSONField(default=dict)
     # Frozen compatibility data until STR-057 supplies canonical evidence records.
     legacy_evidence_snapshot = models.JSONField(default=list)
     legacy_assumptions_snapshot = models.JSONField(default=list)
@@ -105,6 +106,7 @@ class LegacyProfileIdentityMap(models.Model):
     source_namespace = models.CharField(max_length=80)
     entity_type = models.CharField(max_length=16, choices=EntityType.choices)
     legacy_id = models.CharField(max_length=80)
+    source_position = models.PositiveSmallIntegerField(default=0)
     source_profile_revision = models.PositiveIntegerField()
     product = models.ForeignKey(
         Product,
@@ -160,6 +162,7 @@ class LegacyProfileIdentityMap(models.Model):
                     ~Q(legacy_id="")
                     & ~Q(source_namespace="")
                     & Q(source_profile_revision__gte=1)
+                    & Q(source_position__lt=20)
                     & (
                         Q(
                             entity_type="product",
@@ -206,9 +209,11 @@ class LegacyProfileIdentityMap(models.Model):
         target = getattr(self, target_field)
         if target.workspace_id != self.workspace_id:
             raise ValidationError(
-                {
-                    target_field: "The canonical record must belong to this Workspace."
-                }
+                {target_field: "The canonical record must belong to this Workspace."}
+            )
+        if self.source_position >= 20:
+            raise ValidationError(
+                {"source_position": "The source collection position is out of range."}
             )
 
     @property
