@@ -1,5 +1,11 @@
 # Exact continuation — 2026-10-16
 
+## Current owner priority: backend integration behind the redesigned experience
+
+Frontend/design is committed locally in `3a46774`. Read [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) and [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md). The new public/auth/welcome/Workspace home/discovery/five-section experience supersedes the dense preview. Current local review: `http://127.0.0.1:5180/account/login`, fixture `hamrez95@stratino.test` / `123456`; root runner builds current local main on a free port. Fixture verification/access are not real server authentication or a created production account.
+
+Luna starts **010-D → 013-D → 014-D → 015-D → 027-D**, then independent 018-D/021-D/022-D/024-D/028-D and 065-D. Keep existing scientific packets below, their blockers and deferred acceptance gates. Eleven existing GitHub issues were updated as Hamrez95, not closed. New UI checks are in STATUS; 84 tests, production web build and the final local browser suite passed. Remote source synchronization remains pending and must use verified Hamrez95 transport. Do not overwrite existing canonical services or research with the local `toolNotes`/session adapter.
+
 1. Read AGENTS.md, STATUS.md, DESIGN_INDEX.md and the selected packet. Check branch/status/history and preserve owner work. Do not regenerate the one-off task plan or research.
 2. STR-055-A/B are locally complete. Full `npm run quality` exited 0. Commits: `542635c` semantic lint/hydration repair; `3ad2f53` formatting. Keep issue #67 open until source branch push/merge and remote CI are verified.
 3. STR-054-B complete locally in `850e724`: reviewed nine first-slice candidates, five exact source IDs, dependencies, record hashes, explicit heuristic status and claim-level section references in `KNOWLEDGE_RELEASE_REVIEW.md` and `apps/api/modules/knowledge/curation/first-slice-v1.json`. Validation confirmed paths, source IDs, schema versions, record revisions and dependency closure against KB commit `19bb2d40b9cb45a569c00b53a35aab3f4ea76002`. No research files were rewritten and no runtime release was generated. Discovery `operating` mapping remains blocked; retention requires scoped input resolution; contribution metric is definition-only pending STR-058.
