@@ -7,6 +7,7 @@
 | [004](../adr/004-adaptive-journey.md)     | Separate prerequisite DAG from returning stage transitions; inputs bind canonical data | Reviewed typed predicates; no prose execution or hard-coded page sequence                     |
 | [005](../adr/005-calculations-and-ai.md)  | Deterministic calculations/rules, contextual optional AI                               | Python authoritative, TS preview fixtures; unknown is not zero; no eval                       |
 | [006](../adr/006-evidence-confidence.md)  | Claim type, evidence origin, confidence and freshness are independent                  | No invented probability/health weights; preserve contradictions and reported legacy labels    |
+| [008](adr/008-first-run-and-plan-boundary.md) | First-run context precedes first Workspace; paid limits are configurable server entitlements | One Workspace per business; joined access is separate; organization scope, prices and unlimited plans remain unresolved |
 
 Accepted for development planning by the owner's request to proceed after audit. Does not assert implementation or scientific certification. Existing ADR-001 tenant ownership, session/CSRF, private files and billing boundaries remain binding. Brand remains existing Stratino until a separate naming decision; Startino is the requested Management OS vision, not permission for another rebrand.
 

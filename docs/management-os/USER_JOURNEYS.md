@@ -13,6 +13,27 @@ Design baseline: 2026-10-16. Persona cases are synthetic requirements, not valid
 
 Authentication precedes company data. Existing invited users do not create a second Workspace to enter an invitation. Business scope is always visible. Device appearance may be chosen before sign-in; account preferences then synchronize through current code. Guided/compact is a presentation choice; it never changes a business rule.
 
+## Owner-confirmed first-run and plan model — 2026-10-16
+
+The owner confirmed this product sequence: registration → first-use questions about the intended business and goal → tailored follow-up → first business dashboard; one Workspace is one business; free access starts with one owned Workspace and some paid tools previewed as locked; paid access permits additional business Workspaces; each Workspace can start its own discovery flow. This confirms product intent, not a live billing entitlement or deployed Journey contract.
+
+1. Keep current registration, email verification and sign-in as hard boundaries. For a new owner, ask only business kind (startup/new venture, operating business, organization), current objective and optional self-reported lifecycle stage. Name the Workspace before final creation. Existing profile/import records prefill known context; never ask the same fact again.
+2. Ask follow-ups only when tied to the chosen objective and a current decision. A skipped stage stays unknown; team size or revenue alone cannot assign it. Organization-specific questions remain gated on stable reviewed IDs/adapters (STR-066). Do not make this first-use flow a blocker for invited members or returning owners.
+3. Create the first Workspace after short context setup, then open its dashboard. Let the owner browse tools without completing every optional question. Keep a clear way to resume discovery from the current Workspace header.
+4. Each owned Workspace represents one business. The header switcher names the active business; switching clears scoped cache and uses the existing dirty-draft guard. A new paid Workspace starts with a blank context; its setup flow writes only into that Workspace. No cross-business copying or aggregate KPI dashboard is implied.
+5. Free access may include one owned Workspace. A membership joined by invitation is not owner quota. Show locked tools with their name, value, reason and access path; preserve useful previews. Never gate security, export/recovery or access to existing data. Exact quota, modules, prices, grace/downgrade and cancellation are controlled by configurable server entitlements under STR-028/029/035, not this UI.
+
+### Design critique and unresolved product risks
+
+- “Paid = everything/unlimited” is underspecified and creates a promise before plan boundaries exist. Treat paid as expanded configurable entitlement; avoid “unlimited” until it is an explicit plan contract.
+- A blurred matrix communicates neither value nor reason and is weak for keyboard/screen-reader users. Prefer a named locked card with a useful preview, exact reason and plan comparison. Do not obscure the dashboard.
+- A forced questionnaire can delay value and drive abandonment. Keep the first pass short, allow unknown/skip, ask only objective-relevant follow-ups, and let users reach core tools. Record gaps so the dashboard can resume them.
+- “Organization” is not the same thing as an independent business. Workspace scope is one business, while BusinessUnit/venture scope is deferred. If one legal organization needs several business lines under shared governance, distinct Workspaces may isolate data incorrectly; STR-066/domain design must define a real scoped unit before production data is collected.
+- Workspace membership and billing ownership are separate. Joining another owner’s Workspace should not consume the user’s owned-business allowance; inviting a team does not transfer the billing account.
+- A new Workspace must not inherit the former business’s profile, assumptions, ICP, evidence or draft. Only account preferences are shared. Prevent stale query/cache state and show an empty dashboard until that business is entered.
+
+`Register → Verify → Short business context → Objective-relevant follow-up → Create owned Workspace → Business dashboard → Resume discovery or open a tool`
+
 ## J01 — First-time founder, idea/no revenue (persona A)
 
 **Success:** a scoped customer/problem hypothesis and a practical evidence-gathering action; no financial questionnaire.
@@ -66,13 +87,13 @@ Current KB organization questions still need stable IDs and relevance adapters i
 
 **Success:** find each business's next meaningful commitment without leaking or merging its data.
 
-1. Sign in → owned/joined Workspace list. Keep access and billing ownership separate.
-2. Choose business → overview. Header always names current Workspace; all query keys and write commands include its scope.
+1. Sign in → owned/joined Workspace list. Keep access and billing ownership separate. Free/paid capacity affects owned Workspaces only and comes from server entitlements.
+2. Choose business → overview. Header always names current Workspace and offers permitted create/switch actions; all query keys and write commands include its scope.
 3. Open action/Why/original evidence → finish work → switch Workspace.
 4. If draft exists, show save/discard/stay options using current dirty guard. Failed save keeps the draft and current Workspace; switching must not send the old payload to the new business.
 5. Clear scoped queries and load the new permitted context. Back/deep link resolves its Workspace and authorizes again.
 
-First release uses the existing Workspace list/selector. A cross-business portfolio summary is a later read projection, not a prerequisite or new dashboard for the first slice. Any future rollup requires per-row membership and explicit currency/period compatibility; never add different businesses' values merely because they share a label.
+First release uses the existing Workspace list/selector, surfaced consistently in the header. A newly created business starts blank and can run the short discovery flow again against its own scope. A cross-business portfolio summary is a later read projection, not a prerequisite or new dashboard for the first slice. Any future rollup requires per-row membership and explicit currency/period compatibility; never add different businesses' values merely because they share a label.
 
 ## J05 — Invited editor or adviser
 

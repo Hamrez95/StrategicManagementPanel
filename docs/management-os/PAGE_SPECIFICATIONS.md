@@ -21,7 +21,7 @@ For planned Workspace paths, prefix `/app/workspaces/:workspaceId`. Existing too
 | P03 | Verify / resend                                              | Confirm email or request a fresh link                                            | accounts; no enumeration details                          |
 | P04 | Login / reset password                                       | Authenticate and return to intended permitted path                               | accounts/session/CSRF                                     |
 | P05 | Workspace list `/app/workspaces`                             | Open/create a business; owned/joined remain distinct                             | existing Workspace services                               |
-| P06 | Short onboarding `/app/start`                                | Name project; skip optional context; reach real Workspace                        | existing onboarding + STR-014 follow-up                   |
+| P06 | First-use onboarding `/app/start`                              | Capture business kind, current objective and optional reported stage; create first Workspace | existing onboarding + STR-014; organization branches gated on STR-066 |
 | P07 | Overview `/overview`                                         | Open next relevant action/attention item                                         | STR-027, first slice                                      |
 | P08 | Assessment `/management/assessment`                          | Confirm unresolved context and obtain provisional scoped plan                    | STR-059                                                   |
 | P09 | Journey `/tools/journey`                                     | Continue one applicable decision-relevant step                                   | STR-060/061/064                                           |
@@ -59,7 +59,13 @@ For planned Workspace paths, prefix `/app/workspaces/:workspaceId`. Existing too
 
 ## P05–P06: choose/create a business
 
-Layout: page heading, owned/joined filter, searchable business rows with role/archive state, one create action. No rollup of incompatible business metrics. Create form requires name (existing 120-character limit); optional industry/reported stage/current goal remain skippable. After create, select the returned Workspace and route to its overview. Existing invite has a separate entry and never forces create. Duplicate click is disabled while pending; failure retains text. “No businesses yet” shows create plus invitation context, never a seeded customer business.
+Layout: page heading, owned/joined filter, searchable business rows with role/archive state, one create action. No rollup of incompatible business metrics. New owner enters the short P06 setup before first Workspace creation: business kind, current objective, optional self-reported stage and a required Workspace/business name. Do not demand formal mission/vision or finance at registration. Existing context/imports prefill answers. After create, select the returned Workspace and route to its overview. Existing invite has a separate entry and never forces create. Duplicate click is disabled while pending; failure retains text. “No businesses yet” shows create plus invitation context, never a seeded customer business.
+
+The Workspace switcher in the authenticated header always names the active business and lists owned/joined access distinctly. Owners see create only when authoritative entitlement permits it. A new paid Workspace opens empty and offers «شروع راهنمای شناخت» in its own header. Context questions update only that Workspace. Pending drafts use the shared switch guard; switching clears business-scoped caches. A membership invitation does not count against an owned-Workspace quota.
+
+For initial free access, show a useful dashboard and named locked-tool cards. Each card explains what the module supports, why it is unavailable on this plan, and where to review access. Do not blur content as the only lock signal. Never lock data access, security, export or recovery. Plan, price, quota, payment, grace and downgrade states must come from STR-028/029/035 server contracts. The current preview's free/expanded selector is a demonstration control, not entitlement enforcement or a price offer.
+
+First-use setup is not a required gate for invited members or returning owners. Follow-up questions depend on objective and unresolved canonical data. Unknown stage remains unknown. Organization-specific branches remain gated until stable question IDs/adapters in STR-066 exist; current Workspace scope cannot represent a venture/business unit inside a company without an explicit domain decision.
 
 ## P07: operating overview
 

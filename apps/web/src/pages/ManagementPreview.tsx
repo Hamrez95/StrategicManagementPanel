@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 import { useUIAppearance } from '@stratino/ui';
 import './management-preview.css';
 
-type PreviewSection = 'overview' | 'assessment' | 'journey' | 'tools';
+type PreviewSection = 'overview' | 'assessment' | 'journey' | 'tools' | 'onboarding';
 type ScenarioId = 'idea' | 'traction';
+type BusinessKind = 'startup' | 'business' | 'organization';
+type DemoWorkspace = { id: number; name: string; kind: BusinessKind; goal: string; stage: string };
 
 const scenarios: Record<
   ScenarioId,
@@ -29,7 +31,14 @@ const sections: Array<{ id: PreviewSection; label: string; en: string }> = [
   { id: 'assessment', label: 'شناخت کسب‌وکار', en: 'Business context' },
   { id: 'journey', label: 'مسیر کار', en: 'Guided journey' },
   { id: 'tools', label: 'ابزارهای استراتژی', en: 'Strategy tools' },
+  { id: 'onboarding', label: 'شروع و فضاها', en: 'Start & workspaces' },
 ];
+
+const kindLabels: Record<BusinessKind, { fa: string; en: string }> = {
+  startup: { fa: 'استارتاپ / کسب‌وکار نوپا', en: 'Startup / new venture' },
+  business: { fa: 'کسب‌وکار فعال', en: 'Operating business' },
+  organization: { fa: 'سازمان یا شرکت بزرگ', en: 'Organization / enterprise' },
+};
 
 function storedNote(scenario: ScenarioId) {
   try {
@@ -56,6 +65,17 @@ export default function ManagementPreview() {
   const [scenario, setScenario] = useState<ScenarioId>(storedScenario);
   const [note, setNote] = useState(() => storedNote(storedScenario()));
   const [saveStatus, setSaveStatus] = useState('');
+  const [businessKind, setBusinessKind] = useState<BusinessKind>('startup');
+  const [businessGoal, setBusinessGoal] = useState('شناخت مسئله و مشتری');
+  const [businessStage, setBusinessStage] = useState('');
+  const [businessName, setBusinessName] = useState('کسب‌وکار اول');
+  const [onboardingStep, setOnboardingStep] = useState(0);
+  const [demoPlan, setDemoPlan] = useState<'free' | 'paid'>('free');
+  const [workspaces, setWorkspaces] = useState<DemoWorkspace[]>([]);
+  const [activeWorkspace, setActiveWorkspace] = useState<number | null>(null);
+  const [editingWorkspaceId, setEditingWorkspaceId] = useState<number | null>(null);
+  const [showUpgrade, setShowUpgrade] = useState(false);
+  const activeDemoWorkspace = workspaces.find((workspace) => workspace.id === activeWorkspace);
   const current = scenarios[scenario];
 
   function changeScenario(next: ScenarioId) {
@@ -141,7 +161,9 @@ export default function ManagementPreview() {
         <header className="management-preview__topline">
           <div>
             <span>{english ? 'SAMPLE WORKSPACE' : 'فضای نمونه'}</span>
-            <strong>{english ? 'Northstar Studio' : 'استودیو شمال‌نما'}</strong>
+            <strong>
+              {activeDemoWorkspace?.name ?? (english ? 'Northstar Studio' : 'استودیو شمال‌نما')}
+            </strong>
           </div>
           <label className="management-preview__scenario">
             <span>{english ? 'Preview case' : 'سناریوی نمایش'}</span>
@@ -152,6 +174,20 @@ export default function ManagementPreview() {
               <option value="idea">{english ? 'Idea, no revenue' : 'ایده، بدون درآمد'}</option>
               <option value="traction">
                 {english ? 'SaaS, early traction' : 'SaaS، مشتری پرداخت‌کننده'}
+              </option>
+            </select>
+          </label>
+          <label className="management-preview__scenario">
+            <span>{english ? 'Demo plan' : 'پلن نمایشی'}</span>
+            <select
+              value={demoPlan}
+              onChange={(event) => setDemoPlan(event.currentTarget.value as 'free' | 'paid')}
+            >
+              <option value="free">
+                {english ? 'Free · 1 owned Workspace' : 'رایگان · یک فضای کارِ مالک'}
+              </option>
+              <option value="paid">
+                {english ? 'Paid · expanded access' : 'اشتراکی · دسترسی گسترده‌تر'}
               </option>
             </select>
           </label>
@@ -486,6 +522,330 @@ export default function ManagementPreview() {
                   ? 'The JourneyRun engine and server persistence are not implemented yet.'
                   : 'موتور JourneyRun و ذخیره‌سازی سروری هنوز پیاده‌سازی نشده‌اند.'}
               </p>
+            </section>
+          )}
+
+          {section === 'onboarding' && (
+            <section
+              className="management-preview__detail"
+              aria-labelledby="preview-onboarding-title"
+            >
+              <p className="management-preview__eyebrow">
+                {english
+                  ? 'FIRST-RUN AND MULTI-BUSINESS PREVIEW'
+                  : 'پیش‌نمایش شروع و مدیریت چند کسب‌وکار'}
+              </p>
+              <h2 id="preview-onboarding-title">
+                {english
+                  ? 'Create a workspace around one business.'
+                  : 'هر فضای کار را برای یک کسب‌وکار بسازید.'}
+              </h2>
+              <p>
+                {english
+                  ? 'Try the first-run questions, then create a separate business and reopen its guided setup.'
+                  : 'پرسش‌های شروع را امتحان کنید؛ سپس یک کسب‌وکار جدا بسازید و راهنمای شناخت همان فضا را دوباره باز کنید.'}
+              </p>
+
+              <div className="management-preview__workspace-bar">
+                <label>
+                  <span>{english ? 'Current business' : 'کسب‌وکار انتخاب‌شده'}</span>
+                  <select
+                    aria-label={english ? 'Switch workspace' : 'تعویض فضای کار'}
+                    value={activeWorkspace ?? ''}
+                    onChange={(event) =>
+                      setActiveWorkspace(
+                        event.currentTarget.value ? Number(event.currentTarget.value) : null,
+                      )
+                    }
+                  >
+                    <option value="">
+                      {english ? 'No demo workspace yet' : 'هنوز فضای نمایشی نساخته‌اید'}
+                    </option>
+                    {workspaces.map((workspace) => (
+                      <option key={workspace.id} value={workspace.id}>
+                        {workspace.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <button
+                  className="ui-button ui-button--secondary"
+                  onClick={() => {
+                    if (demoPlan === 'free' && workspaces.length >= 1) setShowUpgrade(true);
+                    else {
+                      setShowUpgrade(false);
+                      setActiveWorkspace(null);
+                      setOnboardingStep(0);
+                      setBusinessName('کسب‌وکار جدید');
+                      setSection('onboarding');
+                    }
+                  }}
+                >
+                  {english ? '+ New business' : '+ کسب‌وکار جدید'}
+                </button>
+              </div>
+
+              {!activeDemoWorkspace && !showUpgrade && (
+                <div className="management-preview__form-card">
+                  <div className="management-preview__step-count">
+                    {english
+                      ? `STEP ${onboardingStep + 1} OF 3`
+                      : `گام ${['اول', 'دوم', 'سوم'][onboardingStep]} از ۳`}
+                  </div>
+                  {onboardingStep === 0 && (
+                    <>
+                      <h3>
+                        {english ? 'What are you setting up?' : 'برای چه نوع فعالیتی فضا می‌سازید؟'}
+                      </h3>
+                      <div className="management-preview__choice-grid">
+                        {(['startup', 'business', 'organization'] as const).map((kind) => (
+                          <button
+                            key={kind}
+                            className={businessKind === kind ? 'is-chosen' : ''}
+                            aria-pressed={businessKind === kind}
+                            onClick={() => setBusinessKind(kind)}
+                          >
+                            {english ? kindLabels[kind].en : kindLabels[kind].fa}
+                          </button>
+                        ))}
+                      </div>
+                      <label className="management-preview__field">
+                        {english ? 'Business or workspace name' : 'نام کسب‌وکار یا فضای کار'}
+                        <input
+                          value={businessName}
+                          onChange={(event) => setBusinessName(event.currentTarget.value)}
+                        />
+                      </label>
+                    </>
+                  )}
+                  {onboardingStep === 1 && (
+                    <>
+                      <h3>
+                        {english
+                          ? 'What do you want to make progress on?'
+                          : 'در حال حاضر برای چه می‌خواهید پیشرفت کنید؟'}
+                      </h3>
+                      <label className="management-preview__field">
+                        {english ? 'Main objective' : 'هدف اصلی'}
+                        <select
+                          value={businessGoal}
+                          onChange={(event) => setBusinessGoal(event.currentTarget.value)}
+                        >
+                          <option>شناخت مسئله و مشتری</option>
+                          <option>طراحی یا آزمون مدل کسب‌وکار</option>
+                          <option>رشد فروش و بازار</option>
+                          <option>بهبود عملکرد کسب‌وکار</option>
+                          <option>هم‌راستاسازی راهبرد و اجرا</option>
+                        </select>
+                      </label>
+                      <p className="management-preview__field-hint">
+                        {english
+                          ? 'Follow-up questions should depend on this objective and existing workspace data.'
+                          : 'سؤال‌های بعدی باید بر اساس همین هدف و اطلاعات موجود همین فضای کار انتخاب شوند.'}
+                      </p>
+                    </>
+                  )}
+                  {onboardingStep === 2 && (
+                    <>
+                      <h3>
+                        {english
+                          ? 'Where are you in the lifecycle?'
+                          : 'کسب‌وکار در چه مرحله‌ای است؟'}
+                      </h3>
+                      <label className="management-preview__field">
+                        {english ? 'Your current view (optional)' : 'برداشت فعلی شما (اختیاری)'}
+                        <select
+                          value={businessStage}
+                          onChange={(event) => setBusinessStage(event.currentTarget.value)}
+                        >
+                          <option value="">
+                            {english ? 'Not sure / skip for now' : 'مطمئن نیستم / فعلاً رد می‌کنم'}
+                          </option>
+                          <option value="idea">ایده و کشف مسئله</option>
+                          <option value="validation">اعتبارسنجی و آزمون</option>
+                          <option value="early">شروع فروش و مشتریان اولیه</option>
+                          <option value="growth">رشد و توسعه</option>
+                          <option value="established">کسب‌وکار تثبیت‌شده</option>
+                          <option value="change">تحول یا بازطراحی</option>
+                        </select>
+                      </label>
+                      <p className="management-preview__field-hint">
+                        {english
+                          ? 'This is self-reported context, not a score. Team size or revenue alone will not assign a stage.'
+                          : 'این فقط خوداظهاری است، نه امتیاز؛ اندازهٔ تیم یا درآمد به‌تنهایی مرحله را تعیین نمی‌کند.'}
+                      </p>
+                    </>
+                  )}
+                  <div className="management-preview__form-actions">
+                    {onboardingStep > 0 && (
+                      <button
+                        className="ui-button ui-button--secondary"
+                        onClick={() => setOnboardingStep(onboardingStep - 1)}
+                      >
+                        {english ? 'Back' : 'قبلی'}
+                      </button>
+                    )}
+                    {onboardingStep < 2 ? (
+                      <button
+                        className="ui-button ui-button--primary"
+                        onClick={() => setOnboardingStep(onboardingStep + 1)}
+                      >
+                        {english ? 'Continue' : 'ادامه'}
+                      </button>
+                    ) : (
+                      <button
+                        className="ui-button ui-button--primary"
+                        disabled={!businessName.trim()}
+                        onClick={() => {
+                          const workspace = {
+                            id: editingWorkspaceId ?? Date.now(),
+                            name: businessName.trim(),
+                            kind: businessKind,
+                            goal: businessGoal,
+                            stage: businessStage,
+                          };
+                          setWorkspaces((currentWorkspaces) =>
+                            editingWorkspaceId
+                              ? currentWorkspaces.map((item) =>
+                                  item.id === editingWorkspaceId ? workspace : item,
+                                )
+                              : [...currentWorkspaces, workspace],
+                          );
+                          setActiveWorkspace(workspace.id);
+                          setEditingWorkspaceId(null);
+                          setShowUpgrade(false);
+                        }}
+                      >
+                        {english
+                          ? editingWorkspaceId
+                            ? 'Save discovery context'
+                            : 'Create workspace'
+                          : editingWorkspaceId
+                            ? 'ذخیرهٔ شناخت کسب‌وکار'
+                            : 'ساخت فضای کار'}
+                      </button>
+                    )}
+                  </div>
+                  {businessKind === 'organization' && (
+                    <p className="management-preview__field-hint">
+                      {english
+                        ? 'Organization-specific follow-ups and business-unit boundaries need an approved scope. This demo does not invent them.'
+                        : 'سؤال‌های اختصاصی سازمان و مرز واحدهای کسب‌وکار باید جداگانه تأیید شوند؛ این نمونه آن‌ها را حدس نمی‌زند.'}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {activeDemoWorkspace && !showUpgrade && (
+                <div className="management-preview__workspace-dashboard">
+                  <div>
+                    <span className="management-preview__sample-tag">
+                      {english ? 'EMPTY BUSINESS WORKSPACE' : 'فضای کار مستقل و تازه'}
+                    </span>
+                    <h3>{activeDemoWorkspace.name}</h3>
+                    <p>
+                      {english
+                        ? kindLabels[activeDemoWorkspace.kind].en
+                        : kindLabels[activeDemoWorkspace.kind].fa}{' '}
+                      · {activeDemoWorkspace.goal}
+                    </p>
+                    <p>
+                      {activeDemoWorkspace.stage
+                        ? english
+                          ? 'Self-reported lifecycle stage'
+                          : 'مرحلهٔ خوداظهاری ثبت شده'
+                        : english
+                          ? 'Lifecycle stage remains unknown until you choose to report it.'
+                          : 'مرحله نامشخص می‌ماند تا اگر خواستید خودتان آن را گزارش کنید.'}
+                    </p>
+                  </div>
+                  <button
+                    className="ui-button ui-button--primary"
+                    onClick={() => {
+                      setEditingWorkspaceId(activeDemoWorkspace.id);
+                      setBusinessKind(activeDemoWorkspace.kind);
+                      setBusinessGoal(activeDemoWorkspace.goal);
+                      setBusinessStage(activeDemoWorkspace.stage);
+                      setBusinessName(activeDemoWorkspace.name);
+                      setActiveWorkspace(null);
+                      setOnboardingStep(0);
+                      setSection('onboarding');
+                    }}
+                  >
+                    {english ? 'Start business discovery' : 'شروع راهنمای شناخت این کسب‌وکار'}
+                  </button>
+                  <div className="management-preview__locked-grid">
+                    <article>
+                      <span aria-hidden="true">⌑</span>
+                      <h4>{english ? 'SWOT and strategy matrices' : 'ماتریس‌های SWOT و راهبرد'}</h4>
+                      <p>
+                        {english
+                          ? 'Included in expanded plan preview'
+                          : 'در پلن گسترده‌تر فعال می‌شود'}
+                      </p>
+                      <button onClick={() => setShowUpgrade(true)}>
+                        {english ? 'View access options' : 'مشاهدهٔ دسترسی‌ها'}
+                      </button>
+                    </article>
+                    <article>
+                      <span aria-hidden="true">▦</span>
+                      <h4>{english ? 'Decision comparison' : 'مقایسهٔ گزینه‌های تصمیم'}</h4>
+                      <p>
+                        {english
+                          ? 'Compare alternatives with saved evidence'
+                          : 'گزینه‌ها را با شواهد ثبت‌شده مقایسه کنید'}
+                      </p>
+                      <button onClick={() => setShowUpgrade(true)}>
+                        {english ? 'View access options' : 'مشاهدهٔ دسترسی‌ها'}
+                      </button>
+                    </article>
+                  </div>
+                  <p className="management-preview__boundary">
+                    {english
+                      ? 'This is a local prototype. Workspace creation, account verification and access limits are not connected to the server.'
+                      : 'این فقط نمونهٔ محلی است؛ ساخت فضای کار، تأیید حساب و محدودیت دسترسی به سرور وصل نیست.'}
+                  </p>
+                </div>
+              )}
+
+              {showUpgrade && (
+                <div className="management-preview__upgrade" role="status">
+                  <h3>
+                    {english
+                      ? 'Your free preview includes one owned workspace.'
+                      : 'در این پیش‌نمایش، پلن رایگان یک فضای کارِ تحت مالکیت دارد.'}
+                  </h3>
+                  <p>
+                    {english
+                      ? 'Invited workspaces should remain available without consuming the owner quota. Paid capacity and exact feature access need configurable server entitlements.'
+                      : 'فضاهای کاری که با دعوت به آن‌ها پیوسته‌اید نباید از سهمیهٔ مالکیت کم کنند. ظرفیت پلن و دسترسی دقیق قابلیت‌ها باید از entitlement قابل‌تنظیم سرور بیاید.'}
+                  </p>
+                  <div className="management-preview__form-actions">
+                    <button
+                      className="ui-button ui-button--secondary"
+                      onClick={() => setShowUpgrade(false)}
+                    >
+                      {english ? 'Back to workspace' : 'بازگشت'}
+                    </button>
+                    <button
+                      className="ui-button ui-button--primary"
+                      onClick={() => {
+                        setDemoPlan('paid');
+                        setShowUpgrade(false);
+                        setActiveWorkspace(null);
+                        setOnboardingStep(0);
+                      }}
+                    >
+                      {english ? 'Preview expanded plan' : 'دیدن پلن گسترده‌تر'}
+                    </button>
+                  </div>
+                  <p className="management-preview__boundary">
+                    {english
+                      ? 'No price or unlimited quota is promised here. Payment, grace, downgrade and preservation belong to the billing implementation.'
+                      : 'اینجا قیمت یا سهمیهٔ نامحدود وعده داده نمی‌شود؛ پرداخت، مهلت، تنزل پلن و حفظ داده باید در پیاده‌سازی اشتراک تعیین شوند.'}
+                  </p>
+                </div>
+              )}
             </section>
           )}
 

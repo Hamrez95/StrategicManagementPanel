@@ -464,6 +464,138 @@
 .management-preview__tool-list p {
   font-size: 13px;
 }
+.management-preview__workspace-bar,
+.management-preview__workspace-bar > label,
+.management-preview__field {
+  display: grid;
+  gap: 7px;
+}
+.management-preview__workspace-bar {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px;
+  margin-block: 26px 18px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+}
+.management-preview__workspace-bar label > span,
+.management-preview__field {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+.management-preview__workspace-bar select,
+.management-preview__field input,
+.management-preview__field select {
+  width: 100%;
+  min-height: 43px;
+  padding: 8px 11px;
+  border: 1px solid var(--control);
+  border-radius: var(--radius-control);
+  color: var(--ink);
+  background: var(--paper);
+  font: inherit;
+}
+.management-preview__form-card,
+.management-preview__workspace-dashboard,
+.management-preview__upgrade {
+  margin-block-start: 18px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+.management-preview__step-count {
+  color: var(--preview-teal);
+  font-size: 12px;
+  font-weight: 800;
+}
+.management-preview__form-card h3,
+.management-preview__workspace-dashboard h3,
+.management-preview__upgrade h3 {
+  margin-block: 8px 18px;
+  font-size: 21px;
+}
+.management-preview__choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-block-end: 18px;
+}
+.management-preview__choice-grid button {
+  min-height: 66px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+  background: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+.management-preview__choice-grid button.is-chosen {
+  border-color: var(--preview-teal);
+  box-shadow: inset 0 0 0 1px var(--preview-teal);
+  background: color-mix(in srgb, var(--preview-teal) 8%, var(--paper));
+}
+.management-preview__field {
+  color: var(--ink);
+}
+.management-preview__field-hint {
+  margin-block: 10px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.management-preview__form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-block-start: 22px;
+}
+.management-preview__workspace-dashboard > div:first-child {
+  margin-block-end: 18px;
+}
+.management-preview__workspace-dashboard > div:first-child h3 {
+  margin-block: 11px 4px;
+}
+.management-preview__locked-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-block-start: 23px;
+}
+.management-preview__locked-grid article {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--wash);
+}
+.management-preview__locked-grid article > span {
+  color: var(--preview-teal);
+  font-size: 22px;
+}
+.management-preview__locked-grid h4 {
+  margin-block: 7px 4px;
+}
+.management-preview__locked-grid p {
+  font-size: 13px;
+}
+.management-preview__locked-grid button {
+  min-height: 40px;
+  margin-block-start: 9px;
+  padding: 6px 10px;
+  border: 1px solid var(--control);
+  border-radius: 7px;
+  color: var(--preview-teal);
+  background: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+.management-preview__upgrade {
+  border-inline-start: 4px solid var(--preview-teal);
+}
 .management-preview :focus-visible {
   outline: 3px solid var(--action);
   outline-offset: 3px;
@@ -518,7 +650,7 @@
     display: none;
   }
   .management-preview__rail nav {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 3px;
   }
   .management-preview__rail nav button {
@@ -578,6 +710,14 @@
     align-items: start;
     flex-direction: column;
     gap: 0;
+  }
+  .management-preview__workspace-bar,
+  .management-preview__choice-grid,
+  .management-preview__locked-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .management-preview__workspace-bar > button {
+    justify-self: start;
   }
 }
 @media (max-width: 380px) {

@@ -56,6 +56,14 @@ This is a dataflow, not a mandatory waterfall across engines. Evidence quality i
 
 Cross-entity references validate same Workspace and compatible business scope in the service transaction, including nested IDs, bulk import, export and background jobs. Every write has revision conflict behavior. Viewer is read-only. Deleting membership must invalidate queries/downloads immediately. Avoid arbitrary content-type references without explicit allowed entity types and same-tenant checks.
 
+## Account, Workspace and entitlement boundary
+
+One Workspace is one independently managed business and its records are isolated by that Workspace. The account header is the persistent switch/create entry; account appearance and language preferences are shared, business profile/evidence/assumptions and drafts are not. Membership in a Workspace is distinct from owning it and from owning its BillingAccount. An invited membership does not consume the account's owned-Workspace allowance.
+
+The first owner flow keeps registration and email verification intact, then captures only business kind, current objective, optional reported lifecycle stage and name before creating the first Workspace. Objective-specific follow-up reuses existing canonical data and does not make optional completion a condition for opening the dashboard. A newly permitted Workspace starts with a blank profile and may run discovery within its own scope. Existing invitation members and returning users bypass first-owner onboarding.
+
+Plan/Entitlement is a server-authoritative, configurable contract (STR-028/029/035), not a frontend role or visual blur. It should expose owned-Workspace capacity and per-capability access separately from membership permissions, with explicit reason codes and current usage. Atomic checks happen inside create/upload transactions. Grace/downgrade preserves records and export/access rights; do not promise unlimited capacity or set prices until the plan catalog does. Locked-tool previews name the capability and reason with accessible alternatives. Billing/auth/API/Docker acceptance remains pending; the local preview cannot enforce any of this.
+
 ## Knowledge release and loader
 
 Research formats remain unchanged. STR-054 emits a production manifest containing knowledge_release, content_hash, approved record IDs, per-file research schema/shape adapter, normalized revision and source-support review. Missing schema is not silently treated as 0.1.0. Mixed 0.1.0/1.0.0 is supported only through exact adapters. Unknown enums/tags/versions fail closed for that record; unrelated approved records may still load. Planned research is never in the active registry. Deprecated IDs retain replaced_by mappings; historic runs keep their original release.
