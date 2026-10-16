@@ -10,6 +10,8 @@ All rules, recommendations and actions in these paths are explicitly product heu
 
 For `MET-CONTRIBUTION-MARGIN`, OpenStax §3.1 supports the arithmetic meaning of sales less variable costs as a contribution amount and distinguishes amount from ratio. The product's input classification, cost policy, period, currency, interpretation and suggested actions are not thereby source-validated. In this first slice it is contextual definition only: never a retention trigger or threshold; no formula prose is executed. Calculation waits for the typed input contract and function in STR-058-B.
 
+STR-058-B preserves `stratino-first-slice-v1` as the historical definition-only snapshot and introduces `stratino-first-slice-v2` with a narrow `typed_calculation_only` gate. It permits only `MET-CONTRIBUTION-MARGIN` amount from explicit typed inputs; Workspace/scope/period/currency/accounting basis must match, and the owner-declared variable-cost scope is required. It does not import `business_types` or `stages`, classify cost categories or add a benchmark. The v2 digest is pinned on each run; v1 remains available for historical interpretation.
+
 ## Release and execution boundaries
 
 - The manifest lists only nine candidate records and their exact dependencies. Its per-record revision is the SHA-256 of canonical compact, sorted-key UTF-8 JSON for that record; the adapter ID names the explicit adapter packet 054-C must implement. The pinned knowledge source commit is recorded in the manifest.
