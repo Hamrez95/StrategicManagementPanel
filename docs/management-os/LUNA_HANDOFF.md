@@ -61,3 +61,9 @@ GitHub connector با Hamrez95 تأیید شده است؛ تسک‌های جدی
 ## بستهٔ طراحی اولیهٔ تکمیل‌شده
 
 [DESIGN_INDEX](DESIGN_INDEX.md) مرجع ورود است: ۱۱ سفر کاربر، ۴۰ صفحه، نمونهٔ تعاملی، قرارداد تعامل، مدل داده و وضعیت‌ها. برای هر بسته فقط بخش مرتبط را بخوان. [LUNA_WORK_PACKETS](LUNA_WORK_PACKETS.md) کار ساده و مرز توقف را مشخص کرده است. تصمیم معماری، طراحی تازه، تفسیر علمی و سیاست دسترسی به Luna واگذار نشده؛ تغییر نیازمند دلیل و بازبینی است. شروع دقیق: 055-A و 055-B، سپس 054-A.
+
+## Checkpoint جدید — STR-056-C (2026-10-16)
+
+ترتیب قبلی 055/054 تکمیل شده است؛ ادامه از **STR-057-A** در شاخه `feat/stratino-files-023` است. STR-056-C در کد محلی، سرویس `apply_profile_import` را برای cutover بازبینی‌شده و idempotent اضافه می‌کند: قفل Workspace/profile، مجوز owner، کنترل revision و digest، backup/plan audit، FK identity map، نگهداری history و retry دقیق. پس از cutover، `update_workspace_profile` همچنان تنها مرز نوشتن است و تغییر canonical rowها و projection قدیمی را تراکنشی ثبت می‌کند؛ `execution.Goal` دست‌نخورده canonical می‌ماند.
+
+اعتبارسنجی محلی: `modules.customer_context` برابر 20/20 روی SQLite موقت، مهاجرت‌های همین ماژول روی SQLite، Django system check، Ruff E/F/I برای کد تازه، Graphify 4333/8385/265. PostgreSQL/backup-restore، سرور، Docker، مرورگر و تست فیزیکی عمداً اجرا نشده‌اند و برای مرحلهٔ پایانی‌اند. قبل از commit، هویت محلی باید دقیقاً Hamrez95 باشد؛ برای هر عملیات ریموت نیز connector login را دوباره بررسی کن. Issue #68 باز می‌ماند تا merge و پذیرش نهایی.
