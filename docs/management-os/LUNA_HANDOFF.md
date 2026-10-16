@@ -68,8 +68,10 @@ GitHub connector با Hamrez95 تأیید شده است؛ تسک‌های جدی
 
 اعتبارسنجی محلی: `modules.customer_context` برابر 20/20 روی SQLite موقت، مهاجرت‌های همین ماژول روی SQLite، Django system check، Ruff E/F/I برای کد تازه، Graphify 4333/8385/265. PostgreSQL/backup-restore، سرور، Docker، مرورگر و تست فیزیکی عمداً اجرا نشده‌اند و برای مرحلهٔ پایانی‌اند. قبل از commit، هویت محلی باید دقیقاً Hamrez95 باشد؛ برای هر عملیات ریموت نیز connector login را دوباره بررسی کن. Issue #68 باز می‌ماند تا merge و پذیرش نهایی.
 
-## Checkpoint بعدی — STR-057-A (2026-10-16)
+## Checkpoint بعدی — STR-057-A/B (2026-10-16)
 
 `modules.evidence` اکنون مدل‌های Workspace-scoped Claim, Evidence و ClaimEvidenceLink را دارد. نوع ادعا از منشأ شاهد جداست؛ source identity یکتا، scope/segment و دوره صریح، support/refute/qualify و trace reviewer/rationale ثبت می‌شوند؛ owner/reviewer فعال Workspace و rationale پیوند الزامی‌اند. وضعیت مجوز منبع unverified/available/revoked است؛ دادهٔ لغوشده حفظ و پیوند تازه به آن رد می‌شود. سرویس پیوند، دسترسی owner/editor و revision ادعا/شاهد را بررسی می‌کند. endpoint/UI عمداً ساخته نشد. migration افزایشی است؛ rollback کد جدول‌ها را حفظ می‌کند و حذف جدول به backup/restore واقعی موکول است.
 
-اعتبارسنجی: suiteهای ترکیبی `customer_context` و `evidence` برابر 26/26 روی SQLite موقت با migrationها، Ruff E/F/I، system check و migration autodetection هدفمند بدون drift؛ Graphify 4383/8517/273. **بعدی STR-057-B** است: rubric ترتیبی confidence، دلایل هر محور، reviewer/rule revision و freshness وابسته به review_due؛ احتمال عددی یا TTL سراسری ممنوع. PostgreSQL، سرور، Docker، مرورگر و تست فیزیکی در صف پایانی‌اند. تأیید GitHub connector را پیش از هر remote mutation مجدداً روی Hamrez95 بخواه.
+057-B نیز در کد commit `7b064d6` شد: `Evidence.review_due` مالک‌محور و `ConfidenceAssessment` append-only با rule revision، reviewer، وضعیت/دلیل تعارض، پنج محور و دلایل مستقل، snapshot نسخه و freshness ثبت می‌کند. `insufficient` برای ورودی ضروری ناقص/بدون شاهد جاری مجاز، تعارض حل‌نشده سقف `low`، `high` فقط با همه محورهای adequate و تمام منابع جاری؛ هیچ درصد، وزن جمعی یا TTL سراسری وجود ندارد.
+
+اعتبارسنجی: suiteهای ترکیبی `customer_context` و `evidence` برابر 33/33 روی SQLite موقت با migrationها، Ruff E/F/I، system check و migration autodetection هدفمند بدون drift؛ Graphify 4414/8606/264. **بعدی STR-058-A** است: bindingهای عددی InputObservation و run/value immutable با guardهای واحد/ارز/دوره/unknown-vs-zero. PostgreSQL، سرور، Docker، مرورگر و تست فیزیکی در صف پایانی‌اند. تأیید GitHub connector را پیش از هر remote mutation مجدداً روی Hamrez95 بخواه.
