@@ -2426,6 +2426,10 @@ main {
 }
 .auth-password-field {
   position: relative;
+  direction: ltr;
+}
+.auth-password-field .ui-field {
+  direction: rtl;
 }
 .auth-password-field .auth-password-input {
   padding-inline-end: 5.5rem;
@@ -2434,10 +2438,20 @@ main {
   position: absolute;
   inset-inline-end: 5px;
   top: 31px;
-  min-width: 54px;
-  min-height: 36px;
-  padding: 0.25rem 0.5rem;
-  font-size: 13px;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+}
+.auth-password-toggle svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 .auth-field-hint {
   margin-top: -14px;
