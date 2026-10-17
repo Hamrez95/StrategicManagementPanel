@@ -165,6 +165,7 @@ export default function WorkspaceManagementPage() {
     queryFn: ({ signal }) => listWorkspaces(signal),
   });
   const [createOpen, setCreateOpen] = useState(false);
+  const [search, setSearch] = useState('');
   const [name, setName] = useState('');
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
@@ -214,6 +215,15 @@ export default function WorkspaceManagementPage() {
   const archived = records.filter(
     (workspace) => workspace.owner_id === session.user.id && workspace.archived_at,
   );
+  const normalize = (value: string) =>
+    value.replace(/ي/g, 'ی').replace(/ك/g, 'ک').toLocaleLowerCase();
+  const searchTerm = normalize(search.trim());
+  const matchesSearch = (workspace: WorkspaceRecord) =>
+    normalize(workspace.name).includes(searchTerm);
+  const visibleOwned = owned.filter(matchesSearch);
+  const visibleJoined = joined.filter(matchesSearch);
+  const visibleArchived = archived.filter(matchesSearch);
+  const hasSearchResults = visibleOwned.length + visibleJoined.length + visibleArchived.length > 0;
   const joinedRoles = new Map(
     session.workspaces.map((workspace) => [workspace.id, workspace.role]),
   );
@@ -277,6 +287,18 @@ export default function WorkspaceManagementPage() {
         </Dialog>
       </header>
 
+      {!workspaces.isPending && !workspaces.isError && records.length > 0 && (
+        <div className="workspace-management__search">
+          <Input
+            type="search"
+            label={english ? 'Search Workspaces' : 'جست‌وجو در فضاهای کار'}
+            placeholder={english ? 'Search by Workspace name' : 'نام فضای کار را بنویسید'}
+            value={search}
+            onChange={(event) => setSearch(event.currentTarget.value)}
+          />
+        </div>
+      )}
+
       {workspaces.isPending && (
         <Skeleton label={english ? 'Loading Workspaces' : 'در حال بارگذاری فضاها'} lines={4} />
       )}
@@ -308,20 +330,36 @@ export default function WorkspaceManagementPage() {
         />
       )}
 
-      {owned.length > 0 && (
+      {!workspaces.isPending && !workspaces.isError && records.length > 0 && !hasSearchResults && (
+        <EmptyState
+          title={english ? 'No matching Workspaces' : 'فضایی با این نام پیدا نشد'}
+          description={
+            english
+              ? 'Try another name or clear the search.'
+              : 'نام دیگری را جست‌وجو کنید یا جست‌وجو را پاک کنید.'
+          }
+          action={
+            <Button variant="secondary" onClick={() => setSearch('')}>
+              {english ? 'Clear search' : 'پاک‌کردن جست‌وجو'}
+            </Button>
+          }
+        />
+      )}
+
+      {visibleOwned.length > 0 && (
         <WorkspaceGroup
           title={english ? 'Owned by you' : 'در مالکیت شما'}
-          rows={owned}
+          rows={visibleOwned}
           role={english ? 'Owner' : 'مالک'}
           isOwner
           english={english}
           onChanged={refresh}
         />
       )}
-      {joined.length > 0 && (
+      {visibleJoined.length > 0 && (
         <WorkspaceGroup
           title={english ? 'Shared with you' : 'فضاهای دعوتی'}
-          rows={joined}
+          rows={visibleJoined}
           roleFor={(workspace) => {
             const role = joinedRoles.get(workspace.id);
             return english
@@ -337,10 +375,10 @@ export default function WorkspaceManagementPage() {
           onChanged={refresh}
         />
       )}
-      {archived.length > 0 && (
+      {visibleArchived.length > 0 && (
         <WorkspaceGroup
           title={english ? 'Archived' : 'بایگانی‌شده'}
-          rows={archived}
+          rows={visibleArchived}
           role={english ? 'Owner' : 'مالک'}
           isOwner
           english={english}

@@ -54,8 +54,13 @@ function getWorkspaceData<T>(
 export async function listWorkspaces(signal?: AbortSignal): Promise<WorkspaceRecord[]> {
   const records: WorkspaceRecord[] = [];
   const seenCursors = new Set<string>();
+  const seenWorkspaceIds = new Set<string>();
   let cursor = '';
+  let pageCount = 0;
   do {
+    if (pageCount >= 1000) {
+      throw new AuthApiError('فهرست فضاها از حد مجاز صفحه‌بندی فراتر رفت.', 502);
+    }
     const query = new URLSearchParams({ limit: '100' });
     if (cursor) query.set('cursor', cursor);
     const page = await getWorkspaceData(
@@ -63,7 +68,14 @@ export async function listWorkspaces(signal?: AbortSignal): Promise<WorkspaceRec
       signal,
       decodeWorkspacePage,
     );
+    for (const workspace of page.items) {
+      if (seenWorkspaceIds.has(workspace.id)) {
+        throw new AuthApiError('یک فضا در چند صفحه تکرار شده است.', 502);
+      }
+      seenWorkspaceIds.add(workspace.id);
+    }
     records.push(...page.items);
+    pageCount += 1;
     cursor = page.next_cursor ?? '';
     if (cursor && seenCursors.has(cursor)) throw new AuthApiError('صفحه‌بندی فهرست کامل نشد.', 502);
     if (cursor) seenCursors.add(cursor);
