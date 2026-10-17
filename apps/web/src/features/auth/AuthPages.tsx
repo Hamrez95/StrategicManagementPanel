@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, type FormEvent, type ReactNod
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { queryKeys } from '../../api/queryKeys';
+import { readSession } from '../../session';
 import { Button, Input } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth, type AuthFields } from './api';
 import { BoardIllustration, Mark } from '../experience/ExperienceUI';
@@ -183,11 +184,18 @@ export function LoginPage() {
         return;
       }
       await postAuth('/api/v1/accounts/login/', { email, password });
-      await queryClient.invalidateQueries({ queryKey: queryKeys.session });
+      const session = await queryClient.fetchQuery({
+        queryKey: queryKeys.session,
+        queryFn: () => readSession(),
+      });
+      if (!session) {
+        throw new Error('ورود انجام شد، اما نشست حساب تأیید نشد. دوباره تلاش کنید.');
+      }
       const next = new URLSearchParams(location.search).get('next');
-      const safeNext =
-        next?.startsWith('/') && !next.startsWith('//') && !next.includes('\\')
-          ? next
+      const safeNext = isSafeInternalDestination(next)
+        ? next
+        : session.workspaces.length > 0
+          ? '/app/workspaces'
           : '/app/start';
       navigate(safeNext, { replace: true });
     } catch (error) {
@@ -261,6 +269,15 @@ export function LoginPage() {
       )}
     </AuthFrame>
   );
+}
+
+function isSafeInternalDestination(next: string | null): next is string {
+  if (!next?.startsWith('/') || next.startsWith('//') || next.includes('\\')) return false;
+  try {
+    return new URL(next, window.location.origin).origin === window.location.origin;
+  } catch {
+    return false;
+  }
 }
 
 export function SignupPage() {

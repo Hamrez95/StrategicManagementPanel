@@ -10,6 +10,7 @@ if ENVIRONMENT not in ('development', 'production', 'test'):
     raise ImproperlyConfigured('STRATINO_ENV must be development, test or production.')
 PRODUCTION = ENVIRONMENT == 'production'
 DEBUG = os.environ.get('DJANGO_DEBUG', '0' if PRODUCTION else '1') == '1'
+STRATINO_ALLOW_TEST_ACCOUNT = os.environ.get('STRATINO_ALLOW_TEST_ACCOUNT') == '1'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 ALLOWED_HOSTS = [host.strip() for host in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1]' if not PRODUCTION else '').split(',') if host.strip()]
 if PRODUCTION:

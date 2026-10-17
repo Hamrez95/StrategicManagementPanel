@@ -2,6 +2,10 @@
 
 ## Current owner revision — complete design coverage
 
+### 010-D implementation slice
+
+Server signup, email verification, recovery and session endpoints were already present. Login now loads the verified API session, preserves a safe invitation/`next` path, routes returning members to their Workspace list and first-time accounts to setup. Added an idempotent dev-only test-account command guarded by development+DEBUG+`STRATINO_ALLOW_TEST_ACCOUNT=1`; it refuses privileged accounts, preserves an existing password unless `--reset-password` is explicitly provided, and never relaxes real-user password validation. Verified locally: auth navigation browser checks **4/4**, account-command safety unit checks **4/4**, Django system check, changed-file Ruff, web typecheck, production build and Graphify. The command was not run against a DB; auth email delivery, API login/reset integration and DB acceptance remain pending in the final server batch, so #10 remains open.
+
 Follow-up: shared `.ex-field select` now inherits the same Vazirmatn font, colors, spacing and border as other inputs, including option groups. Real Chrome inspection confirmed both directory filters and their options use `Vazirmatn, Tahoma, sans-serif`; matrix filtering still yields 11 entries. Prettier passed. GitHub checked as Hamrez95: no open PRs and no remote branches outside origin/main before this follow-up.
 
 This revision supersedes the eight-tool coverage limit below. The frontend now exposes all **64 framework/metric records (33 frameworks + 31 metrics)** from the current research catalog, **28 authored planning flows**, the existing eight tools and the preserved 60-document catalog. The analysis directory groups them into **21 domains** and a six-phase navigational roadmap. Vision, mission, purpose, values, objectives, marketing and advanced matrices have dedicated guided layouts. The roadmap is navigation, not an approved scientific stage model.
@@ -11,7 +15,7 @@ This revision supersedes the eight-tool coverage limit below. The frontend now e
 - New method pages provide source-specific questions, help, editable drafts and result scaffolds. Advanced calculations, scientific approval, authenticated persistence and real backend integration remain pending. Local drafts and fixture access are not production completion. Metric formulas are displayed as text, never evaluated dynamically.
 - Verified: **96/96 root tests**, all **64 research + 28 planning routes**, vision persistence and two-Workspace isolation, BMC block separation, no fabricated metric result, **44 responsive checks and 11 axe audits**, with no real API calls. Production web build passed after splitting research/report routes; largest chunks stay below Vite's 500 kB warning threshold. Synthetic accessibility checks are not certification.
 - Actual server, Docker, PostgreSQL, mail and physical acceptance remain deferred to the end of development. The new frontend does not promote or rewrite research definitions.
-- Final local Graphify AST update completed: **4856 nodes / 9919 edges / 293 communities**; updated directory, workbench, summary and field consumers queried without cloud extraction.
+- Final local Graphify AST update after the design work: **4856 nodes / 9919 edges / 293 communities**. Latest 010-D update: **4876 nodes / 9966 edges / 304 communities**; auth, session and test-account command consumers queried without cloud extraction.
 
 Local review: `http://127.0.0.1:5180/account/login`. Local fixture only: `hamrez95@stratino.test` / `123456`. Start Luna from the complete-design packets after the existing account/Workspace adapter sequence; keep the established layouts.
 

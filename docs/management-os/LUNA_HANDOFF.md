@@ -103,3 +103,6 @@ No code or migration was added. The source startup Journey requires domain-exper
 ## Latest continuation — 2026-10-17 complete design coverage
 
 Read [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md) and [LUNA_COMPLETE_DESIGN_PACKETS](LUNA_COMPLETE_DESIGN_PACKETS.md) first. The frontend now includes 64 source methods, 28 authored planning flows and 21 domains. Implement the typed backend packets behind these layouts after the existing auth/Workspace sequence; do not redesign them or invent missing scientific calculations. Research gaps and server/physical acceptance remain pending. See STATUS for actual checks.
+### 010-D progress — 2026-10-17
+
+Existing secure account endpoints were preserved. Login now selects a verified-session-aware destination and validates same-origin `next`; a development-only, explicitly acknowledged seed command and four guard tests were added. Local route browser checks pass 4/4. Database execution, email catcher and real API auth integration remain untested for the final acceptance pass. Do not close #10 yet; continue the remaining packets by dependency order.
