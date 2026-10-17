@@ -35,18 +35,19 @@ Set-ExecutionPolicy -Scope Process Bypass
 .\run-local.ps1
 ```
 
-بعد از دریافت آخرین refها، در اجرای معمولی منو یکی از این دو نسخه را می‌پرسد: `main` یا شاخه `feat/stratino-academy`. رانر ابتدا `origin/<branch>` را اجرا می‌کند و اگر موجود نبود از شاخه محلی کمک می‌گیرد؛ هیچ branch checkout یا فایل کاری را تغییر نمی‌دهد.
+بعد از دریافت آخرین refها، در اجرای معمولی منو یکی از این دو نسخه را می‌پرسد: `main` یا شاخه `feat/stratino-academy`. رانر ابتدا commit شاخه محلی را اجرا می‌کند و اگر موجود نبود از `origin/<branch>` کمک می‌گیرد؛ هیچ branch checkout یا فایل کاری را تغییر نمی‌دهد.
 
 ```powershell
 git fetch origin main feat/stratino-academy
 .\run-local.ps1
 ```
 
-انتخاب مستقیم هم ممکن است:
+انتخاب academy آموزش را فعال و `/academy` را باز می‌کند. main به‌صورت پیش‌فرض آموزش را فعال نمی‌کند؛ برای مشاهده آموزش روی main از `-AcademyPreview` استفاده کنید. این رفتار برای هر ref در اجرای چندنسخه‌ای مستقل است. انتخاب مستقیم هم ممکن است:
 
 ```powershell
 .\run-local.ps1 -Version main
 .\run-local.ps1 -Version academy
+.\run-local.ps1 -Version main -AcademyPreview
 ```
 
 برای اجرای refهای دلخواه یا چند نسخه کنار هم، همچنان از `-Refs` استفاده کنید:
@@ -58,7 +59,7 @@ git fetch origin main feat/stratino-academy
 
 با `Ctrl+C` سرورها بسته می‌شوند و worktreeهای موقت پاک می‌شوند. اجرای پروژه روی شاخه کاری فعلی اثری ندارد. برای باز نکردن خودکار مرورگر از `-NoBrowser` استفاده کنید.
 
-در هر worktree ابتدا `npm ci` با فایل قفل همان نسخه اجرا می‌شود. Node.js حداقل 22.12 لازم است. اگر پورتی اشغال باشد، رانر پیش از نصب متوقف می‌شود؛ با `-FirstPort 18473` بازه دیگری انتخاب کنید. آدرس فقط پس از پاسخ HTTP موفق چاپ می‌شود. گزارش‌ها در پوشه موقت اختصاصی هر اجرا می‌مانند. `-SmokeTest -NoBrowser` پس از آماده‌شدن همه نسخه‌ها، سرورها و worktreeها را می‌بندد. بررسی خطاهای اولیه با `pwsh -File scripts/test-local-runner.ps1` اجرا می‌شود.
+در هر worktree ابتدا `npm ci` با فایل قفل همان نسخه اجرا می‌شود. Node.js حداقل 22.12 لازم است. اگر پورتی اشغال باشد، رانر پورت آزاد بعدی را انتخاب می‌کند؛ با `-FirstPort 18473` بازه شروع را تغییر دهید. آدرس فقط پس از پاسخ HTTP موفق چاپ می‌شود. گزارش‌ها در پوشه موقت اختصاصی هر اجرا می‌مانند. `-SmokeTest -NoBrowser` پس از آماده‌شدن همه نسخه‌ها، سرورها و worktreeها را می‌بندد. آزمون منوی واقعی، commit منتخب، default-off/preview، پورت اشغال‌شده، healthcheck و cleanup با `pwsh -File scripts/test-local-runner.ps1` اجرا می‌شود. پس از ادغام آموزش در main، `-IncludePreviewOnMain` را نیز به آزمون اضافه کنید. برای ذخیره شاهد اجرای رانر از `-EvidencePath test-results/runner.json` استفاده کنید.
 
 اجرای پیش‌فرض فقط وب است؛ اجرای اختیاری سرویس‌های محلی در بخش زیر توضیح داده شده است.
 

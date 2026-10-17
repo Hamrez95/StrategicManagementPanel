@@ -2,6 +2,8 @@ param(
     [string[]] $Refs,
     [ValidateSet('main', 'academy')]
     [string] $Version,
+    [switch] $AcademyPreview,
+    [string] $EvidencePath,
     [int] $FirstPort = 4173,
     [switch] $NoBrowser,
     [switch] $SmokeTest,
@@ -66,6 +68,18 @@ $webPorts = [Collections.Generic.List[int]]::new()
 $apiPorts = [Collections.Generic.List[int]]::new()
 $mailPorts = [Collections.Generic.List[int]]::new()
 $usedPorts = [Collections.Generic.HashSet[int]]::new()
+$runEvidence = [Collections.Generic.List[object]]::new()
+
+function Save-RunEvidence {
+    param([bool] $Stopped)
+    if (-not $EvidencePath) { return }
+    $fullEvidencePath = [IO.Path]::GetFullPath($EvidencePath)
+    [void][IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($fullEvidencePath))
+    $payload = @{ runs = @($runEvidence.ToArray()); stopped = $Stopped;
+        remainingWorktrees = @($worktrees | Where-Object { Test-Path -LiteralPath $_ });
+        runningServers = @($servers | Where-Object { -not $_.Process.HasExited } | ForEach-Object { $_.Process.Id }) }
+    [IO.File]::WriteAllText($fullEvidencePath, ($payload | ConvertTo-Json -Depth 8))
+}
 
 function Invoke-Git {
     param([string[]] $GitArgs)
@@ -173,12 +187,12 @@ try {
     # Validate refs and reserve distinct available localhost ports before creating worktrees.
     $commits = @()
     for ($index = 0; $index -lt $Refs.Count; $index++) {
-        $remoteRef = "origin/$($Refs[$index])"
+        $localRef = $Refs[$index]
         try {
-            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$remoteRef^{commit}")
+            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$localRef^{commit}")
         }
         catch {
-            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$($Refs[$index])^{commit}")
+            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "origin/$localRef^{commit}")
         }
         $commits += $commit
         $webPorts.Add((Find-FreePort -StartAt ($FirstPort + $index) -ReservedPorts $usedPorts))
@@ -191,6 +205,8 @@ try {
     New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
     for ($index = 0; $index -lt $Refs.Count; $index++) {
         $ref = $Refs[$index]
+        # Resolve preview independently for each ref, so a multi-ref run keeps main off.
+        $previewEnabled = $AcademyPreview -or ($ref -in @('feat/stratino-academy', 'origin/feat/stratino-academy'))
         $commit = $commits[$index]
         if (-not $commit) { throw "Git ref was not found: $ref" }
 
@@ -215,8 +231,14 @@ try {
             if (-not (Test-Path -LiteralPath (Join-Path $worktreePath 'package-lock.json'))) { throw "$ref does not contain package-lock.json; a reproducible install is not possible." }
             & $npmCommand.Source ci --no-audit --no-fund
             if ($LASTEXITCODE -ne 0) { throw "Dependency installation failed for $ref. Check registry access and the lockfile." }
-            & $npmCommand.Source run build
-            if ($LASTEXITCODE -ne 0) { throw "The build failed for $ref." }
+            $savedPreview = [Environment]::GetEnvironmentVariable('VITE_ACADEMY_PREVIEW', 'Process')
+            try {
+                [Environment]::SetEnvironmentVariable('VITE_ACADEMY_PREVIEW', $(if ($previewEnabled) { 'true' } else { 'false' }), 'Process')
+                & $npmCommand.Source run build
+                if ($LASTEXITCODE -ne 0) { throw "The build failed for $ref." }
+            } finally {
+                [Environment]::SetEnvironmentVariable('VITE_ACADEMY_PREVIEW', $savedPreview, 'Process')
+            }
         }
         finally { Pop-Location }
 
@@ -231,6 +253,9 @@ try {
             }
         }
         $distPath = Join-Path $worktreePath 'dist'
+        $academyChunks = @(Get-ChildItem -LiteralPath (Join-Path $distPath 'assets') -Filter 'Academy-*.js')
+        if ($previewEnabled -and $academyChunks.Count -eq 0) { throw "$ref did not produce the requested Academy preview." }
+        if (-not $previewEnabled -and $academyChunks.Count -ne 0) { throw "$ref unexpectedly enabled Academy in a normal build." }
         $arguments = "$(Quote-ProcessArgument $serverScript) $port $(Quote-ProcessArgument $distPath)"
         if ($WithBackend) { $arguments += " $($apiPorts[$index])" }
         $stdout = Join-Path $tempRoot "$safeName-$port.stdout.log"
@@ -239,7 +264,7 @@ try {
         $processOptions = @{FilePath=$nodeCommand.Source; ArgumentList=$arguments; WorkingDirectory=$worktreePath; PassThru=$true; RedirectStandardOutput=$stdout; RedirectStandardError=$stderr}
         if ($env:OS -eq 'Windows_NT') { $processOptions['WindowStyle'] = 'Hidden' }
         $process = Start-Process @processOptions
-        $url = "http://127.0.0.1:$port"
+        $url = "http://127.0.0.1:$port" + $(if ($previewEnabled) { '/academy' } else { '/' })
         $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr; ProbeError = '' }
         $servers.Add($server)
 
@@ -274,8 +299,12 @@ try {
         }
 
         $urls.Add($url)
+        $runEvidence.Add([pscustomobject]@{ ref = $ref; commit = $commit; url = $url;
+            academyPreview = [bool]$previewEnabled; academyChunks = $academyChunks.Count; healthcheck = 'HTTP 200'; port = $port })
         Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
     }
+
+    Save-RunEvidence -Stopped $false
 
     if ($SmokeTest) { Write-Host 'Smoke test passed. The local servers will now shut down.' -ForegroundColor Green; return }
 
@@ -322,4 +351,5 @@ finally {
         if ($cleanupExit -ne 0 -and (Test-Path -LiteralPath $resolved)) { Write-Warning "Could not remove the temporary worktree; it was kept for inspection: $resolved ($cleanupResult)" }
     }
     Write-Host "Run logs and temporary files: $tempRoot"
+    Save-RunEvidence -Stopped $true
 }
