@@ -11,6 +11,7 @@ export const queryKeys = {
     root: (workspaceId: string) => ['workspace', workspaceId] as const,
     detail: (workspaceId: string) => ['workspace', workspaceId, 'detail'] as const,
     profile: (workspaceId: string) => ['workspace', workspaceId, 'profile'] as const,
+    summary: (workspaceId: string) => ['workspace', workspaceId, 'summary'] as const,
     profileRevisions: (workspaceId: string) =>
       ['workspace', workspaceId, 'profile-revisions'] as const,
     strategyBoard: (workspaceId: string) => ['workspace', workspaceId, 'strategy-board'] as const,

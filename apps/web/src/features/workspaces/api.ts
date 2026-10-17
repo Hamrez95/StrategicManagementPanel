@@ -7,6 +7,7 @@ import {
   decodeWorkspacePage,
   decodeWorkspaceProfile,
   decodeWorkspaceProfileRevisions,
+  decodeWorkspaceSummary,
   type ApiWorkspace,
   type ApiWorkspaceBootstrapResult,
   type ApiWorkspaceBootstrapWrite,
@@ -14,6 +15,7 @@ import {
   type ApiWorkspaceMember,
   type ApiWorkspaceProfile,
   type ApiWorkspaceProfileRevision,
+  type ApiWorkspaceSummary,
   type OpenApiPaths,
 } from '../../api/contracts';
 import { deleteAuth, patchAuth, postAuth } from '../auth/api';
@@ -126,6 +128,17 @@ export function readWorkspaceProfile(
     `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/profile/`,
     signal,
     decodeWorkspaceProfile,
+  );
+}
+
+export function readWorkspaceSummary(
+  workspaceId: string,
+  signal?: AbortSignal,
+): Promise<ApiWorkspaceSummary> {
+  return getWorkspaceData<ApiWorkspaceSummary>(
+    `/api/v1/workspaces/${encodeURIComponent(workspaceId)}/summary/`,
+    signal,
+    decodeWorkspaceSummary,
   );
 }
 

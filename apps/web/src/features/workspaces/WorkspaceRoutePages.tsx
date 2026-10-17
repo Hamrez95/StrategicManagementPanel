@@ -11,8 +11,15 @@ import { useQuery } from '@tanstack/react-query';
 import { Button, EmptyState, Notice, Skeleton, useUIAppearance } from '@stratino/ui';
 import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
-import { readWorkspaceProfile } from './api';
+import { readWorkspaceProfile, readWorkspaceSummary } from './api';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
+
+function formatSummaryDate(value: string, english: boolean) {
+  const [year, month, day] = value.split('-').map(Number);
+  return new Intl.DateTimeFormat(english ? 'en-US' : 'fa-IR', { dateStyle: 'medium' }).format(
+    new Date(year, month - 1, day),
+  );
+}
 
 export function WorkspaceOverviewPage() {
   const { workspaceId = '' } = useParams();
@@ -23,6 +30,11 @@ export function WorkspaceOverviewPage() {
   const profileQuery = useQuery({
     queryKey: queryKeys.workspace.profile(workspaceId),
     queryFn: ({ signal }) => readWorkspaceProfile(workspaceId, signal),
+    enabled: Boolean(workspace),
+  });
+  const summaryQuery = useQuery({
+    queryKey: queryKeys.workspace.summary(workspaceId),
+    queryFn: ({ signal }) => readWorkspaceSummary(workspaceId, signal),
     enabled: Boolean(workspace),
   });
 
@@ -74,7 +86,7 @@ export function WorkspaceOverviewPage() {
           </Button>
         </div>
       )}
-      {profileQuery.data && (
+      {profileQuery.data && summaryQuery.data?.profile.state !== 'empty' && (
         <section
           className="workspace-home__profile"
           aria-labelledby="workspace-profile-summary-title"
@@ -151,32 +163,196 @@ export function WorkspaceOverviewPage() {
         </section>
       )}
 
+      {summaryQuery.isPending && (
+        <Skeleton
+          label={english ? 'Loading Workspace summary' : 'در حال بارگذاری خلاصه فضا'}
+          lines={2}
+        />
+      )}
+      {summaryQuery.isError && (
+        <div className="workspace-home__error" role="alert">
+          <p>
+            {summaryQuery.error.message ||
+              (english
+                ? 'The Workspace summary could not be loaded.'
+                : 'خلاصه فضای کار بارگذاری نشد.')}
+          </p>
+          <Button onClick={() => void summaryQuery.refetch()}>
+            {english ? 'Try again' : 'تلاش دوباره'}
+          </Button>
+        </div>
+      )}
+      {summaryQuery.data && (
+        <section className="workspace-home__summary" aria-labelledby="workspace-summary-title">
+          <div className="workspace-home__section-heading">
+            <div>
+              <h2 id="workspace-summary-title">{english ? 'The next useful step' : 'گام بعدی'}</h2>
+              <p>
+                {english
+                  ? 'Based on records saved in this Workspace.'
+                  : 'بر پایه اطلاعات ثبت‌شده در همین فضای کار.'}
+              </p>
+            </div>
+          </div>
+          {summaryQuery.data.next_action ? (
+            <div className="workspace-home__next-action">
+              <div>
+                <strong>
+                  {summaryQuery.data.next_action.kind === 'complete_profile'
+                    ? english
+                      ? 'Add your business context'
+                      : 'شناخت کسب‌وکار را ثبت کنید'
+                    : summaryQuery.data.next_action.kind === 'overdue_action'
+                      ? english
+                        ? 'Review an overdue action'
+                        : 'اقدام سررسیدشده را پیگیری کنید'
+                      : summaryQuery.data.next_action.kind === 'decision_review'
+                        ? english
+                          ? 'Review a proposed decision'
+                          : 'تصمیم پیشنهادی را بررسی کنید'
+                        : summaryQuery.data.next_action.kind === 'document_incomplete'
+                          ? english
+                            ? 'Continue a document'
+                            : 'نوشتن یک سند را ادامه دهید'
+                          : english
+                            ? 'Continue an open action'
+                            : 'اقدام باز را ادامه دهید'}
+                </strong>
+                {summaryQuery.data.next_action.label &&
+                  summaryQuery.data.next_action.kind !== 'document_incomplete' && (
+                    <span>{summaryQuery.data.next_action.label}</span>
+                  )}
+              </div>
+              <Link
+                className="ui-button ui-button--secondary"
+                to={workspaceToolPath(workspaceId, summaryQuery.data.next_action.destination)}
+              >
+                {english ? 'Open' : 'باز کردن'}
+              </Link>
+            </div>
+          ) : (
+            <EmptyState
+              title={english ? 'No next action has been recorded' : 'اقدام بعدی هنوز ثبت نشده است'}
+              description={
+                english
+                  ? 'Create an action in the execution plan when you are ready.'
+                  : 'هر زمان آماده بودید، اقدام بعدی را در برنامه اجرا ثبت کنید.'
+              }
+              action={
+                <Link
+                  className="ui-button ui-button--secondary"
+                  to={workspaceToolPath(workspaceId, 'execution')}
+                >
+                  {english ? 'Open execution plan' : 'رفتن به برنامه اجرا'}
+                </Link>
+              }
+            />
+          )}
+          <p className="workspace-home__summary-meta">
+            {summaryQuery.data.analyses.finalized_count || summaryQuery.data.analyses.draft_count
+              ? english
+                ? `${summaryQuery.data.analyses.finalized_count} finalized and ${summaryQuery.data.analyses.draft_count} draft analyses`
+                : `${new Intl.NumberFormat('fa-IR').format(summaryQuery.data.analyses.finalized_count)} تحلیل نهایی و ${new Intl.NumberFormat('fa-IR').format(summaryQuery.data.analyses.draft_count)} پیش‌نویس`
+              : english
+                ? 'No analysis has been recorded yet.'
+                : 'هنوز تحلیلی ثبت نشده است.'}{' '}
+            <Link to={workspaceToolPath(workspaceId, 'matrices')}>
+              {english ? 'View analyses' : 'دیدن تحلیل‌ها'}
+            </Link>
+          </p>
+          {summaryQuery.data.open_actions.length > 0 && (
+            <details className="workspace-home__open-actions">
+              <summary>
+                {english
+                  ? `Open actions (${summaryQuery.data.open_actions.length})`
+                  : `اقدام‌های باز (${new Intl.NumberFormat('fa-IR').format(summaryQuery.data.open_actions.length)})`}
+              </summary>
+              <ul>
+                {summaryQuery.data.open_actions.map((action) => (
+                  <li key={action.id}>
+                    <Link to={workspaceToolPath(workspaceId, 'execution')}>{action.title}</Link>
+                    <span>
+                      {action.is_overdue
+                        ? english
+                          ? 'Overdue'
+                          : 'سررسید گذشته'
+                        : formatSummaryDate(action.due_on, english)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+          {summaryQuery.data.attention_items.length > 0 && (
+            <div className="workspace-home__attention">
+              <h3>{english ? 'Needs attention' : 'موارد نیازمند توجه'}</h3>
+              <ul>
+                {summaryQuery.data.attention_items.map((item) => (
+                  <li key={`${item.kind}-${item.id}`}>
+                    <Link to={workspaceToolPath(workspaceId, item.destination)}>
+                      {item.kind === 'document_incomplete'
+                        ? english
+                          ? 'Document in progress'
+                          : 'سند در حال تکمیل'
+                        : item.label}
+                    </Link>
+                    <span>
+                      {item.kind === 'overdue_action'
+                        ? english
+                          ? 'Overdue action'
+                          : 'اقدام سررسیدشده'
+                        : item.kind === 'decision_review'
+                          ? english
+                            ? 'Proposed decision'
+                            : 'تصمیم پیشنهادی'
+                          : english
+                            ? 'Document in progress'
+                            : 'سند در حال تکمیل'}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
+
       <section className="workspace-home__path" aria-labelledby="workspace-path-title">
         <div className="workspace-home__section-heading">
           <div>
             <h2 id="workspace-path-title">
-              {english ? 'Your strategy path' : 'مسیر کار استراتژی'}
+              {english ? 'Useful starting points' : 'میان‌برهای مرتبط'}
             </h2>
             <p>
               {english
-                ? 'Choose a step to continue. Each route keeps its own address.'
-                : 'برای ادامه یک مرحله را انتخاب کنید؛ هر صفحه نشانی جدا دارد.'}
+                ? summaryQuery.data?.objective
+                  ? 'Shortcuts reflect the Workspace goal you reported.'
+                  : 'General starting points while no goal has been reported.'
+                : summaryQuery.data?.objective
+                  ? 'این میان‌برها با هدفی که برای این فضا ثبت کرده‌اید هماهنگ‌اند.'
+                  : 'تا زمانی که هدفی ثبت نشده، این‌ها میان‌برهای عمومی شروع هستند.'}
             </p>
           </div>
         </div>
         <ol className="workspace-home__steps">
-          {workspaceToolGroups.map((group) => {
-            const firstTool = group.tools[0];
-            return (
-              <li key={group.id}>
-                <Link to={workspaceToolPath(workspaceId, firstTool.id)}>
-                  <span>{group.title[english ? 'en' : 'fa']}</span>
-                  <strong>{firstTool.title[english ? 'en' : 'fa']}</strong>
-                  <span aria-hidden="true">↗</span>
-                </Link>
-              </li>
-            );
-          })}
+          {(
+            summaryQuery.data?.shortcuts ??
+            workspaceToolGroups.slice(0, 3).map((group) => group.tools[0].id)
+          )
+            .slice(0, 3)
+            .map((toolId) => {
+              const tool = getWorkspaceTool(toolId);
+              if (!tool) return null;
+              return (
+                <li key={tool.id}>
+                  <Link to={workspaceToolPath(workspaceId, tool.id)}>
+                    <span>{english ? 'Workspace tool' : 'ابزار فضای کار'}</span>
+                    <strong>{tool.title[english ? 'en' : 'fa']}</strong>
+                    <span aria-hidden="true">↗</span>
+                  </Link>
+                </li>
+              );
+            })}
         </ol>
       </section>
     </section>

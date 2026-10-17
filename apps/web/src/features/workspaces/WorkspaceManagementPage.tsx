@@ -13,7 +13,14 @@ import {
 import { queryKeys } from '../../api/queryKeys';
 import { AuthApiError, firstFieldError } from '../auth/api';
 import type { Session } from '../../session';
-import { createWorkspace, listWorkspaces, saveWorkspace, type WorkspaceRecord } from './api';
+import {
+  createWorkspace,
+  listWorkspaces,
+  readWorkspaceSummary,
+  saveWorkspace,
+  type WorkspaceRecord,
+} from './api';
+import { workspaceToolPath } from './routeRegistry';
 import { useWorkspaceDirtyGuard } from './switchContext';
 
 function WorkspaceRow({
@@ -34,6 +41,11 @@ function WorkspaceRow({
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
   const archived = workspace.archived_at !== null;
+  const summary = useQuery({
+    queryKey: queryKeys.workspace.summary(workspace.id),
+    queryFn: ({ signal }) => readWorkspaceSummary(workspace.id, signal),
+    enabled: !archived,
+  });
 
   async function toggleArchive() {
     setPending(true);
@@ -66,20 +78,59 @@ function WorkspaceRow({
 
   return (
     <li className={`workspace-row${archived ? ' workspace-row--archived' : ''}`}>
-      <div className="workspace-row__identity">
-        {archived ? (
-          <span className="workspace-row__name">{workspace.name}</span>
-        ) : (
+      <div className="workspace-row__content">
+        <div className="workspace-row__identity">
+          {archived ? (
+            <span className="workspace-row__name">{workspace.name}</span>
+          ) : (
+            <Link
+              to={`/app/workspaces/${encodeURIComponent(workspace.id)}`}
+              className="workspace-row__name"
+            >
+              {workspace.name}
+            </Link>
+          )}
+          <span className="workspace-row__role">{role}</span>
+          {archived && (
+            <span className="workspace-row__status">{english ? 'Archived' : 'بایگانی‌شده'}</span>
+          )}
+        </div>
+        {!archived && summary.isPending && (
+          <span className="workspace-row__summary" role="status">
+            {english ? 'Loading project summary…' : 'در حال بارگذاری خلاصه فضا…'}
+          </span>
+        )}
+        {!archived && summary.data && (
           <Link
-            to={`/app/workspaces/${encodeURIComponent(workspace.id)}`}
-            className="workspace-row__name"
+            className="workspace-row__summary"
+            to={workspaceToolPath(
+              workspace.id,
+              summary.data.next_action?.destination ?? 'execution',
+            )}
           >
-            {workspace.name}
+            {summary.data.next_action
+              ? summary.data.next_action.kind === 'complete_profile'
+                ? english
+                  ? 'Next: add business context'
+                  : 'گام بعد: ثبت شناخت کسب‌وکار'
+                : summary.data.next_action.kind === 'overdue_action'
+                  ? `${english ? 'Overdue:' : 'سررسید گذشته:'} ${summary.data.next_action.label ?? ''}`
+                  : summary.data.next_action.kind === 'decision_review'
+                    ? `${english ? 'Review decision:' : 'بررسی تصمیم:'} ${summary.data.next_action.label ?? ''}`
+                    : summary.data.next_action.kind === 'document_incomplete'
+                      ? english
+                        ? 'Next: continue a document'
+                        : 'گام بعد: تکمیل سند'
+                      : `${english ? 'Next:' : 'گام بعد:'} ${summary.data.next_action.label ?? ''}`
+              : english
+                ? 'No next action recorded'
+                : 'اقدام بعدی ثبت نشده'}
           </Link>
         )}
-        <span className="workspace-row__role">{role}</span>
-        {archived && (
-          <span className="workspace-row__status">{english ? 'Archived' : 'بایگانی‌شده'}</span>
+        {!archived && summary.isError && (
+          <span className="workspace-row__summary" role="status">
+            {english ? 'Project summary unavailable' : 'خلاصه فضا در دسترس نیست'}
+          </span>
         )}
       </div>
       <div className="workspace-row__actions">

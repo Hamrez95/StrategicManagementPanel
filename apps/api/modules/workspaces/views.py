@@ -33,6 +33,7 @@ from .services import (
     workspace_dict,
     workspace_role,
 )
+from .summary import read_workspace_summary
 
 CURSOR_SALT = 'stratino.workspace-list-cursor'
 CURSOR_MAX_AGE = 60 * 60
@@ -288,6 +289,20 @@ def workspace_profile(request, workspace_id):
         return _action_error(error)
     except DjangoValidationError as error:
         return _validation_error(error)
+
+
+@require_GET
+def workspace_summary(request, workspace_id):
+    if not _verified_user(request):
+        return _error(401, 'not_authenticated', 'برای ادامه وارد حساب تأییدشده شوید.')
+    try:
+        workspace = get_accessible_workspace_or_404(request.user, workspace_id)
+        role = workspace_role(request.user, workspace)
+        if role is None:
+            return _error(404, 'workspace_not_found', 'فضای کار در دسترس نیست.')
+        return JsonResponse(read_workspace_summary(workspace, role))
+    except Http404:
+        return _error(404, 'workspace_not_found', 'فضای کار در دسترس نیست.')
 
 
 @require_GET

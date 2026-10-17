@@ -1,5 +1,4 @@
 from django.urls import include, path
-
 from modules.accounts.auth_views import (
     account_preferences,
     account_profile,
@@ -40,6 +39,7 @@ from modules.workspaces.views import (
     workspace_members,
     workspace_profile,
     workspace_profile_revisions,
+    workspace_summary,
 )
 
 urlpatterns = [
@@ -50,6 +50,7 @@ urlpatterns = [
     path('api/v1/workspaces/bootstrap/', workspace_bootstrap),
     path('api/v1/workspaces/', list_workspaces),
     path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
+    path('api/v1/workspaces/<str:workspace_id>/summary/', workspace_summary),
     path('api/v1/workspaces/<str:workspace_id>/profile/', workspace_profile),
     path('api/v1/workspaces/<str:workspace_id>/profile/revisions/', workspace_profile_revisions),
     path('api/v1/workspaces/<str:workspace_id>/strategy/', strategy_board),

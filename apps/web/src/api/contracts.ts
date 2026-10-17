@@ -117,6 +117,40 @@ export type ApiWorkspaceProfileRevision = {
   changed_by_id: string;
   created_at: string;
 };
+export type ApiWorkspaceSummary = {
+  workspace_id: string;
+  role: 'owner' | 'editor' | 'viewer';
+  objective: 'customers' | 'growth' | 'strategy' | 'execution' | null;
+  profile: { state: 'empty' | 'started'; provided_fields: string[] };
+  analyses: { draft_count: number; finalized_count: number };
+  next_action: {
+    kind:
+      | 'complete_profile'
+      | 'overdue_action'
+      | 'decision_review'
+      | 'document_incomplete'
+      | 'open_action';
+    id?: string;
+    label?: string;
+    destination: string;
+  } | null;
+  shortcuts: string[];
+  open_actions: Array<{
+    id: string;
+    title: string;
+    due_on: string;
+    status: 'planned' | 'in_progress' | 'blocked';
+    is_overdue: boolean;
+  }>;
+  attention_items: Array<{
+    kind: 'overdue_action' | 'decision_review' | 'document_incomplete';
+    id: string;
+    label: string;
+    destination: string;
+  }>;
+  unknowns: string[];
+  as_of: string;
+};
 
 export type ApiStrategyFactorType = 'strength' | 'weakness' | 'opportunity' | 'threat';
 export type ApiStrategyCategory = 'SO' | 'WO' | 'ST' | 'WT';
@@ -447,6 +481,12 @@ export type OpenApiPaths = {
       response: ApiWorkspaceProfile;
     };
   };
+  '/api/v1/workspaces/{workspace_id}/summary/': {
+    get: {
+      parameters: { path: { workspace_id: string } };
+      response: ApiWorkspaceSummary;
+    };
+  };
   '/api/v1/workspaces/{workspace_id}/profile/revisions/': {
     get: {
       parameters: { path: { workspace_id: string } };
@@ -690,6 +730,100 @@ export function decodeWorkspaceProfile(value: unknown): ApiWorkspaceProfile {
     throw new TypeError('Profile field exceeds its OpenAPI limit');
   }
   return profile;
+}
+
+export function decodeWorkspaceSummary(value: unknown): ApiWorkspaceSummary {
+  const item = record(value);
+  const profile = record(item.profile);
+  const analyses = record(item.analyses);
+  const objective = item.objective;
+  if (
+    objective !== null &&
+    !['customers', 'growth', 'strategy', 'execution'].includes(String(objective))
+  )
+    throw new TypeError('Invalid Workspace objective');
+  const role = item.role;
+  if (!['owner', 'editor', 'viewer'].includes(String(role)))
+    throw new TypeError('Invalid Workspace role');
+  if (!['empty', 'started'].includes(String(profile.state)))
+    throw new TypeError('Invalid profile state');
+  const next = item.next_action === null ? null : record(item.next_action);
+  const validKinds = [
+    'complete_profile',
+    'overdue_action',
+    'decision_review',
+    'document_incomplete',
+    'open_action',
+  ];
+  if (next && (!validKinds.includes(String(next.kind)) || typeof next.destination !== 'string'))
+    throw new TypeError('Invalid next action');
+  if (
+    !Array.isArray(item.shortcuts) ||
+    !Array.isArray(item.open_actions) ||
+    !Array.isArray(item.attention_items) ||
+    !Array.isArray(item.unknowns) ||
+    !Array.isArray(profile.provided_fields)
+  )
+    throw new TypeError('Invalid Workspace summary collections');
+  const nonnegativeInteger = (value: unknown) => {
+    if (!Number.isInteger(value) || (value as number) < 0)
+      throw new TypeError('Invalid summary count');
+    return value as number;
+  };
+  const openActions = item.open_actions.map((value) => {
+    const action = record(value);
+    if (
+      !['planned', 'in_progress', 'blocked'].includes(String(action.status)) ||
+      typeof action.is_overdue !== 'boolean'
+    )
+      throw new TypeError('Invalid open action');
+    return {
+      id: requiredString(action.id),
+      title: requiredString(action.title),
+      due_on: requiredString(action.due_on),
+      status: action.status as 'planned' | 'in_progress' | 'blocked',
+      is_overdue: action.is_overdue,
+    };
+  });
+  const attentionItems = item.attention_items.map((value) => {
+    const attention = record(value);
+    if (
+      !['overdue_action', 'decision_review', 'document_incomplete'].includes(String(attention.kind))
+    )
+      throw new TypeError('Invalid attention item');
+    return {
+      kind: attention.kind as 'overdue_action' | 'decision_review' | 'document_incomplete',
+      id: requiredString(attention.id),
+      label: requiredString(attention.label),
+      destination: requiredString(attention.destination),
+    };
+  });
+  return {
+    workspace_id: requiredString(item.workspace_id),
+    role: role as ApiWorkspaceSummary['role'],
+    objective: objective as ApiWorkspaceSummary['objective'],
+    profile: {
+      state: profile.state as 'empty' | 'started',
+      provided_fields: profile.provided_fields.map(requiredString),
+    },
+    analyses: {
+      draft_count: nonnegativeInteger(analyses.draft_count),
+      finalized_count: nonnegativeInteger(analyses.finalized_count),
+    },
+    next_action: next
+      ? {
+          kind: next.kind as NonNullable<ApiWorkspaceSummary['next_action']>['kind'],
+          ...(typeof next.id === 'string' ? { id: next.id } : {}),
+          ...(typeof next.label === 'string' ? { label: next.label } : {}),
+          destination: requiredString(next.destination),
+        }
+      : null,
+    shortcuts: item.shortcuts.map(requiredString),
+    open_actions: openActions,
+    attention_items: attentionItems,
+    unknowns: item.unknowns.map(requiredString),
+    as_of: requiredString(item.as_of),
+  };
 }
 
 function decodeRows<T>(value: unknown, decode: (item: unknown) => T): T[] {

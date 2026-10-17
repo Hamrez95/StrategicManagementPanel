@@ -2057,6 +2057,20 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/summary/": {
+      "get": {
+        "operationId": "readWorkspaceSummary",
+        "summary": "readWorkspaceSummary",
+        "description": "Read a compact Workspace-scoped summary derived from authorized canonical profile, analysis, action, decision and document records. It includes no health score or inferred recommendation; private, no-store response.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[A-Za-z0-9_-]+$" } }],
+        "responses": {
+          "200": { "description": "Workspace-scoped summary", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WorkspaceSummary" } } } },
+          "401": { "description": "Unauthenticated", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "404": { "description": "Missing or invisible Workspace", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/profile/": {
       "get": {
         "operationId": "readWorkspaceProfile",
@@ -8987,6 +9001,24 @@
           "items": { "type": "array", "maxItems": 10, "items": { "$ref": "#/components/schemas/WorkspaceProfileRevision" } }
         },
         "required": ["items"],
+        "additionalProperties": false
+      },
+      "WorkspaceSummary": {
+        "type": "object",
+        "properties": {
+          "workspace_id": { "type": "string" },
+          "role": { "type": "string", "enum": ["owner", "editor", "viewer"] },
+          "objective": { "type": "string", "enum": ["customers", "growth", "strategy", "execution"], "nullable": true },
+          "profile": { "type": "object", "properties": { "state": { "type": "string", "enum": ["empty", "started"] }, "provided_fields": { "type": "array", "items": { "type": "string" } } }, "required": ["state", "provided_fields"], "additionalProperties": false },
+          "analyses": { "type": "object", "properties": { "draft_count": { "type": "integer", "minimum": 0 }, "finalized_count": { "type": "integer", "minimum": 0 } }, "required": ["draft_count", "finalized_count"], "additionalProperties": false },
+          "next_action": { "type": "object", "nullable": true, "properties": { "kind": { "type": "string", "enum": ["complete_profile", "overdue_action", "decision_review", "document_incomplete", "open_action"] }, "id": { "type": "string" }, "label": { "type": "string" }, "destination": { "type": "string" } }, "required": ["kind", "destination"], "additionalProperties": false },
+          "shortcuts": { "type": "array", "maxItems": 3, "items": { "type": "string" } },
+          "open_actions": { "type": "array", "maxItems": 3, "items": { "type": "object", "properties": { "id": { "type": "string" }, "title": { "type": "string" }, "due_on": { "type": "string", "format": "date" }, "status": { "type": "string", "enum": ["planned", "in_progress", "blocked"] }, "is_overdue": { "type": "boolean" } }, "required": ["id", "title", "due_on", "status", "is_overdue"], "additionalProperties": false } },
+          "attention_items": { "type": "array", "maxItems": 3, "items": { "type": "object", "properties": { "kind": { "type": "string", "enum": ["overdue_action", "decision_review", "document_incomplete"] }, "id": { "type": "string" }, "label": { "type": "string" }, "destination": { "type": "string" } }, "required": ["kind", "id", "label", "destination"], "additionalProperties": false } },
+          "unknowns": { "type": "array", "items": { "type": "string" } },
+          "as_of": { "type": "string", "format": "date" }
+        },
+        "required": ["workspace_id", "role", "objective", "profile", "analyses", "next_action", "shortcuts", "open_actions", "attention_items", "unknowns", "as_of"],
         "additionalProperties": false
       },
       "WorkspaceProfile": {
