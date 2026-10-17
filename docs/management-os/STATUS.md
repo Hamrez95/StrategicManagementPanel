@@ -2,6 +2,8 @@
 
 ## Current owner revision — complete design coverage
 
+Follow-up: shared `.ex-field select` now inherits the same Vazirmatn font, colors, spacing and border as other inputs, including option groups. Real Chrome inspection confirmed both directory filters and their options use `Vazirmatn, Tahoma, sans-serif`; matrix filtering still yields 11 entries. Prettier passed. GitHub checked as Hamrez95: no open PRs and no remote branches outside origin/main before this follow-up.
+
 This revision supersedes the eight-tool coverage limit below. The frontend now exposes all **64 framework/metric records (33 frameworks + 31 metrics)** from the current research catalog, **28 authored planning flows**, the existing eight tools and the preserved 60-document catalog. The analysis directory groups them into **21 domains** and a six-phase navigational roadmap. Vision, mission, purpose, values, objectives, marketing and advanced matrices have dedicated guided layouts. The roadmap is navigation, not an approved scientific stage model.
 
 - Exact inventory and limitations: [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md). All **188 indexed research records** have an explicit disposition; source/diagnostic/rule records are not falsely presented as standalone calculators. Research itself still has documented gaps.

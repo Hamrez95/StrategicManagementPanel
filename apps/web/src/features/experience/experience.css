@@ -834,6 +834,7 @@
 }
 .ex-field input,
 .ex-field textarea,
+.ex-field select,
 .ex-tool-field textarea,
 .ex-add-action input {
   background: var(--ex-paper);
@@ -846,6 +847,12 @@
   min-height: 48px;
   width: 100%;
   min-width: 0;
+}
+.ex-field select option,
+.ex-field select optgroup {
+  font: inherit;
+  background: var(--ex-paper);
+  color: var(--ex-text);
 }
 .ex-field input::placeholder,
 .ex-field textarea::placeholder {
