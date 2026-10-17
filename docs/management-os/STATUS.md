@@ -3,7 +3,7 @@
 
 ## Current owner revision — guided tools and documents
 
-This checkpoint supersedes historical preview-only and unpushed-source statements below. Source through `d7591b9` was pushed and remote `main` verified in the preceding owner-requested sync. The new guided implementation accompanies this checkpoint; its final Git SHA/sync is recorded separately after commit.
+This checkpoint supersedes historical preview-only and unpushed-source statements below. Guided implementation commit **`1facf28`** was pushed to `main` as Hamrez95; remote `refs/heads/main` was verified equal to `1facf288b9ba3cffddf1a107e73df008482344bf` on 2026-10-17. Author and committer both match AGENTS. The working tree was clean after the push. This follow-up documentation records that verified source checkpoint.
 
 - Implemented for the eight currently exposed Workspace tools: specialist questions with simple help/examples, one focused card at a time, per-Workspace partial answers, pause/back/resume, editable review and meaningful reduced-motion-aware transitions. Initial business discovery remains short. No automatic scientific stage/recommendation is introduced.
 - IFE/EFE now use the existing domain calculator with separate data, explicit SWOT snapshot copy, per-factor type/evidence/weight/rating, weight-total guard and editable result table. Finance collects consistent period/currency/scale/basis, statement data, behavior-based costs, balance sheet, cash and acquisition; **13 arithmetic previews**, with unknown/zero and nonpositive-denominator guards, plus grouped results. Cohort return rate requires defined scope/window and valid whole subset counts.
