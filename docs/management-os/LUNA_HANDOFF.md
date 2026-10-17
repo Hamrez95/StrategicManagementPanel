@@ -1,5 +1,8 @@
 # تحویل توسعه Management OS به Luna
 
+**2026-10-17 owner update:** the eight exposed Workspace tools now use contextual guided cards, real local financial/IFE/EFE calculations, and the 60-document catalog with guided drafts and actual local attachments. Read [GUIDED_WORKSPACES](GUIDED_WORKSPACES.md) and execute the precise adapter refinements in [LUNA_GUIDED_PACKETS](LUNA_GUIDED_PACKETS.md) alongside the existing experience integration sequence. Preserve the design; source/fixture completion is not server/scientific acceptance.
+
+
 ## اولویت تازهٔ مالک — طراحی خلوت و اتصال بک‌اند
 
 طراحی و فرانت‌اند تجربهٔ تازه در `features/experience` آمادهٔ بررسی محلی است. برای ادامهٔ بک‌اند، ابتدا [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) و [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md) را بخوان. ترتیب فعلی اتصال: 010-D → 013-D → 014-D → 015-D → 027-D، سپس بسته‌های مستقل و 065-D. طراحی را دوباره نساز؛ حساب local را session واقعی فرض نکن. packetهای علمی پیشین و گیت‌های پژوهشی همچنان معتبرند؛ flow ساخت Workspace به اجرای موتور تشخیص وابسته نیست.

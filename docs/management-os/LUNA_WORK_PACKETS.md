@@ -1,5 +1,8 @@
 # Luna implementation packets — decisions already made
 
+**2026-10-17 owner update:** the eight exposed Workspace tools now use contextual guided cards, real local financial/IFE/EFE calculations, and the 60-document catalog with guided drafts and actual local attachments. Read [GUIDED_WORKSPACES](GUIDED_WORKSPACES.md) and execute the precise adapter refinements in [LUNA_GUIDED_PACKETS](LUNA_GUIDED_PACKETS.md) alongside the existing experience integration sequence. Preserve the design; source/fixture completion is not server/scientific acceptance.
+
+
 ## Owner-prioritized experience integration — 2026-10-16
 
 The owner replaced the dense preview hierarchy with a Trello-informed, separated public/auth/welcome/home/discovery/Workspace design. The implemented frontend and its exact backend work are in [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) and [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md). Start its 010-D → 013-D → 014-D → 015-D → 027-D integration sequence; these refine the existing issues, not a second catalog. Keep the scientific packets and acceptance gates below intact. Do not connect local fixture authentication or generic toolNotes to production APIs.

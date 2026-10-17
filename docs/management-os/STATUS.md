@@ -1,6 +1,22 @@
-# Management OS checkpoint — 2026-10-16
+# Management OS checkpoint — 2026-10-17
 
-## Latest owner-requested experience redesign
+
+## Current owner revision — guided tools and documents
+
+This checkpoint supersedes historical preview-only and unpushed-source statements below. Source through `d7591b9` was pushed and remote `main` verified in the preceding owner-requested sync. The new guided implementation accompanies this checkpoint; its final Git SHA/sync is recorded separately after commit.
+
+- Implemented for the eight currently exposed Workspace tools: specialist questions with simple help/examples, one focused card at a time, per-Workspace partial answers, pause/back/resume, editable review and meaningful reduced-motion-aware transitions. Initial business discovery remains short. No automatic scientific stage/recommendation is introduced.
+- IFE/EFE now use the existing domain calculator with separate data, explicit SWOT snapshot copy, per-factor type/evidence/weight/rating, weight-total guard and editable result table. Finance collects consistent period/currency/scale/basis, statement data, behavior-based costs, balance sheet, cash and acquisition; **13 arithmetic previews**, with unknown/zero and nonpositive-denominator guards, plus grouped results. Cohort return rate requires defined scope/window and valid whole subset counts.
+- Restored **60 documents / 12 sections** from the existing catalog, dedicated document guides, owner/reviewer suggestions, one-outline-section-per-card draft writing, readable report and Markdown draft download. Added actual local IndexedDB file bytes with add/list/download/delete, per-Workspace/document isolation, refresh persistence and explicit file/type/size bounds. These are local design adapters; they are not authenticated server storage or approved calculations/documents.
+- Contracts: [GUIDED_WORKSPACES](GUIDED_WORKSPACES.md), [LUNA_GUIDED_PACKETS](LUNA_GUIDED_PACKETS.md). Seven existing GitHub issues **#18, #20, #22, #23, #24, #26, #42** updated as verified Hamrez95 with exact backend packet/acceptance criteria. Issues stay open. Existing server modules/research releases remain intact; backend integration stays with Luna.
+- Passed, exit 0: `npm test` **90/90**, focused ESLint, web TypeScript check, targeted Prettier and `npm run build:web`. New browser verifier passes question resume/persisted values, financial arithmetic and invalid integer, incomplete/complete IFE score, independent EFE, guided document draft, real file download-byte equality, refresh, unsupported-file rejection, and two-Workspace isolation; **44 route/viewport checks + 13 axe audits**, dark/reduced-motion and zero real API requests. Updated original experience verifier passes **56 route/viewport checks + 14 axe audits**, including login, welcome, creation, actions, notes and keyboard skip link. Tests wait for real transition completion before contrast checks; transient in-animation failures were repaired in the verifiers and not counted as passes. Screenshots/logs: ignored `test-results/guided-experience/` and `test-results/product-experience/`. Synthetic checks are not observed-user validation or full accessibility certification.
+- Graphify AST update completed: **4778 nodes / 9722 edges / 294 communities**; consumers queried. No semantic/cloud extraction. Actual server/mail/auth, immutable calculation persistence, private object storage/scanning, PostgreSQL/restore, Docker, physical acceptance, English/zoom review and later STR-039/040 methods remain pending. Local financial arithmetic does not promote unreviewed knowledge definitions. Full unrelated repository `quality` was not rerun.
+
+Next: preserve these screens and implement the typed server adapters from LUNA_GUIDED_PACKETS after the existing account/Workspace integration sequence. Review with the owner at `http://127.0.0.1:5180/account/login`. No fixture generic answer-store API, fake finalized results or page-density regression.
+
+## Historical checkpoints below
+
+## Previous owner-requested experience redesign
 
 Implementation/design commit: **`3a46774`**, local `main`, author/committer Hamidreza Pakpour / Hamrez95. The owner requested a calm Trello-informed flow and reserved backend integration for Luna. This overrides the old dense preview's page hierarchy, not the domain/security/research contracts.
 

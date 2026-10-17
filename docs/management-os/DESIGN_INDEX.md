@@ -1,5 +1,8 @@
 # بستهٔ طراحی اولیهٔ استراتینو
 
+**2026-10-17 owner update:** the eight exposed Workspace tools now use contextual guided cards, real local financial/IFE/EFE calculations, and the 60-document catalog with guided drafts and actual local attachments. Read [GUIDED_WORKSPACES](GUIDED_WORKSPACES.md) and execute the precise adapter refinements in [LUNA_GUIDED_PACKETS](LUNA_GUIDED_PACKETS.md) alongside the existing experience integration sequence. Preserve the design; source/fixture completion is not server/scientific acceptance.
+
+
 ## مبنای تازهٔ تجربه — بازطراحی ۲۰۲۶-۱۰-۱۶
 
 با درخواست مالک برای رفع شلوغی، [طرح تجربهٔ تازه](EXPERIENCE_REDESIGN.md) و کد `apps/web/src/features/experience/` مبنای جدید چیدمان، سایت، ورود، خوشامد، خانه و ساخت فضا هستند. [بسته‌های اتصال بک‌اند Luna](LUNA_EXPERIENCE_PACKETS.md) کار دقیق، قرارداد و پذیرش هر بخش را زیر تسک‌های موجود تعیین می‌کنند. مسیر `/management-preview` به تجربهٔ تازه هدایت می‌شود. پیش‌نمایش ۴۰ صفحه و اسناد زیر مرجع دامنه/داده/حالت‌های تخصصی‌اند؛ برای چیدمان جدید، طرح تجربهٔ تازه مقدم است.

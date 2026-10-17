@@ -6,12 +6,11 @@ import {
   goalLabels,
   kindLabels,
   stageLabels,
-  tools,
   updateSpace,
   type Space,
   type TaskStatus,
 } from './model';
-import { toolFields } from './toolDefinitions';
+import { GuidedReport } from './GuidedReport';
 export function Actions({ space }: { space: Space }) {
   const { spaces, save } = useSpaces();
   const [title, setTitle] = useState('');
@@ -320,21 +319,7 @@ export function Report({ space }: { space: Space }) {
         ) : (
           <p>یادداشتی ثبت نشده است.</p>
         )}
-        <h3>یادداشت تحلیل‌ها</h3>
-        {Object.entries(space.toolNotes)
-          .filter(([, value]) => value.trim())
-          .map(([key, value]) => {
-            const [toolId, fieldKey] = key.split(':');
-            return (
-              <section key={key}>
-                <h4>
-                  {tools.find((t) => t.id === toolId)?.title} ·{' '}
-                  {toolFields[toolId]?.find((f) => f.key === fieldKey)?.label}
-                </h4>
-                <p>{value}</p>
-              </section>
-            );
-          })}
+        <GuidedReport space={space} />
         <p className="ex-subtle-note">
           نسخهٔ محلی؛ این گزارش ارزیابی یا توصیهٔ تأییدشده نیست.
           {space.sample ? ' تمام داده‌ها نمونه‌اند.' : ''}

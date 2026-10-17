@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router';
 import { Empty, Icon, PageHeading } from './ExperienceUI';
-import { Actions, Library, Report } from './WorkspaceRecords';
+import { Actions, Report } from './WorkspaceRecords';
 import { SpaceSettings } from './ExperienceSettings';
 import { useSpaces, path } from './store';
 import {
@@ -11,12 +11,13 @@ import {
   recommendedTools,
   stageLabels,
   tools,
-  updateSpace,
   type Space,
 } from './model';
-import { toolFields } from './toolDefinitions';
+import { GuidedAnalysis } from './GuidedAnalysis';
+import { GuidedMatrix } from './GuidedMatrix';
+import { DocumentLibrary, DocumentDetail } from './DocumentLibrary';
 export function WorkspacePage() {
-  const { spaceId, section, toolId } = useParams();
+  const { spaceId, section, toolId, documentId } = useParams();
   const { spaces } = useSpaces();
   const space = spaces.find((s) => s.id === spaceId);
   if (!space)
@@ -36,16 +37,18 @@ export function WorkspacePage() {
     business: <Business space={space} />,
     strategy: <Strategy space={space} />,
     actions: <Actions space={space} />,
-    library: <Library space={space} />,
+    library: <DocumentLibrary space={space} />,
     reports: <Report space={space} />,
     settings: <SpaceSettings space={space} />,
   };
   return (
-    <div key={`${space.id}:${section ?? toolId}`}>
+    <div key={`${space.id}:${section ?? toolId ?? documentId}`}>
       {space.sample && (
         <p className="ex-sample-notice">این فضای نمونه است؛ اطلاعاتش ساختگی و قابل ویرایش است.</p>
       )}
-      {toolId ? (
+      {documentId ? (
+        <DocumentDetail space={space} documentId={documentId} />
+      ) : toolId ? (
         <ToolPage space={space} toolId={toolId} />
       ) : (
         (pages[section ?? 'overview'] ?? (
@@ -294,72 +297,18 @@ function Strategy({ space }: { space: Space }) {
 }
 
 function ToolPage({ space, toolId }: { space: Space; toolId: string }) {
-  const { spaces, save } = useSpaces();
-  const tool = tools.find((t) => t.id === toolId);
-  const [status, setStatus] = useState('');
-  const [values, setValues] = useState(space.toolNotes);
-  if (!tool)
-    return (
-      <Empty
-        title="ابزار پیدا نشد"
-        text="از صفحهٔ تحلیل‌ها یک ابزار انتخاب کنید."
-        action={
-          <Link className="ex-button" to={path(space, 'strategy')}>
-            تحلیل‌ها
-          </Link>
-        }
-      />
-    );
-  function change(key: string, value: string) {
-    setValues((current) => ({ ...current, [`${toolId}:${key}`]: value }));
-    const okay = save(
-      updateSpace(spaces, space.id, (s) => ({
-        ...s,
-        toolNotes: { ...s.toolNotes, [`${toolId}:${key}`]: value },
-      })),
-    );
-    setStatus(okay ? 'در همین مرورگر ذخیره شد' : 'ذخیره نشد؛ اتصال به فضای ذخیره را بررسی کنید');
-  }
+  if (toolId === 'matrices') return <GuidedMatrix space={space} />;
+  if (tools.some((tool) => tool.id === toolId))
+    return <GuidedAnalysis space={space} toolId={toolId} />;
   return (
-    <>
-      <Link className="ex-back-link" to={path(space, 'strategy')}>
-        <Icon name="arrow" size={16} />
-        همهٔ تحلیل‌ها
-      </Link>
-      <PageHeading title={tool.title} description={tool.description} />
-      <div className="ex-tool-context">
-        <span>{space.name}</span>
-        <span role="status">{status || 'یادداشت‌های همین فضای کار'}</span>
-      </div>
-      <div className={toolId === 'swot' ? 'ex-swot-grid' : 'ex-focused-form'}>
-        {toolFields[toolId]?.map((field) => (
-          <label className="ex-tool-field" key={field.key}>
-            <strong>{field.label}</strong>
-            <span>{field.hint}</span>
-            <textarea
-              value={values[`${toolId}:${field.key}`] ?? ''}
-              onChange={(e) => change(field.key, e.target.value)}
-              placeholder="اینجا بنویس…"
-              rows={5}
-              maxLength={10000}
-            />
-          </label>
-        ))}
-      </div>
-      {['matrices', 'finance', 'retention'].includes(toolId) && (
-        <p className="ex-subtle-note">
-          در این نسخه یادداشت‌ها ذخیره می‌شوند. محاسبه و نتیجهٔ تحلیلی پس از اتصال به سرویس معتبر
-          فعال می‌شود.
-        </p>
-      )}
-      <div className="ex-tool-footer">
-        <Link className="ex-button ex-button--outline" to={path(space, 'library')}>
-          رفتن به شواهد و یادداشت‌ها
+    <Empty
+      title="ابزار پیدا نشد"
+      text="از صفحهٔ تحلیل‌ها یک ابزار انتخاب کن."
+      action={
+        <Link className="ex-button" to={path(space, 'strategy')}>
+          تحلیل‌ها
         </Link>
-        <Link className="ex-button" to={path(space, 'actions')}>
-          ثبت اقدام بعدی <Icon name="arrow" />
-        </Link>
-      </div>
-    </>
+      }
+    />
   );
 }

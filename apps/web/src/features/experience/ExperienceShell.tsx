@@ -105,7 +105,18 @@ export function ExperienceShell() {
               </div>
               <nav aria-label="بخش‌های فضای کار">
                 {nav.map((item) => (
-                  <NavLink key={item.id} to={path(space, item.id)} onClick={() => setMenu(false)}>
+                  <NavLink
+                    key={item.id}
+                    to={path(space, item.id)}
+                    onClick={() => setMenu(false)}
+                    className={({ isActive }) =>
+                      isActive ||
+                      (item.id === 'strategy' && location.pathname.includes('/tool/')) ||
+                      (item.id === 'library' && location.pathname.includes('/document/'))
+                        ? 'active'
+                        : ''
+                    }
+                  >
                     <Icon name={item.icon} />
                     {item.name}
                   </NavLink>

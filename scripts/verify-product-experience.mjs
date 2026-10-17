@@ -21,6 +21,9 @@ page.on('request', (request) => {
 async function visit(route, heading) {
   await page.goto(base + route);
   await page.getByRole('heading', { name: heading, exact: true }).waitFor();
+  await page.evaluate(async () => {
+    await Promise.all(document.getAnimations().map((a) => a.finished.catch(() => {})));
+  });
 }
 async function capture(name) {
   await page.evaluate(async () => {
@@ -79,11 +82,13 @@ try {
   assert.equal(await page.locator('.ex-shortcut').count(), 3);
   assert.match(await page.locator('.ex-shortcuts').innerText(), /اقتصاد کسب‌وکار/);
   await visit(workspaceUrl + '/tool/customer', 'شناخت مشتری');
-  await page.getByRole('textbox', { name: /مشتری هدف/ }).fill('مدیران کسب‌وکارهای کوچک');
+  await button('با هم شروع کنیم').click();
+  await page.getByRole('textbox', { name: /گروه مشتری/ }).fill('مدیران کسب‌وکارهای کوچک');
   await page.reload();
-  await page.getByRole('textbox', { name: /مشتری هدف/ }).waitFor();
+  await button('ادامهٔ تکمیل').click();
+  await page.getByRole('textbox', { name: /گروه مشتری/ }).waitFor();
   assert.equal(
-    await page.getByRole('textbox', { name: /مشتری هدف/ }).inputValue(),
+    await page.getByRole('textbox', { name: /گروه مشتری/ }).inputValue(),
     'مدیران کسب‌وکارهای کوچک',
   );
   await visit(workspaceUrl + '/actions', 'اقدامات');
@@ -96,7 +101,8 @@ try {
     .dragTo(page.locator('.ex-kanban-column--done'));
   assert.equal(await page.locator('.ex-kanban-column--done .ex-task').count(), 1);
   await capture('actions-desktop');
-  await visit(workspaceUrl + '/library', 'کتابخانه');
+  await visit(workspaceUrl + '/library', 'مستندات کسب‌وکار');
+  await button('شواهد و یادداشت‌ها').click();
   await button('یادداشت تازه').click();
   await page.keyboard.press('Escape');
   await button('یادداشت تازه').click();
@@ -116,7 +122,8 @@ try {
   await page.getByText('نوع کسب‌وکار هنوز مشخص نشده', { exact: true }).waitFor();
   await page.getByText('هنوز انتخاب نشده', { exact: true }).waitFor();
   await visit(secondUrl + '/tool/customer', 'شناخت مشتری');
-  assert.equal(await page.getByRole('textbox', { name: /مشتری هدف/ }).inputValue(), '');
+  await button('با هم شروع کنیم').click();
+  assert.equal(await page.getByRole('textbox', { name: /گروه مشتری/ }).inputValue(), '');
   await visit(secondUrl + '/actions', 'اقدامات');
   assert.equal(await page.locator('.ex-task').count(), 0);
   await visit('/preview/workspaces', 'فضاهای کاری من');
@@ -133,7 +140,7 @@ try {
     [workspaceUrl + '/strategy', 'تحلیل‌ها'],
     [workspaceUrl + '/tool/swot', 'تحلیل SWOT'],
     [workspaceUrl + '/actions', 'اقدامات'],
-    [workspaceUrl + '/library', 'کتابخانه'],
+    [workspaceUrl + '/library', 'مستندات کسب‌وکار'],
     [workspaceUrl + '/settings', 'تنظیمات فضای کار'],
     [workspaceUrl + '/reports', 'گزارش کسب‌وکار'],
     ['/preview/account', 'حساب و ظاهر برنامه'],

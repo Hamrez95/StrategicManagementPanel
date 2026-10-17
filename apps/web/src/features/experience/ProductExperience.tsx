@@ -52,6 +52,7 @@ export default function ProductExperience() {
             <Route path="plans" element={<Plans />} />
             <Route path="w/:spaceId/:section" element={<WorkspacePage />} />
             <Route path="w/:spaceId/tool/:toolId" element={<WorkspacePage />} />
+            <Route path="w/:spaceId/document/:documentId" element={<WorkspacePage />} />
             <Route
               path="*"
               element={

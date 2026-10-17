@@ -1,5 +1,12 @@
 # Exact continuation — 2026-10-16
 
+## Owner-prioritized guided Workspace revision — 2026-10-17
+
+Frontend complete for the eight exposed tools, 13 local financial outputs, IFE/EFE and 60 catalog documents with guided drafts/actual local file bytes. Tests: 90 root cases, new 44-viewport/13-axe browser suite and original 56-viewport/14-axe suite pass; see STATUS for exact evidence and pending server/physical work. After account/Workspace adapters (010-D → 013-D → 014-D → 015-D), follow [LUNA_GUIDED_PACKETS](LUNA_GUIDED_PACKETS.md): 026-E shared question state, 018-E canonical data, 020-E matrices, 042-E reviewed finance, 022-E drafts, 023-E private files and 024-E reports. Existing #18/#20/#22/#23/#24/#26/#42 bodies are updated; none closed. Preserve local-only boundaries and incomplete scientific method gates.
+
+## Historical execution notes
+
+
 ## Current owner priority: backend integration behind the redesigned experience
 
 Frontend/design is committed locally in `3a46774`. Read [EXPERIENCE_REDESIGN](EXPERIENCE_REDESIGN.md) and [LUNA_EXPERIENCE_PACKETS](LUNA_EXPERIENCE_PACKETS.md). The new public/auth/welcome/Workspace home/discovery/five-section experience supersedes the dense preview. Current local review: `http://127.0.0.1:5180/account/login`, fixture `hamrez95@stratino.test` / `123456`; root runner builds current local main on a free port. Fixture verification/access are not real server authentication or a created production account.
