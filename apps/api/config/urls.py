@@ -1,18 +1,9 @@
 from django.urls import include, path
-from modules.analysis.views import analysis_collection, analysis_detail
-from modules.core.views import live, ready
-from modules.imports.views import preview_import, workspace_import_detail, workspace_imports
-from modules.strategy.views import (
-    strategy_board,
-    strategy_factor_create,
-    strategy_factor_detail,
-    strategy_option_create,
-    strategy_option_detail,
-)
+
 from modules.accounts.auth_views import (
-    csrf_cookie,
     account_preferences,
     account_profile,
+    csrf_cookie,
     email_change_confirm,
     email_change_request,
     login_view,
@@ -24,9 +15,24 @@ from modules.accounts.auth_views import (
     signup,
     verify_email,
 )
+from modules.analysis.views import analysis_collection, analysis_detail
+from modules.core.views import live, ready
+from modules.imports.views import (
+    preview_import,
+    workspace_import_detail,
+    workspace_imports,
+)
+from modules.strategy.views import (
+    strategy_board,
+    strategy_factor_create,
+    strategy_factor_detail,
+    strategy_option_create,
+    strategy_option_detail,
+)
 from modules.workspaces.views import (
     accept_invitation,
     list_workspaces,
+    workspace_bootstrap,
     workspace_detail,
     workspace_invitation_detail,
     workspace_invitations,
@@ -41,6 +47,7 @@ urlpatterns = [
     path('api/v1/health/ready', ready),
     path('api/v1/csrf/', csrf_cookie),
     path('api/v1/session/', session_view),
+    path('api/v1/workspaces/bootstrap/', workspace_bootstrap),
     path('api/v1/workspaces/', list_workspaces),
     path('api/v1/workspaces/<str:workspace_id>/', workspace_detail),
     path('api/v1/workspaces/<str:workspace_id>/profile/', workspace_profile),

@@ -118,6 +118,47 @@ class WorkspaceProfileRevision(models.Model):
         ]
 
 
+class WorkspaceSetup(models.Model):
+    """Versioned, self-reported discovery answers kept apart from assessments."""
+
+    BUSINESS_KINDS = (('startup', 'Startup'), ('business', 'Business'), ('organization', 'Organization'))
+    REPORTED_STAGES = (('idea', 'Idea'), ('building', 'Building'), ('operating', 'Operating'), ('unknown', 'Unknown'))
+    OBJECTIVES = (('customers', 'Customers'), ('growth', 'Growth'), ('strategy', 'Strategy'), ('execution', 'Execution'))
+
+    workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, related_name='setup')
+    schema_version = models.PositiveSmallIntegerField(default=1)
+    business_kind = models.CharField(max_length=16, choices=BUSINESS_KINDS)
+    reported_stage = models.CharField(max_length=16, choices=REPORTED_STAGES, default='unknown')
+    setup_objective = models.CharField(max_length=16, choices=OBJECTIVES)
+    follow_up_question_id = models.CharField(max_length=48)
+    follow_up_choice_id = models.CharField(max_length=32)
+    presentation_color = models.CharField(max_length=16, default='blue')
+    revision = models.PositiveIntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(condition=Q(schema_version__gte=1), name='workspace_setup_schema_gte_1'),
+            models.CheckConstraint(condition=Q(revision__gte=1), name='workspace_setup_revision_gte_1'),
+        ]
+
+
+class WorkspaceBootstrapRequest(models.Model):
+    """Idempotency receipt for an atomic first Workspace plus setup bootstrap."""
+
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='workspace_bootstrap_requests')
+    key = models.CharField(max_length=100)
+    payload_digest = models.CharField(max_length=64)
+    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='bootstrap_requests')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=('owner', 'key'), name='workspace_bootstrap_owner_key_uniq'),
+        ]
+
+
 class WorkspaceInvitation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='invitations')

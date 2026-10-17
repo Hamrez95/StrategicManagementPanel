@@ -9,19 +9,20 @@ from django.utils.dateparse import parse_datetime
 from django.utils.timezone import is_aware, now
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
-from modules.accounts.models import User
-
-from .models import Membership, Workspace, WorkspaceInvitation
+from .models import Membership, WorkspaceInvitation
 from .profile_services import (
     read_workspace_profile,
     update_workspace_profile,
     workspace_profile_dict,
+)
+from .profile_services import (
     workspace_profile_revisions as list_workspace_profile_revisions,
 )
 from .services import (
     WorkspaceActionError,
     accept_workspace_invitation,
     accessible_workspaces_for,
+    bootstrap_workspace,
     create_owned_workspace,
     create_workspace_invitation,
     get_accessible_workspace_or_404,
@@ -35,6 +36,34 @@ from .services import (
 
 CURSOR_SALT = 'stratino.workspace-list-cursor'
 CURSOR_MAX_AGE = 60 * 60
+
+
+@require_POST
+def workspace_bootstrap(request):
+    if not _verified_user(request):
+        return _error(401, 'not_authenticated', 'برای ادامه وارد حساب تأییدشده شوید.')
+    body = _json_body(request)
+    if body is None:
+        return _error(400, 'invalid_json', 'درخواست قابل خواندن نیست.')
+    try:
+        workspace, created = bootstrap_workspace(
+            request.user,
+            payload=body,
+            idempotency_key=request.headers.get('Idempotency-Key', ''),
+        )
+    except DjangoValidationError as error:
+        return _validation_error(error)
+    except WorkspaceActionError as error:
+        return _action_error(error)
+    workspace.refresh_from_db()
+    return JsonResponse(
+        {
+            'workspace': workspace_dict(workspace),
+            'profile_revision': workspace.profile.revision,
+            'setup_revision': workspace.setup.revision,
+        },
+        status=201 if created else 200,
+    )
 
 
 def _error(status, code, message, fields=None, headers=None):

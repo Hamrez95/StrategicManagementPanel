@@ -1,3 +1,6 @@
+import hashlib
+import json
+import re
 import secrets
 from datetime import timedelta
 from urllib.parse import quote
@@ -15,10 +18,25 @@ from rest_framework.exceptions import PermissionDenied as ApiPermissionDenied
 from modules.accounts.models import User
 from modules.core.mailer import deliver_email
 
-from .models import BillingAccount, Membership, Workspace, WorkspaceInvitation, WorkspaceProfile
+from .models import (
+    BillingAccount,
+    Membership,
+    Workspace,
+    WorkspaceBootstrapRequest,
+    WorkspaceInvitation,
+    WorkspaceProfile,
+    WorkspaceSetup,
+)
 
 INVITATION_TIMEOUT = timedelta(days=7)
 INVITATION_SALT = 'stratino.workspace-invitation'
+BOOTSTRAP_KEY_PATTERN = re.compile(r'^[A-Za-z0-9._:-]{1,100}$')
+FOLLOW_UP_CHOICES = {
+    'customers': ('customers.evidence_status', {'none', 'interviews', 'transactions', 'deferred'}),
+    'growth': ('growth.focus', {'acquisition', 'retention', 'economics', 'unknown'}),
+    'strategy': ('strategy.scope', {'business', 'product', 'reported_unit', 'deferred'}),
+    'execution': ('execution.plan_status', {'none', 'goals_only', 'existing_plan', 'deferred'}),
+}
 
 
 class WorkspaceActionError(Exception):
@@ -105,6 +123,109 @@ def create_owned_workspace(owner, name):
     workspace.save(force_insert=True)
     WorkspaceProfile.objects.create(workspace=workspace)
     return workspace
+
+
+def _clean_workspace_bootstrap(payload, idempotency_key):
+    if not isinstance(idempotency_key, str) or not BOOTSTRAP_KEY_PATTERN.fullmatch(idempotency_key):
+        raise DjangoValidationError({'idempotency_key': 'کلید یکتای درخواست معتبر نیست.'})
+    if not isinstance(payload, dict) or set(payload) != {'name', 'presentation', 'setup'}:
+        raise DjangoValidationError({'non_field_errors': 'ساختار درخواست ایجاد معتبر نیست.'})
+    name = payload.get('name')
+    name = name.strip() if isinstance(name, str) else ''
+    if not name or len(name) > 80:
+        raise DjangoValidationError({'name': 'نام باید بین ۱ تا ۸۰ نویسه باشد.'})
+
+    presentation = payload['presentation']
+    if not isinstance(presentation, dict) or set(presentation) != {'color'}:
+        raise DjangoValidationError({'presentation': 'مشخصات نمایشی معتبر نیست.'})
+    color = presentation['color']
+    if not isinstance(color, str) or color not in {'blue', 'purple', 'green', 'orange'}:
+        raise DjangoValidationError({'presentation.color': 'رنگ را از فهرست انتخاب کنید.'})
+
+    setup = payload['setup']
+    expected_setup = {'schema_version', 'business_kind', 'reported_stage', 'setup_objective', 'follow_up'}
+    if not isinstance(setup, dict) or set(setup) != expected_setup:
+        raise DjangoValidationError({'setup': 'پاسخ‌های راه‌اندازی معتبر نیست.'})
+    version = setup['schema_version']
+    if isinstance(version, bool) or version != 1:
+        raise DjangoValidationError({'setup.schema_version': 'نسخهٔ پرسشنامه پشتیبانی نمی‌شود.'})
+    business_kind = setup['business_kind']
+    if not isinstance(business_kind, str) or business_kind not in {'startup', 'business', 'organization'}:
+        raise DjangoValidationError({'setup.business_kind': 'نوع کسب‌وکار را از فهرست انتخاب کنید.'})
+    reported_stage = setup['reported_stage']
+    if not isinstance(reported_stage, str) or reported_stage not in {'idea', 'building', 'operating', 'unknown'}:
+        raise DjangoValidationError({'setup.reported_stage': 'مرحلهٔ خوداظهاری را از فهرست انتخاب کنید.'})
+    objective = setup['setup_objective']
+    if not isinstance(objective, str) or objective not in FOLLOW_UP_CHOICES:
+        raise DjangoValidationError({'setup.setup_objective': 'هدف را از فهرست انتخاب کنید.'})
+    follow_up = setup['follow_up']
+    if not isinstance(follow_up, dict) or set(follow_up) != {'question_id', 'choice_id'}:
+        raise DjangoValidationError({'setup.follow_up': 'پاسخ مرتبط معتبر نیست.'})
+    question_id, choices = FOLLOW_UP_CHOICES[objective]
+    choice_id = follow_up['choice_id']
+    if follow_up['question_id'] != question_id or not isinstance(choice_id, str) or choice_id not in choices:
+        raise DjangoValidationError({'setup.follow_up': 'پاسخ با هدف انتخاب‌شده هم‌خوان نیست.'})
+
+    return {
+        'name': name,
+        'color': color,
+        'schema_version': version,
+        'business_kind': business_kind,
+        'reported_stage': reported_stage,
+        'setup_objective': objective,
+        'question_id': question_id,
+        'choice_id': choice_id,
+    }
+
+
+@transaction.atomic
+def bootstrap_workspace(owner, *, payload, idempotency_key):
+    """Atomically create a blank Workspace plus versioned self-reported setup."""
+    cleaned = _clean_workspace_bootstrap(payload, idempotency_key)
+    if (
+        not getattr(owner, 'is_authenticated', False)
+        or not owner.is_active
+        or owner.email_verified_at is None
+    ):
+        raise DjangoValidationError({'owner': 'A verified, active account is required.'})
+
+    # Locking the account serializes its create retries on PostgreSQL.
+    locked_owner = User.objects.select_for_update().filter(pk=owner.pk).first()
+    if locked_owner is None:
+        raise DjangoValidationError({'owner': 'A verified, active account is required.'})
+    canonical = json.dumps(cleaned, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+    digest = hashlib.sha256(canonical.encode('utf-8')).hexdigest()
+    prior = WorkspaceBootstrapRequest.objects.select_related('workspace').filter(
+        owner=locked_owner,
+        key=idempotency_key,
+    ).first()
+    if prior:
+        if prior.payload_digest != digest:
+            raise WorkspaceActionError(
+                409,
+                'idempotency_conflict',
+                'این کلید قبلاً برای اطلاعات دیگری استفاده شده است.',
+            )
+        return prior.workspace, False
+
+    workspace = create_owned_workspace(locked_owner, cleaned['name'])
+    WorkspaceSetup.objects.create(
+        workspace=workspace,
+        schema_version=cleaned['schema_version'],
+        business_kind=cleaned['business_kind'],
+        reported_stage=cleaned['reported_stage'],
+        setup_objective=cleaned['setup_objective'],
+        follow_up_question_id=cleaned['question_id'],
+        follow_up_choice_id=cleaned['choice_id'],
+        presentation_color=cleaned['color'],
+    )
+    WorkspaceBootstrapRequest.objects.create(
+        owner=locked_owner,
+        key=idempotency_key,
+        payload_digest=digest,
+        workspace=workspace,
+    )
+    return workspace, True
 
 
 @transaction.atomic

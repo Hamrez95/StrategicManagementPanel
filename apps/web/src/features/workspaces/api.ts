@@ -1,5 +1,6 @@
 import { requestApi, ApiError as AuthApiError } from '../../api/client';
 import {
+  decodeWorkspaceBootstrapResult,
   decodeWorkspace,
   decodeWorkspaceInvitation,
   decodeWorkspaceMember,
@@ -7,6 +8,8 @@ import {
   decodeWorkspaceProfile,
   decodeWorkspaceProfileRevisions,
   type ApiWorkspace,
+  type ApiWorkspaceBootstrapResult,
+  type ApiWorkspaceBootstrapWrite,
   type ApiWorkspaceInvitation,
   type ApiWorkspaceMember,
   type ApiWorkspaceProfile,
@@ -93,6 +96,18 @@ export function readWorkspace(workspaceId: string, signal?: AbortSignal) {
 
 export function createWorkspace(name: string) {
   return postAuth<WorkspaceRecord>('/api/v1/workspaces/', { name }, decodeWorkspace);
+}
+
+export function bootstrapWorkspace(
+  payload: ApiWorkspaceBootstrapWrite,
+  idempotencyKey: string,
+): Promise<ApiWorkspaceBootstrapResult> {
+  return requestApi<ApiWorkspaceBootstrapResult>('/api/v1/workspaces/bootstrap/', {
+    method: 'POST',
+    body: payload,
+    headers: { 'Idempotency-Key': idempotencyKey },
+    decode: decodeWorkspaceBootstrapResult,
+  });
 }
 
 export function saveWorkspace(workspaceId: string, update: WorkspaceUpdate) {

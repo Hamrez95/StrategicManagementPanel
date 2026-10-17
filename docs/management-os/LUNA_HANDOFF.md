@@ -106,3 +106,7 @@ Read [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md) and [LUNA_COMPLETE_DESIGN_P
 ### 010-D progress — 2026-10-17
 
 Existing secure account endpoints were preserved. Login now selects a verified-session-aware destination and validates same-origin `next`; a development-only, explicitly acknowledged seed command and four guard tests were added. Local route browser checks pass 4/4. Database execution, email catcher and real API auth integration remain untested for the final acceptance pass. Do not close #10 yet; continue the remaining packets by dependency order.
+
+### Continuation checkpoint — 2026-10-17
+
+`010-D` (`4dcc418`) and `013-D` (`34b0517`) are committed on `main` and pushed as Hamrez95. `014-D` backend bootstrap is implemented locally: see the latest 014-D section in `STATUS.md`, migration `0005_workspace_setup_bootstrap.py`, OpenAPI and the typed client helper. Its browser draft remains local and the UI is not yet wired; keep #14 open. A full temporary-SQLite Workspace suite reported one failure and two errors outside the six passing bootstrap tests; investigate before claiming the suite green. Next follow the requested order with `015-D` shell/navigation, then `027-D` dashboard summary, preserving designs and the final PostgreSQL/server/Docker/physical acceptance queue.

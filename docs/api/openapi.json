@@ -1044,6 +1044,112 @@
         }
       }
     },
+    "/api/v1/workspaces/bootstrap/": {
+      "post": {
+        "operationId": "bootstrapWorkspace",
+        "summary": "bootstrapWorkspace",
+        "description": "Atomically creates a blank canonical Workspace, its versioned self-reported setup, and an owner-bound idempotency receipt. A matching retry returns the same Workspace; changed payload with the same key conflicts.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceBootstrapWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Matching retry; private response is no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceBootstrapResult"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created atomically; private response is no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceBootstrapResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Field or schema validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated or unverified account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "CSRF rejected",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Idempotency key was used with another payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/": {
       "get": {
         "operationId": "listWorkspaces",
@@ -7142,6 +7248,212 @@
           "learning"
         ],
         "additionalProperties": false
+      },
+      "WorkspaceBootstrapWrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "presentation",
+          "setup"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "presentation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "color"
+            ],
+            "properties": {
+              "color": {
+                "type": "string",
+                "enum": [
+                  "blue",
+                  "purple",
+                  "green",
+                  "orange"
+                ]
+              }
+            }
+          },
+          "setup": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "schema_version",
+              "business_kind",
+              "reported_stage",
+              "setup_objective",
+              "follow_up"
+            ],
+            "properties": {
+              "schema_version": {
+                "type": "integer",
+                "enum": [
+                  1
+                ]
+              },
+              "business_kind": {
+                "type": "string",
+                "enum": [
+                  "startup",
+                  "business",
+                  "organization"
+                ]
+              },
+              "reported_stage": {
+                "type": "string",
+                "enum": [
+                  "idea",
+                  "building",
+                  "operating",
+                  "unknown"
+                ],
+                "description": "Self-reported only; not an assessed lifecycle stage."
+              },
+              "setup_objective": {
+                "type": "string",
+                "enum": [
+                  "customers",
+                  "growth",
+                  "strategy",
+                  "execution"
+                ]
+              },
+              "follow_up":               {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "question_id",
+                      "choice_id"
+                    ],
+                    "properties": {
+                      "question_id": {
+                        "type": "string",
+                        "enum": [
+                          "customers.evidence_status"
+                        ]
+                      },
+                      "choice_id": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "interviews",
+                          "transactions",
+                          "deferred"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "question_id",
+                      "choice_id"
+                    ],
+                    "properties": {
+                      "question_id": {
+                        "type": "string",
+                        "enum": [
+                          "growth.focus"
+                        ]
+                      },
+                      "choice_id": {
+                        "type": "string",
+                        "enum": [
+                          "acquisition",
+                          "retention",
+                          "economics",
+                          "unknown"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "question_id",
+                      "choice_id"
+                    ],
+                    "properties": {
+                      "question_id": {
+                        "type": "string",
+                        "enum": [
+                          "strategy.scope"
+                        ]
+                      },
+                      "choice_id": {
+                        "type": "string",
+                        "enum": [
+                          "business",
+                          "product",
+                          "reported_unit",
+                          "deferred"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "question_id",
+                      "choice_id"
+                    ],
+                    "properties": {
+                      "question_id": {
+                        "type": "string",
+                        "enum": [
+                          "execution.plan_status"
+                        ]
+                      },
+                      "choice_id": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "goals_only",
+                          "existing_plan",
+                          "deferred"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "WorkspaceBootstrapResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "workspace",
+          "profile_revision",
+          "setup_revision"
+        ],
+        "properties": {
+          "workspace": {
+            "$ref": "#/components/schemas/Workspace"
+          },
+          "profile_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "setup_revision": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
       },
       "Workspace": {
         "type": "object",

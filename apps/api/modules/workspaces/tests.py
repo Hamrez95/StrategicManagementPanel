@@ -1,31 +1,40 @@
 from datetime import timedelta
-from urllib.parse import parse_qs, urlencode, urlsplit
 from unittest.mock import patch
+from urllib.parse import parse_qs, urlencode, urlsplit
 
 from django.core.exceptions import ValidationError
 from django.db import connection
-from django.db.models.deletion import ProtectedError
 from django.db.migrations.executor import MigrationExecutor
+from django.db.models.deletion import ProtectedError
 from django.test import TestCase, TransactionTestCase
 from django.utils import timezone
 from rest_framework.exceptions import NotFound, PermissionDenied
 
 from modules.accounts.models import User
-from modules.workspaces.models import BillingAccount, Membership, Workspace, WorkspaceInvitation, WorkspaceProfile
-from modules.workspaces.models import WorkspaceProfileRevision
+from modules.workspaces.models import (
+    BillingAccount,
+    Membership,
+    Workspace,
+    WorkspaceBootstrapRequest,
+    WorkspaceInvitation,
+    WorkspaceProfile,
+    WorkspaceProfileRevision,
+    WorkspaceSetup,
+)
 from modules.workspaces.permissions import get_workspace_child_or_404
 from modules.workspaces.services import (
     WorkspaceActionError,
     accept_workspace_invitation,
     accessible_workspaces_for,
+    bootstrap_workspace,
     create_owned_workspace,
     create_workspace_invitation,
     grant_workspace_membership,
     remove_workspace_membership,
     require_workspace_role,
-    workspace_role,
-    update_workspace,
     revoke_workspace_invitation,
+    update_workspace,
+    workspace_role,
 )
 
 
@@ -83,6 +92,125 @@ class WorkspaceAuthorizationTests(TestCase):
             {self.workspace.pk, self.other_workspace.pk},
         )
         self.assertFalse(accessible_workspaces_for(self.outsider).filter(pk=self.workspace.pk).exists())
+
+    @staticmethod
+    def bootstrap_payload(**overrides):
+        payload = {
+            'name': ' کسب‌وکار من ',
+            'presentation': {'color': 'blue'},
+            'setup': {
+                'schema_version': 1,
+                'business_kind': 'startup',
+                'reported_stage': 'unknown',
+                'setup_objective': 'customers',
+                'follow_up': {'question_id': 'customers.evidence_status', 'choice_id': 'deferred'},
+            },
+        }
+        payload.update(overrides)
+        return payload
+
+    def test_bootstrap_persists_self_reported_setup_atomically(self):
+        self.client.force_login(self.owner)
+        response = self.client.post(
+            '/api/v1/workspaces/bootstrap/',
+            self.bootstrap_payload(),
+            content_type='application/json',
+            HTTP_IDEMPOTENCY_KEY='first-setup-0001',
+        )
+
+        self.assertEqual(response.status_code, 201, response.json())
+        result = response.json()
+        workspace = Workspace.objects.get(pk=result['workspace']['id'])
+        setup = WorkspaceSetup.objects.get(workspace=workspace)
+        profile = WorkspaceProfile.objects.get(workspace=workspace)
+        self.assertEqual(workspace.name, 'کسب‌وکار من')
+        self.assertEqual(result['profile_revision'], profile.revision)
+        self.assertEqual(result['setup_revision'], setup.revision)
+        self.assertEqual(setup.reported_stage, 'unknown')
+        self.assertEqual(setup.business_kind, 'startup')
+        self.assertEqual(profile.company_name, '')
+        self.assertEqual(profile.stage, '')
+        self.assertEqual(WorkspaceBootstrapRequest.objects.count(), 1)
+
+    def test_bootstrap_retry_returns_same_workspace_but_mismatch_conflicts(self):
+        self.client.force_login(self.owner)
+        url = '/api/v1/workspaces/bootstrap/'
+        payload = self.bootstrap_payload()
+        first = self.client.post(url, payload, content_type='application/json', HTTP_IDEMPOTENCY_KEY='retry-0001')
+        retry = self.client.post(url, payload, content_type='application/json', HTTP_IDEMPOTENCY_KEY='retry-0001')
+        changed = self.bootstrap_payload(name='کسب‌وکار دیگر')
+        conflict = self.client.post(url, changed, content_type='application/json', HTTP_IDEMPOTENCY_KEY='retry-0001')
+
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(retry.status_code, 200)
+        self.assertEqual(retry.json()['workspace']['id'], first.json()['workspace']['id'])
+        self.assertEqual(conflict.status_code, 409)
+        self.assertEqual(conflict.json()['code'], 'idempotency_conflict')
+        self.assertEqual(Workspace.objects.filter(owner=self.owner, name__startswith='کسب‌وکار').count(), 1)
+
+    def test_bootstrap_idempotency_key_is_scoped_to_owner(self):
+        self.client.force_login(self.owner)
+        first = self.client.post(
+            '/api/v1/workspaces/bootstrap/',
+            self.bootstrap_payload(),
+            content_type='application/json',
+            HTTP_IDEMPOTENCY_KEY='shared-key-0001',
+        )
+        self.client.force_login(self.outsider)
+        second = self.client.post(
+            '/api/v1/workspaces/bootstrap/',
+            self.bootstrap_payload(),
+            content_type='application/json',
+            HTTP_IDEMPOTENCY_KEY='shared-key-0001',
+        )
+
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(second.status_code, 201)
+        self.assertNotEqual(first.json()['workspace']['id'], second.json()['workspace']['id'])
+
+    @patch('modules.workspaces.services.WorkspaceSetup.objects.create', side_effect=RuntimeError('injected'))
+    def test_bootstrap_rolls_back_workspace_when_setup_persistence_fails(self, create_setup):
+        payload = self.bootstrap_payload()
+        initial_count = Workspace.objects.filter(owner=self.owner).count()
+
+        with self.assertRaisesRegex(RuntimeError, 'injected'):
+            bootstrap_workspace(self.owner, payload=payload, idempotency_key='rollback-0001')
+
+        self.assertEqual(Workspace.objects.filter(owner=self.owner).count(), initial_count)
+        self.assertFalse(WorkspaceBootstrapRequest.objects.filter(owner=self.owner).exists())
+        create_setup.assert_called_once()
+
+    def test_bootstrap_rejects_invalid_follow_up_without_partial_records(self):
+        self.client.force_login(self.owner)
+        payload = self.bootstrap_payload()
+        payload['setup']['follow_up']['question_id'] = 'growth.focus'
+        response = self.client.post(
+            '/api/v1/workspaces/bootstrap/',
+            payload,
+            content_type='application/json',
+            HTTP_IDEMPOTENCY_KEY='invalid-setup-0001',
+        )
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()['code'], 'validation_error')
+        self.assertFalse(Workspace.objects.filter(owner=self.owner, name='کسب‌وکار من').exists())
+        self.assertFalse(WorkspaceSetup.objects.exists())
+        self.assertFalse(WorkspaceBootstrapRequest.objects.exists())
+
+    def test_bootstrap_requires_idempotency_key_and_caps_guided_name_at_80(self):
+        self.client.force_login(self.owner)
+        url = '/api/v1/workspaces/bootstrap/'
+        missing_key = self.client.post(url, self.bootstrap_payload(), content_type='application/json')
+        long_name = self.client.post(
+            url,
+            self.bootstrap_payload(name='ک' * 81),
+            content_type='application/json',
+            HTTP_IDEMPOTENCY_KEY='long-name-0001',
+        )
+
+        self.assertEqual(missing_key.status_code, 400)
+        self.assertEqual(long_name.status_code, 400)
+        self.assertFalse(WorkspaceBootstrapRequest.objects.exists())
 
     def test_owner_is_derived_and_operator_flag_does_not_grant_membership(self):
         self.outsider.is_staff = True

@@ -9,6 +9,41 @@ export type ApiWorkspace = {
   archived_at: string | null;
 };
 
+export type ApiWorkspaceSetupFollowUp =
+  | {
+      question_id: 'customers.evidence_status';
+      choice_id: 'none' | 'interviews' | 'transactions' | 'deferred';
+    }
+  | {
+      question_id: 'growth.focus';
+      choice_id: 'acquisition' | 'retention' | 'economics' | 'unknown';
+    }
+  | {
+      question_id: 'strategy.scope';
+      choice_id: 'business' | 'product' | 'reported_unit' | 'deferred';
+    }
+  | {
+      question_id: 'execution.plan_status';
+      choice_id: 'none' | 'goals_only' | 'existing_plan' | 'deferred';
+    };
+
+export type ApiWorkspaceBootstrapWrite = {
+  name: string;
+  presentation: { color: 'blue' | 'purple' | 'green' | 'orange' };
+  setup: {
+    schema_version: 1;
+    business_kind: 'startup' | 'business' | 'organization';
+    reported_stage: 'idea' | 'building' | 'operating' | 'unknown';
+    setup_objective: 'customers' | 'growth' | 'strategy' | 'execution';
+    follow_up: ApiWorkspaceSetupFollowUp;
+  };
+};
+export type ApiWorkspaceBootstrapResult = {
+  workspace: ApiWorkspace;
+  profile_revision: number;
+  setup_revision: number;
+};
+
 export type ApiProfileProduct = {
   id: string;
   name: string;
@@ -395,6 +430,12 @@ export type ApiWorkspaceInvitation = {
 
 /** Typed operations for the live OpenAPI endpoints used by the Workspace client. */
 export type OpenApiPaths = {
+  '/api/v1/workspaces/bootstrap/': {
+    post: {
+      requestBody: ApiWorkspaceBootstrapWrite;
+      response: ApiWorkspaceBootstrapResult;
+    };
+  };
   '/api/v1/workspaces/{workspace_id}/profile/': {
     get: {
       parameters: { path: { workspace_id: string } };
@@ -608,6 +649,15 @@ export function decodeWorkspace(value: unknown): ApiWorkspace {
     name: requiredString(item.name),
     revision: positiveRevision(item.revision),
     archived_at: archivedAt,
+  };
+}
+
+export function decodeWorkspaceBootstrapResult(value: unknown): ApiWorkspaceBootstrapResult {
+  const item = record(value);
+  return {
+    workspace: decodeWorkspace(item.workspace),
+    profile_revision: positiveRevision(item.profile_revision),
+    setup_revision: positiveRevision(item.setup_revision),
   };
 }
 
