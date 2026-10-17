@@ -1,14 +1,16 @@
 import json
 
-from django.core.exceptions import ValidationError as DjangoValidationError
 from django.core.exceptions import RequestDataTooBig
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.http import Http404, HttpResponse, HttpResponseBase, JsonResponse
 from django.http.multipartparser import MultiPartParserError
 from django.views.decorators.http import require_http_methods
 
-from modules.workspaces.services import WorkspaceActionError, get_accessible_workspace_or_404
+from modules.workspaces.services import (
+    WorkspaceActionError,
+    get_accessible_workspace_or_404,
+)
 
-from .services import create_document_record, read_document_board, update_document_record
 from .attachments.services import (
     delete_attachment,
     download_attachment,
@@ -19,6 +21,11 @@ from .attachments.services import (
     upload_attachment,
 )
 from .attachments.upload_handlers import AttachmentSizeLimitHandler
+from .services import (
+    create_document_record,
+    read_document_board,
+    update_document_record,
+)
 
 
 def _error(status, code, message, fields=None):
@@ -82,7 +89,11 @@ def attachment_content(request, workspace_id, record_id, attachment_id):
     def upload(workspace):
         prepare_attachment_upload(request.user, workspace, record_id, attachment_id)
         try:
-            files = request.FILES.getlist('file')
+            # Django only populates request.FILES automatically for POST. The
+            # client uses PUT so retries can target an existing reservation;
+            # parse that multipart stream through the configured handlers.
+            _, parsed_files = request.parse_file_upload(request.META, request)
+            files = parsed_files.getlist('file')
         except (MultiPartParserError, RequestDataTooBig):
             return _error(413, 'attachment_too_large', 'اندازه درخواست از حد مجاز بیشتر است.')
         size_handler = request.upload_handlers[0]
