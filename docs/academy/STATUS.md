@@ -2,6 +2,10 @@
 
 اپیک #90، تسک‌های #91–#108؛ شاخه `feat/stratino-academy` از b1a34901c5570b6b87086f6bcbe01f7ad350d8a7. همه issueها باز هستند؛ هیچ merge یا deploy انجام نشده است. این checkpoint اولین برش فنی است، نه پایان آکادمی یا تأیید علمی دوره.
 
+## ثبت دوردست
+
+کد و تصاویر QA با کامیت [71df5e2](https://github.com/Hamrez95/StrategicManagementPanel/commit/71df5e2f80f429548834fe9c059637d7d080eea7) روی شاخه آموزش ثبت و tree آن با checkpoint محلی یکسان بررسی شد. Git مستقیم این محیط credential نوشتن نداشت؛ GitHub connection تأییدشده Hamrez95 برای انتقال Git objects استفاده شد. نویسنده و committer خامِ کامیت هر دو `Hamidreza Pakpour <136631329+Hamrez95@users.noreply.github.com>` تأیید شدند. main در این عملیات تغییر نکرد و PR/merge به آن ساخته نشد.
+
 ## ساخته‌شده در این شاخه
 
 - ACA-001/002/003/004: مرز محصول و داده، بررسی ویدئو، طراحی، نقشه ۱۲ حوزه/پنج سطح/۶۰ ماژول برنامه‌ریزی‌شده، pipeline منبع و بازبینی، برنامه پایلوت و ادامه توسعه.
