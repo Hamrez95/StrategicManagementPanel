@@ -277,13 +277,13 @@
       "scope": [
         "رانر موجود را برای frontend/API/Postgres/storage/email catcher محلی ارتقا بده",
         "منوی PowerShell بین main و feat/stratino-academy انتخاب کند؛ -Version برای اجرای مستقیم و -Refs برای refهای دلخواه حفظ شود",
-        "origin/<branch> تازه‌شده بر شاخه محلی اولویت داشته باشد؛ اجرای detached worktree شاخه/فایل کاری را دست‌نخورده بگذارد",
+        "شاخه محلی بر origin/<branch> اولویت داشته باشد؛ اجرای detached worktree شاخه/فایل کاری را دست‌نخورده بگذارد",
         "دو ref را در worktree و پورت و volume جدا اجرا کن؛ dependency با lockfile و پیش‌نیاز نسخه‌ای بررسی شود",
         "Ctrl+C همه child processها را تمیز کند؛ dirty tree دست‌نخورده، خطای فارسی قابل فهم و NoBrowser فراهم باشد"
       ],
       "acceptance": [
         "منو main یا Academy را قابل انتخاب کند و پارامترهای -Version main|academy انتخاب مستقیم بدهند",
-        "نسخه منتخب از origin ref تازه استفاده کند، شاخه کاری را تغییر ندهد و -Refs برای چند نسخه همچنان کار کند",
+        "نسخه منتخب از commit واقعی local ref و در نبود آن origin استفاده کند، شاخه کاری را تغییر ندهد و -Refs برای چند نسخه همچنان کار کند",
         "main و HEAD داده و پورت مشترک ندارند",
         "اجرای دوم و توقف بدون orphan و حذف داده شخصی انجام می‌شود",
         "خطای پورت/نبود Docker/Python/Node راه رفع مشخص دارد"
@@ -304,7 +304,7 @@
         "decision": "KEEP",
         "reason": "Reuse existing root run-local.ps1; final physical Windows/Compose tests still pending."
       },
-      "progress_evidence": "Implementation exists in local commits; final runtime/permission/CI acceptance and merge evidence must be checked. Do not infer Done from code presence."
+      "progress_evidence": "7491dcc؛ Windows PowerShell منو main/academy، local refs، default-off/preview، fallback پورت، HTTP healthcheck و cleanup پاس شد. main -AcademyPreview هم پاس؛ Docker/Compose و توقف تعاملی Ctrl+C جداگانه تأیید نشده‌اند."
     },
     {
       "id": "STR-009",
@@ -2637,7 +2637,7 @@
       "scope": [
         "تفکیک پیشرفت فردی آموزش از داده Workspace و آموزش اختیاری ابزارها",
         "تعریف /academy مستقل، feature flag پیش‌فرض خاموش و قرارداد داده نسخه‌دار",
-        "آموزش، داشبورد و بسته ترکیبی مستقل؛ عدم merge به main"
+        "آموزش، داشبورد و بسته ترکیبی مستقل؛ ادغام محلی فقط پس از تست و طبق مجوز مالک"
       ],
       "acceptance": [
         "سند تصمیم و مرز API/دسترسی/ذخیره موجود است",
@@ -2758,7 +2758,10 @@
       "epic": "ACADEMY",
       "epic_issue": 90,
       "branch": "feat/stratino-academy",
-      "completion_evidence": "ویدئو، طراحی و نقشه مرحله‌ای پیاده شد؛ تصویر دسکتاپ تیره/موبایل روشن/بازخورد بازبینی شد. فرم فعلی درس یک صفحه است؛ کارت‌به‌کارت و موشن/شخصیت نهایی packet بعدی‌اند. Branch checkpoint 71df5e2; no main merge."
+      "completion_evidence": "ویدئو، طراحی و نقشه مرحله‌ای پیاده شد؛ تصویر دسکتاپ تیره/موبایل روشن/بازخورد بازبینی شد. فرم فعلی درس یک صفحه است؛ کارت‌به‌کارت و موشن/شخصیت نهایی packet بعدی‌اند. Branch checkpoint 71df5e2; no main merge.",
+      "checkpoint": "QA واقعی Windows/Chrome در 1280/1440، تم و reduced-motion پاس شد؛ zoom فقط بزرگ‌کردن فونت ۲۰۰٪ است. طراحی Boss Baby انتخاب مالک است ولی تولید و اتصال مسدود؛ قاب‌ها و شخصیت نهایی کامل نیستند.",
+      "checkpoint_commit": "7491dcc",
+      "qa_date": "2026-10-18"
     },
     {
       "id": "ACA-005",
@@ -3060,13 +3063,17 @@
       "risk": "متوسط",
       "phase": "Academy",
       "priority": "P2",
-      "status": "planned",
+      "status": "in_progress",
       "issue_number": 103,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/103",
       "epic": "ACADEMY",
       "epic_issue": 90,
       "branch": "feat/stratino-academy",
-      "completion_evidence": "برنامه‌ریزی‌شده؛ در این checkpoint پیاده‌سازی این تسک ادعا نمی‌شود. وابستگی‌ها و packet بعدی در CONTINUE آمده‌اند. Branch checkpoint 71df5e2; no main merge."
+      "completion_evidence": "برنامه‌ریزی‌شده؛ در این checkpoint پیاده‌سازی این تسک ادعا نمی‌شود. وابستگی‌ها و packet بعدی در CONTINUE آمده‌اند. Branch checkpoint 71df5e2; no main merge.",
+      "checkpoint": "خود Boss Baby با سه مرجع مالک انتخاب شد؛ نمونه مستقل رد شد. image_gen با moderation_blocked در output رد شد؛ صفر حالت و صفر نقش جدید متصل. بدون جایگزین تازه؛ Done نیست.",
+      "checkpoint_commit": "7491dcc",
+      "qa_date": "2026-10-18",
+      "blocker": "image_gen: moderation_blocked; requested Boss Baby; no alternate character authorized"
     },
     {
       "id": "ACA-014",
@@ -3219,7 +3226,7 @@
       "scope": [
         "تست engine و feature flag و سفر درس و refresh؛ بررسی negative auth/entitlement در زمان پیاده‌سازی سرور",
         "QA تم/جهت/کیبورد/zoom/reduced-motion و 360/768/1280/1440",
-        "Graphify before/after و CI کوچک؛ عدم merge به main طبق دستور مالک"
+        "Graphify before/after و CI کوچک؛ ادغام محلی بخش آماده طبق مجوز جدید مالک، بدون push/deploy"
       ],
       "acceptance": [
         "نتایج واقعی با exit code و screenshot ثبت می‌شوند",
@@ -3238,7 +3245,10 @@
       "epic": "ACADEMY",
       "epic_issue": 90,
       "branch": "feat/stratino-academy",
-      "completion_evidence": "۱۸ تست domain پاس، ۲۰ بررسی مرورگر و پنج axe audit بدون خطا، typecheck/lint/build/default-off موفق. root tests برابر ۹۵/۹۶؛ خطای قدیمی Session در checkout تمیز main پایه هم بازتولید شد. QA سروری/پرداخت/پذیرش نهایی اجرا نشده است. Branch checkpoint 71df5e2; no main merge."
+      "completion_evidence": "۱۸ تست domain پاس، ۲۰ بررسی مرورگر و پنج axe audit بدون خطا، typecheck/lint/build/default-off موفق. root tests برابر ۹۵/۹۶؛ خطای قدیمی Session در checkout تمیز main پایه هم بازتولید شد. QA سروری/پرداخت/پذیرش نهایی اجرا نشده است. Branch checkpoint 71df5e2; no main merge.",
+      "checkpoint": "روی Windows: test:academy (۱۰ engine)، typecheck، lint، ۲۰ browser check/۵ axe، build:academy، build و default-off پاس؛ Session contract مستقل fail است. native zoom و شخصیت نهایی تأیید نشده‌اند.",
+      "checkpoint_commit": "7491dcc",
+      "qa_date": "2026-10-18"
     }
   ],
   "management_os": {

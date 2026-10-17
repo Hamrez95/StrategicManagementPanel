@@ -9,7 +9,7 @@
     "scope": [
       "تفکیک پیشرفت فردی آموزش از داده Workspace و آموزش اختیاری ابزارها",
       "تعریف /academy مستقل، feature flag پیش‌فرض خاموش و قرارداد داده نسخه‌دار",
-      "آموزش، داشبورد و بسته ترکیبی مستقل؛ عدم merge به main"
+      "آموزش، داشبورد و بسته ترکیبی مستقل؛ ادغام محلی فقط پس از تست و طبق مجوز مالک"
     ],
     "acceptance": [
       "سند تصمیم و مرز API/دسترسی/ذخیره موجود است",
@@ -97,8 +97,9 @@
     "status": "in_progress",
     "branch": "feat/stratino-academy",
     "scientific_status": "review_pending",
-    "checkpoint": "ویدئو، طراحی و نقشه مرحله‌ای پیاده شد؛ تصویر دسکتاپ تیره/موبایل روشن/بازخورد بازبینی شد. فرم فعلی درس یک صفحه است؛ کارت‌به‌کارت و موشن/شخصیت نهایی packet بعدی‌اند.",
-    "checkpoint_commit": "71df5e2f80f429548834fe9c059637d7d080eea7"
+    "checkpoint": "QA واقعی Windows/Chrome در 1280/1440، تم و reduced-motion پاس شد؛ zoom فقط بزرگ‌کردن فونت ۲۰۰٪ است. طراحی Boss Baby انتخاب مالک است ولی تولید و اتصال مسدود؛ قاب‌ها و شخصیت نهایی کامل نیستند.",
+    "checkpoint_commit": "7491dcc",
+    "qa_date": "2026-10-18"
   },
   {
     "id": "ACA-005",
@@ -330,11 +331,13 @@
       "تصویر/رنگ تنها حامل پاسخ نیست؛ فقط دارایی اصیل استراتینو با مجوز مستند استفاده می‌شود"
     ],
     "paths": "apps/web/src/features/academy/; public/assets/",
-    "status": "planned",
+    "status": "in_progress",
     "branch": "feat/stratino-academy",
     "scientific_status": "review_pending",
-    "checkpoint": "برنامه‌ریزی‌شده؛ در این checkpoint پیاده‌سازی این تسک ادعا نمی‌شود. وابستگی‌ها و packet بعدی در CONTINUE آمده‌اند.",
-    "checkpoint_commit": "71df5e2f80f429548834fe9c059637d7d080eea7"
+    "checkpoint": "خود Boss Baby با سه مرجع مالک انتخاب شد؛ نمونه مستقل رد شد. image_gen با moderation_blocked در output رد شد؛ صفر حالت و صفر نقش جدید متصل. بدون جایگزین تازه؛ Done نیست.",
+    "checkpoint_commit": "7491dcc",
+    "qa_date": "2026-10-18",
+    "blocker": "image_gen: moderation_blocked; requested Boss Baby; no alternate character authorized"
   },
   {
     "id": "ACA-014",
@@ -455,7 +458,7 @@
     "scope": [
       "تست engine و feature flag و سفر درس و refresh؛ بررسی negative auth/entitlement در زمان پیاده‌سازی سرور",
       "QA تم/جهت/کیبورد/zoom/reduced-motion و 360/768/1280/1440",
-      "Graphify before/after و CI کوچک؛ عدم merge به main طبق دستور مالک"
+      "Graphify before/after و CI کوچک؛ ادغام محلی بخش آماده طبق مجوز جدید مالک، بدون push/deploy"
     ],
     "acceptance": [
       "نتایج واقعی با exit code و screenshot ثبت می‌شوند",
@@ -465,7 +468,8 @@
     "status": "in_progress",
     "branch": "feat/stratino-academy",
     "scientific_status": "review_pending",
-    "checkpoint": "۱۸ تست domain پاس، ۲۰ بررسی مرورگر و پنج axe audit بدون خطا، typecheck/lint/build/default-off موفق. root tests برابر ۹۵/۹۶؛ خطای قدیمی Session در checkout تمیز main پایه هم بازتولید شد. QA سروری/پرداخت/پذیرش نهایی اجرا نشده است.",
-    "checkpoint_commit": "71df5e2f80f429548834fe9c059637d7d080eea7"
+    "checkpoint": "روی Windows: test:academy (۱۰ engine)، typecheck، lint، ۲۰ browser check/۵ axe، build:academy، build و default-off پاس؛ Session contract مستقل fail است. native zoom و شخصیت نهایی تأیید نشده‌اند.",
+    "checkpoint_commit": "7491dcc",
+    "qa_date": "2026-10-18"
   }
 ]
