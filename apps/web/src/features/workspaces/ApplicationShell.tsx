@@ -86,7 +86,7 @@ function WorkspaceSelector({
             (english ? 'Your Workspaces' : 'فضاهای من');
           const confirmMessage = english
             ? `Unsaved changes will be lost. Leave “${currentName}” and switch to “${nextName}”?`
-            : `تغییرات ذخیره‌نشده باقی می‌مانند. از «${currentName}» به «${nextName}» بروید؟`;
+            : `تغییرات ذخیره‌نشدهٔ «${currentName}» کنار گذاشته می‌شوند. به «${nextName}» بروید؟`;
           if (!canSwitch(confirmMessage)) return;
           if (activeWorkspace) {
             queryClient.removeQueries({
