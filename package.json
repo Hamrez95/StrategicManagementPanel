@@ -30,7 +30,12 @@
     "lint": "npm run check && eslint apps/web/src packages/domain/src packages/ui/src",
     "quality": "npm run lint && npm run format:check && npm run typecheck && npm run check:contracts && npm run check:knowledge && npm test && npm run test:domain && npm run build",
     "test:gate": "node scripts/prove-test-gate.mjs",
-    "test:browser:all": "node scripts/verify-browser-suite.mjs"
+    "test:browser:all": "node scripts/verify-browser-suite.mjs",
+    "dev:academy": "node scripts/run-academy.mjs",
+    "build:academy": "node scripts/run-academy.mjs --build",
+    "test:academy": "npm run build:domain && node --test packages/domain/tests/academy.test.mjs && node scripts/check-academy.mjs",
+    "test:academy:browser": "node scripts/verify-academy.mjs",
+    "test:academy:disabled": "node scripts/verify-academy-disabled.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",

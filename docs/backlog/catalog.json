@@ -2622,6 +2622,615 @@
       "issue_number": 81,
       "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/81",
       "design_spec": "docs/management-os/DESIGN_INDEX.md"
+    },
+    {
+      "id": "ACA-001",
+      "order": 70,
+      "title": "مرز محصول، معماری و قرارداد اجرای برنچ",
+      "dependencies": [],
+      "lane": "academy",
+      "paths": "docs/academy/ARCHITECTURE.md",
+      "scope": [
+        "تفکیک پیشرفت فردی آموزش از داده Workspace و آموزش اختیاری ابزارها",
+        "تعریف /academy مستقل، feature flag پیش‌فرض خاموش و قرارداد داده نسخه‌دار",
+        "آموزش، داشبورد و بسته ترکیبی مستقل؛ عدم merge به main"
+      ],
+      "acceptance": [
+        "سند تصمیم و مرز API/دسترسی/ذخیره موجود است",
+        "مسیر آموزش بدون خرید Workspace قابل تمرین است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P0",
+      "status": "in_progress",
+      "issue_number": 91,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/91",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-002",
+      "order": 71,
+      "title": "نقشه MBA از مبانی تا پیشرفته و گراف مهارت",
+      "dependencies": [
+        "ACA-001"
+      ],
+      "lane": "academy",
+      "paths": "docs/academy/CURRICULUM.md; assets/academy/curriculum.json",
+      "scope": [
+        "پنج سطح از سواد کسب‌وکار تا پروژه پیشرفته با پیش‌نیازهای بدون چرخه",
+        "حسابداری، مالی، اقتصاد، استراتژی، بازاریابی، افراد، عملیات، داده، کارآفرینی، تجارت الکترونیک، AI و اخلاق",
+        "هدف قابل مشاهده، خروجی عملی، ترتیب فصل و rubric هر مسیر؛ مسیر مؤسس/کارشناس/مدیر"
+      ],
+      "acceptance": [
+        "همه گره‌ها سطح و هدف و خروجی دارند",
+        "موضوع برنامه‌ریزی‌شده به شکل دوره منتشرشده نمایش داده نمی‌شود"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P0",
+      "status": "in_progress",
+      "issue_number": 92,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/92",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-003",
+      "order": 72,
+      "title": "گردآوری منابع و خط انتشار علمی درس",
+      "dependencies": [
+        "ACA-002"
+      ],
+      "lane": "academy",
+      "paths": "docs/academy/RESEARCH_PIPELINE.md; assets/academy/sources.json",
+      "scope": [
+        "منابع اصلی و دانشگاهی، دسترسی واقعی، بخش/صفحه، تاریخ و مجوز استفاده ثبت شود",
+        "جداسازی metadata/inspected/expert-reviewed؛ نگاشت ادعا→منبع→تمرین",
+        "مطالعه موردی واقعی/اقتباسی/فرضی، ترجمه و اصلاحیه نسخه‌دار؛ AI فقط پیش‌نویس"
+      ],
+      "acceptance": [
+        "هیچ درس draft به علمی‌تأییدشده ترفیع خودکار نمی‌یابد",
+        "ادعای شرکت واقعی با گزارش اولیه و تاریخ قابل ردیابی است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P0",
+      "status": "in_progress",
+      "issue_number": 93,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/93",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-004",
+      "order": 73,
+      "title": "طراحی دسکتاپ، نقشه مسیر و رفتار موشن",
+      "dependencies": [
+        "ACA-001"
+      ],
+      "lane": "academy",
+      "paths": "docs/academy/DESIGN.md; apps/web/src/features/academy/",
+      "scope": [
+        "مشاهدات timestampدار ویدئو از پیشنهاد طراحی جدا شود",
+        "نقشه مرحله‌ای آشنا، فصل رنگی، وضعیت قفل/فعلی/تکمیل با متن و آیکن",
+        "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، reduced-motion و تم؛ شخصیت اختصاصی"
+      ],
+      "acceptance": [
+        "نقشه و صفحه درس در 1280/1440 قابل استفاده است",
+        "تصویر واقعی و نقد، 200% zoom و reduced-motion ثبت شود"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "in_progress",
+      "issue_number": 94,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/94",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-005",
+      "order": 74,
+      "title": "موتور درس نسخه‌دار، پیش‌نیاز و سنجش قطعی",
+      "dependencies": [
+        "ACA-001",
+        "ACA-002"
+      ],
+      "lane": "academy",
+      "paths": "packages/domain/src/academy.ts; packages/domain/tests/academy.test.mjs",
+      "scope": [
+        "مدل lesson/question/attempt/source و ID پایدار با نسخه محتوا",
+        "grade معتبر، جلوگیری از پاسخ ناقص/ID تکراری/امتیاز نامعتبر و prerequisite ناشناخته",
+        "تمایز mastered/attempted و تکرار تمرین؛ پیش‌نیاز مستقل از اشتراک"
+      ],
+      "acceptance": [
+        "پاسخ خالی، گزینه ناشناخته و prerequisite ناموجود unlock نمی‌کند",
+        "امتیاز تمرین به گواهی یا پرداخت تبدیل نمی‌شود"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "in_progress",
+      "issue_number": 95,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/95",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-006",
+      "order": 75,
+      "title": "پوسته آموزش و نقشه قابل اجرا با feature flag",
+      "dependencies": [
+        "ACA-004",
+        "ACA-005"
+      ],
+      "lane": "academy",
+      "paths": "apps/web/src/App.tsx; apps/web/src/features/academy/",
+      "scope": [
+        "route مستقل lazy و بدون دسترسی به داده شرکت",
+        "نمایش مسیر با وضعیت روشن، حفظ تم و جهت فعلی، URL مستقیم و خروج",
+        "قابل اجرای محلی با دستور مشخص؛ flag خاموش در حالت عادی"
+      ],
+      "acceptance": [
+        "مسیر خاموش، آموزش را نمایش نمی‌دهد",
+        "قفل‌ها دلیل متنی دارند و کیبورد مسیر را طی می‌کند"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "in_progress",
+      "issue_number": 96,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/96",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-007",
+      "order": 76,
+      "title": "اولین فصل مبانی با داستان و تمرین قابل اجرا",
+      "dependencies": [
+        "ACA-003",
+        "ACA-005",
+        "ACA-006"
+      ],
+      "lane": "academy",
+      "paths": "apps/web/src/features/academy/content.ts; AcademyLesson.tsx",
+      "scope": [
+        "فصل رایگان کامل با مسئله کسب‌وکار فرضی؛ مفهوم، انتخاب، بازخورد و کاربرد",
+        "حداقل سه درس اجرایی با اهداف و منبع مشخص؛ محتوای اولیه draft با برچسب روشن",
+        "حفظ پاسخ هنگام خطا، تلاش مجدد و پیشروی واقعی؛ نبود پیام خرید جعلی"
+      ],
+      "acceptance": [
+        "از شروع تا آزمون و بازشدن درس بعد در مرورگر کار می‌کند",
+        "پروژه فرضی و محدودیت بازبینی علمی مشخص است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "in_progress",
+      "issue_number": 97,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/97",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-008",
+      "order": 77,
+      "title": "بانک سؤال، آزمون فصل و ارزیابی استدلال",
+      "dependencies": [
+        "ACA-005",
+        "ACA-007"
+      ],
+      "lane": "academy",
+      "paths": "apps/api/modules/academy/; apps/web/src/features/academy/",
+      "scope": [
+        "سؤال‌های جایگزین، تعیین سطح، فرصت تمرین جبرانی و جلوگیری از حفظ پاسخ",
+        "rubric تحلیل با شواهد/محدودیت/گزینه جایگزین؛ reviewer انسانی برای کارهای باز",
+        "نسخه سؤال و تلاش سروری؛ حدنصاب 80 درصد فرض محصول قابل کالیبراسیون است"
+      ],
+      "acceptance": [
+        "فصل با بازکردن صفحات تکمیل نمی‌شود",
+        "سؤال تازه سنجش انتقال دارد؛ نمره AI حکم نهایی نیست"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "بالا",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 98,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/98",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-009",
+      "order": 78,
+      "title": "پیشرفت فردی سروری و ادامه میان دستگاه‌ها",
+      "dependencies": [
+        "ACA-005",
+        "ACA-008"
+      ],
+      "lane": "academy",
+      "paths": "apps/api/modules/academy/; docs/contracts/",
+      "scope": [
+        "پیشرفت account-owned مستقل از Workspace و endpoint دارای session/CSRF",
+        "تلاش idempotent، revision، نسخه محتوا، زمان سرور و حذف/خروج",
+        "هیچ localStorage entitlement یا progress معتبر تولیدی نیست؛ migration و rollback طراحی شود"
+      ],
+      "acceptance": [
+        "کاربر A پیشرفت B را نمی‌خواند/تغییر نمی‌دهد",
+        "replay و duplicate امتیاز اضافه نمی‌دهند؛ شکست شبکه صادقانه است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "بالا",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 99,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/99",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-010",
+      "order": 79,
+      "title": "مرور فاصله‌دار و مسیر جبرانی",
+      "dependencies": [
+        "ACA-008",
+        "ACA-009"
+      ],
+      "lane": "academy",
+      "paths": "packages/domain/src/academy-review.ts",
+      "scope": [
+        "مرور بر اساس مهارت و خطا، با زمان‌بندی نسخه‌دار و توضیح دلیل",
+        "مسیرها با بلوک‌های مشترک ساخته شوند؛ ایجاد دوره مستقل برای هر پاسخ ممنوع",
+        "تعریف timezone و سقف تمرین بدون تنبیه غیبت"
+      ],
+      "acceptance": [
+        "مرور درس تمام‌شده را خراب نمی‌کند",
+        "تاریخ گذشته/آینده و تغییر نسخه آزمون دارد"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 100,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/100",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-011",
+      "order": 80,
+      "title": "اشتراک آموزش مستقل و فصل رایگان",
+      "dependencies": [
+        "ACA-001",
+        "ACA-009"
+      ],
+      "lane": "academy",
+      "paths": "apps/api/modules/billing/; apps/api/modules/academy/",
+      "scope": [
+        "entitlement مستقل academy/workspace/bundle از سرویس billing موجود",
+        "بدون خرید خدمت جدید؛ مجوز و کنترل محتوای پولی سروری",
+        "لغو/انقضا/بازپرداخت و دوره grace مستند؛ حفظ خروجی شخصی بعد از انقضا"
+      ],
+      "acceptance": [
+        "API مستقیم با client flag قابل دورزدن نیست",
+        "تحویل کامل فصل رایگان؛ وضعیت پردازش/خطا و دسترسی واقعی آزمون دارد"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "بالا",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 101,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/101",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-012",
+      "order": 81,
+      "title": "محیط تمرینی و انتقال کنترل‌شده به پروژه واقعی",
+      "dependencies": [
+        "ACA-007",
+        "ACA-009"
+      ],
+      "lane": "academy",
+      "paths": "apps/web/src/features/academy/; apps/api/modules/academy/",
+      "scope": [
+        "شرکت فرضی برای همه فراگیران؛ بدون نیاز به پلن داشبورد",
+        "انتقال اختیاری با پیش‌نمایش و تأیید، same-Workspace permission و revision",
+        "منبع آموزشی جایگزین شواهد واقعی شرکت نشود"
+      ],
+      "acceptance": [
+        "بدون پلن داشبورد دوره قابل اتمام است",
+        "viewer یا عضو حذف‌شده نمی‌تواند داده شرکت بنویسد"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 102,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/102",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-013",
+      "order": 82,
+      "title": "کاراکتر اختصاصی، اینفوگرافیک و موشن آموزشی",
+      "dependencies": [
+        "ACA-004",
+        "ACA-007"
+      ],
+      "lane": "academy",
+      "paths": "apps/web/src/features/academy/; public/assets/",
+      "scope": [
+        "استراتینو با حالت‌های فکر/راهنما/بازخورد/جشن و دارایی دارای مجوز",
+        "موشن مفهوم را توضیح دهد، نه ویدئوی اجباری؛ صدای اختیاری",
+        "قالب مالی/رقابت/فرایند قابل استفاده مجدد و معادل متنی"
+      ],
+      "acceptance": [
+        "reduced-motion تمام حرکت غیرضروری را متوقف می‌کند",
+        "تصویر/رنگ تنها حامل پاسخ نیست؛ بدون دارایی دولینگو"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 103,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/103",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-014",
+      "order": 83,
+      "title": "پروفایل مهارت، نشان و لیگ اختیاری",
+      "dependencies": [
+        "ACA-008",
+        "ACA-009"
+      ],
+      "lane": "academy",
+      "paths": "apps/api/modules/academy/; apps/web/src/features/academy/",
+      "scope": [
+        "XP فعالیت مستقل از تسلط؛ تکرار امتیاز و تقلب کنترل شود",
+        "نشان نسخه‌دار با تاریخ و مهارت/پروژه؛ گواهی داخلی بدون ادعای MBA",
+        "حریم خصوصی opt-in، عدم درج داده شرکت یا رتبه عمومی اجباری"
+      ],
+      "acceptance": [
+        "تکرار درس رتبه علمی جعل نمی‌کند",
+        "پروفایل خصوصی default و کنترل visibility سروری است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 104,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/104",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-015",
+      "order": 84,
+      "title": "پنل تألیف، بازبینی و انتشار نسخه محتوا",
+      "dependencies": [
+        "ACA-003",
+        "ACA-005"
+      ],
+      "lane": "academy",
+      "paths": "apps/api/modules/academy/; docs/academy/",
+      "scope": [
+        "author/reviewer/publisher و چرخه draft→review→approved→published→retired",
+        "اعتبارسنجی گراف/منابع/مجوز/سؤال و rollback نسخه",
+        "نسخه در حال یادگیری pinned بماند؛ اصلاحیه به فراگیر اطلاع داده شود"
+      ],
+      "acceptance": [
+        "نسخه بدون reviewer/منبع معتبر منتشر نمی‌شود",
+        "preview draft از انتشار پولی جدا و operator به داده شرکت دسترسی ضمنی ندارد"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "بالا",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "planned",
+      "issue_number": 105,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/105",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-016",
+      "order": 85,
+      "title": "پایلوت یادگیری و سنجش ارزش خرید",
+      "dependencies": [
+        "ACA-007",
+        "ACA-008"
+      ],
+      "lane": "academy",
+      "paths": "docs/academy/PILOT.md",
+      "scope": [
+        "گروه کوچک مؤسس/کارشناس؛ رضایت آگاهانه و حداقل رویداد لازم",
+        "پیش‌آزمون، پس‌آزمون با سؤال تازه، ارزیابی با فاصله و خروجی عملی",
+        "تکمیل/بازگشت/پرداخت واقعی از اثربخشی علمی جدا گزارش شود"
+      ],
+      "acceptance": [
+        "نتیجه مشاهده‌شده با اندازه نمونه/محدودیت گزارش می‌شود",
+        "بدون جعل conversion یا ادعای برتری MBA"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 106,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/106",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-017",
+      "order": 86,
+      "title": "گسترش فصل‌های عمومی سپس مسیرهای تخصصی پیشرفته",
+      "dependencies": [
+        "ACA-002",
+        "ACA-003",
+        "ACA-015",
+        "ACA-016"
+      ],
+      "lane": "academy",
+      "paths": "assets/academy/; docs/academy/CURRICULUM.md",
+      "scope": [
+        "تولید حوزه‌ای با ترتیب پیش‌نیاز و بودجه نویسندگی/بازبینی هر فصل",
+        "ابتدا مبانی/استراتژی، سپس مالی/بازار، سپس افراد/عملیات/داده و تخصص‌ها",
+        "کاربرد AI و کیس واقعی پس از source review؛ گسترش با شواهد پایلوت"
+      ],
+      "acceptance": [
+        "هر انتشار اهداف/مثال/تمرین/کیس/پروژه/منبع/بازبین دارد",
+        "سطح پیشرفته شامل trade-off و عدم قطعیت و دفاع از تصمیم است"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P2",
+      "status": "planned",
+      "issue_number": 107,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/107",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
+    },
+    {
+      "id": "ACA-018",
+      "order": 87,
+      "title": "گیت کیفیت، امنیت و پذیرش پیش از عرضه",
+      "dependencies": [
+        "ACA-006",
+        "ACA-007"
+      ],
+      "lane": "academy",
+      "paths": "scripts/verify-academy.mjs; docs/academy/STATUS.md",
+      "scope": [
+        "تست engine و feature flag و سفر درس و refresh؛ بررسی negative auth/entitlement در زمان پیاده‌سازی سرور",
+        "QA تم/جهت/کیبورد/zoom/reduced-motion و 360/768/1280/1440",
+        "Graphify before/after و CI کوچک؛ عدم merge به main طبق دستور مالک"
+      ],
+      "acceptance": [
+        "نتایج واقعی با exit code و screenshot ثبت می‌شوند",
+        "علمی/API/payment/production pending از تست prototype جداست"
+      ],
+      "ux": [
+        "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
+      ],
+      "validation": "npm run test:academy; npm run typecheck; npm run test:academy:browser; default-off production check",
+      "risk": "متوسط",
+      "phase": "Academy",
+      "priority": "P1",
+      "status": "in_progress",
+      "issue_number": 108,
+      "issue_url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/108",
+      "epic": "ACADEMY",
+      "epic_issue": 90,
+      "branch": "feat/stratino-academy",
+      "completion_evidence": "Implementation checkpoint only; no main merge; see docs/academy/STATUS.md"
     }
   ],
   "management_os": {

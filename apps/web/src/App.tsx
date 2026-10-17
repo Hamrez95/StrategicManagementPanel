@@ -23,6 +23,10 @@ import {
 import type { DevicePreferences } from './features/account/api';
 import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
 import { getWorkspaceTool, workspaceTools } from './features/workspaces/routeRegistry';
+const Academy =
+  import.meta.env.VITE_ACADEMY_PREVIEW === 'true'
+    ? lazy(() => import('./features/academy/Academy'))
+    : null;
 const Site = lazy(() => import('./pages/Site'));
 const ProductExperience = lazy(() => import('./features/experience/ProductExperience'));
 const Account = lazy(() => import('./pages/Account'));
@@ -268,6 +272,8 @@ export function App() {
     location.pathname === '/' ||
     location.pathname.startsWith('/account') ||
     location.pathname.startsWith('/preview') ||
+    (Academy !== null &&
+      (location.pathname === '/academy' || location.pathname.startsWith('/academy/'))) ||
     managementPreviewPath;
   const queryClient = useQueryClient();
   const [devicePreferences, setDevicePreferences] =
@@ -377,6 +383,7 @@ export function App() {
         >
           <Routes>
             {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
+            {Academy && <Route path="/academy/*" element={<Academy />} />}
             <Route path="/" element={<Site />} />
             <Route
               path="/management-preview"

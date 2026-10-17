@@ -144,3 +144,31 @@ P0 order: STR-053 integrity → STR-055 baseline quality → STR-054 reviewed lo
 | [STR-69](STR-69.md) | P2 | شکاف مدیریتی و سلامت حوزه‌ای بدون امتیاز ساختگی | STR-063, STR-027 |
 
 Initial architecture and UX are specified in [Management OS design index](../management-os/DESIGN_INDEX.md); Luna implementation follows [bounded packets](../management-os/LUNA_WORK_PACKETS.md). Design completion does not close development or validation tasks.
+
+
+## Academy — اپیک #90، شاخه مستقل
+
+دستور مالک: توسعه فقط روی `feat/stratino-academy`، بدون merge/auto-merge به main تا مجوز جدید. نقشه راه #53 همچنان مرجع مشترک است. [راهنمای آکادمی](../academy/README.md).
+
+| ID | Issue | اولویت | تسک | وابستگی |
+|---|---|---|---|---|
+| [ACA-001](ACA-001.md) | [#91](https://github.com/Hamrez95/StrategicManagementPanel/issues/91) | P0 | مرز محصول، معماری و قرارداد اجرای برنچ | ندارد |
+| [ACA-002](ACA-002.md) | [#92](https://github.com/Hamrez95/StrategicManagementPanel/issues/92) | P0 | نقشه MBA از مبانی تا پیشرفته و گراف مهارت | ACA-001 |
+| [ACA-003](ACA-003.md) | [#93](https://github.com/Hamrez95/StrategicManagementPanel/issues/93) | P0 | گردآوری منابع و خط انتشار علمی درس | ACA-002 |
+| [ACA-004](ACA-004.md) | [#94](https://github.com/Hamrez95/StrategicManagementPanel/issues/94) | P1 | طراحی دسکتاپ، نقشه مسیر و رفتار موشن | ACA-001 |
+| [ACA-005](ACA-005.md) | [#95](https://github.com/Hamrez95/StrategicManagementPanel/issues/95) | P1 | موتور درس نسخه‌دار، پیش‌نیاز و سنجش قطعی | ACA-001, ACA-002 |
+| [ACA-006](ACA-006.md) | [#96](https://github.com/Hamrez95/StrategicManagementPanel/issues/96) | P1 | پوسته آموزش و نقشه قابل اجرا با feature flag | ACA-004, ACA-005 |
+| [ACA-007](ACA-007.md) | [#97](https://github.com/Hamrez95/StrategicManagementPanel/issues/97) | P1 | اولین فصل مبانی با داستان و تمرین قابل اجرا | ACA-003, ACA-005, ACA-006 |
+| [ACA-008](ACA-008.md) | [#98](https://github.com/Hamrez95/StrategicManagementPanel/issues/98) | P1 | بانک سؤال، آزمون فصل و ارزیابی استدلال | ACA-005, ACA-007 |
+| [ACA-009](ACA-009.md) | [#99](https://github.com/Hamrez95/StrategicManagementPanel/issues/99) | P1 | پیشرفت فردی سروری و ادامه میان دستگاه‌ها | ACA-005, ACA-008 |
+| [ACA-010](ACA-010.md) | [#100](https://github.com/Hamrez95/StrategicManagementPanel/issues/100) | P2 | مرور فاصله‌دار و مسیر جبرانی | ACA-008, ACA-009 |
+| [ACA-011](ACA-011.md) | [#101](https://github.com/Hamrez95/StrategicManagementPanel/issues/101) | P1 | اشتراک آموزش مستقل و فصل رایگان | ACA-001, ACA-009 |
+| [ACA-012](ACA-012.md) | [#102](https://github.com/Hamrez95/StrategicManagementPanel/issues/102) | P2 | محیط تمرینی و انتقال کنترل‌شده به پروژه واقعی | ACA-007, ACA-009 |
+| [ACA-013](ACA-013.md) | [#103](https://github.com/Hamrez95/StrategicManagementPanel/issues/103) | P2 | کاراکتر اختصاصی، اینفوگرافیک و موشن آموزشی | ACA-004, ACA-007 |
+| [ACA-014](ACA-014.md) | [#104](https://github.com/Hamrez95/StrategicManagementPanel/issues/104) | P2 | پروفایل مهارت، نشان و لیگ اختیاری | ACA-008, ACA-009 |
+| [ACA-015](ACA-015.md) | [#105](https://github.com/Hamrez95/StrategicManagementPanel/issues/105) | P1 | پنل تألیف، بازبینی و انتشار نسخه محتوا | ACA-003, ACA-005 |
+| [ACA-016](ACA-016.md) | [#106](https://github.com/Hamrez95/StrategicManagementPanel/issues/106) | P2 | پایلوت یادگیری و سنجش ارزش خرید | ACA-007, ACA-008 |
+| [ACA-017](ACA-017.md) | [#107](https://github.com/Hamrez95/StrategicManagementPanel/issues/107) | P2 | گسترش فصل‌های عمومی سپس مسیرهای تخصصی پیشرفته | ACA-002, ACA-003, ACA-015, ACA-016 |
+| [ACA-018](ACA-018.md) | [#108](https://github.com/Hamrez95/StrategicManagementPanel/issues/108) | P1 | گیت کیفیت، امنیت و پذیرش پیش از عرضه | ACA-006, ACA-007 |
+
+اولین برش: طراحی/منابع/گراف مهارت → موتور و نقشه → فصل رایگان؛ سپس سنجش/حساب سروری/نشر/اشتراک و گسترش. اجرای ترتیب بر اساس وابستگی است؛ شماره تسک ترتیب اجباری نیست. همه issueها تا شواهد پذیرش و ادغام مجاز باز می‌مانند.

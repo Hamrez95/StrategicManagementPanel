@@ -1,0 +1,431 @@
+[
+  {
+    "id": "ACA-001",
+    "number": 91,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/91",
+    "title": "مرز محصول، معماری و قرارداد اجرای برنچ",
+    "priority": "P0",
+    "dependencies": [],
+    "scope": [
+      "تفکیک پیشرفت فردی آموزش از داده Workspace و آموزش اختیاری ابزارها",
+      "تعریف /academy مستقل، feature flag پیش‌فرض خاموش و قرارداد داده نسخه‌دار",
+      "آموزش، داشبورد و بسته ترکیبی مستقل؛ عدم merge به main"
+    ],
+    "acceptance": [
+      "سند تصمیم و مرز API/دسترسی/ذخیره موجود است",
+      "مسیر آموزش بدون خرید Workspace قابل تمرین است"
+    ],
+    "paths": "docs/academy/ARCHITECTURE.md",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-002",
+    "number": 92,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/92",
+    "title": "نقشه MBA از مبانی تا پیشرفته و گراف مهارت",
+    "priority": "P0",
+    "dependencies": [
+      "ACA-001"
+    ],
+    "scope": [
+      "پنج سطح از سواد کسب‌وکار تا پروژه پیشرفته با پیش‌نیازهای بدون چرخه",
+      "حسابداری، مالی، اقتصاد، استراتژی، بازاریابی، افراد، عملیات، داده، کارآفرینی، تجارت الکترونیک، AI و اخلاق",
+      "هدف قابل مشاهده، خروجی عملی، ترتیب فصل و rubric هر مسیر؛ مسیر مؤسس/کارشناس/مدیر"
+    ],
+    "acceptance": [
+      "همه گره‌ها سطح و هدف و خروجی دارند",
+      "موضوع برنامه‌ریزی‌شده به شکل دوره منتشرشده نمایش داده نمی‌شود"
+    ],
+    "paths": "docs/academy/CURRICULUM.md; assets/academy/curriculum.json",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-003",
+    "number": 93,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/93",
+    "title": "گردآوری منابع و خط انتشار علمی درس",
+    "priority": "P0",
+    "dependencies": [
+      "ACA-002"
+    ],
+    "scope": [
+      "منابع اصلی و دانشگاهی، دسترسی واقعی، بخش/صفحه، تاریخ و مجوز استفاده ثبت شود",
+      "جداسازی metadata/inspected/expert-reviewed؛ نگاشت ادعا→منبع→تمرین",
+      "مطالعه موردی واقعی/اقتباسی/فرضی، ترجمه و اصلاحیه نسخه‌دار؛ AI فقط پیش‌نویس"
+    ],
+    "acceptance": [
+      "هیچ درس draft به علمی‌تأییدشده ترفیع خودکار نمی‌یابد",
+      "ادعای شرکت واقعی با گزارش اولیه و تاریخ قابل ردیابی است"
+    ],
+    "paths": "docs/academy/RESEARCH_PIPELINE.md; assets/academy/sources.json",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-004",
+    "number": 94,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/94",
+    "title": "طراحی دسکتاپ، نقشه مسیر و رفتار موشن",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-001"
+    ],
+    "scope": [
+      "مشاهدات timestampدار ویدئو از پیشنهاد طراحی جدا شود",
+      "نقشه مرحله‌ای آشنا، فصل رنگی، وضعیت قفل/فعلی/تکمیل با متن و آیکن",
+      "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، reduced-motion و تم؛ شخصیت اختصاصی"
+    ],
+    "acceptance": [
+      "نقشه و صفحه درس در 1280/1440 قابل استفاده است",
+      "تصویر واقعی و نقد، 200% zoom و reduced-motion ثبت شود"
+    ],
+    "paths": "docs/academy/DESIGN.md; apps/web/src/features/academy/",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-005",
+    "number": 95,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/95",
+    "title": "موتور درس نسخه‌دار، پیش‌نیاز و سنجش قطعی",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-001",
+      "ACA-002"
+    ],
+    "scope": [
+      "مدل lesson/question/attempt/source و ID پایدار با نسخه محتوا",
+      "grade معتبر، جلوگیری از پاسخ ناقص/ID تکراری/امتیاز نامعتبر و prerequisite ناشناخته",
+      "تمایز mastered/attempted و تکرار تمرین؛ پیش‌نیاز مستقل از اشتراک"
+    ],
+    "acceptance": [
+      "پاسخ خالی، گزینه ناشناخته و prerequisite ناموجود unlock نمی‌کند",
+      "امتیاز تمرین به گواهی یا پرداخت تبدیل نمی‌شود"
+    ],
+    "paths": "packages/domain/src/academy.ts; packages/domain/tests/academy.test.mjs",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-006",
+    "number": 96,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/96",
+    "title": "پوسته آموزش و نقشه قابل اجرا با feature flag",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-004",
+      "ACA-005"
+    ],
+    "scope": [
+      "route مستقل lazy و بدون دسترسی به داده شرکت",
+      "نمایش مسیر با وضعیت روشن، حفظ تم و جهت فعلی، URL مستقیم و خروج",
+      "قابل اجرای محلی با دستور مشخص؛ flag خاموش در حالت عادی"
+    ],
+    "acceptance": [
+      "مسیر خاموش، آموزش را نمایش نمی‌دهد",
+      "قفل‌ها دلیل متنی دارند و کیبورد مسیر را طی می‌کند"
+    ],
+    "paths": "apps/web/src/App.tsx; apps/web/src/features/academy/",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-007",
+    "number": 97,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/97",
+    "title": "اولین فصل مبانی با داستان و تمرین قابل اجرا",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-003",
+      "ACA-005",
+      "ACA-006"
+    ],
+    "scope": [
+      "فصل رایگان کامل با مسئله کسب‌وکار فرضی؛ مفهوم، انتخاب، بازخورد و کاربرد",
+      "حداقل سه درس اجرایی با اهداف و منبع مشخص؛ محتوای اولیه draft با برچسب روشن",
+      "حفظ پاسخ هنگام خطا، تلاش مجدد و پیشروی واقعی؛ نبود پیام خرید جعلی"
+    ],
+    "acceptance": [
+      "از شروع تا آزمون و بازشدن درس بعد در مرورگر کار می‌کند",
+      "پروژه فرضی و محدودیت بازبینی علمی مشخص است"
+    ],
+    "paths": "apps/web/src/features/academy/content.ts; AcademyLesson.tsx",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-008",
+    "number": 98,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/98",
+    "title": "بانک سؤال، آزمون فصل و ارزیابی استدلال",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-005",
+      "ACA-007"
+    ],
+    "scope": [
+      "سؤال‌های جایگزین، تعیین سطح، فرصت تمرین جبرانی و جلوگیری از حفظ پاسخ",
+      "rubric تحلیل با شواهد/محدودیت/گزینه جایگزین؛ reviewer انسانی برای کارهای باز",
+      "نسخه سؤال و تلاش سروری؛ حدنصاب 80 درصد فرض محصول قابل کالیبراسیون است"
+    ],
+    "acceptance": [
+      "فصل با بازکردن صفحات تکمیل نمی‌شود",
+      "سؤال تازه سنجش انتقال دارد؛ نمره AI حکم نهایی نیست"
+    ],
+    "paths": "apps/api/modules/academy/; apps/web/src/features/academy/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-009",
+    "number": 99,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/99",
+    "title": "پیشرفت فردی سروری و ادامه میان دستگاه‌ها",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-005",
+      "ACA-008"
+    ],
+    "scope": [
+      "پیشرفت account-owned مستقل از Workspace و endpoint دارای session/CSRF",
+      "تلاش idempotent، revision، نسخه محتوا، زمان سرور و حذف/خروج",
+      "هیچ localStorage entitlement یا progress معتبر تولیدی نیست؛ migration و rollback طراحی شود"
+    ],
+    "acceptance": [
+      "کاربر A پیشرفت B را نمی‌خواند/تغییر نمی‌دهد",
+      "replay و duplicate امتیاز اضافه نمی‌دهند؛ شکست شبکه صادقانه است"
+    ],
+    "paths": "apps/api/modules/academy/; docs/contracts/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-010",
+    "number": 100,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/100",
+    "title": "مرور فاصله‌دار و مسیر جبرانی",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-008",
+      "ACA-009"
+    ],
+    "scope": [
+      "مرور بر اساس مهارت و خطا، با زمان‌بندی نسخه‌دار و توضیح دلیل",
+      "مسیرها با بلوک‌های مشترک ساخته شوند؛ ایجاد دوره مستقل برای هر پاسخ ممنوع",
+      "تعریف timezone و سقف تمرین بدون تنبیه غیبت"
+    ],
+    "acceptance": [
+      "مرور درس تمام‌شده را خراب نمی‌کند",
+      "تاریخ گذشته/آینده و تغییر نسخه آزمون دارد"
+    ],
+    "paths": "packages/domain/src/academy-review.ts",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-011",
+    "number": 101,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/101",
+    "title": "اشتراک آموزش مستقل و فصل رایگان",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-001",
+      "ACA-009"
+    ],
+    "scope": [
+      "entitlement مستقل academy/workspace/bundle از سرویس billing موجود",
+      "بدون خرید خدمت جدید؛ مجوز و کنترل محتوای پولی سروری",
+      "لغو/انقضا/بازپرداخت و دوره grace مستند؛ حفظ خروجی شخصی بعد از انقضا"
+    ],
+    "acceptance": [
+      "API مستقیم با client flag قابل دورزدن نیست",
+      "تحویل کامل فصل رایگان؛ وضعیت پردازش/خطا و دسترسی واقعی آزمون دارد"
+    ],
+    "paths": "apps/api/modules/billing/; apps/api/modules/academy/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-012",
+    "number": 102,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/102",
+    "title": "محیط تمرینی و انتقال کنترل‌شده به پروژه واقعی",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-007",
+      "ACA-009"
+    ],
+    "scope": [
+      "شرکت فرضی برای همه فراگیران؛ بدون نیاز به پلن داشبورد",
+      "انتقال اختیاری با پیش‌نمایش و تأیید، same-Workspace permission و revision",
+      "منبع آموزشی جایگزین شواهد واقعی شرکت نشود"
+    ],
+    "acceptance": [
+      "بدون پلن داشبورد دوره قابل اتمام است",
+      "viewer یا عضو حذف‌شده نمی‌تواند داده شرکت بنویسد"
+    ],
+    "paths": "apps/web/src/features/academy/; apps/api/modules/academy/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-013",
+    "number": 103,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/103",
+    "title": "کاراکتر اختصاصی، اینفوگرافیک و موشن آموزشی",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-004",
+      "ACA-007"
+    ],
+    "scope": [
+      "استراتینو با حالت‌های فکر/راهنما/بازخورد/جشن و دارایی دارای مجوز",
+      "موشن مفهوم را توضیح دهد، نه ویدئوی اجباری؛ صدای اختیاری",
+      "قالب مالی/رقابت/فرایند قابل استفاده مجدد و معادل متنی"
+    ],
+    "acceptance": [
+      "reduced-motion تمام حرکت غیرضروری را متوقف می‌کند",
+      "تصویر/رنگ تنها حامل پاسخ نیست؛ بدون دارایی دولینگو"
+    ],
+    "paths": "apps/web/src/features/academy/; public/assets/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-014",
+    "number": 104,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/104",
+    "title": "پروفایل مهارت، نشان و لیگ اختیاری",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-008",
+      "ACA-009"
+    ],
+    "scope": [
+      "XP فعالیت مستقل از تسلط؛ تکرار امتیاز و تقلب کنترل شود",
+      "نشان نسخه‌دار با تاریخ و مهارت/پروژه؛ گواهی داخلی بدون ادعای MBA",
+      "حریم خصوصی opt-in، عدم درج داده شرکت یا رتبه عمومی اجباری"
+    ],
+    "acceptance": [
+      "تکرار درس رتبه علمی جعل نمی‌کند",
+      "پروفایل خصوصی default و کنترل visibility سروری است"
+    ],
+    "paths": "apps/api/modules/academy/; apps/web/src/features/academy/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-015",
+    "number": 105,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/105",
+    "title": "پنل تألیف، بازبینی و انتشار نسخه محتوا",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-003",
+      "ACA-005"
+    ],
+    "scope": [
+      "author/reviewer/publisher و چرخه draft→review→approved→published→retired",
+      "اعتبارسنجی گراف/منابع/مجوز/سؤال و rollback نسخه",
+      "نسخه در حال یادگیری pinned بماند؛ اصلاحیه به فراگیر اطلاع داده شود"
+    ],
+    "acceptance": [
+      "نسخه بدون reviewer/منبع معتبر منتشر نمی‌شود",
+      "preview draft از انتشار پولی جدا و operator به داده شرکت دسترسی ضمنی ندارد"
+    ],
+    "paths": "apps/api/modules/academy/; docs/academy/",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-016",
+    "number": 106,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/106",
+    "title": "پایلوت یادگیری و سنجش ارزش خرید",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-007",
+      "ACA-008"
+    ],
+    "scope": [
+      "گروه کوچک مؤسس/کارشناس؛ رضایت آگاهانه و حداقل رویداد لازم",
+      "پیش‌آزمون، پس‌آزمون با سؤال تازه، ارزیابی با فاصله و خروجی عملی",
+      "تکمیل/بازگشت/پرداخت واقعی از اثربخشی علمی جدا گزارش شود"
+    ],
+    "acceptance": [
+      "نتیجه مشاهده‌شده با اندازه نمونه/محدودیت گزارش می‌شود",
+      "بدون جعل conversion یا ادعای برتری MBA"
+    ],
+    "paths": "docs/academy/PILOT.md",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-017",
+    "number": 107,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/107",
+    "title": "گسترش فصل‌های عمومی سپس مسیرهای تخصصی پیشرفته",
+    "priority": "P2",
+    "dependencies": [
+      "ACA-002",
+      "ACA-003",
+      "ACA-015",
+      "ACA-016"
+    ],
+    "scope": [
+      "تولید حوزه‌ای با ترتیب پیش‌نیاز و بودجه نویسندگی/بازبینی هر فصل",
+      "ابتدا مبانی/استراتژی، سپس مالی/بازار، سپس افراد/عملیات/داده و تخصص‌ها",
+      "کاربرد AI و کیس واقعی پس از source review؛ گسترش با شواهد پایلوت"
+    ],
+    "acceptance": [
+      "هر انتشار اهداف/مثال/تمرین/کیس/پروژه/منبع/بازبین دارد",
+      "سطح پیشرفته شامل trade-off و عدم قطعیت و دفاع از تصمیم است"
+    ],
+    "paths": "assets/academy/; docs/academy/CURRICULUM.md",
+    "status": "planned",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  },
+  {
+    "id": "ACA-018",
+    "number": 108,
+    "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/108",
+    "title": "گیت کیفیت، امنیت و پذیرش پیش از عرضه",
+    "priority": "P1",
+    "dependencies": [
+      "ACA-006",
+      "ACA-007"
+    ],
+    "scope": [
+      "تست engine و feature flag و سفر درس و refresh؛ بررسی negative auth/entitlement در زمان پیاده‌سازی سرور",
+      "QA تم/جهت/کیبورد/zoom/reduced-motion و 360/768/1280/1440",
+      "Graphify before/after و CI کوچک؛ عدم merge به main طبق دستور مالک"
+    ],
+    "acceptance": [
+      "نتایج واقعی با exit code و screenshot ثبت می‌شوند",
+      "علمی/API/payment/production pending از تست prototype جداست"
+    ],
+    "paths": "scripts/verify-academy.mjs; docs/academy/STATUS.md",
+    "status": "in_progress",
+    "branch": "feat/stratino-academy",
+    "scientific_status": "review_pending"
+  }
+]

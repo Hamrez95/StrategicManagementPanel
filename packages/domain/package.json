@@ -1,1 +1,28 @@
-{"name":"@stratino/domain","private":true,"version":"0.1.0","type":"module","exports":{".":{"types":"./src/index.ts","import":"./dist/index.js"},"./evaluation-matrices":{"types":"./src/evaluation-matrices.ts","import":"./dist/evaluation-matrices.js"},"./metric-calculations":{"types":"./src/metric-calculations.ts","import":"./dist/metric-calculations.js"}},"scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit"}}
+{
+  "name": "@stratino/domain",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.js"
+    },
+    "./evaluation-matrices": {
+      "types": "./src/evaluation-matrices.ts",
+      "import": "./dist/evaluation-matrices.js"
+    },
+    "./metric-calculations": {
+      "types": "./src/metric-calculations.ts",
+      "import": "./dist/metric-calculations.js"
+    },
+    "./academy": {
+      "types": "./src/academy.ts",
+      "import": "./dist/academy.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
