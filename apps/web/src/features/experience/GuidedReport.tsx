@@ -1,4 +1,7 @@
 import type { Space } from './model';
+import { metricDraftText } from './MetricDraftField';
+import { planningDefinitions } from './planningDesigns';
+import research from './design-research.json';
 import { guidedDefinitions, financeDefinition } from './guidedDefinitions';
 import { financeResults, retentionRate } from './guidedCalculations';
 import { evaluateMatrix, type EvaluationMatrixRow } from '@stratino/domain/evaluation-matrices';
@@ -17,26 +20,28 @@ export function GuidedReport({ space }: { space: Space }) {
   return (
     <>
       <h3>تحلیل‌های ثبت‌شده</h3>
-      {Object.entries({ ...guidedDefinitions, finance: financeDefinition }).map(
-        ([id, definition]) => {
-          const fields = definition.steps
-            .flatMap((s) => s.fields)
-            .filter((field) => space.toolNotes[`${id}:${field.key}`]?.trim());
-          if (!fields.length) return null;
-          return (
-            <section key={id}>
-              <h4>{definition.title}</h4>
-              {fields.map((field) => (
-                <p key={field.key}>
-                  <strong>{field.label}: </strong>
-                  {field.options?.find((o) => o.value === space.toolNotes[`${id}:${field.key}`])
-                    ?.label || space.toolNotes[`${id}:${field.key}`]}
-                </p>
-              ))}
-            </section>
-          );
-        },
-      )}
+      {Object.entries({
+        ...guidedDefinitions,
+        ...planningDefinitions,
+        finance: financeDefinition,
+      }).map(([id, definition]) => {
+        const fields = definition.steps
+          .flatMap((s) => s.fields)
+          .filter((field) => space.toolNotes[`${id}:${field.key}`]?.trim());
+        if (!fields.length) return null;
+        return (
+          <section key={id}>
+            <h4>{definition.title}</h4>
+            {fields.map((field) => (
+              <p key={field.key}>
+                <strong>{field.label}: </strong>
+                {field.options?.find((o) => o.value === space.toolNotes[`${id}:${field.key}`])
+                  ?.label || space.toolNotes[`${id}:${field.key}`]}
+              </p>
+            ))}
+          </section>
+        );
+      })}
       {financeResults(finance).some((r) => r.value !== null) && (
         <section>
           <h4>محاسبات مالیِ محلی</h4>
@@ -101,6 +106,30 @@ export function GuidedReport({ space }: { space: Space }) {
           تعریف گروه و بازهٔ مشاهده.
         </p>
       )}
+      <h3>پیش‌نویس روش‌های مدیریتی</h3>
+      {research.entries
+        .filter((r) => space.toolNotes[`research:${r.id}:scope`])
+        .map((r) => (
+          <section key={r.id}>
+            <h4>{r.title} — پیش‌نویس، محاسبهٔ تأییدشده نیست</h4>
+            <p>{space.toolNotes[`research:${r.id}:scope`]}</p>
+            {r.kind === 'metrics'
+              ? r.inputs.map((input, i) => (
+                  <p key={input.id}>
+                    {input.label}:{' '}
+                    {metricDraftText(
+                      input.id,
+                      space.toolNotes[`research:${r.id}:input-${i}`] || '',
+                    )}
+                  </p>
+                ))
+              : r.steps.map((step) => (
+                  <p key={step.id}>
+                    {step.instruction}: {space.toolNotes[`research:${r.id}:${step.id}`] || 'نامشخص'}
+                  </p>
+                ))}
+          </section>
+        ))}
       <h3>پیش‌نویس مستندات</h3>
       {catalog.documents
         .filter((d) =>

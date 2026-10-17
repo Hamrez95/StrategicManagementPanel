@@ -31,3 +31,4 @@
 ## مرز تکمیل
 
 طراحی اولیه، توسعه، آزمون محلی و پذیرش نهایی چهار وضعیت جدا هستند. مستند یا نمونهٔ تصویری، قابلیت اجراشده محسوب نمی‌شود. صف سرور، Docker، مهاجرت واقعی، تست فیزیکی و مرورگر محصول در NEXT_ACTIONS نگه داشته شده است. گیت کیفیت هنوز سبز نیست؛ هیچ تسکی صرفاً برای آماده‌بودن این بسته Done نشده است.
+**Latest design coverage — 2026-10-17:** [Research/UI inventory](RESEARCH_UI_COVERAGE.md) and [complete Luna packets](LUNA_COMPLETE_DESIGN_PACKETS.md) extend the calm guided experience to 64 researched methods, 28 planning flows and 21 domains. These are the current specialized page layouts. Calculation/backend readiness and research gaps are explicitly separate.

@@ -1,5 +1,18 @@
 # Management OS checkpoint — 2026-10-17
 
+## Current owner revision — complete design coverage
+
+This revision supersedes the eight-tool coverage limit below. The frontend now exposes all **64 framework/metric records (33 frameworks + 31 metrics)** from the current research catalog, **28 authored planning flows**, the existing eight tools and the preserved 60-document catalog. The analysis directory groups them into **21 domains** and a six-phase navigational roadmap. Vision, mission, purpose, values, objectives, marketing and advanced matrices have dedicated guided layouts. The roadmap is navigation, not an approved scientific stage model.
+
+- Exact inventory and limitations: [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md). All **188 indexed research records** have an explicit disposition; source/diagnostic/rule records are not falsely presented as standalone calculators. Research itself still has documented gaps.
+- Luna implementation contracts: [LUNA_COMPLETE_DESIGN_PACKETS](LUNA_COMPLETE_DESIGN_PACKETS.md). Existing issues **#18, #39, #40, #41, #42, #43, #50, #51** were updated as verified Hamrez95; they remain open. Preserve earlier auth/Workspace integration dependencies and guided document/file packets.
+- New method pages provide source-specific questions, help, editable drafts and result scaffolds. Advanced calculations, scientific approval, authenticated persistence and real backend integration remain pending. Local drafts and fixture access are not production completion. Metric formulas are displayed as text, never evaluated dynamically.
+- Verified: **96/96 root tests**, all **64 research + 28 planning routes**, vision persistence and two-Workspace isolation, BMC block separation, no fabricated metric result, **44 responsive checks and 11 axe audits**, with no real API calls. Production web build passed after splitting research/report routes; largest chunks stay below Vite's 500 kB warning threshold. Synthetic accessibility checks are not certification.
+- Actual server, Docker, PostgreSQL, mail and physical acceptance remain deferred to the end of development. The new frontend does not promote or rewrite research definitions.
+- Final local Graphify AST update completed: **4856 nodes / 9919 edges / 293 communities**; updated directory, workbench, summary and field consumers queried without cloud extraction.
+
+Local review: `http://127.0.0.1:5180/account/login`. Local fixture only: `hamrez95@stratino.test` / `123456`. Start Luna from the complete-design packets after the existing account/Workspace adapter sequence; keep the established layouts.
+
 
 ## Current owner revision — guided tools and documents
 

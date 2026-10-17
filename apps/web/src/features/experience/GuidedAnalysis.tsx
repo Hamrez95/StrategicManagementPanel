@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { type Space } from './model';
 import { path } from './store';
@@ -13,6 +13,8 @@ import {
   fa,
 } from './GuidedFlow';
 import { guidedDefinitions, financeDefinition, type GuidedField } from './guidedDefinitions';
+import { planningDefinitions, planningDesigns } from './planningDesigns';
+import { PlanningSummary } from './PlanningSummary';
 import { financeResults, readNumber, retentionRate } from './guidedCalculations';
 
 function Field({
@@ -75,7 +77,10 @@ function Field({
 }
 
 export function GuidedAnalysis({ space, toolId }: { space: Space; toolId: string }) {
-  const definition = toolId === 'finance' ? financeDefinition : guidedDefinitions[toolId];
+  const definition =
+    toolId === 'finance'
+      ? financeDefinition
+      : guidedDefinitions[toolId] || planningDefinitions[toolId];
   const { values, write, message } = useToolDraft(space, toolId);
   const [mode, setMode] = useState<'home' | 'guide' | 'result'>(
     values._reviewed ? 'result' : 'home',
@@ -86,6 +91,10 @@ export function GuidedAnalysis({ space, toolId }: { space: Space; toolId: string
       ? Math.max(0, Math.min(storedStep, (definition?.steps.length ?? 1) - 1))
       : 0,
   );
+  const reviewHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (mode === 'result') reviewHeading.current?.focus();
+  }, [mode]);
   const [error, setError] = useState('');
   if (!definition) return null;
   const current = definition.steps[step];
@@ -181,7 +190,9 @@ export function GuidedAnalysis({ space, toolId }: { space: Space; toolId: string
         <div className="gx-results">
           <div className="gx-review-heading">
             <div>
-              <h2>{toolId === 'finance' ? 'تصویر مالی این دوره' : 'آنچه تا اینجا روشن شده'}</h2>
+              <h2 ref={reviewHeading} tabIndex={-1}>
+                {toolId === 'finance' ? 'تصویر مالی این دوره' : 'آنچه تا اینجا روشن شده'}
+              </h2>
               <p>
                 {fa(count)} از {fa(fields.length)} پاسخ ثبت شده؛ پاسخ خالی نامشخص می‌ماند.
               </p>
@@ -192,6 +203,9 @@ export function GuidedAnalysis({ space, toolId }: { space: Space; toolId: string
             </button>
           </div>
           {toolId === 'finance' && <FinanceResults values={values} />}
+          {planningDesigns.some((d) => d.id === toolId) && (
+            <PlanningSummary toolId={toolId} values={values} />
+          )}
           {toolId === 'retention' && (
             <div className="gx-score">
               <span>نرخ بازگشت همان گروه</span>

@@ -111,7 +111,9 @@ export function ExperienceShell() {
                     onClick={() => setMenu(false)}
                     className={({ isActive }) =>
                       isActive ||
-                      (item.id === 'strategy' && location.pathname.includes('/tool/')) ||
+                      (item.id === 'strategy' &&
+                        (location.pathname.includes('/tool/') ||
+                          location.pathname.includes('/research/'))) ||
                       (item.id === 'library' && location.pathname.includes('/document/'))
                         ? 'active'
                         : ''

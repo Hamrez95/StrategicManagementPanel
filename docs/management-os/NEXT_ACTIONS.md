@@ -40,3 +40,6 @@ Deferred checks are not passed. Record exact command/scenario and evidence when 
 ## Git completion
 
 Before any source push/PR/merge, verify the active authenticated account is Hamrez95. Never use or modify unrelated credentials. Push coherent commits through the approved identity, wait for required remote checks/review, merge, fetch and verify local/remote main equality. GitHub issue synchronization is not a source push or merge.
+## Latest continuation — complete design coverage
+
+Frontend layouts are ready for the current 64-method catalog plus 28 authored planning flows. Preserve them and implement [LUNA_COMPLETE_DESIGN_PACKETS](LUNA_COMPLETE_DESIGN_PACKETS.md), following existing account/Workspace dependencies. Use [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md) as the exact scope, not a claim that all management research or calculations are complete. Server/Docker/physical acceptance stays deferred. Current checks and fixture review are in STATUS.

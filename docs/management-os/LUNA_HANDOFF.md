@@ -100,3 +100,6 @@ Focused in-memory SQLite Django tests pass 8/8; system check, targeted migration
 ## STR-060-A readiness blocker — 2026-10-16
 
 No code or migration was added. The source startup Journey requires domain-expert/user validation; routing rules explicitly remain knowledge-only; and no Journey/Step exists in packaged immutable release v2. The definition also proposes venture scope while the accepted architecture defers it. There is no safe exact release/step contract to pin, so execution must not be activated and gates must not be invented. Resume only after expert/owner review and packaging of a bounded first slice with supported scope, stable IDs, prerequisite graph and completion/skip/defer/re-entry semantics. STR-060 remains planned; later Journey-dependent packets remain blocked behind this prerequisite.
+## Latest continuation — 2026-10-17 complete design coverage
+
+Read [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md) and [LUNA_COMPLETE_DESIGN_PACKETS](LUNA_COMPLETE_DESIGN_PACKETS.md) first. The frontend now includes 64 source methods, 28 authored planning flows and 21 domains. Implement the typed backend packets behind these layouts after the existing auth/Workspace sequence; do not redesign them or invent missing scientific calculations. Research gaps and server/physical acceptance remain pending. See STATUS for actual checks.

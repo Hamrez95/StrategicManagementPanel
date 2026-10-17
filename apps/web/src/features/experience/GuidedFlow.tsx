@@ -128,7 +128,7 @@ export function GuideCard({
 }) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    heading.current?.focus({ preventScroll: true });
+    heading.current?.focus();
   }, [step, title]);
   return (
     <section className="gx-flow">

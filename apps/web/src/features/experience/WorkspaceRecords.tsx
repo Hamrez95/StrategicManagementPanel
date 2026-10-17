@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { lazy, Suspense, useState, type FormEvent } from 'react';
 import { Dialog } from '@stratino/ui';
 import { Empty, Icon, Mark, PageHeading } from './ExperienceUI';
 import { useSpaces, number, uid } from './store';
@@ -10,7 +10,9 @@ import {
   type Space,
   type TaskStatus,
 } from './model';
-import { GuidedReport } from './GuidedReport';
+const GuidedReport = lazy(() =>
+  import('./GuidedReport').then((module) => ({ default: module.GuidedReport })),
+);
 export function Actions({ space }: { space: Space }) {
   const { spaces, save } = useSpaces();
   const [title, setTitle] = useState('');
@@ -319,7 +321,9 @@ export function Report({ space }: { space: Space }) {
         ) : (
           <p>یادداشتی ثبت نشده است.</p>
         )}
-        <GuidedReport space={space} />
+        <Suspense fallback={<p role="status">در حال آماده‌کردن گزارش…</p>}>
+          <GuidedReport space={space} />
+        </Suspense>
         <p className="ex-subtle-note">
           نسخهٔ محلی؛ این گزارش ارزیابی یا توصیهٔ تأییدشده نیست.
           {space.sample ? ' تمام داده‌ها نمونه‌اند.' : ''}

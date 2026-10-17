@@ -70,3 +70,6 @@ Billing/provider eligibility, actual prices, customer retention/health benchmark
 ## Completion evidence template
 
 Record selected task/packet, touched contract/files, commit, exact command/exit, regression cases, Graphify result, unrun validations, blocker and next packet in STATUS. New scientific interpretation is never a test result. Static/compiler/unit success is distinct from browser/server/physical/observed-user validation. GitHub issue numbers come from issue-map; STR-054 is #66, not #54.
+## Latest packet supplement — 2026-10-17
+
+[LUNA_COMPLETE_DESIGN_PACKETS](LUNA_COMPLETE_DESIGN_PACKETS.md) adds exact foundation, advanced matrix, metric, execution, marketing and environment backend contracts to the existing issues. [RESEARCH_UI_COVERAGE](RESEARCH_UI_COVERAGE.md) maps the current research inventory to its UI. Follow existing account/Workspace prerequisites, then these supplements; UI availability does not close scientific/backend acceptance.

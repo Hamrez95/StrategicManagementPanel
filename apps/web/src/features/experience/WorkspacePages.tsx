@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { lazy, Suspense, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router';
 import { Empty, Icon, PageHeading } from './ExperienceUI';
 import { Actions, Report } from './WorkspaceRecords';
@@ -13,11 +13,18 @@ import {
   tools,
   type Space,
 } from './model';
+const ManagementDirectory = lazy(() =>
+  import('./ManagementDirectory').then((module) => ({ default: module.ManagementDirectory })),
+);
+const ResearchWorkbench = lazy(() =>
+  import('./ResearchWorkbench').then((module) => ({ default: module.ResearchWorkbench })),
+);
+import { planningDefinitions } from './planningDesigns';
 import { GuidedAnalysis } from './GuidedAnalysis';
 import { GuidedMatrix } from './GuidedMatrix';
 import { DocumentLibrary, DocumentDetail } from './DocumentLibrary';
 export function WorkspacePage() {
-  const { spaceId, section, toolId, documentId } = useParams();
+  const { spaceId, section, toolId, documentId, recordId } = useParams();
   const { spaces } = useSpaces();
   const space = spaces.find((s) => s.id === spaceId);
   if (!space)
@@ -35,34 +42,38 @@ export function WorkspacePage() {
   const pages: Record<string, ReactNode> = {
     overview: <Overview space={space} />,
     business: <Business space={space} />,
-    strategy: <Strategy space={space} />,
+    strategy: <ManagementDirectory space={space} />,
     actions: <Actions space={space} />,
     library: <DocumentLibrary space={space} />,
     reports: <Report space={space} />,
     settings: <SpaceSettings space={space} />,
   };
   return (
-    <div key={`${space.id}:${section ?? toolId ?? documentId}`}>
-      {space.sample && (
-        <p className="ex-sample-notice">این فضای نمونه است؛ اطلاعاتش ساختگی و قابل ویرایش است.</p>
-      )}
-      {documentId ? (
-        <DocumentDetail space={space} documentId={documentId} />
-      ) : toolId ? (
-        <ToolPage space={space} toolId={toolId} />
-      ) : (
-        (pages[section ?? 'overview'] ?? (
-          <Empty
-            title="این بخش پیدا نشد"
-            text="از نمای کلی فضای کار ادامه بدهید."
-            action={
-              <Link className="ex-button" to={path(space)}>
-                نمای کلی
-              </Link>
-            }
-          />
-        ))
-      )}
+    <div key={`${space.id}:${section ?? toolId ?? documentId ?? recordId}`}>
+      <Suspense fallback={<p role="status">در حال آماده‌کردن صفحه…</p>}>
+        {space.sample && (
+          <p className="ex-sample-notice">این فضای نمونه است؛ اطلاعاتش ساختگی و قابل ویرایش است.</p>
+        )}
+        {recordId ? (
+          <ResearchWorkbench space={space} recordId={recordId} />
+        ) : documentId ? (
+          <DocumentDetail space={space} documentId={documentId} />
+        ) : toolId ? (
+          <ToolPage space={space} toolId={toolId} />
+        ) : (
+          (pages[section ?? 'overview'] ?? (
+            <Empty
+              title="این بخش پیدا نشد"
+              text="از نمای کلی فضای کار ادامه بدهید."
+              action={
+                <Link className="ex-button" to={path(space)}>
+                  نمای کلی
+                </Link>
+              }
+            />
+          ))
+        )}
+      </Suspense>
     </div>
   );
 }
@@ -218,6 +229,19 @@ function Business({ space }: { space: Space }) {
         </p>
       </div>
       <section className="ex-section">
+        <h2>جهت‌گیری کسب‌وکار</h2>
+        <p>چشم‌انداز، مأموریت و ارزش‌ها را از اطلاعات اولیهٔ ثبت‌نام جدا و با راهنما تدوین کن.</p>
+        <div className="mx-foundation-links">
+          {['vision', 'mission', 'values', 'strategic-goals'].map((id) => (
+            <Link className="ex-shortcut" key={id} to={path(space, `tool/${id}`)}>
+              <Icon name="compass" />
+              <h3>{planningDefinitions[id].title}</h3>
+              <p>{planningDefinitions[id].outcome}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="ex-section">
         <h2>شناخت را کامل‌تر کن</h2>
         <div className="ex-shortcuts">
           {tools
@@ -234,71 +258,9 @@ function Business({ space }: { space: Space }) {
     </>
   );
 }
-function Strategy({ space }: { space: Space }) {
-  const [category, setCategory] = useState('همه');
-  const [search, setSearch] = useState('');
-  const visible = tools.filter(
-    (t) =>
-      (category === 'همه' || t.group === category) &&
-      `${t.title} ${t.description}`.includes(search),
-  );
-  return (
-    <>
-      <PageHeading
-        title="تحلیل‌ها"
-        description="ابزار مورد نیازت را انتخاب کن؛ هر تحلیل در صفحهٔ خودش باز می‌شود."
-      />
-      <div className="ex-toolbar">
-        <label className="ex-search">
-          <Icon name="search" />
-          <input
-            aria-label="جست‌وجوی ابزار"
-            placeholder="نام یک ابزار…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </label>
-        <div className="ex-filter-group" aria-label="دسته‌بندی تحلیل‌ها">
-          {['همه', 'شناخت', 'استراتژی', 'رشد', 'اجرا'].map((group) => (
-            <button
-              key={group}
-              aria-pressed={category === group}
-              onClick={() => setCategory(group)}
-            >
-              {group}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="ex-tools-grid">
-        {visible.map((tool) => (
-          <Link className="ex-tool-card" key={tool.id} to={path(space, `tool/${tool.id}`)}>
-            <span className="ex-tool-icon">
-              <Icon name={tool.icon} size={26} />
-            </span>
-            <small>{tool.group}</small>
-            <h2>{tool.title}</h2>
-            <p>{tool.description}</p>
-            <span className="ex-card-link">
-              بازکردن تحلیل <Icon name="arrow" size={16} />
-            </span>
-          </Link>
-        ))}
-      </div>
-      {!visible.length && (
-        <Empty
-          icon="search"
-          title="ابزاری پیدا نشد"
-          text="عبارت یا دسته‌بندی دیگری را امتحان کن."
-        />
-      )}
-    </>
-  );
-}
-
 function ToolPage({ space, toolId }: { space: Space; toolId: string }) {
   if (toolId === 'matrices') return <GuidedMatrix space={space} />;
-  if (tools.some((tool) => tool.id === toolId))
+  if (Object.hasOwn(planningDefinitions, toolId) || tools.some((tool) => tool.id === toolId))
     return <GuidedAnalysis space={space} toolId={toolId} />;
   return (
     <Empty
