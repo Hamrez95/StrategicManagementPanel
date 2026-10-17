@@ -35,10 +35,24 @@ Set-ExecutionPolicy -Scope Process Bypass
 .\run-local.ps1
 ```
 
-رانر به‌طور پیش‌فرض `main` و `HEAD` فعلی را در دو پوشه موقت و به‌ترتیب روی `http://localhost:4173` و `http://localhost:4174` اجرا می‌کند. `HEAD` یعنی کامیت فعلی؛ اگر هر دو ref به یک کامیت اشاره کنند، دو نسخه یکسان خواهید دید. برای اجرای یک شاخه یا کامیت خاص:
+بعد از دریافت آخرین refها، در اجرای معمولی منو یکی از این دو نسخه را می‌پرسد: `main` یا شاخه `feat/stratino-academy`. رانر ابتدا `origin/<branch>` را اجرا می‌کند و اگر موجود نبود از شاخه محلی کمک می‌گیرد؛ هیچ branch checkout یا فایل کاری را تغییر نمی‌دهد.
 
 ```powershell
-.\run-local.ps1 -Refs main
+git fetch origin main feat/stratino-academy
+.\run-local.ps1
+```
+
+انتخاب مستقیم هم ممکن است:
+
+```powershell
+.\run-local.ps1 -Version main
+.\run-local.ps1 -Version academy
+```
+
+برای اجرای refهای دلخواه یا چند نسخه کنار هم، همچنان از `-Refs` استفاده کنید:
+
+```powershell
+.\run-local.ps1 -Refs main, feat/stratino-academy
 .\run-local.ps1 -Refs main, feature/my-change
 ```
 
@@ -48,7 +62,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 اجرای پیش‌فرض فقط وب است؛ اجرای اختیاری سرویس‌های محلی در بخش زیر توضیح داده شده است.
 
-برای اجرای وب همراه با سرویس‌های محلی، Docker Desktop و Compose v2 را اجرا کنید و `pwsh -File run-local.ps1 -WithBackend -NoBrowser` را بزنید. Python داخل کانتینر نصب می‌شود؛ نصب جدا روی میزبان لازم نیست. هر نسخه نام پروژه Compose، رمز محلی، دیتابیس و فایل مستقل دارد؛ رمزها در `.local-dev/` خارج از Git نگهداری می‌شوند. وب درخواست‌های `/api/` را به API همان نسخه می‌فرستد. آدرس وب پس از آماده‌شدن API و اعمال migration چاپ می‌شود. پورت‌های API و ایمیل به‌ترتیب از 8000 و 8025 شروع می‌شوند؛ با `-FirstApiPort` و `-FirstMailPort` قابل تغییرند.
+برای اجرای وب همراه با سرویس‌های محلی، Docker Desktop و Compose v2 را اجرا کنید و `pwsh -File run-local.ps1 -WithBackend` را بزنید؛ منوی انتخاب نسخه نمایش داده می‌شود. Python داخل کانتینر نصب می‌شود؛ نصب جدا روی میزبان لازم نیست. هر نسخه نام پروژه Compose، رمز محلی، دیتابیس و فایل مستقل دارد؛ رمزها در `.local-dev/` خارج از Git نگهداری می‌شوند. وب درخواست‌های `/api/` را به API همان نسخه می‌فرستد. آدرس وب پس از آماده‌شدن API و اعمال migration چاپ می‌شود. پورت‌های API و ایمیل به‌ترتیب از 8000 و 8025 شروع می‌شوند؛ با `-FirstApiPort` و `-FirstMailPort` قابل تغییرند.
 
 توقف، کانتینرها و worktree موقت را جمع می‌کند و volume داده و رمز محلی را نگه می‌دارد. اجرای دوباره همان commit و جایگاه در فهرست refها، همان داده را باز می‌کند. commit جدید فضای مستقل دارد؛ انتقال داده نسخه‌های مختلف در STR-017 است. این مسیر فقط برای توسعه است و هنوز ورود، Workspace و ذخیره فرم‌های محصول به API وصل نیستند.
 

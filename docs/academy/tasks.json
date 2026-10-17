@@ -84,11 +84,14 @@
     "scope": [
       "مشاهدات timestampدار ویدئو از پیشنهاد طراحی جدا شود",
       "نقشه مرحله‌ای آشنا، فصل رنگی، وضعیت قفل/فعلی/تکمیل با متن و آیکن",
-      "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، reduced-motion و تم؛ شخصیت اختصاصی"
+      "storyboard قاب‌به‌قاب درس، progress، بازگشت/خروج و transitionهای کوتاه؛ الهام از الگوی یادگیری آشنای Duolingo بدون کپی UI/asset",
+      "motion spec شامل trigger، زمان/easing، focus و حالت‌های loading/error/success؛ reduced-motion، pause/skip و معادل متنی",
+      "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، تم و شخصیت اختصاصی"
     ],
     "acceptance": [
-      "نقشه و صفحه درس در 1280/1440 قابل استفاده است",
-      "تصویر واقعی و نقد، 200% zoom و reduced-motion ثبت شود"
+      "نقشه و قاب‌های درس در 1280/1440 قابل استفاده و از نظر پیشروی/back/خروج واضح‌اند",
+      "storyboard و motion spec با trigger/زمان/easing/خروج، focus، reduced-motion و pause/skip تحویل شده",
+      "تصویر/ویدئوی واقعی و نقد در 200% zoom و reduced-motion ثبت شود"
     ],
     "paths": "docs/academy/DESIGN.md; apps/web/src/features/academy/",
     "status": "in_progress",
@@ -317,13 +320,14 @@
       "ACA-007"
     ],
     "scope": [
-      "استراتینو با حالت‌های فکر/راهنما/بازخورد/جشن و دارایی دارای مجوز",
-      "موشن مفهوم را توضیح دهد، نه ویدئوی اجباری؛ صدای اختیاری",
-      "قالب مالی/رقابت/فرایند قابل استفاده مجدد و معادل متنی"
+      "طراحی character sheet و state machine واکنش‌های فکر/راهنما/درست/تلاش دوباره/جشن؛ دارایی اصیل و دارای مجوز",
+      "storyboard موشن‌های آموزشی با trigger، مدت، easing، پایان/skip و توضیح مفهوم؛ صدای اختیاری و هیچ ویدئوی اجباری",
+      "infographic و قالب مالی/رقابت/فرایند قابل استفاده مجدد با معادل متنی و روایت مرحله‌ای"
     ],
     "acceptance": [
-      "reduced-motion تمام حرکت غیرضروری را متوقف می‌کند",
-      "تصویر/رنگ تنها حامل پاسخ نیست؛ بدون دارایی دولینگو"
+      "هر حالت شخصیت و حرکت infographic یک هدف آموزشی، trigger و معادل متنی مشخص دارد",
+      "reduced-motion همه حرکت غیرضروری را حذف می‌کند؛ motion قابل pause/skip است و پیشروی را معطل نمی‌کند",
+      "تصویر/رنگ تنها حامل پاسخ نیست؛ فقط دارایی اصیل استراتینو با مجوز مستند استفاده می‌شود"
     ],
     "paths": "apps/web/src/features/academy/; public/assets/",
     "status": "planned",

@@ -1,5 +1,7 @@
 param(
-    [string[]] $Refs = @('main'),
+    [string[]] $Refs,
+    [ValidateSet('main', 'academy')]
+    [string] $Version,
     [int] $FirstPort = 4173,
     [switch] $NoBrowser,
     [switch] $SmokeTest,
@@ -16,6 +18,29 @@ $nodeCommand = Get-Command node -ErrorAction SilentlyContinue
 $gitCommand = Get-Command git -ErrorAction SilentlyContinue
 $npmCommand = Get-Command npm -ErrorAction SilentlyContinue
 $dockerCommand = Get-Command docker -ErrorAction SilentlyContinue
+
+if ($Version -and $Refs -and $Refs.Count -gt 0) {
+    throw 'Choose a version with -Version or provide explicit refs with -Refs, not both.'
+}
+if ($Version) {
+    $Refs = switch ($Version) {
+        'main' { @('main') }
+        'academy' { @('feat/stratino-academy') }
+    }
+}
+elseif (-not $Refs -or $Refs.Count -eq 0) {
+    Write-Host ''
+    Write-Host 'کدام نسخه را برای اجرای محلی می‌خواهید؟' -ForegroundColor Cyan
+    Write-Host '  1) main — نسخه اصلی'
+    Write-Host '  2) academy — شاخه آموزشی feat/stratino-academy'
+    $choice = (Read-Host 'شماره نسخه را وارد کنید (1 یا 2)').Trim()
+    $Refs = switch ($choice) {
+        '1' { @('main') }
+        '2' { @('feat/stratino-academy') }
+        default { throw 'انتخاب نامعتبر بود؛ اسکریپت بدون تغییر مخزن متوقف شد.' }
+    }
+}
+
 if ($WithBackend) {
     if (-not $dockerCommand) { throw 'Docker was not found. Install and start Docker Desktop, or omit -WithBackend to run the web app only.' }
     & $dockerCommand.Source info --format '{{.ServerVersion}}' | Out-Null
@@ -148,7 +173,14 @@ try {
     # Validate refs and reserve distinct available localhost ports before creating worktrees.
     $commits = @()
     for ($index = 0; $index -lt $Refs.Count; $index++) {
-        $commits += Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$($Refs[$index])^{commit}")
+        $remoteRef = "origin/$($Refs[$index])"
+        try {
+            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$remoteRef^{commit}")
+        }
+        catch {
+            $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$($Refs[$index])^{commit}")
+        }
+        $commits += $commit
         $webPorts.Add((Find-FreePort -StartAt ($FirstPort + $index) -ReservedPorts $usedPorts))
         if ($WithBackend) {
             Invoke-Git -GitArgs @('cat-file', '-e', "$($commits[$index]):infra/compose.dev.yml") | Out-Null

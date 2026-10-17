@@ -37,7 +37,7 @@ React + TypeScript + Vite؛ Django/DRF modular monolith؛ PostgreSQL؛ فایل 
 | STR-005 | P1 | [#5 — تثبیت مدل داده و قرارداد معماری SaaS](https://github.com/Hamrez95/StrategicManagementPanel/issues/5) | STR-003 | [شرح](STR-005.md) |
 | STR-006 | P1 | [#6 — ساخت design system خوانا، فارسی و دارای موشن](https://github.com/Hamrez95/StrategicManagementPanel/issues/6) | STR-002, STR-003 | [شرح](STR-006.md) |
 | STR-007 | P1 | [#7 — CI و آزمون‌های پایه برای جلوگیری از رگرسیون](https://github.com/Hamrez95/StrategicManagementPanel/issues/7) | STR-003, STR-005 | [شرح](STR-007.md) |
-| STR-008 | P1 | [#8 — رانر PowerShell یکپارچه برای main و HEAD](https://github.com/Hamrez95/StrategicManagementPanel/issues/8) | STR-003, STR-007 | [شرح](STR-008.md) |
+| STR-008 | P1 | [#8 — رانر PowerShell با انتخاب نسخه main و آکادمی](https://github.com/Hamrez95/StrategicManagementPanel/issues/8) | STR-003, STR-007 | [شرح](STR-008.md) |
 
 ## MVP
 

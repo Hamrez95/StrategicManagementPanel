@@ -267,7 +267,7 @@
     {
       "id": "STR-008",
       "order": 8,
-      "title": "رانر PowerShell یکپارچه برای main و HEAD",
+      "title": "رانر PowerShell با انتخاب نسخه main و آکادمی",
       "dependencies": [
         "STR-003",
         "STR-007"
@@ -276,10 +276,14 @@
       "paths": "run-local.ps1; scripts/; infra/compose.dev.yml; README.md",
       "scope": [
         "رانر موجود را برای frontend/API/Postgres/storage/email catcher محلی ارتقا بده",
+        "منوی PowerShell بین main و feat/stratino-academy انتخاب کند؛ -Version برای اجرای مستقیم و -Refs برای refهای دلخواه حفظ شود",
+        "origin/<branch> تازه‌شده بر شاخه محلی اولویت داشته باشد؛ اجرای detached worktree شاخه/فایل کاری را دست‌نخورده بگذارد",
         "دو ref را در worktree و پورت و volume جدا اجرا کن؛ dependency با lockfile و پیش‌نیاز نسخه‌ای بررسی شود",
         "Ctrl+C همه child processها را تمیز کند؛ dirty tree دست‌نخورده، خطای فارسی قابل فهم و NoBrowser فراهم باشد"
       ],
       "acceptance": [
+        "منو main یا Academy را قابل انتخاب کند و پارامترهای -Version main|academy انتخاب مستقیم بدهند",
+        "نسخه منتخب از origin ref تازه استفاده کند، شاخه کاری را تغییر ندهد و -Refs برای چند نسخه همچنان کار کند",
         "main و HEAD داده و پورت مشترک ندارند",
         "اجرای دوم و توقف بدون orphan و حذف داده شخصی انجام می‌شود",
         "خطای پورت/نبود Docker/Python/Node راه رفع مشخص دارد"
@@ -288,7 +292,7 @@
         "آدرس‌ها و health status واضح چاپ شوند؛ ادعای Ready قبل از healthcheck نباشد",
         "لوگ‌ها خلاصه و عاری از secrets باشند"
       ],
-      "validation": "تست واقعی PowerShell ویندوز؛ smoke دو ref، cleanup و preflight failure",
+      "validation": "تست واقعی PowerShell ویندوز؛ انتخاب main/academy، smoke دو ref، cleanup، selectors conflict و preflight failure",
       "risk": "متوسط",
       "phase": "Foundation",
       "priority": "P1",
@@ -2732,11 +2736,14 @@
       "scope": [
         "مشاهدات timestampدار ویدئو از پیشنهاد طراحی جدا شود",
         "نقشه مرحله‌ای آشنا، فصل رنگی، وضعیت قفل/فعلی/تکمیل با متن و آیکن",
-        "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، reduced-motion و تم؛ شخصیت اختصاصی"
+        "storyboard قاب‌به‌قاب درس، progress، بازگشت/خروج و transitionهای کوتاه؛ الهام از الگوی یادگیری آشنای Duolingo بدون کپی UI/asset",
+        "motion spec شامل trigger، زمان/easing، focus و حالت‌های loading/error/success؛ reduced-motion، pause/skip و معادل متنی",
+        "توکن‌های موجود، Vazirmatn، RTL/LTR، کیبورد، تم و شخصیت اختصاصی"
       ],
       "acceptance": [
-        "نقشه و صفحه درس در 1280/1440 قابل استفاده است",
-        "تصویر واقعی و نقد، 200% zoom و reduced-motion ثبت شود"
+        "نقشه و قاب‌های درس در 1280/1440 قابل استفاده و از نظر پیشروی/back/خروج واضح‌اند",
+        "storyboard و motion spec با trigger/زمان/easing/خروج، focus، reduced-motion و pause/skip تحویل شده",
+        "تصویر/ویدئوی واقعی و نقد در 200% zoom و reduced-motion ثبت شود"
       ],
       "ux": [
         "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
@@ -3037,13 +3044,14 @@
       "lane": "academy",
       "paths": "apps/web/src/features/academy/; public/assets/",
       "scope": [
-        "استراتینو با حالت‌های فکر/راهنما/بازخورد/جشن و دارایی دارای مجوز",
-        "موشن مفهوم را توضیح دهد، نه ویدئوی اجباری؛ صدای اختیاری",
-        "قالب مالی/رقابت/فرایند قابل استفاده مجدد و معادل متنی"
+        "طراحی character sheet و state machine واکنش‌های فکر/راهنما/درست/تلاش دوباره/جشن؛ دارایی اصیل و دارای مجوز",
+        "storyboard موشن‌های آموزشی با trigger، مدت، easing، پایان/skip و توضیح مفهوم؛ صدای اختیاری و هیچ ویدئوی اجباری",
+        "infographic و قالب مالی/رقابت/فرایند قابل استفاده مجدد با معادل متنی و روایت مرحله‌ای"
       ],
       "acceptance": [
-        "reduced-motion تمام حرکت غیرضروری را متوقف می‌کند",
-        "تصویر/رنگ تنها حامل پاسخ نیست؛ بدون دارایی دولینگو"
+        "هر حالت شخصیت و حرکت infographic یک هدف آموزشی، trigger و معادل متنی مشخص دارد",
+        "reduced-motion همه حرکت غیرضروری را حذف می‌کند؛ motion قابل pause/skip است و پیشروی را معطل نمی‌کند",
+        "تصویر/رنگ تنها حامل پاسخ نیست؛ فقط دارایی اصیل استراتینو با مجوز مستند استفاده می‌شود"
       ],
       "ux": [
         "docs/UX_STANDARD.md; docs/academy/DESIGN.md"
