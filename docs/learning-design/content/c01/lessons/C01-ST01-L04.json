@@ -1,0 +1,239 @@
+{
+  "id": "C01-ST01-L04",
+  "version": "1-draft",
+  "title": "چرا ثبت یکسان، تصمیم یکسان نمی‌سازد؟",
+  "content_status": "draft",
+  "objective": "اطلاعات ثبت‌شده را متناسب با تصمیم تفسیر کند.",
+  "learning_cards": [
+    {
+      "id": "C01-ST01-L04-OPEN",
+      "type": "problem",
+      "title": "پرسش این درس‌نامه",
+      "text": "اطلاعات ثبت‌شده را متناسب با تصمیم تفسیر کند. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+    },
+    {
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "دو مدیر می‌توانند از ثبت درست یکسان، برای دو تصمیم متفاوت اطلاعات متفاوت بخواهند. گزارش کل شرکت برای تصمیم توقف یک خدمت همیشه کافی نیست؛ باید هزینه‌های قابل تغییر، ظرفیت و پیامد آینده را جدا دید.",
+      "id": "C01-ST01-L04-CARD01"
+    },
+    {
+      "type": "explanation",
+      "title": "روش انجام کار",
+      "text": "ابتدا پرسش تصمیم را مشخص کنید. سپس دوره، واحد تحلیل و هزینهٔ مربوط را انتخاب کنید. تفاوت گزارش مالی و مدل تصمیم را آشکار نگه دارید؛ مدل تصمیم مجوز تغییر دل‌بخواهی ثبت مالی نیست.",
+      "id": "C01-ST01-L04-CARD02"
+    },
+    {
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+      "text": "در مثال مستقل سپهر، هزینهٔ مشترک دفتر بین دو خدمت تقسیم شده است. حذف یک خدمت الزاماً اجارهٔ دفتر را حذف نمی‌کند. بنابراین مدیر نباید تمام هزینهٔ تخصیص‌یافته را صرفه‌جویی قابل تحقق بداند. برای بستن خدمت، اثر واقعی آینده و ظرفیت آزادشده را بررسی می‌کنیم.",
+      "example_kind": "fictional",
+      "id": "C01-ST01-L04-CARD03"
+    },
+    {
+      "type": "contrast",
+      "title": "خطایی که باید بشناسیم",
+      "text": "هزینهٔ تخصیص‌یافته با هزینهٔ قابل اجتناب برابر نیست. در مقابل، مشترک‌بودن هزینه به معنی بی‌اهمیت‌بودن دائمی آن نیست؛ در افق بلندتر شاید قابل تغییر باشد.",
+      "id": "C01-ST01-L04-CARD04"
+    },
+    {
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+      "elements": [
+        "پرسش تصمیم",
+        "واحد و افق",
+        "هزینهٔ قابل تغییر",
+        "توصیه با فرض"
+      ],
+      "alt": "پرسش تصمیم؛ واحد و افق؛ هزینهٔ قابل تغییر؛ توصیه با فرض",
+      "id": "C01-ST01-L04-CARD05"
+    },
+    {
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "گزارش را به سؤال تصمیم وصل کنید و بگویید کدام هزینه با انتخاب واقعاً تغییر می‌کند.",
+      "id": "C01-ST01-L04-CARD06"
+    }
+  ],
+  "questions": [
+    {
+      "id": "C01-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "حذف یک خدمت همیشه چه چیزی را حذف نمی‌کند؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "درآمد آیندهٔ همان خدمت",
+          "feedback": "«درآمد آیندهٔ همان خدمت» پاسخ این پرسش نیست. هزینهٔ مشترک ممکن است پس از حذف هم باقی بماند."
+        },
+        {
+          "id": "o2",
+          "text": "نیاز به بررسی تصمیم",
+          "feedback": "«نیاز به بررسی تصمیم» پاسخ این پرسش نیست. هزینهٔ مشترک ممکن است پس از حذف هم باقی بماند."
+        },
+        {
+          "id": "o3",
+          "text": "اجارهٔ مشترک دفتر",
+          "feedback": "هزینهٔ مشترک ممکن است پس از حذف هم باقی بماند."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "هزینهٔ مشترک ممکن است پس از حذف هم باقی بماند.",
+      "objective_id": "C01-ST01-L04-OBJ1",
+      "equivalence_group": "C01-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST01-L04-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پیش از ساخت گزارش مدیریتی چه لازم است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "حذف همهٔ هزینه‌های ثابت",
+          "feedback": "«حذف همهٔ هزینه‌های ثابت» پاسخ این پرسش نیست. اطلاعات باید با تصمیم و زمان آن تناسب داشته باشد."
+        },
+        {
+          "id": "o2",
+          "text": "پرسش و افق تصمیم",
+          "feedback": "اطلاعات باید با تصمیم و زمان آن تناسب داشته باشد."
+        },
+        {
+          "id": "o3",
+          "text": "تغییر دل‌بخواهی ثبت مالی",
+          "feedback": "«تغییر دل‌بخواهی ثبت مالی» پاسخ این پرسش نیست. اطلاعات باید با تصمیم و زمان آن تناسب داشته باشد."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "اطلاعات باید با تصمیم و زمان آن تناسب داشته باشد.",
+      "objective_id": "C01-ST01-L04-OBJ1",
+      "equivalence_group": "C01-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST01-L04-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تخصیص هزینه چه چیزی را خودکار نشان نمی‌دهد؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "صرفه‌جویی ناشی از توقف خدمت",
+          "feedback": "برای صرفه‌جویی باید تغییر واقعی آینده را دید."
+        },
+        {
+          "id": "o2",
+          "text": "نحوهٔ تقسیم در همان گزارش",
+          "feedback": "«نحوهٔ تقسیم در همان گزارش» پاسخ این پرسش نیست. برای صرفه‌جویی باید تغییر واقعی آینده را دید."
+        },
+        {
+          "id": "o3",
+          "text": "جمع تخصیص در مدل",
+          "feedback": "«جمع تخصیص در مدل» پاسخ این پرسش نیست. برای صرفه‌جویی باید تغییر واقعی آینده را دید."
+        }
+      ],
+      "correct_option_id": "o1",
+      "explanation": "برای صرفه‌جویی باید تغییر واقعی آینده را دید.",
+      "objective_id": "C01-ST01-L04-OBJ1",
+      "equivalence_group": "C01-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST01-L04-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل مدیریتی چه مجوزی نمی‌دهد؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "بررسی سناریو",
+          "feedback": "«بررسی سناریو» پاسخ این پرسش نیست. سناریو باید از سابقهٔ ثبت‌شده جدا بماند."
+        },
+        {
+          "id": "o2",
+          "text": "نمایش فرض‌ها",
+          "feedback": "«نمایش فرض‌ها» پاسخ این پرسش نیست. سناریو باید از سابقهٔ ثبت‌شده جدا بماند."
+        },
+        {
+          "id": "o3",
+          "text": "بازنویسی بی‌دلیل ثبت رویداد واقعی",
+          "feedback": "سناریو باید از سابقهٔ ثبت‌شده جدا بماند."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "سناریو باید از سابقهٔ ثبت‌شده جدا بماند.",
+      "objective_id": "C01-ST01-L04-OBJ1",
+      "equivalence_group": "C01-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST01-L04-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "آیا هزینهٔ ثابت در همهٔ افق‌ها غیرقابل تغییر است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "فقط اگر تخصیص یافته باشد",
+          "feedback": "«فقط اگر تخصیص یافته باشد» پاسخ این پرسش نیست. ثابت‌بودن به بازه و دامنهٔ فعالیت وابسته است."
+        },
+        {
+          "id": "o2",
+          "text": "خیر؛ افق و تصمیم مهم‌اند",
+          "feedback": "ثابت‌بودن به بازه و دامنهٔ فعالیت وابسته است."
+        },
+        {
+          "id": "o3",
+          "text": "بله همیشه",
+          "feedback": "«بله همیشه» پاسخ این پرسش نیست. ثابت‌بودن به بازه و دامنهٔ فعالیت وابسته است."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "ثابت‌بودن به بازه و دامنهٔ فعالیت وابسته است.",
+      "objective_id": "C01-ST01-L04-OBJ1",
+      "equivalence_group": "C01-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST01-L04-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "role",
+      "title": "نقش حسابداری؛ بخش ۱٫۱",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/1-1-explain-the-importance-of-accounting-and-distinguish-between-financial-and-managerial-accounting",
+      "accessed_on": "2026-10-19",
+      "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+    },
+    {
+      "id": "contribution",
+      "title": "حاشیهٔ مشارکت؛ بخش ۳٫۱",
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-1-explain-contribution-margin-and-calculate-contribution-margin-per-unit-contribution-margin-ratio-and-total-contribution-margin",
+      "accessed_on": "2026-10-19",
+      "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+    }
+  ],
+  "practice_activity": null,
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "P00"
+  ],
+  "prerequisites_block_access": false,
+  "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+}

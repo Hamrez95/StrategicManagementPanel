@@ -1,0 +1,1205 @@
+{
+  "id": "C01-ST03",
+  "title": "هزینه، حاشیه و نقطهٔ سربه‌سر",
+  "order": 3,
+  "color_token": "orange",
+  "lessons": [
+    {
+      "id": "C01-ST03-L01",
+      "version": "1-draft",
+      "title": "هزینهٔ ثابت، متغیر و مرتبط",
+      "content_status": "draft",
+      "objective": "ثابت و متغیر و مرتبط را با دامنهٔ تصمیم تعریف کند.",
+      "learning_cards": [
+        {
+          "id": "C01-ST03-L01-OPEN",
+          "type": "problem",
+          "title": "پرسش این درس‌نامه",
+          "text": "ثابت و متغیر و مرتبط را با دامنهٔ تصمیم تعریف کند. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+        },
+        {
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "هزینهٔ متغیر با حجم فعالیت تغییر می‌کند؛ ثابت در دامنه و دورهٔ مشخص ثابت می‌ماند. هزینهٔ مرتبط با تصمیم، میان گزینه‌های آینده فرق می‌کند. ثابت‌بودن و نامرتبط‌بودن دو مفهوم یکسان نیستند.",
+          "id": "C01-ST03-L01-CARD01"
+        },
+        {
+          "type": "explanation",
+          "title": "روش انجام کار",
+          "text": "محرک هزینه و دوره را بنویسید. هزینهٔ کل و هزینهٔ هر واحد را جدا نگه دارید. قبل از استفاده از خط ثابت و متغیر، دامنهٔ ظرفیت را مشخص کنید. خارج از آن، تیم یا تجهیزات تازه ممکن است هزینه را پله‌ای تغییر دهند.",
+          "id": "C01-ST03-L01-CARD02"
+        },
+        {
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+          "text": "در مثال سپهر، هزینهٔ متغیر هر خدمت ۰٫۸ و هزینهٔ ثابت عملیاتی شامل استهلاک ۷۰ است. در صد خدمت، هزینهٔ متغیر کل ۸۰ است؛ در پنجاه خدمت، ۴۰. ثابتِ فرض‌شده هنوز ۷۰ است. هزینهٔ ثابتِ هر واحد با حجم تغییر می‌کند، حتی وقتی کل ثابت مانده است.",
+          "example_kind": "fictional",
+          "id": "C01-ST03-L01-CARD03"
+        },
+        {
+          "type": "contrast",
+          "title": "خطایی که باید بشناسیم",
+          "text": "تقسیم هزینهٔ ثابت بر تعداد فعلی و فرض ثابت‌ماندن آن برای هر حجم، خطاست. این مدل فقط تا ظرفیت صد خدمت و با فرض قیمت و هزینهٔ واحد ثابت به کار می‌رود.",
+          "id": "C01-ST03-L01-CARD04"
+        },
+        {
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+          "elements": [
+            "محرک و دامنه",
+            "متغیر هر واحد",
+            "ثابت کل",
+            "هزینهٔ مرتبط با انتخاب"
+          ],
+          "alt": "محرک و دامنه؛ متغیر هر واحد؛ ثابت کل؛ هزینهٔ مرتبط با انتخاب",
+          "id": "C01-ST03-L01-CARD05"
+        },
+        {
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "همیشه کنار واژهٔ ثابت بنویسید در چه دوره و چه دامنه‌ای.",
+          "id": "C01-ST03-L01-CARD06"
+        }
+      ],
+      "questions": [
+        {
+          "id": "C01-ST03-L01-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "۰٫۸ هزینهٔ هر خدمت در پنجاه خدمت چه کلّی دارد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۸۰",
+              "feedback": "«۸۰» پاسخ این پرسش نیست. ۰٫۸ × ۵۰ = ۴۰."
+            },
+            {
+              "id": "o2",
+              "text": "۷۰",
+              "feedback": "«۷۰» پاسخ این پرسش نیست. ۰٫۸ × ۵۰ = ۴۰."
+            },
+            {
+              "id": "o3",
+              "text": "۴۰",
+              "feedback": "۰٫۸ × ۵۰ = ۴۰."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "۰٫۸ × ۵۰ = ۴۰.",
+          "objective_id": "C01-ST03-L01-OBJ1",
+          "equivalence_group": "C01-ST03-L01-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L01-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L01-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "کل هزینهٔ ثابت با تعداد بیشتر در دامنهٔ فرض‌شده چه می‌شود؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "به صفر می‌رسد",
+              "feedback": "«به صفر می‌رسد» پاسخ این پرسش نیست. در دامنهٔ مربوط، ثابت‌بودن دربارهٔ کل هزینه است."
+            },
+            {
+              "id": "o2",
+              "text": "ثابت می‌ماند",
+              "feedback": "در دامنهٔ مربوط، ثابت‌بودن دربارهٔ کل هزینه است."
+            },
+            {
+              "id": "o3",
+              "text": "حتماً دو برابر می‌شود",
+              "feedback": "«حتماً دو برابر می‌شود» پاسخ این پرسش نیست. در دامنهٔ مربوط، ثابت‌بودن دربارهٔ کل هزینه است."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "در دامنهٔ مربوط، ثابت‌بودن دربارهٔ کل هزینه است.",
+          "objective_id": "C01-ST03-L01-OBJ1",
+          "equivalence_group": "C01-ST03-L01-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L01-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L01-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "هزینهٔ ثابت هر واحد با حجم بیشتر چه می‌تواند بشود؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "کمتر شود",
+              "feedback": "مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+            },
+            {
+              "id": "o2",
+              "text": "حتماً ثابت بماند",
+              "feedback": "«حتماً ثابت بماند» پاسخ این پرسش نیست. مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+            },
+            {
+              "id": "o3",
+              "text": "همیشه بیشتر شود",
+              "feedback": "«همیشه بیشتر شود» پاسخ این پرسش نیست. مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+            }
+          ],
+          "correct_option_id": "o1",
+          "explanation": "مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود.",
+          "objective_id": "C01-ST03-L01-OBJ1",
+          "equivalence_group": "C01-ST03-L01-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L01-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L01-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "هزینهٔ مرتبط چه ویژگی دارد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "حتماً متغیر است",
+              "feedback": "«حتماً متغیر است» پاسخ این پرسش نیست. ارتباط تصمیم به تفاوت آینده مربوط است، نه فقط رفتار هزینه."
+            },
+            {
+              "id": "o2",
+              "text": "حتماً هزینهٔ دیروز است",
+              "feedback": "«حتماً هزینهٔ دیروز است» پاسخ این پرسش نیست. ارتباط تصمیم به تفاوت آینده مربوط است، نه فقط رفتار هزینه."
+            },
+            {
+              "id": "o3",
+              "text": "بین گزینه‌های آینده تفاوت دارد",
+              "feedback": "ارتباط تصمیم به تفاوت آینده مربوط است، نه فقط رفتار هزینه."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "ارتباط تصمیم به تفاوت آینده مربوط است، نه فقط رفتار هزینه.",
+          "objective_id": "C01-ST03-L01-OBJ1",
+          "equivalence_group": "C01-ST03-L01-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L01-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "بیرون از ظرفیت صد، چه باید بررسی شود؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "حذف هزینهٔ ثابت",
+              "feedback": "«حذف هزینهٔ ثابت» پاسخ این پرسش نیست. بیرون از دامنه ممکن است مدل قبلی معتبر نباشد."
+            },
+            {
+              "id": "o2",
+              "text": "تغییر پله‌ای منابع و هزینه",
+              "feedback": "بیرون از دامنه ممکن است مدل قبلی معتبر نباشد."
+            },
+            {
+              "id": "o3",
+              "text": "ادامهٔ خودکار همان خط تا بی‌نهایت",
+              "feedback": "«ادامهٔ خودکار همان خط تا بی‌نهایت» پاسخ این پرسش نیست. بیرون از دامنه ممکن است مدل قبلی معتبر نباشد."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "بیرون از دامنه ممکن است مدل قبلی معتبر نباشد.",
+          "objective_id": "C01-ST03-L01-OBJ1",
+          "equivalence_group": "C01-ST03-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L01-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "contribution",
+          "title": "حاشیهٔ مشارکت؛ بخش ۳٫۱",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-1-explain-contribution-margin-and-calculate-contribution-margin-per-unit-contribution-margin-ratio-and-total-contribution-margin",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        },
+        {
+          "id": "sensitivity",
+          "title": "حساسیت سربه‌سر؛ بخش ۳٫۳",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-3-perform-break-even-sensitivity-analysis-for-a-single-product-under-changing-business-situations",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        }
+      ],
+      "practice_activity": null,
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "P00"
+      ],
+      "prerequisites_block_access": false,
+      "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+    },
+    {
+      "id": "C01-ST03-L02",
+      "version": "1-draft",
+      "title": "حاشیهٔ مشارکت و سربه‌سر",
+      "content_status": "draft",
+      "objective": "حاشیهٔ مشارکت و سربه‌سر عملیاتی را با واحد حساب کند.",
+      "learning_cards": [
+        {
+          "id": "C01-ST03-L02-OPEN",
+          "type": "problem",
+          "title": "پرسش این درس‌نامه",
+          "text": "حاشیهٔ مشارکت و سربه‌سر عملیاتی را با واحد حساب کند. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+        },
+        {
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "حاشیهٔ مشارکت هر خدمت برابر قیمت منهای هزینهٔ متغیر آن است. این مبلغ برای پوشش هزینهٔ ثابت می‌ماند؛ تمام آن سود نهایی نیست. در مدل ساده، تعداد سربه‌سر از تقسیم ثابت بر حاشیهٔ مشارکت واحد به دست می‌آید، اگر حاشیه مثبت باشد.",
+          "id": "C01-ST03-L02-CARD01"
+        },
+        {
+          "type": "explanation",
+          "title": "روش انجام کار",
+          "text": "قیمت و متغیر واحد و ثابت دوره را هم‌واحد کنید. حاصل تقسیم سربه‌سر را برای واحد تجزیه‌ناپذیر رو به بالا گرد کنید. بعد سود تعداد قبل و بعد را بررسی کنید. فرض خطی و ظرفیت را صریح نگه دارید.",
+          "id": "C01-ST03-L02-CARD02"
+        },
+        {
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+          "text": "در سپهر، قیمت دو و متغیر ۰٫۸ است؛ حاشیه ۱٫۲. ثابت ۷۰ است؛ تقسیم ۷۰ بر ۱٫۲ حدود ۵۸٫۳۳ می‌شود. حداقل ۵۹ خدمت صحیح لازم است. در ۵۸ خدمت سود منفی ۰٫۴ و در ۵۹ خدمت مثبت ۰٫۸ است. مالیات و بهره حذف شده‌اند؛ این سربه‌سر سود عملیاتیِ همین مدل است.",
+          "example_kind": "fictional",
+          "id": "C01-ST03-L02-CARD03"
+        },
+        {
+          "type": "contrast",
+          "title": "خطایی که باید بشناسیم",
+          "text": "اگر حاشیه صفر یا منفی باشد، افزایش حجم در همین مدل راه معمول پوشش هزینهٔ ثابت نیست. سربه‌سر سود با نقطهٔ کفایت نقد در هر روز برابر نیست.",
+          "id": "C01-ST03-L02-CARD04"
+        },
+        {
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+          "elements": [
+            "قیمت − متغیر واحد",
+            "حاشیهٔ مشارکت",
+            "ثابت ÷ حاشیه",
+            "گردکردن و کنترل"
+          ],
+          "alt": "قیمت − متغیر واحد؛ حاشیهٔ مشارکت؛ ثابت ÷ حاشیه؛ گردکردن و کنترل",
+          "id": "C01-ST03-L02-CARD05",
+          "table": {
+            "columns": [
+              "تعداد خدمت",
+              "درآمد",
+              "هزینهٔ کل عملیاتی",
+              "سود عملیاتی"
+            ],
+            "rows": [
+              [
+                "۰",
+                "۰",
+                "۷۰",
+                "منفی۷۰"
+              ],
+              [
+                "۵۸",
+                "۱۱۶",
+                "۱۱۶٫۴",
+                "منفی۰٫۴"
+              ],
+              [
+                "۵۹",
+                "۱۱۸",
+                "۱۱۷٫۲",
+                "۰٫۸"
+              ],
+              [
+                "۱۰۰",
+                "۲۰۰",
+                "۱۵۰",
+                "۵۰"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "نام سربه‌سر را با نوع سود و فرض‌های مدل بنویسید.",
+          "id": "C01-ST03-L02-CARD06"
+        }
+      ],
+      "questions": [
+        {
+          "id": "C01-ST03-L02-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "قیمت دو و متغیر ۰٫۸، حاشیهٔ واحد چیست؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۲٫۸",
+              "feedback": "«۲٫۸» پاسخ این پرسش نیست. ۲ − ۰٫۸ = ۱٫۲."
+            },
+            {
+              "id": "o2",
+              "text": "۰٫۸",
+              "feedback": "«۰٫۸» پاسخ این پرسش نیست. ۲ − ۰٫۸ = ۱٫۲."
+            },
+            {
+              "id": "o3",
+              "text": "۱٫۲",
+              "feedback": "۲ − ۰٫۸ = ۱٫۲."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "۲ − ۰٫۸ = ۱٫۲.",
+          "objective_id": "C01-ST03-L02-OBJ1",
+          "equivalence_group": "C01-ST03-L02-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L02-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L02-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ثابت ۷۰ و حاشیه ۱٫۲، حداقل خدمت صحیح برای سود غیرمنفی چیست؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۷۰",
+              "feedback": "«۷۰» پاسخ این پرسش نیست. حاصل ۵۸٫۳۳ رو به بالا گرد می‌شود."
+            },
+            {
+              "id": "o2",
+              "text": "۵۹",
+              "feedback": "حاصل ۵۸٫۳۳ رو به بالا گرد می‌شود."
+            },
+            {
+              "id": "o3",
+              "text": "۵۸",
+              "feedback": "«۵۸» پاسخ این پرسش نیست. حاصل ۵۸٫۳۳ رو به بالا گرد می‌شود."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "حاصل ۵۸٫۳۳ رو به بالا گرد می‌شود.",
+          "objective_id": "C01-ST03-L02-OBJ1",
+          "equivalence_group": "C01-ST03-L02-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L02-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L02-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "حاشیهٔ مشارکت تماماً چیست؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "لزوماً سود نهایی نیست",
+              "feedback": "هزینهٔ ثابت هنوز باید پوشش داده شود."
+            },
+            {
+              "id": "o2",
+              "text": "حتماً سود خالص است",
+              "feedback": "«حتماً سود خالص است» پاسخ این پرسش نیست. هزینهٔ ثابت هنوز باید پوشش داده شود."
+            },
+            {
+              "id": "o3",
+              "text": "همان دریافت نقد است",
+              "feedback": "«همان دریافت نقد است» پاسخ این پرسش نیست. هزینهٔ ثابت هنوز باید پوشش داده شود."
+            }
+          ],
+          "correct_option_id": "o1",
+          "explanation": "هزینهٔ ثابت هنوز باید پوشش داده شود.",
+          "objective_id": "C01-ST03-L02-OBJ1",
+          "equivalence_group": "C01-ST03-L02-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L02-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L02-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "حاشیهٔ واحد منفی است. افزایش حجم در همین مدل چه اثری دارد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "حتماً سربه‌سر می‌سازد",
+              "feedback": "«حتماً سربه‌سر می‌سازد» پاسخ این پرسش نیست. هر واحد با حاشیهٔ منفی پوشش ثابت را بهتر نمی‌کند."
+            },
+            {
+              "id": "o2",
+              "text": "ثابت را حذف می‌کند",
+              "feedback": "«ثابت را حذف می‌کند» پاسخ این پرسش نیست. هر واحد با حاشیهٔ منفی پوشش ثابت را بهتر نمی‌کند."
+            },
+            {
+              "id": "o3",
+              "text": "زیان مشارکت را بیشتر می‌کند",
+              "feedback": "هر واحد با حاشیهٔ منفی پوشش ثابت را بهتر نمی‌کند."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "هر واحد با حاشیهٔ منفی پوشش ثابت را بهتر نمی‌کند.",
+          "objective_id": "C01-ST03-L02-OBJ1",
+          "equivalence_group": "C01-ST03-L02-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L02-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "سربه‌سر سود چه چیزی را تضمین نمی‌کند؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "لزوم دیدن ظرفیت",
+              "feedback": "«لزوم دیدن ظرفیت» پاسخ این پرسش نیست. زمان وصول و پرداخت مستقل از این معادلهٔ سود است."
+            },
+            {
+              "id": "o2",
+              "text": "کفایت نقد در همهٔ تاریخ‌ها",
+              "feedback": "زمان وصول و پرداخت مستقل از این معادلهٔ سود است."
+            },
+            {
+              "id": "o3",
+              "text": "صفرشدن سود مدل در حجم پیوستهٔ محاسبه‌شده",
+              "feedback": "«صفرشدن سود مدل در حجم پیوستهٔ محاسبه‌شده» پاسخ این پرسش نیست. زمان وصول و پرداخت مستقل از این معادلهٔ سود است."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "زمان وصول و پرداخت مستقل از این معادلهٔ سود است.",
+          "objective_id": "C01-ST03-L02-OBJ1",
+          "equivalence_group": "C01-ST03-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L02-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "breakeven",
+          "title": "سربه‌سر؛ بخش ۳٫۲",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        },
+        {
+          "id": "contribution",
+          "title": "حاشیهٔ مشارکت؛ بخش ۳٫۱",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-1-explain-contribution-margin-and-calculate-contribution-margin-per-unit-contribution-margin-ratio-and-total-contribution-margin",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        }
+      ],
+      "practice_activity": {
+        "type": "numeric",
+        "prompt": "قیمت سه، متغیر یک و ثابت ۴۱ است؛ حداقل واحد صحیح برای سود غیرمنفی؟",
+        "answer": 21,
+        "absolute_tolerance": 0,
+        "unit": "خدمت تجزیه‌ناپذیر",
+        "solution": "۴۱ ÷ (۳ − ۱) = ۲۰٫۵؛ رو به بالا، ۲۱ خدمت."
+      },
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "P00"
+      ],
+      "prerequisites_block_access": false,
+      "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+    },
+    {
+      "id": "C01-ST03-L03",
+      "version": "1-draft",
+      "title": "حساسیت سود به تخفیف و ظرفیت",
+      "content_status": "draft",
+      "objective": "اثر تغییر قیمت یا هزینه و محدودیت ظرفیت را بسنجد.",
+      "learning_cards": [
+        {
+          "id": "C01-ST03-L03-OPEN",
+          "type": "problem",
+          "title": "پرسش این درس‌نامه",
+          "text": "اثر تغییر قیمت یا هزینه و محدودیت ظرفیت را بسنجد. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+        },
+        {
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "تحلیل حساسیت بررسی می‌کند تغییر یک ورودی چگونه خروجی مدل را عوض می‌کند. در سناریو، چند فرض سازگار با هم تغییر می‌کنند. حساسیت به معنی پیش‌بینی احتمال وقوع سناریو نیست.",
+          "id": "C01-ST03-L03-CARD01"
+        },
+        {
+          "type": "explanation",
+          "title": "روش انجام کار",
+          "text": "خط پایه را ثبت کنید. سپس قیمت، متغیر یا ثابت را تغییر و حاشیه و حجم لازم را دوباره حساب کنید. نیاز به افزایش فروش را با ظرفیت و تقاضا مقایسه کنید. افزایش تعداد در جدول به معنی امکان فروش آن در بازار نیست.",
+          "id": "C01-ST03-L03-CARD02"
+        },
+        {
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+          "text": "سپهر در خط پایهٔ صد خدمت با قیمت دو، متغیر ۰٫۸ و ثابت ۷۰، سود پنجاه دارد. اگر قیمت به ۱٫۸ برسد و بقیه ثابت بماند، حاشیه یک و سود سی می‌شود. برای سود قبلی، ۱۲۰ خدمت لازم است؛ ولی ظرفیت فرضی صد است. پس جبران صرفاً با حجم، در ظرفیت فعلی ممکن نیست.",
+          "example_kind": "fictional",
+          "id": "C01-ST03-L03-CARD03"
+        },
+        {
+          "type": "contrast",
+          "title": "خطایی که باید بشناسیم",
+          "text": "دو برابرکردن فروش بدون بررسی تقاضا و تیم، تحلیل معتبر نیست. یک سناریوی بدبینانه هم احتمال عددی نمی‌دهد مگر برای آن برآورد جدا داشته باشیم.",
+          "id": "C01-ST03-L03-CARD04"
+        },
+        {
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+          "elements": [
+            "خط پایه",
+            "تغییر فرض",
+            "سود و حجم لازم",
+            "تقاضا و ظرفیت"
+          ],
+          "alt": "خط پایه؛ تغییر فرض؛ سود و حجم لازم؛ تقاضا و ظرفیت",
+          "id": "C01-ST03-L03-CARD05"
+        },
+        {
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "کنار حجم پیشنهادی، شاهد امکان جذب و تحویل آن را بخواهید.",
+          "id": "C01-ST03-L03-CARD06"
+        }
+      ],
+      "questions": [
+        {
+          "id": "C01-ST03-L03-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "در قیمت ۱٫۸ و متغیر ۰٫۸، حاشیه چیست؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۲٫۶",
+              "feedback": "«۲٫۶» پاسخ این پرسش نیست. ۱٫۸ − ۰٫۸ = ۱."
+            },
+            {
+              "id": "o2",
+              "text": "۰٫۸",
+              "feedback": "«۰٫۸» پاسخ این پرسش نیست. ۱٫۸ − ۰٫۸ = ۱."
+            },
+            {
+              "id": "o3",
+              "text": "یک",
+              "feedback": "۱٫۸ − ۰٫۸ = ۱."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "۱٫۸ − ۰٫۸ = ۱.",
+          "objective_id": "C01-ST03-L03-OBJ1",
+          "equivalence_group": "C01-ST03-L03-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L03-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L03-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "صد خدمت با حاشیه یک و ثابت ۷۰ چه سودی دارد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۷۰",
+              "feedback": "«۷۰» پاسخ این پرسش نیست. ۱۰۰ × ۱ − ۷۰ = ۳۰."
+            },
+            {
+              "id": "o2",
+              "text": "۳۰",
+              "feedback": "۱۰۰ × ۱ − ۷۰ = ۳۰."
+            },
+            {
+              "id": "o3",
+              "text": "۵۰",
+              "feedback": "«۵۰» پاسخ این پرسش نیست. ۱۰۰ × ۱ − ۷۰ = ۳۰."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "۱۰۰ × ۱ − ۷۰ = ۳۰.",
+          "objective_id": "C01-ST03-L03-OBJ1",
+          "equivalence_group": "C01-ST03-L03-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L03-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L03-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای سود ۵۰ با حاشیه یک و ثابت۷۰ چه حجمی لازم است؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۱۲۰",
+              "feedback": "(۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+            },
+            {
+              "id": "o2",
+              "text": "۱۰۰",
+              "feedback": "«۱۰۰» پاسخ این پرسش نیست. (۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+            },
+            {
+              "id": "o3",
+              "text": "۵۰",
+              "feedback": "«۵۰» پاسخ این پرسش نیست. (۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+            }
+          ],
+          "correct_option_id": "o1",
+          "explanation": "(۵۰ + ۷۰) ÷ ۱ = ۱۲۰.",
+          "objective_id": "C01-ST03-L03-OBJ1",
+          "equivalence_group": "C01-ST03-L03-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L03-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L03-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ظرفیت صد است؛ حجم لازم۱۲۰ چه می‌گوید؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "فروش خودکار زیاد می‌شود",
+              "feedback": "«فروش خودکار زیاد می‌شود» پاسخ این پرسش نیست. محدودیت امکان اجرا باید وارد توصیه شود."
+            },
+            {
+              "id": "o2",
+              "text": "فقط اعشار باید بیشتر شود",
+              "feedback": "«فقط اعشار باید بیشتر شود» پاسخ این پرسش نیست. محدودیت امکان اجرا باید وارد توصیه شود."
+            },
+            {
+              "id": "o3",
+              "text": "در ظرفیت فعلی تحقق آن ممکن نیست",
+              "feedback": "محدودیت امکان اجرا باید وارد توصیه شود."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "محدودیت امکان اجرا باید وارد توصیه شود.",
+          "objective_id": "C01-ST03-L03-OBJ1",
+          "equivalence_group": "C01-ST03-L03-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L03-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "سناریوی بدبینانه چه چیزی نیست؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "راهی برای دیدن اثر فرض",
+              "feedback": "«راهی برای دیدن اثر فرض» پاسخ این پرسش نیست. شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+            },
+            {
+              "id": "o2",
+              "text": "خودبه‌خود برآورد احتمال وقوع",
+              "feedback": "شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+            },
+            {
+              "id": "o3",
+              "text": "یک حالت فرضی",
+              "feedback": "«یک حالت فرضی» پاسخ این پرسش نیست. شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند.",
+          "objective_id": "C01-ST03-L03-OBJ1",
+          "equivalence_group": "C01-ST03-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L03-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "sensitivity",
+          "title": "حساسیت سربه‌سر؛ بخش ۳٫۳",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-3-perform-break-even-sensitivity-analysis-for-a-single-product-under-changing-business-situations",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        }
+      ],
+      "practice_activity": null,
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "P00"
+      ],
+      "prerequisites_block_access": false,
+      "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+    },
+    {
+      "id": "C01-ST03-L04",
+      "version": "1-draft",
+      "title": "سود با تخفیف چه تغییری می‌کند؟",
+      "content_status": "draft",
+      "objective": "تخفیف را با سود و حجم و وصول مقایسه کند.",
+      "learning_cards": [
+        {
+          "id": "C01-ST03-L04-OPEN",
+          "type": "problem",
+          "title": "پرسش این درس‌نامه",
+          "text": "تخفیف را با سود و حجم و وصول مقایسه کند. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+        },
+        {
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "تخفیف قیمت، درآمد هر واحد و حاشیهٔ مشارکت را کم می‌کند، اگر متغیر واحد تغییر نکند. فروش بیشتر ممکن است آن را جبران کند، اما به اندازهٔ کافی و با ظرفیت و زمان وصول مناسب باید رخ دهد.",
+          "id": "C01-ST03-L04-CARD01"
+        },
+        {
+          "type": "explanation",
+          "title": "روش انجام کار",
+          "text": "درصد تخفیف را روی قیمت اعمال کنید، نه مستقیم روی سود. حاشیهٔ جدید را حساب و حجم لازم برای هدف سود را پیدا کنید. سپس تقاضا، ظرفیت و اثر شرایط وصول را جدا ببینید. هدف نقد امروز هم باید آشکارا از هدف سود دوره جدا باشد.",
+          "id": "C01-ST03-L04-CARD02"
+        },
+        {
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+          "text": "تخفیف ده درصدی روی قیمت دو، قیمت را ۱٫۸ می‌کند. با متغیر ۰٫۸ و ثابت۷۰، سود صد خدمت از پنجاه به سی می‌رسد؛ یعنی افت چهل درصدی سود، نه ده درصد. فرض می‌کنیم تعداد و همهٔ هزینه‌ها تغییر نکرده‌اند. اگر تخفیف برای وصول زودتر است، منفعت نقد باید جدا مقایسه شود.",
+          "example_kind": "fictional",
+          "id": "C01-ST03-L04-CARD03"
+        },
+        {
+          "type": "contrast",
+          "title": "خطایی که باید بشناسیم",
+          "text": "درصد تخفیف و درصد افت سود لزوماً برابر نیستند. رشد تعداد سفارش هم اگر تحویل یا وصول نشود، همان اثر ادعاشده را ندارد.",
+          "id": "C01-ST03-L04-CARD04"
+        },
+        {
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+          "elements": [
+            "تخفیف روی قیمت",
+            "حاشیهٔ تازه",
+            "سود با حجم",
+            "وصول و ظرفیت"
+          ],
+          "alt": "تخفیف روی قیمت؛ حاشیهٔ تازه؛ سود با حجم؛ وصول و ظرفیت",
+          "id": "C01-ST03-L04-CARD05"
+        },
+        {
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "توصیهٔ تخفیف باید مشخص کند چه تغییری در حجم یا وصول را با چه شاهدی انتظار داریم.",
+          "id": "C01-ST03-L04-CARD06"
+        }
+      ],
+      "questions": [
+        {
+          "id": "C01-ST03-L04-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ده درصد تخفیف روی دو، قیمت را چه می‌کند؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۱٫۹",
+              "feedback": "«۱٫۹» پاسخ این پرسش نیست. دو ضرب در ۰٫۹ برابر ۱٫۸ است."
+            },
+            {
+              "id": "o2",
+              "text": "یک",
+              "feedback": "«یک» پاسخ این پرسش نیست. دو ضرب در ۰٫۹ برابر ۱٫۸ است."
+            },
+            {
+              "id": "o3",
+              "text": "۱٫۸",
+              "feedback": "دو ضرب در ۰٫۹ برابر ۱٫۸ است."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "دو ضرب در ۰٫۹ برابر ۱٫۸ است.",
+          "objective_id": "C01-ST03-L04-OBJ1",
+          "equivalence_group": "C01-ST03-L04-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L04-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L04-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "سود از پنجاه به سی افتاده؛ درصد کاهش چقدر است؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "۲۰٪",
+              "feedback": "«۲۰٪» پاسخ این پرسش نیست. کاهش بیست نسبت به مبنای پنجاه برابر چهل درصد است."
+            },
+            {
+              "id": "o2",
+              "text": "۴۰٪",
+              "feedback": "کاهش بیست نسبت به مبنای پنجاه برابر چهل درصد است."
+            },
+            {
+              "id": "o3",
+              "text": "۱۰٪",
+              "feedback": "«۱۰٪» پاسخ این پرسش نیست. کاهش بیست نسبت به مبنای پنجاه برابر چهل درصد است."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "کاهش بیست نسبت به مبنای پنجاه برابر چهل درصد است.",
+          "objective_id": "C01-ST03-L04-OBJ1",
+          "equivalence_group": "C01-ST03-L04-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L04-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L04-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تخفیف روی کدام مقدار اعمال می‌شود؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "قیمت طبق تعریف پیشنهاد",
+              "feedback": "اثر بر سود پس از تغییر حاشیه محاسبه می‌شود."
+            },
+            {
+              "id": "o2",
+              "text": "خودکار تمام سود شرکت",
+              "feedback": "«خودکار تمام سود شرکت» پاسخ این پرسش نیست. اثر بر سود پس از تغییر حاشیه محاسبه می‌شود."
+            },
+            {
+              "id": "o3",
+              "text": "خودکار هزینهٔ ثابت",
+              "feedback": "«خودکار هزینهٔ ثابت» پاسخ این پرسش نیست. اثر بر سود پس از تغییر حاشیه محاسبه می‌شود."
+            }
+          ],
+          "correct_option_id": "o1",
+          "explanation": "اثر بر سود پس از تغییر حاشیه محاسبه می‌شود.",
+          "objective_id": "C01-ST03-L04-OBJ1",
+          "equivalence_group": "C01-ST03-L04-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L04-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L04-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "فروش بیشتر چه شرطی برای جبران دارد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "فقط زیادشدن تعداد تماس",
+              "feedback": "«فقط زیادشدن تعداد تماس» پاسخ این پرسش نیست. حجم باید واقعی و قابل اجرا و از نظر اقتصادی کافی باشد."
+            },
+            {
+              "id": "o2",
+              "text": "ندیدن زمان وصول",
+              "feedback": "«ندیدن زمان وصول» پاسخ این پرسش نیست. حجم باید واقعی و قابل اجرا و از نظر اقتصادی کافی باشد."
+            },
+            {
+              "id": "o3",
+              "text": "حجم کافی و امکان تحویل و هزینهٔ سازگار",
+              "feedback": "حجم باید واقعی و قابل اجرا و از نظر اقتصادی کافی باشد."
+            }
+          ],
+          "correct_option_id": "o3",
+          "explanation": "حجم باید واقعی و قابل اجرا و از نظر اقتصادی کافی باشد.",
+          "objective_id": "C01-ST03-L04-OBJ1",
+          "equivalence_group": "C01-ST03-L04-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L04-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C01-ST03-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تخفیف برای وصول زودتر چه مقایسه‌ای می‌خواهد؟",
+          "options": [
+            {
+              "id": "o1",
+              "text": "حذف همهٔ هزینه‌ها",
+              "feedback": "«حذف همهٔ هزینه‌ها» پاسخ این پرسش نیست. هدف نقدینگی و هدف سود باید هم‌زمان ولی جدا بررسی شوند."
+            },
+            {
+              "id": "o2",
+              "text": "منفعت نقد در برابر کاهش حاشیه و شرایط",
+              "feedback": "هدف نقدینگی و هدف سود باید هم‌زمان ولی جدا بررسی شوند."
+            },
+            {
+              "id": "o3",
+              "text": "فرض برابری نقد و سود",
+              "feedback": "«فرض برابری نقد و سود» پاسخ این پرسش نیست. هدف نقدینگی و هدف سود باید هم‌زمان ولی جدا بررسی شوند."
+            }
+          ],
+          "correct_option_id": "o2",
+          "explanation": "هدف نقدینگی و هدف سود باید هم‌زمان ولی جدا بررسی شوند.",
+          "objective_id": "C01-ST03-L04-OBJ1",
+          "equivalence_group": "C01-ST03-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C01-ST03-L04-CARD02",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "sensitivity",
+          "title": "حساسیت سربه‌سر؛ بخش ۳٫۳",
+          "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-3-perform-break-even-sensitivity-analysis-for-a-single-product-under-changing-business-situations",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        },
+        {
+          "id": "accrual",
+          "title": "زمان شناسایی و تعدیل؛ بخش ۴٫۱",
+          "url": "https://openstax.org/books/principles-financial-accounting/pages/4-1-explain-the-concepts-and-guidelines-affecting-adjusting-entries",
+          "accessed_on": "2026-10-19",
+          "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+        }
+      ],
+      "practice_activity": null,
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "P00"
+      ],
+      "prerequisites_block_access": false,
+      "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+    }
+  ],
+  "checkpoint": {
+    "id": "C01-ST03-CHECK",
+    "status": "authored_draft",
+    "questions": [
+      {
+        "id": "C01-ST03-CHECK-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "هزینهٔ ثابت هر واحد با حجم بیشتر در دامنهٔ ثابت چه می‌شود؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "همیشه همان مبلغ واحد می‌ماند",
+            "feedback": "این انتخاب درست نیست: مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+          },
+          {
+            "id": "o2",
+            "text": "کمتر می‌شود",
+            "feedback": "مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+          },
+          {
+            "id": "o3",
+            "text": "همیشه کل ثابت بیشتر می‌شود",
+            "feedback": "این انتخاب درست نیست: مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "مبلغ کل ثابت بین واحدهای بیشتری تقسیم می‌شود.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "C01-ST03-CHECK-Q01-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L01"
+      },
+      {
+        "id": "C01-ST03-CHECK-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "قیمت۴، متغیر۱ و ثابت۶۱؛ حداقل واحد صحیح سربه‌سر؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "۲۱",
+            "feedback": "۶۱ ÷ ۳ حدود۲۰٫۳۳ است؛ رو به بالا۲۱."
+          },
+          {
+            "id": "o2",
+            "text": "۲۰",
+            "feedback": "این انتخاب درست نیست: ۶۱ ÷ ۳ حدود۲۰٫۳۳ است؛ رو به بالا۲۱."
+          },
+          {
+            "id": "o3",
+            "text": "۶۱",
+            "feedback": "این انتخاب درست نیست: ۶۱ ÷ ۳ حدود۲۰٫۳۳ است؛ رو به بالا۲۱."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "۶۱ ÷ ۳ حدود۲۰٫۳۳ است؛ رو به بالا۲۱.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "C01-ST03-CHECK-Q02-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L02"
+      },
+      {
+        "id": "C01-ST03-CHECK-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "حجم لازم۱۵۰ و ظرفیت۱۰۰؛ چه باید گفت؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "فروش خودکار۱۵۰ می‌شود",
+            "feedback": "این انتخاب درست نیست: مدل عددی باید با امکان تحویل سازگار باشد."
+          },
+          {
+            "id": "o2",
+            "text": "فقط کافی است بودجه را۱۵۰ بنویسیم",
+            "feedback": "این انتخاب درست نیست: مدل عددی باید با امکان تحویل سازگار باشد."
+          },
+          {
+            "id": "o3",
+            "text": "در ظرفیت فعلی اجرای آن ممکن نیست",
+            "feedback": "مدل عددی باید با امکان تحویل سازگار باشد."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "مدل عددی باید با امکان تحویل سازگار باشد.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "C01-ST03-CHECK-Q03-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L03"
+      },
+      {
+        "id": "C01-ST03-CHECK-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "افت سود از۵۰ به۳۰ چند درصد است؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "۲۰٪",
+            "feedback": "این انتخاب درست نیست: تغییر منفی۲۰ نسبت به مبنای۵۰ برابر منفی۴۰٪ است."
+          },
+          {
+            "id": "o2",
+            "text": "۴۰٪",
+            "feedback": "تغییر منفی۲۰ نسبت به مبنای۵۰ برابر منفی۴۰٪ است."
+          },
+          {
+            "id": "o3",
+            "text": "۱۰٪",
+            "feedback": "این انتخاب درست نیست: تغییر منفی۲۰ نسبت به مبنای۵۰ برابر منفی۴۰٪ است."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "تغییر منفی۲۰ نسبت به مبنای۵۰ برابر منفی۴۰٪ است.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "C01-ST03-CHECK-Q04-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L04"
+      },
+      {
+        "id": "C01-ST03-CHECK-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "حاشیهٔ هر واحد مثبت ولی نقد کم است. چه بررسی شود؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "حجم، ثابت و زمان وصول و پرداخت",
+            "feedback": "حاشیه تمام سود نیست و سود هم تمام نقد نیست."
+          },
+          {
+            "id": "o2",
+            "text": "فقط قیمت واحد",
+            "feedback": "این انتخاب درست نیست: حاشیه تمام سود نیست و سود هم تمام نقد نیست."
+          },
+          {
+            "id": "o3",
+            "text": "فرض تناقض حساب‌ها",
+            "feedback": "این انتخاب درست نیست: حاشیه تمام سود نیست و سود هم تمام نقد نیست."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "حاشیه تمام سود نیست و سود هم تمام نقد نیست.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L01",
+          "C01-ST03-L02",
+          "C01-ST03-L03",
+          "C01-ST03-L04"
+        ],
+        "assessment_role": "transfer",
+        "equivalence_group": "C01-ST03-CHECK-Q05-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L04"
+      },
+      {
+        "id": "C01-ST03-CHECK-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "مدیر بیرون دامنهٔ ظرفیت از خط هزینهٔ قبلی استفاده می‌کند. خطر چیست؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "افزایش قطعی دقت",
+            "feedback": "این انتخاب درست نیست: فرض خطی فقط در دامنهٔ اعلام‌شده معتبر است."
+          },
+          {
+            "id": "o2",
+            "text": "حذف نیاز به تقاضا",
+            "feedback": "این انتخاب درست نیست: فرض خطی فقط در دامنهٔ اعلام‌شده معتبر است."
+          },
+          {
+            "id": "o3",
+            "text": "نادیده‌گرفتن منابع و هزینهٔ پله‌ای تازه",
+            "feedback": "فرض خطی فقط در دامنهٔ اعلام‌شده معتبر است."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "فرض خطی فقط در دامنهٔ اعلام‌شده معتبر است.",
+        "coverage_lesson_ids": [
+          "C01-ST03-L01",
+          "C01-ST03-L02",
+          "C01-ST03-L03",
+          "C01-ST03-L04"
+        ],
+        "assessment_role": "transfer",
+        "equivalence_group": "C01-ST03-CHECK-Q06-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "C01-ST03-L04"
+      }
+    ],
+    "unlocks_content": false,
+    "fresh_equivalent_variants": 0
+  },
+  "content_status": "draft"
+}

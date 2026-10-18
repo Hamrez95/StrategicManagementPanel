@@ -16,8 +16,8 @@
     "lesson_nodes_total": 592,
     "stage_review_nodes": 148,
     "course_assessment_nodes": 43,
-    "authored_draft_lessons": 32,
-    "authored_questions": 232,
+    "authored_draft_lessons": 48,
+    "authored_questions": 356,
     "historical_sample_questions": 26
   },
   "access": {
@@ -222,7 +222,7 @@
               "title": "کسب‌وکار چه چیزهایی را ثبت می‌کند؟",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "ده رویداد روزمره را به مالی و غیرمالی تفکیک کند",
               "source_refs": [
                 "B01",
@@ -249,8 +249,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -276,14 +277,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST01-L01.json"
             },
             {
               "id": "C01-ST01-L02",
               "title": "دارایی، بدهی و حقوق مالکانه",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "اثر پنج معامله را بر معادلهٔ حسابداری نشان دهد",
               "source_refs": [
                 "B01",
@@ -310,8 +312,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -337,14 +340,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST01-L02.json"
             },
             {
               "id": "C01-ST01-L03",
               "title": "ثبت، سند و کنترل اولیه",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "یک ثبت ناسازگار را با سند تطبیق دهد",
               "source_refs": [
                 "B01",
@@ -371,8 +375,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -398,14 +403,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST01-L03.json"
             },
             {
               "id": "C01-ST01-L04",
               "title": "چرا ثبت یکسان، تصمیم یکسان نمی‌سازد؟",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «چرا ثبت یکسان، تصمیم یکسان نمی‌سازد؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B01",
@@ -432,8 +438,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -444,7 +451,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c01/lessons/C01-ST01-L04.json"
             }
           ],
           "checkpoint": {
@@ -452,8 +460,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c01/stages/C01-ST01.json#/checkpoint"
           }
         },
         {
@@ -478,7 +487,7 @@
               "title": "درآمد و سود چه فرقی با دریافت وجه دارند؟",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "فروش نقد و نسیه را در زمان درست تفکیک کند",
               "source_refs": [
                 "B01",
@@ -506,8 +515,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -533,14 +543,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST02-L01.json"
             },
             {
               "id": "C01-ST02-L02",
               "title": "خواندن صورت‌ها کنار هم",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "سود و ماندهٔ نقد را از رویدادهای یک ماه بسازد",
               "source_refs": [
                 "B01",
@@ -568,8 +579,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -595,14 +607,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST02-L02.json"
             },
             {
               "id": "C01-ST02-L03",
               "title": "چرا شرکت سودده کمبود نقد دارد؟",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "رشد مطالبات و خرید تجهیزات را در اختلاف سود و نقد توضیح دهد",
               "source_refs": [
                 "B01",
@@ -630,8 +643,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -657,14 +671,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST02-L03.json"
             },
             {
               "id": "C01-ST02-L04",
               "title": "کیس مالی واقعی: عدد را از تفسیر جدا کنیم",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «کیس مالی واقعی: عدد را از تفسیر جدا کنیم» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B01",
@@ -692,8 +707,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -704,7 +720,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c01/lessons/C01-ST02-L04.json"
             }
           ],
           "checkpoint": {
@@ -712,8 +729,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c01/stages/C01-ST02.json#/checkpoint"
           }
         },
         {
@@ -737,7 +755,7 @@
               "title": "هزینهٔ ثابت، متغیر و مرتبط",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "هزینه‌های یک خدمت را با ذکر بازهٔ فعالیت دسته‌بندی کند",
               "source_refs": [
                 "B02",
@@ -764,8 +782,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -791,14 +810,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST03-L01.json"
             },
             {
               "id": "C01-ST03-L02",
               "title": "حاشیهٔ مشارکت و سربه‌سر",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "حجم سربه‌سر و سود هدف را برای یک خدمت محاسبه کند",
               "source_refs": [
                 "B02",
@@ -825,8 +845,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -852,14 +873,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST03-L02.json"
             },
             {
               "id": "C01-ST03-L03",
               "title": "حساسیت سود به تخفیف و ظرفیت",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "دو پیشنهاد فروش را با محدودیت ظرفیت مقایسه کند",
               "source_refs": [
                 "B02",
@@ -886,8 +908,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -913,14 +936,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST03-L03.json"
             },
             {
               "id": "C01-ST03-L04",
               "title": "سود با تخفیف چه تغییری می‌کند؟",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «سود با تخفیف چه تغییری می‌کند؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B02",
@@ -947,8 +971,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -959,7 +984,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c01/lessons/C01-ST03-L04.json"
             }
           ],
           "checkpoint": {
@@ -967,8 +993,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c01/stages/C01-ST03.json#/checkpoint"
           },
           "tool_plan": [
             {
@@ -1005,7 +1032,7 @@
               "title": "بودجه چگونه از فرض ساخته می‌شود؟",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "بودجهٔ یک ماه را از حجم و قیمت بسازد",
               "source_refs": [
                 "B02",
@@ -1033,8 +1060,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1060,14 +1088,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST04-L01.json"
             },
             {
               "id": "C01-ST04-L02",
               "title": "انحراف عملکرد یعنی چه؟",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "اختلاف مبلغ واقعی و بودجه را به علت‌های ممکن تفکیک کند",
               "source_refs": [
                 "B02",
@@ -1095,8 +1124,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1122,14 +1152,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST04-L02.json"
             },
             {
               "id": "C01-ST04-L03",
               "title": "گزارش قابل اعتماد و نقش AI",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "یک گزارش ساخته‌شده با AI را با دفتر رویدادها تطبیق دهد",
               "source_refs": [
                 "B02",
@@ -1157,8 +1188,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1184,14 +1216,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c01/lessons/C01-ST04-L03.json"
             },
             {
               "id": "C01-ST04-L04",
               "title": "بازبینی گزارش حسابداری با کمک AI",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «بازبینی گزارش حسابداری با کمک AI» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B02",
@@ -1219,8 +1252,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1231,7 +1265,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c01/lessons/C01-ST04-L04.json"
             }
           ],
           "checkpoint": {
@@ -1239,8 +1274,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c01/stages/C01-ST04.json#/checkpoint"
           }
         }
       ],
@@ -1251,17 +1287,19 @@
         "coverage": "balanced_across_stages",
         "project_required": false,
         "applied_artifact_prompt": "یک تصمیم مدیریتی مرتبط را همراه فرض، شواهد و محدودیت توضیح دهید.",
-        "bank_status": "to_author",
-        "content_access_gate": false
+        "bank_status": "authored_draft",
+        "content_access_gate": false,
+        "bank_ref": "content/c01/final-assessment.json"
       },
       "counts": {
         "stages": 4,
         "lessons": 16
       },
-      "release_status": "planned_not_for_sale_as_complete_course",
+      "release_status": "authored_draft_pending_review",
       "historical_source_ids": [
         "H05"
-      ]
+      ],
+      "authored_content_ref": "content/c01/course.v1.json"
     },
     {
       "id": "C02",

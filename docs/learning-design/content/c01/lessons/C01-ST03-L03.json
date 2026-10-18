@@ -1,0 +1,232 @@
+{
+  "id": "C01-ST03-L03",
+  "version": "1-draft",
+  "title": "حساسیت سود به تخفیف و ظرفیت",
+  "content_status": "draft",
+  "objective": "اثر تغییر قیمت یا هزینه و محدودیت ظرفیت را بسنجد.",
+  "learning_cards": [
+    {
+      "id": "C01-ST03-L03-OPEN",
+      "type": "problem",
+      "title": "پرسش این درس‌نامه",
+      "text": "اثر تغییر قیمت یا هزینه و محدودیت ظرفیت را بسنجد. در مثال سپهر، مقدارها و زمان‌ها را جدا می‌نویسیم."
+    },
+    {
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "تحلیل حساسیت بررسی می‌کند تغییر یک ورودی چگونه خروجی مدل را عوض می‌کند. در سناریو، چند فرض سازگار با هم تغییر می‌کنند. حساسیت به معنی پیش‌بینی احتمال وقوع سناریو نیست.",
+      "id": "C01-ST03-L03-CARD01"
+    },
+    {
+      "type": "explanation",
+      "title": "روش انجام کار",
+      "text": "خط پایه را ثبت کنید. سپس قیمت، متغیر یا ثابت را تغییر و حاشیه و حجم لازم را دوباره حساب کنید. نیاز به افزایش فروش را با ظرفیت و تقاضا مقایسه کنید. افزایش تعداد در جدول به معنی امکان فروش آن در بازار نیست.",
+      "id": "C01-ST03-L03-CARD02"
+    },
+    {
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+      "text": "سپهر در خط پایهٔ صد خدمت با قیمت دو، متغیر ۰٫۸ و ثابت ۷۰، سود پنجاه دارد. اگر قیمت به ۱٫۸ برسد و بقیه ثابت بماند، حاشیه یک و سود سی می‌شود. برای سود قبلی، ۱۲۰ خدمت لازم است؛ ولی ظرفیت فرضی صد است. پس جبران صرفاً با حجم، در ظرفیت فعلی ممکن نیست.",
+      "example_kind": "fictional",
+      "id": "C01-ST03-L03-CARD03"
+    },
+    {
+      "type": "contrast",
+      "title": "خطایی که باید بشناسیم",
+      "text": "دو برابرکردن فروش بدون بررسی تقاضا و تیم، تحلیل معتبر نیست. یک سناریوی بدبینانه هم احتمال عددی نمی‌دهد مگر برای آن برآورد جدا داشته باشیم.",
+      "id": "C01-ST03-L03-CARD04"
+    },
+    {
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+      "elements": [
+        "خط پایه",
+        "تغییر فرض",
+        "سود و حجم لازم",
+        "تقاضا و ظرفیت"
+      ],
+      "alt": "خط پایه؛ تغییر فرض؛ سود و حجم لازم؛ تقاضا و ظرفیت",
+      "id": "C01-ST03-L03-CARD05"
+    },
+    {
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "کنار حجم پیشنهادی، شاهد امکان جذب و تحویل آن را بخواهید.",
+      "id": "C01-ST03-L03-CARD06"
+    }
+  ],
+  "questions": [
+    {
+      "id": "C01-ST03-L03-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "در قیمت ۱٫۸ و متغیر ۰٫۸، حاشیه چیست؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۲٫۶",
+          "feedback": "«۲٫۶» پاسخ این پرسش نیست. ۱٫۸ − ۰٫۸ = ۱."
+        },
+        {
+          "id": "o2",
+          "text": "۰٫۸",
+          "feedback": "«۰٫۸» پاسخ این پرسش نیست. ۱٫۸ − ۰٫۸ = ۱."
+        },
+        {
+          "id": "o3",
+          "text": "یک",
+          "feedback": "۱٫۸ − ۰٫۸ = ۱."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "۱٫۸ − ۰٫۸ = ۱.",
+      "objective_id": "C01-ST03-L03-OBJ1",
+      "equivalence_group": "C01-ST03-L03-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST03-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST03-L03-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "صد خدمت با حاشیه یک و ثابت ۷۰ چه سودی دارد؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۷۰",
+          "feedback": "«۷۰» پاسخ این پرسش نیست. ۱۰۰ × ۱ − ۷۰ = ۳۰."
+        },
+        {
+          "id": "o2",
+          "text": "۳۰",
+          "feedback": "۱۰۰ × ۱ − ۷۰ = ۳۰."
+        },
+        {
+          "id": "o3",
+          "text": "۵۰",
+          "feedback": "«۵۰» پاسخ این پرسش نیست. ۱۰۰ × ۱ − ۷۰ = ۳۰."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "۱۰۰ × ۱ − ۷۰ = ۳۰.",
+      "objective_id": "C01-ST03-L03-OBJ1",
+      "equivalence_group": "C01-ST03-L03-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST03-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST03-L03-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای سود ۵۰ با حاشیه یک و ثابت۷۰ چه حجمی لازم است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۱۲۰",
+          "feedback": "(۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+        },
+        {
+          "id": "o2",
+          "text": "۱۰۰",
+          "feedback": "«۱۰۰» پاسخ این پرسش نیست. (۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+        },
+        {
+          "id": "o3",
+          "text": "۵۰",
+          "feedback": "«۵۰» پاسخ این پرسش نیست. (۵۰ + ۷۰) ÷ ۱ = ۱۲۰."
+        }
+      ],
+      "correct_option_id": "o1",
+      "explanation": "(۵۰ + ۷۰) ÷ ۱ = ۱۲۰.",
+      "objective_id": "C01-ST03-L03-OBJ1",
+      "equivalence_group": "C01-ST03-L03-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST03-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST03-L03-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ظرفیت صد است؛ حجم لازم۱۲۰ چه می‌گوید؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "فروش خودکار زیاد می‌شود",
+          "feedback": "«فروش خودکار زیاد می‌شود» پاسخ این پرسش نیست. محدودیت امکان اجرا باید وارد توصیه شود."
+        },
+        {
+          "id": "o2",
+          "text": "فقط اعشار باید بیشتر شود",
+          "feedback": "«فقط اعشار باید بیشتر شود» پاسخ این پرسش نیست. محدودیت امکان اجرا باید وارد توصیه شود."
+        },
+        {
+          "id": "o3",
+          "text": "در ظرفیت فعلی تحقق آن ممکن نیست",
+          "feedback": "محدودیت امکان اجرا باید وارد توصیه شود."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "محدودیت امکان اجرا باید وارد توصیه شود.",
+      "objective_id": "C01-ST03-L03-OBJ1",
+      "equivalence_group": "C01-ST03-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST03-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C01-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "سناریوی بدبینانه چه چیزی نیست؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "راهی برای دیدن اثر فرض",
+          "feedback": "«راهی برای دیدن اثر فرض» پاسخ این پرسش نیست. شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+        },
+        {
+          "id": "o2",
+          "text": "خودبه‌خود برآورد احتمال وقوع",
+          "feedback": "شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+        },
+        {
+          "id": "o3",
+          "text": "یک حالت فرضی",
+          "feedback": "«یک حالت فرضی» پاسخ این پرسش نیست. شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "شدت پیامد و احتمال وقوع دو موضوع متفاوت‌اند.",
+      "objective_id": "C01-ST03-L03-OBJ1",
+      "equivalence_group": "C01-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C01-ST03-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "sensitivity",
+      "title": "حساسیت سربه‌سر؛ بخش ۳٫۳",
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-3-perform-break-even-sensitivity-analysis-for-a-single-product-under-changing-business-situations",
+      "accessed_on": "2026-10-19",
+      "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+    }
+  ],
+  "practice_activity": null,
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "P00"
+  ],
+  "prerequisites_block_access": false,
+  "scenario_unit": "واحد پول فرضی؛ مسئله‌های مستقل با فرض‌های صریح؛ نمونهٔ دستمزد به سناریوی هزینهٔ هر خدمت وصل نیست."
+}
