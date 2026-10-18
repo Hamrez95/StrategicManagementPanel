@@ -13,6 +13,7 @@ Read the selected issue and its dependencies, then only the relevant sections of
 - Graphify is mandatory for code impact analysis before broad source reads and after code changes. Use local code-only/update modes; no paid/cloud/semantic extraction without explicit scope.
 - Apply docs/DEVELOPMENT_WORKFLOW.md for focused reads, targeted checks, honest evidence and small PRs. Do not close a task just because its UI is present.
 - Use relevant available skills; do not pretend missing PM skills are installed. Pricing and market validation are hypotheses until evidence exists.
+- For all user-facing copy, follow docs/CONTENT_STYLE_FA.md: warm, respectful, plain Persian; technical terms in their original language with helpful Persian translations. Finish Academy UI flows before the new research/content phase.
 
 ## graphify
 

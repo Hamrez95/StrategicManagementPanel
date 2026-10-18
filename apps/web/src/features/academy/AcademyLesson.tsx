@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router';
-import { Button } from '@stratino/ui';
+import { Link, useNavigate } from 'react-router';
+import { Button, Dialog } from '@stratino/ui';
 import { gradePractice } from '@stratino/domain/academy';
 import { academyLessons, academySources } from './content';
 import type { LessonContent } from './content';
 import { AcademyIcon } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
+import { AcademyText } from './AcademyText';
+import { CelebrationBurst } from './AcademyMotion';
 
 type Draft = {
   step: number;
@@ -13,21 +15,40 @@ type Draft = {
   checked: boolean;
   note: string;
   prediction: string;
+  learned: boolean;
 };
-const fresh = (): Draft => ({ step: 0, answers: {}, checked: false, note: '', prediction: '' });
+const fresh = (): Draft => ({
+  step: 0,
+  answers: {},
+  checked: false,
+  note: '',
+  prediction: '',
+  learned: false,
+});
 const draftKey = (lesson: LessonContent) =>
-  `stratino-academy-draft-v1:${lesson.id}:${lesson.version}`;
+  `stratino-academy-draft-v2:${lesson.id}:${lesson.version}`;
 function readDraft(lesson: LessonContent): Draft {
+  const quizStart = 3 + lesson.diagram.length;
   try {
-    const d = JSON.parse(sessionStorage.getItem(draftKey(lesson)) ?? 'null');
+    const saved = sessionStorage.getItem(draftKey(lesson));
+    if (saved === null) {
+      const previous = JSON.parse(
+        sessionStorage.getItem(`stratino-academy-draft-v1:${lesson.id}:${lesson.version}`) ??
+          'null',
+      );
+      return { ...fresh(), note: typeof previous?.note === 'string' ? previous.note : '' };
+    }
+    const d = JSON.parse(saved);
     if (
       !d ||
       !Number.isInteger(d.step) ||
       d.step < 0 ||
-      d.step > lesson.questions.length + 3 ||
+      d.step > lesson.questions.length + quizStart ||
       typeof d.note !== 'string' ||
       typeof d.prediction !== 'string' ||
       typeof d.checked !== 'boolean' ||
+      typeof d.learned !== 'boolean' ||
+      (d.step >= quizStart && !d.learned) ||
       !d.answers ||
       typeof d.answers !== 'object' ||
       Array.isArray(d.answers)
@@ -37,10 +58,11 @@ function readDraft(lesson: LessonContent): Draft {
       if (!lesson.questions.find((q) => q.id === id)?.choices.some((c) => c.id === answer))
         return fresh();
     }
-    const question = lesson.questions[d.step - 3];
+    const question = lesson.questions[d.step - quizStart];
     if (
       (d.checked && question && !d.answers[question.id]) ||
-      (d.step >= 3 && lesson.questions.slice(0, d.step - 3).some((q) => !d.answers[q.id]))
+      (d.step >= quizStart &&
+        lesson.questions.slice(0, d.step - quizStart).some((q) => !d.answers[q.id]))
     )
       return fresh();
     return d;
@@ -56,13 +78,18 @@ export function AcademyLesson({
   lesson: LessonContent;
   onComplete: (lesson: LessonContent, answers: Record<string, string>) => void;
 }) {
+  const navigate = useNavigate();
+  const [exitOpen, setExitOpen] = useState(false);
+  const [direction, setDirection] = useState('forward');
   const [draft, setDraft] = useState(() => readDraft(lesson));
   const [storageWarning, setStorageWarning] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const feedback = useRef<HTMLDivElement>(null);
-  const { step, answers, checked, note, prediction } = draft;
-  const lastStep = lesson.questions.length + 3;
-  const question = lesson.questions[step - 3];
+  const { step, answers, checked, note, prediction, learned } = draft;
+  const quizStart = 3 + lesson.diagram.length;
+  const lastStep = lesson.questions.length + quizStart;
+  const concept = lesson.diagram[step - 3];
+  const question = lesson.questions[step - quizStart];
   const result = gradePractice(lesson, answers);
   const next = academyLessons[academyLessons.findIndex((item) => item.id === lesson.id) + 1];
   const number = new Intl.NumberFormat('fa-IR');
@@ -75,32 +102,66 @@ export function AcademyLesson({
   }, [draft, lesson]);
   useEffect(() => {
     heading.current?.focus();
+    window.scrollTo(0, 0);
   }, [step]);
   useEffect(() => {
     if (checked) feedback.current?.focus();
   }, [checked]);
   function advance() {
-    setDraft((d) => ({ ...d, step: d.step + 1, checked: false }));
+    setDirection('forward');
+    setDraft((d) => ({
+      ...d,
+      step: Math.min(d.step + 1, lastStep),
+      checked: false,
+      learned: d.learned || d.step + 1 === quizStart,
+    }));
   }
   return (
-    <article className="academy-lesson academy-player" lang="fa" dir="rtl">
+    <article
+      className="academy-lesson academy-player"
+      lang="fa"
+      dir="rtl"
+      data-stage={step < quizStart ? 'learn' : step === lastStep ? 'result' : 'quiz'}
+    >
       <div className="academy-player-top">
-        <Link to="/academy" className="academy-back" aria-label="بازگشت به مسیر">
-          ×
-        </Link>
+        <Dialog
+          open={exitOpen}
+          onOpenChange={setExitOpen}
+          trigger={
+            <Button variant="quiet" className="academy-back" aria-label="بازگشت به مسیر">
+              ×
+            </Button>
+          }
+          title="برای امروز کافی است؟"
+          description={
+            storageWarning
+              ? 'ذخیره مرورگر در دسترس نیست؛ اگر یادداشت داری، قبل از خروج آن را کپی کن.'
+              : 'ادامه درس و یادداشتت در همین تب می‌ماند؛ هر وقت خواستی برگرد و ادامه بده.'
+          }
+        >
+          <div className="academy-exit-content">
+            <AcademyMascot mood="retry" />
+            <Button variant="primary" onClick={() => setExitOpen(false)}>
+              ادامه می‌دهم
+            </Button>
+            <Button onClick={() => navigate('/academy')}>فعلاً برمی‌گردم</Button>
+          </div>
+        </Dialog>
         <progress aria-label="پیشرفت این درس" value={step} max={lastStep} />
         <span>
           {number.format(Math.min(step + 1, lastStep))} / {number.format(lastStep)}
         </span>
       </div>
       <p className="academy-muted">فصل اول · شرکت فرضی آوند</p>
-      <h1>{lesson.title}</h1>
+      <h1>
+        <AcademyText>{lesson.title}</AcademyText>
+      </h1>
       {storageWarning && (
         <p className="academy-warning" role="alert">
           ادامه درس و یادداشت در مرورگر ذخیره نشد؛ قبل از خروج یادداشت را کپی کن.
         </p>
       )}
-      <div className="academy-step" key={step}>
+      <div className="academy-step" key={step} data-direction={direction}>
         <p className="academy-step-label">
           {step === 0
             ? 'داستان'
@@ -110,26 +171,36 @@ export function AcademyLesson({
                 ? 'کشف ایده'
                 : step === lastStep
                   ? 'نتیجه تمرین'
-                  : `تصمیم ${number.format(step - 2)}`}
+                  : step < quizStart
+                    ? `آموزش ${number.format(step - 2)} از ${number.format(lesson.diagram.length)}`
+                    : `پرسش ${number.format(step - quizStart + 1)}`}
         </p>
         <h2 ref={heading} tabIndex={-1}>
-          {step === 0
-            ? 'تو در تیم آوند هستی'
-            : step === 1
-              ? 'قبل از یادگیری، تو چه می‌کنی؟'
-              : step === 2
-                ? 'ایده اصلی'
-                : step === lastStep
-                  ? result.passed
-                    ? 'این تمرین را کامل کردی'
-                    : 'یک بار دیگر، با دلیل روشن‌تر'
-                  : 'حالا تو تصمیم بگیر'}
+          {step === 0 ? (
+            'تو در تیم آوند هستی'
+          ) : step === 1 ? (
+            'قبل از یادگیری، تو چه می‌کنی؟'
+          ) : step === 2 ? (
+            'ایده اصلی'
+          ) : step === lastStep ? (
+            result.passed ? (
+              'این تمرین را کامل کردی'
+            ) : (
+              'یک بار دیگر، با دلیل روشن‌تر'
+            )
+          ) : step < quizStart ? (
+            <AcademyText>{concept?.label ?? ''}</AcademyText>
+          ) : (
+            'حالا تو تصمیم بگیر'
+          )}
         </h2>
         {step === 0 && (
           <>
             <div className="academy-scene">
               <AcademyMascot mood="welcome" />
-              <p>{lesson.scene}</p>
+              <p>
+                <AcademyText>{lesson.scene}</AcademyText>
+              </p>
             </div>
             <p className="academy-objective">بعد از این درس می‌توانی {lesson.objective}</p>
           </>
@@ -138,7 +209,9 @@ export function AcademyLesson({
           <>
             <div className="academy-coach">
               <AcademyMascot mood="thinking" />
-              <p>{lesson.questions[0].prompt}</p>
+              <p>
+                <AcademyText>{lesson.questions[0].prompt}</AcademyText>
+              </p>
             </div>
             <p className="academy-muted">این انتخاب نمره ندارد؛ فقط برداشت اولیه‌ات را ثبت کن.</p>
             <fieldset>
@@ -155,7 +228,9 @@ export function AcademyLesson({
                       checked={prediction === choice.id}
                       onChange={() => setDraft((d) => ({ ...d, prediction: choice.id }))}
                     />
-                    <span>{choice.text}</span>
+                    <span>
+                      <AcademyText>{choice.text}</AcademyText>
+                    </span>
                   </label>
                 ))}
               </div>
@@ -166,18 +241,41 @@ export function AcademyLesson({
           <>
             <div className="academy-coach">
               <AcademyMascot mood="guidance" />
-              <p className="academy-teaching">{lesson.teaching}</p>
+              <p className="academy-teaching">
+                <AcademyText>{lesson.teaching}</AcademyText>
+              </p>
             </div>
-            <ol className="academy-diagram">
+          </>
+        )}
+        {step >= 3 && step < quizStart && concept && (
+          <div className="academy-concept">
+            <div className="academy-concept-art">
+              <AcademyIcon name={step % 2 ? 'target' : 'spark'} />
+              <span>{number.format(step - 2)}</span>
+            </div>
+            <div className="academy-coach">
+              <AcademyMascot mood="guidance" />
+              <p>
+                <AcademyText>{concept.detail}</AcademyText>
+              </p>
+            </div>
+            <ol className="academy-diagram" aria-label="قدم‌های این ایده">
               {lesson.diagram.map((item, i) => (
-                <li key={item.label}>
-                  <span className="academy-diagram-number">{number.format(i + 1)}</span>
-                  <strong>{item.label}</strong>
-                  <span>{item.detail}</span>
+                <li
+                  key={item.label}
+                  className={i <= step - 3 ? 'academy-diagram-active' : ''}
+                  aria-current={i === step - 3 ? 'step' : undefined}
+                >
+                  <span className="academy-diagram-number">
+                    {i < step - 3 ? <AcademyIcon name="check" /> : number.format(i + 1)}
+                  </span>
+                  <strong>
+                    <AcademyText>{item.label}</AcademyText>
+                  </strong>
                 </li>
               ))}
             </ol>
-          </>
+          </div>
         )}
         {question && !checked && (
           <div className="academy-coach">
@@ -195,12 +293,26 @@ export function AcademyLesson({
             }}
           >
             <fieldset disabled={checked}>
-              <legend>{question.prompt}</legend>
+              <legend>
+                <AcademyText>{question.prompt}</AcademyText>
+              </legend>
               <div className="academy-choices">
                 {question.choices.map((choice, i) => (
                   <label
                     key={choice.id}
-                    className={answers[question.id] === choice.id ? 'academy-selected' : ''}
+                    className={[
+                      answers[question.id] === choice.id ? 'academy-selected' : '',
+                      checked && choice.id === question.correctChoiceId
+                        ? 'academy-choice-correct'
+                        : '',
+                      checked &&
+                      answers[question.id] === choice.id &&
+                      choice.id !== question.correctChoiceId
+                        ? 'academy-choice-retry'
+                        : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
                   >
                     <span className="academy-choice-number" aria-hidden="true">
                       {number.format(i + 1)}
@@ -216,7 +328,9 @@ export function AcademyLesson({
                         }))
                       }
                     />
-                    <span>{choice.text}</span>
+                    <span>
+                      <AcademyText>{choice.text}</AcademyText>
+                    </span>
                   </label>
                 ))}
               </div>
@@ -230,6 +344,7 @@ export function AcademyLesson({
             role="status"
             className={`academy-feedback ${answers[question.id] === question.correctChoiceId ? 'academy-feedback--passed' : 'academy-feedback--retry'}`}
           >
+            {answers[question.id] === question.correctChoiceId && <CelebrationBurst small />}
             <AcademyMascot
               mood={answers[question.id] === question.correctChoiceId ? 'correct' : 'retry'}
             />
@@ -238,7 +353,9 @@ export function AcademyLesson({
                 ? 'درست انتخاب کردی!'
                 : 'بیاییم دلیلش را ببینیم'}
             </h3>
-            <p>{question.explanation}</p>
+            <p>
+              <AcademyText>{question.explanation}</AcademyText>
+            </p>
           </div>
         )}
         {step === lastStep && (
@@ -250,6 +367,7 @@ export function AcademyLesson({
               className={`academy-feedback academy-result${result.passed ? ' academy-feedback--passed' : ''}`}
             >
               <div className="academy-result-emblem">
+                {result.passed && <CelebrationBurst />}
                 <AcademyMascot mood={result.passed ? 'celebration' : 'retry'} />
                 <AcademyIcon name={result.passed ? 'trophy' : 'target'} />
               </div>
@@ -259,7 +377,9 @@ export function AcademyLesson({
               </p>
               <p>
                 {result.passed
-                  ? 'یک قدم جلوتر؛ حالا ایده را به تصمیم خودت وصل کن.'
+                  ? next
+                    ? 'آفرین! بخش بعد برایت باز شد. آماده‌ای یک قدم دیگر برداریم؟'
+                    : 'آفرین! همه بخش‌های این فصل را گذراندی. حالا ایده‌ها را به تصمیم خودت وصل کن.'
                   : 'توضیح‌ها را مرور کن و دوباره تصمیم بگیر.'}
               </p>
             </div>
@@ -282,7 +402,9 @@ export function AcademyLesson({
               {lesson.questions.map((q) => (
                 <div key={q.id}>
                   <strong>{q.prompt}</strong>
-                  <p>{q.explanation}</p>
+                  <p>
+                    <AcademyText>{q.explanation}</AcademyText>
+                  </p>
                 </div>
               ))}
             </details>
@@ -290,8 +412,13 @@ export function AcademyLesson({
         )}
       </div>
       <footer className="academy-player-footer">
-        {step > 0 && step < 3 ? (
-          <Button onClick={() => setDraft((d) => ({ ...d, step: d.step - 1, checked: false }))}>
+        {step > 0 && step < quizStart ? (
+          <Button
+            onClick={() => {
+              setDirection('back');
+              setDraft((d) => ({ ...d, step: d.step - 1, checked: false }));
+            }}
+          >
             مرحله قبل
           </Button>
         ) : (
@@ -299,7 +426,7 @@ export function AcademyLesson({
             {step === lastStep ? 'هر تمرین، یک قدم' : 'با سرعت خودت پیش برو'}
           </span>
         )}
-        {step < 3 && (
+        {step < quizStart && (
           <Button variant="primary" disabled={step === 1 && !prediction} onClick={advance}>
             {step === 0 ? 'بریم سراغش' : 'ادامه'}
           </Button>
@@ -318,7 +445,7 @@ export function AcademyLesson({
             <Button
               variant="primary"
               onClick={() => {
-                if (step + 1 === lastStep && result.valid && result.passed)
+                if (step + 1 === lastStep && learned && result.valid && result.passed)
                   onComplete(lesson, answers);
                 advance();
               }}
@@ -329,7 +456,9 @@ export function AcademyLesson({
         {step === lastStep && (
           <div className="academy-feedback-actions">
             <Button
-              onClick={() => setDraft((d) => ({ ...d, step: 3, answers: {}, checked: false }))}
+              onClick={() =>
+                setDraft((d) => ({ ...d, step: quizStart, answers: {}, checked: false }))
+              }
             >
               دوباره تمرین می‌کنم
             </Button>

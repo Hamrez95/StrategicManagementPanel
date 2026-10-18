@@ -15,6 +15,7 @@ import type { LessonContent } from './content';
 import { AcademyLesson } from './AcademyLesson';
 import { AcademyIcon } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
+import { AcademyCatalog, AcademyGuide, AcademyNavigation, AcademyReview } from './AcademyPages';
 import './academy.css';
 const PRACTICE_KEY = 'stratino-academy-preview-v1';
 function readPractice() {
@@ -57,14 +58,15 @@ function LearningPath({ state }: { state: PracticeState }) {
                 <AcademyIcon name={item.id === 'foundations' ? 'book' : 'briefcase'} />
                 {item.title}
               </span>
-              {item.id !== 'foundations' && <small>در برنامه تولید</small>}
+              {item.id !== 'foundations' && <small>در حال آماده‌سازی</small>}
             </button>
           ))}
         </div>
       </aside>
       <section className="academy-path" aria-labelledby="academy-title">
         <div className="academy-chapter">
-          <p>سطح اول · مبانی</p>
+          <AcademyIcon name="book" />
+          <p>سطح اول · فصل مبانی</p>
           <h1 id="academy-title" tabIndex={-1}>
             {track === 'foundations'
               ? 'کسب‌وکار چگونه کار می‌کند؟'
@@ -73,13 +75,13 @@ function LearningPath({ state }: { state: PracticeState }) {
           <p>
             {track === 'foundations'
               ? 'با آوند همراه شو؛ از شناخت مشتری تا اولین تصمیم.'
-              : 'نقشه پیشنهادی این حوزه؛ محتوای این ماژول‌ها هنوز منتشر نشده است.'}
+              : 'این مسیر را برایت آماده می‌کنیم؛ بخش‌هایش هنوز برای شروع باز نشده‌اند.'}
           </p>
         </div>
         {track === 'foundations' ? (
           <>
             <div className="academy-path-intro">
-              <span>فصل رایگان · ۶ درس تمرینی</span>
+              <span>۶ بخش کوتاه؛ از یادگیری تا تصمیم</span>
               <Link className="ui-button ui-button--primary" to={`/academy/lesson/${next.id}`}>
                 {done.size === academyLessons.length
                   ? 'مرور فصل'
@@ -89,6 +91,10 @@ function LearningPath({ state }: { state: PracticeState }) {
               </Link>
             </div>
             <ol className="academy-nodes">
+              <li className="academy-path-sidekick" aria-hidden="true">
+                <AcademyMascot mood="welcome" />
+                <span>قدم‌به‌قدم کنارت هستم</span>
+              </li>
               {academyLessons.map((lesson, index) => {
                 const status = lessonAvailability(lesson.id, academyLessons, state);
                 const locked = status === 'locked';
@@ -100,9 +106,16 @@ function LearningPath({ state }: { state: PracticeState }) {
                       : 'آماده شروع';
                 return (
                   <li key={lesson.id} className={`academy-node academy-node--${status}`}>
+                    {index % 2 === 0 && (
+                      <div className="academy-unit-label">
+                        {['مشتری و شواهد', 'پول و تصمیم', 'رقابت و انتخاب'][index / 2]}
+                      </div>
+                    )}
                     <div className="academy-node-control">
                       {status === 'available' && next.id === lesson.id && (
-                        <span className="academy-start-label">از اینجا شروع کن</span>
+                        <span className="academy-start-label">
+                          {done.size ? 'ادامه از اینجا' : 'از اینجا شروع کن'}
+                        </span>
                       )}
                       {locked ? (
                         <button
@@ -131,7 +144,7 @@ function LearningPath({ state }: { state: PracticeState }) {
                         </Link>
                       )}
                       <div>
-                        <span className="academy-node-index">درس {number.format(index + 1)}</span>
+                        <span className="academy-node-index">بخش {number.format(index + 1)}</span>
                         <strong>{lesson.title}</strong>
                         <small>{text}</small>
                         {locked && (
@@ -193,7 +206,7 @@ function LearningPath({ state }: { state: PracticeState }) {
       </section>
       <aside className="academy-companion" aria-label="همراه یادگیری">
         <AcademyMascot mood={done.size === academyLessons.length ? 'celebration' : 'welcome'} />
-        <h2>هدفت برای این فصل</h2>
+        <p className="academy-eyebrow">هدفت برای این فصل</p>
         <h2>قدم کوچک، تصمیم بهتر</h2>
         <p>امروز یک مسئله را بفهم و یک تصمیم را تمرین کن.</p>
         <label htmlFor="academy-progress">پیشرفت تمرینی همین تب</label>
@@ -254,6 +267,7 @@ export default function Academy() {
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const location = useLocation();
+  const inLesson = location.pathname.includes('/lesson/');
   useEffect(() => {
     document.title = 'استراتینو | آکادمی آموزش';
     document.querySelector<HTMLElement>('.academy h1')?.focus();
@@ -279,7 +293,7 @@ export default function Academy() {
     );
   }
   return (
-    <div className="academy">
+    <div className={`academy${inLesson ? ' academy--lesson' : ''}`}>
       <header className="academy-header">
         <Link to="/academy" aria-label={english ? 'Stratino Academy' : 'آکادمی استراتینو'}>
           <Brand english={english} />
@@ -301,9 +315,9 @@ export default function Academy() {
           <Link to="/">{english ? 'Back to Stratino' : 'بازگشت به استراتینو'}</Link>
         </nav>
       </header>
+      {!inLesson && <AcademyNavigation />}
       <div className="academy-preview-note" lang="fa" dir="rtl">
-        پیش‌نمایش آموزشی · محتوای اولیه در انتظار بازبینی تخصصی است. پیشرفت فقط در همین تب ذخیره
-        می‌شود؛ حساب، اشتراک و گواهی فعال نیست.
+        نسخهٔ تمرینی · شش بخش اولیه هنوز در حال بازبینی‌اند. پیشرفتت فعلاً فقط در همین تب می‌ماند.
       </div>
       {english && (
         <p className="academy-language-note" lang="en">
@@ -317,6 +331,9 @@ export default function Academy() {
       )}
       <Routes>
         <Route index element={<LearningPath state={state} />} />
+        <Route path="catalog" element={<AcademyCatalog />} />
+        <Route path="review" element={<AcademyReview state={state} />} />
+        <Route path="guide" element={<AcademyGuide />} />
         <Route
           path="lesson/:lessonId"
           element={<LessonRoute state={state} onComplete={complete} />}
