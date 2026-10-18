@@ -93,7 +93,6 @@ function LearningPath({ state }: { state: PracticeState }) {
             <ol className="academy-nodes">
               <li className="academy-path-sidekick" aria-hidden="true">
                 <AcademyMascot mood="welcome" />
-                <span>قدم‌به‌قدم کنارت هستم</span>
               </li>
               {academyLessons.map((lesson, index) => {
                 const status = lessonAvailability(lesson.id, academyLessons, state);
