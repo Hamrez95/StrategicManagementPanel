@@ -1,0 +1,261 @@
+{
+  "id": "P00-ST01-L03",
+  "version": "1-draft",
+  "title": "مانده با جریان چه فرقی دارد؟",
+  "content_status": "draft",
+  "objective": "مقدار در یک تاریخ را از مقدار در یک دوره جدا کند.",
+  "learning_cards": [
+    {
+      "id": "P00-ST01-L03-OPEN",
+      "type": "problem",
+      "title": "این درس‌نامه چه کمکی می‌کند؟",
+      "text": "مقدار در یک تاریخ را از مقدار در یک دوره جدا کند. یک مثال و چند تمرین را قدم‌به‌قدم بررسی می‌کنیم."
+    },
+    {
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "مانده، مقدار در یک لحظه یا تاریخ مشخص است؛ مانند پول موجود در پایان ماه. جریان، مقدار طی یک دوره است؛ مانند دریافت نقد در طول ماه. وقتی این دو را قاطی کنیم ممکن است یک تغییر را دوبار بشماریم یا از مقایسه نتیجهٔ غلط بگیریم.",
+      "id": "P00-ST01-L03-CARD01"
+    },
+    {
+      "type": "explanation",
+      "title": "روش انجام کار",
+      "text": "برای هر عدد عبارت «در تاریخ» یا «طی دوره» را بنویسید. ماندهٔ پایان از ماندهٔ اول به‌علاوهٔ ورودها منهای خروجها به دست می‌آید، اگر همهٔ تغییرات مربوط را حساب کرده باشیم. دریافت پول، درآمد و سود را هم یکی فرض نکنید.",
+      "id": "P00-ST01-L03-CARD02"
+    },
+    {
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+      "text": "در مثال فرضی، نقد اول ماه سپهر پنجاه واحد است. طی ماه سی دریافت و بیست پرداخت می‌کند. با فرض نبود تغییر دیگر، نقد پایان شصت واحد است. سی، جریان دریافت است؛ شصت، ماندهٔ نقد است. از این سه عدد به‌تنهایی سود حسابداری ماه را نمی‌دانیم.",
+      "example_kind": "fictional",
+      "id": "P00-ST01-L03-CARD03"
+    },
+    {
+      "type": "contrast",
+      "title": "خطایی که باید بشناسیم",
+      "text": "جمع‌کردن ماندهٔ نقد پایان دو ماه، دریافت طی دو ماه را نمی‌دهد. مانده‌ها عکس دو زمان‌اند؛ ممکن است همان پول در هر دو عکس وجود داشته باشد.",
+      "id": "P00-ST01-L03-CARD04"
+    },
+    {
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+      "elements": [
+        "ماندهٔ اول",
+        "ورودی طی دوره",
+        "خروجی طی دوره",
+        "ماندهٔ پایان"
+      ],
+      "alt": "ماندهٔ اول؛ ورودی طی دوره؛ خروجی طی دوره؛ ماندهٔ پایان",
+      "id": "P00-ST01-L03-CARD05",
+      "table": {
+        "columns": [
+          "نوع",
+          "مقدار فرضی"
+        ],
+        "rows": [
+          [
+            "ماندهٔ اول ماه",
+            "۵۰"
+          ],
+          [
+            "دریافت طی ماه",
+            "۳۰"
+          ],
+          [
+            "پرداخت طی ماه",
+            "۲۰"
+          ],
+          [
+            "ماندهٔ پایان ماه",
+            "۶۰"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "اسم عدد به‌اضافهٔ زمانش را بنویسید؛ «نقد پایان خرداد» با «دریافت طی خرداد» فرق دارد.",
+      "id": "P00-ST01-L03-CARD06"
+    }
+  ],
+  "questions": [
+    {
+      "id": "P00-ST01-L03-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پول موجود در پایان ماه چه نوع مقداری است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "جریان دریافت ماه",
+          "feedback": "«جریان دریافت ماه» پاسخ این پرسش نیست. مانده به یک زمان مشخص مربوط است."
+        },
+        {
+          "id": "o2",
+          "text": "درآمد قطعی ماه",
+          "feedback": "«درآمد قطعی ماه» پاسخ این پرسش نیست. مانده به یک زمان مشخص مربوط است."
+        },
+        {
+          "id": "o3",
+          "text": "مانده",
+          "feedback": "مانده به یک زمان مشخص مربوط است."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "مانده به یک زمان مشخص مربوط است.",
+      "objective_id": "P00-ST01-L03-OBJ1",
+      "equivalence_group": "P00-ST01-L03-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L03-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پنجاه اول دوره، سی دریافت و بیست پرداخت؛ ماندهٔ پایان چیست؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "ده",
+          "feedback": "«ده» پاسخ این پرسش نیست. ۵۰ + ۳۰ − ۲۰ = ۶۰ با فرض نبود تغییر دیگر."
+        },
+        {
+          "id": "o2",
+          "text": "شصت",
+          "feedback": "۵۰ + ۳۰ − ۲۰ = ۶۰ با فرض نبود تغییر دیگر."
+        },
+        {
+          "id": "o3",
+          "text": "صد",
+          "feedback": "«صد» پاسخ این پرسش نیست. ۵۰ + ۳۰ − ۲۰ = ۶۰ با فرض نبود تغییر دیگر."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "۵۰ + ۳۰ − ۲۰ = ۶۰ با فرض نبود تغییر دیگر.",
+      "objective_id": "P00-ST01-L03-OBJ1",
+      "equivalence_group": "P00-ST01-L03-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L03-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دریافت نقد طی ماه چه نوع مقداری است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "جریان",
+          "feedback": "جریان در طول بازه رخ می‌دهد."
+        },
+        {
+          "id": "o2",
+          "text": "عکس پایان دوره",
+          "feedback": "«عکس پایان دوره» پاسخ این پرسش نیست. جریان در طول بازه رخ می‌دهد."
+        },
+        {
+          "id": "o3",
+          "text": "همیشه سود",
+          "feedback": "«همیشه سود» پاسخ این پرسش نیست. جریان در طول بازه رخ می‌دهد."
+        }
+      ],
+      "correct_option_id": "o1",
+      "explanation": "جریان در طول بازه رخ می‌دهد.",
+      "objective_id": "P00-ST01-L03-OBJ1",
+      "equivalence_group": "P00-ST01-L03-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L03-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "جمع نقد پایان دو ماه چه چیزی را نمی‌دهد؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "جمع حسابی آن دو مانده",
+          "feedback": "«جمع حسابی آن دو مانده» پاسخ این پرسش نیست. یک پول ممکن است در هر دو مانده حاضر باشد."
+        },
+        {
+          "id": "o2",
+          "text": "دو مشاهدهٔ زمانی",
+          "feedback": "«دو مشاهدهٔ زمانی» پاسخ این پرسش نیست. یک پول ممکن است در هر دو مانده حاضر باشد."
+        },
+        {
+          "id": "o3",
+          "text": "دریافت نقد دوماهه",
+          "feedback": "یک پول ممکن است در هر دو مانده حاضر باشد."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "یک پول ممکن است در هر دو مانده حاضر باشد.",
+      "objective_id": "P00-ST01-L03-OBJ1",
+      "equivalence_group": "P00-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "از ماندهٔ اول و دریافت و پرداخت به‌تنهایی چه چیزی روشن نیست؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "ماندهٔ پایان در مثال",
+          "feedback": "«ماندهٔ پایان در مثال» پاسخ این پرسش نیست. درآمد و هزینه با زمان دریافت و پرداخت لزوماً برابر نیستند."
+        },
+        {
+          "id": "o2",
+          "text": "سود حسابداری دوره",
+          "feedback": "درآمد و هزینه با زمان دریافت و پرداخت لزوماً برابر نیستند."
+        },
+        {
+          "id": "o3",
+          "text": "تغییر خالص نقد با فرض کامل‌بودن داده",
+          "feedback": "«تغییر خالص نقد با فرض کامل‌بودن داده» پاسخ این پرسش نیست. درآمد و هزینه با زمان دریافت و پرداخت لزوماً برابر نیستند."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "درآمد و هزینه با زمان دریافت و پرداخت لزوماً برابر نیستند.",
+      "objective_id": "P00-ST01-L03-OBJ1",
+      "equivalence_group": "P00-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L03-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "finance",
+      "title": "صورت‌های مالی و دورهٔ گزارش؛ حسابداری مالی، بخش ۲٫۱",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate",
+      "accessed_on": "2026-10-19",
+      "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "ماندهٔ اول ۹۰، دریافت ۴۰ و پرداخت ۶۰ است. ماندهٔ پایان؟",
+    "answer": 70,
+    "absolute_tolerance": 0.001,
+    "unit": "واحد پول فرضی",
+    "solution": "۹۰ + ۴۰ − ۶۰ = ۷۰ با فرض نبود تغییر دیگر."
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "free_sample": true,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.1",
+  "canonical_storage": "Individual lesson JSON files; stage and course files are generated review bundles.",
+  "status": "authoring_in_progress",
+  "courses": [
+    {
+      "id": "C07",
+      "bundle": "c07/course.v1.json",
+      "status": "authored_draft_pending_review",
+      "lessons": 24,
+      "questions": 180,
+      "production_ready": false
+    },
+    {
+      "id": "P00",
+      "bundle": "p00/course.v1.json",
+      "status": "authored_draft_pending_review",
+      "lessons": 8,
+      "questions": 52,
+      "production_ready": false
+    }
+  ],
+  "remaining_curriculum_lesson_outlines_excluding_bridge": 560,
+  "remaining_bridge_outlines": 0,
+  "answer_keys_are_public_only_for_editor_review": true,
+  "production_import": "Import authored bundles with validated stable IDs; never serve private answer keys as the pre-submission learner payload."
+}

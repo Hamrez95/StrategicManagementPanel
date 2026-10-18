@@ -1,0 +1,237 @@
+{
+  "id": "P00-ST01-L02",
+  "version": "1-draft",
+  "title": "درصد، نسبت و تغییر",
+  "content_status": "draft",
+  "objective": "درصد تغییر و تفاوت واحد درصد را درست محاسبه کند.",
+  "learning_cards": [
+    {
+      "id": "P00-ST01-L02-OPEN",
+      "type": "problem",
+      "title": "این درس‌نامه چه کمکی می‌کند؟",
+      "text": "درصد تغییر و تفاوت واحد درصد را درست محاسبه کند. یک مثال و چند تمرین را قدم‌به‌قدم بررسی می‌کنیم."
+    },
+    {
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "درصد یعنی چند جزء از صد جزء. نسبت، مقایسهٔ دو مقدار است. درصد تغییر می‌گوید تغییر مقدار نسبت به مبنای قبلی چقدر است: مقدار جدید منهای قدیم، تقسیم بر قدیم، ضرب در صد. تفاوت دو نرخ درصدی را با «واحد درصد» بیان می‌کنیم.",
+      "id": "P00-ST01-L02-CARD01"
+    },
+    {
+      "type": "explanation",
+      "title": "روش انجام کار",
+      "text": "اول مخرج و واحد و دوره را مشخص کنید. اگر مقدار قبلی صفر باشد، درصد تغییر معمول با تقسیم بر آن تعریف نمی‌شود. افزایش و کاهش درصدی هم قرینهٔ ساده نیستند؛ چون مبنا عوض می‌شود. قبل از ماشین‌حساب، بزرگی تقریبی پاسخ را بررسی کنید.",
+      "id": "P00-ST01-L02-CARD02"
+    },
+    {
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ شرکت فرضی سپهر",
+      "text": "فروش فرضی از ۸۰ به ۱۰۰ واحد رسیده: افزایش ۲۰ و درصد رشد ۲۵٪ است. اگر نرخ تمدید از ۲۰٪ به ۳۰٪ برسد، افزایش ده واحد درصد و رشد نسبی نرخ ۵۰٪ است. این دو عبارت هر دو می‌توانند درست باشند اما یک معنا ندارند.",
+      "example_kind": "fictional",
+      "id": "P00-ST01-L02-CARD03"
+    },
+    {
+      "type": "contrast",
+      "title": "خطایی که باید بشناسیم",
+      "text": "کاهش ۲۰٪ و سپس افزایش ۲۰٪ لزوماً ما را به مقدار اول نمی‌رساند: صد به هشتاد و بعد به نودوشش می‌رسد. درصد را بدون گفتن مبنا به کار نبرید.",
+      "id": "P00-ST01-L02-CARD04"
+    },
+    {
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "این نمودار، جمع‌بندی تألیفی این درس‌نامه است.",
+      "elements": [
+        "مقدار قبلی",
+        "تغییر مطلق",
+        "تقسیم بر مبنا",
+        "درصد یا واحد درصد؟"
+      ],
+      "alt": "مقدار قبلی؛ تغییر مطلق؛ تقسیم بر مبنا؛ درصد یا واحد درصد؟",
+      "id": "P00-ST01-L02-CARD05"
+    },
+    {
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "پیش از نوشتن درصد بپرسید «درصدِ چه چیزی؟»",
+      "id": "P00-ST01-L02-CARD06"
+    }
+  ],
+  "questions": [
+    {
+      "id": "P00-ST01-L02-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "رشد از ۸۰ به ۱۰۰ چند درصد است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۲۰٪",
+          "feedback": "«۲۰٪» پاسخ این پرسش نیست. تغییر ۲۰ تقسیم بر مبنای ۸۰ برابر ۰٫۲۵ است."
+        },
+        {
+          "id": "o2",
+          "text": "۱۲۵٪",
+          "feedback": "«۱۲۵٪» پاسخ این پرسش نیست. تغییر ۲۰ تقسیم بر مبنای ۸۰ برابر ۰٫۲۵ است."
+        },
+        {
+          "id": "o3",
+          "text": "۲۵٪",
+          "feedback": "تغییر ۲۰ تقسیم بر مبنای ۸۰ برابر ۰٫۲۵ است."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "تغییر ۲۰ تقسیم بر مبنای ۸۰ برابر ۰٫۲۵ است.",
+      "objective_id": "P00-ST01-L02-OBJ1",
+      "equivalence_group": "P00-ST01-L02-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L02-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L02-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ از ۲۰٪ به ۳۰٪ رسیده؛ تفاوت چند واحد درصد است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "سی",
+          "feedback": "«سی» پاسخ این پرسش نیست. تفاضل دو نرخ ۳۰ منهای ۲۰ برابر ده واحد درصد است."
+        },
+        {
+          "id": "o2",
+          "text": "ده",
+          "feedback": "تفاضل دو نرخ ۳۰ منهای ۲۰ برابر ده واحد درصد است."
+        },
+        {
+          "id": "o3",
+          "text": "پنجاه",
+          "feedback": "«پنجاه» پاسخ این پرسش نیست. تفاضل دو نرخ ۳۰ منهای ۲۰ برابر ده واحد درصد است."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "تفاضل دو نرخ ۳۰ منهای ۲۰ برابر ده واحد درصد است.",
+      "objective_id": "P00-ST01-L02-OBJ1",
+      "equivalence_group": "P00-ST01-L02-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L02-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L02-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "همان افزایش نرخ از ۲۰٪ به ۳۰٪، رشد نسبی چند است؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۵۰٪",
+          "feedback": "تغییر ده تقسیم بر مبنای بیست برابر نیم است."
+        },
+        {
+          "id": "o2",
+          "text": "۱۰٪",
+          "feedback": "«۱۰٪» پاسخ این پرسش نیست. تغییر ده تقسیم بر مبنای بیست برابر نیم است."
+        },
+        {
+          "id": "o3",
+          "text": "۳۰٪",
+          "feedback": "«۳۰٪» پاسخ این پرسش نیست. تغییر ده تقسیم بر مبنای بیست برابر نیم است."
+        }
+      ],
+      "correct_option_id": "o1",
+      "explanation": "تغییر ده تقسیم بر مبنای بیست برابر نیم است.",
+      "objective_id": "P00-ST01-L02-OBJ1",
+      "equivalence_group": "P00-ST01-L02-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L02-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L02-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مقدار قبلی صفر است؛ درصد تغییر معمول چه وضعی دارد؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "همیشه صفر است",
+          "feedback": "«همیشه صفر است» پاسخ این پرسش نیست. تقسیم بر صفر مجاز نیست؛ تغییر مطلق و زمینه را گزارش می‌کنیم."
+        },
+        {
+          "id": "o2",
+          "text": "همیشه صد است",
+          "feedback": "«همیشه صد است» پاسخ این پرسش نیست. تقسیم بر صفر مجاز نیست؛ تغییر مطلق و زمینه را گزارش می‌کنیم."
+        },
+        {
+          "id": "o3",
+          "text": "با این فرمول تعریف نمی‌شود",
+          "feedback": "تقسیم بر صفر مجاز نیست؛ تغییر مطلق و زمینه را گزارش می‌کنیم."
+        }
+      ],
+      "correct_option_id": "o3",
+      "explanation": "تقسیم بر صفر مجاز نیست؛ تغییر مطلق و زمینه را گزارش می‌کنیم.",
+      "objective_id": "P00-ST01-L02-OBJ1",
+      "equivalence_group": "P00-ST01-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L02-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "P00-ST01-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "صد، بیست درصد کم و سپس بیست درصد زیاد شده؛ نتیجه چیست؟",
+      "options": [
+        {
+          "id": "o1",
+          "text": "۸۰",
+          "feedback": "«۸۰» پاسخ این پرسش نیست. پس از کاهش مقدار هشتاد است؛ افزایش ۲۰٪ آن شانزده می‌شود."
+        },
+        {
+          "id": "o2",
+          "text": "۹۶",
+          "feedback": "پس از کاهش مقدار هشتاد است؛ افزایش ۲۰٪ آن شانزده می‌شود."
+        },
+        {
+          "id": "o3",
+          "text": "۱۰۰",
+          "feedback": "«۱۰۰» پاسخ این پرسش نیست. پس از کاهش مقدار هشتاد است؛ افزایش ۲۰٪ آن شانزده می‌شود."
+        }
+      ],
+      "correct_option_id": "o2",
+      "explanation": "پس از کاهش مقدار هشتاد است؛ افزایش ۲۰٪ آن شانزده می‌شود.",
+      "objective_id": "P00-ST01-L02-OBJ1",
+      "equivalence_group": "P00-ST01-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "P00-ST01-L02-CARD02",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "math",
+      "title": "پیوست ریاضی و نمودار؛ اصول اقتصاد",
+      "url": "https://openstax.org/books/principles-economics-3e/pages/a-the-use-of-mathematics-in-principles-of-economics",
+      "accessed_on": "2026-10-19",
+      "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "تعداد مشتری از ۴۰ به ۵۰ رسیده است؛ درصد رشد را بدون علامت درصد وارد کنید.",
+    "answer": 25,
+    "absolute_tolerance": 0.01,
+    "unit": "درصد",
+    "solution": "(۵۰ − ۴۰) ÷ ۴۰ × ۱۰۰ = ۲۵٪."
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "free_sample": true,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

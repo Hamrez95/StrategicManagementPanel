@@ -16,8 +16,9 @@
     "lesson_nodes_total": 592,
     "stage_review_nodes": 148,
     "course_assessment_nodes": 43,
-    "authored_draft_lessons": 4,
-    "authored_sample_questions": 26
+    "authored_draft_lessons": 32,
+    "authored_questions": 232,
+    "historical_sample_questions": 26
   },
   "access": {
     "duration_months": 12,
@@ -6070,8 +6071,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "sample_variant_A_authored_only",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6085,7 +6087,12 @@
                 "C07-M1-L1"
               ],
               "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
-              "content_ref": "strategy-stage-01.sample.json#C07-ST01-L01"
+              "content_ref": "content/c07/lessons/C07-ST01-L01.json",
+              "source_refs_authored": [
+                "B07-9.1",
+                "B07-9.2",
+                "MS-MISSION"
+              ]
             },
             {
               "id": "C07-ST01-L02",
@@ -6119,8 +6126,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "sample_variant_A_authored_only",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6134,7 +6142,12 @@
                 "C07-M1-L2"
               ],
               "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
-              "content_ref": "strategy-stage-01.sample.json#C07-ST01-L02"
+              "content_ref": "content/c07/lessons/C07-ST01-L02.json",
+              "source_refs_authored": [
+                "B07-9.1",
+                "B07-9.2",
+                "MS-MISSION"
+              ]
             },
             {
               "id": "C07-ST01-L03",
@@ -6168,8 +6181,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "sample_variant_A_authored_only",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6181,7 +6195,12 @@
               "free_sample": false,
               "legacy_lesson_ids": [],
               "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
-              "content_ref": "strategy-stage-01.sample.json#C07-ST01-L03"
+              "content_ref": "content/c07/lessons/C07-ST01-L03.json",
+              "source_refs_authored": [
+                "B07-9.1",
+                "B07-9.2",
+                "MS-MISSION"
+              ]
             },
             {
               "id": "C07-ST01-L04",
@@ -6215,8 +6234,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "sample_variant_A_authored_only",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6228,7 +6248,12 @@
               "free_sample": false,
               "legacy_lesson_ids": [],
               "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
-              "content_ref": "strategy-stage-01.sample.json#C07-ST01-L04"
+              "content_ref": "content/c07/lessons/C07-ST01-L04.json",
+              "source_refs_authored": [
+                "B07-9.1",
+                "B07-9.2",
+                "MS-MISSION"
+              ]
             }
           ],
           "checkpoint": {
@@ -6236,8 +6261,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST01.json#/checkpoint"
           }
         },
         {
@@ -6261,7 +6287,7 @@
               "title": "مرز بازار و مشتری هدف",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «مرز بازار و مشتری هدف» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "T02",
@@ -6288,8 +6314,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6300,14 +6327,19 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST02-L01.json",
+              "source_refs_authored": [
+                "environment",
+                "forces"
+              ]
             },
             {
               "id": "C07-ST02-L02",
               "title": "روندهای محیط با PESTEL",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «روندهای محیط با PESTEL» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "T02",
@@ -6334,8 +6366,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6348,14 +6381,18 @@
               "legacy_lesson_ids": [
                 "C07-M2-L1"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST02-L02.json",
+              "source_refs_authored": [
+                "pestel"
+              ]
             },
             {
               "id": "C07-ST02-L03",
               "title": "صنعت را با پنج نیرو بخوانیم",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «صنعت را با پنج نیرو بخوانیم» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "T02",
@@ -6382,8 +6419,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6396,14 +6434,18 @@
               "legacy_lesson_ids": [
                 "C07-M2-L2"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST02-L03.json",
+              "source_refs_authored": [
+                "forces"
+              ]
             },
             {
               "id": "C07-ST02-L04",
               "title": "نقشهٔ رقبا و شاهد معتبر",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «نقشهٔ رقبا و شاهد معتبر» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "T02",
@@ -6430,8 +6472,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6444,7 +6487,12 @@
               "legacy_lesson_ids": [
                 "C07-M2-L3"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST02-L04.json",
+              "source_refs_authored": [
+                "environment",
+                "forces"
+              ]
             }
           ],
           "checkpoint": {
@@ -6452,8 +6500,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST02.json#/checkpoint"
           },
           "tool_plan": [
             {
@@ -6501,7 +6550,7 @@
               "title": "منبع با قابلیت چه فرقی دارد؟",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «منبع با قابلیت چه فرقی دارد؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6529,8 +6578,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6543,14 +6593,18 @@
               "legacy_lesson_ids": [
                 "C07-M3-L1"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST03-L01.json",
+              "source_refs_authored": [
+                "internal"
+              ]
             },
             {
               "id": "C07-ST03-L02",
               "title": "مزیت را با پرسش‌های VRIO بسنجیم",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «مزیت را با پرسش‌های VRIO بسنجیم» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6578,8 +6632,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6590,14 +6645,19 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST03-L02.json",
+              "source_refs_authored": [
+                "internal",
+                "advantage"
+              ]
             },
             {
               "id": "C07-ST03-L03",
               "title": "زنجیرهٔ ارزش و سیستم فعالیت‌ها",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «زنجیرهٔ ارزش و سیستم فعالیت‌ها» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6625,8 +6685,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6637,14 +6698,18 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST03-L03.json",
+              "source_refs_authored": [
+                "chain"
+              ]
             },
             {
               "id": "C07-ST03-L04",
               "title": "تشخیص مسئله با شاهد، نه فهرست آرزو",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «تشخیص مسئله با شاهد، نه فهرست آرزو» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6672,8 +6737,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6686,7 +6752,12 @@
               "legacy_lesson_ids": [
                 "C07-M1-L3"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST03-L04.json",
+              "source_refs_authored": [
+                "environment",
+                "control"
+              ]
             }
           ],
           "checkpoint": {
@@ -6694,8 +6765,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST03.json#/checkpoint"
           },
           "tool_plan": [
             {
@@ -6741,7 +6813,7 @@
               "title": "از SWOT به گزینه‌های TOWS",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «از SWOT به گزینه‌های TOWS» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6769,8 +6841,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6783,14 +6856,18 @@
               "legacy_lesson_ids": [
                 "C07-M3-L2"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST04-L01.json",
+              "source_refs_authored": [
+                "tows"
+              ]
             },
             {
               "id": "C07-ST04-L02",
               "title": "رشد با ماتریس Ansoff",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «رشد با ماتریس Ansoff» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6818,8 +6895,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6830,14 +6908,18 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST04-L02.json",
+              "source_refs_authored": [
+                "ansoff"
+              ]
             },
             {
               "id": "C07-ST04-L03",
               "title": "ماتریس BCG و نگاه به سبد",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «ماتریس BCG و نگاه به سبد» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6865,8 +6947,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6877,14 +6960,18 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST04-L03.json",
+              "source_refs_authored": [
+                "bcg"
+              ]
             },
             {
               "id": "C07-ST04-L04",
               "title": "ماتریس انتخاب و حساسیت به امتیاز",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «ماتریس انتخاب و حساسیت به امتیاز» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "H02",
@@ -6912,8 +6999,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -6926,7 +7014,11 @@
               "legacy_lesson_ids": [
                 "C07-M3-L3"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST04-L04.json",
+              "source_refs_authored": [
+                "control"
+              ]
             }
           ],
           "checkpoint": {
@@ -6934,8 +7026,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST04.json#/checkpoint"
           },
           "tool_plan": [
             {
@@ -6991,7 +7084,7 @@
               "title": "مقایسهٔ گزینه و هزینهٔ فرصت",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «مقایسهٔ گزینه و هزینهٔ فرصت» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7019,8 +7112,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7033,14 +7127,19 @@
               "legacy_lesson_ids": [
                 "C07-M4-L1"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST05-L01.json",
+              "source_refs_authored": [
+                "objectives",
+                "actions"
+              ]
             },
             {
               "id": "C07-ST05-L02",
               "title": "تبدیل انتخاب به اقدام و مسئول",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «تبدیل انتخاب به اقدام و مسئول» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7068,8 +7167,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7082,14 +7182,18 @@
               "legacy_lesson_ids": [
                 "C07-M4-L2"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST05-L02.json",
+              "source_refs_authored": [
+                "actions"
+              ]
             },
             {
               "id": "C07-ST05-L03",
               "title": "شاخص نتیجه، اقدام و کارت امتیازی",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «شاخص نتیجه، اقدام و کارت امتیازی» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7117,8 +7221,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7129,14 +7234,19 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST05-L03.json",
+              "source_refs_authored": [
+                "bsc",
+                "control"
+              ]
             },
             {
               "id": "C07-ST05-L04",
               "title": "بازبینی وقتی فرض‌ها تغییر می‌کنند",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «بازبینی وقتی فرض‌ها تغییر می‌کنند» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7164,8 +7274,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7176,7 +7287,11 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST05-L04.json",
+              "source_refs_authored": [
+                "control"
+              ]
             }
           ],
           "checkpoint": {
@@ -7184,8 +7299,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST05.json#/checkpoint"
           },
           "tool_plan": [
             {
@@ -7232,7 +7348,7 @@
               "title": "AI کجای مدل کسب‌وکار اثر می‌گذارد؟",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «AI کجای مدل کسب‌وکار اثر می‌گذارد؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7260,8 +7376,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7272,14 +7389,19 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST06-L01.json",
+              "source_refs_authored": [
+                "canvas",
+                "nist"
+              ]
             },
             {
               "id": "C07-ST06-L02",
               "title": "ارزیابی گزینه با AI و نقد نتیجه",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «ارزیابی گزینه با AI و نقد نتیجه» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7307,8 +7429,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7321,14 +7444,19 @@
               "legacy_lesson_ids": [
                 "C07-M4-L3"
               ],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST06-L02.json",
+              "source_refs_authored": [
+                "r08",
+                "nist"
+              ]
             },
             {
               "id": "C07-ST06-L03",
               "title": "کیس واقعی، شواهد و روایت‌های رقیب",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «کیس واقعی، شواهد و روایت‌های رقیب» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7356,8 +7484,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7368,14 +7497,18 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST06-L03.json",
+              "source_refs_authored": [
+                "ms25"
+              ]
             },
             {
               "id": "C07-ST06-L04",
               "title": "دفتر تصمیم استراتژیک یکپارچه",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «دفتر تصمیم استراتژیک یکپارچه» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "M15",
@@ -7403,8 +7536,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -7415,7 +7549,13 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c07/lessons/C07-ST06-L04.json",
+              "source_refs_authored": [
+                "actions",
+                "control",
+                "nist"
+              ]
             }
           ],
           "checkpoint": {
@@ -7423,8 +7563,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c07/stages/C07-ST06.json#/checkpoint"
           }
         }
       ],
@@ -7435,14 +7576,15 @@
         "coverage": "balanced_across_stages",
         "project_required": false,
         "applied_artifact_prompt": "یک تصمیم مدیریتی مرتبط را همراه فرض، شواهد و محدودیت توضیح دهید.",
-        "bank_status": "to_author",
-        "content_access_gate": false
+        "bank_status": "authored_draft",
+        "content_access_gate": false,
+        "bank_ref": "content/c07/final-assessment.json"
       },
       "counts": {
         "stages": 6,
         "lessons": 24
       },
-      "release_status": "planned_not_for_sale_as_complete_course",
+      "release_status": "authored_draft_pending_review",
       "historical_source_ids": [
         "H02",
         "H03",
@@ -7450,7 +7592,8 @@
         "H05",
         "H07",
         "H12"
-      ]
+      ],
+      "authored_content_ref": "content/c07/course.v1.json"
     },
     {
       "id": "C08",
@@ -36081,7 +36224,7 @@
               "title": "مشتری، ارزش و درآمد",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «مشتری، ارزش و درآمد» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36107,8 +36250,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36119,14 +36263,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST01-L01.json"
             },
             {
               "id": "P00-ST01-L02",
               "title": "درصد، نسبت و تغییر",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «درصد، نسبت و تغییر» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36152,8 +36297,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36164,14 +36310,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST01-L02.json"
             },
             {
               "id": "P00-ST01-L03",
               "title": "مانده با جریان چه فرقی دارد؟",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «مانده با جریان چه فرقی دارد؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36197,8 +36344,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36209,14 +36357,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST01-L03.json"
             },
             {
               "id": "P00-ST01-L04",
               "title": "خواندن جدول و نمودار ساده",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «خواندن جدول و نمودار ساده» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36242,8 +36391,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36254,7 +36404,8 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST01-L04.json"
             }
           ],
           "checkpoint": {
@@ -36262,8 +36413,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/p00/stages/P00-ST01.json#/checkpoint"
           }
         },
         {
@@ -36286,7 +36438,7 @@
               "title": "واقعیت، ادعا و فرض",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «واقعیت، ادعا و فرض» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36312,8 +36464,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36324,14 +36477,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST02-L01.json"
             },
             {
               "id": "P00-ST02-L02",
               "title": "تمرین را چطور حل کنیم؟",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «تمرین را چطور حل کنیم؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36357,8 +36511,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36369,14 +36524,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST02-L02.json"
             },
             {
               "id": "P00-ST02-L03",
               "title": "منبع و تاریخ را چطور بخوانیم؟",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «منبع و تاریخ را چطور بخوانیم؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36402,8 +36558,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36414,14 +36571,15 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST02-L03.json"
             },
             {
               "id": "P00-ST02-L04",
               "title": "یادداشت و مرور فاصله‌دار",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «یادداشت و مرور فاصله‌دار» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B11",
@@ -36447,8 +36605,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -36459,7 +36618,8 @@
               "direct_entry_allowed": true,
               "free_sample": true,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/p00/lessons/P00-ST02-L04.json"
             }
           ],
           "checkpoint": {
@@ -36467,8 +36627,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/p00/stages/P00-ST02.json#/checkpoint"
           }
         }
       ],
@@ -36477,8 +36638,9 @@
         "stages": 2,
         "lessons": 8
       },
-      "release_status": "planned_not_for_sale_as_complete_course",
-      "historical_source_ids": []
+      "release_status": "authored_draft_pending_review",
+      "historical_source_ids": [],
+      "authored_content_ref": "content/p00/course.v1.json"
     }
   ],
   "source_index": {
