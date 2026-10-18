@@ -28,9 +28,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/92",
     "title": "نقشه MBA از مبانی تا پیشرفته و گراف مهارت",
     "priority": "P0",
-    "dependencies": [
-      "ACA-001"
-    ],
+    "dependencies": ["ACA-001"],
     "scope": [
       "پنج سطح از سواد کسب‌وکار تا پروژه پیشرفته با پیش‌نیازهای بدون چرخه",
       "حسابداری، مالی، اقتصاد، استراتژی، بازاریابی، افراد، عملیات، داده، کارآفرینی، تجارت الکترونیک، AI و اخلاق",
@@ -53,9 +51,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/93",
     "title": "گردآوری منابع و خط انتشار علمی درس",
     "priority": "P0",
-    "dependencies": [
-      "ACA-002"
-    ],
+    "dependencies": ["ACA-002"],
     "scope": [
       "منابع اصلی و دانشگاهی، دسترسی واقعی، بخش/صفحه، تاریخ و مجوز استفاده ثبت شود",
       "جداسازی metadata/inspected/expert-reviewed؛ نگاشت ادعا→منبع→تمرین",
@@ -78,9 +74,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/94",
     "title": "طراحی دسکتاپ، نقشه مسیر و رفتار موشن",
     "priority": "P1",
-    "dependencies": [
-      "ACA-001"
-    ],
+    "dependencies": ["ACA-001"],
     "scope": [
       "مشاهدات timestampدار ویدئو از پیشنهاد طراحی جدا شود",
       "نقشه مرحله‌ای آشنا، فصل رنگی، وضعیت قفل/فعلی/تکمیل با متن و آیکن",
@@ -95,10 +89,9 @@
     ],
     "paths": "docs/academy/DESIGN.md; apps/web/src/features/academy/",
     "status": "in_progress",
-    "branch": "feat/stratino-academy",
+    "branch": "feat/academy-duolingo-flow",
     "scientific_status": "review_pending",
-    "checkpoint": "QA واقعی Windows/Chrome در 1280/1440، تم و reduced-motion پاس شد؛ zoom فقط بزرگ‌کردن فونت ۲۰۰٪ است. طراحی Boss Baby انتخاب مالک است ولی تولید و اتصال مسدود؛ قاب‌ها و شخصیت نهایی کامل نیستند.",
-    "checkpoint_commit": "7491dcc",
+    "checkpoint": "فلو کارت‌به‌کارت، مسیر مارپیچ و draft همین تب پیاده؛ ۲۱ بررسی مرورگر و پنج scoped axe پاس. تطبیق نهایی و شخصیت منتظر ویدئو و کالکشن پذیرفته‌شده مالک. شش درس draft؛ محتوا با Luna شروع نشده. جزئیات: FRONTEND_HANDOFF.md. تسک باز است.",
     "qa_date": "2026-10-18"
   },
   {
@@ -107,10 +100,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/95",
     "title": "موتور درس نسخه‌دار، پیش‌نیاز و سنجش قطعی",
     "priority": "P1",
-    "dependencies": [
-      "ACA-001",
-      "ACA-002"
-    ],
+    "dependencies": ["ACA-001", "ACA-002"],
     "scope": [
       "مدل lesson/question/attempt/source و ID پایدار با نسخه محتوا",
       "grade معتبر، جلوگیری از پاسخ ناقص/ID تکراری/امتیاز نامعتبر و prerequisite ناشناخته",
@@ -133,10 +123,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/96",
     "title": "پوسته آموزش و نقشه قابل اجرا با feature flag",
     "priority": "P1",
-    "dependencies": [
-      "ACA-004",
-      "ACA-005"
-    ],
+    "dependencies": ["ACA-004", "ACA-005"],
     "scope": [
       "route مستقل lazy و بدون دسترسی به داده شرکت",
       "نمایش مسیر با وضعیت روشن، حفظ تم و جهت فعلی، URL مستقیم و خروج",
@@ -159,11 +146,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/97",
     "title": "اولین فصل مبانی با داستان و تمرین قابل اجرا",
     "priority": "P1",
-    "dependencies": [
-      "ACA-003",
-      "ACA-005",
-      "ACA-006"
-    ],
+    "dependencies": ["ACA-003", "ACA-005", "ACA-006"],
     "scope": [
       "فصل رایگان کامل با مسئله کسب‌وکار فرضی؛ مفهوم، انتخاب، بازخورد و کاربرد",
       "حداقل سه درس اجرایی با اهداف و منبع مشخص؛ محتوای اولیه draft با برچسب روشن",
@@ -175,10 +158,10 @@
     ],
     "paths": "apps/web/src/features/academy/content.ts; AcademyLesson.tsx",
     "status": "in_progress",
-    "branch": "feat/stratino-academy",
+    "branch": "feat/academy-duolingo-flow",
     "scientific_status": "review_pending",
-    "checkpoint": "شش درس فارسی آوند با ۱۲ سؤال، بازخورد، retry و بازشدن مرحله بعد قابل اجراست. draft علمی؛ داده شرکت و اعداد فرضی. متن آزاد هنوز ذخیره حسابی یا rubric ندارد.",
-    "checkpoint_commit": "71df5e2f80f429548834fe9c059637d7d080eea7"
+    "checkpoint": "فلو کارت‌به‌کارت، مسیر مارپیچ و draft همین تب پیاده؛ ۲۱ بررسی مرورگر و پنج scoped axe پاس. تطبیق نهایی و شخصیت منتظر ویدئو و کالکشن پذیرفته‌شده مالک. شش درس draft؛ محتوا با Luna شروع نشده. جزئیات: FRONTEND_HANDOFF.md. تسک باز است.",
+    "qa_date": "2026-10-18"
   },
   {
     "id": "ACA-008",
@@ -186,10 +169,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/98",
     "title": "بانک سؤال، آزمون فصل و ارزیابی استدلال",
     "priority": "P1",
-    "dependencies": [
-      "ACA-005",
-      "ACA-007"
-    ],
+    "dependencies": ["ACA-005", "ACA-007"],
     "scope": [
       "سؤال‌های جایگزین، تعیین سطح، فرصت تمرین جبرانی و جلوگیری از حفظ پاسخ",
       "rubric تحلیل با شواهد/محدودیت/گزینه جایگزین؛ reviewer انسانی برای کارهای باز",
@@ -212,10 +192,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/99",
     "title": "پیشرفت فردی سروری و ادامه میان دستگاه‌ها",
     "priority": "P1",
-    "dependencies": [
-      "ACA-005",
-      "ACA-008"
-    ],
+    "dependencies": ["ACA-005", "ACA-008"],
     "scope": [
       "پیشرفت account-owned مستقل از Workspace و endpoint دارای session/CSRF",
       "تلاش idempotent، revision، نسخه محتوا، زمان سرور و حذف/خروج",
@@ -238,10 +215,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/100",
     "title": "مرور فاصله‌دار و مسیر جبرانی",
     "priority": "P2",
-    "dependencies": [
-      "ACA-008",
-      "ACA-009"
-    ],
+    "dependencies": ["ACA-008", "ACA-009"],
     "scope": [
       "مرور بر اساس مهارت و خطا، با زمان‌بندی نسخه‌دار و توضیح دلیل",
       "مسیرها با بلوک‌های مشترک ساخته شوند؛ ایجاد دوره مستقل برای هر پاسخ ممنوع",
@@ -264,10 +238,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/101",
     "title": "اشتراک آموزش مستقل و فصل رایگان",
     "priority": "P1",
-    "dependencies": [
-      "ACA-001",
-      "ACA-009"
-    ],
+    "dependencies": ["ACA-001", "ACA-009"],
     "scope": [
       "entitlement مستقل academy/workspace/bundle از سرویس billing موجود",
       "بدون خرید خدمت جدید؛ مجوز و کنترل محتوای پولی سروری",
@@ -290,10 +261,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/102",
     "title": "محیط تمرینی و انتقال کنترل‌شده به پروژه واقعی",
     "priority": "P2",
-    "dependencies": [
-      "ACA-007",
-      "ACA-009"
-    ],
+    "dependencies": ["ACA-007", "ACA-009"],
     "scope": [
       "شرکت فرضی برای همه فراگیران؛ بدون نیاز به پلن داشبورد",
       "انتقال اختیاری با پیش‌نمایش و تأیید، same-Workspace permission و revision",
@@ -316,10 +284,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/103",
     "title": "کاراکتر اختصاصی، اینفوگرافیک و موشن آموزشی",
     "priority": "P2",
-    "dependencies": [
-      "ACA-004",
-      "ACA-007"
-    ],
+    "dependencies": ["ACA-004", "ACA-007"],
     "scope": [
       "طراحی character sheet و state machine واکنش‌های فکر/راهنما/درست/تلاش دوباره/جشن؛ دارایی اصیل و دارای مجوز",
       "storyboard موشن‌های آموزشی با trigger، مدت، easing، پایان/skip و توضیح مفهوم؛ صدای اختیاری و هیچ ویدئوی اجباری",
@@ -332,10 +297,9 @@
     ],
     "paths": "apps/web/src/features/academy/; public/assets/",
     "status": "in_progress",
-    "branch": "feat/stratino-academy",
+    "branch": "feat/academy-duolingo-flow",
     "scientific_status": "review_pending",
-    "checkpoint": "خود Boss Baby با سه مرجع مالک انتخاب شد؛ نمونه مستقل رد شد. image_gen با moderation_blocked در output رد شد؛ صفر حالت و صفر نقش جدید متصل. بدون جایگزین تازه؛ Done نیست.",
-    "checkpoint_commit": "7491dcc",
+    "checkpoint": "فلو کارت‌به‌کارت، مسیر مارپیچ و draft همین تب پیاده؛ ۲۱ بررسی مرورگر و پنج scoped axe پاس. تطبیق نهایی و شخصیت منتظر ویدئو و کالکشن پذیرفته‌شده مالک. شش درس draft؛ محتوا با Luna شروع نشده. جزئیات: FRONTEND_HANDOFF.md. تسک باز است.",
     "qa_date": "2026-10-18",
     "blocker": "image_gen: moderation_blocked; requested Boss Baby; no alternate character authorized"
   },
@@ -345,10 +309,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/104",
     "title": "پروفایل مهارت، نشان و لیگ اختیاری",
     "priority": "P2",
-    "dependencies": [
-      "ACA-008",
-      "ACA-009"
-    ],
+    "dependencies": ["ACA-008", "ACA-009"],
     "scope": [
       "XP فعالیت مستقل از تسلط؛ تکرار امتیاز و تقلب کنترل شود",
       "نشان نسخه‌دار با تاریخ و مهارت/پروژه؛ گواهی داخلی بدون ادعای MBA",
@@ -371,10 +332,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/105",
     "title": "پنل تألیف، بازبینی و انتشار نسخه محتوا",
     "priority": "P1",
-    "dependencies": [
-      "ACA-003",
-      "ACA-005"
-    ],
+    "dependencies": ["ACA-003", "ACA-005"],
     "scope": [
       "author/reviewer/publisher و چرخه draft→review→approved→published→retired",
       "اعتبارسنجی گراف/منابع/مجوز/سؤال و rollback نسخه",
@@ -397,10 +355,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/106",
     "title": "پایلوت یادگیری و سنجش ارزش خرید",
     "priority": "P2",
-    "dependencies": [
-      "ACA-007",
-      "ACA-008"
-    ],
+    "dependencies": ["ACA-007", "ACA-008"],
     "scope": [
       "گروه کوچک مؤسس/کارشناس؛ رضایت آگاهانه و حداقل رویداد لازم",
       "پیش‌آزمون، پس‌آزمون با سؤال تازه، ارزیابی با فاصله و خروجی عملی",
@@ -423,12 +378,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/107",
     "title": "گسترش فصل‌های عمومی سپس مسیرهای تخصصی پیشرفته",
     "priority": "P2",
-    "dependencies": [
-      "ACA-002",
-      "ACA-003",
-      "ACA-015",
-      "ACA-016"
-    ],
+    "dependencies": ["ACA-002", "ACA-003", "ACA-015", "ACA-016"],
     "scope": [
       "تولید حوزه‌ای با ترتیب پیش‌نیاز و بودجه نویسندگی/بازبینی هر فصل",
       "ابتدا مبانی/استراتژی، سپس مالی/بازار، سپس افراد/عملیات/داده و تخصص‌ها",
@@ -451,10 +401,7 @@
     "url": "https://github.com/Hamrez95/StrategicManagementPanel/issues/108",
     "title": "گیت کیفیت، امنیت و پذیرش پیش از عرضه",
     "priority": "P1",
-    "dependencies": [
-      "ACA-006",
-      "ACA-007"
-    ],
+    "dependencies": ["ACA-006", "ACA-007"],
     "scope": [
       "تست engine و feature flag و سفر درس و refresh؛ بررسی negative auth/entitlement در زمان پیاده‌سازی سرور",
       "QA تم/جهت/کیبورد/zoom/reduced-motion و 360/768/1280/1440",
@@ -466,10 +413,9 @@
     ],
     "paths": "scripts/verify-academy.mjs; docs/academy/STATUS.md",
     "status": "in_progress",
-    "branch": "feat/stratino-academy",
+    "branch": "feat/academy-duolingo-flow",
     "scientific_status": "review_pending",
-    "checkpoint": "روی Windows: test:academy (۱۰ engine)، typecheck، lint، ۲۰ browser check/۵ axe، build:academy، build و default-off پاس؛ Session contract مستقل fail است. native zoom و شخصیت نهایی تأیید نشده‌اند.",
-    "checkpoint_commit": "7491dcc",
+    "checkpoint": "فلو کارت‌به‌کارت، مسیر مارپیچ و draft همین تب پیاده؛ ۲۱ بررسی مرورگر و پنج scoped axe پاس. تطبیق نهایی و شخصیت منتظر ویدئو و کالکشن پذیرفته‌شده مالک. شش درس draft؛ محتوا با Luna شروع نشده. جزئیات: FRONTEND_HANDOFF.md. تسک باز است.",
     "qa_date": "2026-10-18"
   }
 ]

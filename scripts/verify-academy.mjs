@@ -73,34 +73,61 @@ try {
   assert.equal(await page.getByRole('radio').count(), 0);
   await page.goto(url + '/academy/lesson/unknown');
   await page.getByRole('heading', { name: 'این درس پیدا نشد' }).waitFor();
+  async function startLesson(target) {
+    await target.getByRole('button', { name: 'بریم سراغش', exact: true }).click();
+    await target.getByRole('radio').first().check();
+    await target.getByRole('button', { name: 'ادامه', exact: true }).click();
+    await target.getByRole('button', { name: 'ادامه', exact: true }).click();
+  }
+  async function answer(target, index) {
+    const submit = target.getByRole('button', { name: 'بررسی پاسخ', exact: true });
+    assert.equal(await submit.isDisabled(), true);
+    await target.getByRole('radio').nth(index).check();
+    await submit.click();
+    assert.equal(await target.getByRole('radio').first().isDisabled(), true);
+    assert.equal(
+      await target.locator('.academy-feedback').evaluate((el) => document.activeElement === el),
+      true,
+    );
+    await target.getByRole('button', { name: 'ادامه', exact: true }).click();
+  }
   await page.goto(url + '/academy/lesson/customer');
-  const submit = page.getByRole('button', { name: 'بررسی پاسخ‌ها' });
-  assert.equal(await submit.isDisabled(), true);
-  await page.getByRole('textbox').fill('مشتری نمونه؛ فرضیه نیاز هنوز بررسی نشده است.');
-  await page.locator('fieldset').nth(0).getByRole('radio').nth(0).check();
-  await page.locator('fieldset').nth(1).getByRole('radio').nth(0).check();
-  await submit.click();
+  await startLesson(page);
+  assert.equal(await page.locator('fieldset').count(), 1, 'one decision per screen');
+  assert.equal(
+    await page.evaluate(() => sessionStorage.getItem('stratino-academy-preview-v1')),
+    null,
+    'prediction does not award completion',
+  );
+  await page.screenshot({
+    path: 'test-results/academy/lesson-question.png',
+    fullPage: true,
+    animations: 'disabled',
+  });
+  await page.getByRole('radio').first().check();
+  await page.reload();
+  assert.equal(await page.getByRole('radio').first().isChecked(), true);
+  await page.getByRole('button', { name: 'بررسی پاسخ', exact: true }).click();
+  await page.getByText('بیاییم دلیلش را ببینیم', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'ادامه', exact: true }).click();
+  await answer(page, 0);
   await page.getByRole('heading', { name: 'یک بار دیگر، با دلیل روشن‌تر' }).waitFor();
-  assert.equal(await page.getByRole('link', { name: 'درس بعدی', exact: true }).count(), 0);
+  assert.equal(await page.locator('#academy-progress').count(), 0);
+  await page.getByRole('textbox').fill('مشتری نمونه؛ فرضیه نیاز هنوز بررسی نشده است.');
+  await page.reload();
   assert.equal(
     await page.getByRole('textbox').inputValue(),
     'مشتری نمونه؛ فرضیه نیاز هنوز بررسی نشده است.',
   );
   await page.getByRole('button', { name: 'دوباره تمرین می‌کنم' }).click();
-  // Keyboard can select native radios and submit without pointer.
-  const firstRadio = page.locator('fieldset').nth(0).getByRole('radio').nth(0);
-  await firstRadio.focus();
+  // Native radios remain usable with the keyboard in the staged exercise.
+  await page.getByRole('radio').first().focus();
   await page.keyboard.press('ArrowDown');
-  assert.equal(await page.locator('fieldset').nth(0).getByRole('radio').nth(1).isChecked(), true);
-  await page.locator('fieldset').nth(1).getByRole('radio').nth(2).check();
-  await submit.click();
+  assert.equal(await page.getByRole('radio').nth(1).isChecked(), true);
+  await page.getByRole('button', { name: 'بررسی پاسخ', exact: true }).click();
+  await page.getByRole('button', { name: 'ادامه', exact: true }).click();
+  await answer(page, 2);
   await page.getByRole('heading', { name: 'این تمرین را کامل کردی' }).waitFor();
-  assert.equal(
-    await page
-      .locator('.academy-feedback')
-      .evaluate((element) => document.activeElement === element),
-    true,
-  );
   await page.screenshot({
     path: 'test-results/academy/lesson-feedback.png',
     fullPage: true,
@@ -112,7 +139,7 @@ try {
     [],
   );
   await page.reload();
-  await page.getByRole('link', { name: 'بازگشت به مسیر', exact: true }).click();
+  await page.getByRole('link', { name: 'بازگشت به مسیر', exact: true }).first().click();
   await page.locator('.academy-node--completed').first().waitFor();
   assert.equal(await page.locator('.academy-node--completed').count(), 1);
   const answers = [
@@ -124,9 +151,9 @@ try {
   ];
   for (const [id, a, b] of answers) {
     await page.goto(url + '/academy/lesson/' + id);
-    await page.locator('fieldset').nth(0).getByRole('radio').nth(a).check();
-    await page.locator('fieldset').nth(1).getByRole('radio').nth(b).check();
-    await page.getByRole('button', { name: 'بررسی پاسخ‌ها' }).click();
+    await startLesson(page);
+    await answer(page, a);
+    await answer(page, b);
     await page.getByRole('heading', { name: 'این تمرین را کامل کردی' }).waitFor();
   }
   await page.goto(url + '/academy');
@@ -215,12 +242,31 @@ try {
     };
   });
   await broken.goto(url + '/academy/lesson/customer');
-  await broken.locator('fieldset').nth(0).getByRole('radio').nth(1).check();
-  await broken.locator('fieldset').nth(1).getByRole('radio').nth(2).check();
-  await broken.getByRole('button', { name: 'بررسی پاسخ‌ها' }).click();
-  await broken.getByRole('alert').filter({ hasText: 'در مرورگر ذخیره نشد' }).waitFor();
+  await startLesson(broken);
+  await answer(broken, 1);
+  await answer(broken, 2);
+  await broken
+    .getByRole('alert')
+    .filter({ hasText: 'تمرین انجام شد، اما در مرورگر ذخیره نشد' })
+    .waitFor();
   await broken.close();
   results.push('blocked browser storage reports unsaved progress');
+  const corrupt = await context.newPage();
+  await corrupt.goto(url + '/academy/lesson/customer');
+  for (const draft of [
+    '{bad json',
+    JSON.stringify({ step: 4, answers: {}, checked: false, note: '', prediction: '' }),
+  ]) {
+    await corrupt.evaluate(
+      (value) => sessionStorage.setItem('stratino-academy-draft-v1:customer:1', value),
+      draft,
+    );
+    await corrupt.reload();
+    await corrupt.getByRole('heading', { name: 'تو در تیم آوند هستی' }).waitFor();
+    assert.equal(await corrupt.getByRole('radio').count(), 0);
+  }
+  await corrupt.close();
+  results.push('corrupt and incomplete lesson drafts recover without skipping exercises');
   assert.deepEqual(errors, []);
   await writeFile(
     'test-results/academy/report.json',
