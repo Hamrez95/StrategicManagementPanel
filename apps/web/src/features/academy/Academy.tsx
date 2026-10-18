@@ -284,13 +284,12 @@ export default function Academy() {
     }
     setPractice({ state: next, warning: nextWarning });
   }
-  function appearance(kind: 'theme' | 'motion') {
+  function toggleTheme() {
     const prefs = readDevicePreferences();
-    applyAccountPreferences(
-      kind === 'theme'
-        ? { ...prefs, theme: document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark' }
-        : { ...prefs, motion: prefs.motion === 'reduced' ? 'auto' : 'reduced' },
-    );
+    applyAccountPreferences({
+      ...prefs,
+      theme: document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark',
+    });
   }
   return (
     <div className={`academy${inLesson ? ' academy--lesson' : ''}`}>
@@ -300,17 +299,8 @@ export default function Academy() {
         </Link>
         <span>{english ? 'Learn. Practise. Decide.' : 'یاد بگیر. تمرین کن. تصمیم بگیر.'}</span>
         <nav aria-label={english ? 'Academy navigation' : 'ناوبری آموزش'}>
-          <Button variant="quiet" onClick={() => appearance('theme')}>
+          <Button variant="quiet" onClick={toggleTheme}>
             {english ? 'Change theme' : 'تغییر تم'}
-          </Button>
-          <Button variant="quiet" onClick={() => appearance('motion')}>
-            {readDevicePreferences().motion === 'reduced'
-              ? english
-                ? 'Enable motion'
-                : 'فعال‌کردن حرکت'
-              : english
-                ? 'Reduce motion'
-                : 'کاهش حرکت'}
           </Button>
           <Link to="/">{english ? 'Back to Stratino' : 'بازگشت به استراتینو'}</Link>
         </nav>
