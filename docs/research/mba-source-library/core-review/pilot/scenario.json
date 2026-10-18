@@ -1,0 +1,15 @@
+{
+  "id": "PILOT-C01-01",
+  "fictional": true,
+  "business": "شرکت فرضی خدمات سازمانی سپهر",
+  "period": "one_month",
+  "unit": "million_toman",
+  "opening": {"cash": 30, "receivables": 0, "net_equipment": 100, "debt": 0, "equity": 130},
+  "operations": {"completed_services": 100, "capacity_services": 100, "earned_price_per_service": 2, "variable_expense_per_service": 0.8, "cash_fixed_operating_expense": 60, "depreciation_expense": 10, "current_month_collection_fraction": 0.6},
+  "investing": {"equipment_cash_purchase": 50, "depreciation_on_new_equipment_this_month": 0},
+  "financing": {"new_interest_free_loan_cash": 40, "principal_repaid": 0, "owner_distributions": 0},
+  "excluded": ["tax", "VAT", "interest", "bad_debt", "inventory", "other_working_capital", "foreign_exchange", "other_comprehensive_income"],
+  "timing": "All services completed and earned in month; cash expenses paid in month; remaining receivables due next month; equipment available at end of month; loan received before the equipment payment; end-of-month balance does not establish daily solvency.",
+  "ai_hypothesis": {"additional_cash_fixed_cost": 10, "new_variable_expense_per_service": 0.7, "quality_and_revenue_unchanged_assumed_not_proven": true, "investment_and_depreciation_unchanged": true},
+  "expected": {"revenue": 200, "variable_expense": 80, "contribution": 120, "operating_profit": 50, "operating_cash_flow": -20, "investing_cash_flow": -50, "financing_cash_flow": 40, "net_cash_change": -30, "closing_cash": 0, "closing_receivables": 80, "closing_net_equipment": 140, "closing_debt": 40, "closing_equity": 180, "total_assets": 220, "operating_profit_breakeven_continuous": 58.333333333333336, "operating_profit_breakeven_integer": 59, "cash_operating_breakeven_at_60pct_collection": 150, "ai_profit_at_100": 50, "ai_profit_breakeven_integer": 62}
+}
