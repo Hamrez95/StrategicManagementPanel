@@ -14,6 +14,7 @@ import { academyLessons, curriculum } from './content';
 import type { LessonContent } from './content';
 import { AcademyLesson } from './AcademyLesson';
 import { AcademyIcon } from './AcademyIcons';
+import { AcademyMascot } from './AcademyMascot';
 import './academy.css';
 const PRACTICE_KEY = 'stratino-academy-preview-v1';
 function readPractice() {
@@ -29,47 +30,6 @@ function readPractice() {
       warning: 'ذخیره مرورگر در دسترس نیست؛ پیشرفت فقط تا بسته‌شدن صفحه می‌ماند.',
     };
   }
-}
-export function StratinoGuide({ celebrating = false }: { celebrating?: boolean }) {
-  return (
-    <svg
-      className={`academy-guide${celebrating ? ' academy-guide--celebrate' : ''}`}
-      viewBox="0 0 180 160"
-      role="img"
-      aria-label="همراه استراتینو"
-    >
-      <path
-        d="M30 74 8 62M150 74l22-20"
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth="12"
-        strokeLinecap="round"
-      />
-      <rect
-        x="36"
-        y="28"
-        width="108"
-        height="100"
-        rx="30"
-        fill="var(--wash)"
-        stroke="var(--action)"
-        strokeWidth="4"
-      />
-      <path d="m64 28 26-18 26 18" fill="var(--action-fill)" />
-      <rect x="55" y="54" width="70" height="37" rx="14" fill="var(--paper)" />
-      <g className="academy-guide-eyes" fill="var(--ink)">
-        <circle cx="73" cy="71" r="5" />
-        <circle cx="107" cy="71" r="5" />
-      </g>
-      <path
-        d="M78 104q12 12 24 0M62 131v13m56-13v13"
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
 }
 function LearningPath({ state }: { state: PracticeState }) {
   const [track, setTrack] = useState('foundations');
@@ -232,9 +192,7 @@ function LearningPath({ state }: { state: PracticeState }) {
         )}
       </section>
       <aside className="academy-companion" aria-label="همراه یادگیری">
-        <div className="academy-companion-badge">
-          <AcademyIcon name="target" />
-        </div>
+        <AcademyMascot mood={done.size === academyLessons.length ? 'celebration' : 'welcome'} />
         <h2>هدفت برای این فصل</h2>
         <h2>قدم کوچک، تصمیم بهتر</h2>
         <p>امروز یک مسئله را بفهم و یک تصمیم را تمرین کن.</p>
@@ -289,14 +247,7 @@ function LessonRoute({
         <Link to="/academy">بازگشت به مسیر آموزش</Link>
       </section>
     );
-  return (
-    <AcademyLesson
-      key={lesson.id}
-      lesson={lesson}
-      onComplete={onComplete}
-      guide={<StratinoGuide />}
-    />
-  );
+  return <AcademyLesson key={lesson.id} lesson={lesson} onComplete={onComplete} />;
 }
 export default function Academy() {
   const [{ state, warning }, setPractice] = useState(readPractice);

@@ -726,10 +726,60 @@ html[data-motion='reduced'] .academy * {
   inline-size: 90px;
   block-size: 90px;
 }
+.academy-mascot {
+  display: block;
+  inline-size: 160px;
+  max-inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.academy-companion > .academy-mascot {
+  margin: 0 auto 1rem;
+}
+.academy-scene > .academy-mascot {
+  inline-size: 130px;
+}
+.academy-coach {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-block: 1rem 1.5rem;
+}
+.academy-coach > .academy-mascot {
+  inline-size: 110px;
+}
+.academy-coach > p {
+  margin: 0;
+}
+.academy-player .academy-feedback > .academy-mascot {
+  inline-size: 110px;
+  margin-inline: auto;
+}
+.academy-result-emblem > .academy-mascot {
+  inline-size: 190px;
+  margin-inline: auto;
+}
+.academy-result-emblem > .academy-icon {
+  inline-size: 36px;
+  block-size: 36px;
+}
 html[data-theme='dark'] .academy-start-label {
   color: #8fda57;
 }
 @media (max-width: 700px) {
+  .academy-scene > .academy-mascot {
+    inline-size: 110px;
+    margin: 0 auto 1rem;
+  }
+  .academy-coach {
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .academy-coach > .academy-mascot {
+    inline-size: 82px;
+  }
   .academy-player-top {
     gap: 0.5rem;
     margin-block-end: 1rem;

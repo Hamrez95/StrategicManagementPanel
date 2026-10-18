@@ -31,6 +31,7 @@ server?.stderr.on('data', (data) => {
   logs += data;
 });
 const results = [];
+const mascotMoods = new Set();
 const errors = [],
   apiRequests = [];
 let browser;
@@ -56,12 +57,26 @@ try {
     viewport: { width: 1440, height: 1100 },
   });
   const page = await context.newPage();
+  async function expectMascot(target, mood) {
+    const mascot = target.locator(`.academy-mascot[data-mood="${mood}"]`).first();
+    await mascot.waitFor();
+    assert.equal(
+      await mascot.evaluate(async (image) => {
+        await image.decode();
+        return image.naturalWidth === 320 && image.naturalHeight === 480;
+      }),
+      true,
+      `mascot asset loads: ${mood}`,
+    );
+    mascotMoods.add(mood);
+  }
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('request', (request) => {
     if (new URL(request.url()).pathname.startsWith('/api/')) apiRequests.push(request.url());
   });
   await page.goto(url + '/academy');
   await page.getByRole('heading', { name: 'کسب‌وکار چگونه کار می‌کند؟', exact: true }).waitFor();
+  await expectMascot(page, 'welcome');
   assert.equal(await page.locator('.academy-node--locked').count(), 5);
   await page.screenshot({
     path: 'test-results/academy/path-start.png',
@@ -74,9 +89,12 @@ try {
   await page.goto(url + '/academy/lesson/unknown');
   await page.getByRole('heading', { name: 'این درس پیدا نشد' }).waitFor();
   async function startLesson(target) {
+    await expectMascot(target, 'welcome');
     await target.getByRole('button', { name: 'بریم سراغش', exact: true }).click();
+    await expectMascot(target, 'thinking');
     await target.getByRole('radio').first().check();
     await target.getByRole('button', { name: 'ادامه', exact: true }).click();
+    await expectMascot(target, 'guidance');
     await target.getByRole('button', { name: 'ادامه', exact: true }).click();
   }
   async function answer(target, index) {
@@ -84,6 +102,10 @@ try {
     assert.equal(await submit.isDisabled(), true);
     await target.getByRole('radio').nth(index).check();
     await submit.click();
+    await expectMascot(
+      target,
+      (await target.locator('.academy-feedback--passed').count()) ? 'correct' : 'retry',
+    );
     assert.equal(await target.getByRole('radio').first().isDisabled(), true);
     assert.equal(
       await target.locator('.academy-feedback').evaluate((el) => document.activeElement === el),
@@ -128,6 +150,7 @@ try {
   await page.getByRole('button', { name: 'ادامه', exact: true }).click();
   await answer(page, 2);
   await page.getByRole('heading', { name: 'این تمرین را کامل کردی' }).waitFor();
+  await expectMascot(page, 'celebration');
   await page.screenshot({
     path: 'test-results/academy/lesson-feedback.png',
     fullPage: true,
@@ -268,6 +291,15 @@ try {
   await corrupt.close();
   results.push('corrupt and incomplete lesson drafts recover without skipping exercises');
   assert.deepEqual(errors, []);
+  assert.deepEqual([...mascotMoods].sort(), [
+    'celebration',
+    'correct',
+    'guidance',
+    'retry',
+    'thinking',
+    'welcome',
+  ]);
+  results.push('all six mascot states render decoded local image assets');
   await writeFile(
     'test-results/academy/report.json',
     JSON.stringify({ results, axeAudits: 5, apiRequests, errors, serverLogs: logs }, null, 2),

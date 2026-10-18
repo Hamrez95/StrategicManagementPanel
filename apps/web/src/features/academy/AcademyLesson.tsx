@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { Button } from '@stratino/ui';
 import { gradePractice } from '@stratino/domain/academy';
 import { academyLessons, academySources } from './content';
 import type { LessonContent } from './content';
 import { AcademyIcon } from './AcademyIcons';
+import { AcademyMascot } from './AcademyMascot';
 
 type Draft = {
   step: number;
@@ -52,11 +52,9 @@ function readDraft(lesson: LessonContent): Draft {
 export function AcademyLesson({
   lesson,
   onComplete,
-  guide,
 }: {
   lesson: LessonContent;
   onComplete: (lesson: LessonContent, answers: Record<string, string>) => void;
-  guide: ReactNode;
 }) {
   const [draft, setDraft] = useState(() => readDraft(lesson));
   const [storageWarning, setStorageWarning] = useState(false);
@@ -130,7 +128,7 @@ export function AcademyLesson({
         {step === 0 && (
           <>
             <div className="academy-scene">
-              {guide}
+              <AcademyMascot mood="welcome" />
               <p>{lesson.scene}</p>
             </div>
             <p className="academy-objective">بعد از این درس می‌توانی {lesson.objective}</p>
@@ -138,7 +136,10 @@ export function AcademyLesson({
         )}
         {step === 1 && (
           <>
-            <p>{lesson.questions[0].prompt}</p>
+            <div className="academy-coach">
+              <AcademyMascot mood="thinking" />
+              <p>{lesson.questions[0].prompt}</p>
+            </div>
             <p className="academy-muted">این انتخاب نمره ندارد؛ فقط برداشت اولیه‌ات را ثبت کن.</p>
             <fieldset>
               <legend>انتخاب اولیه</legend>
@@ -163,7 +164,10 @@ export function AcademyLesson({
         )}
         {step === 2 && (
           <>
-            <p className="academy-teaching">{lesson.teaching}</p>
+            <div className="academy-coach">
+              <AcademyMascot mood="guidance" />
+              <p className="academy-teaching">{lesson.teaching}</p>
+            </div>
             <ol className="academy-diagram">
               {lesson.diagram.map((item, i) => (
                 <li key={item.label}>
@@ -174,6 +178,12 @@ export function AcademyLesson({
               ))}
             </ol>
           </>
+        )}
+        {question && !checked && (
+          <div className="academy-coach">
+            <AcademyMascot mood="thinking" />
+            <p>به موقعیت آوند برگرد؛ کدام گزینه با شواهد جور است؟</p>
+          </div>
         )}
         {question && (
           <form
@@ -220,8 +230,8 @@ export function AcademyLesson({
             role="status"
             className={`academy-feedback ${answers[question.id] === question.correctChoiceId ? 'academy-feedback--passed' : 'academy-feedback--retry'}`}
           >
-            <AcademyIcon
-              name={answers[question.id] === question.correctChoiceId ? 'check' : 'book'}
+            <AcademyMascot
+              mood={answers[question.id] === question.correctChoiceId ? 'correct' : 'retry'}
             />
             <h3>
               {answers[question.id] === question.correctChoiceId
@@ -240,6 +250,7 @@ export function AcademyLesson({
               className={`academy-feedback academy-result${result.passed ? ' academy-feedback--passed' : ''}`}
             >
               <div className="academy-result-emblem">
+                <AcademyMascot mood={result.passed ? 'celebration' : 'retry'} />
                 <AcademyIcon name={result.passed ? 'trophy' : 'target'} />
               </div>
               <p>
