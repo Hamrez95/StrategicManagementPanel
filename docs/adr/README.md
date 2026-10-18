@@ -26,4 +26,5 @@
 | [ADR-010](010-initial-price-hypotheses.md) | قیمت‌های هدف اولیه | فرضیه |
 | [ADR-011](011-learning-source-provenance.md) | رفرنس‌ها و منشأ محتوای آموزشی | جهت پیشنهادی |
 | [ADR-012](012-renewal-and-learner-data.md) | تمدید و نگهداری داده‌های یادگیرنده | باز |
-| [ADR-013](013-case-study-model.md) | مدل سناریو و کیس‌های آموزشی | باز |
+| [ADR-013](013-case-study-model.md) | مدل سناریو و کیس‌های آموزشی | برای نسخهٔ یک با تصمیم ۰۱۴ تعیین شد |
+| [تصمیم ۰۱۴](014-learning-stages-lessons-and-assessment.md) | مسیر مرحله‌ای، درس‌نامه، تثبیت و ورود به توسعه | مبنای طراحی نسخهٔ یک |
