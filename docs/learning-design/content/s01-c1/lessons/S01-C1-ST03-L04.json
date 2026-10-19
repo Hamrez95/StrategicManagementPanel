@@ -1,0 +1,300 @@
+{
+  "id": "S01-C1-ST03-L04",
+  "version": "1-draft",
+  "title": "ماتریس SPACE؛ موضع را با حساسیت بررسی کنیم",
+  "content_status": "draft",
+  "objective": "چهار بُعد SPACE را تعریف و نمره‌گذاری کند، مختصات را محاسبه و محدودیت آن را تحلیل کند.",
+  "learning_cards": [
+    {
+      "id": "S01-C1-ST03-L04-CARD01",
+      "type": "explanation",
+      "title": "منطق SPACE",
+      "text": "SPACE دو بُعد داخلی، قدرت مالی (FS) و مزیت رقابتی (CA)، و دو بُعد بیرونی، قدرت صنعت (IS) و ثبات محیط (ES) را ترکیب می‌کند. موضع حاصل جهت گزینه‌ها را می‌نمایاند، نه تصمیم نهایی."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD02",
+      "type": "explanation",
+      "title": "علامت مقیاس",
+      "text": "در قرارداد رایج FS و IS از +۱ تا +۶ هستند؛ عدد بیشتر یعنی قدرت بیشتر. CA و ES از −۱ تا −۶ هستند؛ عدد منفی‌تر یعنی ضعف رقابتی یا بی‌ثباتی بیشتر. قرارداد را روی نمودار بنویسید."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD03",
+      "type": "explanation",
+      "title": "انتخاب عامل",
+      "text": "برای FS نقدینگی و بازده؛ CA سهم نسبی، کیفیت و وفاداری؛ IS رشد صنعت؛ و ES نوسان تقاضا یا تغییر فناوری را بررسی کنید. عامل‌ها متناسب با صنعت باشند و تعریف و منبع داشته باشند."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD04",
+      "type": "explanation",
+      "title": "فرمول مختصات",
+      "text": "میانگین هر بُعد را حساب کنید؛ X = IS + CA و Y = FS + ES. مثال: IS=+۴ و CA=−۳، پس X=+۱؛ FS=+۴ و ES=−۳، پس Y=+۱. نقطه در بالا-راست است.",
+      "table": {
+        "columns": [
+          "بُعد",
+          "میانگین نمونه",
+          "کاربرد در مختصات"
+        ],
+        "rows": [
+          [
+            "FS",
+            "+4",
+            "Y"
+          ],
+          [
+            "ES",
+            "−3",
+            "Y"
+          ],
+          [
+            "IS",
+            "+4",
+            "X"
+          ],
+          [
+            "CA",
+            "−3",
+            "X"
+          ],
+          [
+            "نتیجه",
+            "X=+1, Y=+1",
+            "بالا-راست"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD05",
+      "type": "explanation",
+      "title": "چهار جهت‌گیری",
+      "text": "بالا-راست معمولاً تهاجمی، پایین-راست رقابتی، پایین-چپ تدافعی و بالا-چپ محافظه‌کارانه است. این نام‌ها جهت کلی‌اند، نه فهرست پروژه؛ نقطهٔ نزدیک مرکز به تغییر نمره‌ها حساس است."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD06",
+      "type": "explanation",
+      "title": "مثال آموزشی",
+      "text": "مختصات +۱,+۱ در نمونهٔ سپهر نزدیک مرکز و سمت تهاجمی است؛ رشد انتخابی می‌تواند بررسی شود. فشار نقدی یا ضعف اجرا آن را ناموجه می‌کند. این داده‌ها ساختگی‌اند و واقعیت شرکت خاصی را نمی‌گویند."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD07",
+      "type": "explanation",
+      "title": "حساسیت و میانگین",
+      "text": "میانگین ساده به عامل‌ها وزن برابر می‌دهد، هرچند اهمیتشان یکسان نیست. برای نمره‌ها بازهٔ پایین، پایه و بالا بسازید؛ اگر ربع عوض شد، موضع را مشروط بگویید و داده را کامل کنید."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD08",
+      "type": "explanation",
+      "title": "AI برای کاندید عامل",
+      "text": "مدل زبانی می‌تواند گزارش و خبر را خلاصه کند تا عامل احتمالی پیشنهاد دهد. عامل را به متن اصلی، تاریخ، واحد تحلیل و بازبین وصل کنید؛ امتیازدهی را بی‌ردپا به مدل نسپارید."
+    },
+    {
+      "id": "S01-C1-ST03-L04-CARD09",
+      "type": "explanation",
+      "title": "اختلاف ابزارها",
+      "text": "اگر SPACE و IE نتایج متفاوت دارند، دوره، واحد تحلیل، عامل‌ها و فرض‌ها را مقایسه کنید. اختلاف می‌تواند بینش باشد. خروجی را به گزینه، سنجهٔ یادگیری، مسئول و زمان بازنگری تبدیل کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S01-C1-ST03-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "در SPACE رایج FS و IS چه علامتی دارند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مثبت +۱ تا +۶",
+          "feedback": "درست: FS و IS مثبت؛ CA و ES منفی‌اند."
+        },
+        {
+          "id": "b",
+          "text": "منفی −۱ تا −۶",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. FS و IS مثبت؛ CA و ES منفی‌اند."
+        },
+        {
+          "id": "c",
+          "text": "درصد صفر تا صد",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. FS و IS مثبت؛ CA و ES منفی‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "FS و IS مثبت؛ CA و ES منفی‌اند.",
+      "objective_id": "S01-C1-ST03-L04-OBJ1",
+      "equivalence_group": "S01-C1-ST03-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C1-ST03-L04-CARD02"
+    },
+    {
+      "id": "S01-C1-ST03-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "اگر IS=+۴ و CA=−۳، X؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "+۱",
+          "feedback": "درست: X=IS+CA=+۱."
+        },
+        {
+          "id": "b",
+          "text": "−۱",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. X=IS+CA=+۱."
+        },
+        {
+          "id": "c",
+          "text": "+۷",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. X=IS+CA=+۱."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "X=IS+CA=+۱.",
+      "objective_id": "S01-C1-ST03-L04-OBJ1",
+      "equivalence_group": "S01-C1-ST03-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C1-ST03-L04-CARD04"
+    },
+    {
+      "id": "S01-C1-ST03-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نقطه نزدیک مرکز یعنی چه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حساسیت به امتیاز و فرض",
+          "feedback": "درست: مرکز به تغییر کوچک حساس است."
+        },
+        {
+          "id": "b",
+          "text": "موضع قطعی تهاجمی",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. مرکز به تغییر کوچک حساس است."
+        },
+        {
+          "id": "c",
+          "text": "نیازی به داده نیست",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. مرکز به تغییر کوچک حساس است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مرکز به تغییر کوچک حساس است.",
+      "objective_id": "S01-C1-ST03-L04-OBJ1",
+      "equivalence_group": "S01-C1-ST03-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C1-ST03-L04-CARD07"
+    },
+    {
+      "id": "S01-C1-ST03-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "موضع تهاجمی رشد را قطعی می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خیر؛ اجرا و نقدینگی هم لازم‌اند",
+          "feedback": "درست: SPACE جهت گزینه می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "بله؛ نمودار فرمان می‌دهد",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. SPACE جهت گزینه می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "فقط نام ربع کافی است",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. SPACE جهت گزینه می‌دهد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "SPACE جهت گزینه می‌دهد.",
+      "objective_id": "S01-C1-ST03-L04-OBJ1",
+      "equivalence_group": "S01-C1-ST03-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C1-ST03-L04-CARD06"
+    },
+    {
+      "id": "S01-C1-ST03-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "قبل از نمره دادن عامل AI چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "متن اصلی، تاریخ و ربطش را تأیید کنیم",
+          "feedback": "درست: استخراج ماشینی نیازمند اعتبارسنجی است."
+        },
+        {
+          "id": "b",
+          "text": "عامل را واقعیت قطعی فرض کنیم",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. استخراج ماشینی نیازمند اعتبارسنجی است."
+        },
+        {
+          "id": "c",
+          "text": "خبر قدیمی را تازه بدانیم",
+          "feedback": "نقش وزن، نمره یا شاهد را با هم خلط نکنید. استخراج ماشینی نیازمند اعتبارسنجی است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "استخراج ماشینی نیازمند اعتبارسنجی است.",
+      "objective_id": "S01-C1-ST03-L04-OBJ1",
+      "equivalence_group": "S01-C1-ST03-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C1-ST03-L04-CARD08"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "pearson-david",
+      "title": "Pearson: David, David & David, Strategic Management, 17th ed.",
+      "url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405",
+      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی."
+    },
+    {
+      "id": "oxford-swot",
+      "title": "Oxford Academic: Strategy in 3D, Chapter 11: SWOT",
+      "url": "https://academic.oup.com/book/36951/chapter-abstract/322250994",
+      "scope": "پیوند تشخیص داخلی و بیرونی؛ دسترسی فصل ممکن است محدود باشد."
+    },
+    {
+      "id": "space-radder",
+      "title": "Radder & Louw (1998), The SPACE matrix",
+      "url": "https://doi.org/10.1016/S0024-6301(98)80048-4",
+      "scope": "چهار بُعد مالی، مزیت رقابتی، قدرت صنعت و ثبات محیط."
+    },
+    {
+      "id": "oecd-ai",
+      "title": "OECD/BCG/INSEAD (2025), The Adoption of AI in Firms",
+      "url": "https://www.oecd.org/en/publications/the-adoption-of-artificial-intelligence-in-firms_f9ef33c3-en/full-report.html",
+      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند."
+    },
+    {
+      "id": "stanford-ai",
+      "title": "Stanford HAI, AI Index 2026: Economy",
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
+      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود."
+    },
+    {
+      "id": "oxford-tools",
+      "title": "Oxford Academic: Strategy in 3D: Essential Tools",
+      "url": "https://academic.oup.com/book/36951",
+      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "FS=+4، CA=−3، IS=+4 و ES=−3 را در SPACE بگذارید، مختصات را حساب و حساسیت به یک عامل را توضیح دهید.",
+    "unit": "استراتژی رقابتی و قابلیت‌ها",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "وزن، نمره و شاهد نقش‌های جدا دارند. پاسخ خوب قرارداد ابزار، فرض، منبع و حساسیت را نشان می‌دهد و از ماتریس دستور قطعی استخراج نمی‌کند.",
+    "rubric": [
+      "علامت‌ها و فرمول درست‌اند",
+      "حساسیت و فاصله از مرکز آمده",
+      "موضع به شرط اجرا وصل شده"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
