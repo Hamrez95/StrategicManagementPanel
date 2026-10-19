@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "E02",
-  "status": "targeted_source_review_for_stages_1_3; expert_review_pending",
-  "source_use_note": "مرحلهٔ اول با پژوهش‌های تحول دیجیتال مرور شده بود. مرحلهٔ دوم از گزارش WDR 2021 بانک جهانی برای چرخهٔ ارزش و حکمرانی داده، مدل‌های پلتفرمی و ریسک تمرکز، از مقالهٔ کاری نظری NBER 30881 برای تعامل داده و اثر شبکه (نه شاهد تجربی قطعی)، و از Strategyzer برای Canvas به‌عنوان چارچوب استفاده می‌کند. سناریوی سپهر ساختگی است. منابع 2021 قدیمی‌ترند و برای ادعاهای وضعیت روز بازار باید به‌روزرسانی شوند؛ این بسته پیش‌نویس و نیازمند داوری متخصص است. مرحلهٔ سوم با استاندارد PMI برای سبد و منابع محدود، مرورهای نظام‌مند تغییر راهبردی/تحول دیجیتال 2021 و 2024 و مرور عوامل تحول دیجیتال 2025 تکمیل شده؛ ADKAR از منبع خود Prosci به‌عنوان چارچوب تجاری و نه شواهد علّی مستقل استفاده شده است.",
+  "status": "targeted_source_review_for_all_4_stages; expert_review_pending",
+  "source_use_note": "مرحلهٔ اول با پژوهش‌های تحول دیجیتال مرور شده بود. مرحلهٔ دوم از گزارش WDR 2021 بانک جهانی برای چرخهٔ ارزش و حکمرانی داده، مدل‌های پلتفرمی و ریسک تمرکز، از مقالهٔ کاری نظری NBER 30881 برای تعامل داده و اثر شبکه (نه شاهد تجربی قطعی)، و از Strategyzer برای Canvas به‌عنوان چارچوب استفاده می‌کند. سناریوی سپهر ساختگی است. منابع 2021 قدیمی‌ترند و برای ادعاهای وضعیت روز بازار باید به‌روزرسانی شوند؛ این بسته پیش‌نویس و نیازمند داوری متخصص است. مرحلهٔ سوم با استاندارد PMI برای سبد و منابع محدود، مرورهای نظام‌مند تغییر راهبردی/تحول دیجیتال 2021 و 2024 و مرور عوامل تحول دیجیتال 2025 تکمیل شده؛ ADKAR از منبع خود Prosci به‌عنوان چارچوب تجاری و نه شواهد علّی مستقل استفاده شده است. مرحلهٔ چهارم از AI RMF و پروفایل GenAI بانک NIST برای چارچوب ریسک، و OWASP Top 10 2025 برای آگاهی از تهدیدهای LLM و عاملیت استفاده می‌کند. NIST اعلام کرده AI RMF 1.0 در حال بازنگری است؛ این نسخه تضمین ایمنی نیست. مثال سپهر ساختگی است.",
   "sources": [
     {
       "id": "ELIA-DIGITAL-TRANSFORMATION-CANVAS-2024",
@@ -101,12 +101,47 @@
       "url": "https://www.prosci.com/methodology/adkar",
       "review_depth": "practitioner_framework_primary_source_reviewed",
       "scope": "چارچوب تجاری آگاهی، تمایل، دانش، توانایی و تقویت برای گفت‌وگوی تغییر؛ اعتبار آن را نباید بدون ارزیابی مستقل به‌عنوان اثر علّی قطعی ارائه کرد."
+    },
+    {
+      "id": "NIST-AI-RMF-1",
+      "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_public_framework_reviewed_current_status_checked",
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند."
+    },
+    {
+      "id": "NIST-AI-600-1-GENAI-PROFILE",
+      "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "primary_public_profile_reviewed",
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد."
+    },
+    {
+      "id": "OWASP-LLM-TOP10-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "community_security_awareness_resource_reviewed",
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست."
+    },
+    {
+      "id": "OWASP-LLM-TOP10-PDF-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025, project PDF",
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "review_depth": "community_security_project_document_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود."
+    },
+    {
+      "id": "NIST-ADVERSARIAL-ML-100-2E2025",
+      "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
+      "review_depth": "primary_technical_taxonomy_reviewed",
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود."
     }
   ],
   "open_questions": [
-    "بررسی نسخهٔ جاری استاندارد مدیریت سبد PMI و جایگزینی یا تکمیل منبع 2013.",
-    "نمونهٔ واقعی از شکست/توقف سبد تحول با دادهٔ اولیه و دامنهٔ مستند افزوده شود.",
-    "کارشناس متخصص تغییر، کاربرد ADKAR و سنجه‌های پذیرش را بازبینی کند."
+    "نسخهٔ به‌روز AI RMF پس از انتشار بازنگری NIST بررسی و محتوا اصلاح شود.",
+    "متخصص امنیت عامل، مجوز ابزارها و مسیر توقف را با تهدیدمدل واقعی ارزیابی کند.",
+    "پیش از انتشار، آزمون‌های هم‌ارز تازه، آزمون دسترس‌پذیری و بازبینی حقوقی/حریم خصوصی تکمیل شود."
   ],
   "stage_reviews": [
     {
@@ -142,6 +177,18 @@
         "PROSCI-ADKAR-MODEL"
       ],
       "limitations": "منابع حرفه‌ای PMI/Prosci چارچوب‌اند؛ مرورهای نظام‌مند مرز زمانی و زمینه دارند. ادعای اثربخشی باید با دادهٔ سازمانی سنجیده شود."
+    },
+    {
+      "stage_id": "E02-ST04",
+      "status": "draft_complete_pending_review",
+      "source_ids": [
+        "NIST-AI-RMF-1",
+        "NIST-AI-600-1-GENAI-PROFILE",
+        "OWASP-LLM-TOP10-2025",
+        "OWASP-LLM-TOP10-PDF-2025",
+        "NIST-ADVERSARIAL-ML-100-2E2025"
+      ],
+      "limitations": "چارچوب NIST داوطلبانه و در حال بازنگری است؛ OWASP فهرست آگاهی امنیتی جامعه است، نه تضمین امنیت. آزمون، حریم خصوصی و بازبینی متخصص برای محصول لازم است."
     }
   ]
 }
