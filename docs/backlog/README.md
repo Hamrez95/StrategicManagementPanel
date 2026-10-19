@@ -146,9 +146,9 @@ P0 order: STR-053 integrity → STR-055 baseline quality → STR-054 reviewed lo
 Initial architecture and UX are specified in [Management OS design index](../management-os/DESIGN_INDEX.md); Luna implementation follows [bounded packets](../management-os/LUNA_WORK_PACKETS.md). Design completion does not close development or validation tasks.
 
 
-## Academy — اپیک #90، شاخه مستقل
+## Academy — اپیک #90، تجربهٔ یادگیری مستقل
 
-دستور مالک: توسعه فقط روی `feat/stratino-academy`، بدون merge/auto-merge به main تا مجوز جدید. نقشه راه #53 همچنان مرجع مشترک است. [راهنمای آکادمی](../academy/README.md).
+دستور جدید مالک: ادغام محلی تجربهٔ آموزش و اتصال آن به صفحهٔ اصلی مجاز است؛ push و deploy انجام نمی‌شود. نقشه راه #53 همچنان مرجع مشترک است. [راهنمای آکادمی](../academy/README.md).
 
 | ID | Issue | اولویت | تسک | وابستگی |
 |---|---|---|---|---|

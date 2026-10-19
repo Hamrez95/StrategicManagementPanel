@@ -1,13 +1,14 @@
 import { Link } from 'react-router';
 import { BoardIllustration, Icon, Mark } from '../features/experience/ExperienceUI';
 
-export default function Site() {
+export default function Site({ academyEnabled = true }: { academyEnabled?: boolean }) {
   return (
     <div className="ex-public" dir="rtl">
       <header className="ex-public-nav">
         <Mark />
         <nav aria-label="معرفی استراتینو">
           <a href="#how-it-works">چطور کار می‌کند؟</a>
+          {academyEnabled && <Link to="/academy">آموزش مدیریت</Link>}
           <a href="#your-workspace">فضای کار شما</a>
         </nav>
         <div>
@@ -70,6 +71,38 @@ export default function Site() {
           ))}
         </div>
       </section>
+      {academyEnabled && (
+        <section className="ex-site-academy" aria-labelledby="site-academy-title">
+          <div className="ex-site-academy-copy">
+            <p>آکادمی مدیریت</p>
+            <h2 id="site-academy-title">مدیریت را قدم‌به‌قدم یاد بگیر.</h2>
+            <p>
+              مفهوم‌های کسب‌وکار را در درس‌های کوتاه ببین و با تمرین، آن‌ها را به تصمیم‌هایت وصل کن.
+            </p>
+            <Link className="ex-button" to="/academy">
+              رفتن به آکادمی <Icon name="arrow" />
+            </Link>
+            <small>
+              نسخهٔ تمرینی است؛ درس‌های آغازین هنوز نهایی نشده‌اند. پیشرفت به حساب وصل نیست و فقط در
+              همین تب می‌ماند.
+            </small>
+          </div>
+          <ol className="ex-site-academy-steps" aria-label="سه گام یادگیری">
+            <li>
+              <span>۱</span>
+              <strong>یک مفهوم را یاد بگیر</strong>
+            </li>
+            <li>
+              <span>۲</span>
+              <strong>یادگیریت را با تمرین بسنج</strong>
+            </li>
+            <li>
+              <span>۳</span>
+              <strong>آن را در یک تصمیم به کار ببر</strong>
+            </li>
+          </ol>
+        </section>
+      )}
       <section className="ex-site-end" id="your-workspace">
         <h2>هر کسب‌وکار، یک فضای روشن.</h2>
         <p>ایده‌ها، شواهد و برنامه‌هایت را از هم جدا و کنار هم نگه دار.</p>

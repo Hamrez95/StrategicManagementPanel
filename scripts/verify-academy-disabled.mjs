@@ -3,6 +3,12 @@ import { readdir, writeFile, mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { setTimeout } from 'node:timers/promises';
 import { chromium } from 'playwright';
+const build = spawn(process.execPath, [process.env.npm_execpath, 'run', 'build'], {
+  env: { ...process.env, VITE_ACADEMY_PREVIEW: 'false' },
+  stdio: 'inherit',
+});
+const buildCode = await new Promise((resolve) => build.once('exit', resolve));
+assert.equal(buildCode, 0, 'opt-out production build must succeed');
 const files = await readdir('dist/assets');
 assert.equal(
   files.some((file) => /^Academy-/.test(file)),

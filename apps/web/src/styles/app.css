@@ -2746,6 +2746,234 @@ main {
 .account-settings__back {
   margin-top: 24px;
 }
+.account-subscriptions {
+  --subscription-management: #2459ed;
+  --subscription-academy: #16806c;
+  margin-block: 28px;
+  scroll-margin-block-start: 20px;
+}
+.account-subscriptions__intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-block-end: 16px;
+}
+.account-subscriptions__eyebrow,
+.subscription-details__label {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 750;
+}
+.account-subscriptions__intro h2 {
+  margin-block: 2px 4px;
+  font-size: clamp(22px, 3vw, 30px);
+}
+.account-subscriptions__intro p:last-child {
+  max-inline-size: 610px;
+}
+.account-subscriptions__account-mark {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--paper);
+  font-size: 13px;
+  font-weight: 700;
+}
+.account-subscriptions__products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.subscription-product {
+  min-inline-size: 0;
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-block-start: 4px solid var(--product-accent);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+}
+.subscription-product--management {
+  --product-accent: var(--subscription-management);
+}
+.subscription-product--academy {
+  --product-accent: var(--subscription-academy);
+}
+.subscription-product__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block-end: 13px;
+}
+.subscription-product__icon {
+  display: grid;
+  inline-size: 46px;
+  block-size: 46px;
+  place-items: center;
+  border-radius: 14px 14px 14px 5px;
+  background: color-mix(in srgb, var(--product-accent) 12%, var(--paper));
+  color: var(--product-accent);
+}
+.subscription-product__icon svg {
+  inline-size: 28px;
+  block-size: 28px;
+}
+.subscription-product__kind {
+  color: var(--muted);
+  font-size: 13px;
+}
+.subscription-product h3 {
+  margin-block-end: 4px;
+  color: var(--ink);
+  font-size: 20px;
+}
+.subscription-product > p {
+  max-inline-size: 34rem;
+}
+.subscription-product__status {
+  margin-block: 13px 9px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.subscription-product__link {
+  display: inline-flex;
+  min-block-size: 44px;
+  align-items: center;
+  color: var(--product-accent) !important;
+  font-weight: 750;
+}
+.subscription-details {
+  margin-block-start: 18px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+  scroll-margin-block-start: 20px;
+}
+.subscription-details--academy {
+  border-block-start: 3px solid var(--subscription-academy);
+}
+.subscription-details__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-block-end: 6px;
+}
+.subscription-details__heading h3 {
+  color: var(--ink);
+  font-size: 20px;
+}
+.subscription-details__label {
+  margin-block-end: 1px;
+}
+.subscription-status {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.subscription-status--annual {
+  border-color: color-mix(in srgb, var(--subscription-academy) 38%, var(--line));
+  color: var(--subscription-academy);
+  background: color-mix(in srgb, var(--subscription-academy) 8%, var(--paper));
+}
+.subscription-details__copy {
+  max-inline-size: 680px;
+  margin-block: 0 16px;
+}
+.subscription-details__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.academy-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-block-start: 18px;
+}
+.academy-plan {
+  display: flex;
+  min-inline-size: 0;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--canvas);
+}
+.academy-plan--featured {
+  border-color: color-mix(in srgb, var(--subscription-academy) 55%, var(--line));
+  background: color-mix(in srgb, var(--subscription-academy) 5%, var(--paper));
+}
+.academy-plan__badge {
+  min-block-size: 24px;
+  margin-block-end: 8px;
+  color: var(--subscription-academy);
+  font-size: 12px;
+  font-weight: 800;
+}
+.academy-plan h4 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: 17px;
+}
+.academy-plan > p {
+  font-size: 14px;
+}
+.academy-plan__detail {
+  margin-block-start: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+.academy-plan__price {
+  margin-block: 12px;
+  font-size: 12px !important;
+}
+.academy-plan__action {
+  inline-size: 100%;
+  min-block-size: 44px;
+  margin-block-start: auto;
+  border: 1px solid var(--line) !important;
+  color: var(--muted) !important;
+  cursor: not-allowed;
+}
+.academy-plan__action:disabled {
+  opacity: 1;
+}
+.subscription-free-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-block-start: 16px;
+  padding: 16px 18px;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--wash);
+}
+.subscription-free-note strong {
+  color: var(--ink);
+}
+.subscription-free-note p {
+  margin-block-start: 2px;
+  font-size: 13px;
+}
+.subscription-free-note .ui-button {
+  flex: 0 0 auto;
+}
+.subscription-readiness {
+  margin-block: 14px 0;
+  font-size: 13px;
+}
 .session-account-link {
   display: inline-flex;
   align-items: center;
@@ -2804,6 +3032,28 @@ main {
   }
   .account-form--email > * {
     grid-column: 1;
+  }
+  .account-subscriptions__intro {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .account-subscriptions__account-mark {
+    align-self: start;
+  }
+  .account-subscriptions__products,
+  .academy-plan-grid {
+    grid-template-columns: 1fr;
+  }
+  .subscription-details__heading,
+  .subscription-free-note {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .subscription-status {
+    align-self: start;
+  }
+  .subscription-free-note .ui-button {
+    align-self: start;
   }
   .session-tools {
     flex-wrap: wrap;

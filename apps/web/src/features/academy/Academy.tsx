@@ -1,18 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Route, Routes, useLocation, useParams } from 'react-router';
 import { Brand, Button, useUIAppearance } from '@stratino/ui';
 import {
   completedPractice,
   emptyPractice,
-  gradePractice,
   lessonAvailability,
   parsePractice,
   recordPractice,
 } from '@stratino/domain/academy';
 import type { PracticeState } from '@stratino/domain/academy';
 import { applyAccountPreferences, readDevicePreferences } from '../account/api';
-import { academyLessons, academySources, curriculum } from './content';
+import { academyLessons, curriculum } from './content';
 import type { LessonContent } from './content';
+import { AcademyLesson } from './AcademyLesson';
+import { AcademyIcon } from './AcademyIcons';
+import { AcademyMascot } from './AcademyMascot';
+import { AcademyCatalog, AcademyGuide, AcademyNavigation, AcademyReview } from './AcademyPages';
 import './academy.css';
 const PRACTICE_KEY = 'stratino-academy-preview-v1';
 function readPractice() {
@@ -28,47 +31,6 @@ function readPractice() {
       warning: 'ذخیره مرورگر در دسترس نیست؛ پیشرفت فقط تا بسته‌شدن صفحه می‌ماند.',
     };
   }
-}
-export function StratinoGuide({ celebrating = false }: { celebrating?: boolean }) {
-  return (
-    <svg
-      className={`academy-guide${celebrating ? ' academy-guide--celebrate' : ''}`}
-      viewBox="0 0 180 160"
-      role="img"
-      aria-label="همراه استراتینو"
-    >
-      <path
-        d="M30 74 8 62M150 74l22-20"
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth="12"
-        strokeLinecap="round"
-      />
-      <rect
-        x="36"
-        y="28"
-        width="108"
-        height="100"
-        rx="30"
-        fill="var(--wash)"
-        stroke="var(--action)"
-        strokeWidth="4"
-      />
-      <path d="m64 28 26-18 26 18" fill="var(--action-fill)" />
-      <rect x="55" y="54" width="70" height="37" rx="14" fill="var(--paper)" />
-      <g className="academy-guide-eyes" fill="var(--ink)">
-        <circle cx="73" cy="71" r="5" />
-        <circle cx="107" cy="71" r="5" />
-      </g>
-      <path
-        d="M78 104q12 12 24 0M62 131v13m56-13v13"
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
 }
 function LearningPath({ state }: { state: PracticeState }) {
   const [track, setTrack] = useState('foundations');
@@ -92,15 +54,19 @@ function LearningPath({ state }: { state: PracticeState }) {
               aria-pressed={track === item.id}
               onClick={() => setTrack(item.id)}
             >
-              {item.title}
-              {item.id !== 'foundations' && <small>در برنامه تولید</small>}
+              <span className="academy-topic-title">
+                <AcademyIcon name={item.id === 'foundations' ? 'book' : 'briefcase'} />
+                {item.title}
+              </span>
+              {item.id !== 'foundations' && <small>در حال آماده‌سازی</small>}
             </button>
           ))}
         </div>
       </aside>
       <section className="academy-path" aria-labelledby="academy-title">
         <div className="academy-chapter">
-          <p>سطح اول · مبانی</p>
+          <AcademyIcon name="book" />
+          <p>سطح اول · فصل مبانی</p>
           <h1 id="academy-title" tabIndex={-1}>
             {track === 'foundations'
               ? 'کسب‌وکار چگونه کار می‌کند؟'
@@ -109,13 +75,13 @@ function LearningPath({ state }: { state: PracticeState }) {
           <p>
             {track === 'foundations'
               ? 'با آوند همراه شو؛ از شناخت مشتری تا اولین تصمیم.'
-              : 'نقشه پیشنهادی این حوزه؛ محتوای این ماژول‌ها هنوز منتشر نشده است.'}
+              : 'این مسیر را برایت آماده می‌کنیم؛ بخش‌هایش هنوز برای شروع باز نشده‌اند.'}
           </p>
         </div>
         {track === 'foundations' ? (
           <>
             <div className="academy-path-intro">
-              <span>فصل رایگان · ۶ درس تمرینی</span>
+              <span>۶ بخش کوتاه؛ از یادگیری تا تصمیم</span>
               <Link className="ui-button ui-button--primary" to={`/academy/lesson/${next.id}`}>
                 {done.size === academyLessons.length
                   ? 'مرور فصل'
@@ -125,6 +91,9 @@ function LearningPath({ state }: { state: PracticeState }) {
               </Link>
             </div>
             <ol className="academy-nodes">
+              <li className="academy-path-sidekick" aria-hidden="true">
+                <AcademyMascot mood="welcome" />
+              </li>
               {academyLessons.map((lesson, index) => {
                 const status = lessonAvailability(lesson.id, academyLessons, state);
                 const locked = status === 'locked';
@@ -136,7 +105,17 @@ function LearningPath({ state }: { state: PracticeState }) {
                       : 'آماده شروع';
                 return (
                   <li key={lesson.id} className={`academy-node academy-node--${status}`}>
+                    {index % 2 === 0 && (
+                      <div className="academy-unit-label">
+                        {['مشتری و شواهد', 'پول و تصمیم', 'رقابت و انتخاب'][index / 2]}
+                      </div>
+                    )}
                     <div className="academy-node-control">
+                      {status === 'available' && next.id === lesson.id && (
+                        <span className="academy-start-label">
+                          {done.size ? 'ادامه از اینجا' : 'از اینجا شروع کن'}
+                        </span>
+                      )}
                       {locked ? (
                         <button
                           type="button"
@@ -145,7 +124,7 @@ function LearningPath({ state }: { state: PracticeState }) {
                           aria-label={`${lesson.title}؛ ${text}`}
                           onClick={() => undefined}
                         >
-                          <span aria-hidden="true">◇</span>
+                          <AcademyIcon name="lock" />
                         </button>
                       ) : (
                         <Link
@@ -156,12 +135,15 @@ function LearningPath({ state }: { state: PracticeState }) {
                             next.id === lesson.id && status === 'available' ? 'step' : undefined
                           }
                         >
-                          <span aria-hidden="true">
-                            {status === 'completed' ? '✓' : number.format(index + 1)}
-                          </span>
+                          <AcademyIcon
+                            name={
+                              status === 'completed' ? 'check' : index === 5 ? 'trophy' : 'star'
+                            }
+                          />
                         </Link>
                       )}
                       <div>
+                        <span className="academy-node-index">بخش {number.format(index + 1)}</span>
                         <strong>{lesson.title}</strong>
                         <small>{text}</small>
                         {locked && (
@@ -180,6 +162,7 @@ function LearningPath({ state }: { state: PracticeState }) {
               })}
             </ol>
             <div className="academy-finish">
+              <AcademyIcon name="trophy" />
               <strong>خروجی فصل: یادداشت اولین تصمیم</strong>
               <p>
                 مشتری، شواهد، نقدینگی و گزینه بعدی را کنار هم می‌گذاری. آزمون این نمونه، گواهی تخصص
@@ -221,7 +204,8 @@ function LearningPath({ state }: { state: PracticeState }) {
         )}
       </section>
       <aside className="academy-companion" aria-label="همراه یادگیری">
-        <StratinoGuide />
+        <AcademyMascot mood={done.size === academyLessons.length ? 'celebration' : 'welcome'} />
+        <p className="academy-eyebrow">هدفت برای این فصل</p>
         <h2>قدم کوچک، تصمیم بهتر</h2>
         <p>امروز یک مسئله را بفهم و یک تصمیم را تمرین کن.</p>
         <label htmlFor="academy-progress">پیشرفت تمرینی همین تب</label>
@@ -229,7 +213,14 @@ function LearningPath({ state }: { state: PracticeState }) {
         <p>
           {number.format(done.size)} از {number.format(academyLessons.length)} درس
         </p>
-        <p className="academy-muted">لیگ و نشان مهارت پس از ساخت ارزیابی معتبر اضافه می‌شوند.</p>
+        <div className="academy-session-goal">
+          <AcademyIcon name="book" />
+          <span>
+            قدم بعدی
+            <br />
+            <strong>{done.size === academyLessons.length ? 'مرور فصل مبانی' : next.title}</strong>
+          </span>
+        </div>
         <details>
           <summary>مسیر کامل آموزش</summary>
           <p>
@@ -270,177 +261,12 @@ function LessonRoute({
     );
   return <AcademyLesson key={lesson.id} lesson={lesson} onComplete={onComplete} />;
 }
-function AcademyLesson({
-  lesson,
-  onComplete,
-}: {
-  lesson: LessonContent;
-  onComplete: (lesson: LessonContent, answers: Record<string, string>) => void;
-}) {
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [note, setNote] = useState('');
-  const resultRef = useRef<HTMLDivElement>(null);
-  const grade = gradePractice(lesson, answers);
-  const next = academyLessons[academyLessons.findIndex((item) => item.id === lesson.id) + 1];
-  useEffect(() => {
-    if (submitted) resultRef.current?.focus();
-  }, [submitted]);
-  return (
-    <article className="academy-lesson" lang="fa" dir="rtl">
-      <Link to="/academy" className="academy-back">
-        بازگشت به مسیر
-      </Link>
-      <p className="academy-muted">فصل اول · شرکت فرضی آوند</p>
-      <h1 tabIndex={-1}>{lesson.title}</h1>
-      <p className="academy-objective">بعد از این درس می‌توانی {lesson.objective}</p>
-      <section className="academy-scene">
-        <StratinoGuide />
-        <div>
-          <h2>تو در تیم آوند هستی</h2>
-          <p>{lesson.scene}</p>
-        </div>
-      </section>
-      <section>
-        <h2>ایده اصلی</h2>
-        <p>{lesson.teaching}</p>
-        <ol className="academy-diagram">
-          {lesson.diagram.map((item) => (
-            <li key={item.label}>
-              <strong>{item.label}</strong>
-              <span>{item.detail}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (!grade.valid) return;
-          if (grade.passed) onComplete(lesson, answers);
-          setSubmitted(true);
-        }}
-      >
-        <h2>حالا تو تصمیم بگیر</h2>
-        {lesson.questions.map((question, index) => (
-          <fieldset key={question.id} disabled={submitted}>
-            <legend>
-              {new Intl.NumberFormat('fa-IR').format(index + 1)}. {question.prompt}
-            </legend>
-            <div className="academy-choices">
-              {question.choices.map((choice) => (
-                <label
-                  key={choice.id}
-                  className={answers[question.id] === choice.id ? 'academy-selected' : ''}
-                >
-                  <input
-                    type="radio"
-                    name={question.id}
-                    value={choice.id}
-                    checked={answers[question.id] === choice.id}
-                    onChange={() =>
-                      setAnswers((current) => ({ ...current, [question.id]: choice.id }))
-                    }
-                  />
-                  <span>{choice.text}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        ))}
-        {!submitted && (
-          <>
-            <Button type="submit" variant="primary" disabled={!grade.valid}>
-              بررسی پاسخ‌ها
-            </Button>
-            {!grade.valid && <p className="academy-muted">برای هر پرسش یک پاسخ انتخاب کن.</p>}
-          </>
-        )}
-      </form>
-      {submitted && (
-        <div
-          ref={resultRef}
-          tabIndex={-1}
-          role="status"
-          className={`academy-feedback${grade.passed ? ' academy-feedback--passed' : ''}`}
-        >
-          <h2>{grade.passed ? 'این تمرین را کامل کردی' : 'یک بار دیگر، با دلیل روشن‌تر'}</h2>
-          <p>
-            {new Intl.NumberFormat('fa-IR').format(grade.correct)} پاسخ درست از{' '}
-            {new Intl.NumberFormat('fa-IR').format(lesson.questions.length)}
-          </p>
-          {lesson.questions.map((question) => (
-            <div key={question.id}>
-              <strong>{question.prompt}</strong>
-              <p>
-                {answers[question.id] === question.correctChoiceId ? 'درست. ' : 'نیاز به بازبینی. '}
-                {question.explanation}
-              </p>
-            </div>
-          ))}
-          <div className="academy-feedback-actions">
-            <Button
-              onClick={() => {
-                setSubmitted(false);
-                setAnswers({});
-              }}
-            >
-              دوباره تمرین می‌کنم
-            </Button>
-            {grade.passed && (
-              <Link
-                className="ui-button ui-button--primary"
-                to={next ? `/academy/lesson/${next.id}` : '/academy'}
-              >
-                {next ? 'درس بعدی' : 'بازگشت به مسیر'}
-              </Link>
-            )}
-          </div>
-        </div>
-      )}
-      <section className="academy-artifact">
-        <h2>روی کاغذ کسب‌وکار تو</h2>
-        <label htmlFor="academy-note">{lesson.artifactPrompt}</label>
-        <textarea
-          id="academy-note"
-          rows={4}
-          value={note}
-          onChange={(event) => setNote(event.target.value)}
-        />
-        <small>
-          یادداشت در این صفحه می‌ماند؛ قبل از خروج آن را کپی کن. ذخیره حساب و ارزیابی متن هنوز فعال
-          نیست.
-        </small>
-      </section>
-      <details className="academy-sources">
-        <summary>منابع، فرض‌ها و وضعیت بازبینی</summary>
-        <p>
-          متن و سناریو تألیف اولیه‌اند؛ بازبینی تخصصی مستقل در انتظار است. همه اعداد و شرکت آوند
-          فرضی‌اند. قبولی تمرین، گواهی مهارت نیست.
-        </p>
-        <ul>
-          {academySources
-            .filter((source) => lesson.sourceRefs.includes(source.id))
-            .map((source) => (
-              <li key={source.id}>
-                <a href={source.url} target="_blank" rel="noreferrer" lang="en" dir="ltr">
-                  {source.title}
-                </a>
-                <p lang="en" dir="ltr">
-                  {source.sections}
-                </p>
-              </li>
-            ))}
-        </ul>
-      </details>
-    </article>
-  );
-}
 export default function Academy() {
   const [{ state, warning }, setPractice] = useState(readPractice);
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const location = useLocation();
+  const inLesson = location.pathname.includes('/lesson/');
   useEffect(() => {
     document.title = 'استراتینو | آکادمی آموزش';
     document.querySelector<HTMLElement>('.academy h1')?.focus();
@@ -457,40 +283,33 @@ export default function Academy() {
     }
     setPractice({ state: next, warning: nextWarning });
   }
-  function appearance(kind: 'theme' | 'motion') {
+  function toggleTheme() {
     const prefs = readDevicePreferences();
-    applyAccountPreferences(
-      kind === 'theme'
-        ? { ...prefs, theme: document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark' }
-        : { ...prefs, motion: prefs.motion === 'reduced' ? 'auto' : 'reduced' },
-    );
+    applyAccountPreferences({
+      ...prefs,
+      theme: document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark',
+    });
   }
   return (
-    <div className="academy">
+    <div className={`academy${inLesson ? ' academy--lesson' : ''}`}>
       <header className="academy-header">
         <Link to="/academy" aria-label={english ? 'Stratino Academy' : 'آکادمی استراتینو'}>
           <Brand english={english} />
         </Link>
         <span>{english ? 'Learn. Practise. Decide.' : 'یاد بگیر. تمرین کن. تصمیم بگیر.'}</span>
         <nav aria-label={english ? 'Academy navigation' : 'ناوبری آموزش'}>
-          <Button variant="quiet" onClick={() => appearance('theme')}>
+          <Button variant="quiet" onClick={toggleTheme}>
             {english ? 'Change theme' : 'تغییر تم'}
           </Button>
-          <Button variant="quiet" onClick={() => appearance('motion')}>
-            {readDevicePreferences().motion === 'reduced'
-              ? english
-                ? 'Enable motion'
-                : 'فعال‌کردن حرکت'
-              : english
-                ? 'Reduce motion'
-                : 'کاهش حرکت'}
-          </Button>
+          <Link className="academy-account-link" to="/app/account#subscription">
+            {english ? 'Account and subscriptions' : 'حساب و اشتراک‌ها'}
+          </Link>
           <Link to="/">{english ? 'Back to Stratino' : 'بازگشت به استراتینو'}</Link>
         </nav>
       </header>
+      {!inLesson && <AcademyNavigation />}
       <div className="academy-preview-note" lang="fa" dir="rtl">
-        پیش‌نمایش آموزشی · محتوای اولیه در انتظار بازبینی تخصصی است. پیشرفت فقط در همین تب ذخیره
-        می‌شود؛ حساب، اشتراک و گواهی فعال نیست.
+        نسخهٔ تمرینی · شش درس آغازین هنوز نهایی نشده‌اند. پیشرفتت فعلاً فقط در همین تب می‌ماند.
       </div>
       {english && (
         <p className="academy-language-note" lang="en">
@@ -504,6 +323,9 @@ export default function Academy() {
       )}
       <Routes>
         <Route index element={<LearningPath state={state} />} />
+        <Route path="catalog" element={<AcademyCatalog />} />
+        <Route path="review" element={<AcademyReview state={state} />} />
+        <Route path="guide" element={<AcademyGuide />} />
         <Route
           path="lesson/:lessonId"
           element={<LessonRoute state={state} onComplete={complete} />}

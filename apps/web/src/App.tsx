@@ -24,9 +24,9 @@ import type { DevicePreferences } from './features/account/api';
 import { WorkspaceSwitchProvider, useWorkspaceSwitch } from './features/workspaces/switchContext';
 import { getWorkspaceTool, workspaceTools } from './features/workspaces/routeRegistry';
 const Academy =
-  import.meta.env.VITE_ACADEMY_PREVIEW === 'true'
-    ? lazy(() => import('./features/academy/Academy'))
-    : null;
+  import.meta.env.VITE_ACADEMY_PREVIEW === 'false'
+    ? null
+    : lazy(() => import('./features/academy/Academy'));
 const Site = lazy(() => import('./pages/Site'));
 const ProductExperience = lazy(() => import('./features/experience/ProductExperience'));
 const Account = lazy(() => import('./pages/Account'));
@@ -352,6 +352,7 @@ export function App() {
             <Brand />
           </Link>
           <nav aria-label="ناوبری اصلی">
+            {Academy && <Link to="/academy">آموزش مدیریت</Link>}
             <Link to="/management-preview">پیش‌نمایش پنل مدیریت</Link>
             <Link to="/demo">نمونه تعاملی</Link>
             <Link to="/account/login">حساب کاربری</Link>
@@ -384,7 +385,7 @@ export function App() {
           <Routes>
             {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
             {Academy && <Route path="/academy/*" element={<Academy />} />}
-            <Route path="/" element={<Site />} />
+            <Route path="/" element={<Site academyEnabled={Academy !== null} />} />
             <Route
               path="/management-preview"
               element={<Navigate to="/preview/workspaces" replace />}
