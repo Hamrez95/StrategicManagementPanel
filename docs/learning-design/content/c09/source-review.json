@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C09",
-  "status": "three_stages_pending_expert_review",
+  "status": "all_course_stages_draft_pending_expert_review",
   "source_review": "official_university_negotiation_program_and_book_preview",
   "source_use_note": "پیوندها برای مطالعه و رفرنس‌اند؛ محتوای آموزشی، مثال‌ها و پرسش‌ها مستقل نوشته شده‌اند. وضعیت مجوز هر متن کامل باید پیش از بازنشر جدا بررسی شود.",
   "sources": [
@@ -67,6 +67,48 @@
       "url": "https://arxiv.org/abs/2402.05863",
       "scope": "ارزیابی عامل‌های زبانی در محیط آزمایشی مذاکره.",
       "review_depth": "university_or_primary_preprint_reviewed"
+    },
+    {
+      "id": "mit",
+      "title": "MIT OpenCourseWare: Management Communication",
+      "url": "https://ocw.mit.edu/courses/15-279-management-communication-for-undergraduates-fall-2012/resources/mit15_279f12_lttrsexecsumm/",
+      "scope": "خلاصهٔ اجرایی، نامهٔ انتقال و نوشتار برای مخاطب مدیریتی.",
+      "review_depth": "university_course_or_official_resource_reviewed"
+    },
+    {
+      "id": "managers",
+      "title": "MIT: Writing for Managers",
+      "url": "https://www.mit.edu/course/21/21.guide/managers.htm",
+      "scope": "تقطیر اطلاعات و خلاصهٔ اجرایی برای تصمیم‌گیر.",
+      "review_depth": "university_course_or_official_resource_reviewed"
+    },
+    {
+      "id": "hbs",
+      "title": "Harvard Business School Online: Conversation Mapping",
+      "url": "https://online.hbs.edu/blog/post/communication-framework",
+      "scope": "آماده‌سازی گفت‌وگو بر اساس هدف، نیاز مخاطب و پویایی جلسه.",
+      "review_depth": "university_course_or_official_resource_reviewed"
+    },
+    {
+      "id": "feedback",
+      "title": "Harvard PON: Learning from Feedback",
+      "url": "https://www.pon.harvard.edu/daily/conflict-resolution/learning-from-feedback-without-losing-your-mind/",
+      "scope": "پرسش دربارهٔ بازخورد، جداسازی پیام از واکنش و یادگیری.",
+      "review_depth": "university_course_or_official_resource_reviewed"
+    },
+    {
+      "id": "difficult",
+      "title": "Harvard PON: Difficult Conversations and Conflict",
+      "url": "https://www.pon.harvard.edu/uncategorized/conflict-management-at-the-office/",
+      "scope": "گفت‌وگوی واقعیت، احساس و برداشت از خود در تعارض کاری.",
+      "review_depth": "university_course_or_official_resource_reviewed"
+    },
+    {
+      "id": "ai",
+      "title": "NIST AI RMF Core: Measure and Govern",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "scope": "مسئولیت، بازبینی و پایش خروجی AI در کاربرد سازمانی.",
+      "review_depth": "university_course_or_official_resource_reviewed"
     }
   ],
   "stage_notes": [
@@ -87,6 +129,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "تعارض، گوش‌دادن و اقناع، میانجی‌گری و حدود AI مذاکره پوشش داده شد.",
       "ai_note": "مقاله‌های LLM به‌عنوان آزمایش محدود/پیش‌چاپ گزارش شده‌اند و برای مذاکرهٔ خودمختار واقعی توصیه نشده‌اند."
+    },
+    {
+      "stage_id": "C09-ST04",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "یادداشت مدیریتی، ارائه، گفت‌وگوی بازخورد و ثبت پیگیری تصمیم پوشش داده شد.",
+      "ai_note": "خلاصه‌سازی و پیش‌نویس AI نیازمند تطبیق با منبع و رعایت سیاست محرمانگی است."
     }
   ]
 }
