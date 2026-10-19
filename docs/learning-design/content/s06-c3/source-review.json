@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S06-C3",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "مرحله با متن باز OpenStax دربارهٔ تیم و تعارض، دورهٔ رسمی MIT دربارهٔ کارآفرینی زیر محدودیت منابع، گفت‌وگوی تجربه‌محور Stanford eCorner و پژوهش میدانی دربارهٔ AI در کار تیمی پشتیبانی شده است. گفت‌وگوی بنیان‌گذار شاهد تجربه است، نه پژوهش تعمیم‌پذیر یا مشاورهٔ حقوقی.",
+  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
+  "source_use_note": "مرحله با متن باز OpenStax دربارهٔ تیم و تعارض، دورهٔ رسمی MIT دربارهٔ کارآفرینی زیر محدودیت منابع، گفت‌وگوی تجربه‌محور Stanford eCorner و پژوهش میدانی دربارهٔ AI در کار تیمی پشتیبانی شده است. گفت‌وگوی بنیان‌گذار شاهد تجربه است، نه پژوهش تعمیم‌پذیر یا مشاورهٔ حقوقی. OpenStax، مواد آموزشی Damodaran و اسناد نمونهٔ NVCA و راهنمای SEC برای مرحلهٔ تأمین مالی بررسی شده‌اند؛ NVCA/SEC منابع حقوقی آمریکا هستند و مشاورهٔ حقوقی/سرمایه‌گذاری محسوب نمی‌شوند.",
   "sources": [
     {
       "id": "OPENSTAX-OB-TEAMWORK-10.1",
@@ -45,6 +45,48 @@
       "url": "https://www.nber.org/papers/w33641",
       "review_depth": "primary_field_experiment_reviewed",
       "scope": "AI و همکاری تیمی در زمینهٔ مطالعه؛ تعمیم مستقیم به همهٔ تیم‌ها محدود است."
+    },
+    {
+      "id": "OPENSTAX-FINANCE-CAPITAL-17.4",
+      "title": "OpenStax Principles of Finance 2e: Capital Structure Choices",
+      "url": "https://openstax.org/books/principles-finance-2e/pages/17-4-capital-structure-choices",
+      "review_depth": "open_textbook_section_reviewed",
+      "scope": "مفاهیم پایهٔ بدهی، سهام و ساختار سرمایه؛ نمونه‌ها لزوماً شرکت نوپا نیستند."
+    },
+    {
+      "id": "OPENSTAX-FINANCE-CASHFLOW-5.5",
+      "title": "OpenStax Principles of Finance: Statement of Cash Flows",
+      "url": "https://openstax.org/books/principles-finance/pages/5-5-the-statement-of-cash-flows",
+      "review_depth": "open_textbook_section_reviewed",
+      "scope": "تفکیک جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی."
+    },
+    {
+      "id": "OPENSTAX-WORKING-CAPITAL",
+      "title": "OpenStax Principles of Finance: Working Capital",
+      "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
+      "review_depth": "open_textbook_section_reviewed",
+      "scope": "چرخه نقد، سرمایه در گردش و نیازهای کوتاه‌مدت."
+    },
+    {
+      "id": "DAMODARAN-CASH-BURN",
+      "title": "Aswath Damodaran: Cash Burn and Runway",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/blog/CashBurn.pdf",
+      "review_depth": "official_faculty_teaching_material_reviewed",
+      "scope": "تعریف سادهٔ burn و runway؛ پیش‌بینی نیازمند سناریوهای شرکت است."
+    },
+    {
+      "id": "NVCA-MODEL-DOCS",
+      "title": "NVCA Model Legal Documents",
+      "url": "https://nvca.org/model-legal-documents/",
+      "review_depth": "industry_model_document_reviewed",
+      "scope": "نمونه اسناد سرمایه‌گذاری خطرپذیر آمریکا؛ اسناد نقطهٔ شروع‌اند و مشاورهٔ حقوقی نیستند."
+    },
+    {
+      "id": "SEC-PRIVATE-OFFERINGS",
+      "title": "SEC: Private Placements under Regulation D",
+      "url": "https://www.sec.gov/resources-small-businesses/exempt-offerings/private-placements",
+      "review_depth": "official_regulator_guidance_reviewed",
+      "scope": "اطلاعات آمریکا دربارهٔ عرضهٔ خصوصی؛ قانون‌محور و قابل تعمیم جهانی نیست."
     }
   ],
   "stage_notes": {
@@ -59,6 +101,19 @@
         "توصیهٔ قراردادی تابع قانون محل فعالیت است؛ این درس مشاورهٔ حقوقی نیست.",
         "سپهر سناریوی ساختگی است.",
         "یافتهٔ AI تیمی به زمینهٔ مطالعه محدود است."
+      ]
+    },
+    "S06-C3-ST02": {
+      "covered": [
+        "مقایسهٔ درآمد، بدهی و سهام",
+        "جریان نقد، burn و runway",
+        "ارزش‌گذاری و رقیق‌شدن ساده",
+        "روایت درخواست و کیفیت شواهد"
+      ],
+      "limits": [
+        "runway ساده پیش‌بینی قطعی نیست.",
+        "مثال dilution ساده است و شروط واقعی را نمی‌پوشاند.",
+        "NVCA و SEC تابع آمریکا هستند؛ توصیهٔ مالی یا حقوقی نیستند."
       ]
     }
   }
