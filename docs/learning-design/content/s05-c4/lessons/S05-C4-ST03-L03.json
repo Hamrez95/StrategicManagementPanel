@@ -1,0 +1,278 @@
+{
+  "id": "S05-C4-ST03-L03",
+  "version": "1-draft",
+  "title": "ریسک مدل و عامل AI در عملیات",
+  "content_status": "draft",
+  "objective": "«ریسک مدل و عامل AI در عملیات» را برای اختلال مشخص تحلیل کند، نقش و کنترل لازم را تعیین کند و آمادگی یا پاسخ را با شاهد بسنجد.",
+  "learning_cards": [
+    {
+      "title": "AI در زنجیرهٔ عملیات",
+      "id": "S05-C4-ST03-L03-CARD01",
+      "text": "مدل تقاضا، تشخیص عیب، زمان‌بندی یا عامل نرم‌افزاری خرید می‌تواند تصمیم سریع‌تری پیشنهاد دهد. اما خطای ورودی، تغییر بازار، مدل نامناسب یا اختیار بیش‌ازحد عامل ممکن است سفارش، موجودی یا برنامهٔ تولید را در مقیاس بزرگ منحرف کند."
+    },
+    {
+      "title": "زمینه و هدف سیستم",
+      "id": "S05-C4-ST03-L03-CARD02",
+      "text": "پیش از استقرار، وظیفه، کاربر، تصمیم مجاز، افراد متأثر و شرایط شکست را تعریف کنید. مدل رتبه‌بندی هشدار با عامل خودمختار سفارش‌دهنده ریسک یکسان ندارد؛ دامنهٔ اختیار و برگشت‌پذیری را با سطح اثر متناسب کنید."
+    },
+    {
+      "title": "نقشهٔ ریسک و معیار",
+      "id": "S05-C4-ST03-L03-CARD03",
+      "text": "NIST AI RMF چهار کارکرد Govern, Map, Measure, Manage را پیشنهاد می‌کند؛ این چارچوب داوطلبانه است و چک‌لیست خطی نیست. معیارهای دقت و خطا را با ایمنی، حریم خصوصی، انصاف، امنیت، توضیح‌پذیری و امکان مداخله انسانی تکمیل کنید."
+    },
+    {
+      "title": "خطا و تغییر شرایط",
+      "id": "S05-C4-ST03-L03-CARD04",
+      "text": "دادهٔ جدید ممکن است تغییر ترکیب کالا، بحران، الگوی مشتری یا مسیر را منعکس کند؛ مدل آموزش‌دیده روی شرایط آرام لزوماً در اختلال معتبر نیست. خطا، سوگیری، پوشش داده و کیفیت تصمیم را جداگانه برای بخش‌های مهم پایش کنید."
+    },
+    {
+      "title": "نظارت پس از استقرار",
+      "id": "S05-C4-ST03-L03-CARD05",
+      "text": "NIST در گزارش ۲۰۲۶ دشواری‌های پایش AI مستقر را مطرح می‌کند؛ پایش به تعریف خروجی، مالک، دسترسی به دادهٔ عملیاتی و اقدام اصلاحی وابسته است. آستانهٔ توقف، حالت خط پایه و شیوهٔ بازگشت را پیش از شروع تعیین کنید."
+    },
+    {
+      "title": "انسان در حلقه و اختیار",
+      "id": "S05-C4-ST03-L03-CARD06",
+      "text": "Human-in-the-loop یعنی فرد مجاز تصمیم حساس را پیش از اجرا بازبینی می‌کند؛ در برخی کارهای کم‌ریسک نظارت می‌تواند پسینی باشد. نام نقش، حد مبلغ یا دامنهٔ مجاز، راه override و ثبت علت باید روشن باشد."
+    },
+    {
+      "title": "عامل AI و زنجیرهٔ ابزار",
+      "id": "S05-C4-ST03-L03-CARD07",
+      "text": "عامل ممکن است داده بخواند، پیشنهاد بسازد و ابزار سفارش یا زمان‌بندی را فعال کند. دسترسی کمینه، تأیید برای اقدام پرریسک، محدودیت مبلغ، ثبت عملیات، کنترل تزریق دستور و مسیر توقف اضطراری را طراحی کنید؛ مدل را با حساب نامحدود رها نکنید."
+    },
+    {
+      "title": "مثال سپهر: سفارش خودکار",
+      "id": "S05-C4-ST03-L03-CARD08",
+      "text": "مدل سپهر پیش‌بینی کمبود می‌دهد اما تأمین‌کنندهٔ اصلی دادهٔ قدیمی فرستاده است. سامانه ابتدا سفارش پیشنهادی را در صف تأیید قرار می‌دهد؛ اگر دادهٔ تازگی یا مقدار غیرعادی باشد به حالت محافظه‌کارانه برمی‌گردد و مدیر تصمیم و علت را ثبت می‌کند."
+    },
+    {
+      "title": "تصمیم استقرار یا توقف",
+      "id": "S05-C4-ST03-L03-CARD09",
+      "text": "ارزش موردانتظار را با هزینهٔ خطا و نظارت انسانی بسنجید. اگر داده، مالک، معیار توقف یا مسیر اعتراض وجود ندارد، استقرار خودکار را محدود کنید؛ گاهی مدل توصیه‌گر یا اجرای سایه‌ای انتخاب مناسب‌تری است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S05-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "NIST AI RMF چه کارکردهایی دارد؟",
+      "remediation_card_id": "S05-C4-ST03-L03-CARD03",
+      "variant": "A",
+      "id": "S05-C4-ST03-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "Govern, Map, Measure, Manage",
+          "feedback": "درست: این چارچوب چهار کارکرد پیوستهٔ مدیریت ریسک را معرفی می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "Train, Sell, Scale, Exit",
+          "feedback": "بازبینی: این چارچوب چهار کارکرد پیوستهٔ مدیریت ریسک را معرفی می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "Input, Output, Profit, Loss",
+          "feedback": "بازبینی: این چارچوب چهار کارکرد پیوستهٔ مدیریت ریسک را معرفی می‌کند."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST03-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "این چارچوب چهار کارکرد پیوستهٔ مدیریت ریسک را معرفی می‌کند."
+    },
+    {
+      "objective_id": "S05-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "مدل رتبه‌بندی هشدار و عامل سفارش‌دهنده چه تفاوتی دارند؟",
+      "remediation_card_id": "S05-C4-ST03-L03-CARD04",
+      "variant": "A",
+      "id": "S05-C4-ST03-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "هیچ تفاوتی ندارند",
+          "feedback": "بازبینی: اختیار و برگشت‌پذیری سطح کنترل را تغییر می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "مدل رتبه‌بندی همیشه پرخطرتر است",
+          "feedback": "بازبینی: اختیار و برگشت‌پذیری سطح کنترل را تغییر می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "دامنهٔ اختیار و اثر تصمیم متفاوت است",
+          "feedback": "درست: اختیار و برگشت‌پذیری سطح کنترل را تغییر می‌دهد."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST03-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "اختیار و برگشت‌پذیری سطح کنترل را تغییر می‌دهد."
+    },
+    {
+      "objective_id": "S05-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا پس از استقرار AI پایش ادامه دارد؟",
+      "remediation_card_id": "S05-C4-ST03-L03-CARD05",
+      "variant": "A",
+      "id": "S05-C4-ST03-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای ثبت هزینهٔ نرم‌افزار",
+          "feedback": "بازبینی: عملکرد گذشته تضمین عملکرد آینده نیست."
+        },
+        {
+          "id": "b",
+          "text": "شرایط و داده عوض می‌شوند و خطاهای تازه نمایان می‌شوند",
+          "feedback": "درست: عملکرد گذشته تضمین عملکرد آینده نیست."
+        },
+        {
+          "id": "c",
+          "text": "مدل دیگر تغییر نمی‌کند",
+          "feedback": "بازبینی: عملکرد گذشته تضمین عملکرد آینده نیست."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST03-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "عملکرد گذشته تضمین عملکرد آینده نیست."
+    },
+    {
+      "objective_id": "S05-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "عامل AI برای سفارش چه کنترل‌هایی می‌خواهد؟",
+      "remediation_card_id": "S05-C4-ST03-L03-CARD06",
+      "variant": "A",
+      "id": "S05-C4-ST03-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "حد اختیار، تأیید انسانی، ثبت و توقف اضطراری",
+          "feedback": "درست: اقدام مستقل باید در دامنه و پاسخ‌گویی محدود باشد."
+        },
+        {
+          "id": "b",
+          "text": "حساب نامحدود",
+          "feedback": "بازبینی: اقدام مستقل باید در دامنه و پاسخ‌گویی محدود باشد."
+        },
+        {
+          "id": "c",
+          "text": "حذف ثبت برای سرعت",
+          "feedback": "بازبینی: اقدام مستقل باید در دامنه و پاسخ‌گویی محدود باشد."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST03-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اقدام مستقل باید در دامنه و پاسخ‌گویی محدود باشد."
+    },
+    {
+      "objective_id": "S05-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه زمانی حالت سایه مناسب‌تر است؟",
+      "remediation_card_id": "S05-C4-ST03-L03-CARD07",
+      "variant": "A",
+      "id": "S05-C4-ST03-L03-Q05",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی مدل بی‌خطاست",
+          "feedback": "بازبینی: حالت سایه خطر تصمیم مستقیم را کاهش می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "وقتی دادهٔ تاریخی وجود ندارد",
+          "feedback": "بازبینی: حالت سایه خطر تصمیم مستقیم را کاهش می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "وقتی می‌خواهیم مدل را بدون اجرای خودکار سفارش ارزیابی کنیم",
+          "feedback": "درست: حالت سایه خطر تصمیم مستقیم را کاهش می‌دهد."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST03-L03-Q05-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "حالت سایه خطر تصمیم مستقیم را کاهش می‌دهد."
+    }
+  ],
+  "source_links": [
+    {
+      "title": "NIST AI Risk Management Framework Playbook",
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+      "review_depth": "official_framework_resource_reviewed",
+      "scope": "منبع داوطلبانهٔ کاربرد چارچوب Govern, Map, Measure, Manage؛ راهنمای کاربرد است و چک‌لیست اجباری نیست."
+    },
+    {
+      "title": "NIST AI 800-4 (2026), Challenges to the Monitoring of Deployed AI Systems",
+      "id": "NIST-AI800-4-2026",
+      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+      "review_depth": "official_report_summary_reviewed",
+      "scope": "مرور چالش‌های پایش پس از استقرار AI در محیط واقعی؛ گزارش پژوهشی چالش‌ها را صورت‌بندی می‌کند، نسخهٔ آمادهٔ سامانهٔ پایش نیست."
+    },
+    {
+      "title": "FEMA Continuity Guidance Circular (2024 update)",
+      "id": "FEMA-CGC-2024",
+      "url": "https://www.fema.gov/sites/default/files/documents/fema_continuity-guidance-circular_082024.pdf",
+      "review_depth": "official_guidance_reviewed",
+      "scope": "راهنمای برنامه‌ریزی تداوم و تمرین؛ برای کسب‌وکار باید با زمینه و الزامات خودش تطبیق داده شود."
+    }
+  ],
+  "practice_activity": {
+    "type": "continuity-plan-or-tabletop",
+    "prompt": "برای سپهر یک برنامهٔ یک‌صفحه‌ای یا سناریوی تمرین طراحی کنید؛ خدمت حیاتی، تریگر، مالک و جانشین، اقدام، معیار زمان، ارتباط، شکاف و پیگیری را ثبت کنید.",
+    "expected_output": "برنامهٔ تداوم یا گزارش تمرین با اقدام اصلاحی"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c4/lessons/S05-C4-ST03-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "O03",
+    "K03",
+    "R15"
+  ],
+  "source_scope": "candidate_support; not evidence of exact university assignment",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "toyota-production-system",
+      "global-supply-chain-disruptions"
+    ],
+    "real_case_status": "candidate_requires_separate_fact_check"
+  },
+  "media_plan": {
+    "type": "authored_continuity_flow_or_exercise_injects",
+    "purpose": "نشان‌دادن نقش‌ها، تریگرها و چرخهٔ پاسخ",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "مفهوم",
+      "خطای رایج",
+      "اختیار و کنترل",
+      "کاربرد سناریو",
+      "اقدام قابل سنجش"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 10,
+    "practice": 7
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برنامهٔ تداوم یا گزارش تمرین"
+}
