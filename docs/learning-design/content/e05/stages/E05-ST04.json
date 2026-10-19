@@ -1,0 +1,1274 @@
+{
+  "id": "E05-ST04",
+  "title": "حکمرانی AI و موازنهٔ منافع",
+  "order": 4,
+  "color_token": "purple",
+  "legacy_research_topic_ids": [],
+  "level": "applied",
+  "source_refs": [
+    "NIST-AI",
+    "EU-AI",
+    "OECD-GOV",
+    "GHG"
+  ],
+  "source_alignment": "ترکیبی از پژوهش، استاندارد و راهنمای حرفه‌ای؛ محدودیت و حوزهٔ کاربرد در هر منبع درج شده است.",
+  "lessons": [
+    {
+      "id": "E05-ST04-L01",
+      "version": "1-draft",
+      "title": "نقش مسئول در AI",
+      "content_status": "draft",
+      "objective": "هر سامانهٔ AI باید مالک کسب‌وکار، مالک فنی و مسیر پاسخ‌گویی روشن داشته باشد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST04-L01-CARD01",
+          "title": "مسئولیت را مشخص کن",
+          "text": "هر سامانهٔ AI باید مالک کسب‌وکار، مالک فنی و مسیر پاسخ‌گویی روشن داشته باشد."
+        },
+        {
+          "id": "E05-ST04-L01-CARD02",
+          "title": "چرخهٔ عمر مدل",
+          "text": "ریسک از طراحی و داده تا استقرار، پایش، تغییر و بازنشستگی شکل می‌گیرد."
+        },
+        {
+          "id": "E05-ST04-L01-CARD03",
+          "title": "نظارت انسانی",
+          "text": "نظارت انسانی باید اختیار توقف و اطلاعات کافی داشته باشد؛ حضور صوری کافی نیست."
+        },
+        {
+          "id": "E05-ST04-L01-CARD04",
+          "title": "ریسک متناسب",
+          "text": "شدت کنترل با اثر بر حقوق، معیشت و ایمنی متناسب شود."
+        },
+        {
+          "id": "E05-ST04-L01-CARD05",
+          "title": "داده و رضایت",
+          "text": "منشأ داده، اجازه، کیفیت و نمایندگی گروه‌ها را بررسی کند."
+        },
+        {
+          "id": "E05-ST04-L01-CARD06",
+          "title": "ثبت تصمیم",
+          "text": "نسخهٔ مدل، محدودیت، آزمون، تغییر و رخداد را ثبت کند."
+        },
+        {
+          "id": "E05-ST04-L01-CARD07",
+          "title": "حق اعتراض",
+          "text": "افراد متأثر باید امکان اعتراض و بازبینی انسانی داشته باشند."
+        },
+        {
+          "id": "E05-ST04-L01-CARD08",
+          "title": "ماتریس مسئولیت",
+          "text": "ماتریس مسئولیت نقش‌ها، تصمیم‌های حساس و escalation را تعریف کند."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST04-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه کسی پاسخ‌گوی خروجی زیان‌بار است؟",
+          "remediation_card_id": "E05-ST04-L01-CARD01",
+          "variant": "A",
+          "id": "E05-ST04-L01-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مالکیت مسئولیت",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L01-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L01-OBJ02",
+          "type": "single_choice",
+          "prompt": "نظارت انسانی مؤثر چه اختیارهایی دارد؟",
+          "remediation_card_id": "E05-ST04-L01-CARD02",
+          "variant": "A",
+          "id": "E05-ST04-L01-Q02",
+          "options": [
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "چرخهٔ عمر",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L01-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L01-OBJ03",
+          "type": "single_choice",
+          "prompt": "چرا ریسک به کاربرد بستگی دارد؟",
+          "remediation_card_id": "E05-ST04-L01-CARD03",
+          "variant": "A",
+          "id": "E05-ST04-L01-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "کنترل متناسب",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L01-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L01-OBJ04",
+          "type": "single_choice",
+          "prompt": "اعتراض کاربر را چگونه به بازبینی وصل می‌کنیم؟",
+          "remediation_card_id": "E05-ST04-L01-CARD04",
+          "variant": "A",
+          "id": "E05-ST04-L01-Q04",
+          "options": [
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "اعتراض‌پذیری",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L01-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AI",
+          "title": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+        },
+        {
+          "id": "EU-AI",
+          "title": "European Commission, AI Act",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید."
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «نقش مسئول در AI» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 1,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AI",
+        "EU-AI"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "مالکیت مسئولیت",
+          "چرخهٔ عمر",
+          "کنترل متناسب",
+          "اعتراض‌پذیری"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AI",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "EU-AI",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST04-L01.json"
+    },
+    {
+      "id": "E05-ST04-L02",
+      "version": "1-draft",
+      "title": "ریسک و منفعت برای ذی‌نفعان",
+      "content_status": "draft",
+      "objective": "کارایی سازمان را با توزیع منفعت و آسیب بین گروه‌های متأثر بسنجد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST04-L02-CARD01",
+          "title": "منفعت برای چه کسی؟",
+          "text": "کارایی سازمان را با توزیع منفعت و آسیب بین گروه‌های متأثر بسنجد."
+        },
+        {
+          "id": "E05-ST04-L02-CARD02",
+          "title": "هزینه برای چه کسی؟",
+          "text": "هزینهٔ خطا بر مشتری، کارکنان، پیمانکار و جامعه یکسان نیست."
+        },
+        {
+          "id": "E05-ST04-L02-CARD03",
+          "title": "توزیع و تبعیض",
+          "text": "میانگین دقت ممکن است خطای بیشتر برای گروهی را پنهان کند."
+        },
+        {
+          "id": "E05-ST04-L02-CARD04",
+          "title": "حقوق و ایمنی",
+          "text": "کاربردهای اثرگذار بر حقوق یا ایمنی به کنترل و آزمون جدی‌تر نیاز دارند."
+        },
+        {
+          "id": "E05-ST04-L02-CARD05",
+          "title": "دقت گروهی",
+          "text": "دادهٔ آزمون باید شرایط و گروه‌های واقعی کاربرد را پوشش دهد."
+        },
+        {
+          "id": "E05-ST04-L02-CARD06",
+          "title": "گزینهٔ جایگزین",
+          "text": "بررسی کند آیا تصمیم انسانی ساده‌تر یا ابزار کم‌خطرتر کفایت می‌کند."
+        },
+        {
+          "id": "E05-ST04-L02-CARD07",
+          "title": "مشارکت متأثران",
+          "text": "مشورت با گروه متأثر باید به اصلاح طراحی و مسیر جبران وصل باشد."
+        },
+        {
+          "id": "E05-ST04-L02-CARD08",
+          "title": "دفتر ریسک اثر",
+          "text": "دفتر ریسک اثر برای هر گروه احتمال، شدت، کنترل و مالک را ثبت کند."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST04-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا میانگین دقت کافی نیست؟",
+          "remediation_card_id": "E05-ST04-L02-CARD01",
+          "variant": "A",
+          "id": "E05-ST04-L02-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "توزیع پیامد",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L02-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L02-OBJ02",
+          "type": "single_choice",
+          "prompt": "چه کسی پیامد خطای الگوریتمی را تحمل می‌کند؟",
+          "remediation_card_id": "E05-ST04-L02-CARD02",
+          "variant": "A",
+          "id": "E05-ST04-L02-Q02",
+          "options": [
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "دقت تفکیکی",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L02-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L02-OBJ03",
+          "type": "single_choice",
+          "prompt": "چه زمانی اصلاً نباید AI به‌کار رود؟",
+          "remediation_card_id": "E05-ST04-L02-CARD03",
+          "variant": "A",
+          "id": "E05-ST04-L02-Q03",
+          "options": [
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "تناسب کاربرد",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L02-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L02-OBJ04",
+          "type": "single_choice",
+          "prompt": "مشارکت متأثران چه تغییری باید بسازد؟",
+          "remediation_card_id": "E05-ST04-L02-CARD04",
+          "variant": "A",
+          "id": "E05-ST04-L02-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "کنترل و جبران",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L02-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AI",
+          "title": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+        },
+        {
+          "id": "EU-AI",
+          "title": "European Commission, AI Act",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید."
+        },
+        {
+          "id": "OECD-GOV",
+          "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید."
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «ریسک و منفعت برای ذی‌نفعان» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 2,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AI",
+        "EU-AI",
+        "OECD-GOV"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "توزیع پیامد",
+          "دقت تفکیکی",
+          "تناسب کاربرد",
+          "کنترل و جبران"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AI",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "EU-AI",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OECD-GOV",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST04-L02.json"
+    },
+    {
+      "id": "E05-ST04-L03",
+      "version": "1-draft",
+      "title": "پایش هزینهٔ انرژی و کیفیت",
+      "content_status": "draft",
+      "objective": "مصرف انرژی مدل را به کاربرد، سخت‌افزار، محل و دورهٔ استفاده پیوند دهد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST04-L03-CARD01",
+          "title": "محاسبه را مرزگذاری کن",
+          "text": "مصرف انرژی مدل را به کاربرد، سخت‌افزار، محل و دورهٔ استفاده پیوند دهد."
+        },
+        {
+          "id": "E05-ST04-L03-CARD02",
+          "title": "انرژی در چرخهٔ AI",
+          "text": "آموزش و استنتاج بار متفاوت دارند؛ چرخهٔ عمر و زیرساخت را در نظر بگیرد."
+        },
+        {
+          "id": "E05-ST04-L03-CARD03",
+          "title": "کیفیت خدمت",
+          "text": "کاهش انرژی نباید با افت کیفیت، دسترس‌پذیری یا ایمنی اشتباه شود."
+        },
+        {
+          "id": "E05-ST04-L03-CARD04",
+          "title": "کارایی و مقدار کل",
+          "text": "بهره‌وری هر درخواست ممکن است بهتر شود ولی رشد تعداد درخواست مصرف کل را بالا ببرد."
+        },
+        {
+          "id": "E05-ST04-L03-CARD05",
+          "title": "دادهٔ تأمین‌کننده",
+          "text": "دادهٔ مرکز داده یا تأمین‌کننده را با مرز، روش و زمان ثبت کند."
+        },
+        {
+          "id": "E05-ST04-L03-CARD06",
+          "title": "دقت تخمین",
+          "text": "اگر اندازه‌گیری مستقیم نیست، تخمین و دامنهٔ عدم‌قطعیت را اعلام کند."
+        },
+        {
+          "id": "E05-ST04-L03-CARD07",
+          "title": "trade-off واقعی",
+          "text": "موازنهٔ کیفیت، تأخیر، انرژی، هزینه و اثر کربنی را متناسب با کاربرد بسنجد."
+        },
+        {
+          "id": "E05-ST04-L03-CARD08",
+          "title": "داشبورد پایش",
+          "text": "داشبورد روند و هشدار را نشان دهد و آستانهٔ اقدام مشخص داشته باشد."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST04-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا مصرف هر درخواست با مصرف کل یکی نیست؟",
+          "remediation_card_id": "E05-ST04-L03-CARD01",
+          "variant": "A",
+          "id": "E05-ST04-L03-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مرز مصرف",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L03-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L03-OBJ02",
+          "type": "single_choice",
+          "prompt": "چه چیزی مقایسهٔ مدل‌ها را منصفانه می‌کند؟",
+          "remediation_card_id": "E05-ST04-L03-CARD02",
+          "variant": "A",
+          "id": "E05-ST04-L03-Q02",
+          "options": [
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "مقدار کل و شدت",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L03-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L03-OBJ03",
+          "type": "single_choice",
+          "prompt": "کیفیت در پایش چه شاخصی دارد؟",
+          "remediation_card_id": "E05-ST04-L03-CARD03",
+          "variant": "A",
+          "id": "E05-ST04-L03-Q03",
+          "options": [
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "معیار کیفیت",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L03-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L03-OBJ04",
+          "type": "single_choice",
+          "prompt": "تخمین انرژی را چگونه شفاف گزارش می‌کنیم؟",
+          "remediation_card_id": "E05-ST04-L03-CARD04",
+          "variant": "A",
+          "id": "E05-ST04-L03-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "عدم‌قطعیت داده",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L03-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AI",
+          "title": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+        },
+        {
+          "id": "GHG",
+          "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند."
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «پایش هزینهٔ انرژی و کیفیت» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 3,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AI",
+        "GHG"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "مرز مصرف",
+          "مقدار کل و شدت",
+          "معیار کیفیت",
+          "عدم‌قطعیت داده"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AI",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GHG",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST04-L03.json"
+    },
+    {
+      "id": "E05-ST04-L04",
+      "version": "1-draft",
+      "title": "دفتر تصمیم مسئولانه",
+      "content_status": "draft",
+      "objective": "دفتر تصمیم باید از ثبت یک‌باره به چرخهٔ زندهٔ حکمرانی تبدیل شود.",
+      "learning_cards": [
+        {
+          "id": "E05-ST04-L04-CARD01",
+          "title": "یک دفتر زنده",
+          "text": "دفتر تصمیم باید از ثبت یک‌باره به چرخهٔ زندهٔ حکمرانی تبدیل شود."
+        },
+        {
+          "id": "E05-ST04-L04-CARD02",
+          "title": "مورد استفاده و هدف",
+          "text": "مورد استفاده، کاربران، هدف و موارد خارج از دامنه را دقیق مشخص کند."
+        },
+        {
+          "id": "E05-ST04-L04-CARD03",
+          "title": "ذی‌نفع و اثر",
+          "text": "ذی‌نفع، اثر مثبت و منفی و گروه آسیب‌پذیر را ثبت کند."
+        },
+        {
+          "id": "E05-ST04-L04-CARD04",
+          "title": "شواهد و محدودیت",
+          "text": "کیفیت داده، نتایج آزمون، محدودیت و عدم‌قطعیت را پیوند دهد."
+        },
+        {
+          "id": "E05-ST04-L04-CARD05",
+          "title": "کنترل و مالک",
+          "text": "هر کنترل باید مالک، موعد، شاهد اجرا و مسیر escalation داشته باشد."
+        },
+        {
+          "id": "E05-ST04-L04-CARD06",
+          "title": "رخداد و اصلاح",
+          "text": "رخداد و اعتراض را ثبت و به اصلاح مدل یا فرایند وصل کند."
+        },
+        {
+          "id": "E05-ST04-L04-CARD07",
+          "title": "بازبینی دوره‌ای",
+          "text": "تغییر داده، مدل، مقررات یا زمینه، بازبینی را فعال کند."
+        },
+        {
+          "id": "E05-ST04-L04-CARD08",
+          "title": "گزارش تصمیم",
+          "text": "گزارش تصمیم باید توضیح دهد چرا AI مناسب است و چه شرطی استفاده را متوقف می‌کند."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST04-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه تغییری بازبینی تازه را فعال می‌کند؟",
+          "remediation_card_id": "E05-ST04-L04-CARD01",
+          "variant": "A",
+          "id": "E05-ST04-L04-Q01",
+          "options": [
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "دامنهٔ کاربرد",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L04-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L04-OBJ02",
+          "type": "single_choice",
+          "prompt": "چطور کنترل را با شاهد اجرا می‌سنجیم؟",
+          "remediation_card_id": "E05-ST04-L04-CARD02",
+          "variant": "A",
+          "id": "E05-ST04-L04-Q02",
+          "options": [
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "شواهد و کنترل",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L04-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L04-OBJ03",
+          "type": "single_choice",
+          "prompt": "دفتر رخداد چه ارتباطی با اصلاح دارد؟",
+          "remediation_card_id": "E05-ST04-L04-CARD03",
+          "variant": "A",
+          "id": "E05-ST04-L04-Q03",
+          "options": [
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "رخداد و اصلاح",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L04-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST04-L04-OBJ04",
+          "type": "single_choice",
+          "prompt": "چه شرط توقفی باید از قبل تعریف شود؟",
+          "remediation_card_id": "E05-ST04-L04-CARD04",
+          "variant": "A",
+          "id": "E05-ST04-L04-Q04",
+          "options": [
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "شرط توقف",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST04-L04-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AI",
+          "title": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+        },
+        {
+          "id": "EU-AI",
+          "title": "European Commission, AI Act",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید."
+        },
+        {
+          "id": "OECD-GOV",
+          "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید."
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «دفتر تصمیم مسئولانه» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 4,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AI",
+        "EU-AI",
+        "OECD-GOV"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "دامنهٔ کاربرد",
+          "شواهد و کنترل",
+          "رخداد و اصلاح",
+          "شرط توقف"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AI",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "EU-AI",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "شرح چارچوب اتحادیهٔ اروپا؛ دامنه و زمان‌بندی را در منبع رسمی بررسی کنید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OECD-GOV",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST04-L04.json"
+    }
+  ],
+  "checkpoint": {
+    "id": "E05-ST04-CP",
+    "node_type": "stage_checkpoint",
+    "item_count": 6,
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "objective_id": "E05-ST04-CP-OBJ01",
+        "type": "single_choice",
+        "prompt": "چه کسی پاسخ‌گوی خروجی زیان‌بار است؟",
+        "remediation_card_id": "E05-ST04-L01-CARD01",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q01",
+        "options": [
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "مالکیت مسئولیت",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q01-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST04-CP-OBJ02",
+        "type": "single_choice",
+        "prompt": "چه کسی پیامد خطای الگوریتمی را تحمل می‌کند؟",
+        "remediation_card_id": "E05-ST04-L02-CARD02",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q02",
+        "options": [
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "دقت تفکیکی",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q02-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST04-CP-OBJ03",
+        "type": "single_choice",
+        "prompt": "کیفیت در پایش چه شاخصی دارد؟",
+        "remediation_card_id": "E05-ST04-L03-CARD03",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q03",
+        "options": [
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "معیار کیفیت",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q03-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST04-CP-OBJ04",
+        "type": "single_choice",
+        "prompt": "چه شرط توقفی باید از قبل تعریف شود؟",
+        "remediation_card_id": "E05-ST04-L04-CARD04",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q04",
+        "options": [
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "شرط توقف",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q04-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST04-CP-OBJ05",
+        "type": "single_choice",
+        "prompt": "چه کسی پاسخ‌گوی خروجی زیان‌بار است؟",
+        "remediation_card_id": "E05-ST04-L01-CARD05",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q05",
+        "options": [
+          {
+            "id": "a",
+            "text": "مالکیت مسئولیت",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q05-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST04-CP-OBJ06",
+        "type": "single_choice",
+        "prompt": "چه کسی پیامد خطای الگوریتمی را تحمل می‌کند؟",
+        "remediation_card_id": "E05-ST04-L02-CARD06",
+        "variant": "A",
+        "id": "E05-ST04-CP-Q06",
+        "options": [
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "دقت تفکیکی",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          }
+        ],
+        "equivalence_group": "E05-ST04-CP-Q06-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      }
+    ]
+  },
+  "tool_plan": {
+    "type": "decision-analysis-workbench",
+    "status": "planned_not_created"
+  }
+}

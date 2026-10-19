@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "E04",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "مرحلهٔ اول با مرور 2026، مطالعهٔ کلاسیک دربارهٔ ادغام و هم‌افزایی و راهنمای HBR/BCG تکمیل شده؛ سناریوی سپهر ساختگی و ارزش معامله نیازمند دادهٔ هدف است.",
+  "status": "source_mapping_complete; expert_review_pending",
+  "source_use_note": "این کتابخانه نقشهٔ منبع و پیش‌نویس آموزشی است؛ ادعاهای حقوقی به حوزهٔ منبع محدودند، پیمایش حرفه‌ای شاهد علّی نیست و محتوای AI باید با نسخه/تاریخ منبع بازبینی شود.",
   "sources": [
     {
       "id": "LARSSON-FINKELSTEIN-SYNERGY-1999",
@@ -31,23 +31,69 @@
       "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
       "review_depth": "peer_reviewed_open_access_systematic_review",
       "scope": "مرور نظام‌مند 2026؛ خلق ارزش به ترکیب زمینه‌مند راهبرد و شرایط وابسته است، نه نسخهٔ یکسان."
-    }
-  ],
-  "stage_reviews": [
+    },
     {
-      "stage_id": "E04-ST01",
-      "status": "draft_complete_pending_review",
-      "source_ids": [
-        "LARSSON-FINKELSTEIN-SYNERGY-1999",
-        "BCG-MA-20YEARS-2023",
-        "HBR-BUILD-BUY-2026",
-        "MNA-STRATEGY-SLR-2026"
-      ],
-      "limitations": "مطالعهٔ 1999 کلاسیک و زمینه‌مند؛ منابع حرفه‌ای؛ مرور 2026 نسخهٔ یکسان برای همهٔ معاملات نمی‌دهد."
+      "id": "CFA-DD",
+      "title": "CFA Institute, Due Diligence",
+      "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+    },
+    {
+      "id": "SLR26",
+      "title": "Navigating the M&A landscape: a systematic literature review on M&A strategies for value creation",
+      "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند."
+    },
+    {
+      "id": "BCG23",
+      "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+      "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+    },
+    {
+      "id": "SEC-ACQ",
+      "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+      "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر."
+    },
+    {
+      "id": "DELOITTE-AI26",
+      "title": "Deloitte, GenAI in M&A Pulse Study 2026",
+      "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه."
+    },
+    {
+      "id": "NIST-AI",
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ NIST در 2026-10-19 اعلام می‌کند AI RMF 1.0 در حال بازنگری است؛ نسخه و تاریخ را پیش از انتشار دوباره بررسی کنید."
+    },
+    {
+      "id": "FTC-MERGER",
+      "title": "FTC/DOJ, 2023 Merger Guidelines",
+      "url": "https://www.ftc.gov/legal-library/browse/merger-guidelines",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "راهنمای تحلیل رقابت در آمریکا؛ نتیجهٔ حقوقی به قانون و واقعیت هر پرونده وابسته است."
+    },
+    {
+      "id": "OECD-GOV",
+      "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
+      "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید."
+    },
+    {
+      "id": "LARSSON",
+      "title": "Larsson & Finkelstein, Integrating Strategic, Organizational, and Human Resource Perspectives on M&A",
+      "url": "https://doi.org/10.1287/orsc.10.1.1",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "مطالعهٔ موردی تلفیقی کلاسیک؛ زمینه‌مند و نه نسخهٔ جهان‌شمول."
     }
-  ],
-  "open_questions": [
-    "منبع مستقل دربارهٔ عدم موفقیت معامله و نرخ تحقق هم‌افزایی افزوده شود.",
-    "گزینهٔ اتحاد و سرمایه‌گذاری اقلیت با نمونهٔ واقعی بررسی شود."
   ]
 }

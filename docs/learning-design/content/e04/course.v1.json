@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
   "id": "E04",
-  "title": "ادغام، تملک و اتحادها",
+  "title": "پایداری، حکمرانی و استراتژی غیربازاری",
   "version": "1-draft",
   "status": "in_progress_draft",
-  "stages_completed_draft": 1,
-  "current_stage": 2,
+  "stages_completed_draft": 4,
+  "current_stage": 5,
   "stages": [
     {
       "id": "E04-ST01",
@@ -87,13 +87,13 @@
                   "feedback": "درست: معامله باید مسئله و پیامد راهبردی داشته باشد."
                 },
                 {
-                  "id": "b",
-                  "text": "چون شرکت مشابه به نظر می‌رسد",
+                  "id": "c",
+                  "text": "چون بازار خبرساز است",
                   "feedback": "بازبینی: معامله باید مسئله و پیامد راهبردی داشته باشد."
                 },
                 {
-                  "id": "c",
-                  "text": "چون بازار خبرساز است",
+                  "id": "b",
+                  "text": "چون شرکت مشابه به نظر می‌رسد",
                   "feedback": "بازبینی: معامله باید مسئله و پیامد راهبردی داشته باشد."
                 }
               ],
@@ -111,9 +111,9 @@
               "id": "E04-ST01-L01-Q02",
               "options": [
                 {
-                  "id": "a",
-                  "text": "نام گزینهٔ خرید",
-                  "feedback": "بازبینی: راه‌حل گفته شده ولی مسئله روشن نیست."
+                  "id": "c",
+                  "text": "مسئله و نتیجه‌ای که خرید قرار است حل کند",
+                  "feedback": "درست: راه‌حل گفته شده ولی مسئله روشن نیست."
                 },
                 {
                   "id": "b",
@@ -121,9 +121,9 @@
                   "feedback": "بازبینی: راه‌حل گفته شده ولی مسئله روشن نیست."
                 },
                 {
-                  "id": "c",
-                  "text": "مسئله و نتیجه‌ای که خرید قرار است حل کند",
-                  "feedback": "درست: راه‌حل گفته شده ولی مسئله روشن نیست."
+                  "id": "a",
+                  "text": "نام گزینهٔ خرید",
+                  "feedback": "بازبینی: راه‌حل گفته شده ولی مسئله روشن نیست."
                 }
               ],
               "equivalence_group": "E04-ST01-L01-Q02-FAMILY",
@@ -140,8 +140,8 @@
               "id": "E04-ST01-L01-Q03",
               "options": [
                 {
-                  "id": "a",
-                  "text": "فقط دستمزد مشاور",
+                  "id": "c",
+                  "text": "فقط قیمت هدف",
                   "feedback": "بازبینی: تصمیم با بهترین استفادهٔ بدیل سنجیده می‌شود."
                 },
                 {
@@ -150,8 +150,8 @@
                   "feedback": "درست: تصمیم با بهترین استفادهٔ بدیل سنجیده می‌شود."
                 },
                 {
-                  "id": "c",
-                  "text": "فقط قیمت هدف",
+                  "id": "a",
+                  "text": "فقط دستمزد مشاور",
                   "feedback": "بازبینی: تصمیم با بهترین استفادهٔ بدیل سنجیده می‌شود."
                 }
               ],
@@ -169,14 +169,14 @@
               "id": "E04-ST01-L01-Q04",
               "options": [
                 {
-                  "id": "a",
-                  "text": "با پیامد، زمان، پیش‌شرط و شاهد ردکننده",
-                  "feedback": "درست: فرضیهٔ قابل رد از توجیه پسینی جلوگیری می‌کند."
-                },
-                {
                   "id": "b",
                   "text": "با وعدهٔ قطعی هم‌افزایی",
                   "feedback": "بازبینی: فرضیهٔ قابل رد از توجیه پسینی جلوگیری می‌کند."
+                },
+                {
+                  "id": "a",
+                  "text": "با پیامد، زمان، پیش‌شرط و شاهد ردکننده",
+                  "feedback": "درست: فرضیهٔ قابل رد از توجیه پسینی جلوگیری می‌کند."
                 },
                 {
                   "id": "c",
@@ -379,11 +379,6 @@
               "id": "E04-ST01-L02-Q01",
               "options": [
                 {
-                  "id": "a",
-                  "text": "تا نقص حیاتی با امتیازهای خوب پنهان نشود",
-                  "feedback": "درست: شرط الزامی نباید با معیار دیگر جبران شود."
-                },
-                {
                   "id": "b",
                   "text": "برای حذف شواهد",
                   "feedback": "بازبینی: شرط الزامی نباید با معیار دیگر جبران شود."
@@ -392,6 +387,11 @@
                   "id": "c",
                   "text": "چون هر هدفی باید انتخاب شود",
                   "feedback": "بازبینی: شرط الزامی نباید با معیار دیگر جبران شود."
+                },
+                {
+                  "id": "a",
+                  "text": "تا نقص حیاتی با امتیازهای خوب پنهان نشود",
+                  "feedback": "درست: شرط الزامی نباید با معیار دیگر جبران شود."
                 }
               ],
               "equivalence_group": "E04-ST01-L02-Q01-FAMILY",
@@ -408,13 +408,13 @@
               "id": "E04-ST01-L02-Q02",
               "options": [
                 {
-                  "id": "a",
-                  "text": "وجود فرصت نظری",
+                  "id": "b",
+                  "text": "داشتن محصول",
                   "feedback": "بازبینی: TAM بدون کانال و مزیت به ارزش قابل تصاحب بدل نمی‌شود."
                 },
                 {
-                  "id": "b",
-                  "text": "داشتن محصول",
+                  "id": "a",
+                  "text": "وجود فرصت نظری",
                   "feedback": "بازبینی: TAM بدون کانال و مزیت به ارزش قابل تصاحب بدل نمی‌شود."
                 },
                 {
@@ -471,13 +471,13 @@
                   "feedback": "درست: ماتریس فرض‌ها را حذف نمی‌کند."
                 },
                 {
-                  "id": "b",
-                  "text": "به‌عنوان حکم قطعی",
+                  "id": "c",
+                  "text": "بدون بررسی عدم معامله",
                   "feedback": "بازبینی: ماتریس فرض‌ها را حذف نمی‌کند."
                 },
                 {
-                  "id": "c",
-                  "text": "بدون بررسی عدم معامله",
+                  "id": "b",
+                  "text": "به‌عنوان حکم قطعی",
                   "feedback": "بازبینی: ماتریس فرض‌ها را حذف نمی‌کند."
                 }
               ],
@@ -705,6 +705,11 @@
               "id": "E04-ST01-L03-Q02",
               "options": [
                 {
+                  "id": "c",
+                  "text": "برای دیدن ارزش خالص و زمان آن",
+                  "feedback": "درست: ادغام و اختلال منفعت ناخالص را می‌کاهد."
+                },
+                {
                   "id": "a",
                   "text": "برای بزرگ‌شدن عدد",
                   "feedback": "بازبینی: ادغام و اختلال منفعت ناخالص را می‌کاهد."
@@ -713,11 +718,6 @@
                   "id": "b",
                   "text": "چون هزینه بعد معامله تمام می‌شود",
                   "feedback": "بازبینی: ادغام و اختلال منفعت ناخالص را می‌کاهد."
-                },
-                {
-                  "id": "c",
-                  "text": "برای دیدن ارزش خالص و زمان آن",
-                  "feedback": "درست: ادغام و اختلال منفعت ناخالص را می‌کاهد."
                 }
               ],
               "equivalence_group": "E04-ST01-L03-Q02-FAMILY",
@@ -734,11 +734,6 @@
               "id": "E04-ST01-L03-Q03",
               "options": [
                 {
-                  "id": "a",
-                  "text": "سریع‌ترشدن همیشگی",
-                  "feedback": "بازبینی: درآمد افزوده به شاهد مشتری نیاز دارد."
-                },
-                {
                   "id": "b",
                   "text": "دوباره‌شماری یا فرض خرید متقابل بدون شاهد",
                   "feedback": "درست: درآمد افزوده به شاهد مشتری نیاز دارد."
@@ -746,6 +741,11 @@
                 {
                   "id": "c",
                   "text": "نداشتن هیچ هزینه‌ای",
+                  "feedback": "بازبینی: درآمد افزوده به شاهد مشتری نیاز دارد."
+                },
+                {
+                  "id": "a",
+                  "text": "سریع‌ترشدن همیشگی",
                   "feedback": "بازبینی: درآمد افزوده به شاهد مشتری نیاز دارد."
                 }
               ],
@@ -978,13 +978,13 @@
                   "feedback": "درست: مقایسه از قابلیت و قیود شروع می‌شود."
                 },
                 {
-                  "id": "b",
-                  "text": "کدام روش محبوب‌تر است؟",
+                  "id": "c",
+                  "text": "کدام پیشنهاد را سریع امضا کنیم؟",
                   "feedback": "بازبینی: مقایسه از قابلیت و قیود شروع می‌شود."
                 },
                 {
-                  "id": "c",
-                  "text": "کدام پیشنهاد را سریع امضا کنیم؟",
+                  "id": "b",
+                  "text": "کدام روش محبوب‌تر است؟",
                   "feedback": "بازبینی: مقایسه از قابلیت و قیود شروع می‌شود."
                 }
               ],
@@ -1002,11 +1002,6 @@
               "id": "E04-ST01-L04-Q02",
               "options": [
                 {
-                  "id": "a",
-                  "text": "مالکیت کامل",
-                  "feedback": "بازبینی: اتحاد انعطاف می‌دهد اما کنترل کمتر است."
-                },
-                {
                   "id": "b",
                   "text": "حذف وابستگی",
                   "feedback": "بازبینی: اتحاد انعطاف می‌دهد اما کنترل کمتر است."
@@ -1015,6 +1010,11 @@
                   "id": "c",
                   "text": "دسترسی و یادگیری با سرمایهٔ کمتر، همراه کنترل محدودتر",
                   "feedback": "درست: اتحاد انعطاف می‌دهد اما کنترل کمتر است."
+                },
+                {
+                  "id": "a",
+                  "text": "مالکیت کامل",
+                  "feedback": "بازبینی: اتحاد انعطاف می‌دهد اما کنترل کمتر است."
                 }
               ],
               "equivalence_group": "E04-ST01-L04-Q02-FAMILY",
@@ -1036,14 +1036,14 @@
                   "feedback": "بازبینی: اقتصاد معامله مرحلهٔ اجرا را هم دارد."
                 },
                 {
-                  "id": "b",
-                  "text": "هزینهٔ ادغام، نگهداشت تیم و اختلال",
-                  "feedback": "درست: اقتصاد معامله مرحلهٔ اجرا را هم دارد."
-                },
-                {
                   "id": "c",
                   "text": "قیمت خرید",
                   "feedback": "بازبینی: اقتصاد معامله مرحلهٔ اجرا را هم دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "هزینهٔ ادغام، نگهداشت تیم و اختلال",
+                  "feedback": "درست: اقتصاد معامله مرحلهٔ اجرا را هم دارد."
                 }
               ],
               "equivalence_group": "E04-ST01-L04-Q03-FAMILY",
@@ -1258,9 +1258,9 @@
             "id": "E04-ST01-CP-Q02",
             "options": [
               {
-                "id": "a",
-                "text": "تا نقص حیاتی با امتیاز دیگر پنهان نشود",
-                "feedback": "درست: شرط الزامی جبران‌پذیر نیست."
+                "id": "c",
+                "text": "چون همهٔ اهداف انتخاب می‌شوند",
+                "feedback": "بازبینی: شرط الزامی جبران‌پذیر نیست."
               },
               {
                 "id": "b",
@@ -1268,9 +1268,9 @@
                 "feedback": "بازبینی: شرط الزامی جبران‌پذیر نیست."
               },
               {
-                "id": "c",
-                "text": "چون همهٔ اهداف انتخاب می‌شوند",
-                "feedback": "بازبینی: شرط الزامی جبران‌پذیر نیست."
+                "id": "a",
+                "text": "تا نقص حیاتی با امتیاز دیگر پنهان نشود",
+                "feedback": "درست: شرط الزامی جبران‌پذیر نیست."
               }
             ],
             "equivalence_group": "E04-ST01-CP-Q02-FAMILY",
@@ -1287,11 +1287,6 @@
             "id": "E04-ST01-CP-Q03",
             "options": [
               {
-                "id": "a",
-                "text": "هزینهٔ ادغام و زمان تحقق ارزش قابل تصاحب را کم می‌کند",
-                "feedback": "درست: منفعت ناخالص با ارزش خالص فرق دارد."
-              },
-              {
                 "id": "b",
                 "text": "هزینه بعد معامله تمام می‌شود",
                 "feedback": "بازبینی: منفعت ناخالص با ارزش خالص فرق دارد."
@@ -1300,6 +1295,11 @@
                 "id": "c",
                 "text": "عدد بزرگ‌تر بهتر است",
                 "feedback": "بازبینی: منفعت ناخالص با ارزش خالص فرق دارد."
+              },
+              {
+                "id": "a",
+                "text": "هزینهٔ ادغام و زمان تحقق ارزش قابل تصاحب را کم می‌کند",
+                "feedback": "درست: منفعت ناخالص با ارزش خالص فرق دارد."
               }
             ],
             "equivalence_group": "E04-ST01-CP-Q03-FAMILY",
@@ -1316,9 +1316,9 @@
             "id": "E04-ST01-CP-Q04",
             "options": [
               {
-                "id": "a",
-                "text": "سرمایه کمتر ولی کنترل و تعهد متفاوت",
-                "feedback": "درست: گزینه‌ها در کنترل و انعطاف فرق دارند."
+                "id": "c",
+                "text": "بدون وابستگی",
+                "feedback": "بازبینی: گزینه‌ها در کنترل و انعطاف فرق دارند."
               },
               {
                 "id": "b",
@@ -1326,9 +1326,9 @@
                 "feedback": "بازبینی: گزینه‌ها در کنترل و انعطاف فرق دارند."
               },
               {
-                "id": "c",
-                "text": "بدون وابستگی",
-                "feedback": "بازبینی: گزینه‌ها در کنترل و انعطاف فرق دارند."
+                "id": "a",
+                "text": "سرمایه کمتر ولی کنترل و تعهد متفاوت",
+                "feedback": "درست: گزینه‌ها در کنترل و انعطاف فرق دارند."
               }
             ],
             "equivalence_group": "E04-ST01-CP-Q04-FAMILY",
@@ -1345,11 +1345,6 @@
             "id": "E04-ST01-CP-Q05",
             "options": [
               {
-                "id": "a",
-                "text": "پیش‌شرط و شاهدی که در نبودش معامله توجیه نشود",
-                "feedback": "درست: فرضیهٔ قابل‌رد از توجیه پسینی می‌کاهد."
-              },
-              {
                 "id": "b",
                 "text": "تأیید بی‌قید",
                 "feedback": "بازبینی: فرضیهٔ قابل‌رد از توجیه پسینی می‌کاهد."
@@ -1358,6 +1353,11 @@
                 "id": "c",
                 "text": "حذف گزینهٔ عدم معامله",
                 "feedback": "بازبینی: فرضیهٔ قابل‌رد از توجیه پسینی می‌کاهد."
+              },
+              {
+                "id": "a",
+                "text": "پیش‌شرط و شاهدی که در نبودش معامله توجیه نشود",
+                "feedback": "درست: فرضیهٔ قابل‌رد از توجیه پسینی می‌کاهد."
               }
             ],
             "equivalence_group": "E04-ST01-CP-Q05-FAMILY",
@@ -1374,11 +1374,6 @@
             "id": "E04-ST01-CP-Q06",
             "options": [
               {
-                "id": "a",
-                "text": "وزن، شاهد و حساسیت فرض‌ها",
-                "feedback": "درست: امتیاز تصمیم‌یار است و فرض‌ها را حذف نمی‌کند."
-              },
-              {
                 "id": "b",
                 "text": "فقط امتیاز کل",
                 "feedback": "بازبینی: امتیاز تصمیم‌یار است و فرض‌ها را حذف نمی‌کند."
@@ -1387,6 +1382,11 @@
                 "id": "c",
                 "text": "بدون منبع",
                 "feedback": "بازبینی: امتیاز تصمیم‌یار است و فرض‌ها را حذف نمی‌کند."
+              },
+              {
+                "id": "a",
+                "text": "وزن، شاهد و حساسیت فرض‌ها",
+                "feedback": "درست: امتیاز تصمیم‌یار است و فرض‌ها را حذف نمی‌کند."
               }
             ],
             "equivalence_group": "E04-ST01-CP-Q06-FAMILY",
@@ -1400,6 +1400,4347 @@
         "type": "ma-target-screen-and-synergy-hypothesis",
         "status": "planned_not_created"
       }
+    },
+    {
+      "id": "E04-ST02",
+      "title": "ارزش‌گذاری و بررسی موشکافانه",
+      "order": 2,
+      "color_token": "orange",
+      "legacy_research_topic_ids": [],
+      "level": "applied",
+      "source_refs": [
+        "CFA-DD",
+        "SLR26",
+        "BCG23",
+        "SEC-ACQ",
+        "DELOITTE-AI26",
+        "NIST-AI"
+      ],
+      "source_alignment": "ترکیبی از پژوهش، استاندارد و راهنمای حرفه‌ای؛ محدودیت و حوزهٔ کاربرد در هر منبع درج شده است.",
+      "lessons": [
+        {
+          "id": "E04-ST02-L01",
+          "version": "1-draft",
+          "title": "ارزش‌گذاری هدف",
+          "content_status": "draft",
+          "objective": "ارزش مستقل هدف را از ارزش هم‌افزایی خریدار جدا کند.",
+          "learning_cards": [
+            {
+              "id": "E04-ST02-L01-CARD01",
+              "title": "قیمت با ارزش یکی نیست",
+              "text": "ارزش مستقل هدف را از ارزش هم‌افزایی خریدار جدا کند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD02",
+              "title": "جریان نقدی را بازسازی کن",
+              "text": "جریان نقدی آزاد، رشد، سرمایه‌گذاری و سرمایهٔ درگردش را با شواهد توضیح دهد."
+            },
+            {
+              "id": "E04-ST02-L01-CARD03",
+              "title": "سناریو را صریح بنویس",
+              "text": "سناریوی پایه، بدبینانه و خوش‌بینانه را به محرک‌های عملیاتی وصل کند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD04",
+              "title": "نرخ تنزیل و ریسک",
+              "text": "نرخ تنزیل، افق پیش‌بینی و ارزش پایانی را فرض‌های قابل بحث بداند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD05",
+              "title": "ارزش مستقل از هم‌افزایی",
+              "text": "از دوباره‌شماری صرفه‌جویی و رشد مشترک جلوگیری کند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD06",
+              "title": "ارزش هم‌افزایی خالص",
+              "text": "هزینهٔ ادغام، مالیات، زمان و احتمال تحقق را از هم‌افزایی کم کند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD07",
+              "title": "حساسیت و نقطهٔ شکست",
+              "text": "حساسیت را به محرک‌ها و حداکثر قیمت قابل‌دفاع وصل کند."
+            },
+            {
+              "id": "E04-ST02-L01-CARD08",
+              "title": "یادداشت تصمیم سپهر",
+              "text": "یک memo بنویسد که فرض، شاهد، عدم‌قطعیت و شرط توقف را نشان دهد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST02-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "درآمد پروژه‌ای هدف یک‌باره است یا تکرارشونده؟",
+              "remediation_card_id": "E04-ST02-L01-CARD01",
+              "variant": "A",
+              "id": "E04-ST02-L01-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جریان نقدی و فرض",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "اگر هزینهٔ جذب مشتری 20٪ بیشتر شود، ارزش چگونه تغییر می‌کند؟",
+              "remediation_card_id": "E04-ST02-L01-CARD02",
+              "variant": "A",
+              "id": "E04-ST02-L01-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "سناریو و محرک",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L01-OBJ03",
+              "type": "single_choice",
+              "prompt": "هم‌افزایی هزینه‌ای چه زمانی رخ می‌دهد و چه کسی باید آن را محقق کند؟",
+              "remediation_card_id": "E04-ST02-L01-CARD03",
+              "variant": "A",
+              "id": "E04-ST02-L01-Q03",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "تنزیل و ارزش پایانی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L01-OBJ04",
+              "type": "single_choice",
+              "prompt": "کدام فرض بیشترین اثر را بر قیمت دارد؟",
+              "remediation_card_id": "E04-ST02-L01-CARD04",
+              "variant": "A",
+              "id": "E04-ST02-L01-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "هم‌افزایی خالص",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            },
+            {
+              "id": "SLR26",
+              "title": "Navigating the M&A landscape: a systematic literature review on M&A strategies for value creation",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «ارزش‌گذاری هدف» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "CFA-DD",
+            "SLR26",
+            "BCG23"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "جریان نقدی و فرض",
+              "سناریو و محرک",
+              "تنزیل و ارزش پایانی",
+              "هم‌افزایی خالص"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SLR26",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST02-L02",
+          "version": "1-draft",
+          "title": "بررسی مالی و عملیاتی",
+          "content_status": "draft",
+          "objective": "پرسش‌های تصمیم را پیش از درخواست داده تعریف کند تا بررسی به انباشت فایل بدل نشود.",
+          "learning_cards": [
+            {
+              "id": "E04-ST02-L02-CARD01",
+              "title": "هدف بررسی، پاسخ روشن است",
+              "text": "پرسش‌های تصمیم را پیش از درخواست داده تعریف کند تا بررسی به انباشت فایل بدل نشود."
+            },
+            {
+              "id": "E04-ST02-L02-CARD02",
+              "title": "کیفیت درآمد",
+              "text": "تکرارپذیری درآمد، تخفیف، برگشت، وابستگی به مشتری و ثبت حسابداری را بسنجد."
+            },
+            {
+              "id": "E04-ST02-L02-CARD03",
+              "title": "سرمایهٔ درگردش",
+              "text": "فصلی‌بودن، مطالبات، موجودی و بدهی تأمین‌کنندگان را تحلیل کند."
+            },
+            {
+              "id": "E04-ST02-L02-CARD04",
+              "title": "بدهی و تعهدات",
+              "text": "بدهی، قرارداد، دعاوی، مالیات و تعهد خارج ترازنامه را به متخصص مربوط ارجاع دهد."
+            },
+            {
+              "id": "E04-ST02-L02-CARD05",
+              "title": "عملیات و ظرفیت",
+              "text": "ظرفیت، گلوگاه، کیفیت، نگهداری و وابستگی به افراد کلیدی را بررسی کند."
+            },
+            {
+              "id": "E04-ST02-L02-CARD06",
+              "title": "مشتری و تمرکز",
+              "text": "تمرکز درآمد، ریزش، رضایت و قدرت چانه‌زنی مشتری را کنار هم بگذارد."
+            },
+            {
+              "id": "E04-ST02-L02-CARD07",
+              "title": "شواهد و مثلث‌سازی",
+              "text": "دادهٔ اتاق مجازی را با مصاحبه و دادهٔ مستقل تطبیق دهد؛ تناقض خود یک یافته است."
+            },
+            {
+              "id": "E04-ST02-L02-CARD08",
+              "title": "دفتر یافته‌ها",
+              "text": "برای هر یافته اثر مالی، احتمال، مالک پیگیری و تصمیم لازم ثبت کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST02-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا رشد فروش به تنهایی کیفیت درآمد را اثبات نمی‌کند؟",
+              "remediation_card_id": "E04-ST02-L02-CARD01",
+              "variant": "A",
+              "id": "E04-ST02-L02-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "کیفیت درآمد",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "مطالبات رو به افزایش چه فرضیه‌هایی می‌سازد؟",
+              "remediation_card_id": "E04-ST02-L02-CARD02",
+              "variant": "A",
+              "id": "E04-ST02-L02-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "سرمایهٔ درگردش",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L02-OBJ03",
+              "type": "single_choice",
+              "prompt": "یک مشتری بزرگ چه ریسکی برای ارزش دارد؟",
+              "remediation_card_id": "E04-ST02-L02-CARD03",
+              "variant": "A",
+              "id": "E04-ST02-L02-Q03",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "تمرکز مشتری",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L02-OBJ04",
+              "type": "single_choice",
+              "prompt": "وقتی دو منبع داده متناقض‌اند چه می‌کنیم؟",
+              "remediation_card_id": "E04-ST02-L02-CARD04",
+              "variant": "A",
+              "id": "E04-ST02-L02-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مثلث‌سازی داده",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            },
+            {
+              "id": "SEC-ACQ",
+              "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «بررسی مالی و عملیاتی» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "CFA-DD",
+            "SEC-ACQ",
+            "BCG23"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "کیفیت درآمد",
+              "سرمایهٔ درگردش",
+              "تمرکز مشتری",
+              "مثلث‌سازی داده"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SEC-ACQ",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST02-L03",
+          "version": "1-draft",
+          "title": "دادهٔ ناقص و ریسک پنهان",
+          "content_status": "draft",
+          "objective": "دادهٔ غایب را به‌عنوان عدم‌قطعیت ثبت کند، نه صفر یا تأیید ضمنی.",
+          "learning_cards": [
+            {
+              "id": "E04-ST02-L03-CARD01",
+              "title": "نبود داده بی‌خطر نیست",
+              "text": "دادهٔ غایب را به‌عنوان عدم‌قطعیت ثبت کند، نه صفر یا تأیید ضمنی."
+            },
+            {
+              "id": "E04-ST02-L03-CARD02",
+              "title": "دفتر فرض‌ها",
+              "text": "فرض، منبع، تاریخ، مالک و راه آزمون هر مجهول را مستند کند."
+            },
+            {
+              "id": "E04-ST02-L03-CARD03",
+              "title": "ریسک را وزن بده",
+              "text": "احتمال و شدت اثر را جدا برآورد و آستانهٔ تصمیم را تعیین کند."
+            },
+            {
+              "id": "E04-ST02-L03-CARD04",
+              "title": "تضاد منافع و سوگیری",
+              "text": "انگیزهٔ فروشنده، مشاور و تیم معامله می‌تواند بر انتخاب و تفسیر شواهد اثر بگذارد."
+            },
+            {
+              "id": "E04-ST02-L03-CARD05",
+              "title": "تعهدات پنهان",
+              "text": "ریسک سایبری، حریم خصوصی، دعاوی، نیروی انسانی و قراردادها را در دامنه بیاورد."
+            },
+            {
+              "id": "E04-ST02-L03-CARD06",
+              "title": "توقف یا قیمت‌گذاری",
+              "text": "ریسک را با شرط قراردادی، escrow، قیمت، بیمه یا خروج از معامله پاسخ دهد."
+            },
+            {
+              "id": "E04-ST02-L03-CARD07",
+              "title": "AI در خواندن اسناد",
+              "text": "مدل زبانی می‌تواند قرارداد و اتاق داده را جست‌وجو و خلاصه کند، اما منبع‌سازی/حذف خطا محتمل است."
+            },
+            {
+              "id": "E04-ST02-L03-CARD08",
+              "title": "بازبینی انسانی",
+              "text": "هر یافتهٔ حساس را به سند اصلی و متخصص مستقل ارجاع دهد و دادهٔ محرمانه را بی‌اجازه بارگذاری نکند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST02-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه تفاوتی میان «اثبات نشده» و «وجود ندارد» است؟",
+              "remediation_card_id": "E04-ST02-L03-CARD01",
+              "variant": "A",
+              "id": "E04-ST02-L03-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "دفتر فرض و شکاف",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "کدام یافته معامله را متوقف می‌کند؟",
+              "remediation_card_id": "E04-ST02-L03-CARD02",
+              "variant": "A",
+              "id": "E04-ST02-L03-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وزن ریسک",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L03-OBJ03",
+              "type": "single_choice",
+              "prompt": "چرا خلاصهٔ AI جای سند و وکیل را نمی‌گیرد؟",
+              "remediation_card_id": "E04-ST02-L03-CARD03",
+              "variant": "A",
+              "id": "E04-ST02-L03-Q03",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "پاسخ قراردادی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L03-OBJ04",
+              "type": "single_choice",
+              "prompt": "ریسک ناشی از دادهٔ ناقص را چطور قیمت‌گذاری می‌کنیم؟",
+              "remediation_card_id": "E04-ST02-L03-CARD04",
+              "variant": "A",
+              "id": "E04-ST02-L03-Q04",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "AI با کنترل انسانی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            },
+            {
+              "id": "DELOITTE-AI26",
+              "title": "Deloitte, GenAI in M&A Pulse Study 2026",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه."
+            },
+            {
+              "id": "NIST-AI",
+              "title": "NIST AI Risk Management Framework",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+            },
+            {
+              "id": "SEC-ACQ",
+              "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «دادهٔ ناقص و ریسک پنهان» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "CFA-DD",
+            "DELOITTE-AI26",
+            "NIST-AI",
+            "SEC-ACQ"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "دفتر فرض و شکاف",
+              "وزن ریسک",
+              "پاسخ قراردادی",
+              "AI با کنترل انسانی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "DELOITTE-AI26",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NIST-AI",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SEC-ACQ",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST02-L04",
+          "version": "1-draft",
+          "title": "AI در بررسی موشکافانه",
+          "content_status": "draft",
+          "objective": "یک use case محدود مانند استخراج بند تغییر کنترل یا تمرکز مشتری را تعریف کند.",
+          "learning_cards": [
+            {
+              "id": "E04-ST02-L04-CARD01",
+              "title": "کاربرد را محدود کن",
+              "text": "یک use case محدود مانند استخراج بند تغییر کنترل یا تمرکز مشتری را تعریف کند."
+            },
+            {
+              "id": "E04-ST02-L04-CARD02",
+              "title": "اسناد را طبقه‌بندی کن",
+              "text": "داده را بر اساس حساسیت، کیفیت و اجازهٔ استفاده دسته‌بندی کند."
+            },
+            {
+              "id": "E04-ST02-L04-CARD03",
+              "title": "استخراج با ارجاع",
+              "text": "خلاصهٔ مدل را با شناسهٔ سند، بند و صفحه قابل ردیابی سازد."
+            },
+            {
+              "id": "E04-ST02-L04-CARD04",
+              "title": "الگو را کشف کن",
+              "text": "از جست‌وجوی ناهنجاری برای اولویت‌بندی بررسی استفاده کند، نه نتیجه‌گیری خودکار."
+            },
+            {
+              "id": "E04-ST02-L04-CARD05",
+              "title": "حریم خصوصی و مالکیت",
+              "text": "دادهٔ شخصی، راز تجاری و انتقال برون‌مرزی را طبق قواعد قابل‌اعمال کنترل کند."
+            },
+            {
+              "id": "E04-ST02-L04-CARD06",
+              "title": "سوگیری و خطای مدل",
+              "text": "خطای استخراج، سوگیری داده، دستکاری prompt و اطمینان کاذب را ثبت کند."
+            },
+            {
+              "id": "E04-ST02-L04-CARD07",
+              "title": "بازبینی نمونه‌ای",
+              "text": "نمونهٔ پرریسک را با بازبین متخصص به سند اصلی تطبیق دهد."
+            },
+            {
+              "id": "E04-ST02-L04-CARD08",
+              "title": "ثبت و پاسخ‌گویی",
+              "text": "نسخهٔ مدل، ورودی، خروجی، اصلاح انسانی و تصمیم نهایی را audit trail کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST02-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "برای چه تصمیمی AI مجاز به پیشنهاد است و برای کدام تصمیم نه؟",
+              "remediation_card_id": "E04-ST02-L04-CARD01",
+              "variant": "A",
+              "id": "E04-ST02-L04-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "دامنهٔ use case",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "چطور هر خلاصه به بند اصلی بازمی‌گردد؟",
+              "remediation_card_id": "E04-ST02-L04-CARD02",
+              "variant": "A",
+              "id": "E04-ST02-L04-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "ارجاع‌پذیری",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L04-OBJ03",
+              "type": "single_choice",
+              "prompt": "محرمانگی اتاق داده در ابزار بیرونی چه خطر دارد؟",
+              "remediation_card_id": "E04-ST02-L04-CARD03",
+              "variant": "A",
+              "id": "E04-ST02-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "حریم خصوصی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST02-L04-OBJ04",
+              "type": "single_choice",
+              "prompt": "معیار توقف استفاده از مدل چیست؟",
+              "remediation_card_id": "E04-ST02-L04-CARD04",
+              "variant": "A",
+              "id": "E04-ST02-L04-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نظارت و audit trail",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST02-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "DELOITTE-AI26",
+              "title": "Deloitte, GenAI in M&A Pulse Study 2026",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه."
+            },
+            {
+              "id": "NIST-AI",
+              "title": "NIST AI Risk Management Framework",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19)."
+            },
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «AI در بررسی موشکافانه» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "DELOITTE-AI26",
+            "NIST-AI",
+            "CFA-DD"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "دامنهٔ use case",
+              "ارجاع‌پذیری",
+              "حریم خصوصی",
+              "نظارت و audit trail"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "DELOITTE-AI26",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NIST-AI",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        }
+      ],
+      "checkpoint": {
+        "id": "E04-ST02-CP",
+        "node_type": "stage_checkpoint",
+        "item_count": 6,
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "objective_id": "E04-ST02-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "درآمد پروژه‌ای هدف یک‌باره است یا تکرارشونده؟",
+            "remediation_card_id": "E04-ST02-L01-CARD01",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q01",
+            "options": [
+              {
+                "id": "a",
+                "text": "جریان نقدی و فرض",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST02-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "مطالبات رو به افزایش چه فرضیه‌هایی می‌سازد؟",
+            "remediation_card_id": "E04-ST02-L02-CARD02",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q02",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "سرمایهٔ درگردش",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST02-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "چرا خلاصهٔ AI جای سند و وکیل را نمی‌گیرد؟",
+            "remediation_card_id": "E04-ST02-L03-CARD03",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q03",
+            "options": [
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "پاسخ قراردادی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST02-CP-OBJ04",
+            "type": "single_choice",
+            "prompt": "معیار توقف استفاده از مدل چیست؟",
+            "remediation_card_id": "E04-ST02-L04-CARD04",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q04",
+            "options": [
+              {
+                "id": "a",
+                "text": "نظارت و audit trail",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST02-CP-OBJ05",
+            "type": "single_choice",
+            "prompt": "درآمد پروژه‌ای هدف یک‌باره است یا تکرارشونده؟",
+            "remediation_card_id": "E04-ST02-L01-CARD05",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q05",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "جریان نقدی و فرض",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST02-CP-OBJ06",
+            "type": "single_choice",
+            "prompt": "مطالبات رو به افزایش چه فرضیه‌هایی می‌سازد؟",
+            "remediation_card_id": "E04-ST02-L02-CARD06",
+            "variant": "A",
+            "id": "E04-ST02-CP-Q06",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "سرمایهٔ درگردش",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST02-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          }
+        ]
+      },
+      "tool_plan": {
+        "type": "decision-analysis-workbench",
+        "status": "planned_not_created"
+      }
+    },
+    {
+      "id": "E04-ST03",
+      "title": "قرارداد، مذاکره و مقررات",
+      "order": 3,
+      "color_token": "blue",
+      "legacy_research_topic_ids": [],
+      "level": "applied",
+      "source_refs": [
+        "CFA-DD",
+        "BCG23",
+        "SEC-ACQ",
+        "FTC-MERGER",
+        "OECD-GOV",
+        "SLR26"
+      ],
+      "source_alignment": "ترکیبی از پژوهش، استاندارد و راهنمای حرفه‌ای؛ محدودیت و حوزهٔ کاربرد در هر منبع درج شده است.",
+      "lessons": [
+        {
+          "id": "E04-ST03-L01",
+          "version": "1-draft",
+          "title": "بستهٔ مذاکره و ساختار معامله",
+          "content_status": "draft",
+          "objective": "هدف، حداقل قابل‌قبول و اولویت‌های معامله را پیش از مذاکره روشن کند.",
+          "learning_cards": [
+            {
+              "id": "E04-ST03-L01-CARD01",
+              "title": "هدف مذاکره را تعریف کن",
+              "text": "هدف، حداقل قابل‌قبول و اولویت‌های معامله را پیش از مذاکره روشن کند."
+            },
+            {
+              "id": "E04-ST03-L01-CARD02",
+              "title": "قیمت تنها متغیر نیست",
+              "text": "قیمت، زمان‌بندی، تضمین، مدیریت، انتقال فناوری و حمایت فروشنده را به‌صورت بسته ببیند."
+            },
+            {
+              "id": "E04-ST03-L01-CARD03",
+              "title": "شرط و زمان پرداخت",
+              "text": "پرداخت نقد، اقساطی، earn-out و escrow هرکدام ریسک و انگیزهٔ متفاوت دارند."
+            },
+            {
+              "id": "E04-ST03-L01-CARD04",
+              "title": "تقسیم ریسک",
+              "text": "شرط‌ها را به ریسک‌های مشخص و قابل‌اندازه‌گیری پیوند دهد؛ نه خواستهٔ مبهم."
+            },
+            {
+              "id": "E04-ST03-L01-CARD05",
+              "title": "گزینهٔ جایگزین",
+              "text": "BATNA یعنی بهترین گزینه در صورت توافق‌نکردن؛ کیفیت آن قدرت مذاکره را تغییر می‌دهد."
+            },
+            {
+              "id": "E04-ST03-L01-CARD06",
+              "title": "بسته‌های چندموضوعی",
+              "text": "پیشنهادهای چندموضوعی بسازد تا trade-off واقعی آشکار شود و هر طرف چیزی ارزشمند بگیرد."
+            },
+            {
+              "id": "E04-ST03-L01-CARD07",
+              "title": "امتیاز مشروط",
+              "text": "هر امتیاز را در برابر تعهد متقابل و قابل‌پیگیری بدهد."
+            },
+            {
+              "id": "E04-ST03-L01-CARD08",
+              "title": "یادداشت مذاکره",
+              "text": "دامنهٔ اختیار، خط قرمز و موضوع ارجاع به مشاور را ثبت کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST03-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا قیمت تنها موضوع مذاکره نیست؟",
+              "remediation_card_id": "E04-ST03-L01-CARD01",
+              "variant": "A",
+              "id": "E04-ST03-L01-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "بستهٔ چندموضوعی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "earn-out چه مسئله‌ای را حل می‌کند و چه تعارضی می‌سازد؟",
+              "remediation_card_id": "E04-ST03-L01-CARD02",
+              "variant": "A",
+              "id": "E04-ST03-L01-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "تقسیم ریسک",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L01-OBJ03",
+              "type": "single_choice",
+              "prompt": "BATNA چگونه حد توافق را تغییر می‌دهد؟",
+              "remediation_card_id": "E04-ST03-L01-CARD03",
+              "variant": "A",
+              "id": "E04-ST03-L01-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "BATNA",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L01-OBJ04",
+              "type": "single_choice",
+              "prompt": "امتیاز مشروط چه تفاوتی با عقب‌نشینی یک‌طرفه دارد؟",
+              "remediation_card_id": "E04-ST03-L01-CARD04",
+              "variant": "A",
+              "id": "E04-ST03-L01-Q04",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "امتیاز مشروط",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «بستهٔ مذاکره و ساختار معامله» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "CFA-DD",
+            "BCG23"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "بستهٔ چندموضوعی",
+              "تقسیم ریسک",
+              "BATNA",
+              "امتیاز مشروط"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST03-L02",
+          "version": "1-draft",
+          "title": "تعارض مشوق‌ها و تعهد",
+          "content_status": "draft",
+          "objective": "ساختار پرداخت بر رفتار خریدار و فروشنده پس از امضا اثر می‌گذارد.",
+          "learning_cards": [
+            {
+              "id": "E04-ST03-L02-CARD01",
+              "title": "پاداش، رفتار را شکل می‌دهد",
+              "text": "ساختار پرداخت بر رفتار خریدار و فروشنده پس از امضا اثر می‌گذارد."
+            },
+            {
+              "id": "E04-ST03-L02-CARD02",
+              "title": "earn-out و تعریف شاخص",
+              "text": "earn-out را با شاخص قابل‌کنترل، روش حسابداری، دوره و حل اختلاف دقیق تعریف کند."
+            },
+            {
+              "id": "E04-ST03-L02-CARD03",
+              "title": "کنترل پس از معامله",
+              "text": "اختیار عملیاتی پس از خرید ممکن است توان فروشنده برای تحقق شاخص را محدود کند."
+            },
+            {
+              "id": "E04-ST03-L02-CARD04",
+              "title": "تضمین و جبران",
+              "text": "تضمین، indemnity و escrow باید به ریسک، سقف، مدت و فرایند ادعا متصل باشد."
+            },
+            {
+              "id": "E04-ST03-L02-CARD05",
+              "title": "اطلاعات نامتقارن",
+              "text": "فروشنده اطلاعات بیشتری از دارایی و تعهدات دارد؛ بررسی و سازوکار قراردادی مکمل هم‌اند."
+            },
+            {
+              "id": "E04-ST03-L02-CARD06",
+              "title": "تعهد معتبر",
+              "text": "تعهد معتبر باید هزینهٔ نقض، شاهد تحقق و مسئول پاسخ‌گو داشته باشد."
+            },
+            {
+              "id": "E04-ST03-L02-CARD07",
+              "title": "ریسک رابطهٔ بلندمدت",
+              "text": "شرط سخت می‌تواند ریسک را منتقل کند اما اعتماد و همکاری را تضعیف کند."
+            },
+            {
+              "id": "E04-ST03-L02-CARD08",
+              "title": "ماتریس مشوق",
+              "text": "اثر هر بند را بر انگیزهٔ طرفین و امکان اجرای آن ترسیم کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST03-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه زمانی earn-out به‌جای هم‌راستایی تعارض ایجاد می‌کند؟",
+              "remediation_card_id": "E04-ST03-L02-CARD01",
+              "variant": "A",
+              "id": "E04-ST03-L02-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "تعریف دقیق KPI",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "کدام طرف KPI پس از معامله را کنترل می‌کند؟",
+              "remediation_card_id": "E04-ST03-L02-CARD02",
+              "variant": "A",
+              "id": "E04-ST03-L02-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "کنترل‌پذیری",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L02-OBJ03",
+              "type": "single_choice",
+              "prompt": "چرا سقف و مهلت ادعا مهم‌اند؟",
+              "remediation_card_id": "E04-ST03-L02-CARD03",
+              "variant": "A",
+              "id": "E04-ST03-L02-Q03",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "سقف و مدت",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L02-OBJ04",
+              "type": "single_choice",
+              "prompt": "تعهدی مثال بزنید که قابل راستی‌آزمایی باشد.",
+              "remediation_card_id": "E04-ST03-L02-CARD04",
+              "variant": "A",
+              "id": "E04-ST03-L02-Q04",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "اجرایی‌بودن تعهد",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            },
+            {
+              "id": "SEC-ACQ",
+              "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «تعارض مشوق‌ها و تعهد» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "CFA-DD",
+            "SEC-ACQ"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "تعریف دقیق KPI",
+              "کنترل‌پذیری",
+              "سقف و مدت",
+              "اجرایی‌بودن تعهد"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SEC-ACQ",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST03-L03",
+          "version": "1-draft",
+          "title": "محیط نهادی و شرط‌های معامله",
+          "content_status": "draft",
+          "objective": "قواعد رقابت، سرمایه‌گذاری خارجی، داده، کار و افشا می‌توانند معامله را محدود کنند.",
+          "learning_cards": [
+            {
+              "id": "E04-ST03-L03-CARD01",
+              "title": "قانون و نهادها",
+              "text": "قواعد رقابت، سرمایه‌گذاری خارجی، داده، کار و افشا می‌توانند معامله را محدود کنند."
+            },
+            {
+              "id": "E04-ST03-L03-CARD02",
+              "title": "بررسی رقابت",
+              "text": "تحلیل رقابت، بازار محصول و جغرافیا را با مشاور واجدصلاحیت و دادهٔ پرونده بررسی کند."
+            },
+            {
+              "id": "E04-ST03-L03-CARD03",
+              "title": "مجوز و مالکیت",
+              "text": "مجوزهای بخشی، مالکیت خارجی و دادهٔ حساس بسته به کشور و صنعت فرق دارد."
+            },
+            {
+              "id": "E04-ST03-L03-CARD04",
+              "title": "شرط مقدم",
+              "text": "شرط مقدم باید دقیق کند چه تأییدی، از کدام نهاد و تا چه زمانی لازم است."
+            },
+            {
+              "id": "E04-ST03-L03-CARD05",
+              "title": "اطلاع‌رسانی ذی‌نفعان",
+              "text": "اطلاع‌رسانی زودهنگام ممکن است رابطه را بسازد یا محرمانگی و موضع مذاکره را آسیب بزند."
+            },
+            {
+              "id": "E04-ST03-L03-CARD06",
+              "title": "جدول زمانی",
+              "text": "مسیر مجوز و long-stop date را به برنامهٔ ادغام و سناریوی تأخیر وصل کند."
+            },
+            {
+              "id": "E04-ST03-L03-CARD07",
+              "title": "دامنهٔ قضایی",
+              "text": "راهنمای FTC آمریکا الگوی آموزشی است؛ به سایر کشورها تعمیم حقوقی ندهید."
+            },
+            {
+              "id": "E04-ST03-L03-CARD08",
+              "title": "نقشهٔ مجوز",
+              "text": "ماتریس حوزهٔ قضایی، الزام، مسئول، مهلت و ریسک را بسازد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST03-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا یک شرط «اخذ مجوزها» ممکن است ناکافی باشد؟",
+              "remediation_card_id": "E04-ST03-L03-CARD01",
+              "variant": "A",
+              "id": "E04-ST03-L03-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "ماتریس حوزهٔ قضایی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "چه چیزی جدول زمانی را واقع‌بینانه می‌کند؟",
+              "remediation_card_id": "E04-ST03-L03-CARD02",
+              "variant": "A",
+              "id": "E04-ST03-L03-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "شرط مقدم",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L03-OBJ03",
+              "type": "single_choice",
+              "prompt": "راهنمای رقابت آمریکا در چه دامنه‌ای معتبر است؟",
+              "remediation_card_id": "E04-ST03-L03-CARD03",
+              "variant": "A",
+              "id": "E04-ST03-L03-Q03",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "زمان‌بندی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L03-OBJ04",
+              "type": "single_choice",
+              "prompt": "تأخیر مجوز چه اثر عملیاتی و مالی دارد؟",
+              "remediation_card_id": "E04-ST03-L03-CARD04",
+              "variant": "A",
+              "id": "E04-ST03-L03-Q04",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "دامنهٔ حقوقی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "FTC-MERGER",
+              "title": "FTC/DOJ, 2023 Merger Guidelines",
+              "url": "https://www.ftc.gov/legal-library/browse/merger-guidelines",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای تحلیل رقابت در آمریکا؛ نتیجهٔ حقوقی به قانون و واقعیت هر پرونده وابسته است."
+            },
+            {
+              "id": "SEC-ACQ",
+              "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر."
+            },
+            {
+              "id": "OECD-GOV",
+              "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
+              "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «محیط نهادی و شرط‌های معامله» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "FTC-MERGER",
+            "SEC-ACQ",
+            "OECD-GOV"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "ماتریس حوزهٔ قضایی",
+              "شرط مقدم",
+              "زمان‌بندی",
+              "دامنهٔ حقوقی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "FTC-MERGER",
+              "url": "https://www.ftc.gov/legal-library/browse/merger-guidelines",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای تحلیل رقابت در آمریکا؛ نتیجهٔ حقوقی به قانون و واقعیت هر پرونده وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SEC-ACQ",
+              "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "OECD-GOV",
+              "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST03-L04",
+          "version": "1-draft",
+          "title": "نقد توافق و فرض‌های آن",
+          "content_status": "draft",
+          "objective": "توافق را با شواهد آزمون کند و از اعتمادبه‌نفس بیش‌ازحد تیم معامله فاصله بگیرد.",
+          "learning_cards": [
+            {
+              "id": "E04-ST03-L04-CARD01",
+              "title": "از روایت هیجان‌زده فاصله بگیر",
+              "text": "توافق را با شواهد آزمون کند و از اعتمادبه‌نفس بیش‌ازحد تیم معامله فاصله بگیرد."
+            },
+            {
+              "id": "E04-ST03-L04-CARD02",
+              "title": "فرض‌های قیمت",
+              "text": "هر فرض قیمت را به داده، مالک داده و بازهٔ عدم‌قطعیت وصل کند."
+            },
+            {
+              "id": "E04-ST03-L04-CARD03",
+              "title": "هزینهٔ ادغام",
+              "text": "هزینهٔ یکپارچه‌سازی، مشتری ازدست‌رفته و تأخیر را به مدل مالی اضافه کند."
+            },
+            {
+              "id": "E04-ST03-L04-CARD04",
+              "title": "تعارض منافع",
+              "text": "پاداش مدیر، کارمزد مشاور و فشار رقابتی می‌تواند قضاوت را منحرف کند."
+            },
+            {
+              "id": "E04-ST03-L04-CARD05",
+              "title": "ریسک اجرا",
+              "text": "توان تیم ادغام، وابستگی فناوری و محدودیت منابع را واقع‌بینانه ارزیابی کند."
+            },
+            {
+              "id": "E04-ST03-L04-CARD06",
+              "title": "سناریوی عدم معامله",
+              "text": "سناریوی بدون معامله را نیز با همان افق و معیار مالی بسنجد."
+            },
+            {
+              "id": "E04-ST03-L04-CARD07",
+              "title": "پیش‌مرگ معامله",
+              "text": "پیش‌مرگ بپرسد یک سال بعد معامله شکست خورده؛ محتمل‌ترین علت چه بوده؟"
+            },
+            {
+              "id": "E04-ST03-L04-CARD08",
+              "title": "تصمیم و شرط توقف",
+              "text": "شرط توقف را پیش از تعهد نهایی و با صاحب اختیار ثبت کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST03-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام فرض از خوش‌بینی مدیران آسیب‌پذیرتر است؟",
+              "remediation_card_id": "E04-ST03-L04-CARD01",
+              "variant": "A",
+              "id": "E04-ST03-L04-Q01",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "فرض قیمت",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا گزینهٔ عدم معامله باید مدل شود؟",
+              "remediation_card_id": "E04-ST03-L04-CARD02",
+              "variant": "A",
+              "id": "E04-ST03-L04-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "هزینهٔ اجرا",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L04-OBJ03",
+              "type": "single_choice",
+              "prompt": "پیش‌مرگ چه سوگیری‌ای را کاهش می‌دهد؟",
+              "remediation_card_id": "E04-ST03-L04-CARD03",
+              "variant": "A",
+              "id": "E04-ST03-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "گزینهٔ عدم معامله",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST03-L04-OBJ04",
+              "type": "single_choice",
+              "prompt": "چه زمانی باید از معامله خارج شد؟",
+              "remediation_card_id": "E04-ST03-L04-CARD04",
+              "variant": "A",
+              "id": "E04-ST03-L04-Q04",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "شرط توقف",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST03-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "SLR26",
+              "title": "Navigating the M&A landscape: a systematic literature review on M&A strategies for value creation",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            },
+            {
+              "id": "CFA-DD",
+              "title": "CFA Institute, Due Diligence",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «نقد توافق و فرض‌های آن» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "SLR26",
+            "BCG23",
+            "CFA-DD"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "فرض قیمت",
+              "هزینهٔ اجرا",
+              "گزینهٔ عدم معامله",
+              "شرط توقف"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "SLR26",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "CFA-DD",
+              "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        }
+      ],
+      "checkpoint": {
+        "id": "E04-ST03-CP",
+        "node_type": "stage_checkpoint",
+        "item_count": 6,
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "objective_id": "E04-ST03-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "چرا قیمت تنها موضوع مذاکره نیست؟",
+            "remediation_card_id": "E04-ST03-L01-CARD01",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q01",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "بستهٔ چندموضوعی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST03-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "کدام طرف KPI پس از معامله را کنترل می‌کند؟",
+            "remediation_card_id": "E04-ST03-L02-CARD02",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q02",
+            "options": [
+              {
+                "id": "a",
+                "text": "کنترل‌پذیری",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST03-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "راهنمای رقابت آمریکا در چه دامنه‌ای معتبر است؟",
+            "remediation_card_id": "E04-ST03-L03-CARD03",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q03",
+            "options": [
+              {
+                "id": "a",
+                "text": "زمان‌بندی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST03-CP-OBJ04",
+            "type": "single_choice",
+            "prompt": "چه زمانی باید از معامله خارج شد؟",
+            "remediation_card_id": "E04-ST03-L04-CARD04",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q04",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "شرط توقف",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST03-CP-OBJ05",
+            "type": "single_choice",
+            "prompt": "چرا قیمت تنها موضوع مذاکره نیست؟",
+            "remediation_card_id": "E04-ST03-L01-CARD05",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q05",
+            "options": [
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "بستهٔ چندموضوعی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST03-CP-OBJ06",
+            "type": "single_choice",
+            "prompt": "کدام طرف KPI پس از معامله را کنترل می‌کند؟",
+            "remediation_card_id": "E04-ST03-L02-CARD06",
+            "variant": "A",
+            "id": "E04-ST03-CP-Q06",
+            "options": [
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "کنترل‌پذیری",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST03-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          }
+        ]
+      },
+      "tool_plan": {
+        "type": "decision-analysis-workbench",
+        "status": "planned_not_created"
+      }
+    },
+    {
+      "id": "E04-ST04",
+      "title": "ادغام عملیاتی و ارزیابی نتیجه",
+      "order": 4,
+      "color_token": "purple",
+      "legacy_research_topic_ids": [],
+      "level": "applied",
+      "source_refs": [
+        "LARSSON",
+        "BCG23",
+        "SLR26",
+        "DELOITTE-AI26"
+      ],
+      "source_alignment": "ترکیبی از پژوهش، استاندارد و راهنمای حرفه‌ای؛ محدودیت و حوزهٔ کاربرد در هر منبع درج شده است.",
+      "lessons": [
+        {
+          "id": "E04-ST04-L01",
+          "version": "1-draft",
+          "title": "اولویت روزهای نخست ادغام",
+          "content_status": "draft",
+          "objective": "پیش از دنبال‌کردن هم‌افزایی، خدمت، ایمنی، نقدینگی و عملیات حیاتی را پایدار نگه دارد.",
+          "learning_cards": [
+            {
+              "id": "E04-ST04-L01-CARD01",
+              "title": "تداوم کسب‌وکار اول است",
+              "text": "پیش از دنبال‌کردن هم‌افزایی، خدمت، ایمنی، نقدینگی و عملیات حیاتی را پایدار نگه دارد."
+            },
+            {
+              "id": "E04-ST04-L01-CARD02",
+              "title": "تصمیم‌های روز اول",
+              "text": "تصمیم‌های روز اول را از تغییرهای بلندمدت جدا کند؛ قطع دسترسی یا سامانه می‌تواند عملیات را مختل کند."
+            },
+            {
+              "id": "E04-ST04-L01-CARD03",
+              "title": "مشتری و تأمین‌کننده",
+              "text": "مشتریان کلیدی و تأمین‌کنندگان را با پیام و مسئول مشخص پوشش دهد."
+            },
+            {
+              "id": "E04-ST04-L01-CARD04",
+              "title": "مالکیت تصمیم",
+              "text": "برای هر تصمیم، یک مالک، موعد و مسیر escalation تعیین کند."
+            },
+            {
+              "id": "E04-ST04-L01-CARD05",
+              "title": "وابستگی حیاتی",
+              "text": "سامانه، داده، مجوز و افراد کلیدی وابسته را در نقشهٔ ریسک ثبت کند."
+            },
+            {
+              "id": "E04-ST04-L01-CARD06",
+              "title": "ارتباطات روشن",
+              "text": "ارتباطات دقیق و به‌موقع عدم‌قطعیت را کم می‌کند؛ وعدهٔ بی‌پشتوانه اعتماد را می‌سوزاند."
+            },
+            {
+              "id": "E04-ST04-L01-CARD07",
+              "title": "ریسک 30 روزه",
+              "text": "ریسک‌های 30 روز اول را با شاخص هشدار و برنامهٔ جایگزین پایش کند."
+            },
+            {
+              "id": "E04-ST04-L01-CARD08",
+              "title": "اتاق کنترل ادغام",
+              "text": "اتاق کنترل روزانه مسائل، تصمیم‌ها و روند شاخص‌ها را ثبت کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST04-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه چیزی باید در روز اول دست‌نخورده بماند؟",
+              "remediation_card_id": "E04-ST04-L01-CARD01",
+              "variant": "A",
+              "id": "E04-ST04-L01-Q01",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "تداوم عملیات",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا مشتری باید بداند چه چیزی تغییر کرده؟",
+              "remediation_card_id": "E04-ST04-L01-CARD02",
+              "variant": "A",
+              "id": "E04-ST04-L01-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مشتری کلیدی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L01-OBJ03",
+              "type": "single_choice",
+              "prompt": "مالک تصمیم چه وظیفه‌ای دارد؟",
+              "remediation_card_id": "E04-ST04-L01-CARD03",
+              "variant": "A",
+              "id": "E04-ST04-L01-Q03",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "مالک تصمیم",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L01-OBJ04",
+              "type": "single_choice",
+              "prompt": "کدام شاخص هشدار زودهنگام اختلال است؟",
+              "remediation_card_id": "E04-ST04-L01-CARD04",
+              "variant": "A",
+              "id": "E04-ST04-L01-Q04",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "شاخص هشدار",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "LARSSON",
+              "title": "Larsson & Finkelstein, Integrating Strategic, Organizational, and Human Resource Perspectives on M&A",
+              "url": "https://doi.org/10.1287/orsc.10.1.1",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مطالعهٔ موردی تلفیقی کلاسیک؛ زمینه‌مند و نه نسخهٔ جهان‌شمول."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «اولویت روزهای نخست ادغام» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "LARSSON",
+            "BCG23"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "تداوم عملیات",
+              "مشتری کلیدی",
+              "مالک تصمیم",
+              "شاخص هشدار"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "LARSSON",
+              "url": "https://doi.org/10.1287/orsc.10.1.1",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مطالعهٔ موردی تلفیقی کلاسیک؛ زمینه‌مند و نه نسخهٔ جهان‌شمول.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST04-L02",
+          "version": "1-draft",
+          "title": "افراد، فرایند و فرهنگ",
+          "content_status": "draft",
+          "objective": "یکپارچگی سازمانی فراتر از تغییر چارت است و به نقش، فرایند، سیستم و اختیار می‌رسد.",
+          "learning_cards": [
+            {
+              "id": "E04-ST04-L02-CARD01",
+              "title": "ادغام چارت سازمانی نیست",
+              "text": "یکپارچگی سازمانی فراتر از تغییر چارت است و به نقش، فرایند، سیستم و اختیار می‌رسد."
+            },
+            {
+              "id": "E04-ST04-L02-CARD02",
+              "title": "فرهنگ در رفتار دیده می‌شود",
+              "text": "فرهنگ را با رفتارها و سازوکارهای واقعی مانند تصمیم‌گیری و پاداش بررسی کند."
+            },
+            {
+              "id": "E04-ST04-L02-CARD03",
+              "title": "افراد کلیدی",
+              "text": "خطر خروج افراد کلیدی و دانش ضمنی را زود تشخیص دهد، بی‌آنکه ماندگاری را مفروض بداند."
+            },
+            {
+              "id": "E04-ST04-L02-CARD04",
+              "title": "فرایندهای حیاتی",
+              "text": "فرایندهای حیاتی را از ابتدا تا انتها ترسیم و گلوگاه انتقال را بیابد."
+            },
+            {
+              "id": "E04-ST04-L02-CARD05",
+              "title": "تصمیم متمرکز یا محلی",
+              "text": "مرکزی‌سازی صرفه‌جویی می‌آورد اما ممکن است سرعت و شناخت محلی را کم کند."
+            },
+            {
+              "id": "E04-ST04-L02-CARD06",
+              "title": "صدای کارکنان",
+              "text": "شنیدن کارکنان و مشاهدهٔ کار روزانه می‌تواند شکاف روایت و واقعیت را نشان دهد."
+            },
+            {
+              "id": "E04-ST04-L02-CARD07",
+              "title": "تعارض هویت",
+              "text": "برچسب «فرهنگ ناسازگار» را به تفاوت رفتاری قابل مشاهده تبدیل کند."
+            },
+            {
+              "id": "E04-ST04-L02-CARD08",
+              "title": "نقشهٔ تغییر",
+              "text": "برای تغییر، گروه متأثر، رفتار هدف، حمایت و معیار پذیرش تعریف کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST04-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه شاهدی فرهنگ سازمان را نشان می‌دهد؟",
+              "remediation_card_id": "E04-ST04-L02-CARD01",
+              "variant": "A",
+              "id": "E04-ST04-L02-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "رفتار مشاهده‌پذیر",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "از دست‌رفتن دانش ضمنی چه پیامدی دارد؟",
+              "remediation_card_id": "E04-ST04-L02-CARD02",
+              "variant": "A",
+              "id": "E04-ST04-L02-Q02",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "دانش کلیدی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L02-OBJ03",
+              "type": "single_choice",
+              "prompt": "کدام تصمیم باید محلی بماند؟",
+              "remediation_card_id": "E04-ST04-L02-CARD03",
+              "variant": "A",
+              "id": "E04-ST04-L02-Q03",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "اختیار تصمیم",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L02-OBJ04",
+              "type": "single_choice",
+              "prompt": "تغییر رفتار را با چه معیاری می‌سنجیم؟",
+              "remediation_card_id": "E04-ST04-L02-CARD04",
+              "variant": "A",
+              "id": "E04-ST04-L02-Q04",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "معیار پذیرش",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "LARSSON",
+              "title": "Larsson & Finkelstein, Integrating Strategic, Organizational, and Human Resource Perspectives on M&A",
+              "url": "https://doi.org/10.1287/orsc.10.1.1",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مطالعهٔ موردی تلفیقی کلاسیک؛ زمینه‌مند و نه نسخهٔ جهان‌شمول."
+            },
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «افراد، فرایند و فرهنگ» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "LARSSON",
+            "BCG23"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "رفتار مشاهده‌پذیر",
+              "دانش کلیدی",
+              "اختیار تصمیم",
+              "معیار پذیرش"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "LARSSON",
+              "url": "https://doi.org/10.1287/orsc.10.1.1",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مطالعهٔ موردی تلفیقی کلاسیک؛ زمینه‌مند و نه نسخهٔ جهان‌شمول.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST04-L03",
+          "version": "1-draft",
+          "title": "معیار تحقق هم‌افزایی",
+          "content_status": "draft",
+          "objective": "هر هم‌افزایی را به اقدام، مالک، زمان و منطق علّی وصل کند.",
+          "learning_cards": [
+            {
+              "id": "E04-ST04-L03-CARD01",
+              "title": "هم‌افزایی را از شعار جدا کن",
+              "text": "هر هم‌افزایی را به اقدام، مالک، زمان و منطق علّی وصل کند."
+            },
+            {
+              "id": "E04-ST04-L03-CARD02",
+              "title": "مبنای اندازه‌گیری",
+              "text": "baseline معتبر را پیش از ادغام تعریف و اثر رشد طبیعی یا بازار را جدا کند."
+            },
+            {
+              "id": "E04-ST04-L03-CARD03",
+              "title": "مالک منفعت",
+              "text": "برای منفعت مالک اجرایی مشخص بگذارد، نه فقط حامی مالی."
+            },
+            {
+              "id": "E04-ST04-L03-CARD04",
+              "title": "هزینه و تأخیر",
+              "text": "هزینهٔ تحقق، افت کیفیت و تأخیر را در کنار منفعت ناخالص گزارش کند."
+            },
+            {
+              "id": "E04-ST04-L03-CARD05",
+              "title": "شاخص پیشرو و پسرو",
+              "text": "شاخص پیشرو اجرای اقدام و شاخص پسرو نتیجهٔ اقتصادی را جدا نشان دهد."
+            },
+            {
+              "id": "E04-ST04-L03-CARD06",
+              "title": "انتساب اثر",
+              "text": "مقایسهٔ قبل و بعد به تنهایی اثر معامله را ثابت نمی‌کند؛ عوامل بیرونی را بررسی کند."
+            },
+            {
+              "id": "E04-ST04-L03-CARD07",
+              "title": "ریسک کیفیت",
+              "text": "کاهش هزینه نباید با افت ایمنی، کیفیت یا تجربهٔ مشتری محقق شود."
+            },
+            {
+              "id": "E04-ST04-L03-CARD08",
+              "title": "داشبورد منافع",
+              "text": "دفتر منافع را با وضعیت، شاهد، هزینه، ریسک و اقدام اصلاحی به‌روز کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST04-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا baseline باید قبل از ادغام ثبت شود؟",
+              "remediation_card_id": "E04-ST04-L03-CARD01",
+              "variant": "A",
+              "id": "E04-ST04-L03-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "baseline",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "مالک منفعت چه می‌کند؟",
+              "remediation_card_id": "E04-ST04-L03-CARD02",
+              "variant": "A",
+              "id": "E04-ST04-L03-Q02",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "مالک منافع",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L03-OBJ03",
+              "type": "single_choice",
+              "prompt": "چرا قبل و بعد اثبات علیت نیست؟",
+              "remediation_card_id": "E04-ST04-L03-CARD03",
+              "variant": "A",
+              "id": "E04-ST04-L03-Q03",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "انتساب اثر",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L03-OBJ04",
+              "type": "single_choice",
+              "prompt": "کدام شاخص کیفیت را کنار هزینه نگه می‌دارد؟",
+              "remediation_card_id": "E04-ST04-L03-CARD04",
+              "variant": "A",
+              "id": "E04-ST04-L03-Q04",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "موازنهٔ کیفیت",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            },
+            {
+              "id": "SLR26",
+              "title": "Navigating the M&A landscape: a systematic literature review on M&A strategies for value creation",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «معیار تحقق هم‌افزایی» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "BCG23",
+            "SLR26"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "baseline",
+              "مالک منافع",
+              "انتساب اثر",
+              "موازنهٔ کیفیت"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SLR26",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E04-ST04-L04",
+          "version": "1-draft",
+          "title": "بازبینی نتیجه در برابر فرض معامله",
+          "content_status": "draft",
+          "objective": "پرسش اصلی این است که فرضیهٔ معامله چه شد، نه فقط اینکه معامله انجام شد.",
+          "learning_cards": [
+            {
+              "id": "E04-ST04-L04-CARD01",
+              "title": "فرض را پس از امضا فراموش نکن",
+              "text": "پرسش اصلی این است که فرضیهٔ معامله چه شد، نه فقط اینکه معامله انجام شد."
+            },
+            {
+              "id": "E04-ST04-L04-CARD02",
+              "title": "پیش‌بینی و واقعیت",
+              "text": "پیش‌بینی زمان تصمیم را با پیامدهای واقعی در افق‌های زمانی مشخص مقایسه کند."
+            },
+            {
+              "id": "E04-ST04-L04-CARD03",
+              "title": "علت انحراف",
+              "text": "انحراف را به بازار، اجرا، دادهٔ ناقص یا فرض نادرست تفکیک کند."
+            },
+            {
+              "id": "E04-ST04-L04-CARD04",
+              "title": "یادگیری بدون سرزنش",
+              "text": "بازبینی باید سازوکار یادگیری بسازد، نه صرفاً مقصر پیدا کند."
+            },
+            {
+              "id": "E04-ST04-L04-CARD05",
+              "title": "تغییر فرض",
+              "text": "اگر شرایط تغییر کرده، فرض جدید و اثر آن بر تصمیم امروز را ثبت کند."
+            },
+            {
+              "id": "E04-ST04-L04-CARD06",
+              "title": "ارزش محقق‌شده",
+              "text": "ارزش محقق‌شده را پس از کسر هزینه، زمان، افت مشتری و سرمایهٔ صرف‌شده بسنجد."
+            },
+            {
+              "id": "E04-ST04-L04-CARD07",
+              "title": "AI در پایش",
+              "text": "AI می‌تواند انحراف را علامت‌گذاری کند؛ علت‌یابی و تصمیم با تیم پاسخ‌گوست."
+            },
+            {
+              "id": "E04-ST04-L04-CARD08",
+              "title": "پس‌نگر تصمیم",
+              "text": "پس‌نگر تصمیم کیفیت فرایند را با کیفیت نتیجهٔ تصادفی یکی نگیرد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E04-ST04-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه تفاوتی میان شکست اجرا و فرض نادرست است؟",
+              "remediation_card_id": "E04-ST04-L04-CARD01",
+              "variant": "A",
+              "id": "E04-ST04-L04-Q01",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "میانگین صنعت بدون بررسی",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت پیشنهادی فروشنده",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "مقایسهٔ پیش‌بینی",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا نتیجهٔ خوب لزوماً تصمیم خوب نیست؟",
+              "remediation_card_id": "E04-ST04-L04-CARD02",
+              "variant": "A",
+              "id": "E04-ST04-L04-Q02",
+              "options": [
+                {
+                  "id": "c",
+                  "text": "اظهار شفاهی بدون سند",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "علت انحراف",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "یک شاخص منفرد",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L04-OBJ03",
+              "type": "single_choice",
+              "prompt": "هزینهٔ ادغام چگونه به ارزش تحقق‌یافته وارد می‌شود؟",
+              "remediation_card_id": "E04-ST04-L04-CARD03",
+              "variant": "A",
+              "id": "E04-ST04-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ارزش خالص",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "سپردن تصمیم قطعی به مدل",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "b",
+                  "text": "نادیده‌گرفتن مجهول",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            },
+            {
+              "objective_id": "E04-ST04-L04-OBJ04",
+              "type": "single_choice",
+              "prompt": "نقش AI در پایش چیست؟",
+              "remediation_card_id": "E04-ST04-L04-CARD04",
+              "variant": "A",
+              "id": "E04-ST04-L04-Q04",
+              "options": [
+                {
+                  "id": "b",
+                  "text": "حدس تیم معامله",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                },
+                {
+                  "id": "a",
+                  "text": "کیفیت فرایند تصمیم",
+                  "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "یک خروجی بدون ارجاع",
+                  "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+                }
+              ],
+              "equivalence_group": "E04-ST04-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "BCG23",
+              "title": "BCG, Ten Lessons from 20 Years of M&A Research",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید."
+            },
+            {
+              "id": "DELOITTE-AI26",
+              "title": "Deloitte, GenAI in M&A Pulse Study 2026",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه."
+            },
+            {
+              "id": "SLR26",
+              "title": "Navigating the M&A landscape: a systematic literature review on M&A strategies for value creation",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "review_depth": "primary_or_authoritative_reference",
+              "scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند."
+            }
+          ],
+          "practice_activity": {
+            "type": "decision-analysis",
+            "prompt": "برای سناریوی سپهر، تمرین «بازبینی نتیجه در برابر فرض معامله» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+            "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E04-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "BCG23",
+            "DELOITTE-AI26",
+            "SLR26"
+          ],
+          "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_example; no transaction-specific claims"
+          },
+          "media_plan": {
+            "type": "decision-workspace",
+            "purpose": "ثبت فرض‌ها و شواهد",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "مقایسهٔ پیش‌بینی",
+              "علت انحراف",
+              "ارزش خالص",
+              "کیفیت فرایند تصمیم"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 28,
+            "practice": 25
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت تصمیم مستند",
+          "selected_source_refs": [
+            {
+              "source_id": "BCG23",
+              "url": "https://www.bcg.com/publications/2023/ten-lessons-to-succeed-on-mergers-and-acquisitions",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "سنتز حرفه‌ای پژوهش‌ها؛ روش و جامعهٔ مبنا را هنگام تعمیم بررسی کنید.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "DELOITTE-AI26",
+              "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "SLR26",
+              "url": "https://link.springer.com/article/10.1186/s43093-026-00883-w",
+              "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+              "review_depth": "primary_or_authoritative_reference",
+              "supports_scope": "مرور نظام‌مند 2026 دربارهٔ خلق ارزش؛ نتیجه‌ها زمینه‌مندند.",
+              "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        }
+      ],
+      "checkpoint": {
+        "id": "E04-ST04-CP",
+        "node_type": "stage_checkpoint",
+        "item_count": 6,
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "objective_id": "E04-ST04-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "چه چیزی باید در روز اول دست‌نخورده بماند؟",
+            "remediation_card_id": "E04-ST04-L01-CARD01",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q01",
+            "options": [
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "تداوم عملیات",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST04-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "از دست‌رفتن دانش ضمنی چه پیامدی دارد؟",
+            "remediation_card_id": "E04-ST04-L02-CARD02",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q02",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "دانش کلیدی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST04-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "چرا قبل و بعد اثبات علیت نیست؟",
+            "remediation_card_id": "E04-ST04-L03-CARD03",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q03",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "انتساب اثر",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST04-CP-OBJ04",
+            "type": "single_choice",
+            "prompt": "نقش AI در پایش چیست؟",
+            "remediation_card_id": "E04-ST04-L04-CARD04",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q04",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "کیفیت فرایند تصمیم",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST04-CP-OBJ05",
+            "type": "single_choice",
+            "prompt": "چه چیزی باید در روز اول دست‌نخورده بماند؟",
+            "remediation_card_id": "E04-ST04-L01-CARD05",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q05",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "تداوم عملیات",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          },
+          {
+            "objective_id": "E04-ST04-CP-OBJ06",
+            "type": "single_choice",
+            "prompt": "از دست‌رفتن دانش ضمنی چه پیامدی دارد؟",
+            "remediation_card_id": "E04-ST04-L02-CARD06",
+            "variant": "A",
+            "id": "E04-ST04-CP-Q06",
+            "options": [
+              {
+                "id": "b",
+                "text": "تصمیم قطعی بدون بررسی حساسیت",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "c",
+                "text": "یک عدد یا ادعا بدون منبع",
+                "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+              },
+              {
+                "id": "a",
+                "text": "دانش کلیدی",
+                "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+              }
+            ],
+            "equivalence_group": "E04-ST04-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+          }
+        ]
+      },
+      "tool_plan": {
+        "type": "decision-analysis-workbench",
+        "status": "planned_not_created"
+      }
     }
-  ]
+  ],
+  "final_assessment": {
+    "id": "E04-FINAL",
+    "version": "1-draft",
+    "status": "authored_draft",
+    "question_count": 15,
+    "coverage_note": "۱۵ سؤال پوشش‌دهندهٔ درس‌های چهار مرحله؛ هر مرحله مرور مرحله‌ای جداگانه نیز دارد. یک درس با سؤال‌های درون‌درس و مرور مرحله پوشش می‌یابد.",
+    "questions": [
+      {
+        "prompt": "کدام گزاره منطق معامله را بهتر بیان می‌کند؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "چون بازار خبرساز است",
+            "feedback": "بازبینی: معامله باید مسئله و پیامد راهبردی داشته باشد."
+          },
+          {
+            "id": "b",
+            "text": "چون شرکت مشابه به نظر می‌رسد",
+            "feedback": "بازبینی: معامله باید مسئله و پیامد راهبردی داشته باشد."
+          },
+          {
+            "id": "a",
+            "text": "قابلیت هدف، راهبرد را چگونه به پیامد قابل سنجش وصل می‌کند",
+            "feedback": "درست: معامله باید مسئله و پیامد راهبردی داشته باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "معامله باید مسئله و پیامد راهبردی داشته باشد.",
+        "id": "E04-FINAL-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST01-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q01-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST01-L01"
+      },
+      {
+        "prompt": "چرا شرط عبور را از معیار امتیازی جدا می‌کنیم؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "برای حذف شواهد",
+            "feedback": "بازبینی: شرط الزامی نباید با معیار دیگر جبران شود."
+          },
+          {
+            "id": "a",
+            "text": "تا نقص حیاتی با امتیازهای خوب پنهان نشود",
+            "feedback": "درست: شرط الزامی نباید با معیار دیگر جبران شود."
+          },
+          {
+            "id": "c",
+            "text": "چون هر هدفی باید انتخاب شود",
+            "feedback": "بازبینی: شرط الزامی نباید با معیار دیگر جبران شود."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "شرط الزامی نباید با معیار دیگر جبران شود.",
+        "id": "E04-FINAL-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST01-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q02-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST01-L02"
+      },
+      {
+        "prompt": "هم‌افزایی چه زمانی قابل دفاع‌تر است؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "عدد بزرگ در اسلاید آمده",
+            "feedback": "بازبینی: ادعا باید تا سازوکار و پیامد قابل ردیابی باشد."
+          },
+          {
+            "id": "a",
+            "text": "منبع، مالک، مبنا، زمان و هزینهٔ تحقق مشخص است",
+            "feedback": "درست: ادعا باید تا سازوکار و پیامد قابل ردیابی باشد."
+          },
+          {
+            "id": "c",
+            "text": "دو شرکت شبیه‌اند",
+            "feedback": "بازبینی: ادعا باید تا سازوکار و پیامد قابل ردیابی باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "ادعا باید تا سازوکار و پیامد قابل ردیابی باشد.",
+        "id": "E04-FINAL-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST01-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q03-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST01-L03"
+      },
+      {
+        "prompt": "پرسش مناسب ساخت/خرید/اتحاد چیست؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "کدام روش محبوب‌تر است؟",
+            "feedback": "بازبینی: مقایسه از قابلیت و قیود شروع می‌شود."
+          },
+          {
+            "id": "c",
+            "text": "کدام پیشنهاد را سریع امضا کنیم؟",
+            "feedback": "بازبینی: مقایسه از قابلیت و قیود شروع می‌شود."
+          },
+          {
+            "id": "a",
+            "text": "کدام مسیر قابلیت موردنیاز را با ارزش و ریسک مناسب فراهم می‌کند؟",
+            "feedback": "درست: مقایسه از قابلیت و قیود شروع می‌شود."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "مقایسه از قابلیت و قیود شروع می‌شود.",
+        "id": "E04-FINAL-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST01-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q04-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST01-L04"
+      },
+      {
+        "prompt": "درآمد پروژه‌ای هدف یک‌باره است یا تکرارشونده؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "جریان نقدی و فرض",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST02-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q05-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST02-L01"
+      },
+      {
+        "prompt": "چرا رشد فروش به تنهایی کیفیت درآمد را اثبات نمی‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "کیفیت درآمد",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST02-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q06-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST02-L02"
+      },
+      {
+        "prompt": "چه تفاوتی میان «اثبات نشده» و «وجود ندارد» است؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "دفتر فرض و شکاف",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q07",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST02-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q07-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST02-L03"
+      },
+      {
+        "prompt": "برای چه تصمیمی AI مجاز به پیشنهاد است و برای کدام تصمیم نه؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "دامنهٔ use case",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q08",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST02-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q08-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST02-L04"
+      },
+      {
+        "prompt": "چرا قیمت تنها موضوع مذاکره نیست؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "بستهٔ چندموضوعی",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q09",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST03-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q09-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST03-L01"
+      },
+      {
+        "prompt": "چه زمانی earn-out به‌جای هم‌راستایی تعارض ایجاد می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "تعریف دقیق KPI",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q10",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST03-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q10-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST03-L02"
+      },
+      {
+        "prompt": "چرا یک شرط «اخذ مجوزها» ممکن است ناکافی باشد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ماتریس حوزهٔ قضایی",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q11",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST03-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q11-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST03-L03"
+      },
+      {
+        "prompt": "چه چیزی باید در روز اول دست‌نخورده بماند؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "تداوم عملیات",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q12",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST04-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q12-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST04-L01"
+      },
+      {
+        "prompt": "چه شاهدی فرهنگ سازمان را نشان می‌دهد؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "رفتار مشاهده‌پذیر",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q13",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST04-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q13-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST04-L02"
+      },
+      {
+        "prompt": "چرا baseline باید قبل از ادغام ثبت شود؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "baseline",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q14",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST04-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q14-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST04-L03"
+      },
+      {
+        "prompt": "چه تفاوتی میان شکست اجرا و فرض نادرست است؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "میانگین صنعت بدون بررسی",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          },
+          {
+            "id": "a",
+            "text": "مقایسهٔ پیش‌بینی",
+            "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پیشنهادی فروشنده",
+            "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند.",
+        "id": "E04-FINAL-Q15",
+        "version": 1,
+        "type": "single_choice",
+        "coverage_lesson_ids": [
+          "E04-ST04-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "E04-FINAL-Q15-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "E04-ST04-L04"
+      }
+    ]
+  }
 }
