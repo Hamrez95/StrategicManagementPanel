@@ -1,0 +1,260 @@
+{
+  "id": "S02-C1-ST02-L04",
+  "version": "1-draft",
+  "title": "کنترل خطا در صفحه‌گسترده",
+  "content_status": "draft",
+  "objective": "مدل صفحه‌گسترده‌ای قابل‌خواندن و قابل‌بازبینی طراحی کند و کنترل‌های خطا و ثبت تغییر را اعمال کند.",
+  "learning_cards": [
+    {
+      "id": "S02-C1-ST02-L04-CARD01",
+      "type": "explanation",
+      "title": "مدل روشن از ورودی شروع می‌شود",
+      "text": "هدف مدل و کاربر آن را پیش از ساخت بنویسید. مدل تصمیمی با ریسک بالا به کنترل بیشتری از فایل شخصی نیاز دارد. شیت‌های ورودی، محاسبه و خروجی را جدا کنید تا دادهٔ خام، فرمول و نتیجه با هم قاطی نشوند."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD02",
+      "type": "explanation",
+      "title": "ثبات و نشانه‌گذاری",
+      "text": "واحد و دوره را روی هر ورودی مشخص کنید، فرمول‌ها را با الگوی ثابت بنویسید و سلول ورودی را از فرمول متمایز کنید. رنگ‌بندی بدون راهنما و قرارداد مشترک کافی نیست. توضیح منبع و تعریف کنار ورودی، بازبینی و به‌روزرسانی را آسان می‌کند."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD03",
+      "type": "explanation",
+      "title": "فرض و فرمول جدا",
+      "text": "نرخ رشد یا روزهای وصول را در سلول ورودی نگه دارید؛ در فرمول ثابت پنهان نکنید. اگر فرض تغییر کرد، باید اثرش در همهٔ ماه‌ها و صورت‌های وابسته منتشر شود. فرمول‌های hardcode شده در میان ردیف‌ها اغلب خطای خاموش می‌سازند."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD04",
+      "type": "explanation",
+      "title": "کنترل تراز و جمع",
+      "text": "برای مدل سه‌صورت، کنترل دارایی منهای بدهی و حقوق مالکانه باید صفر شود. جمع دوره‌ها، تطبیق نقد افتتاحیه و پایانی، تراز منابع/مصارف و آشتی تعداد مشتری نیز کنترل‌های مستقل‌اند. هشدار را قابل‌دیدن کنید و توضیح دهید اختلاف مجاز از کجا می‌آید."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD05",
+      "type": "explanation",
+      "title": "آزمون ورودی و مرزی",
+      "text": "ورودی صفر، منفی، بسیار بالا، ماه خالی و اضافه‌شدن ردیف را امتحان کنید. مدل رشد نباید با حجم صفر بر صفر تقسیم کند یا با یک ماه اضافه فرمولش قطع شود. تست مرزی پیش از استفادهٔ مدیریتی، رفتار فرمول را روشن می‌کند؛ فایل را روی نسخهٔ کپی‌شده بررسی کنید."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD06",
+      "type": "explanation",
+      "title": "بازبینی مستقل",
+      "text": "شخص دیگری فرض‌های اصلی، فرمول‌های کلیدی، واحد، تاریخ و خروجی را مرور کند. بازبینی فقط پیدا کردن سلول قرمز نیست: مسیر داده و منطق اقتصادی را هم بررسی می‌کند. در مدل مهم، تغییرات را نسخه‌گذاری و تغییر‌دهنده/تاریخ/دلیل را ثبت کنید."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD07",
+      "type": "explanation",
+      "title": "بصری‌سازی و دسترسی",
+      "text": "جدول خروجی باید سناریوها و واحدها را قابل‌خواندن نشان دهد و از نمودار سه‌بعدی بی‌دلیل دوری کند. سلول‌های ورودی قفل‌نشده و اطلاعات محرمانه می‌تواند خطر ایجاد کند. دسترسی، نسخهٔ فایل و محل مرجع را مشخص کنید تا چند نسخهٔ متعارض گردش نکند."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD08",
+      "type": "explanation",
+      "title": "AI برای کمک به مدل",
+      "text": "AI می‌تواند فرمول را توضیح دهد، مورد مرزی پیشنهاد کند یا کد/جدول را نقد کند؛ اما ممکن است فرمولی ظاهراً درست با واحد غلط بسازد. دادهٔ مالی محرمانه را به ابزار عمومی نفرستید؛ هر فرمول تولیدی را با محاسبهٔ دستی، کنترل تراز و نمونهٔ معلوم وارسی کنید."
+    },
+    {
+      "id": "S02-C1-ST02-L04-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "Hardcode عدد ثابت در فرمول، input ورودی، formula فرمول، reconciliation آشتی‌دادن مانده‌ها، control check کنترل سازگاری، version control ثبت نسخه و sensitivity table جدول حساسیت است. مدل خوب خروجی قابل‌توضیح می‌دهد؛ نه فقط عددی که جمع می‌شود."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C1-ST02-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا ورودی و فرمول جدا می‌شوند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای آشکارکردن فرض و جلوگیری از hardcode پنهان",
+          "feedback": "درست: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+        },
+        {
+          "id": "b",
+          "text": "برای رنگی‌شدن فایل",
+          "feedback": "بازبینی: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+        },
+        {
+          "id": "c",
+          "text": "چون هیچ فرمولی نباید وجود داشته باشد",
+          "feedback": "بازبینی: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فرض باید قابل‌تغییر و قابل‌ردیابی باشد.",
+      "objective_id": "S02-C1-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C1-ST02-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C1-ST02-L04-CARD02"
+    },
+    {
+      "id": "S02-C1-ST02-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کنترل تراز سه‌صورت چه می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ناسازگاری اتصال حساب‌ها را آشکار می‌کند",
+          "feedback": "درست: کنترل تراز ضروری است ولی کافی نیست."
+        },
+        {
+          "id": "b",
+          "text": "درستی همهٔ فرض‌ها را اثبات می‌کند",
+          "feedback": "بازبینی: کنترل تراز ضروری است ولی کافی نیست."
+        },
+        {
+          "id": "c",
+          "text": "جای بازبینی انسانی را می‌گیرد",
+          "feedback": "بازبینی: کنترل تراز ضروری است ولی کافی نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "کنترل تراز ضروری است ولی کافی نیست.",
+      "objective_id": "S02-C1-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C1-ST02-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C1-ST02-L04-CARD03"
+    },
+    {
+      "id": "S02-C1-ST02-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا آزمون مقدار صفر و مرزی لازم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای یافتن تقسیم بر صفر و فرمول‌های ناقص/شکسته",
+          "feedback": "درست: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+        },
+        {
+          "id": "b",
+          "text": "برای پنهان‌کردن خطا",
+          "feedback": "بازبینی: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+        },
+        {
+          "id": "c",
+          "text": "برای افزایش فرض‌ها",
+          "feedback": "بازبینی: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "رفتار مدل در ورودی‌های خاص باید معلوم باشد.",
+      "objective_id": "S02-C1-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C1-ST02-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C1-ST02-L04-CARD04"
+    },
+    {
+      "id": "S02-C1-ST02-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "AI فرمول پیشنهادی داده؛ قدم بعدی چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "بررسی واحد و محاسبهٔ دستی و کنترل مستقل",
+          "feedback": "درست: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+        },
+        {
+          "id": "b",
+          "text": "اعتماد به ظاهر فرمول",
+          "feedback": "بازبینی: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+        },
+        {
+          "id": "c",
+          "text": "فرستادن دادهٔ محرمانه",
+          "feedback": "بازبینی: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد.",
+      "objective_id": "S02-C1-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C1-ST02-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C1-ST02-L04-CARD05"
+    },
+    {
+      "id": "S02-C1-ST02-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا نسخه‌گذاری مدل مفید است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ثبت تغییر، زمان و دلیل و امکان بازتولید",
+          "feedback": "درست: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+        },
+        {
+          "id": "b",
+          "text": "حذف نیاز به منبع",
+          "feedback": "بازبینی: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+        },
+        {
+          "id": "c",
+          "text": "یکسان‌کردن همهٔ فرض‌ها",
+          "feedback": "بازبینی: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است.",
+      "objective_id": "S02-C1-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C1-ST02-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C1-ST02-L04-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "cfa-forecasting-2026",
+      "title": "CFA Institute 2026: Company Analysis—Forecasting",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+      "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "cfa-techniques-2026",
+      "title": "CFA Institute 2026: Financial Analysis Techniques",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+      "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "icaew-spreadsheet-20",
+      "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+      "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+      "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+      "review_depth": "official_professional_guidance_reviewed"
+    },
+    {
+      "id": "ifrs-ias7",
+      "title": "IFRS: IAS 7 Statement of Cash Flows",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+      "scope": "طبقه‌بندی و گزارش جریان‌های نقد و یادداشت‌های مرتبط؛ دسترسی کامل تابع ناشر استاندارد است.",
+      "review_depth": "official_standard_page_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "یک مدل صفحه‌گسترده را با کنترل تراز، آزمون مرزی و یادداشت نسخه طراحی کن.",
+    "unit": "برگهٔ مدل و کنترل؛ مثال‌ها فرضی‌اند.",
+    "answer": "پاسخ باید ورودی، واحد، فرمول، دوره، منبع و کنترل مستقل را نشان دهد.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ بازتولیدپذیری و منطق اقتصادی سنجیده شود.",
+    "rubric": [
+      "درستی فرمول و واحد (۰–۲)",
+      "شفافیت فرض و منبع (۰–۲)",
+      "اتصال صورت‌ها (۰–۲)",
+      "کنترل خطا و سناریو (۰–۲)",
+      "قابلیت توضیح برای تصمیم‌گیر (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
