@@ -1,0 +1,1306 @@
+{
+  "id": "S02-C2-ST02",
+  "title": "سرمایه و مقایسهٔ ارزش",
+  "order": 2,
+  "color_token": "orange",
+  "legacy_research_topic_ids": [
+    "S02-M2"
+  ],
+  "level": "specialist",
+  "source_refs": [
+    "B04",
+    "T10",
+    "R24",
+    "R02"
+  ],
+  "source_alignment": "CFA Institute curriculum outlines cost of capital, relative valuation and portfolio risk; NYU Stern open teaching materials support WACC/multiple concepts. The 2026 CFA article on shifting risk regimes is professional commentary. All calculations are illustrative.",
+  "lessons": [
+    {
+      "id": "S02-C2-ST02-L01",
+      "version": "1-draft",
+      "title": "هزینهٔ سرمایه و فرض‌های مدل",
+      "content_status": "draft",
+      "objective": "هزینهٔ سرمایه را به‌عنوان حداقل بازده متناسب با ریسک پروژه تفسیر و از به‌کارگیری مکانیکی WACC پرهیز کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST02-L01-CARD01",
+          "type": "explanation",
+          "title": "هزینهٔ سرمایه چیست؟",
+          "text": "هزینهٔ سرمایه بازدهی است که سرمایه‌گذاران برای تأمین مالی با ریسک مشابه انتظار دارند؛ برای شرکت، نرخ فرصت منابع است. پروژه‌ای با بازده مورد انتظار کمتر از هزینهٔ سرمایه معمولاً ارزش اقتصادی نمی‌افزاید، هرچند سود حسابداری مثبت باشد. معیار به ریسک جریان و گزینهٔ جایگزین وابسته است."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD02",
+          "type": "explanation",
+          "title": "WACC چگونه ساخته می‌شود؟",
+          "text": "WACC = وزن حقوق مالکانه × هزینهٔ حقوق مالکانه + وزن بدهی × هزینهٔ بدهی پس از مالیات. وزن‌ها را با ساختار سرمایهٔ مرتبط با ارزش بازار و نرخ‌های جاری تخمین می‌زنیم. شرکت‌ها ممکن است اجزای دیگر سرمایه هم داشته باشند؛ تعریف دامنه باید روشن باشد."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD03",
+          "type": "explanation",
+          "title": "بدهی و سپر مالیاتی",
+          "text": "هزینهٔ بدهی معمولاً از بازده مورد انتظار سهام کمتر است و بهرهٔ قابل‌کسر مالیاتی می‌تواند هزینهٔ پس از مالیات را پایین بیاورد؛ اما بدهی تعهد ثابت و ریسک ورشکستگی ایجاد می‌کند. فرمول سادهٔ WACC وقتی کسر مالیاتی قابل‌استفاده نیست، مناسب نیست."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD04",
+          "type": "explanation",
+          "title": "هزینهٔ حقوق مالکانه",
+          "text": "CAPM پایه نرخ بدون ریسک + بتا × صرف ریسک بازار است. بتا و صرف ریسک تخمین‌اند و دوره، بازار و ساختار سرمایه نتیجه را عوض می‌کنند. عدد را با تاریخ منبع، بازار مرجع و بازهٔ حساسیت گزارش کنید؛ نرخ دقیق‌نما حقیقت ثابت نیست."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD05",
+          "type": "explanation",
+          "title": "نرخ شرکت یا نرخ پروژه؟",
+          "text": "WACC شرکت برای پروژه‌ای مناسب است که ریسک و ساختار آن شبیه فعالیت موجود باشد. ورود به کسب‌وکار پرریسک یا کشور متفاوت می‌تواند نرخ تفاضلی بخواهد. نرخ بالا یا پایین را برای رسیدن به NPV دلخواه دستکاری نکنید؛ روش تعیین را قبل از دیدن جواب بنویسید."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD06",
+          "type": "explanation",
+          "title": "جریان و نرخ هم‌ساز",
+          "text": "FCFF را با WACC و FCFE را با هزینهٔ حقوق مالکانه تنزیل کنید. جریان اسمی با نرخ اسمی، جریان واقعی با نرخ واقعی، و جریان هر ارز با نرخ هم‌ارز لازم است. ناسازگاری ارز یا تورم می‌تواند ارزش را چندبرابر منحرف کند."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD07",
+          "type": "explanation",
+          "title": "فرض سرمایه‌گذاری",
+          "text": "بازده بالاتر از WACC ارزش می‌سازد فقط اگر جریان و ریسک واقع‌بینانه باشد. بازده سرمایهٔ جدید را با بازده تاریخی کل شرکت یکی نگیرید؛ رشد آینده به بازسرمایه‌گذاری نیاز دارد. پیوند رشد، نرخ سرمایه‌گذاری مجدد و بازده افزایشی باید در پایانه هم سازگار بماند."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD08",
+          "type": "explanation",
+          "title": "رابطه با تأمین مالی",
+          "text": "ساختار سرمایه بر WACC، انعطاف، قیود وام، رقیق‌شدن و احتمال درماندگی اثر دارد. تصمیم «سرمایهٔ ارزان‌تر» بدون ظرفیت بازپرداخت می‌تواند گزینه‌های آینده را ببندد. نرخ را با سناریوی اهرم و ماندهٔ نقد مرور کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L01-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Cost of capital هزینهٔ سرمایه؛ WACC میانگین موزون هزینهٔ سرمایه؛ cost of debt هزینهٔ بدهی؛ cost of equity هزینهٔ حقوق مالکانه؛ tax shield سپر مالیاتی؛ hurdle rate نرخ مانع است. WACC ابزار هماهنگی جریان و ریسک است، نه نرخ جادویی واحد برای هر طرح."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST02-L01-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "WACC چه معنایی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "میانگین موزون هزینهٔ بدهی و حقوق مالکانه",
+              "feedback": "درست: وزن و هزینهٔ هر منبع سرمایه ترکیب می‌شوند."
+            },
+            {
+              "id": "b",
+              "text": "نرخ رشد فروش",
+              "feedback": "بازبینی: وزن و هزینهٔ هر منبع سرمایه ترکیب می‌شوند."
+            },
+            {
+              "id": "c",
+              "text": "نرخ بدون ریسک به‌تنهایی",
+              "feedback": "بازبینی: وزن و هزینهٔ هر منبع سرمایه ترکیب می‌شوند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "وزن و هزینهٔ هر منبع سرمایه ترکیب می‌شوند.",
+          "objective_id": "S02-C2-ST02-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L01-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L01-CARD02"
+        },
+        {
+          "id": "S02-C2-ST02-L01-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "پروژه‌ای با ریسک بسیار متفاوت از شرکت چه می‌خواهد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نرخ متناسب با ریسک پروژه",
+              "feedback": "درست: ریسک متفاوت نرخ فرصت متفاوت می‌طلبد."
+            },
+            {
+              "id": "b",
+              "text": "WACC شرکت بدون بررسی",
+              "feedback": "بازبینی: ریسک متفاوت نرخ فرصت متفاوت می‌طلبد."
+            },
+            {
+              "id": "c",
+              "text": "نرخ دلخواه",
+              "feedback": "بازبینی: ریسک متفاوت نرخ فرصت متفاوت می‌طلبد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ریسک متفاوت نرخ فرصت متفاوت می‌طلبد.",
+          "objective_id": "S02-C2-ST02-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L01-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L01-CARD03"
+        },
+        {
+          "id": "S02-C2-ST02-L01-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چرا بدهی ارزان‌تر الزاماً بهتر نیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تعهد و ریسک درماندگی هم زیاد می‌شود",
+              "feedback": "درست: هزینه و انعطاف را با هم بسنجید."
+            },
+            {
+              "id": "b",
+              "text": "بدهی هیچ هزینه‌ای ندارد",
+              "feedback": "بازبینی: هزینه و انعطاف را با هم بسنجید."
+            },
+            {
+              "id": "c",
+              "text": "سهام همیشه گران‌تر است",
+              "feedback": "بازبینی: هزینه و انعطاف را با هم بسنجید."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "هزینه و انعطاف را با هم بسنجید.",
+          "objective_id": "S02-C2-ST02-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L01-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L01-CARD04"
+        },
+        {
+          "id": "S02-C2-ST02-L01-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "FCFF معمولاً با چه نرخی تنزیل می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "WACC",
+              "feedback": "درست: FCFF برای همهٔ سرمایه‌گذاران است."
+            },
+            {
+              "id": "b",
+              "text": "هزینهٔ حقوق مالکانه",
+              "feedback": "بازبینی: FCFF برای همهٔ سرمایه‌گذاران است."
+            },
+            {
+              "id": "c",
+              "text": "تورم تاریخی",
+              "feedback": "بازبینی: FCFF برای همهٔ سرمایه‌گذاران است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "FCFF برای همهٔ سرمایه‌گذاران است.",
+          "objective_id": "S02-C2-ST02-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L01-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L01-CARD05"
+        },
+        {
+          "id": "S02-C2-ST02-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چه چیزی نشان‌دهندهٔ ساختگی‌شدن نرخ است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "انتخاب نرخ پس از دیدن NPV مطلوب",
+              "feedback": "درست: روش نرخ را پیش از نتیجه تعریف کنید."
+            },
+            {
+              "id": "b",
+              "text": "ثبت تاریخ و منبع",
+              "feedback": "بازبینی: روش نرخ را پیش از نتیجه تعریف کنید."
+            },
+            {
+              "id": "c",
+              "text": "تحلیل حساسیت",
+              "feedback": "بازبینی: روش نرخ را پیش از نتیجه تعریف کنید."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "روش نرخ را پیش از نتیجه تعریف کنید.",
+          "objective_id": "S02-C2-ST02-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L01-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "cfa-cost-capital",
+          "title": "CFA Institute: Corporate Issuers—Cost of Capital curriculum overview",
+          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+          "scope": "چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-relative-valuation-2026",
+          "title": "CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+          "scope": "مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "damodaran-relative-valuation",
+          "title": "NYU Stern: Relative Valuation course materials",
+          "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm",
+          "scope": "درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "cfa-portfolio-risk-2026",
+          "title": "CFA Institute 2026: Portfolio Risk and Return—Part I",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+          "scope": "بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-risk-regimes-2026",
+          "title": "CFA Institute (2026): Why Static Portfolios Fail When Risk Regimes Change",
+          "url": "https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/why-static-portfolios-fail-when-risk-regimes-change",
+          "scope": "دیدگاه جاری دربارهٔ تغییر همبستگی و رژیم ریسک؛ منبع حرفه‌ای/دیدگاهی است و جای دادهٔ بازار یا پژوهش مستقل را نمی‌گیرد.",
+          "review_depth": "professional_commentary_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "WACC را برای دو پروژهٔ دارای ریسک متفاوت محاسبه/توصیف کن و نرخ مانع مناسب را توجیه کن.",
+        "unit": "برگهٔ تصمیم؛ همهٔ اعداد تمرین فرضی‌اند.",
+        "answer": "پاسخ باید فرمول، فرض، تاریخ داده و محدودیت را نشان دهد؛ مثال‌ها توصیهٔ سرمایه‌گذاری نیستند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ سازگاری و شفافیت سنجیده می‌شود.",
+        "rubric": [
+          "محاسبه و تعریف (۰–۲)",
+          "سازگاری جریان/ریسک (۰–۲)",
+          "کیفیت گروه/فرض (۰–۲)",
+          "توضیح محدودیت و سناریو (۰–۲)",
+          "پیوند با تصمیم (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST02-L02",
+      "version": "1-draft",
+      "title": "ارزش‌گذاری نسبی و شرکت مشابه",
+      "content_status": "draft",
+      "objective": "مضاعف متناسب با شرکت و صورت مالی انتخاب و تفاوت رشد، ریسک و سودآوری را در انتخاب همتایان کنترل کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST02-L02-CARD01",
+          "type": "explanation",
+          "title": "منطق مضاعف",
+          "text": "ارزش‌گذاری نسبی قیمت شرکت را در برابر شرکت‌هایی با ویژگی‌های مشابه می‌سنجد. برای مقایسه، قیمت را به مضاعف درآمد، سود، ارزش دفتری یا EBITDA نرمال می‌کنیم. این روش می‌گوید بازار برای هر واحد سنجه چه قیمتی می‌پردازد، نه اینکه آن قیمت منصفانه است."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD02",
+          "type": "explanation",
+          "title": "P/E و محدودیت",
+          "text": "P/E = قیمت هر سهم ÷ سود هر سهم یا ارزش بازار حقوق مالکانه ÷ سود خالص. برای سود منفی معنادار نیست و به اهرم، مالیات، سیاست استهلاک و رشد حساس است. نسبت گذشته‌نگر را با سود پیش‌بینی‌شدهٔ شرکت دیگر قاطی نکنید."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD03",
+          "type": "explanation",
+          "title": "EV/EBITDA",
+          "text": "EV/EBITDA ارزش بنگاه را با سود پیش از بهره، مالیات و استهلاک مقایسه می‌کند. چون EV ادعای بدهی و سهام را دربرمی‌گیرد، نسبت باید با سنجهٔ پیش از هزینهٔ تأمین مالی هم‌خوان باشد. تفاوت مخارج سرمایه‌ای، اجاره، سرمایهٔ در گردش و کیفیت EBITDA هنوز مهم است."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD04",
+          "type": "explanation",
+          "title": "انتخاب شرکت مشابه",
+          "text": "هم‌صنعت بودن کافی نیست. رشد، حاشیه، جغرافیا، مدل درآمد، اندازه، ریسک، اهرم و مرحلهٔ بلوغ را مقایسه کنید. اگر شرکت مشابه کامل نیست، معیار انتخاب و تفاوت‌ها را ثبت کنید؛ median گروه اغلب از میانگینی که یک مورد افراطی می‌کشد، مقاوم‌تر است."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD05",
+          "type": "explanation",
+          "title": "مضرب و بنیاد",
+          "text": "مضاعف بالاتر ممکن است رشد سریع‌تر، ریسک کمتر یا بازده سرمایهٔ بالاتر را بازتاب دهد. «ارزان‌تر از گروه» بدون تحلیل بنیادها نتیجهٔ ارزندگی نیست. تغییر مضاعف با تغییر رشد و ریسک می‌تواند موجه باشد یا ناشی از قیمت‌گذاری اشتباه؛ روش، داده و تاریخ بازار را آشکار کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD06",
+          "type": "explanation",
+          "title": "ارزش سهام از EV",
+          "text": "برای پل EV به حقوق مالکانه، بدهی را کم و نقد مازاد و دارایی غیرعملیاتی را اضافه می‌کنیم و سپس بر تعداد سهام رقیق‌شده تقسیم می‌کنیم. در مقایسهٔ شرکت‌ها تعریف EV، اجاره، اقلیت و نقد باید یکنواخت باشد. تعریف متفاوت، مضاعف را مخدوش می‌کند."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD07",
+          "type": "explanation",
+          "title": "گروه همتا و سوگیری",
+          "text": "فقط شرکت‌هایی را که نتیجهٔ مورد انتظار را تأیید می‌کنند انتخاب نکنید. معیار ورود، دوره، حذف مشاهدهٔ ناقص و دادهٔ منبع را پیشاپیش ثبت کنید. گروه کوچک با یک شرکت خاص می‌تواند «median بازار» را به داستان فروشنده بدل کند."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD08",
+          "type": "explanation",
+          "title": "تطبیق DCF و مضاعف",
+          "text": "DCF و مضاعف دو لنز با فرض‌های متفاوت‌اند. شکافشان می‌تواند از رشد، حاشیه، ریسک یا شرایط بازار ناشی شود؛ میانگین‌گرفتن بی‌توضیح، اختلاف را حل نمی‌کند. سنجهٔ هر روش را با فرض‌های ضمنی‌اش مقایسه و دلیل وزن‌دهی را بیان کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L02-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Comparable company شرکت همتا؛ trading multiple مضاعف معاملاتی؛ P/E قیمت به سود؛ EV/EBITDA ارزش بنگاه به EBITDA؛ forward multiple مضاعف آینده‌نگر؛ dilution رقیق‌شدن؛ median میانه است. هر مضاعف را با تاریخ، صورت/مخرج و گروه مقایسه مستند کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST02-L02-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "P/E برای شرکت با سود منفی چه محدودیتی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "مضاعف معمولاً معنادار نیست",
+              "feedback": "درست: مخرج منفی تفسیر معمول P/E را از بین می‌برد."
+            },
+            {
+              "id": "b",
+              "text": "همیشه صفر می‌شود",
+              "feedback": "بازبینی: مخرج منفی تفسیر معمول P/E را از بین می‌برد."
+            },
+            {
+              "id": "c",
+              "text": "ارزش بنگاه را می‌دهد",
+              "feedback": "بازبینی: مخرج منفی تفسیر معمول P/E را از بین می‌برد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مخرج منفی تفسیر معمول P/E را از بین می‌برد.",
+          "objective_id": "S02-C2-ST02-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L02-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L02-CARD02"
+        },
+        {
+          "id": "S02-C2-ST02-L02-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "EV/EBITDA را با چه چیزی تطبیق می‌دهیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "EV و سنجهٔ پیش از هزینهٔ بهره",
+              "feedback": "درست: صورت و مخرج باید از ادعاهای مشابه باشند."
+            },
+            {
+              "id": "b",
+              "text": "قیمت سهام و سود خالص فقط",
+              "feedback": "بازبینی: صورت و مخرج باید از ادعاهای مشابه باشند."
+            },
+            {
+              "id": "c",
+              "text": "نقد و درآمد",
+              "feedback": "بازبینی: صورت و مخرج باید از ادعاهای مشابه باشند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "صورت و مخرج باید از ادعاهای مشابه باشند.",
+          "objective_id": "S02-C2-ST02-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L02-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L02-CARD03"
+        },
+        {
+          "id": "S02-C2-ST02-L02-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "«ارزان‌تر از گروه» به‌تنهایی چه چیزی را ثابت نمی‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ارزشمندی، چون رشد و ریسک هم فرق دارد",
+              "feedback": "درست: اختلاف بنیادها باید کنترل شود."
+            },
+            {
+              "id": "b",
+              "text": "مضاعف پایین‌تر",
+              "feedback": "بازبینی: اختلاف بنیادها باید کنترل شود."
+            },
+            {
+              "id": "c",
+              "text": "قیمت جاری",
+              "feedback": "بازبینی: اختلاف بنیادها باید کنترل شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "اختلاف بنیادها باید کنترل شود.",
+          "objective_id": "S02-C2-ST02-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L02-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L02-CARD04"
+        },
+        {
+          "id": "S02-C2-ST02-L02-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای گروه همتا چه اقدامی سوگیری را کم می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "معیار انتخاب را پیشاپیش ثبت کنیم",
+              "feedback": "درست: معیار شفاف انتخاب گزینشی را محدود می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "بعد از دیدن خروجی نمونه را عوض کنیم",
+              "feedback": "بازبینی: معیار شفاف انتخاب گزینشی را محدود می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "فقط همتایان بالاتر را نگه داریم",
+              "feedback": "بازبینی: معیار شفاف انتخاب گزینشی را محدود می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "معیار شفاف انتخاب گزینشی را محدود می‌کند.",
+          "objective_id": "S02-C2-ST02-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L02-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L02-CARD05"
+        },
+        {
+          "id": "S02-C2-ST02-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "میانهٔ مضاعف چرا گاهی مناسب‌تر است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "به مشاهدهٔ بسیار افراطی کمتر حساس است",
+              "feedback": "درست: میانه مقاوم‌تر است اما باز هم سنجش نیاز دارد."
+            },
+            {
+              "id": "b",
+              "text": "همیشه ارزش درست را می‌دهد",
+              "feedback": "بازبینی: میانه مقاوم‌تر است اما باز هم سنجش نیاز دارد."
+            },
+            {
+              "id": "c",
+              "text": "داده لازم ندارد",
+              "feedback": "بازبینی: میانه مقاوم‌تر است اما باز هم سنجش نیاز دارد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "میانه مقاوم‌تر است اما باز هم سنجش نیاز دارد.",
+          "objective_id": "S02-C2-ST02-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L02-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "cfa-cost-capital",
+          "title": "CFA Institute: Corporate Issuers—Cost of Capital curriculum overview",
+          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+          "scope": "چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-relative-valuation-2026",
+          "title": "CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+          "scope": "مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "damodaran-relative-valuation",
+          "title": "NYU Stern: Relative Valuation course materials",
+          "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm",
+          "scope": "درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "cfa-portfolio-risk-2026",
+          "title": "CFA Institute 2026: Portfolio Risk and Return—Part I",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+          "scope": "بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-risk-regimes-2026",
+          "title": "CFA Institute (2026): Why Static Portfolios Fail When Risk Regimes Change",
+          "url": "https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/why-static-portfolios-fail-when-risk-regimes-change",
+          "scope": "دیدگاه جاری دربارهٔ تغییر همبستگی و رژیم ریسک؛ منبع حرفه‌ای/دیدگاهی است و جای دادهٔ بازار یا پژوهش مستقل را نمی‌گیرد.",
+          "review_depth": "professional_commentary_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "گروه همتا و دو مضاعف را با معیارهای انتخاب، تاریخ و تفاوت‌های بنیادین بساز.",
+        "unit": "برگهٔ تصمیم؛ همهٔ اعداد تمرین فرضی‌اند.",
+        "answer": "پاسخ باید فرمول، فرض، تاریخ داده و محدودیت را نشان دهد؛ مثال‌ها توصیهٔ سرمایه‌گذاری نیستند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ سازگاری و شفافیت سنجیده می‌شود.",
+        "rubric": [
+          "محاسبه و تعریف (۰–۲)",
+          "سازگاری جریان/ریسک (۰–۲)",
+          "کیفیت گروه/فرض (۰–۲)",
+          "توضیح محدودیت و سناریو (۰–۲)",
+          "پیوند با تصمیم (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST02-L03",
+      "version": "1-draft",
+      "title": "بازده و ریسک سبد",
+      "content_status": "draft",
+      "objective": "بازده و ریسک دو دارایی و پرتفوی ترکیبی را محاسبه و تناسب هدف و تحمل ریسک را لحاظ کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST02-L03-CARD01",
+          "type": "explanation",
+          "title": "بازده و دوره",
+          "text": "بازده دورهٔ نگهداری = (قیمت پایانی − قیمت آغازین + توزیع نقدی) ÷ قیمت آغازین. سود نقدی را فراموش نکنید و افق زمانی را مشخص کنید. بازده یک‌ساله با متوسط چندساله یا بازده هندسی هم‌معنا نیست؛ تجمیع را متناسب با سؤال انتخاب کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD02",
+          "type": "explanation",
+          "title": "بازده مورد انتظار",
+          "text": "بازده مورد انتظار میانگین وزن‌دار حالت‌هاست: جمع احتمال هر حالت × بازده آن. فرض احتمال باید روشن باشد؛ میانگین تاریخی تضمین آینده نیست. تصمیم به بازده مورد انتظار تنها محدود نیست و پراکندگی، زیان دنباله‌ای، افق و نیاز نقد اهمیت دارد."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD03",
+          "type": "explanation",
+          "title": "ریسک و نوسان",
+          "text": "انحراف معیار پراکندگی بازده را خلاصه می‌کند، اما تمام ریسک را پوشش نمی‌دهد. زیان دائمی سرمایه، نقدشوندگی، تمرکز، اهرم، تورم و عدم‌قطعیت مدل ممکن است در عدد نوسان دیده نشوند. «ریسک» را برای تصمیم مشخص تعریف کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD04",
+          "type": "explanation",
+          "title": "بازده سبد",
+          "text": "بازده سبد میانگین وزن‌دار بازده دارایی‌هاست؛ ۶۰٪ دارایی با بازده ۱۰٪ و ۴۰٪ با بازده ۵٪، بازده ۸٪ می‌دهد. وزن‌ها باید جمعاً ۱ شوند. هزینه، مالیات و تغییر وزن در دوره می‌تواند بازده واقعی سرمایه‌گذار را تغییر دهد."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD05",
+          "type": "explanation",
+          "title": "ریسک دو دارایی",
+          "text": "واریانس سبد = w₁²σ₁² + w₂²σ₂² + 2w₁w₂σ₁σ₂ρ. اگر همبستگی کمتر از ۱ باشد، ترکیب ممکن است نوسان را کاهش دهد؛ مقدار کاهش به وزن و نوسان هر دارایی بستگی دارد. ضریب همبستگی رابطهٔ خطی بازده را در نمونه نشان می‌دهد."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD06",
+          "type": "explanation",
+          "title": "مثال سادهٔ تنوع",
+          "text": "دو دارایی با نوسان ۲۰٪ و ۱۰٪ و وزن برابر، اگر همبستگی ۱ داشته باشند نوسان تقریبی سبد ۱۵٪ است. با همبستگی صفر، انحراف معیار حدود ۱۱٫۲٪ می‌شود. این مثال فرضی است و هزینه، بازده و تغییر همبستگی را نادیده می‌گیرد."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD07",
+          "type": "explanation",
+          "title": "ریسک‌پذیری و افق",
+          "text": "سبد مناسب فقط از بازده تاریخی انتخاب نمی‌شود. توان تحمل زیان، نیاز نقدی، تعهدات، افق و ترجیحات ذی‌نفع تعیین می‌کنند چه نوسانی قابل‌تحمل است. برای شرکت، «سبد پروژه‌ها» نیز محدودیت نقد و تمرکز و تعهدهای هم‌بسته دارد."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD08",
+          "type": "explanation",
+          "title": "بازده تعدیل‌شده به ریسک",
+          "text": "نسبت شارپ مازاد بازده بر نرخ بدون ریسک به نوسان را خلاصه می‌کند، اما به پنجرهٔ داده، نرخ مرجع و توزیع بازده حساس است. نسبت بالاتر گذشته به معنی بهتر بودن آینده نیست. معیار را در کنار افت بیشینه، نقدشوندگی و محدودیت سرمایه بخوانید."
+        },
+        {
+          "id": "S02-C2-ST02-L03-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Expected return بازده مورد انتظار؛ variance واریانس؛ standard deviation انحراف معیار؛ covariance کوواریانس؛ correlation همبستگی؛ diversification تنوع‌بخشی؛ Sharpe ratio نسبت شارپ است. رابطهٔ تاریخی دو دارایی قانون ثابت آینده نیست."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST02-L03-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "بازده سبد ۶۰٪×۱۰٪ و ۴۰٪×۵٪؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۸٪",
+              "feedback": "درست: ۰٫۶×۱۰ + ۰٫۴×۵ برابر ۸ است."
+            },
+            {
+              "id": "b",
+              "text": "۷٫۵٪",
+              "feedback": "بازبینی: ۰٫۶×۱۰ + ۰٫۴×۵ برابر ۸ است."
+            },
+            {
+              "id": "c",
+              "text": "۱۵٪",
+              "feedback": "بازبینی: ۰٫۶×۱۰ + ۰٫۴×۵ برابر ۸ است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۰٫۶×۱۰ + ۰٫۴×۵ برابر ۸ است.",
+          "objective_id": "S02-C2-ST02-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L03-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L03-CARD02"
+        },
+        {
+          "id": "S02-C2-ST02-L03-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "وقتی همبستگی دو دارایی کمتر از یک است چه چیزی ممکن است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ریسک ترکیبی کاهش یابد",
+              "feedback": "درست: تنوع می‌تواند ریسک را کم کند، نه حذف."
+            },
+            {
+              "id": "b",
+              "text": "بازده تضمین شود",
+              "feedback": "بازبینی: تنوع می‌تواند ریسک را کم کند، نه حذف."
+            },
+            {
+              "id": "c",
+              "text": "ریسک هر دارایی صفر شود",
+              "feedback": "بازبینی: تنوع می‌تواند ریسک را کم کند، نه حذف."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تنوع می‌تواند ریسک را کم کند، نه حذف.",
+          "objective_id": "S02-C2-ST02-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L03-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L03-CARD03"
+        },
+        {
+          "id": "S02-C2-ST02-L03-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "انحراف معیار چه محدودیتی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "همهٔ ریسک‌ها و زیان دنباله‌ای را نشان نمی‌دهد",
+              "feedback": "درست: سنجهٔ نوسان نمایندهٔ همهٔ ریسک نیست."
+            },
+            {
+              "id": "b",
+              "text": "هیچ پراکندگی را نمی‌سنجد",
+              "feedback": "بازبینی: سنجهٔ نوسان نمایندهٔ همهٔ ریسک نیست."
+            },
+            {
+              "id": "c",
+              "text": "بازده آینده را تضمین می‌کند",
+              "feedback": "بازبینی: سنجهٔ نوسان نمایندهٔ همهٔ ریسک نیست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "سنجهٔ نوسان نمایندهٔ همهٔ ریسک نیست.",
+          "objective_id": "S02-C2-ST02-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L03-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L03-CARD04"
+        },
+        {
+          "id": "S02-C2-ST02-L03-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "بازده مورد انتظار بر چه پایه است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "احتمال و بازده حالت‌ها",
+              "feedback": "درست: میانگین مشروط به احتمال‌هاست."
+            },
+            {
+              "id": "b",
+              "text": "بازده قطعی آینده",
+              "feedback": "بازبینی: میانگین مشروط به احتمال‌هاست."
+            },
+            {
+              "id": "c",
+              "text": "قیمت امروز به‌تنهایی",
+              "feedback": "بازبینی: میانگین مشروط به احتمال‌هاست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "میانگین مشروط به احتمال‌هاست.",
+          "objective_id": "S02-C2-ST02-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L03-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L03-CARD05"
+        },
+        {
+          "id": "S02-C2-ST02-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چه کسی سبد بهینه را تعیین می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "هدف، افق، نقدینگی و تحمل ریسک سرمایه‌گذار",
+              "feedback": "درست: تناسب هدف و ترجیحات ضروری است."
+            },
+            {
+              "id": "b",
+              "text": "فقط بالاترین Sharpe گذشته",
+              "feedback": "بازبینی: تناسب هدف و ترجیحات ضروری است."
+            },
+            {
+              "id": "c",
+              "text": "دارایی با بازده اخیر بالا",
+              "feedback": "بازبینی: تناسب هدف و ترجیحات ضروری است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تناسب هدف و ترجیحات ضروری است.",
+          "objective_id": "S02-C2-ST02-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L03-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "cfa-cost-capital",
+          "title": "CFA Institute: Corporate Issuers—Cost of Capital curriculum overview",
+          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+          "scope": "چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-relative-valuation-2026",
+          "title": "CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+          "scope": "مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "damodaran-relative-valuation",
+          "title": "NYU Stern: Relative Valuation course materials",
+          "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm",
+          "scope": "درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "cfa-portfolio-risk-2026",
+          "title": "CFA Institute 2026: Portfolio Risk and Return—Part I",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+          "scope": "بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-risk-regimes-2026",
+          "title": "CFA Institute (2026): Why Static Portfolios Fail When Risk Regimes Change",
+          "url": "https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/why-static-portfolios-fail-when-risk-regimes-change",
+          "scope": "دیدگاه جاری دربارهٔ تغییر همبستگی و رژیم ریسک؛ منبع حرفه‌ای/دیدگاهی است و جای دادهٔ بازار یا پژوهش مستقل را نمی‌گیرد.",
+          "review_depth": "professional_commentary_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "بازده و ریسک یک سبد دو‌دارایی را با دو مقدار همبستگی مقایسه کن.",
+        "unit": "برگهٔ تصمیم؛ همهٔ اعداد تمرین فرضی‌اند.",
+        "answer": "پاسخ باید فرمول، فرض، تاریخ داده و محدودیت را نشان دهد؛ مثال‌ها توصیهٔ سرمایه‌گذاری نیستند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ سازگاری و شفافیت سنجیده می‌شود.",
+        "rubric": [
+          "محاسبه و تعریف (۰–۲)",
+          "سازگاری جریان/ریسک (۰–۲)",
+          "کیفیت گروه/فرض (۰–۲)",
+          "توضیح محدودیت و سناریو (۰–۲)",
+          "پیوند با تصمیم (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST02-L04",
+      "version": "1-draft",
+      "title": "تنوع‌بخشی و محدودیت همبستگی",
+      "content_status": "draft",
+      "objective": "مزیت و محدودیت تنوع‌بخشی را با همبستگی پویا، عامل‌های ریسک و سناریوی تنش ارزیابی کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST02-L04-CARD01",
+          "type": "explanation",
+          "title": "چرا تنوع جواب می‌دهد",
+          "text": "ترکیب دارایی‌هایی که کاملاً هم‌جهت نیستند می‌تواند نوسان کل را پایین بیاورد. این کاهش از جبران نسبی حرکت‌ها می‌آید، نه از امن‌بودن هر دارایی. تنوع ریسک خاص یک شرکت/پروژه را کم می‌کند اما ریسک کل بازار، تورم یا بحران نقدینگی باقی است."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD02",
+          "type": "explanation",
+          "title": "همبستگی تاریخی",
+          "text": "همبستگی از دادهٔ گذشته و پنجرهٔ انتخابی محاسبه می‌شود. تغییر دوره، ارز، دفعات مشاهده و ساختار بازار می‌تواند عدد را عوض کند. ماتریس یک‌بارمحاسبه‌شده را قانون همیشگی ندانید؛ در دورهٔ تنش روابط ممکن است هم‌جهت‌تر شوند."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD03",
+          "type": "explanation",
+          "title": "تنوع اسمی و واقعی",
+          "text": "داشتن چند نماد یا پروژه لزوماً تنوع نیست اگر همه به یک عامل وابسته‌اند، مثل نرخ بهره، بازار مسکن یا یک عرضه‌کنندهٔ فناوری. ریسک را از روی عامل درآمد و هزینه، مشتری، جغرافیا و تأمین مالی بررسی کنید. نام متفاوت دارایی با منبع متفاوت ریسک یکی نیست."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD04",
+          "type": "explanation",
+          "title": "تمرکز سبد سازمانی",
+          "text": "پروژه‌های زیاد ممکن است بر یک تیم داده، کانال فروش یا مشتری کلیدی متکی باشند. شوک مشترک همه را هم‌زمان متوقف می‌کند. نقشهٔ مواجههٔ مشترک و سناریوی قطع سرویس، افت تقاضا یا تأخیر تأمین را به سبد اضافه کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD05",
+          "type": "explanation",
+          "title": "تنوع‌بخشی تضمین بازده نیست",
+          "text": "تنوع می‌تواند نوسان idiosyncratic را کاهش دهد، اما سود را تضمین نمی‌کند و ممکن است فرصت یا هزینهٔ مدیریت را تغییر دهد. همبستگی پایین نیز فقط یک ویژگی آماری است، نه علت اقتصادی پایدار. سازوکار رابطه را توضیح دهید."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD06",
+          "type": "explanation",
+          "title": "رژیم‌های ریسک",
+          "text": "نوسان و همبستگی در تورم، رکود، بحران یا تغییر ساختاری یکسان نمی‌مانند. سناریوی تاریخی را به‌عنوان آزمون فشار به‌کار ببرید، نه پیش‌بینی تکرار دقیق گذشته. به عوامل مشترک و زیان هم‌زمان توجه کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD07",
+          "type": "explanation",
+          "title": "وزن‌دهی و بازتوازن",
+          "text": "وزن هدف، حدود انحراف و تناوب بازتوازن را پیشاپیش تعریف کنید. بازتوازن هزینه معامله، مالیات، نقدینگی و محدودیت اجرایی دارد. تغییر وزن فقط برای دنبال‌کردن بازده اخیر می‌تواند رفتار گله‌ای باشد؛ دلیل و آستانه را ثبت کنید."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD08",
+          "type": "explanation",
+          "title": "هوش مصنوعی و تخمین ریسک",
+          "text": "مدل AI می‌تواند عوامل پنهان یا خوشهٔ ریسک را پیشنهاد کند، اما دادهٔ تاریخی ناقص و ویژگی‌های انتخاب‌شده ممکن است همبستگی کاذب بسازند. خروجی را با تحلیل عامل، آزمون حساسیت و سناریوهای تنش کنترل کنید؛ منابع و پنجرهٔ داده را نگه دارید."
+        },
+        {
+          "id": "S02-C2-ST02-L04-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Idiosyncratic risk ریسک خاص؛ systematic risk ریسک سیستماتیک؛ correlation breakdown فروپاشی/تغییر رابطه؛ factor exposure مواجههٔ عاملی؛ rebalancing بازتوازن؛ tail risk ریسک دنباله‌ای است. تنوع را بر اساس منشأ ریسک بسنجید و برای رژیم‌های متفاوت برنامه داشته باشید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST02-L04-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تنوع‌بخشی کدام ریسک را بهتر کم می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ریسک خاص شرکت/پروژه",
+              "feedback": "درست: تنوع کامل ریسک بازار را حذف نمی‌کند."
+            },
+            {
+              "id": "b",
+              "text": "همهٔ ریسک سیستماتیک",
+              "feedback": "بازبینی: تنوع کامل ریسک بازار را حذف نمی‌کند."
+            },
+            {
+              "id": "c",
+              "text": "ریسک تورم را قطعاً",
+              "feedback": "بازبینی: تنوع کامل ریسک بازار را حذف نمی‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تنوع کامل ریسک بازار را حذف نمی‌کند.",
+          "objective_id": "S02-C2-ST02-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L04-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L04-CARD02"
+        },
+        {
+          "id": "S02-C2-ST02-L04-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "همبستگی تاریخی چه محدودیتی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ممکن است در تنش یا ساختار جدید عوض شود",
+              "feedback": "درست: رژیم‌ها و نمونه بر آن اثر دارند."
+            },
+            {
+              "id": "b",
+              "text": "همیشه ثابت است",
+              "feedback": "بازبینی: رژیم‌ها و نمونه بر آن اثر دارند."
+            },
+            {
+              "id": "c",
+              "text": "به پنجرهٔ داده وابسته نیست",
+              "feedback": "بازبینی: رژیم‌ها و نمونه بر آن اثر دارند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "رژیم‌ها و نمونه بر آن اثر دارند.",
+          "objective_id": "S02-C2-ST02-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L04-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L04-CARD03"
+        },
+        {
+          "id": "S02-C2-ST02-L04-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چند پروژهٔ متفاوت با یک فروشندهٔ ابری چه خطری دارند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "مواجههٔ مشترک پنهان",
+              "feedback": "درست: منبع ریسک مشترک سبد را متمرکز می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "تنوع کامل",
+              "feedback": "بازبینی: منبع ریسک مشترک سبد را متمرکز می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "ریسک صفر",
+              "feedback": "بازبینی: منبع ریسک مشترک سبد را متمرکز می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "منبع ریسک مشترک سبد را متمرکز می‌کند.",
+          "objective_id": "S02-C2-ST02-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L04-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L04-CARD04"
+        },
+        {
+          "id": "S02-C2-ST02-L04-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تنوع‌بخشی چه چیزی را تضمین نمی‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "بازده مثبت",
+              "feedback": "درست: تنوع تضمین سود نیست."
+            },
+            {
+              "id": "b",
+              "text": "کاهش بخشی از ریسک خاص",
+              "feedback": "بازبینی: تنوع تضمین سود نیست."
+            },
+            {
+              "id": "c",
+              "text": "پخش مواجهه",
+              "feedback": "بازبینی: تنوع تضمین سود نیست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تنوع تضمین سود نیست.",
+          "objective_id": "S02-C2-ST02-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L04-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L04-CARD05"
+        },
+        {
+          "id": "S02-C2-ST02-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "پیشنهاد خوشه‌بندی ریسک توسط AI چگونه استفاده شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "فرضیه برای آزمون عامل و تنش",
+              "feedback": "درست: خروجی الگوریتم باید وارسی و آزموده شود."
+            },
+            {
+              "id": "b",
+              "text": "حکم قطعی",
+              "feedback": "بازبینی: خروجی الگوریتم باید وارسی و آزموده شود."
+            },
+            {
+              "id": "c",
+              "text": "جایگزین پنجره و منبع",
+              "feedback": "بازبینی: خروجی الگوریتم باید وارسی و آزموده شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "خروجی الگوریتم باید وارسی و آزموده شود.",
+          "objective_id": "S02-C2-ST02-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST02-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST02-L04-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "cfa-cost-capital",
+          "title": "CFA Institute: Corporate Issuers—Cost of Capital curriculum overview",
+          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+          "scope": "چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-relative-valuation-2026",
+          "title": "CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+          "scope": "مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "damodaran-relative-valuation",
+          "title": "NYU Stern: Relative Valuation course materials",
+          "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm",
+          "scope": "درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "cfa-portfolio-risk-2026",
+          "title": "CFA Institute 2026: Portfolio Risk and Return—Part I",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+          "scope": "بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        },
+        {
+          "id": "cfa-risk-regimes-2026",
+          "title": "CFA Institute (2026): Why Static Portfolios Fail When Risk Regimes Change",
+          "url": "https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/why-static-portfolios-fail-when-risk-regimes-change",
+          "scope": "دیدگاه جاری دربارهٔ تغییر همبستگی و رژیم ریسک؛ منبع حرفه‌ای/دیدگاهی است و جای دادهٔ بازار یا پژوهش مستقل را نمی‌گیرد.",
+          "review_depth": "professional_commentary_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "مواجهه‌های مشترک یک سبد پروژه/سرمایه‌گذاری را پیدا و برای رژیم تنش برنامهٔ بازتوازن پیشنهاد کن.",
+        "unit": "برگهٔ تصمیم؛ همهٔ اعداد تمرین فرضی‌اند.",
+        "answer": "پاسخ باید فرمول، فرض، تاریخ داده و محدودیت را نشان دهد؛ مثال‌ها توصیهٔ سرمایه‌گذاری نیستند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ سازگاری و شفافیت سنجیده می‌شود.",
+        "rubric": [
+          "محاسبه و تعریف (۰–۲)",
+          "سازگاری جریان/ریسک (۰–۲)",
+          "کیفیت گروه/فرض (۰–۲)",
+          "توضیح محدودیت و سناریو (۰–۲)",
+          "پیوند با تصمیم (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    }
+  ],
+  "checkpoint": {
+    "id": "S02-C2-ST02-CHECK",
+    "node_type": "stage_review",
+    "item_count": 6,
+    "coverage": "cost of capital, comparable multiples, return, portfolio risk and changing correlations",
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "id": "S02-C2-ST02-CHECK-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "WACC برای چه چیزی به‌کار می‌رود؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "نرخ فرصت سرمایه با ریسک هم‌خوان",
+            "feedback": "درست: WACC هزینهٔ موزون منابع سرمایه است."
+          },
+          {
+            "id": "b",
+            "text": "رشد فروش",
+            "feedback": "بازبینی: WACC هزینهٔ موزون منابع سرمایه است."
+          },
+          {
+            "id": "c",
+            "text": "ارزش دفتری",
+            "feedback": "بازبینی: WACC هزینهٔ موزون منابع سرمایه است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "WACC هزینهٔ موزون منابع سرمایه است.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q01-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L01-CARD02"
+      },
+      {
+        "id": "S02-C2-ST02-CHECK-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "چه گروه همتایی قابل‌دفاع‌تر است؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "شبیه از نظر بنیادهایی مثل رشد و ریسک",
+            "feedback": "درست: مقایسه باید بنیادها را کنترل کند."
+          },
+          {
+            "id": "b",
+            "text": "فقط شرکت هم‌نام",
+            "feedback": "بازبینی: مقایسه باید بنیادها را کنترل کند."
+          },
+          {
+            "id": "c",
+            "text": "فقط ارزان‌ترین‌ها",
+            "feedback": "بازبینی: مقایسه باید بنیادها را کنترل کند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "مقایسه باید بنیادها را کنترل کند.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q02-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L02-CARD03"
+      },
+      {
+        "id": "S02-C2-ST02-CHECK-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "بازده سبد وزنی چگونه حساب می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "جمع وزن × بازده هر دارایی",
+            "feedback": "درست: وزن‌ها در بازده هر دارایی ضرب و جمع می‌شوند."
+          },
+          {
+            "id": "b",
+            "text": "میانگین ساده همیشه",
+            "feedback": "بازبینی: وزن‌ها در بازده هر دارایی ضرب و جمع می‌شوند."
+          },
+          {
+            "id": "c",
+            "text": "ضرب ریسک‌ها",
+            "feedback": "بازبینی: وزن‌ها در بازده هر دارایی ضرب و جمع می‌شوند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "وزن‌ها در بازده هر دارایی ضرب و جمع می‌شوند.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q03-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L03-CARD04"
+      },
+      {
+        "id": "S02-C2-ST02-CHECK-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "همبستگی کمتر از یک چه فایده‌ای دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ممکن است نوسان سبد را کم کند",
+            "feedback": "درست: تنوع کاهش احتمالی ریسک می‌دهد، نه تضمین."
+          },
+          {
+            "id": "b",
+            "text": "سود را تضمین کند",
+            "feedback": "بازبینی: تنوع کاهش احتمالی ریسک می‌دهد، نه تضمین."
+          },
+          {
+            "id": "c",
+            "text": "هر ریسک را حذف کند",
+            "feedback": "بازبینی: تنوع کاهش احتمالی ریسک می‌دهد، نه تضمین."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "تنوع کاهش احتمالی ریسک می‌دهد، نه تضمین.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q04-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L04-CARD05"
+      },
+      {
+        "id": "S02-C2-ST02-CHECK-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "مضاعف پایین چه چیزی را تضمین نمی‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ارزشمندی نسبت به بنیاد",
+            "feedback": "درست: رشد و ریسک متفاوت می‌تواند مضاعف را توجیه کند."
+          },
+          {
+            "id": "b",
+            "text": "قیمت پایین‌تر نسبت به گروه",
+            "feedback": "بازبینی: رشد و ریسک متفاوت می‌تواند مضاعف را توجیه کند."
+          },
+          {
+            "id": "c",
+            "text": "محاسبهٔ نسبت",
+            "feedback": "بازبینی: رشد و ریسک متفاوت می‌تواند مضاعف را توجیه کند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "رشد و ریسک متفاوت می‌تواند مضاعف را توجیه کند.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q05-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L04-CARD06"
+      },
+      {
+        "id": "S02-C2-ST02-CHECK-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "همبستگی تاریخی در بحران چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ممکن است تغییر کند",
+            "feedback": "درست: رژیم بازار رابطهٔ دارایی‌ها را تغییر می‌دهد."
+          },
+          {
+            "id": "b",
+            "text": "ثابت می‌ماند",
+            "feedback": "بازبینی: رژیم بازار رابطهٔ دارایی‌ها را تغییر می‌دهد."
+          },
+          {
+            "id": "c",
+            "text": "به نمونه ربطی ندارد",
+            "feedback": "بازبینی: رژیم بازار رابطهٔ دارایی‌ها را تغییر می‌دهد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "رژیم بازار رابطهٔ دارایی‌ها را تغییر می‌دهد.",
+        "objective_id": "S02-C2-ST02-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST02-CHECK-Q06-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST02-L04-CARD07"
+      }
+    ]
+  },
+  "tool_plan": [
+    {
+      "id": "wacc-project-risk",
+      "title": "کاربرگ WACC و نرخ مانع پروژه",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "cfa-cost-capital"
+      ]
+    },
+    {
+      "id": "peer-multiple-screen",
+      "title": "ماتریس انتخاب شرکت مشابه و مضاعف",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "cfa-relative-valuation-2026",
+        "damodaran-relative-valuation"
+      ]
+    },
+    {
+      "id": "portfolio-risk-calculator",
+      "title": "ماشین‌حساب بازده، واریانس و همبستگی سبد",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "cfa-portfolio-risk-2026"
+      ]
+    },
+    {
+      "id": "factor-exposure-map",
+      "title": "نقشهٔ عوامل ریسک و تنوع واقعی سبد",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "cfa-risk-regimes-2026"
+      ]
+    }
+  ]
+}
