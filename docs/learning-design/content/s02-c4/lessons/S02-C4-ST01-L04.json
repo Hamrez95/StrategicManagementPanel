@@ -1,0 +1,267 @@
+{
+  "id": "S02-C4-ST01-L04",
+  "version": "1-draft",
+  "title": "خدمت مالی داده‌محور",
+  "content_status": "draft",
+  "objective": "مدل درآمد، داده، اعتماد و ریسک یک خدمت مالی دیجیتال را در یک فرضیهٔ تجاری قابل‌آزمون پیوند دهد.",
+  "learning_cards": [
+    {
+      "id": "S02-C4-ST01-L04-CARD01",
+      "type": "explanation",
+      "title": "داده به‌عنوان ورودی خدمت",
+      "text": "خدمت داده‌محور داده را برای احراز، تشخیص تقلب، شخصی‌سازی یا اعتبار استفاده می‌کند. داده دارایی بی‌هزینه نیست: رضایت، امنیت، نگهداری، کیفیت و دسترسی لازم دارد. نقش داده را از محصول قابل‌فروش جدا کنید."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD02",
+      "type": "explanation",
+      "title": "زنجیرهٔ ارزش",
+      "text": "در زنجیره ممکن است کاربر، پلتفرم، بانک، پردازشگر داده و فروشندهٔ فناوری حضور داشته باشند. تعیین کنید هر کدام چه داده‌ای می‌فرستند، چه خدمتی می‌گیرند و مسئول خطا/شکایت کیست. وابستگی به یک تامین‌کننده، مزیت و گلوگاه می‌سازد."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD03",
+      "type": "explanation",
+      "title": "مدل درآمد پلتفرم",
+      "text": "پلتفرم ممکن است به‌ازای تراکنش، مشتری فعال، اشتراک یا origination درآمد بگیرد. حجم معاملات به‌تنهایی ارزش نیست اگر مشتریان فقط برای یارانه بیایند یا هزینهٔ جذب و پشتیبانی از lifetime value بیشتر شود. cohort، retention و درآمد خالص را بسنجید."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD04",
+      "type": "explanation",
+      "title": "تعامل‌پذیری",
+      "text": "API و استاندارد مشترک می‌تواند اتصال شریک را آسان کند، اما کیفیت دسترسی، سازگاری معنای داده و امنیت مهم‌اند. Open banking یا بازبودن API همیشه برای هر بازار و محصول یکسان نیست و به رضایت و ساختار زیرساخت وابسته است. وابستگی متقابل را مدل کنید."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD05",
+      "type": "explanation",
+      "title": "ریسک سایبری و اعتماد",
+      "text": "دادهٔ مالی ارزشمند است و رخداد امنیتی می‌تواند هزینهٔ پاسخ، توقف خدمت، شکایت و خروج مشتری بسازد. حفاظت در انتقال/ذخیره، اصل دسترسی حداقلی، آزمون بازیابی و شفافیت رخداد را طراحی کنید. امنیت فقط هزینهٔ فناوری نیست؛ بخشی از ارزش محصول است."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD06",
+      "type": "explanation",
+      "title": "قابلیت اعتبارسنجی",
+      "text": "فرضیهٔ خدمت را با پایلوت محدود بسنجید: آیا کاربر مسئله را حل می‌کند؟ چه کسی پرداخت می‌کند؟ خطای تصمیم چه هزینه‌ای دارد؟ کدام داده لازم است؟ از قبل معیار توقف یا گسترش بنویسید. آزمایش با نمونهٔ کوچک همهٔ ریسک مقیاس را نشان نمی‌دهد."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD07",
+      "type": "explanation",
+      "title": "AI شخصی‌سازی",
+      "text": "AI می‌تواند زمان‌بندی، پیام یا پیشنهاد خدمت را شخصی کند؛ اما می‌تواند به دادهٔ حساس، پروفایل ناعادلانه یا dark pattern منجر شود. هدف، کمینه‌سازی داده و گزینهٔ خاموش‌کردن را بررسی کنید. نرخ پذیرش بالا به‌تنهایی رفاه یا ارزش کاربر را ثابت نمی‌کند."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD08",
+      "type": "explanation",
+      "title": "مقیاس و پایداری",
+      "text": "حاشیهٔ هر کاربر فعال، هزینهٔ جذب، تقلب، رایانش، پشتیبانی و نرخ نگهداشت را در رشد بسنجید. با بزرگ‌شدن می‌تواند اقتصاد مقیاس شکل بگیرد یا هزینهٔ ریسک و مرکز داده رشد کند. سناریوی تقاضا و کیفیت خدمت را با هم مدل کنید."
+    },
+    {
+      "id": "S02-C4-ST01-L04-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "Data-driven خدمت داده‌محور؛ API رابط برنامه‌نویسی؛ consent رضایت؛ retention ماندگاری؛ lifetime value ارزش طول عمر؛ origination اعطای اولیهٔ اعتبار؛ interoperability تعامل‌پذیری است. استفاده از داده زمانی مزیت است که هم ارزش کاربر بسازد و هم هزینه/ریسک آن قابل‌مدیریت باشد."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C4-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پلتفرم چه زمان درآمد پایدار دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی درآمد خالص از هزینهٔ جذب و خدمت پشتیبانی شود",
+          "feedback": "درست: حجم باید اقتصاد واحد پایدار بسازد."
+        },
+        {
+          "id": "b",
+          "text": "وقتی ثبت‌نام زیاد باشد",
+          "feedback": "بازبینی: حجم باید اقتصاد واحد پایدار بسازد."
+        },
+        {
+          "id": "c",
+          "text": "وقتی داده زیاد جمع شود",
+          "feedback": "بازبینی: حجم باید اقتصاد واحد پایدار بسازد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "حجم باید اقتصاد واحد پایدار بسازد.",
+      "objective_id": "S02-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C4-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C4-ST01-L04-CARD02"
+    },
+    {
+      "id": "S02-C4-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دادهٔ مالی چه نوع مسئولیتی ایجاد می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "رضایت، امنیت، کیفیت و پاسخ‌گویی",
+          "feedback": "درست: داده به کنترل و اعتماد نیاز دارد."
+        },
+        {
+          "id": "b",
+          "text": "فقط فضای ذخیره",
+          "feedback": "بازبینی: داده به کنترل و اعتماد نیاز دارد."
+        },
+        {
+          "id": "c",
+          "text": "مالکیت نامحدود",
+          "feedback": "بازبینی: داده به کنترل و اعتماد نیاز دارد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "داده به کنترل و اعتماد نیاز دارد.",
+      "objective_id": "S02-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C4-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C4-ST01-L04-CARD03"
+    },
+    {
+      "id": "S02-C4-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پایلوت کوچک چه محدودیتی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "همهٔ ریسک مقیاس را نشان نمی‌دهد",
+          "feedback": "درست: گسترش نیازمند آزمون کیفیت و حجم است."
+        },
+        {
+          "id": "b",
+          "text": "هیچ فرضی را بررسی نمی‌کند",
+          "feedback": "بازبینی: گسترش نیازمند آزمون کیفیت و حجم است."
+        },
+        {
+          "id": "c",
+          "text": "همیشه نمایندهٔ همه است",
+          "feedback": "بازبینی: گسترش نیازمند آزمون کیفیت و حجم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "گسترش نیازمند آزمون کیفیت و حجم است.",
+      "objective_id": "S02-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C4-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C4-ST01-L04-CARD04"
+    },
+    {
+      "id": "S02-C4-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "AI شخصی‌سازی چه خطر اخلاقی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "پروفایل ناعادلانه یا dark pattern",
+          "feedback": "درست: پذیرش بالا مساوی رفاه نیست."
+        },
+        {
+          "id": "b",
+          "text": "حذف همهٔ داده",
+          "feedback": "بازبینی: پذیرش بالا مساوی رفاه نیست."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ صفر",
+          "feedback": "بازبینی: پذیرش بالا مساوی رفاه نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پذیرش بالا مساوی رفاه نیست.",
+      "objective_id": "S02-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C4-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C4-ST01-L04-CARD05"
+    },
+    {
+      "id": "S02-C4-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "API و تعامل‌پذیری چه چیزی را تضمین نمی‌کنند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "معنای سازگار داده و امنیت",
+          "feedback": "درست: دسترسی و معنا و رضایت هم مهم‌اند."
+        },
+        {
+          "id": "b",
+          "text": "امکان اتصال فنی",
+          "feedback": "بازبینی: دسترسی و معنا و رضایت هم مهم‌اند."
+        },
+        {
+          "id": "c",
+          "text": "وجود رابط",
+          "feedback": "بازبینی: دسترسی و معنا و رضایت هم مهم‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دسترسی و معنا و رضایت هم مهم‌اند.",
+      "objective_id": "S02-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C4-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C4-ST01-L04-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "worldbank-fintech-finance",
+      "title": "World Bank: Fintech and the Future of Finance",
+      "url": "https://www.worldbank.org/en/publication/fintech-and-the-future-of-finance",
+      "scope": "گزارش مدل‌های کسب‌وکار دیجیتال مالی، آثار بازار و تعامل با نظارت/ریسک.",
+      "review_depth": "official_multilateral_report_reviewed"
+    },
+    {
+      "id": "worldbank-globalfindex-2025",
+      "title": "World Bank: Global Findex Database 2025",
+      "url": "https://www.worldbank.org/en/publication/globalfindex/report",
+      "scope": "دادهٔ جهانی 2025 دربارهٔ دسترسی و استفاده از پرداخت، پس‌انداز و اعتبار؛ پیمایش 2024، قابل تعمیم مستقیم به بازار خاص نیست.",
+      "review_depth": "official_multilateral_dataset_reviewed"
+    },
+    {
+      "id": "bis-pafi-fintech",
+      "title": "BIS/World Bank: Payment Aspects of Financial Inclusion in the Fintech Era",
+      "url": "https://www.bis.org/publications/payment-aspects-financial-inclusion-fintech-era",
+      "scope": "زیرساخت پرداخت، حساب تراکنشی، فناوری و فرصت/چالش شمول مالی.",
+      "review_depth": "official_multilateral_report_reviewed"
+    },
+    {
+      "id": "bis-fintech-credit-1041",
+      "title": "BIS Working Paper 1041: Impact of Fintech Lending on Credit Access for US Small Businesses",
+      "url": "https://www.bis.org/publications/working-paper-1041-impact-fintech-lending-credit-access-us-small-businesses",
+      "scope": "پژوهش دربارهٔ وام‌دهی فین‌تک و دسترسی/پیش‌بینی نکول در نمونهٔ مشخص آمریکا؛ یافته‌ها به همهٔ کشورها تعمیم داده نمی‌شود.",
+      "review_depth": "official_research_paper_reviewed"
+    },
+    {
+      "id": "bis-bigtech-financial-intermediation",
+      "title": "BIS Working Paper 779: BigTech and the Changing Structure of Financial Intermediation",
+      "url": "https://www.bis.org/publications/working-paper-779-bigtech-and-changing-structure-financial-intermediation",
+      "scope": "مطالعهٔ نقش دادهٔ پلتفرمی و واسطه‌گری مالی دیجیتال؛ زمینه و نمونهٔ پژوهش را در کاربرد رعایت کنید.",
+      "review_depth": "official_research_paper_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "یک خدمت مالی داده‌محور را با زنجیرهٔ ارزش، رضایت، اعتماد، اقتصاد واحد و ماشهٔ گسترش تحلیل کن.",
+    "unit": "برگهٔ تحلیل مدل فین‌تک؛ مثال‌های شرکت سپهر ساختگی‌اند.",
+    "answer": "پاسخ باید مسئلهٔ کاربر، ارزش، هزینه، داده/اعتماد و شاخص آزمون را وصل کند.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ وضوح فرض و شواهد مهم است.",
+    "rubric": [
+      "وضوح مسئله و کاربر (۰–۲)",
+      "مدل درآمد/هزینه (۰–۲)",
+      "ریسک و داده (۰–۲)",
+      "شاخص و آزمون (۰–۲)",
+      "محدودیت و اقدام (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
