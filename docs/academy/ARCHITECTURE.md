@@ -2,7 +2,7 @@
 
 ## مرزها
 
-React/TS و Django modular monolith فعلی حفظ می‌شود. `/academy` مسیر مستقل از `/app/workspaces/:id` و آموزش اختیاری ابزارهاست. حساب مشترک، خریدهای مستقل academy/workspace/bundle، بدون سرویس جدید. preview با `VITE_ACADEMY_PREVIEW=true` opt-in و پیش‌فرض خاموش؛ flag ابزار پرداخت یا مجوز امنیتی نیست.
+React/TS و Django modular monolith فعلی حفظ می‌شود. `/academy` مسیر مستقل از `/app/workspaces/:id` و آموزش اختیاری ابزارهاست. حساب مشترک، خریدهای مستقل academy/workspace/bundle، بدون سرویس جدید. پیش‌نمایش تمرینی در build عادی در دسترس است؛ `VITE_ACADEMY_PREVIEW=false` آن را از build خارج می‌کند. این flag ابزار پرداخت یا مجوز امنیتی نیست.
 
 پیش‌نمایش شاخه: شش درس draft، سنجش قطعی در domain، نگهداری تلاش فقط در sessionStorage همین تب با namespace/version. ذخیره محدودیت/خرابی پیام روشن دارد؛ پیشرفت تمرینی است، نه پیشرفت رسمی حساب. هیچ API کسب‌وکار/کاربر یا انتقال داده شرکت فراخوانی نمی‌شود. منبع و پاسخ محتوای رایگان در bundle است؛ محتوای پولی واقعی نباید در bundle عمومی توزیع شود.
 
@@ -18,4 +18,4 @@ Content: lesson ID+version، objective، prerequisites، sourceRefs، reviewStat
 
 ## ریسک و برگشت
 
-برای کار حسابی/پرداخت، contract و migration در packet مستقل با آزمون منفی و rollback داده لازم است. در شاخه فعلی هیچ DB migration ندارد. برگشت preview با خاموش‌کردن flag و حذف bundle؛ namespace آموزشی با preference/Workspace تداخل ندارد. هیچ pull request به main یا merge ایجاد نشود؛ PR کارهای بعدی می‌تواند روی branch آموزش باشد.
+برای کار حسابی/پرداخت، contract و migration در packet مستقل با آزمون منفی و rollback داده لازم است. در شاخه فعلی هیچ DB migration ندارد. برگشت preview با خاموش‌کردن flag و حذف bundle؛ namespace آموزشی با preference/Workspace تداخل ندارد. ادغام محلی رابط به `main` با درخواست مالک مجاز است؛ push و deploy در این مرحله مجاز نیست.
