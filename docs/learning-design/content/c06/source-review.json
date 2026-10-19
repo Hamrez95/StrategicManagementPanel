@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C06",
-  "status": "stage_02_partial_draft",
+  "status": "stage_03_partial_draft",
   "source_review": "official_course_materials_and_primary_research_records",
   "source_use_note": "منابع برای آموزش مفاهیم و محدودیت شواهد استفاده شده‌اند؛ متن، مثال‌ها، ابزارها و پرسش‌ها مستقلاً تألیف شده‌اند. متن دارای مجوز OpenStax پیش از استفادهٔ تجاری نیازمند بررسی دقیق شروط مجوز است. منبع arXiv در این درس پیش‌چاپ است، نه مقالهٔ داوری‌شده.",
   "sources": [
@@ -67,6 +67,41 @@
       "url": "https://ocw.mit.edu/courses/15-760b-introduction-to-operations-management-spring-2004/336e3641cc8390f6276741250da25ecb_lec12_quality.pdf",
       "scope": "درس‌گفتار کنترل و بهبود کیفیت.",
       "review_depth": "official_resource_or_research_record_reviewed"
+    },
+    {
+      "id": "mit-inventory",
+      "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
+      "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
+      "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+      "review_depth": "official_course_or_research_record_reviewed"
+    },
+    {
+      "id": "mit-inventory-uncertainty",
+      "title": "MIT ESD.273J Logistics and Supply Chain Management: Stochastic Inventory Models",
+      "url": "https://ocw.mit.edu/courses/esd-273j-logistics-and-supply-chain-management-fall-2009/34e5cfa83eac1bf9711374828c260a22_MITESD_273JF09_lec05.pdf",
+      "scope": "مدل‌های موجودی تصادفی و عدم‌قطعیت تقاضا.",
+      "review_depth": "official_course_or_research_record_reviewed"
+    },
+    {
+      "id": "openstax-inventory",
+      "title": "OpenStax Principles of Finance 2e 19.5: Inventory Management",
+      "url": "https://openstax.org/books/principles-finance-2e/pages/19-5-inventory-management",
+      "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی.",
+      "review_depth": "official_course_or_research_record_reviewed"
+    },
+    {
+      "id": "ml-inventory-review-2025",
+      "title": "A systematic review of machine learning approaches in inventory control optimization (2025)",
+      "url": "https://doi.org/10.1016/j.jom.2025.100367",
+      "scope": "مرور نظام‌مند ۱۲۲ مقاله دربارهٔ پیوند پیش‌بینی و سیاست موجودی؛ مروری بر مطالعات است و تضمین عملکرد یک مدل مشخص نیست.",
+      "review_depth": "official_course_or_research_record_reviewed"
+    },
+    {
+      "id": "ai-forecast-org-2025",
+      "title": "AI-enhanced demand forecasting: an organizational information processing view (2025)",
+      "url": "https://doi.org/10.1108/IJPDLM-01-2025-0022",
+      "scope": "پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا؛ نقش فرایند و قابلیت سازمانی را بررسی می‌کند، قابل تعمیم بی‌قید نیست.",
+      "review_depth": "official_course_or_research_record_reviewed"
     }
   ],
   "stage_notes": [
@@ -81,6 +116,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "نیاز مشتری، هزینهٔ کیفیت، بازکاری، آزمون بهبود و بهره‌وری با کیفیت در چهار درس‌نامه پوشش داده شدند.",
       "ai_note": "مطالعهٔ خدمات Taobao نسخهٔ پیش‌چاپ و زمینه‌مند است؛ به‌عنوان قانون عمومی یا مقالهٔ نهایی داوری‌شده معرفی نشده است."
+    },
+    {
+      "stage_id": "C06-ST03",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "چهار درس‌نامهٔ هزینهٔ موجودی، EOQ، ذخیرهٔ اطمینان و ارزیابی پیش‌بینی تألیف مستقل شدند؛ محاسبات همراه فرض‌ها توضیح داده شده‌اند.",
+      "ai_note": "مرور ۲۰۲۵ و مطالعهٔ تولیدکنندهٔ ایتالیایی به‌عنوان شواهد روش‌مند اما محدود معرفی می‌شوند؛ خطای پیش‌بینی به‌تنهایی اثبات‌کنندهٔ بهبود سیاست موجودی نیست."
     }
   ]
 }
