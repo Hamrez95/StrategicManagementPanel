@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST02-L04",
+  "version": "1-draft",
+  "title": "بازیابی دانش و مرز اعتماد",
+  "content_status": "draft",
+  "objective": "مراحل RAG را شرح دهد، کیفیت بازیابی و محدودیت اتکا به منبع را توضیح دهد و سطح دسترسی و مرز اعتماد را در کاربرد سازمانی بررسی کند.",
+  "learning_cards": [
+    {
+      "title": "RAG چه می‌کند؟",
+      "id": "S07-C1-ST02-L04-CARD01",
+      "text": "بازیابی تقویتی ابتدا اسناد مرتبط را جست‌وجو می‌کند، بخش‌هایی را به زمینه می‌افزاید و سپس مدل بر اساس آن زمینه پاسخ می‌سازد. این روش می‌تواند دانش تازه یا سازمانی را وارد کند اما درست‌بودن بازیابی را تضمین نمی‌کند."
+    },
+    {
+      "title": "بازیابی با تولید فرق دارد",
+      "id": "S07-C1-ST02-L04-CARD02",
+      "text": "بازیابی مسئول یافتن بخش مناسب است؛ مدل مسئول ساخت پاسخ از زمینه و دستور. اگر سند درست پیدا نشود، پاسخ ممکن است ناقص باشد؛ اگر مدل آن را بد بفهمد، خروجی با منبع تناقض پیدا می‌کند."
+    },
+    {
+      "title": "کیفیت مخزن و فراداده",
+      "id": "S07-C1-ST02-L04-CARD03",
+      "text": "سند قدیمی، نسخهٔ تکراری، برچسب اشتباه یا مجوز نامعلوم کیفیت پاسخ را پایین می‌آورد. عنوان، تاریخ، مالک، نسخه، طبقه‌بندی و دسترسی سند را مدیریت کنید؛ پایگاه بازیابی‌شده به نظافت و نگهداری نیاز دارد."
+    },
+    {
+      "title": "بخش‌بندی و انتخاب زمینه",
+      "id": "S07-C1-ST02-L04-CARD04",
+      "text": "سند خیلی بزرگ ممکن است شاهد مرتبط را پنهان کند؛ بخش خیلی کوچک زمینه را از دست می‌دهد. بازیابی باید با سؤال و نوع سند ارزیابی شود. تعداد سندهای بازیابی‌شده، معیار کیفیت نیست."
+    },
+    {
+      "title": "منبع معتبر اما نامرتبط",
+      "id": "S07-C1-ST02-L04-CARD05",
+      "text": "RAG ممکن است منبع معتبر ولی مربوط به نسخه یا مشتری دیگری پیدا کند. پاسخ مستند می‌تواند همچنان غلط باشد؛ نقل‌قول را در متن اصلی و زمینهٔ کاربرد بررسی کنید."
+    },
+    {
+      "title": "مجوز و حریم خصوصی",
+      "id": "S07-C1-ST02-L04-CARD06",
+      "text": "مجوز هر کاربر باید در مرحلهٔ بازیابی اعمال شود؛ افزودن سند به زمینه نباید دیوار دسترسی را دور بزند. اسناد محرمانه یا دادهٔ شخصی را طبقه‌بندی، حداقل‌سازی و کنترل کنید."
+    },
+    {
+      "title": "Prompt injection در سند",
+      "id": "S07-C1-ST02-L04-CARD07",
+      "text": "سند بیرونی می‌تواند دستور نامعتبر داشته باشد یا تلاش کند مدل را وادار به افشای اطلاعات کند. متن بازیابی را از دستور سیستم جدا کنید، ابزارها را محدود کنید، ارجاع و اقدام بیرونی را نیازمند تأیید قرار دهید."
+    },
+    {
+      "title": "مثال سپهر و آزمون RAG",
+      "id": "S07-C1-ST02-L04-CARD08",
+      "text": "پرسش مدیر دربارهٔ شرط SLA؛ سامانه قطعهٔ قرارداد مشتری را بازیابی می‌کند و پاسخ را با شماره بند نشان می‌دهد. آزمون باید نرخ بازیابی بند درست، استناد دقیق، پاسخ امتناع در نبود بند و جداسازی مجوز مشتریان را بسنجد."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST02-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "RAG چه مراحلی دارد؟",
+      "remediation_card_id": "S07-C1-ST02-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C1-ST02-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط آموزش دوبارهٔ مدل",
+          "feedback": "بازبینی: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "فقط خلاصه‌سازی",
+          "feedback": "بازبینی: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "بازیابی، افزودن زمینه، تولید",
+          "feedback": "درست: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "آیا منبع بازیابی‌شده پاسخ را قطعاً درست می‌کند؟",
+      "remediation_card_id": "S07-C1-ST02-L04-CARD05",
+      "variant": "A",
+      "id": "S07-C1-ST02-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط اگر سند بلند باشد",
+          "feedback": "بازبینی: بازیابی و تولید هر دو امکان خطا دارند."
+        },
+        {
+          "id": "b",
+          "text": "نه؛ ارتباط و تفسیر همچنان باید بررسی شود",
+          "feedback": "درست: بازیابی و تولید هر دو امکان خطا دارند."
+        },
+        {
+          "id": "c",
+          "text": "بله، همیشه",
+          "feedback": "بازبینی: بازیابی و تولید هر دو امکان خطا دارند."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "بازیابی و تولید هر دو امکان خطا دارند."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "مجوز کاربر کجا باید رعایت شود؟",
+      "remediation_card_id": "S07-C1-ST02-L04-CARD06",
+      "variant": "A",
+      "id": "S07-C1-ST02-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "در خود مرحلهٔ بازیابی سند",
+          "feedback": "درست: زمینهٔ محرمانه نباید به کاربر نامجاز برسد."
+        },
+        {
+          "id": "b",
+          "text": "فقط در رابط",
+          "feedback": "بازبینی: زمینهٔ محرمانه نباید به کاربر نامجاز برسد."
+        },
+        {
+          "id": "c",
+          "text": "بعد از تولید پاسخ",
+          "feedback": "بازبینی: زمینهٔ محرمانه نباید به کاربر نامجاز برسد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "زمینهٔ محرمانه نباید به کاربر نامجاز برسد."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "تعداد سند بیشتر چه چیزی را ثابت نمی‌کند؟",
+      "remediation_card_id": "S07-C1-ST02-L04-CARD04",
+      "variant": "A",
+      "id": "S07-C1-ST02-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "وجود مخزن",
+          "feedback": "بازبینی: معیار باید بازیابی درست و استناد باشد."
+        },
+        {
+          "id": "b",
+          "text": "زمان جست‌وجو",
+          "feedback": "بازبینی: معیار باید بازیابی درست و استناد باشد."
+        },
+        {
+          "id": "c",
+          "text": "کیفیت و ارتباط شواهد",
+          "feedback": "درست: معیار باید بازیابی درست و استناد باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "معیار باید بازیابی درست و استناد باشد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-LLM-INTRO",
+      "title": "Google Machine Learning Crash Course: Introduction to LLMs",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+    },
+    {
+      "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
+      "title": "Google Cloud Generative AI Glossary: RAG",
+      "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+    },
+    {
+      "id": "GOOGLE-VERTEX-RAG-APIS",
+      "title": "Google Cloud: APIs for Building Search and RAG Experiences",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+    }
+  ],
+  "practice_activity": {
+    "type": "llm-use-and-rag-review",
+    "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST02-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-LLM-INTRO",
+    "NIST-GENAI-PROFILE",
+    "GOOGLE-CLOUD-RAG-GLOSSARY",
+    "GOOGLE-VERTEX-RAG-APIS"
+  ],
+  "source_scope": "منابع رسمی فنی و چارچوب ریسک؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "llm-context-rag-trust-boundary-flow",
+    "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "مدل زبانی",
+      "طراحی دستور",
+      "راستی‌آزمایی",
+      "RAG و دسترسی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 15
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح RAG و دفتر راستی‌آزمایی"
+}

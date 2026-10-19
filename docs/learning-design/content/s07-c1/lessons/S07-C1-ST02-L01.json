@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST02-L01",
+  "version": "1-draft",
+  "title": "مدل زبانی چه می‌کند؟",
+  "content_status": "draft",
+  "objective": "توضیح دهد مدل زبانی بزرگ از دنبالهٔ توکن‌ها الگو می‌آموزد و خروجی را تولید می‌کند و چرا روانی متن تضمین واقعیت نیست.",
+  "learning_cards": [
+    {
+      "title": "توکن واحد پردازش است",
+      "id": "S07-C1-ST02-L01-CARD01",
+      "text": "توکن می‌تواند واژه، بخش واژه، نشانه یا ترکیبی از حروف باشد. متن به توکن تبدیل می‌شود؛ پس شمار توکن دقیقاً شمار واژه نیست. محدودیت زمینه و هزینهٔ پردازش اغلب با توکن سنجیده می‌شود."
+    },
+    {
+      "title": "مدل زبانی و احتمال",
+      "id": "S07-C1-ST02-L01-CARD02",
+      "text": "مدل زبانی احتمال توکن یا دنبالهٔ بعدی را با توجه به زمینه برآورد می‌کند. در تولید، توکن‌ها یکی‌یکی انتخاب می‌شوند و به ورودی افزوده می‌گردند؛ این سازوکار توان زبانی می‌دهد اما موتور جست‌وجوی حقیقت نیست."
+    },
+    {
+      "title": "یادگیری از الگوهای داده",
+      "id": "S07-C1-ST02-L01-CARD03",
+      "text": "در پیش‌آموزش، مدل رابطه‌های آماری گستردهٔ متن را می‌آموزد؛ سپس ممکن است با روش‌های دیگر برای پیروی از دستور تنظیم شود. هیچ‌کدام به‌تنهایی بانک دانش کامل، زنده و بدون خطا نمی‌سازند."
+    },
+    {
+      "title": "زمینه و محدودیت پنجره",
+      "id": "S07-C1-ST02-L01-CARD04",
+      "text": "زمینه شامل دستور، مکالمه و اسناد ورودی است و بر ادامهٔ متن اثر می‌گذارد. وقتی زمینه طولانی یا ناقص باشد، مدل ممکن است نکته‌ای را نادیده بگیرد یا پاسخ را به بخش نامرتبط وصل کند."
+    },
+    {
+      "title": "تولید محتمل، نه بازیابی تضمینی",
+      "id": "S07-C1-ST02-L01-CARD05",
+      "text": "پاسخ می‌تواند دقیق، تقریبی، منسوخ یا ساختگی باشد؛ مدل به دنبال ادامهٔ محتمل است، نه لزوماً استناد به منبعی که در لحظه بررسی کرده. برای حقیقت جاری باید منبع و تاریخ بیرونی را دید."
+    },
+    {
+      "title": "مدل و محصول یکی نیستند",
+      "id": "S07-C1-ST02-L01-CARD06",
+      "text": "سامانهٔ مولد ممکن است مدل، دستور سیستمی، جست‌وجو، ابزار، فیلتر و رابط انسانی داشته باشد. خطا می‌تواند از بازیابی بد، زمینهٔ نادرست، دستور مبهم یا خود مدل بیاید؛ نام مدل کل سامانه را توصیف نمی‌کند."
+    },
+    {
+      "title": "پاسخ روان می‌تواند غلط باشد",
+      "id": "S07-C1-ST02-L01-CARD07",
+      "text": "سبک مطمئن و دستور زبان خوب معیار درستی نیست. NIST خطر confabulation را تولید ادعای نادرست یا متناقض، گاهی همراه با منطق و استناد ظاهراً قانع‌کننده توصیف می‌کند."
+    },
+    {
+      "title": "مثال مدیریتی سپهر",
+      "id": "S07-C1-ST02-L01-CARD08",
+      "text": "از مدل می‌خواهند علت تأخیر یک مشتری را بنویسد؛ بدون دادهٔ سفارش، پاسخ ممکن است علت‌های عمومی بسازد. مدیر باید بگوید مدل چه داده‌ای دیده، کدام گزاره استنباط است و چه مدرکی آن را تأیید می‌کند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST02-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "توکن چیست؟",
+      "remediation_card_id": "S07-C1-ST02-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C1-ST02-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "همیشه یک واژهٔ کامل",
+          "feedback": "بازبینی: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "یک سند منبع",
+          "feedback": "بازبینی: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "واحد پردازش متن که می‌تواند واژه یا بخش واژه باشد",
+          "feedback": "درست: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "متن پیش از پردازش به توکن‌ها بخش می‌شود."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "مدل زبانی معمولاً چه چیزی را برآورد می‌کند؟",
+      "remediation_card_id": "S07-C1-ST02-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C1-ST02-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "مجوز دسترسی به داده",
+          "feedback": "بازبینی: تولید از الگوی احتمال دنباله پیروی می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "احتمال توکن یا دنبالهٔ بعدی با توجه به زمینه",
+          "feedback": "درست: تولید از الگوی احتمال دنباله پیروی می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "حقیقت قطعی جهان",
+          "feedback": "بازبینی: تولید از الگوی احتمال دنباله پیروی می‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "تولید از الگوی احتمال دنباله پیروی می‌کند."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "چرا متن روان ممکن است غلط باشد؟",
+      "remediation_card_id": "S07-C1-ST02-L01-CARD05",
+      "variant": "A",
+      "id": "S07-C1-ST02-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "روانی و احتمال زبانی تضمین واقعیت نیست",
+          "feedback": "درست: باید ادعا را با منبع بیرونی سنجید."
+        },
+        {
+          "id": "b",
+          "text": "چون مدل واژه نمی‌بیند",
+          "feedback": "بازبینی: باید ادعا را با منبع بیرونی سنجید."
+        },
+        {
+          "id": "c",
+          "text": "چون فقط دادهٔ تازه دارد",
+          "feedback": "بازبینی: باید ادعا را با منبع بیرونی سنجید."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "باید ادعا را با منبع بیرونی سنجید."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "سامانهٔ مولد ممکن است از چه اجزایی تشکیل شود؟",
+      "remediation_card_id": "S07-C1-ST02-L01-CARD06",
+      "variant": "A",
+      "id": "S07-C1-ST02-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط مدل پایه",
+          "feedback": "بازبینی: خطا ممکن است در هر لایه رخ دهد."
+        },
+        {
+          "id": "b",
+          "text": "فقط پایگاه داده",
+          "feedback": "بازبینی: خطا ممکن است در هر لایه رخ دهد."
+        },
+        {
+          "id": "c",
+          "text": "مدل، دستور، بازیابی، ابزار و رابط",
+          "feedback": "درست: خطا ممکن است در هر لایه رخ دهد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "خطا ممکن است در هر لایه رخ دهد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-LLM-INTRO",
+      "title": "Google Machine Learning Crash Course: Introduction to LLMs",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+    },
+    {
+      "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
+      "title": "Google Cloud Generative AI Glossary: RAG",
+      "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+    },
+    {
+      "id": "GOOGLE-VERTEX-RAG-APIS",
+      "title": "Google Cloud: APIs for Building Search and RAG Experiences",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+    }
+  ],
+  "practice_activity": {
+    "type": "llm-use-and-rag-review",
+    "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST02-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-LLM-INTRO",
+    "NIST-GENAI-PROFILE",
+    "GOOGLE-CLOUD-RAG-GLOSSARY",
+    "GOOGLE-VERTEX-RAG-APIS"
+  ],
+  "source_scope": "منابع رسمی فنی و چارچوب ریسک؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "llm-context-rag-trust-boundary-flow",
+    "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "مدل زبانی",
+      "طراحی دستور",
+      "راستی‌آزمایی",
+      "RAG و دسترسی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 15
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح RAG و دفتر راستی‌آزمایی"
+}

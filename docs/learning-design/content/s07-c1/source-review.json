@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C1",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "مفاهیم فنی پایه با دورهٔ آموزشی رسمی Google و هستهٔ جاری NIST AI RMF بررسی شده است. این متن برای مدیران است و جای آموزش پیاده‌سازی یا ارزیابی تخصصی سامانهٔ پرخطر را نمی‌گیرد.",
+  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
+  "source_use_note": "مفاهیم فنی پایه با دورهٔ آموزشی رسمی Google و هستهٔ جاری NIST AI RMF بررسی شده است. این متن برای مدیران است و جای آموزش پیاده‌سازی یا ارزیابی تخصصی سامانهٔ پرخطر را نمی‌گیرد. مرحلهٔ مولد بر Google ML Crash Course، پروفایل رسمی NIST برای GenAI و مستندات Google Cloud دربارهٔ بازیابی و تولید متکی است. RAG می‌تواند زمینهٔ مرتبط را فراهم کند، اما کیفیت پاسخ را تضمین نمی‌کند.",
   "sources": [
     {
       "id": "GOOGLE-ML-DATASETS",
@@ -31,6 +31,34 @@
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
       "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+    },
+    {
+      "id": "GOOGLE-ML-LLM-INTRO",
+      "title": "Google Machine Learning Crash Course: Introduction to LLMs",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+    },
+    {
+      "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
+      "title": "Google Cloud Generative AI Glossary: RAG",
+      "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+    },
+    {
+      "id": "GOOGLE-VERTEX-RAG-APIS",
+      "title": "Google Cloud: APIs for Building Search and RAG Experiences",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
     }
   ],
   "stage_notes": {
@@ -45,6 +73,19 @@
         "مثال‌ها آموزشی و ساختگی‌اند.",
         "تقسیم داده باید با ساختار زمان و گروه سازگار شود؛ یک نسبت ثابت جهانی نیست.",
         "معیار فنی تنها جای ارزیابی ریسک و پیامد انسانی را نمی‌گیرد."
+      ]
+    },
+    "S07-C1-ST02": {
+      "covered": [
+        "توکن و تولید احتمالی",
+        "دستور، زمینه و خروجی ساختاریافته",
+        "confabulation و راستی‌آزمایی ادعا",
+        "RAG، کیفیت بازیابی و دسترسی"
+      ],
+      "limits": [
+        "RAG نیز می‌تواند سند نامرتبط یا تفسیر غلط بسازد.",
+        "نمونهٔ سپهر ساختگی است.",
+        "پروفایل NIST چارچوب ریسک است نه ضمانت کیفیت مدل."
       ]
     }
   }

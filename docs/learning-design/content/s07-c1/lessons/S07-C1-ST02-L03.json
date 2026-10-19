@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST02-L03",
+  "version": "1-draft",
+  "title": "خطا، عدم قطعیت و منبع‌سازی نادرست",
+  "content_status": "draft",
+  "objective": "confabulation، قطعیت ظاهری و استناد ساختگی را تشخیص دهد و برای ادعاهای پراثر، روش راستی‌آزمایی و ارجاع تعریف کند.",
+  "learning_cards": [
+    {
+      "title": "Confabulation یعنی چه؟",
+      "id": "S07-C1-ST02-L03-CARD01",
+      "text": "مدل محتوای نادرست یا متناقض را با بیان مطمئن تولید می‌کند. NIST از این پدیده با واژهٔ confabulation و اصطلاح رایج hallucination یاد می‌کند. خطا می‌تواند نام، عدد، رابطه یا منبع را شامل شود."
+    },
+    {
+      "title": "استناد ساختگی",
+      "id": "S07-C1-ST02-L03-CARD02",
+      "text": "عنوان مقاله، DOI، نقل‌قول یا صفحه ممکن است شبیه قالب واقعی باشد اما وجود نداشته باشد یا ادعا را پشتیبانی نکند. هر ارجاع را در خود منبع باز کنید و جملهٔ مورد استناد را بیابید؛ ظاهر پیوند کافی نیست."
+    },
+    {
+      "title": "ابهام در داده",
+      "id": "S07-C1-ST02-L03-CARD03",
+      "text": "اگر پرسش ناقص یا دوپهلو است، مدل ممکن است فرض پنهانی انتخاب کند. خروجی را با فرض‌هایش بخواهید؛ در تصمیم واقعی، دادهٔ مفقود را از کاربر یا منبع معتبر تکمیل کنید، نه اینکه حدس مدل را واقعیت بدانید."
+    },
+    {
+      "title": "تاریخ و دانش جاری",
+      "id": "S07-C1-ST02-L03-CARD04",
+      "text": "مدل ممکن است دانش آموخته‌شده‌ای با تاریخ برش داشته باشد یا سند تازه‌ای در زمینه نداشته باشد. قیمت، قانون، مشخصات و خبر را از منبع اولیهٔ روز بررسی کنید و تاریخ دسترسی و نسخه را بنویسید."
+    },
+    {
+      "title": "سطح خطر و شدت بازبینی",
+      "id": "S07-C1-ST02-L03-CARD05",
+      "text": "خلاصهٔ داخلی کم‌اثر با تصمیم استخدام، اعتبار، سلامت یا ایمنی یک سطح کنترل نمی‌خواهد. پیامد خطا، قابلیت برگشت، جمعیت متأثر و اطمینان لازم را پیشاپیش طبقه‌بندی کنید."
+    },
+    {
+      "title": "راستی‌آزمایی ادعا به ادعا",
+      "id": "S07-C1-ST02-L03-CARD06",
+      "text": "پاسخ را به ادعاهای کوچک بشکنید؛ برای هرکدام منبع، شاهد، تازگی و رابطه با نتیجه را بسنجید. یک منبع معتبر ممکن است فقط بخشی از جمله را تأیید کند."
+    },
+    {
+      "title": "عدم قطعیت عددی",
+      "id": "S07-C1-ST02-L03-CARD07",
+      "text": "درخواست «درصد اطمینان خودت چند است؟» لزوماً احتمال کالیبره نمی‌دهد. عددی که مدل دربارهٔ اطمینان می‌گوید می‌تواند صرفاً متن تولیدشده باشد؛ عدم‌قطعیت را از داده، عملکرد ارزیابی و توافق کارشناسان بسنجید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C1-ST02-L03-CARD08",
+      "text": "مدل می‌گوید مقاله‌ای ثابت کرده هشدار AI دیرکرد را ۴۰٪ کاهش داده و DOI می‌سازد. مدیر عنوان و DOI را در پایگاه ناشر/مقاله جست‌وجو می‌کند؛ تا یافتن سند، عدد در گزارش «تأییدنشده» می‌ماند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "Confabulation چه نشانه‌ای دارد؟",
+      "remediation_card_id": "S07-C1-ST02-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C1-ST02-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط املاهای غلط",
+          "feedback": "بازبینی: اطمینان زبانی دلیل صحت نیست."
+        },
+        {
+          "id": "b",
+          "text": "همیشه پاسخ «نمی‌دانم»",
+          "feedback": "بازبینی: اطمینان زبانی دلیل صحت نیست."
+        },
+        {
+          "id": "c",
+          "text": "ادعای نادرست با بیان قانع‌کننده",
+          "feedback": "درست: اطمینان زبانی دلیل صحت نیست."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "اطمینان زبانی دلیل صحت نیست."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "استناد AI را چطور تأیید کنیم؟",
+      "remediation_card_id": "S07-C1-ST02-L03-CARD02",
+      "variant": "A",
+      "id": "S07-C1-ST02-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط عنوان را بخوانیم",
+          "feedback": "بازبینی: استناد باید واقعاً از گزاره پشتیبانی کند."
+        },
+        {
+          "id": "b",
+          "text": "منبع را باز و ادعای دقیق را پیدا کنیم",
+          "feedback": "درست: استناد باید واقعاً از گزاره پشتیبانی کند."
+        },
+        {
+          "id": "c",
+          "text": "به ظاهر DOI اعتماد کنیم",
+          "feedback": "بازبینی: استناد باید واقعاً از گزاره پشتیبانی کند."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "استناد باید واقعاً از گزاره پشتیبانی کند."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "درخواست درصد اطمینان از مدل چه چیزی را تضمین نمی‌کند؟",
+      "remediation_card_id": "S07-C1-ST02-L03-CARD07",
+      "variant": "A",
+      "id": "S07-C1-ST02-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "کالیبراسیون آماری پاسخ",
+          "feedback": "درست: عدد متنی لزوماً احتمال معتبر نیست."
+        },
+        {
+          "id": "b",
+          "text": "قالب عدد",
+          "feedback": "بازبینی: عدد متنی لزوماً احتمال معتبر نیست."
+        },
+        {
+          "id": "c",
+          "text": "وجود پاسخ",
+          "feedback": "بازبینی: عدد متنی لزوماً احتمال معتبر نیست."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "عدد متنی لزوماً احتمال معتبر نیست."
+    },
+    {
+      "objective_id": "S07-C1-ST02-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "برای تصمیم پراثر چه کنیم؟",
+      "remediation_card_id": "S07-C1-ST02-L03-CARD05",
+      "variant": "A",
+      "id": "S07-C1-ST02-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط لحن مدل را ببینیم",
+          "feedback": "بازبینی: شدت کنترل باید با پیامد خطا متناسب باشد."
+        },
+        {
+          "id": "b",
+          "text": "بازبینی را حذف کنیم",
+          "feedback": "بازبینی: شدت کنترل باید با پیامد خطا متناسب باشد."
+        },
+        {
+          "id": "c",
+          "text": "ادعاها را با منبع اولیه و پیامد خطا بررسی کنیم",
+          "feedback": "درست: شدت کنترل باید با پیامد خطا متناسب باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST02-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "شدت کنترل باید با پیامد خطا متناسب باشد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-LLM-INTRO",
+      "title": "Google Machine Learning Crash Course: Introduction to LLMs",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+    },
+    {
+      "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
+      "title": "Google Cloud Generative AI Glossary: RAG",
+      "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+    },
+    {
+      "id": "GOOGLE-VERTEX-RAG-APIS",
+      "title": "Google Cloud: APIs for Building Search and RAG Experiences",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
+      "review_depth": "official_technical_documentation_reviewed",
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+    }
+  ],
+  "practice_activity": {
+    "type": "llm-use-and-rag-review",
+    "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST02-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-LLM-INTRO",
+    "NIST-GENAI-PROFILE",
+    "GOOGLE-CLOUD-RAG-GLOSSARY",
+    "GOOGLE-VERTEX-RAG-APIS"
+  ],
+  "source_scope": "منابع رسمی فنی و چارچوب ریسک؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "llm-context-rag-trust-boundary-flow",
+    "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "مدل زبانی",
+      "طراحی دستور",
+      "راستی‌آزمایی",
+      "RAG و دسترسی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 15
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح RAG و دفتر راستی‌آزمایی"
+}
