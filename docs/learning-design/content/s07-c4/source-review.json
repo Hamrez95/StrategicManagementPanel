@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C4",
-  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
-  "source_use_note": "مرحلهٔ استقرار با راهنمای تولید ML گوگل و NIST AI RMF مرور شده است. منابع عملیاتی، کنترل‌های رایج و مراحل چرخهٔ عمر را توصیف می‌کنند؛ نسخهٔ فنی، آستانه و کنترل نهایی برای هر کاربرد باید با متخصص همان سامانه تعیین شود. مثال‌ها ساختگی‌اند. مرحلهٔ حکمرانی و ایمنی بر NIST AI RMF/GenAI Profile و OWASP Top 10 2025 تکیه دارد. OWASP فهرست تهدیدهای جامعه‌محور است، نه چک‌لیست کامل یا تضمین حذف حمله؛ کنترل‌ها باید در معماری و آزمون واقعی سنجیده شوند. موضوع حریم خصوصی و رخداد نیز به سیاست سازمان و الزامات حوزه وابسته است.",
+  "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
+  "source_use_note": "مرحلهٔ استقرار با راهنمای تولید ML گوگل و NIST AI RMF مرور شده است. منابع عملیاتی، کنترل‌های رایج و مراحل چرخهٔ عمر را توصیف می‌کنند؛ نسخهٔ فنی، آستانه و کنترل نهایی برای هر کاربرد باید با متخصص همان سامانه تعیین شود. مثال‌ها ساختگی‌اند. مرحلهٔ حکمرانی و ایمنی بر NIST AI RMF/GenAI Profile و OWASP Top 10 2025 تکیه دارد. OWASP فهرست تهدیدهای جامعه‌محور است، نه چک‌لیست کامل یا تضمین حذف حمله؛ کنترل‌ها باید در معماری و آزمون واقعی سنجیده شوند. موضوع حریم خصوصی و رخداد نیز به سیاست سازمان و الزامات حوزه وابسته است. مرحلهٔ پایش و گزارش مدیریتی بر راهنمای Google برای پایش سیستم‌های ML و NIST AI RMF Measure/Manage متکی است. معیارهای جانشین و آستانه‌ها برای کاربرد خاص باید با دادهٔ واقعی اعتبارسنجی شوند؛ مثال‌های سپهر ساختگی‌اند.",
   "sources": [
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
@@ -59,11 +59,40 @@
       "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
       "review_depth": "community_security_guidance_reviewed",
       "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Core: Measure and Manage",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند."
     }
   ],
   "open_questions": [
     "مالک فنی و عملیاتی runbook را برای هر مورد واقعی تأیید کند.",
     "آستانه‌های پایش در مرحلهٔ پایلوت و با خط مبنا تعیین شوند.",
-    "متخصص امنیت و حریم خصوصی کنترل‌ها را برای معماری و جریان دادهٔ واقعی بازبینی کند."
+    "متخصص امنیت و حریم خصوصی کنترل‌ها را برای معماری و جریان دادهٔ واقعی بازبینی کند.",
+    "متخصص داده و مالک کسب‌وکار تعریف proxy، آستانه و گزارش مدیریتی را برای پایلوت واقعی بازبینی کنند."
   ]
 }

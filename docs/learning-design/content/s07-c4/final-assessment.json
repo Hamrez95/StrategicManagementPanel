@@ -1,0 +1,521 @@
+{
+  "id": "S07-C4-FINAL",
+  "version": "1-draft",
+  "status": "authored_draft",
+  "questions": [
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا امتیاز آزمایشگاهی آمادگی تولید را ثابت نمی‌کند؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "محیط واقعی داده، بار و وابستگی متفاوت دارد",
+          "feedback": "درست: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        },
+        {
+          "id": "b",
+          "text": "چون مدل در آزمایش قابل سنجش نیست",
+          "feedback": "بازبینی: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        },
+        {
+          "id": "c",
+          "text": "چون تولید نیازی به کنترل ندارد",
+          "feedback": "بازبینی: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تولید یک سامانهٔ کامل در زمینهٔ واقعی است.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST01-L01"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST01-L01"
+    },
+    {
+      "objective_id": "S07-C4-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "schema چه چیزی را کنترل می‌کند؟",
+      "remediation_card_id": "S07-C4-ST01-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "نوع و دامنهٔ ساختاری ورودی",
+          "feedback": "درست: schema خطاهای ساختار و مقادیر را می‌گیرد، نه همهٔ مسائل معنایی و حقوقی."
+        },
+        {
+          "id": "b",
+          "text": "عدالت همهٔ خروجی‌ها را تضمین می‌کند",
+          "feedback": "بازبینی: schema خطاهای ساختار و مقادیر را می‌گیرد، نه همهٔ مسائل معنایی و حقوقی."
+        },
+        {
+          "id": "c",
+          "text": "مجوز حقوقی استفاده از داده",
+          "feedback": "بازبینی: schema خطاهای ساختار و مقادیر را می‌گیرد، نه همهٔ مسائل معنایی و حقوقی."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "schema خطاهای ساختار و مقادیر را می‌گیرد، نه همهٔ مسائل معنایی و حقوقی.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST01-L02"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST01-L02"
+    },
+    {
+      "objective_id": "S07-C4-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "نسخهٔ جدید را در برابر چه چیزی مقایسه می‌کنیم؟",
+      "remediation_card_id": "S07-C4-ST01-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "نسخهٔ فعلی یا خط مبنای کسب‌وکار",
+          "feedback": "درست: معیار خط مبنا برای تشخیص تغییر لازم است."
+        },
+        {
+          "id": "b",
+          "text": "فقط نمونهٔ بهترین خروجی",
+          "feedback": "بازبینی: معیار خط مبنا برای تشخیص تغییر لازم است."
+        },
+        {
+          "id": "c",
+          "text": "مدل فرضی بدون داده",
+          "feedback": "بازبینی: معیار خط مبنا برای تشخیص تغییر لازم است."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "معیار خط مبنا برای تشخیص تغییر لازم است.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST01-L03"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST01-L03"
+    },
+    {
+      "objective_id": "S07-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "rollback با fallback چه تفاوتی دارد؟",
+      "remediation_card_id": "S07-C4-ST01-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "rollback نسخهٔ قبلی را برمی‌گرداند؛ fallback مسیر جایگزین کار است",
+          "feedback": "درست: اقدام عملی هرکدام متفاوت است."
+        },
+        {
+          "id": "b",
+          "text": "هر دو فقط گزارش‌اند",
+          "feedback": "بازبینی: اقدام عملی هرکدام متفاوت است."
+        },
+        {
+          "id": "c",
+          "text": "fallback یعنی حذف همهٔ داده‌ها",
+          "feedback": "بازبینی: اقدام عملی هرکدام متفاوت است."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اقدام عملی هرکدام متفاوت است.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST01-L04"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST01-L04"
+    },
+    {
+      "objective_id": "S07-C4-ST02-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "کدام صورت‌بندی برای دفتر ریسک کامل‌تر است؟",
+      "remediation_card_id": "S07-C4-ST02-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q05",
+      "options": [
+        {
+          "id": "a",
+          "text": "مدل ممکن است بد باشد",
+          "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+        },
+        {
+          "id": "b",
+          "text": "در دادهٔ ناقص، پیشنهاد نادرست به چه کسی چه پیامدی می‌زند و چه کسی کنترل می‌کند",
+          "feedback": "درست: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+        },
+        {
+          "id": "c",
+          "text": "خطر صفر است",
+          "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q05-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST02-L01"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST02-L01"
+    },
+    {
+      "objective_id": "S07-C4-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "نقطهٔ شروع برای کنترل حریم خصوصی چیست؟",
+      "remediation_card_id": "S07-C4-ST02-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q06",
+      "options": [
+        {
+          "id": "a",
+          "text": "رسم مسیر داده از دریافت تا حذف",
+          "feedback": "درست: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+        },
+        {
+          "id": "b",
+          "text": "اتصال همهٔ منابع",
+          "feedback": "بازبینی: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+        },
+        {
+          "id": "c",
+          "text": "نگهداری تمام ورودی‌ها",
+          "feedback": "بازبینی: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q06-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST02-L02"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST02-L02"
+    },
+    {
+      "objective_id": "S07-C4-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "تزریق غیرمستقیم دستور کجا پنهان می‌شود؟",
+      "remediation_card_id": "S07-C4-ST02-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q07",
+      "options": [
+        {
+          "id": "a",
+          "text": "در محتوای بیرونی که مدل بازیابی می‌کند",
+          "feedback": "درست: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+        },
+        {
+          "id": "b",
+          "text": "فقط در نام مدل",
+          "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+        },
+        {
+          "id": "c",
+          "text": "در معیارهای latency",
+          "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q07-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST02-L03"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST02-L03"
+    },
+    {
+      "objective_id": "S07-C4-ST02-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "در رخداد فعال اولویت چیست؟",
+      "remediation_card_id": "S07-C4-ST02-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q08",
+      "options": [
+        {
+          "id": "a",
+          "text": "مهار آسیب و حفظ شواهد",
+          "feedback": "درست: مهار فوری از تحلیل کامل علت جداست."
+        },
+        {
+          "id": "b",
+          "text": "انتشار علت قطعی",
+          "feedback": "بازبینی: مهار فوری از تحلیل کامل علت جداست."
+        },
+        {
+          "id": "c",
+          "text": "حذف گزارش",
+          "feedback": "بازبینی: مهار فوری از تحلیل کامل علت جداست."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q08-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "مهار فوری از تحلیل کامل علت جداست.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST02-L04"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST02-L04"
+    },
+    {
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "data drift به چه چیزی اشاره دارد؟",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q09",
+      "options": [
+        {
+          "id": "a",
+          "text": "تغییر داده یا محیط در طول زمان",
+          "feedback": "درست: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        },
+        {
+          "id": "b",
+          "text": "تفاوت صرف نسخهٔ فونت",
+          "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        },
+        {
+          "id": "c",
+          "text": "قطعاً بدترشدن همهٔ خروجی‌ها",
+          "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q09-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST03-L01"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST03-L01"
+    },
+    {
+      "objective_id": "S07-C4-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "واحد مناسب برای هزینهٔ مقایسه‌ای چیست؟",
+      "remediation_card_id": "S07-C4-ST03-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q10",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط هر فراخوان مدل",
+          "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        },
+        {
+          "id": "b",
+          "text": "هزینه به ازای کار کامل‌شده و قابل‌قبول",
+          "feedback": "درست: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        },
+        {
+          "id": "c",
+          "text": "تعداد ابزارها",
+          "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q10-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "مخرج باید خروجی کسب‌وکار را بازتاب دهد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST03-L02"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST03-L02"
+    },
+    {
+      "objective_id": "S07-C4-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای ردیابی تغییر چه چیزی باید نسخه‌بندی شود؟",
+      "remediation_card_id": "S07-C4-ST03-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q11",
+      "options": [
+        {
+          "id": "a",
+          "text": "مدل و اجزای مهم داده، prompt، ابزار و تنظیمات",
+          "feedback": "درست: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+        },
+        {
+          "id": "b",
+          "text": "فقط نام پروژه",
+          "feedback": "بازبینی: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+        },
+        {
+          "id": "c",
+          "text": "فقط تاریخ جلسه",
+          "feedback": "بازبینی: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q11-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "رفتار کل سامانه می‌تواند با چند جزء تغییر کند.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST03-L03"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST03-L03"
+    },
+    {
+      "objective_id": "S07-C4-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "گزارش مدیریتی با چه چیزی شروع می‌شود؟",
+      "remediation_card_id": "S07-C4-ST03-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q12",
+      "options": [
+        {
+          "id": "a",
+          "text": "تصمیم مورد نیاز و دامنهٔ آن",
+          "feedback": "درست: گزارش باید تصمیم‌ساز باشد."
+        },
+        {
+          "id": "b",
+          "text": "فهرست کامل نمودارها",
+          "feedback": "بازبینی: گزارش باید تصمیم‌ساز باشد."
+        },
+        {
+          "id": "c",
+          "text": "شرح معماری بدون مسئله",
+          "feedback": "بازبینی: گزارش باید تصمیم‌ساز باشد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q12-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "گزارش باید تصمیم‌ساز باشد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST03-L04"
+      ],
+      "assessment_role": "lesson_coverage",
+      "remediation_lesson_id": "S07-C4-ST03-L04"
+    },
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "در rollout محدود، کیفیت و تأخیر از آستانه عبور نکرده‌اند ولی تعداد کاربر کم است. چه نتیجه‌ای می‌گیریم؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q13",
+      "options": [
+        {
+          "id": "a",
+          "text": "خطر در همهٔ دامنه‌ها منتفی است",
+          "feedback": "بازبینی: نمونهٔ محدود عدم مشاهدهٔ رخداد، نبود ریسک را ثابت نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "نتیجه امیدوارکننده اما برای تعمیم ناکافی است",
+          "feedback": "درست: نمونهٔ محدود عدم مشاهدهٔ رخداد، نبود ریسک را ثابت نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "نسخهٔ قبلی را حذف کنیم",
+          "feedback": "بازبینی: نمونهٔ محدود عدم مشاهدهٔ رخداد، نبود ریسک را ثابت نمی‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q13-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "نمونهٔ محدود عدم مشاهدهٔ رخداد، نبود ریسک را ثابت نمی‌کند.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST01-L01"
+      ],
+      "assessment_role": "transfer",
+      "remediation_lesson_id": "S07-C4-ST01-L01"
+    },
+    {
+      "objective_id": "S07-C4-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "محتوای وب بازیابی‌شده از عامل می‌خواهد داده را افشا کند. کدام کنترل باید مستقل باشد؟",
+      "remediation_card_id": "S07-C4-ST02-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q14",
+      "options": [
+        {
+          "id": "a",
+          "text": "اعتبارسنجی مجوز در برنامه و محدودیت ابزار",
+          "feedback": "درست: دفاع نباید به پیروی مدل از prompt متکی باشد."
+        },
+        {
+          "id": "b",
+          "text": "تنها دستور prompt طولانی",
+          "feedback": "بازبینی: دفاع نباید به پیروی مدل از prompt متکی باشد."
+        },
+        {
+          "id": "c",
+          "text": "دادن کلیدهای دسترسی به مدل",
+          "feedback": "بازبینی: دفاع نباید به پیروی مدل از prompt متکی باشد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q14-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "دفاع نباید به پیروی مدل از prompt متکی باشد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST02-L03"
+      ],
+      "assessment_role": "transfer",
+      "remediation_lesson_id": "S07-C4-ST02-L03"
+    },
+    {
+      "objective_id": "S07-C4-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "مدیریت تصمیم توقف یا توسعه را گرفته است. چه چیزی گزارش را پاسخ‌گو می‌کند؟",
+      "remediation_card_id": "S07-C4-ST03-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C4-FINAL-Q15",
+      "options": [
+        {
+          "id": "a",
+          "text": "صاحب تصمیم، دامنهٔ شاهد و تاریخ بازبینی",
+          "feedback": "درست: تصمیم باید با شاهد، مسئول و بازنگری قابل پیگیری باشد."
+        },
+        {
+          "id": "b",
+          "text": "فقط نمودار جذاب",
+          "feedback": "بازبینی: تصمیم باید با شاهد، مسئول و بازنگری قابل پیگیری باشد."
+        },
+        {
+          "id": "c",
+          "text": "پنهان‌کردن دادهٔ ناقص",
+          "feedback": "بازبینی: تصمیم باید با شاهد، مسئول و بازنگری قابل پیگیری باشد."
+        }
+      ],
+      "equivalence_group": "S07-C4-FINAL-Q15-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تصمیم باید با شاهد، مسئول و بازنگری قابل پیگیری باشد.",
+      "coverage_lesson_ids": [
+        "S07-C4-ST03-L04"
+      ],
+      "assessment_role": "transfer",
+      "remediation_lesson_id": "S07-C4-ST03-L04"
+    }
+  ],
+  "unlocks_content": false,
+  "target_percent": 80,
+  "target_is_editorial_default": true,
+  "fresh_equivalent_variants": 0
+}

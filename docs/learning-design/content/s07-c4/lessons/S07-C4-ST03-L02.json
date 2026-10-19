@@ -1,0 +1,297 @@
+{
+  "id": "S07-C4-ST03-L02",
+  "version": "1-draft",
+  "title": "پایش هزینه، کیفیت و زمان",
+  "content_status": "draft",
+  "objective": "هزینهٔ کل، کیفیت خدمت و تأخیر را بر یک واحد کاری مشترک پایش کند و trade-offهای بهبود را برای تصمیم مدیریتی تفسیر کند.",
+  "learning_cards": [
+    {
+      "title": "هزینه را به واحد ارزش وصل کن",
+      "id": "S07-C4-ST03-L02-CARD01",
+      "text": "هزینهٔ هر درخواست به‌تنهایی تصمیم‌ساز نیست. آن را به واحد کاری مانند درخواست حل‌شده، پیش‌نویس پذیرفته‌شده یا سفارش کامل‌شده وصل کنید. این کار امکان مقایسه با فرایند فعلی و ارزش کسب‌وکار را می‌دهد."
+    },
+    {
+      "title": "هزینهٔ واقعی فراتر از API است",
+      "id": "S07-C4-ST03-L02-CARD02",
+      "text": "هزینهٔ کل می‌تواند شامل مصرف مدل، جست‌وجو، نگهداری، مهندسی، ارزیابی، بازبینی انسانی، اصلاح خطا، آموزش و پشتیبانی باشد. اقلام را از هزینهٔ ثابت و متغیر جدا کنید و فرض حجم را ثبت کنید."
+    },
+    {
+      "title": "میانگین، tail latency را پنهان می‌کند",
+      "id": "S07-C4-ST03-L02-CARD03",
+      "text": "کاربر دیرترین موارد را هم تجربه می‌کند. زمان پاسخ را با percentileهایی مانند p50 و p95، صف بازبینی و زمان تکمیل کار بخوانید. معیار فنی latency و زمان end-to-end فرایند یکی نیستند."
+    },
+    {
+      "title": "کیفیت خدمت را با هزینهٔ کم نفروش",
+      "id": "S07-C4-ST03-L02-CARD04",
+      "text": "کاهش هزینه ممکن است با افزایش خطا، ارجاع یا شکایت همراه شود. معیار کیفیت، شدت خطا و هزینهٔ بازکاری را کنار مصرف و زمان ببینید. صرفه‌جویی خالص زمانی معنا دارد که پیامدهای انتقال‌یافته به تیم‌های دیگر ثبت شوند."
+    },
+    {
+      "title": "مقایسهٔ منصفانه به مخرج یکسان نیاز دارد",
+      "id": "S07-C4-ST03-L02-CARD05",
+      "text": "حجم و ترکیب درخواست، پیچیدگی، ساعت کاری، کانال و سطح تجربهٔ کارکنان را برای دو مسیر مقایسه کنید. هزینهٔ به ازای مورد آسان را با مورد پیچیده جمع نزنید. هرجا ممکن است گروه‌های مشابه یا طراحی آزمون کنترل‌شده بسازید."
+    },
+    {
+      "title": "مصرف مدل را کنترل عملیاتی کن",
+      "id": "S07-C4-ST03-L02-CARD06",
+      "text": "سقف، هشدار و محدودیت نرخ می‌توانند از جهش هزینه جلوگیری کنند. برای هر کار سقف توکن یا دفعات ابزار ممکن است trade-off کیفیت ایجاد کند؛ اثر را بسنجید. محدودیت هزینه نباید بی‌خبر کیفیت یا امنیت را خراب کند."
+    },
+    {
+      "title": "هزینهٔ خطا را هم وارد کن",
+      "id": "S07-C4-ST03-L02-CARD07",
+      "text": "پاسخ نادرست ممکن است هزینهٔ تماس مجدد، جبران، بررسی یا لطمهٔ اعتماد بسازد. هزینهٔ مورد را با سناریو و دادهٔ واقعی برآورد کنید و عدم‌قطعیت را گزارش دهید. نتیجهٔ یک پایلوت کوچک پیش‌بینی مالی قطعی برای کل سال نیست."
+    },
+    {
+      "title": "یک داشبورد، چند مخاطب",
+      "id": "S07-C4-ST03-L02-CARD08",
+      "text": "مدیر خدمت کیفیت و هزینهٔ هر کار را می‌خواهد؛ تیم فنی latency و خطا را؛ کارکنان بار صف و override را. مالک هر شاخص، بسامد، منبع داده، آستانه و اقدام را بنویسید تا گزارش به جلسهٔ تصمیم تبدیل شود."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C4-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "واحد مناسب برای هزینهٔ مقایسه‌ای چیست؟",
+      "remediation_card_id": "S07-C4-ST03-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C4-ST03-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط هر فراخوان مدل",
+          "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        },
+        {
+          "id": "b",
+          "text": "هزینه به ازای کار کامل‌شده و قابل‌قبول",
+          "feedback": "درست: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        },
+        {
+          "id": "c",
+          "text": "تعداد ابزارها",
+          "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا p95 latency را کنار میانگین می‌خوانیم؟",
+      "remediation_card_id": "S07-C4-ST03-L02-CARD02",
+      "variant": "A",
+      "id": "S07-C4-ST03-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "تا تجربهٔ موارد کندتر پنهان نشود",
+          "feedback": "درست: صدک‌ها tail تأخیر را نشان می‌دهند."
+        },
+        {
+          "id": "b",
+          "text": "چون میانگین همیشه غلط است",
+          "feedback": "بازبینی: صدک‌ها tail تأخیر را نشان می‌دهند."
+        },
+        {
+          "id": "c",
+          "text": "برای محاسبهٔ دقت مدل",
+          "feedback": "بازبینی: صدک‌ها tail تأخیر را نشان می‌دهند."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "صدک‌ها tail تأخیر را نشان می‌دهند."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "هزینهٔ کل استقرار چه چیزهایی دارد؟",
+      "remediation_card_id": "S07-C4-ST03-L02-CARD03",
+      "variant": "A",
+      "id": "S07-C4-ST03-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "مصرف مدل، نظارت، ارزیابی و اصلاح کار",
+          "feedback": "درست: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+        },
+        {
+          "id": "b",
+          "text": "فقط نرخ API",
+          "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+        },
+        {
+          "id": "c",
+          "text": "فقط هزینهٔ خرید لپ‌تاپ",
+          "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "صرفه‌جویی خالص چگونه سنجیده می‌شود؟",
+      "remediation_card_id": "S07-C4-ST03-L02-CARD04",
+      "variant": "A",
+      "id": "S07-C4-ST03-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "با هزینه و کیفیت و بازکاری/پیامد در یک مقایسهٔ منصفانه",
+          "feedback": "درست: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+        },
+        {
+          "id": "b",
+          "text": "فقط با کاهش مصرف",
+          "feedback": "بازبینی: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+        },
+        {
+          "id": "c",
+          "text": "با حدس تیم فروش",
+          "feedback": "بازبینی: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Core: Measure and Manage",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-monitoring-and-management-report",
+    "prompt": "برای کاربرد سپهر، «پایش هزینه، کیفیت و زمان» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+    "expected_output": "داشبورد هزینه-کیفیت-زمان و تعریف واحد تحلیل"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C4-ST01-L03",
+    "S07-C4-ST02-L01"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-MONITORING",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AIRMF-PLAYBOOK",
+    "NIST-GENAI-PROFILE"
+  ],
+  "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "AI-monitoring-dashboard-and-decision-brief",
+    "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تشخیص تغییر",
+      "تفسیر trade-off",
+      "کنترل نسخه",
+      "تصمیم مدیریتی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "داشبورد هزینه-کیفیت-زمان و تعریف واحد تحلیل",
+  "selected_source_refs": [
+    {
+      "source_id": "GOOGLE-ML-MONITORING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-GENAI-PROFILE",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_risk_profile_reviewed",
+      "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}
