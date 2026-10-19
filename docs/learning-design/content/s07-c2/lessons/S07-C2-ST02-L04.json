@@ -1,0 +1,250 @@
+{
+  "id": "S07-C2-ST02-L04",
+  "version": "1-draft",
+  "title": "تفسیر اثر با عدم قطعیت",
+  "content_status": "draft",
+  "objective": "اندازه و دامنهٔ اثر را با عدم قطعیت، محدودیت نمونه، ناهمگنی و عوامل جایگزین گزارش کند و از ادعای قطعی فراتر از طرح مطالعه بپرهیزد.",
+  "learning_cards": [
+    {
+      "title": "اثر اندازه‌گیری‌شده و دامنه",
+      "id": "S07-C2-ST02-L04-CARD01",
+      "text": "گزارش باید بگوید چه چیزی تغییر کرد، در چه گروه، دوره و محیطی و با چه روش. «در پایلوت چهار هفته‌ای، median پاسخ کم شد» دقیق‌تر از «AI بهره‌وری را افزایش می‌دهد» است."
+    },
+    {
+      "title": "بازه و نوسان",
+      "id": "S07-C2-ST02-L04-CARD02",
+      "text": "برآورد از نمونه نامطمئن است؛ بازهٔ اطمینان یا دامنهٔ معقول، تعداد مشاهدات و تغییرپذیری را گزارش کنید. عدد نقطه‌ای به‌تنهایی قطعیت نمی‌دهد."
+    },
+    {
+      "title": "تفاوت گروه‌ها",
+      "id": "S07-C2-ST02-L04-CARD03",
+      "text": "اثر متوسط می‌تواند برای تازه‌کار، متخصص، کانال یا زبان خاص متفاوت باشد. زیرگروه‌ها را با فرض قبلی تعریف کنید و از تکه‌تکه‌کردن پسینی تا یافتن نتیجهٔ زیبا پرهیز کنید."
+    },
+    {
+      "title": "اثر کوتاه‌مدت و بلندمدت",
+      "id": "S07-C2-ST02-L04-CARD04",
+      "text": "صرفه‌جویی اولیه ممکن است با یادگیری، خستگی، وابستگی یا تغییر کیفیت عوض شود. پیگیری زمانی و شاخص‌های تجربهٔ کارکنان و مشتری لازم است."
+    },
+    {
+      "title": "اعتبار بیرونی",
+      "id": "S07-C2-ST02-L04-CARD05",
+      "text": "نتیجهٔ مطالعهٔ پشتیبانی یک شرکت، نرخ یا اثر تضمینی برای سازمان دیگر نیست؛ زبان، سیستم، مهارت، نوع مشتری و روش rollout فرق دارد. بیرون‌سازمانی را با پایلوت محلی بررسی کنید."
+    },
+    {
+      "title": "عوامل جایگزین",
+      "id": "S07-C2-ST02-L04-CARD06",
+      "text": "آموزش، مدیر جدید، تخفیف، حجم کار، خط‌مشی یا فصل می‌تواند هم‌زمان اثر بگذارد. این عوامل را ثبت کنید و نتیجهٔ علّی را فقط وقتی طرح اجازه می‌دهد ادعا کنید."
+    },
+    {
+      "title": "گزارش عدم قطعیت",
+      "id": "S07-C2-ST02-L04-CARD07",
+      "text": "از واژه‌های «برآورد»، «شاهد اولیه»، «در این نمونه»، «سازگار با» و «نامعین» استفاده کنید. محدودیت را کنار یافته بنویسید و تصمیم را با سطح اطمینان و برگشت‌پذیری متناسب کنید."
+    },
+    {
+      "title": "مثال سپهر و تصمیم",
+      "id": "S07-C2-ST02-L04-CARD08",
+      "text": "در گروه کوچک زمان پاسخ بهتر شد اما بازهٔ نوسان بزرگ و نرخ خطای بحرانی نامطمئن است. نتیجه «امیدبخش اما نامعین» است؛ پایلوت بزرگ‌تر با آستانهٔ زیان و نمونهٔ متنوع ادامه می‌یابد، نه rollout کامل."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST02-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "گزارش اثر باید چه زمینه‌ای بدهد؟",
+      "remediation_card_id": "S07-C2-ST02-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST02-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط درصد بهبود",
+          "feedback": "بازبینی: دامنهٔ ادعا برای تعمیم لازم است."
+        },
+        {
+          "id": "b",
+          "text": "فقط نام مدل",
+          "feedback": "بازبینی: دامنهٔ ادعا برای تعمیم لازم است."
+        },
+        {
+          "id": "c",
+          "text": "گروه، دوره، محیط و روش",
+          "feedback": "درست: دامنهٔ ادعا برای تعمیم لازم است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "دامنهٔ ادعا برای تعمیم لازم است."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "اثر متوسط چه چیزی را ممکن است پنهان کند؟",
+      "remediation_card_id": "S07-C2-ST02-L04-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST02-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "قیمت ابزار",
+          "feedback": "بازبینی: اثر می‌تواند به تجربه یا زبان متفاوت باشد."
+        },
+        {
+          "id": "b",
+          "text": "تفاوت زیرگروه‌ها",
+          "feedback": "درست: اثر می‌تواند به تجربه یا زبان متفاوت باشد."
+        },
+        {
+          "id": "c",
+          "text": "تعداد کل",
+          "feedback": "بازبینی: اثر می‌تواند به تجربه یا زبان متفاوت باشد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "اثر می‌تواند به تجربه یا زبان متفاوت باشد."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "نتیجهٔ یک شرکت را چگونه به سازمان دیگر ببریم؟",
+      "remediation_card_id": "S07-C2-ST02-L04-CARD05",
+      "variant": "A",
+      "id": "S07-C2-ST02-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "به‌عنوان فرض و با پایلوت محلی",
+          "feedback": "درست: زمینهٔ مطالعه مرز تعمیم است."
+        },
+        {
+          "id": "b",
+          "text": "به‌عنوان تضمین",
+          "feedback": "بازبینی: زمینهٔ مطالعه مرز تعمیم است."
+        },
+        {
+          "id": "c",
+          "text": "بی‌توجه به وظیفه",
+          "feedback": "بازبینی: زمینهٔ مطالعه مرز تعمیم است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "زمینهٔ مطالعه مرز تعمیم است."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "اثر امیدوارکننده با عدم قطعیت زیاد چه تصمیمی می‌خواهد؟",
+      "remediation_card_id": "S07-C2-ST02-L04-CARD08",
+      "variant": "A",
+      "id": "S07-C2-ST02-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "مقیاس کامل",
+          "feedback": "بازبینی: شدت تعهد باید با شواهد متناسب باشد."
+        },
+        {
+          "id": "b",
+          "text": "اعلام اثبات",
+          "feedback": "بازبینی: شدت تعهد باید با شواهد متناسب باشد."
+        },
+        {
+          "id": "c",
+          "text": "ادامهٔ مرحله‌ای برای یادگیری",
+          "feedback": "درست: شدت تعهد باید با شواهد متناسب باشد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "شدت تعهد باید با شواهد متناسب باشد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+    },
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
+      "url": "https://www.nber.org/papers/w31161",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-effect-evaluation-protocol",
+    "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
+    "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST02-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-MONITORING",
+    "NBER-GENAI-WORK-2025"
+  ],
+  "source_scope": "چارچوب TEVV در پیش‌نویس است؛ مثال سپهر فرضی و نتایج واقعی مطالعه محدود به زمینهٔ خود هستند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "study_scope_reviewed; generalization_limited"
+  },
+  "media_plan": {
+    "type": "evaluation-sample-metrics-controlled-comparison",
+    "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "نمونهٔ ارزیابی",
+      "معیار زیان",
+      "مقایسهٔ کنترل‌شده",
+      "عدم قطعیت"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پروتکل و گزارش اثر AI"
+}

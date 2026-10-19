@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C2",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند.",
+  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
+  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند. مرحلهٔ طراحی ارزیابی با راهنمای Google برای مجموعهٔ آزمون و پایش، پیش‌نویس چارچوب NIST TEVV و مطالعهٔ میدانی دستیار پشتیبانی مشتری مستند شده است. مطالعهٔ میدانی نمونهٔ ارزیابی است، نه معیار تضمینی برای سازمان سپهر.",
   "sources": [
     {
       "id": "NBER-GENAI-WORK-2025",
@@ -31,6 +31,20 @@
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
       "scope": "معیارها، پیامدها و زمینهٔ استقرار."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
     }
   ],
   "stage_notes": {
@@ -45,6 +59,19 @@
         "مثال سپهر و اعداد تمرینی ساختگی‌اند.",
         "مطالعهٔ میدانی در یک شرکت و وظیفه انجام شده و تعمیم نیازمند آزمون محلی است.",
         "قیمت اولیهٔ ابزار تمام هزینهٔ استقرار را نشان نمی‌دهد."
+      ]
+    },
+    "S07-C2-ST02": {
+      "covered": [
+        "مجموعهٔ آزمون نماینده و قفل‌شده",
+        "معیار اصلی و guardrail",
+        "تصادفی‌سازی و rollout مرحله‌ای",
+        "عدم قطعیت و تعمیم‌پذیری"
+      ],
+      "limits": [
+        "چارچوب NIST 2026 پیش‌نویس اولیه است.",
+        "آزمایش تصادفی همیشه از نظر اخلاقی یا عملی مناسب نیست.",
+        "مطالعهٔ یک شرکت اثر همگانی را اثبات نمی‌کند."
       ]
     }
   }

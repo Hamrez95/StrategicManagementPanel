@@ -1,0 +1,250 @@
+{
+  "id": "S07-C2-ST02-L03",
+  "version": "1-draft",
+  "title": "مقایسهٔ کنترل‌شده",
+  "content_status": "draft",
+  "objective": "مقایسهٔ کنترل‌شده یا rollout مرحله‌ای طراحی کند که خط مبنا، واحد تخصیص، آلودگی گروه‌ها و عوامل هم‌زمان را مدیریت کند.",
+  "learning_cards": [
+    {
+      "title": "پرسش علّی",
+      "id": "S07-C2-ST02-L03-CARD01",
+      "text": "می‌خواهیم بدانیم تغییر نتیجه به دلیل AI است یا تغییر فصل، تیم، حجم یا آموزش؟ مقایسهٔ کنترل‌شده تلاش می‌کند دو وضعیت جز مداخلهٔ مورد نظر قابل قیاس باشند."
+    },
+    {
+      "title": "آزمایش تصادفی در صورت امکان",
+      "id": "S07-C2-ST02-L03-CARD02",
+      "text": "اگر از نظر اخلاقی و عملی ممکن است، کاربران یا تیم‌ها را تصادفی به گروه AI و روش فعلی تخصیص دهید. واحد تصادفی‌سازی را با وابستگی داده هماهنگ کنید؛ همکاران یک تیم ممکن است پاسخ‌ها را به هم منتقل کنند."
+    },
+    {
+      "title": "Rollout مرحله‌ای",
+      "id": "S07-C2-ST02-L03-CARD03",
+      "text": "اگر همه باید در نهایت ابزار را بگیرند، زمان‌بندی مرحله‌ای می‌تواند مقایسه بدهد؛ اما ترتیب ورود ممکن است با آمادگی تیم مرتبط باشد. دوره، تفاوت گروه‌ها و عوامل دیگر را ثبت کنید."
+    },
+    {
+      "title": "آلودگی و تغییر هم‌زمان",
+      "id": "S07-C2-ST02-L03-CARD04",
+      "text": "کاربر می‌تواند در هر دو روش پاسخ ببیند، یا مدیر هم‌زمان فرایند را عوض کند. ثبت استفادهٔ واقعی، آموزش، نسخهٔ ابزار و تغییر سیاست کمک می‌کند مداخله‌ها اشتباه گرفته نشوند."
+    },
+    {
+      "title": "اثر استفاده در برابر اثر دسترسی",
+      "id": "S07-C2-ST02-L03-CARD05",
+      "text": "اثر تخصیص دسترسی با اثر واقعی استفاده فرق دارد. بعضی افراد ابزار را به کار نمی‌گیرند و بعضی خارج از گروه از آن استفاده می‌کنند؛ هر دو را ثبت کنید و مراقب انتخاب‌گری پسینی باشید."
+    },
+    {
+      "title": "محدودیت نمونه و مدت",
+      "id": "S07-C2-ST02-L03-CARD06",
+      "text": "آزمون کوتاه ممکن است یادگیری اولیه یا تازگی را بسنجد، نه کیفیت پایدار. اندازهٔ نمونه و مدت را براساس تغییر مهم، پراکندگی و هزینه تعیین کنید؛ «معناداری» به‌تنهایی اهمیت عملی ندارد."
+    },
+    {
+      "title": "پایلوت غیرتصادفی",
+      "id": "S07-C2-ST02-L03-CARD07",
+      "text": "اگر تصادفی‌سازی ممکن نیست، گروه مشابه، پیش/پس با کنترل روند، یا rollout محدود می‌تواند شواهد دهد اما فرض‌های بیشتری دارد. نتیجه را با محدودیت روش گزارش کنید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST02-L03-CARD08",
+      "text": "دو تیم پشتیبانی با حجم و تجربهٔ مشابه وارد rollout مرحله‌ای می‌شوند؛ نیمی در شروع AI را می‌گیرند و نیمی پس از چهار هفته. تغییر فصل، ترکیب کار و استفادهٔ واقعی ثبت می‌شود و تصمیم به افزایش نرخ حل به تنهایی متکی نیست."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا گروه کنترل می‌خواهیم؟",
+      "remediation_card_id": "S07-C2-ST02-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST02-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای حذف کاربران",
+          "feedback": "بازبینی: مقایسه علت‌های جایگزین را کاهش می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "برای تضمین نتیجه مثبت",
+          "feedback": "بازبینی: مقایسه علت‌های جایگزین را کاهش می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "برای جداکردن اثر مداخله از تغییرهای هم‌زمان",
+          "feedback": "درست: مقایسه علت‌های جایگزین را کاهش می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "مقایسه علت‌های جایگزین را کاهش می‌دهد."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "تصادفی‌سازی را چه چیزی تعیین می‌کند؟",
+      "remediation_card_id": "S07-C2-ST02-L03-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST02-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط تعداد مدیران",
+          "feedback": "بازبینی: گروه‌های مرتبط ممکن است اطلاعات را منتقل کنند."
+        },
+        {
+          "id": "b",
+          "text": "واحد تخصیص و وابستگی افراد/داده",
+          "feedback": "درست: گروه‌های مرتبط ممکن است اطلاعات را منتقل کنند."
+        },
+        {
+          "id": "c",
+          "text": "فقط رنگ رابط",
+          "feedback": "بازبینی: گروه‌های مرتبط ممکن است اطلاعات را منتقل کنند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "گروه‌های مرتبط ممکن است اطلاعات را منتقل کنند."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "Rollout مرحله‌ای چه محدودیتی دارد؟",
+      "remediation_card_id": "S07-C2-ST02-L03-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST02-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "ترتیب و آمادگی گروه ممکن است با اثر درآمیزد",
+          "feedback": "درست: زمان ورود و تفاوت گروه‌ها باید ثبت شود."
+        },
+        {
+          "id": "b",
+          "text": "همیشه آزمایش تصادفی کامل است",
+          "feedback": "بازبینی: زمان ورود و تفاوت گروه‌ها باید ثبت شود."
+        },
+        {
+          "id": "c",
+          "text": "هیچ داده‌ای ندارد",
+          "feedback": "بازبینی: زمان ورود و تفاوت گروه‌ها باید ثبت شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "زمان ورود و تفاوت گروه‌ها باید ثبت شود."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "معناداری آماری چه چیزی را تضمین نمی‌کند؟",
+      "remediation_card_id": "S07-C2-ST02-L03-CARD06",
+      "variant": "A",
+      "id": "S07-C2-ST02-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "محاسبهٔ p",
+          "feedback": "بازبینی: شدت و پیامد اثر جداگانه سنجیده می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "وجود داده",
+          "feedback": "بازبینی: شدت و پیامد اثر جداگانه سنجیده می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "اهمیت عملی یا ارزش برای مشتری",
+          "feedback": "درست: شدت و پیامد اثر جداگانه سنجیده می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "شدت و پیامد اثر جداگانه سنجیده می‌شود."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+    },
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
+      "url": "https://www.nber.org/papers/w31161",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-effect-evaluation-protocol",
+    "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
+    "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST02-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-MONITORING",
+    "NBER-GENAI-WORK-2025"
+  ],
+  "source_scope": "چارچوب TEVV در پیش‌نویس است؛ مثال سپهر فرضی و نتایج واقعی مطالعه محدود به زمینهٔ خود هستند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "study_scope_reviewed; generalization_limited"
+  },
+  "media_plan": {
+    "type": "evaluation-sample-metrics-controlled-comparison",
+    "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "نمونهٔ ارزیابی",
+      "معیار زیان",
+      "مقایسهٔ کنترل‌شده",
+      "عدم قطعیت"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پروتکل و گزارش اثر AI"
+}

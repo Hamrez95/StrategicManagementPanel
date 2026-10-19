@@ -1,0 +1,250 @@
+{
+  "id": "S07-C2-ST02-L01",
+  "version": "1-draft",
+  "title": "مجموعهٔ ارزیابی نماینده",
+  "content_status": "draft",
+  "objective": "مجموعهٔ ارزیابی را از کار واقعی و نمونه‌های دشوار بسازد، موارد را بر اساس واحد و زیرگروه طبقه‌بندی کند و مانع نشت و فرسودگی آزمون شود.",
+  "learning_cards": [
+    {
+      "title": "ارزیابی از کاربرد آغاز می‌شود",
+      "id": "S07-C2-ST02-L01-CARD01",
+      "text": "هر مورد ارزیابی باید کاری را بازنمایی کند که کاربر واقعاً از سیستم می‌خواهد. درخواست‌های کوتاه، مبهم، چندمرحله‌ای، پرتکرار و نادر را از دادهٔ واقعی و مجاز گردآوری کنید."
+    },
+    {
+      "title": "نمایندگی فقط اندازه نیست",
+      "id": "S07-C2-ST02-L01-CARD02",
+      "text": "هزار نمونهٔ تکراری ممکن است از صد نمونهٔ متنوع ضعیف‌تر باشد. توزیع زبان، کانال، سطح پیچیدگی، گروه مشتری، زمان، موارد استثنا و احتمال آسیب را با محیط استفاده مقایسه کنید."
+    },
+    {
+      "title": "نمونهٔ سخت و مرزی",
+      "id": "S07-C2-ST02-L01-CARD03",
+      "text": "موارد نزدیک به آستانه، اطلاعات ناقص، تعارض منابع، اسناد قدیمی و پیام‌های چندمعنا را عمداً وارد کنید. آزمون فقط نمونهٔ آسان، توان مدل در دنیای واقعی را بیش‌برآورد می‌کند."
+    },
+    {
+      "title": "واحد مستقل را رعایت کنید",
+      "id": "S07-C2-ST02-L01-CARD04",
+      "text": "اگر چند درخواست از یک مشتری یا یک پرونده می‌آید، آن‌ها را مستقل فرض نکنید. تقسیم مشتری/پرونده یا بازهٔ زمانی را رعایت کنید تا محتوای نزدیک در توسعه و آزمون تکرار نشود."
+    },
+    {
+      "title": "برچسب طلایی و اختلاف نظر",
+      "id": "S07-C2-ST02-L01-CARD05",
+      "text": "برای پاسخ مرجع، معیار و دستورالعمل برچسب‌گذاری بنویسید و موارد اختلاف را با کارشناس حل یا «قضاوت‌پذیر» برچسب بزنید. پاسخ مرجع هم می‌تواند ناقص یا مورد اختلاف باشد؛ منشأ و داور ثبت شود."
+    },
+    {
+      "title": "دادهٔ تازه و قفل آزمون",
+      "id": "S07-C2-ST02-L01-CARD06",
+      "text": "مجموعهٔ توسعه برای اصلاح، test نهایی برای ارزیابی محدود استفاده شود. اگر بارها نتیجهٔ test را می‌بینید و براساسش تغییر می‌دهید، مجموعه دیگر مستقل نیست؛ نسخهٔ تازه و قفل‌شده نیاز است."
+    },
+    {
+      "title": "نمونهٔ تغییرناپذیر",
+      "id": "S07-C2-ST02-L01-CARD07",
+      "text": "شناسه، متن ورودی مجاز، نسخهٔ منبع، تاریخ، برچسب، دشواری، گروه و مجوز را نسخه‌دار کنید. پس از هر تغییر مدل، تغییر عملکرد را روی همان نمونه و یک نمونهٔ زمانی تازه مقایسه کنید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST02-L01-CARD08",
+      "text": "۲۰۰ تیکت با زبان، علت، کانال و نتیجهٔ واقعی انتخاب می‌شود؛ موارد حساس و چندعلتی جدا هستند. مشتری واحد در یک بخش نگه داشته می‌شود تا مدل همان پرونده را در آزمون حفظ نکند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST02-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "مجموعهٔ بزرگ همیشه نماینده است؟",
+      "remediation_card_id": "S07-C2-ST02-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST02-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "بله، هرچه بزرگ‌تر بهتر",
+          "feedback": "بازبینی: نمایندگی به ترکیب محیط واقعی بستگی دارد."
+        },
+        {
+          "id": "b",
+          "text": "فقط موارد آسان کافی است",
+          "feedback": "بازبینی: نمایندگی به ترکیب محیط واقعی بستگی دارد."
+        },
+        {
+          "id": "c",
+          "text": "نه؛ تنوع و تناسب با محیط هم لازم است",
+          "feedback": "درست: نمایندگی به ترکیب محیط واقعی بستگی دارد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "نمایندگی به ترکیب محیط واقعی بستگی دارد."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا نمونهٔ مرزی لازم است؟",
+      "remediation_card_id": "S07-C2-ST02-L01-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST02-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون دادهٔ آسان بی‌ارزش است",
+          "feedback": "بازبینی: نمونهٔ آسان عملکرد را بیش‌برآورد می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "برای دیدن خطا در ابهام و موارد دشوار",
+          "feedback": "درست: نمونهٔ آسان عملکرد را بیش‌برآورد می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "برای بالا بردن دقت نمایشی",
+          "feedback": "بازبینی: نمونهٔ آسان عملکرد را بیش‌برآورد می‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "نمونهٔ آسان عملکرد را بیش‌برآورد می‌کند."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "اگر مشتری در train و test تکرار شود چه خطری هست؟",
+      "remediation_card_id": "S07-C2-ST02-L01-CARD04",
+      "variant": "A",
+      "id": "S07-C2-ST02-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "مدل الگوی همان مشتری را حفظ کند",
+          "feedback": "درست: تقسیم گروهی از نشت جلوگیری می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "داده کمتر شود",
+          "feedback": "بازبینی: تقسیم گروهی از نشت جلوگیری می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "آزمون مستقل‌تر شود",
+          "feedback": "بازبینی: تقسیم گروهی از نشت جلوگیری می‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تقسیم گروهی از نشت جلوگیری می‌کند."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "استفادهٔ مکرر از test برای تغییر مدل چه می‌کند؟",
+      "remediation_card_id": "S07-C2-ST02-L01-CARD06",
+      "variant": "A",
+      "id": "S07-C2-ST02-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "اعتبار را بیشتر می‌کند",
+          "feedback": "بازبینی: test set با بازخورد توسعه فرسوده می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "برچسب را خودکار درست می‌کند",
+          "feedback": "بازبینی: test set با بازخورد توسعه فرسوده می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "آن را از آزمون مستقل خارج می‌کند",
+          "feedback": "درست: test set با بازخورد توسعه فرسوده می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "test set با بازخورد توسعه فرسوده می‌شود."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+    },
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
+      "url": "https://www.nber.org/papers/w31161",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-effect-evaluation-protocol",
+    "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
+    "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST02-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-MONITORING",
+    "NBER-GENAI-WORK-2025"
+  ],
+  "source_scope": "چارچوب TEVV در پیش‌نویس است؛ مثال سپهر فرضی و نتایج واقعی مطالعه محدود به زمینهٔ خود هستند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "study_scope_reviewed; generalization_limited"
+  },
+  "media_plan": {
+    "type": "evaluation-sample-metrics-controlled-comparison",
+    "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "نمونهٔ ارزیابی",
+      "معیار زیان",
+      "مقایسهٔ کنترل‌شده",
+      "عدم قطعیت"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پروتکل و گزارش اثر AI"
+}
