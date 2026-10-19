@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C08",
-  "status": "stage_01_partial_draft",
+  "status": "two_stages_draft_pending_expert_review",
   "source_review": "official_open_textbook_and_standards_profile",
   "source_use_note": "توضیح، مثال و تمرین مستقل تألیف شده است. شروط مجوز CC BY-NC-SA کتاب OpenStax و سازگاری استفادهٔ تجاری/مشتق باید جدا بررسی شود.",
   "sources": [
@@ -46,6 +46,34 @@
       "url": "https://doi.org/10.6028/NIST.AI.600-1",
       "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI.",
       "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "prob",
+      "title": "OpenStax Business Statistics 2e: Probability",
+      "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-introduction",
+      "scope": "فضای نمونه، رویداد و قواعد احتمال.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "cond",
+      "title": "OpenStax Business Statistics 2e: Conditional Probability",
+      "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-key-terms",
+      "scope": "احتمال شرطی، جدول توافقی و رویدادها.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "forecast",
+      "title": "Forecasting: Principles and Practice, 3e: Forecast Accuracy",
+      "url": "https://otexts.com/fpp3/accuracy.html",
+      "scope": "سنجش خطای پیش‌بینی واقعی خارج از نمونه.",
+      "review_depth": "official_open_textbook_reviewed"
+    },
+    {
+      "id": "tscv",
+      "title": "Forecasting: Principles and Practice, 3e: Time Series Cross-validation",
+      "url": "https://otexts.com/fpp3/tscv.html",
+      "scope": "اعتبارسنجی پیش‌رونده و جلوگیری از استفاده از آینده.",
+      "review_depth": "official_open_textbook_reviewed"
     }
   ],
   "stage_notes": [
@@ -54,6 +82,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "واحد مشاهده، مرکز/پراکندگی، نمودار و راستی‌آزمایی خروجی AI پوشش داده شده است.",
       "ai_note": "NIST چارچوب ریسک است، نه شاهدی که هر نمودار مولد خطا دارد."
+    },
+    {
+      "stage_id": "C08-ST02",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "احتمال شرطی، ارزیابی پیش‌بینی خارج از نمونه، سناریو/حساسیت و ممیزی خروجی AI پوشش داده شد.",
+      "ai_note": "پیش‌بینی نقطه‌ای و شبیه‌سازی قطعیت نمی‌آورند؛ NIST 600-1 راهنمای مدیریت ریسک مولد است، نه مدرک خطای همگانی."
     }
   ]
 }
