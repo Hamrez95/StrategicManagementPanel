@@ -16,8 +16,8 @@
     "lesson_nodes_total": 592,
     "stage_review_nodes": 148,
     "course_assessment_nodes": 43,
-    "authored_draft_lessons": 48,
-    "authored_questions": 356,
+    "authored_draft_lessons": 64,
+    "authored_questions": 480,
     "historical_sample_questions": 26
   },
   "access": {
@@ -1333,7 +1333,7 @@
               "title": "انتخاب، کمیابی و هزینهٔ فرصت",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "هزینهٔ کنارگذاشتن یک انتخاب را توضیح دهد",
               "source_refs": [
                 "B03",
@@ -1361,8 +1361,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1388,14 +1389,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST01-L01.json"
             },
             {
               "id": "C02-ST01-L02",
               "title": "عرضه، تقاضا و جابه‌جایی منحنی",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "تغییر قیمت را از تغییر شرایط بازار تفکیک کند",
               "source_refs": [
                 "B03",
@@ -1423,8 +1425,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1450,14 +1453,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST01-L02.json"
             },
             {
               "id": "C02-ST01-L03",
               "title": "کشش و درآمد فروش",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "با روش نقطهٔ میانی، کشش را محاسبه و محدودیت برآورد را بیان کند",
               "source_refs": [
                 "B03",
@@ -1485,8 +1489,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1512,14 +1517,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST01-L03.json"
             },
             {
               "id": "C02-ST01-L04",
               "title": "کشش برآوردشده با حقیقت بازار یکی نیست",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «کشش برآوردشده با حقیقت بازار یکی نیست» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B03",
@@ -1547,8 +1553,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1559,7 +1566,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c02/lessons/C02-ST01-L04.json"
             }
           ],
           "checkpoint": {
@@ -1567,8 +1575,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c02/stages/C02-ST01.json#/checkpoint"
           }
         },
         {
@@ -1592,7 +1601,7 @@
               "title": "هزینهٔ اقتصادی و هزینهٔ غرق‌شده",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مخارج گذشته را از هزینهٔ تصمیم آینده جدا کند",
               "source_refs": [
                 "B03",
@@ -1619,8 +1628,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1646,14 +1656,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST02-L01.json"
             },
             {
               "id": "C02-ST02-L02",
               "title": "تصمیم حاشیه‌ای",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "منفعت و هزینهٔ یک واحد اضافه را مقایسه کند",
               "source_refs": [
                 "B03",
@@ -1680,8 +1691,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1707,14 +1719,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST02-L02.json"
             },
             {
               "id": "C02-ST02-L03",
               "title": "مشوق و اطلاعات ناقص",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "پیامد ناخواستهٔ یک پاداش فروش را پیش‌بینی کند",
               "source_refs": [
                 "B03",
@@ -1741,8 +1754,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1768,14 +1782,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST02-L03.json"
             },
             {
               "id": "C02-ST02-L04",
               "title": "پاداش فروش چه رفتاری می‌سازد؟",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «پاداش فروش چه رفتاری می‌سازد؟» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B03",
@@ -1802,8 +1817,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1814,7 +1830,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c02/lessons/C02-ST02-L04.json"
             }
           ],
           "checkpoint": {
@@ -1822,8 +1839,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c02/stages/C02-ST02.json#/checkpoint"
           }
         },
         {
@@ -1848,7 +1866,7 @@
               "title": "مرز بازار و جانشین‌ها",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "یک بازار را از نظر محصول و جغرافیا تعریف کند",
               "source_refs": [
                 "B03",
@@ -1876,8 +1894,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1903,14 +1922,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST03-L01.json"
             },
             {
               "id": "C02-ST03-L02",
               "title": "رقابت، قدرت بازار و ورود",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "ساختار دو بازار را با شواهد مقایسه کند",
               "source_refs": [
                 "B03",
@@ -1938,8 +1958,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -1965,14 +1986,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST03-L02.json"
             },
             {
               "id": "C02-ST03-L03",
               "title": "بازی رقابتی و واکنش حریف",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "یک بازی سادهٔ قیمت را تحلیل و فرض‌هایش را نقد کند",
               "source_refs": [
                 "B03",
@@ -2000,8 +2022,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2027,14 +2050,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST03-L03.json"
             },
             {
               "id": "C02-ST03-L04",
               "title": "قیمت الگوریتمی و واکنش رقیب",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «قیمت الگوریتمی و واکنش رقیب» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B03",
@@ -2062,8 +2086,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2074,7 +2099,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c02/lessons/C02-ST03-L04.json"
             }
           ],
           "checkpoint": {
@@ -2082,8 +2108,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c02/stages/C02-ST03.json#/checkpoint"
           }
         },
         {
@@ -2107,7 +2134,7 @@
               "title": "تورم، رشد و نرخ بهره",
               "order": 1,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "متغیر اسمی را از واقعی تفکیک کند",
               "source_refs": [
                 "B03",
@@ -2134,8 +2161,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2161,14 +2189,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST04-L01.json"
             },
             {
               "id": "C02-ST04-L02",
               "title": "ارز و انتقال شوک",
               "order": 2,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "اثر یک شوک فرضی ارز بر هزینه و تقاضا را ترسیم کند",
               "source_refs": [
                 "B03",
@@ -2195,8 +2224,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2222,14 +2252,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST04-L02.json"
             },
             {
               "id": "C02-ST04-L03",
               "title": "تصمیم در چند سناریوی کلان",
               "order": 3,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "یک تصمیم کسب‌وکار را در سه سناریو مقایسه کند",
               "source_refs": [
                 "B03",
@@ -2256,8 +2287,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2283,14 +2315,15 @@
                   "publication_status": "not_cleared",
                   "checked_at": "2026-10-19"
                 }
-              ]
+              ],
+              "content_ref": "content/c02/lessons/C02-ST04-L03.json"
             },
             {
               "id": "C02-ST04-L04",
               "title": "AI و تصمیم در محیط اقتصادی متغیر",
               "order": 4,
               "node_type": "lesson",
-              "content_status": "outline",
+              "content_status": "draft",
               "objective": "مفهوم «AI و تصمیم در محیط اقتصادی متغیر» را در یک موقعیت مدیریتی توضیح دهد و انتخاب خود را با دلیل نشان دهد.",
               "source_refs": [
                 "B03",
@@ -2317,8 +2350,9 @@
                   "تصمیم در سناریو",
                   "انتقال به موقعیت تازه"
                 ],
-                "item_bank_status": "to_author",
-                "feedback_required": true
+                "item_bank_status": "authored_draft",
+                "feedback_required": true,
+                "fresh_equivalent_variants": 0
               },
               "suggested_minutes": {
                 "learning": 8,
@@ -2329,7 +2363,8 @@
               "direct_entry_allowed": true,
               "free_sample": false,
               "legacy_lesson_ids": [],
-              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+              "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+              "content_ref": "content/c02/lessons/C02-ST04-L04.json"
             }
           ],
           "checkpoint": {
@@ -2337,8 +2372,9 @@
             "node_type": "stage_review",
             "item_count": 6,
             "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
-            "bank_status": "to_author",
-            "unlocks_next_stage": false
+            "bank_status": "authored_draft",
+            "unlocks_next_stage": false,
+            "bank_ref": "content/c02/stages/C02-ST04.json#/checkpoint"
           }
         }
       ],
@@ -2349,19 +2385,21 @@
         "coverage": "balanced_across_stages",
         "project_required": false,
         "applied_artifact_prompt": "یک تصمیم مدیریتی مرتبط را همراه فرض، شواهد و محدودیت توضیح دهید.",
-        "bank_status": "to_author",
-        "content_access_gate": false
+        "bank_status": "authored_draft",
+        "content_access_gate": false,
+        "bank_ref": "content/c02/final-assessment.json"
       },
       "counts": {
         "stages": 4,
         "lessons": 16
       },
-      "release_status": "planned_not_for_sale_as_complete_course",
+      "release_status": "authored_draft_pending_review",
       "historical_source_ids": [
         "H01",
         "H07",
         "H09"
-      ]
+      ],
+      "authored_content_ref": "content/c02/course.v1.json"
     },
     {
       "id": "C03",
