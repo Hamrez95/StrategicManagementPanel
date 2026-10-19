@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "E01",
-  "status": "targeted_source_review_for_stages_1_to_3; expert_review_pending",
-  "source_use_note": "مرحلهٔ اول با منابع MIT OCW در سطح graduate، راهنمای Program on Negotiation در Harvard Law School و مطالعهٔ داوری‌شدهٔ Polzer، Mannix و Neale دربارهٔ شبیه‌سازی مذاکرهٔ سه‌نفره تدوین شده است. منبع‌های دانشگاهی مدل آموزشی و چارچوب می‌دهند؛ منابع کاربردی نسخهٔ تضمینی برای هر مذاکره نیستند. مثال‌ها ساختگی‌اند. مرحلهٔ قرارداد و اعتماد بر سخنرانی نوبل الیور هارت و خلاصهٔ نظریهٔ قرارداد، فهرست خواندنی‌های اقتصاد سازمانی MIT و راهنمای اعتماد Harvard PON تکیه دارد. نظریه سازوکارها را توضیح می‌دهد و برای تنظیم قرارداد واقعی توصیهٔ حقوقی نیست. مرحلهٔ فرهنگ و میانجی‌گری به مواد تحصیلات تکمیلی MIT و راهنمای Harvard PON متکی است. چارچوب‌های فرهنگی فقط فرضیه‌اند و برای تحلیل فرد باید شواهد و پرسش مستقیم داشت. میانجی‌گری نیز تابع رضایت، اختیار و الزامات حوزه است.",
+  "status": "targeted_source_review_for_all_four_stages; expert_review_pending",
+  "source_use_note": "مرحلهٔ اول با منابع MIT OCW در سطح graduate، راهنمای Program on Negotiation در Harvard Law School و مطالعهٔ داوری‌شدهٔ Polzer، Mannix و Neale دربارهٔ شبیه‌سازی مذاکرهٔ سه‌نفره تدوین شده است. منبع‌های دانشگاهی مدل آموزشی و چارچوب می‌دهند؛ منابع کاربردی نسخهٔ تضمینی برای هر مذاکره نیستند. مثال‌ها ساختگی‌اند. مرحلهٔ قرارداد و اعتماد بر سخنرانی نوبل الیور هارت و خلاصهٔ نظریهٔ قرارداد، فهرست خواندنی‌های اقتصاد سازمانی MIT و راهنمای اعتماد Harvard PON تکیه دارد. نظریه سازوکارها را توضیح می‌دهد و برای تنظیم قرارداد واقعی توصیهٔ حقوقی نیست. مرحلهٔ فرهنگ و میانجی‌گری به مواد تحصیلات تکمیلی MIT و راهنمای Harvard PON متکی است. چارچوب‌های فرهنگی فقط فرضیه‌اند و برای تحلیل فرد باید شواهد و پرسش مستقیم داشت. میانجی‌گری نیز تابع رضایت، اختیار و الزامات حوزه است. مرحلهٔ AI در مذاکره از مطالعات داوری‌شدهٔ اولیه دربارهٔ مذاکرهٔ استخدامی با الگوریتم، benchmark بازی‌های چانه‌زنی و مقالهٔ کنفرانسی میانجی‌گری AI استفاده می‌کند. نتایج به سناریوهای مطالعه محدودند و اثربخشی یا انصاف عمومی را ثابت نمی‌کنند. NIST برای طراحی حاکمیت و کنترل افزوده شده است.",
   "sources": [
     {
       "id": "MIT-15-665-MULTIPARTY-2014",
@@ -80,12 +80,41 @@
       "url": "https://www.pon.harvard.edu/wp-content/uploads/images/posts/mediationsecrets.pdf",
       "review_depth": "university_practitioner_guide_reviewed",
       "scope": "توضیح میانجی‌گری به‌عنوان کمک شخص ثالث بی‌طرف برای رسیدن طرف‌ها به توافق خودشان؛ دامنهٔ حرفه‌ای و حقوقی باید بررسی شود."
+    },
+    {
+      "id": "SONDERN-ARNHOLZ-HERTEL-2025",
+      "title": "Sondern, Arnholz & Hertel, Employment Negotiations With an Algorithm?",
+      "url": "https://doi.org/10.1002/crq.21472",
+      "review_depth": "peer_reviewed_experimental_article_reviewed",
+      "scope": "مطالعهٔ ادراک و انتظار افراد از مذاکرهٔ استخدامی با طرف انسانی یا AI؛ پاسخ‌دهندگان و موقعیت مطالعه محدودند."
+    },
+    {
+      "id": "BHATTACHARYA-NEGOTIATION-LLM-2025",
+      "title": "Bhattacharya et al., Evaluating Negotiation Capabilities of Large Language Models",
+      "url": "https://doi.org/10.1177/10711813251372102",
+      "review_depth": "peer_reviewed_benchmark_paper_reviewed",
+      "scope": "ارزیابی در بازی‌های کلاسیک چانه‌زنی؛ benchmark شبیه‌سازی‌شده معادل مذاکرهٔ سازمانی واقعی نیست."
+    },
+    {
+      "id": "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
+      "title": "AI-Mediated Dispute Resolution",
+      "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/view/35558",
+      "review_depth": "conference_proceedings_paper_reviewed",
+      "scope": "بررسی اولیهٔ میانجی‌گری با LLM در سناریوهای پژوهشی؛ شواهد اولیه و محدود، نه جایگزین میانجی حرفه‌ای."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Core: Govern, Measure and Manage",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "نقش‌ها، شفافیت، پایش، اعتراض و مدیریت اثرها در کاربرد AI؛ چارچوب داوطلبانه و زمینه‌محور."
     }
   ],
   "open_questions": [
     "مدرس مذاکره، شبیه‌سازی نقش‌ها و rubric بازخورد را پیش از تولید بررسی کند.",
     "در case واقعی، زمینه، منبع و سمت‌های مذاکره‌کنندگان مستقل را راستی‌آزمایی کنیم.",
     "متخصص حقوق قرارداد و مذاکره‌گر باتجربه، مثال‌ها و محدودیت‌های آموزشی را بازبینی کنند.",
-    "برای درس چهارم یک مورد واقعی با دست‌کم دو منبع اولیهٔ مستقل و خط زمانی مستند انتخاب و راستی‌آزمایی شود."
+    "برای درس چهارم یک مورد واقعی با دست‌کم دو منبع اولیهٔ مستقل و خط زمانی مستند انتخاب و راستی‌آزمایی شود.",
+    "پیش از انتشار، منابع و وضعیت نسخهٔ پژوهش‌های تازهٔ ۲۰۲۵–۲۰۲۶ دوباره بررسی شوند؛ متخصص مذاکره و حریم خصوصی rubric را تأیید کند."
   ]
 }
