@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C3",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "مرحلهٔ گردش کار ترکیبی بر سه مرجع اولیه/رسمی تکیه دارد: راهنمای تعامل انسان و AI مایکروسافت (CHI 2019)، راهنمای عملی Google PAIR و هسته/Playbook چارچوب مدیریت ریسک NIST. این مراجع اصول طراحی و نقاط کنترل را پشتیبانی می‌کنند، اما اثر کمی، الزام حقوقی یا نسخهٔ بهینه برای یک سازمان را ثابت نمی‌کنند. مثال‌های آموزشی سپهر ساختگی‌اند.",
+  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
+  "source_use_note": "مرحلهٔ گردش کار ترکیبی بر سه مرجع اولیه/رسمی تکیه دارد: راهنمای تعامل انسان و AI مایکروسافت (CHI 2019)، راهنمای عملی Google PAIR و هسته/Playbook چارچوب مدیریت ریسک NIST. این مراجع اصول طراحی و نقاط کنترل را پشتیبانی می‌کنند، اما اثر کمی، الزام حقوقی یا نسخهٔ بهینه برای یک سازمان را ثابت نمی‌کنند. مثال‌های آموزشی سپهر ساختگی‌اند. مرحلهٔ عامل و ابزار با راهنمای مدیران OpenAI و مستندات SDK برای توصیف گردش عامل، ابزار و handoff، همراه با PAIR برای توازن کنترل و NIST برای نقش/نظارت مرور شد. منابع OpenAI برای مستند کردن محصول خود شرکت‌اند، نه شاهد مستقل کارایی. نقش اختیار، مجوز و ثبت باید در استقرار واقعی با کنترل‌های سازمانی سنجیده شود.",
   "sources": [
     {
       "id": "MICROSOFT-HAX-CHI-2019",
@@ -24,11 +24,33 @@
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
       "scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی."
+    },
+    {
+      "id": "OPENAI-AGENTS-BUSINESS-GUIDE",
+      "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
+      "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
+      "review_depth": "official_business_guide_reviewed",
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+    },
+    {
+      "id": "OPENAI-AGENTS-SDK-HANDOFFS",
+      "title": "OpenAI Agents SDK: Handoffs",
+      "url": "https://openai.github.io/openai-agents-python/handoffs/",
+      "review_depth": "official_product_documentation_reviewed",
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+    },
+    {
+      "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
+      "title": "Google PAIR: Feedback + Control",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
     }
   ],
   "open_questions": [
     "تأیید متخصص محصول/عملیات درستی مسیرهای نمونه را بررسی کند.",
     "هنگام تولید برای اپ، مثال‌های واقعی فقط پس از بررسی اولیه، زمینه و تاریخ انتشار افزوده شوند.",
-    "برای دامنه‌های حساس، الزامات تخصصی و حقوقی همان حوزه جداگانه بررسی شود."
+    "برای دامنه‌های حساس، الزامات تخصصی و حقوقی همان حوزه جداگانه بررسی شود.",
+    "تغییرپذیری مستندات SDK و مدل‌های عرضه‌شده پیش از انتشار نهایی دوباره بررسی شود."
   ]
 }
