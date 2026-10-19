@@ -1,0 +1,297 @@
+{
+  "id": "S07-C4-ST01-L03",
+  "version": "1-draft",
+  "title": "ارزیابی نسخهٔ مدل",
+  "content_status": "draft",
+  "objective": "نسخهٔ تازهٔ مدل را با خط مبنا و مجموعهٔ ارزیابی نماینده مقایسه کند و کیفیت، خطاهای مهم و محدودیت تعمیم را برای تصمیم استقرار تفسیر کند.",
+  "learning_cards": [
+    {
+      "title": "با نسخهٔ موجود مقایسه کن",
+      "id": "S07-C4-ST01-L03-CARD01",
+      "text": "نسخهٔ جدید را در برابر مدل یا روند فعلی بسنجید، نه فقط در برابر صفر. «بهبود» باید روی معیار مرتبط با تصمیم و هزینهٔ خطا دیده شود. افزایش یک معیار ممکن است به قیمت افت دیگری باشد."
+    },
+    {
+      "title": "Test set را نماینده نگه دار",
+      "id": "S07-C4-ST01-L03-CARD02",
+      "text": "مجموعهٔ آزمون باید تا حد ممکن نمایندهٔ کاربرد آینده و جدا از دادهٔ تنظیم مدل باشد. اگر شرایط زنده تغییر کرده، ارزیابی قدیمی شاید پاسخ‌گوی دامنهٔ جدید نباشد. Google توصیه می‌کند مجموعهٔ ارزیابی را با تغییر توزیع داده بازبینی کنید."
+    },
+    {
+      "title": "کیفیت را در sliceها بخوان",
+      "id": "S07-C4-ST01-L03-CARD03",
+      "text": "نتیجه را به تفکیک گروه یا نوع پروندهٔ مهم ببینید. مدل ممکن است میانگین را بهتر کند، اما برای زبان یا شرایط خاص ضعیف شود. از پیش تعیین کنید کدام گروه‌ها و خطاها از نظر کسب‌وکار و انصاف حیاتی‌اند."
+    },
+    {
+      "title": "آستانهٔ پذیرش را قبل از دیدن نتیجه بنویس",
+      "id": "S07-C4-ST01-L03-CARD04",
+      "text": "اگر بعد از دیدن خروجی معیار را انتخاب کنیم، ممکن است شکست را موفقیت بنامیم. حداقل کیفیت، سقف خطای بحرانی، محدودیت هزینه و نیاز بازبینی را پیش‌ثبت کنید. آستانه باید به پیامد، خط مبنا و عدم‌قطعیت وصل باشد."
+    },
+    {
+      "title": "عدم‌قطعیت را پنهان نکن",
+      "id": "S07-C4-ST01-L03-CARD05",
+      "text": "نمونهٔ کوچک ممکن است نوسان زیادی داشته باشد. تعداد و شیوهٔ انتخاب نمونه، بازهٔ مشاهده، موردهای نامشخص و تفاوت آزمون با تولید را در گزارش ذکر کنید. یک عدد تا دو رقم اعشار جای توضیح دامنهٔ اعتبار را نمی‌گیرد."
+    },
+    {
+      "title": "مدل مولد rubric می‌خواهد",
+      "id": "S07-C4-ST01-L03-CARD06",
+      "text": "برای خروجی متنی، معیارهایی مانند دقت واقعیت، ارتباط، رعایت سیاست، کامل‌بودن و ارجاع درست تعریف کنید. نمونه‌های مرزی را متخصصان بازبینی کنند و توافق ارزیابان را بررسی کنید. امتیاز یک مدل داور هم خود نیازمند اعتبارسنجی است."
+    },
+    {
+      "title": "مقایسهٔ انسانی و عملیاتی را جدا کن",
+      "id": "S07-C4-ST01-L03-CARD07",
+      "text": "مدل ممکن است در benchmark برتر باشد ولی زمان اصلاح یا بار کارکنان را بدتر کند. معیارهای مدل، خدمت و کسب‌وکار را کنار هم گزارش دهید: کیفیت، زمان، نرخ بازگشت، هزینه و اثر کاربر."
+    },
+    {
+      "title": "تصمیم انتشار یک بستهٔ شواهد است",
+      "id": "S07-C4-ST01-L03-CARD08",
+      "text": "گزارش باید نسخهٔ مدل و داده، معیار، نتیجهٔ sliceها، محدودیت، نظر متخصص، مالک و شرط توقف را نشان دهد. NIST ارزیابی و آزمون را به زمینهٔ استقرار و ریسک پیوند می‌دهد؛ یک benchmark عمومی مجوز تصمیم سازمانی نیست."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C4-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "نسخهٔ جدید را در برابر چه چیزی مقایسه می‌کنیم؟",
+      "remediation_card_id": "S07-C4-ST01-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C4-ST01-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "نسخهٔ فعلی یا خط مبنای کسب‌وکار",
+          "feedback": "درست: معیار خط مبنا برای تشخیص تغییر لازم است."
+        },
+        {
+          "id": "b",
+          "text": "فقط نمونهٔ بهترین خروجی",
+          "feedback": "بازبینی: معیار خط مبنا برای تشخیص تغییر لازم است."
+        },
+        {
+          "id": "c",
+          "text": "مدل فرضی بدون داده",
+          "feedback": "بازبینی: معیار خط مبنا برای تشخیص تغییر لازم است."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "معیار خط مبنا برای تشخیص تغییر لازم است."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا sliceهای مختلف را می‌سنجیم؟",
+      "remediation_card_id": "S07-C4-ST01-L03-CARD02",
+      "variant": "A",
+      "id": "S07-C4-ST01-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای دیدن افتی که میانگین پنهان می‌کند",
+          "feedback": "درست: تحلیل تفکیکی به کشف تفاوت عملکرد کمک می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "برای افزایش تعداد نمودار",
+          "feedback": "بازبینی: تحلیل تفکیکی به کشف تفاوت عملکرد کمک می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "چون همهٔ گروه‌ها برابر نیستند",
+          "feedback": "بازبینی: تحلیل تفکیکی به کشف تفاوت عملکرد کمک می‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تحلیل تفکیکی به کشف تفاوت عملکرد کمک می‌کند."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه زمانی معیار پذیرش را تعیین کنیم؟",
+      "remediation_card_id": "S07-C4-ST01-L03-CARD03",
+      "variant": "A",
+      "id": "S07-C4-ST01-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "پیش از دیدن نتیجهٔ نسخه",
+          "feedback": "درست: پیش‌تعریف معیار جلوی جابه‌جایی دلخواه هدف را می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text": "پس از حذف نتایج نامطلوب",
+          "feedback": "بازبینی: پیش‌تعریف معیار جلوی جابه‌جایی دلخواه هدف را می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "فقط زمان انتشار",
+          "feedback": "بازبینی: پیش‌تعریف معیار جلوی جابه‌جایی دلخواه هدف را می‌گیرد."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "پیش‌تعریف معیار جلوی جابه‌جایی دلخواه هدف را می‌گیرد."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای خروجی مولد کدام ارزیابی مناسب‌تر است؟",
+      "remediation_card_id": "S07-C4-ST01-L03-CARD04",
+      "variant": "A",
+      "id": "S07-C4-ST01-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "rubric چندمعیاره و بازبینی نمونه‌های مرزی",
+          "feedback": "درست: کیفیت مولد چندوجهی است و داور خودکار نیز باید سنجیده شود."
+        },
+        {
+          "id": "b",
+          "text": "فقط طول متن",
+          "feedback": "بازبینی: کیفیت مولد چندوجهی است و داور خودکار نیز باید سنجیده شود."
+        },
+        {
+          "id": "c",
+          "text": "فقط امتیاز خود مدل بدون بررسی",
+          "feedback": "بازبینی: کیفیت مولد چندوجهی است و داور خودکار نیز باید سنجیده شود."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "کیفیت مولد چندوجهی است و داور خودکار نیز باید سنجیده شود."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers, Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی."
+    },
+    {
+      "id": "GOOGLE-ML-DEPLOYMENT-TESTING",
+      "title": "Google ML Crash Course, Deployment Testing",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course, Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Core and Playbook",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه."
+    }
+  ],
+  "practice_activity": {
+    "type": "deployment-readiness-runbook",
+    "prompt": "در سناریوی سپهر، برای «ارزیابی نسخهٔ مدل» داده، نسخه، مالک، معیار پذیرش و مسیر توقف/بازگشت را تعیین کنید.",
+    "expected_output": "برگهٔ ارزیابی نسخه با معیار، slice، آستانه و تصمیم پیشنهادی"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C1-ST03-L03",
+    "S07-C2-ST02-L03"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c4/lessons/S07-C4-ST01-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "GOOGLE-ML-DEPLOYMENT-TESTING",
+    "GOOGLE-ML-MONITORING",
+    "NIST-AIRMF-PLAYBOOK"
+  ],
+  "source_scope": "راهنمای Google برای مهندسی تولید و NIST برای ارزیابی زمینه‌ای به‌کار رفته‌اند؛ مثال سپهر ساختگی است و آستانهٔ پذیرش باید برای کاربرد تعیین شود.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "deployment-readiness-and-rollback-checklist",
+    "purpose": "ترسیم مسیر از staging تا عرضه، پایش و بازگشت",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف مفهوم",
+      "تشخیص شکاف عملیاتی",
+      "تصمیم انتشار",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برگهٔ ارزیابی نسخه با معیار، slice، آستانه و تصمیم پیشنهادی",
+  "selected_source_refs": [
+    {
+      "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-DEPLOYMENT-TESTING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-MONITORING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}
