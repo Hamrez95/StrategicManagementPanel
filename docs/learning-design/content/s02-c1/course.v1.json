@@ -1,0 +1,3997 @@
+{
+  "schema_version": "1.0",
+  "id": "S02-C1",
+  "title": "تحلیل و مدل‌سازی مالی",
+  "version": "1-draft",
+  "status": "draft_complete_pending_expert_review",
+  "stages": [
+    {
+      "id": "S02-C1-ST01",
+      "title": "تشخیص مالی کسب‌وکار",
+      "order": 1,
+      "color_token": "green",
+      "legacy_research_topic_ids": [
+        "S02-M1"
+      ],
+      "level": "foundation",
+      "source_refs": [
+        "B04",
+        "T10",
+        "R24",
+        "R02"
+      ],
+      "source_alignment": "SEC and IFRS IAS 7 are primary sources for statement structure and cash-flow categories. CFA Institute 2026 curriculum informs analysis and earnings-quality concepts; full readings may require access. All worked company data are fictional.",
+      "lessons": [
+        {
+          "id": "S02-C1-ST01-L01",
+          "version": "1-draft",
+          "title": "خواندن صورت‌ها در کنار هم",
+          "content_status": "draft",
+          "objective": "صورت سودوزیان، ترازنامه و جریان نقد را در یک روایت واحد بخواند و تفاوت دوره و تاریخ را تشخیص دهد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST01-L01-CARD01",
+              "type": "explanation",
+              "title": "سه نما از کسب‌وکار",
+              "text": "صورت سودوزیان عملکرد طی دوره را نشان می‌دهد؛ ترازنامه منابع و تعهدها را در یک تاریخ؛ صورت جریان نقد جابه‌جایی وجه را در دوره. این نماها مرتبط‌اند، اما جای هم نیستند: سود بالا نه نقد کافی را ثابت می‌کند نه توان پرداخت بدهی را."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD02",
+              "type": "explanation",
+              "title": "معادلهٔ ترازنامه",
+              "text": "دارایی‌ها برابر بدهی‌ها به‌اضافهٔ حقوق مالکانه‌اند. دارایی نشان می‌دهد منابع کجا به‌کار رفته؛ بدهی و حقوق مالکانه ادعاهای تأمین‌کننده و مالک را نشان می‌دهند. اگر دارایی ۱۰۰، بدهی ۶۰ و حقوق مالکانه ۴۰ باشد، منابع با ادعاها تراز است؛ این معادله ارزش شرکت را تعیین نمی‌کند."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD03",
+              "type": "explanation",
+              "title": "حسابداری تعهدی",
+              "text": "درآمد ممکن است هنگام تحقق فروش ثبت شود، نه هنگام دریافت وجه. فروش اشتراک سالانه در آذر می‌تواند درآمد و دریافتنی بسازد درحالی‌که نقد هنوز نیامده؛ قواعد شناسایی و زمان خدمت تعیین می‌کنند چه مقدار درآمد همین دوره است."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD04",
+              "type": "explanation",
+              "title": "ردیابی یک معامله",
+              "text": "فروش نسیه درآمد را در صورت سودوزیان و دریافتنی را در ترازنامه بالا می‌برد؛ وصول بعدی دریافتنی را به نقد تبدیل می‌کند. تعدیل سود برای اقلام غیرنقدی و تغییر سرمایهٔ در گردش به جریان عملیاتی می‌رسد. یک معامله را میان سه صورت دنبال کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD05",
+              "type": "explanation",
+              "title": "موجودی کالا",
+              "text": "خرید نقدی ابتدا موجودی را بالا می‌برد؛ هنگام فروش، بهای تمام‌شده هزینه می‌شود و موجودی کم می‌شود. کالای راکد ممکن است هنوز در سودوزیان کامل آشکار نشده باشد اما نقد را حبس کند و خطر کاهش ارزش داشته باشد."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD06",
+              "type": "explanation",
+              "title": "وام و بهره",
+              "text": "دریافت وام نقد و بدهی را بالا می‌برد؛ بهره هزینهٔ دوره است و بازپرداخت اصل وام خروج نقد تأمین مالی. شرکت ممکن است سود عملیاتی داشته باشد ولی سررسید نزدیک، نرخ شناور یا شرط وام توان پرداخت را محدود کند."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD07",
+              "type": "explanation",
+              "title": "رشد و سرمایهٔ در گردش",
+              "text": "رشد فروش می‌تواند دریافتنی، موجودی یا پیش‌پرداخت را سریع‌تر از نقد بالا ببرد. کسب‌وکار در حال رشد شاید قبل از وصول مشتری هزینهٔ تحویل را بپردازد. فروش را با دریافتنی، موجودی، پرداختنی و جریان نقد مقایسه کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD08",
+              "type": "explanation",
+              "title": "دوره و یادداشت",
+              "text": "صورت‌ها گذشته‌نگر و وابسته به برآوردهایی مثل عمر دارایی هستند. فصل‌پذیری، خرید شرکت، نرخ ارز و تغییر سیاست می‌تواند مقایسه را گمراه کند؛ یادداشت‌ها، دورهٔ مشابه، بخش محصول و گزارش حسابرس را نیز ببینید."
+            },
+            {
+              "id": "S02-C1-ST01-L01-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Income statement صورت سودوزیان، balance sheet ترازنامه، cash flow statement صورت جریان نقد، accrual تعهدی، working capital سرمایهٔ در گردش و receivable دریافتنی است. صورت‌ها داستان پول را از سه زاویه می‌گویند؛ هر ادعا را به حساب و دوره‌اش وصل کنید."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST01-L01-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ترازنامه چه زمانی را نشان می‌دهد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وضعیت در یک تاریخ",
+                  "feedback": "درست: ترازنامه عکس یک تاریخ است."
+                },
+                {
+                  "id": "b",
+                  "text": "عملکرد در یک دوره",
+                  "feedback": "بازبینی: ترازنامه عکس یک تاریخ است."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط جریان نقد عملیاتی",
+                  "feedback": "بازبینی: ترازنامه عکس یک تاریخ است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ترازنامه عکس یک تاریخ است.",
+              "objective_id": "S02-C1-ST01-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L01-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L01-CARD02"
+            },
+            {
+              "id": "S02-C1-ST01-L01-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "فروش اعتباری ثبت شده اما وصول نشده؛ چه چیزی محتمل است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "درآمد و دریافتنی بالا می‌روند، وجه هنوز نیامده",
+                  "feedback": "درست: ثبت تعهدی می‌تواند پیش از وصول انجام شود."
+                },
+                {
+                  "id": "b",
+                  "text": "نقد حتماً بالا رفته",
+                  "feedback": "بازبینی: ثبت تعهدی می‌تواند پیش از وصول انجام شود."
+                },
+                {
+                  "id": "c",
+                  "text": "هیچ حسابی عوض نمی‌شود",
+                  "feedback": "بازبینی: ثبت تعهدی می‌تواند پیش از وصول انجام شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ثبت تعهدی می‌تواند پیش از وصول انجام شود.",
+              "objective_id": "S02-C1-ST01-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L01-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L01-CARD03"
+            },
+            {
+              "id": "S02-C1-ST01-L01-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "خرید تجهیزات نقدی کجا منعکس می‌شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "دارایی بلندمدت و خروج نقد سرمایه‌گذاری",
+                  "feedback": "درست: خرید دارایی و خروج وجه را تفکیک کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "درآمد فروش",
+                  "feedback": "بازبینی: خرید دارایی و خروج وجه را تفکیک کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط هزینهٔ روز خرید",
+                  "feedback": "بازبینی: خرید دارایی و خروج وجه را تفکیک کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "خرید دارایی و خروج وجه را تفکیک کنید.",
+              "objective_id": "S02-C1-ST01-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L01-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L01-CARD04"
+            },
+            {
+              "id": "S02-C1-ST01-L01-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا رشد فروش برای ارزیابی نقد کافی نیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "دریافتنی و موجودی ممکن است سریع‌تر از نقد رشد کنند",
+                  "feedback": "درست: رشد می‌تواند سرمایهٔ در گردش مصرف کند."
+                },
+                {
+                  "id": "b",
+                  "text": "درآمد در صورت‌ها نیست",
+                  "feedback": "بازبینی: رشد می‌تواند سرمایهٔ در گردش مصرف کند."
+                },
+                {
+                  "id": "c",
+                  "text": "سود و نقد همیشه برابرند",
+                  "feedback": "بازبینی: رشد می‌تواند سرمایهٔ در گردش مصرف کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "رشد می‌تواند سرمایهٔ در گردش مصرف کند.",
+              "objective_id": "S02-C1-ST01-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L01-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L01-CARD05"
+            },
+            {
+              "id": "S02-C1-ST01-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "دارایی برابر بدهی به‌علاوهٔ حقوق مالکانه یعنی چه؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "منابع با ادعاهای تأمین‌کنندگان و مالکان تراز می‌شوند",
+                  "feedback": "درست: این معادله ساختار تأمین منابع را نشان می‌دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "دارایی همان درآمد است",
+                  "feedback": "بازبینی: این معادله ساختار تأمین منابع را نشان می‌دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "بدهی همان هزینهٔ نقدی است",
+                  "feedback": "بازبینی: این معادله ساختار تأمین منابع را نشان می‌دهد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "این معادله ساختار تأمین منابع را نشان می‌دهد.",
+              "objective_id": "S02-C1-ST01-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L01-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "یک معامله را از فروش تا نقد و هر سه صورت ردیابی کن.",
+            "unit": "برگهٔ تحلیل؛ دادهٔ شرکت سپهر فرضی است.",
+            "answer": "پاسخ باید فرمول، دوره، اتصال صورت‌ها، شاهد و توضیح جایگزین را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ منطق و قابلیت بازبینی سنجیده می‌شود.",
+            "rubric": [
+              "درستی مفهوم/فرمول (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "زمینه و دوره (۰–۲)",
+              "کیفیت شاهد (۰–۲)",
+              "اقدام و محدودیت (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST01-L02",
+          "version": "1-draft",
+          "title": "کیفیت سود و جریان نقد",
+          "content_status": "draft",
+          "objective": "پایداری سود، اقلام تعهدی و جریان نقد عملیاتی را بررسی کند و هشدار را از اتهام جدا نگه دارد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST01-L02-CARD01",
+              "type": "explanation",
+              "title": "سود، موجودی نقد نیست",
+              "text": "سود سنجه‌ای حسابداری از عملکرد دوره است، نه پول در حساب. شرکت سودآور ممکن است وصول دیر، سرمایه‌گذاری سنگین یا بدهی سررسیدشده داشته باشد؛ مدیر کیفیت و پایداری را کنار مقدار سود می‌سنجد."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD02",
+              "type": "explanation",
+              "title": "سود خالص تا CFO",
+              "text": "جریان نقد عملیاتی غیرمستقیم با افزودن اقلام غیرنقدی و تعدیل تغییرات عملیاتی به سود می‌رسد. سود ۱۲ و CFO برابر ۵ پرسش می‌سازند، اما تقلب را ثابت نمی‌کنند؛ دریافتنی، زمان پرداخت یا رشد می‌تواند اختلاف را توضیح دهد."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD03",
+              "type": "explanation",
+              "title": "اقلام تعهدی",
+              "text": "اقلام تعهدی زمان ثبت درآمد و هزینه را از حرکت نقد جدا می‌کنند. افزایش دریافتنی ممکن است فروش واقعیِ وصول‌نشده باشد؛ موجودی بیشتر می‌تواند رشد برنامه‌ریزی‌شده یا کالای راکد باشد. روند چند دوره و سیاست ثبت را بررسی کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD04",
+              "type": "explanation",
+              "title": "تکرارشونده و یک‌باره",
+              "text": "سود عملیات تکرارشونده با سود فروش دارایی یا تسویهٔ موردی هم‌ارز نیست. تعدیلات «غیرتکراری» شرکت را جداگانه بسنجید؛ اگر هر سال تکرار می‌شوند، ممکن است بخشی از اقتصاد عادی کسب‌وکار باشند."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD05",
+              "type": "explanation",
+              "title": "سه نوع جریان نقد",
+              "text": "جریان عملیاتی از کار روزمره، سرمایه‌گذاری از خرید/فروش دارایی و تأمین مالی از بدهی و سرمایهٔ مالک می‌آید. برای سپهر، توسعهٔ نرم‌افزار ممکن است نقد سرمایه‌گذاری بخواهد و جذب سرمایه کسری رشد را پوشش دهد؛ دسته‌بندی علت تغییر نقد را روشن می‌کند."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD06",
+              "type": "explanation",
+              "title": "کیفیت سود",
+              "text": "سود باکیفیت معمولاً تکرارپذیر و مبتنی بر گزارش قابل‌اتکاست، ولی آینده را تضمین نمی‌کند. تمرکز مشتری، رقابت، هزینهٔ پشتیبانی و ریسک حقوقی بر پایداری اثر دارند. کیفیت گزارشگری و کیفیت اقتصاد واقعی دو پرسش جدا هستند."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD07",
+              "type": "explanation",
+              "title": "علامت، نه اتهام",
+              "text": "رشد سریع دریافتنی، تغییر رویهٔ درآمد، سودی که همیشه اندکی از هدف می‌گذرد یا اختلاف پایدار سود و نقد علامت بررسی‌اند. هرکدام توضیح مشروع نیز دارند؛ یادداشت، قرارداد، وصول بعد دوره و صنعت را ببینید و بدون مدرک قصد نسبت ندهید."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD08",
+              "type": "explanation",
+              "title": "جریان نقد آزاد",
+              "text": "CFO مثبت لزوماً وجه قابل‌توزیع نیست؛ سرمایه‌گذاری لازم، بهره و مالیات را هم بسنجید. «جریان نقد آزاد» فرمول واحدی در همهٔ تحلیل‌ها ندارد؛ مثلاً CFO منهای سرمایه‌گذاری ثابت را تعریف و محدودیت صنعت را ذکر کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L02-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Earnings quality کیفیت سود، accrual اقلام تعهدی، operating cash flow جریان نقد عملیاتی، nonrecurring قلم غیرتکراری و cash conversion تبدیل سود به نقد است. کیفیت فقط عدد بالا نیست؛ به واقع‌نمایی و توان تکرار عملکرد مربوط است."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST01-L02-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "اختلاف سود و CFO چه چیزی را ثابت می‌کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نیاز به فهم اقلام؛ نه تقلب و نه سلامت قطعی",
+                  "feedback": "درست: دریافتنی و زمان‌بندی می‌تواند اختلاف بسازد."
+                },
+                {
+                  "id": "b",
+                  "text": "قطعاً تقلب",
+                  "feedback": "بازبینی: دریافتنی و زمان‌بندی می‌تواند اختلاف بسازد."
+                },
+                {
+                  "id": "c",
+                  "text": "برابری سود و نقد",
+                  "feedback": "بازبینی: دریافتنی و زمان‌بندی می‌تواند اختلاف بسازد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "دریافتنی و زمان‌بندی می‌تواند اختلاف بسازد.",
+              "objective_id": "S02-C1-ST01-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L02-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L02-CARD02"
+            },
+            {
+              "id": "S02-C1-ST01-L02-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "سود فروش دارایی چگونه تحلیل شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "از سود عملیات تکرارشونده جدا شود",
+                  "feedback": "درست: اثر یک‌باره را از عملیات جدا کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "همیشه نشانهٔ تقلب است",
+                  "feedback": "بازبینی: اثر یک‌باره را از عملیات جدا کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "حتماً هر سال تکرار می‌شود",
+                  "feedback": "بازبینی: اثر یک‌باره را از عملیات جدا کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "اثر یک‌باره را از عملیات جدا کنید.",
+              "objective_id": "S02-C1-ST01-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L02-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L02-CARD03"
+            },
+            {
+              "id": "S02-C1-ST01-L02-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "CFO مثبت چه محدودیتی دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نیاز سرمایه‌گذاری و تعهد نقد را کامل نمی‌گوید",
+                  "feedback": "درست: سرمایه‌گذاری و بهره را هم بررسی کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "همیشه نقد آزاد است",
+                  "feedback": "بازبینی: سرمایه‌گذاری و بهره را هم بررسی کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "در همه صنایع معنای یکسان دارد",
+                  "feedback": "بازبینی: سرمایه‌گذاری و بهره را هم بررسی کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "سرمایه‌گذاری و بهره را هم بررسی کنید.",
+              "objective_id": "S02-C1-ST01-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L02-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L02-CARD04"
+            },
+            {
+              "id": "S02-C1-ST01-L02-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "دریافتنی سریع‌تر از فروش رشد کرده؛ این چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "علامت بررسی وصول و شرایط قرارداد",
+                  "feedback": "درست: علامت، پرسش می‌سازد نه حکم قطعی."
+                },
+                {
+                  "id": "b",
+                  "text": "اثبات فروش جعلی",
+                  "feedback": "بازبینی: علامت، پرسش می‌سازد نه حکم قطعی."
+                },
+                {
+                  "id": "c",
+                  "text": "اثبات رشد سودآور",
+                  "feedback": "بازبینی: علامت، پرسش می‌سازد نه حکم قطعی."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "علامت، پرسش می‌سازد نه حکم قطعی.",
+              "objective_id": "S02-C1-ST01-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L02-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L02-CARD05"
+            },
+            {
+              "id": "S02-C1-ST01-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "کیفیت گزارشگری با کیفیت اقتصادی چه تفاوتی دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وفاداری گزارش با پایداری اقتصاد سود فرق دارد",
+                  "feedback": "درست: گزارش دقیق ممکن است عملکرد بد را نشان دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "همیشه یکی‌اند",
+                  "feedback": "بازبینی: گزارش دقیق ممکن است عملکرد بد را نشان دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "هر دو فقط ماندهٔ نقدند",
+                  "feedback": "بازبینی: گزارش دقیق ممکن است عملکرد بد را نشان دهد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "گزارش دقیق ممکن است عملکرد بد را نشان دهد.",
+              "objective_id": "S02-C1-ST01-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L02-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "اختلاف سود و نقد را با جدول اقلام و دو توضیح ممکن تحلیل کن.",
+            "unit": "برگهٔ تحلیل؛ دادهٔ شرکت سپهر فرضی است.",
+            "answer": "پاسخ باید فرمول، دوره، اتصال صورت‌ها، شاهد و توضیح جایگزین را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ منطق و قابلیت بازبینی سنجیده می‌شود.",
+            "rubric": [
+              "درستی مفهوم/فرمول (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "زمینه و دوره (۰–۲)",
+              "کیفیت شاهد (۰–۲)",
+              "اقدام و محدودیت (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST01-L03",
+          "version": "1-draft",
+          "title": "نسبت‌ها و محدودیت مقایسه",
+          "content_status": "draft",
+          "objective": "نسبت‌های نقدینگی، سودآوری، اهرم و کارایی را محاسبه و با زمینه تفسیر کند.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST01-L03-CARD01",
+              "type": "explanation",
+              "title": "نسبت، خلاصهٔ پرسش است",
+              "text": "نسبت ارقام را قابل‌مقایسه می‌کند اما تشخیص نهایی نیست. نسبت جاری ۱٫۵ می‌تواند با موجودی راکد یا نقد قابل‌دسترس ساخته شود؛ نسبت را با صنعت، چرخهٔ فروش و هدف تحلیل پیوند دهید."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD02",
+              "type": "explanation",
+              "title": "نسبت جاری",
+              "text": "نسبت جاری = دارایی جاری ÷ بدهی جاری. اگر اولی ۱۵۰ و دومی ۱۰۰ باشد، حاصل ۱٫۵ است. این عدد سرعت وصول یا امکان فروش موجودی را نمی‌گوید؛ ترکیب نقد، دریافتنی، موجودی و سررسید بدهی را جدا ببینید."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD03",
+              "type": "explanation",
+              "title": "نسبت آنی",
+              "text": "نسبت آنی اقلام نقدشونده‌تر را نسبت به بدهی جاری می‌سنجد، اما تعریف اقلام میان تحلیل‌گران ممکن است فرق کند. فرمول و تاریخ را بنویسید؛ جریان نقد زمان‌دار می‌تواند از نسبت ثابت برای برنامهٔ پرداخت مفیدتر باشد."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD04",
+              "type": "explanation",
+              "title": "حاشیه و بازده",
+              "text": "حاشیهٔ سود = سود ÷ فروش؛ اگر سود ۱۰ و فروش ۱۰۰ باشد، حاشیه ۱۰٪ است. ROA و ROE سود را با دارایی و حقوق مالکانه می‌سنجند؛ سود منتخب و میانگین/ماندهٔ پایان دوره باید روشن باشد."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD05",
+              "type": "explanation",
+              "title": "گردش دریافتنی",
+              "text": "گردش دریافتنی تقریباً فروش اعتباری ÷ متوسط دریافتنی است؛ روزهای وصول = ۳۶۵ ÷ گردش. گردش ۵ یعنی حدود ۷۳ روز. فصل‌پذیری، فروش نقدی و مشتریان بزرگ محاسبه را تغییر می‌دهند؛ عدد تقریبی است."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD06",
+              "type": "explanation",
+              "title": "اهرم مالی",
+              "text": "بدهی به حقوق مالکانه یا دارایی ساختار تأمین مالی را نشان می‌دهد، ولی توان پرداخت را به‌تنهایی نمی‌سنجد. نرخ بهره، سررسید، وثیقه، شرط وام و پوشش بهره را با ثبات جریان نقد کنار هم بخوانید."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD07",
+              "type": "explanation",
+              "title": "مقایسهٔ هم‌سنخ",
+              "text": "استاندارد حسابداری، مدل درآمد، فصل مالی، اندازه و ترکیب محصول را کنترل کنید. مقایسهٔ نرم‌افزار اشتراکی با خرده‌فروشی خام می‌تواند گمراه‌کننده باشد. روند درون‌شرکتی هم با تغییر سیاست یا خرید شرکت می‌شکند."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD08",
+              "type": "explanation",
+              "title": "مخرج مسئله‌دار",
+              "text": "حقوق مالکانهٔ منفی یا کوچک ROE را بسیار بزرگ یا بی‌معنا می‌کند؛ سود منفی نیز برخی نسبت‌ها را بی‌ثبات می‌کند. نسبت افراطی را به اجزای صورت برگردانید و سنجهٔ مناسب تصمیم را انتخاب کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L03-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Liquidity نقدینگی، leverage اهرم، margin حاشیه، turnover گردش، denominator مخرج و common-size تحلیل درصدی هم‌مقیاس است. فرمول، دوره، تاریخ و منبع را ثبت کنید؛ تغییر تعریف می‌تواند نتیجه را عوض کند."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST01-L03-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "نسبت جاری ۱٫۵ چه چیزی را نمی‌گوید؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "کیفیت و زمان نقدشوندگی دارایی",
+                  "feedback": "درست: ترکیب و زمان نقدشدن را جدا بررسی کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "نسبت دارایی جاری به بدهی جاری",
+                  "feedback": "بازبینی: ترکیب و زمان نقدشدن را جدا بررسی کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "محاسبهٔ عدد",
+                  "feedback": "بازبینی: ترکیب و زمان نقدشدن را جدا بررسی کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ترکیب و زمان نقدشدن را جدا بررسی کنید.",
+              "objective_id": "S02-C1-ST01-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L03-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L03-CARD02"
+            },
+            {
+              "id": "S02-C1-ST01-L03-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "گردش دریافتنی ۵ است؛ وصول تقریبی چند روز؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "۷۳",
+                  "feedback": "درست: ۳۶۵ تقسیم بر ۵ حدود ۷۳ است."
+                },
+                {
+                  "id": "b",
+                  "text": "۵",
+                  "feedback": "بازبینی: ۳۶۵ تقسیم بر ۵ حدود ۷۳ است."
+                },
+                {
+                  "id": "c",
+                  "text": "۱۸۲۵",
+                  "feedback": "بازبینی: ۳۶۵ تقسیم بر ۵ حدود ۷۳ است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "۳۶۵ تقسیم بر ۵ حدود ۷۳ است.",
+              "objective_id": "S02-C1-ST01-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L03-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L03-CARD03"
+            },
+            {
+              "id": "S02-C1-ST01-L03-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ROE بسیار بالا و حقوق مالکانه کوچک است؛ ریسک چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مخرج کوچک نسبت را بی‌ثبات می‌کند",
+                  "feedback": "درست: نسبت را به اجزای صورت برگردانید."
+                },
+                {
+                  "id": "b",
+                  "text": "سود حتماً پایدار است",
+                  "feedback": "بازبینی: نسبت را به اجزای صورت برگردانید."
+                },
+                {
+                  "id": "c",
+                  "text": "اهرم بی‌اثر است",
+                  "feedback": "بازبینی: نسبت را به اجزای صورت برگردانید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "نسبت را به اجزای صورت برگردانید.",
+              "objective_id": "S02-C1-ST01-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L03-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L03-CARD04"
+            },
+            {
+              "id": "S02-C1-ST01-L03-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا دو شرکت باید هم‌سنخ مقایسه شوند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مدل و دوره و قواعد، معنای نسبت را تغییر می‌دهند",
+                  "feedback": "درست: زمینه و تعریف مقایسه را معتبر می‌کنند."
+                },
+                {
+                  "id": "b",
+                  "text": "نسبت همیشه استاندارد یکسان دارد",
+                  "feedback": "بازبینی: زمینه و تعریف مقایسه را معتبر می‌کنند."
+                },
+                {
+                  "id": "c",
+                  "text": "برند کافی است",
+                  "feedback": "بازبینی: زمینه و تعریف مقایسه را معتبر می‌کنند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "زمینه و تعریف مقایسه را معتبر می‌کنند.",
+              "objective_id": "S02-C1-ST01-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L03-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L03-CARD05"
+            },
+            {
+              "id": "S02-C1-ST01-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "نسبت بدهی بدون چه چیزی برای توان پرداخت ناقص است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جریان نقد، بهره و سررسید",
+                  "feedback": "درست: زمان و توان پرداخت تعهد را بسنجید."
+                },
+                {
+                  "id": "b",
+                  "text": "درآمد تبلیغاتی",
+                  "feedback": "بازبینی: زمان و توان پرداخت تعهد را بسنجید."
+                },
+                {
+                  "id": "c",
+                  "text": "تعداد مشتری",
+                  "feedback": "بازبینی: زمان و توان پرداخت تعهد را بسنجید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "زمان و توان پرداخت تعهد را بسنجید.",
+              "objective_id": "S02-C1-ST01-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L03-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "چهار نسبت را با فرمول و محدودیت مقایسه ارائه کن.",
+            "unit": "برگهٔ تحلیل؛ دادهٔ شرکت سپهر فرضی است.",
+            "answer": "پاسخ باید فرمول، دوره، اتصال صورت‌ها، شاهد و توضیح جایگزین را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ منطق و قابلیت بازبینی سنجیده می‌شود.",
+            "rubric": [
+              "درستی مفهوم/فرمول (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "زمینه و دوره (۰–۲)",
+              "کیفیت شاهد (۰–۲)",
+              "اقدام و محدودیت (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST01-L04",
+          "version": "1-draft",
+          "title": "نشانهٔ هشدار با شاهد",
+          "content_status": "draft",
+          "objective": "علامت مالی را به فرضیه، مدرک تکمیلی و اقدام مدیریتی تبدیل کند و از اتهام بی‌شاهد بپرهیزد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST01-L04-CARD01",
+              "type": "explanation",
+              "title": "هشدار یعنی کجا را ببینیم",
+              "text": "نشانهٔ هشدار نتیجه نیست؛ مسیر بررسی را مشخص می‌کند. افت نقد، رشد دریافتنی یا موجودی راکد فرضیه می‌سازد؛ ثبت کنید چه داده‌ای آن را تأیید یا رد می‌کند."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD02",
+              "type": "explanation",
+              "title": "فروش و دریافتنی",
+              "text": "اگر فروش ۲۰٪ رشد و دریافتنی ۵۰٪ رشد کرده، روزهای وصول شاید بالا رفته باشد. عمر مطالبات، مشتری عمده، شرایط قرارداد و وصول پس از دوره را بررسی کنید؛ فصل یا ترکیب سازمانی نیز توضیح جایگزین است."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD03",
+              "type": "explanation",
+              "title": "موجودی و زنجیرهٔ تأمین",
+              "text": "موجودی سریع‌تر از فروش رشد کرده؟ سن کالا، برگشت، تخفیف بعد دوره، برنامهٔ خرید و اختلال عرضه را بررسی کنید. موجودی می‌تواند پوشش کمبود آینده یا تقاضای ضعیف باشد؛ با دادهٔ عملیات و فروش تفسیر کنید."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD04",
+              "type": "explanation",
+              "title": "حاشیهٔ سود",
+              "text": "حاشیهٔ بالاتر ممکن است از بهره‌وری، ترکیب محصول، هزینهٔ سرمایه‌ای‌شده یا تغییر رویه آید. قیمت، تخفیف، برگشت، هزینهٔ خدمت و بخش مشتری را جدا کنید تا میانگین علت را پنهان نکند."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD05",
+              "type": "explanation",
+              "title": "نقد و بدهی",
+              "text": "سود همراه با افت نقد و افزایش بدهی کوتاه‌مدت می‌تواند هشدار نقدینگی باشد. سررسید، نرخ شناور، وثیقه، شروط وام، دسترسی اعتبار و سناریوی فروش ضعیف را بررسی کنید؛ سودآوری، نقد را تضمین نمی‌کند."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD06",
+              "type": "explanation",
+              "title": "از صورت تا سند",
+              "text": "از صورت اصلی به یادداشت، گزارش حسابرس/مدیریت، بخش‌ها و قرارداد بروید. به‌جای «چرا بد است؟» بپرسید کدام تغییر رویه یا مشتری روزهای وصول را زیاد کرده و چه مقدار پس از دوره وصول شده است."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD07",
+              "type": "explanation",
+              "title": "شاخص‌های مالی کسب‌وکار AI",
+              "text": "هزینهٔ رایانش، استفادهٔ واقعی، بازبینی انسانی، بازپرداخت، کیفیت خروجی و وابستگی فروشنده را از ادعای بازاریابی جدا کنید. ثبت‌نام یا مصرف توکن به‌تنهایی درآمد تکرارشونده یا ارزش مشتری نیست."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD08",
+              "type": "explanation",
+              "title": "ماتریس هشدار",
+              "text": "برای هر علامت ستون‌های داده، فرضیه، توضیح جایگزین، شاهد، شدت، مسئول و اقدام بسازید. چراغ قرمز بی‌مالک اضطراب تولید می‌کند؛ شدت را با اثر، احتمال و برگشت‌پذیری پیوند دهید."
+            },
+            {
+              "id": "S02-C1-ST01-L04-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Red flag نشانهٔ بررسی، subsequent event رویداد پس از دوره، aging schedule جدول سنی مطالبات، covenant شرط وام، anomaly انحراف و triangulation تطبیق چند منبع است. با سند و روند راستی‌آزمایی کنید و بی‌مدرک تقلب نسبت ندهید."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST01-L04-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "دریافتنی سریع‌تر از فروش رشد می‌کند؛ نتیجه چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فرضیهٔ بررسی وصول و قرارداد، نه حکم قطعی",
+                  "feedback": "درست: سن مطالبات و وصول را ببینید."
+                },
+                {
+                  "id": "b",
+                  "text": "اثبات تقلب",
+                  "feedback": "بازبینی: سن مطالبات و وصول را ببینید."
+                },
+                {
+                  "id": "c",
+                  "text": "اثبات رشد سودآور",
+                  "feedback": "بازبینی: سن مطالبات و وصول را ببینید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "سن مطالبات و وصول را ببینید.",
+              "objective_id": "S02-C1-ST01-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L04-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L04-CARD02"
+            },
+            {
+              "id": "S02-C1-ST01-L04-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "موجودی افزایشی چه دو توضیحی دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "پوشش اختلال یا ضعف تقاضا",
+                  "feedback": "درست: علت را با سن موجودی و فروش تفکیک کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط تقلب",
+                  "feedback": "بازبینی: علت را با سن موجودی و فروش تفکیک کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "همیشه رشد سالم",
+                  "feedback": "بازبینی: علت را با سن موجودی و فروش تفکیک کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "علت را با سن موجودی و فروش تفکیک کنید.",
+              "objective_id": "S02-C1-ST01-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L04-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L04-CARD03"
+            },
+            {
+              "id": "S02-C1-ST01-L04-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ثبت‌نام AI چه چیزی را به‌تنهایی ثابت نمی‌کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "استفادهٔ پایدار و اقتصاد واحد",
+                  "feedback": "درست: هزینهٔ خدمت و نگهداشت را بسنجید."
+                },
+                {
+                  "id": "b",
+                  "text": "تعداد ثبت‌نام",
+                  "feedback": "بازبینی: هزینهٔ خدمت و نگهداشت را بسنجید."
+                },
+                {
+                  "id": "c",
+                  "text": "وجود محصول",
+                  "feedback": "بازبینی: هزینهٔ خدمت و نگهداشت را بسنجید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "هزینهٔ خدمت و نگهداشت را بسنجید.",
+              "objective_id": "S02-C1-ST01-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L04-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L04-CARD04"
+            },
+            {
+              "id": "S02-C1-ST01-L04-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ماتریس هشدار چه می‌افزاید؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فرضیه، شاهد، توضیح جایگزین و مسئول",
+                  "feedback": "درست: علامت باید به بررسی و اقدام وصل شود."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط رنگ",
+                  "feedback": "بازبینی: علامت باید به بررسی و اقدام وصل شود."
+                },
+                {
+                  "id": "c",
+                  "text": "نام مقصر",
+                  "feedback": "بازبینی: علامت باید به بررسی و اقدام وصل شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "علامت باید به بررسی و اقدام وصل شود.",
+              "objective_id": "S02-C1-ST01-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L04-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L04-CARD05"
+            },
+            {
+              "id": "S02-C1-ST01-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "توضیح مدیریت را چگونه بررسی کنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "با یادداشت و دادهٔ بعد دوره و روند تطبیق دهیم",
+                  "feedback": "درست: تطبیق چندمنبعی هم‌زمانی و بدگمانی را کم می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "بی‌چون‌وچرا بپذیریم",
+                  "feedback": "بازبینی: تطبیق چندمنبعی هم‌زمانی و بدگمانی را کم می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "حتماً رد کنیم",
+                  "feedback": "بازبینی: تطبیق چندمنبعی هم‌زمانی و بدگمانی را کم می‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "تطبیق چندمنبعی هم‌زمانی و بدگمانی را کم می‌کند.",
+              "objective_id": "S02-C1-ST01-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST01-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST01-L04-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "برای سه هشدار، فرضیه، شاهد و اقدام مدیریتی بنویس.",
+            "unit": "برگهٔ تحلیل؛ دادهٔ شرکت سپهر فرضی است.",
+            "answer": "پاسخ باید فرمول، دوره، اتصال صورت‌ها، شاهد و توضیح جایگزین را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ منطق و قابلیت بازبینی سنجیده می‌شود.",
+            "rubric": [
+              "درستی مفهوم/فرمول (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "زمینه و دوره (۰–۲)",
+              "کیفیت شاهد (۰–۲)",
+              "اقدام و محدودیت (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        }
+      ],
+      "checkpoint": {
+        "id": "S02-C1-ST01-CHECK",
+        "node_type": "stage_review",
+        "item_count": 6,
+        "coverage": "integrated statements, accruals, earnings quality, ratios and warning signs",
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "id": "S02-C1-ST01-CHECK-Q01",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "ترازنامه چه زمانی را نشان می‌دهد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "یک تاریخ",
+                "feedback": "درست: ترازنامه عکس یک تاریخ است."
+              },
+              {
+                "id": "b",
+                "text": "دورهٔ فروش",
+                "feedback": "بازبینی: ترازنامه عکس یک تاریخ است."
+              },
+              {
+                "id": "c",
+                "text": "فقط نقد",
+                "feedback": "بازبینی: ترازنامه عکس یک تاریخ است."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "ترازنامه عکس یک تاریخ است.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q01-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L01-CARD02"
+          },
+          {
+            "id": "S02-C1-ST01-CHECK-Q02",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "اختلاف سود و نقد چه می‌طلبد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "بررسی اقلام تعهدی و سرمایهٔ در گردش",
+                "feedback": "درست: اختلاف باید توضیح داده شود."
+              },
+              {
+                "id": "b",
+                "text": "اتهام قطعی",
+                "feedback": "بازبینی: اختلاف باید توضیح داده شود."
+              },
+              {
+                "id": "c",
+                "text": "نادیده‌گرفتن صورت نقد",
+                "feedback": "بازبینی: اختلاف باید توضیح داده شود."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "اختلاف باید توضیح داده شود.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q02-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L02-CARD03"
+          },
+          {
+            "id": "S02-C1-ST01-CHECK-Q03",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "افزایش دریافتنی چیست؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "نشانهٔ بررسی وصول و قرارداد",
+                "feedback": "درست: نشانه حکم قطعی نیست."
+              },
+              {
+                "id": "b",
+                "text": "اثبات تقلب",
+                "feedback": "بازبینی: نشانه حکم قطعی نیست."
+              },
+              {
+                "id": "c",
+                "text": "همیشه رشد سالم",
+                "feedback": "بازبینی: نشانه حکم قطعی نیست."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "نشانه حکم قطعی نیست.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q03-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L03-CARD04"
+          },
+          {
+            "id": "S02-C1-ST01-CHECK-Q04",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "نسبت جاری چه چیزی را پنهان می‌کند؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "کیفیت و زمان نقدشوندگی",
+                "feedback": "درست: ترکیب دارایی مهم است."
+              },
+              {
+                "id": "b",
+                "text": "فرمول نسبت",
+                "feedback": "بازبینی: ترکیب دارایی مهم است."
+              },
+              {
+                "id": "c",
+                "text": "ماندهٔ دارایی جاری",
+                "feedback": "بازبینی: ترکیب دارایی مهم است."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "ترکیب دارایی مهم است.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q04-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L04-CARD05"
+          },
+          {
+            "id": "S02-C1-ST01-CHECK-Q05",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "اگر گردش دریافتنی ۵ باشد، روزهای وصول؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "حدود ۷۳",
+                "feedback": "درست: ۳۶۵ تقسیم بر ۵ تقریباً ۷۳ است."
+              },
+              {
+                "id": "b",
+                "text": "۵",
+                "feedback": "بازبینی: ۳۶۵ تقسیم بر ۵ تقریباً ۷۳ است."
+              },
+              {
+                "id": "c",
+                "text": "۱۸۲۵",
+                "feedback": "بازبینی: ۳۶۵ تقسیم بر ۵ تقریباً ۷۳ است."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "۳۶۵ تقسیم بر ۵ تقریباً ۷۳ است.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q05-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L04-CARD06"
+          },
+          {
+            "id": "S02-C1-ST01-CHECK-Q06",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "هشدار مالی چگونه گزارش شود؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "فرضیه و شاهد لازم با توضیح جایگزین",
+                "feedback": "درست: هشدار مسیر بررسی می‌سازد."
+              },
+              {
+                "id": "b",
+                "text": "اتهام از یک عدد",
+                "feedback": "بازبینی: هشدار مسیر بررسی می‌سازد."
+              },
+              {
+                "id": "c",
+                "text": "رنگ بدون مالک",
+                "feedback": "بازبینی: هشدار مسیر بررسی می‌سازد."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "هشدار مسیر بررسی می‌سازد.",
+            "objective_id": "S02-C1-ST01-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST01-CHECK-Q06-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST01-L04-CARD07"
+          }
+        ]
+      },
+      "tool_plan": [
+        {
+          "id": "three-statements-map",
+          "title": "نقشهٔ اتصال سه صورت",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "sec-financial-statements",
+            "ifrs-ias7"
+          ]
+        },
+        {
+          "id": "earnings-quality-check",
+          "title": "چک‌لیست کیفیت سود و تبدیل به نقد",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-quality-reports-2026"
+          ]
+        },
+        {
+          "id": "ratio-workbench",
+          "title": "کاربرگ نسبت‌ها و تعریف مقایسه",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-fsa-intro-2026",
+            "sec-financial-statements"
+          ]
+        },
+        {
+          "id": "financial-warning-matrix",
+          "title": "ماتریس هشدار، فرضیه و شاهد",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-quality-reports-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S02-C1-ST02",
+      "title": "ساخت مدل مالی",
+      "order": 2,
+      "color_token": "orange",
+      "legacy_research_topic_ids": [
+        "S02-M1"
+      ],
+      "level": "specialist",
+      "source_refs": [
+        "B04",
+        "T10",
+        "R24",
+        "R02"
+      ],
+      "source_alignment": "CFA Institute 2026 forecasting curriculum informs driver-based statements, working capital and scenario forecasts. ICAEW 2024 spreadsheet principles inform transparent model design and review. IFRS IAS 7 provides the cash-flow frame. All company figures are fictional.",
+      "lessons": [
+        {
+          "id": "S02-C1-ST02-L01",
+          "version": "1-draft",
+          "title": "محرک فروش و هزینه",
+          "content_status": "draft",
+          "objective": "محرک‌های عملیاتی درآمد و هزینه را تعریف و سهم تغییر حجم، قیمت، ترکیب و بهره‌وری را جدا کند.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST02-L01-CARD01",
+              "type": "explanation",
+              "title": "از عدد به محرک",
+              "text": "پیش‌بینی فروش با کپی‌کردن رشد سال قبل ساخته نمی‌شود؛ ابتدا می‌پرسیم چه رفتار عملیاتی درآمد می‌سازد. برای سپهر می‌توان تعداد مشتریان فعال، نرخ تبدیل، تمدید و متوسط درآمد هر مشتری را جدا دید. هر محرک باید با مدل کسب‌وکار و دادهٔ قابل مشاهده پیوند داشته باشد."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD02",
+              "type": "explanation",
+              "title": "قیمت، حجم، ترکیب",
+              "text": "درآمد = قیمت × حجم؛ اما در چند محصول، ترکیب فروش هم مهم است. رشد ۱۰٪ ممکن است از تعداد مشتری، افزایش قیمت یا فروش محصول گران‌تر بیاید و هرکدام پیامد متفاوت دارد. عوامل را در حدی جدا کنید که تصمیم را بهتر کند، نه آن‌قدر که مدل پر از ردیف‌های بی‌استفاده شود."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD03",
+              "type": "explanation",
+              "title": "پل تغییر درآمد",
+              "text": "برای توضیح تغییر فروش، ابتدا حجم، قیمت و ترکیب را با یک ترتیب ثابت تجزیه کنید. اگر اثرات متقابل وجود دارد، سهم هر جزء به ترتیب تجزیه وابسته می‌شود؛ روش تخصیص را بگویید و مانده را reconciliation بنامید. پل درآمد روایت گذشته و فرض آینده را از هم جدا می‌کند."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD04",
+              "type": "explanation",
+              "title": "هزینهٔ متغیر و ثابت",
+              "text": "هزینهٔ متغیر با حجم حرکت می‌کند، مانند هزینهٔ پردازش ابری به‌ازای استفاده؛ هزینهٔ ثابت در دامنه و دورهٔ مشخص کمتر تغییر می‌کند، مانند اجاره. در بلندمدت بسیاری از هزینه‌های «ثابت» تغییرپذیر می‌شوند. رفتار هزینه را بر اساس بازهٔ ظرفیت تعریف کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD05",
+              "type": "explanation",
+              "title": "هزینهٔ واحد و حاشیه",
+              "text": "حاشیهٔ مشارکت هر واحد = قیمت فروش − هزینهٔ متغیر هر واحد. اگر اشتراک ماهانه ۱۰۰ و هزینهٔ متغیر خدمت ۳۰ باشد، حاشیهٔ مشارکت ۷۰ است؛ این هنوز پس از هزینهٔ ثابت، بازاریابی و مالیات سود خالص نیست. مشخص کنید هزینهٔ پشتیبانی یا تخفیف در کدام جزء است."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD06",
+              "type": "explanation",
+              "title": "بهای تمام‌شدهٔ جذب",
+              "text": "CAC تقریباً هزینهٔ فروش و بازاریابی منتسب به جذب ÷ مشتریان جدید همان گروه است. اگر دورهٔ اندازه‌گیری و کانال‌ها هماهنگ نباشند، CAC گمراه می‌شود. بازگشت CAC را با حاشیهٔ سود ناخالص و ماندگاری بسنجید، نه با درآمد اسمی مشتری."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD07",
+              "type": "explanation",
+              "title": "هزینهٔ ظرفیت",
+              "text": "وقتی استفاده از ظرفیت بالا می‌رود، هزینهٔ پله‌ای می‌تواند ناگهان ظاهر شود: سرور اضافی، شیفت یا مدیر تازه. برون‌یابی خطی سال گذشته این جهش را نمی‌بیند. ظرفیت مازاد، آستانهٔ خرید و گزینهٔ برون‌سپاری را به مدل وارد کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD08",
+              "type": "explanation",
+              "title": "محرک و علت",
+              "text": "همبستگی فروش با تعداد کارکنان فروش، به‌تنهایی ثابت نمی‌کند استخدام فروشنده علت رشد بوده؛ بازار یا محصول هم ممکن است تغییر کرده باشد. محرک باید منطقی، اندازه‌پذیر و در اختیار نسبی تصمیم باشد. فرض‌های کلیدی را با دادهٔ واقعی و آزمایش محدود اصلاح کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L01-CARD09",
+              "type": "explanation",
+              "title": "AI و اقتصاد واحد",
+              "text": "برای قابلیت AI، قیمت بسته، مشتری فعال، هزینهٔ استنتاج، بازبینی انسانی، پشتیبانی و مصرف رایانش را با هم ببینید. هزینهٔ هر درخواست ممکن است با مدل، طول متن یا تراکم تقاضا تغییر کند. هزینهٔ واحد و نرخ خطا را در چند سطح استفاده مدل کنید؛ وعدهٔ بهره‌وری جای اندازه‌گیری نیست."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST02-L01-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "درآمد چندمحصولی به چه چیزی حساس است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "قیمت، حجم و ترکیب فروش",
+                  "feedback": "درست: ترکیب ممکن است میانگین درآمد و حاشیه را عوض کند."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط تعداد کارمندان",
+                  "feedback": "بازبینی: ترکیب ممکن است میانگین درآمد و حاشیه را عوض کند."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط سود خالص",
+                  "feedback": "بازبینی: ترکیب ممکن است میانگین درآمد و حاشیه را عوض کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ترکیب ممکن است میانگین درآمد و حاشیه را عوض کند.",
+              "objective_id": "S02-C1-ST02-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L01-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L01-CARD02"
+            },
+            {
+              "id": "S02-C1-ST02-L01-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "حاشیهٔ مشارکت ۷۰ یعنی چه؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "پس از هزینهٔ متغیر، پیش از هزینه‌های ثابت و دیگر هزینه‌ها",
+                  "feedback": "درست: هزینه‌های ثابت و دیگر اقلام هنوز کسر نشده‌اند."
+                },
+                {
+                  "id": "b",
+                  "text": "سود خالص قطعی",
+                  "feedback": "بازبینی: هزینه‌های ثابت و دیگر اقلام هنوز کسر نشده‌اند."
+                },
+                {
+                  "id": "c",
+                  "text": "وجه نقد دریافتی",
+                  "feedback": "بازبینی: هزینه‌های ثابت و دیگر اقلام هنوز کسر نشده‌اند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "هزینه‌های ثابت و دیگر اقلام هنوز کسر نشده‌اند.",
+              "objective_id": "S02-C1-ST02-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L01-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L01-CARD03"
+            },
+            {
+              "id": "S02-C1-ST02-L01-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا CAC را با درآمد ساده مقایسه نکنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "حاشیه، دوره، کانال و ماندگاری مهم‌اند",
+                  "feedback": "درست: بازگشت جذب باید حاشیه و زمان وصول را لحاظ کند."
+                },
+                {
+                  "id": "b",
+                  "text": "CAC همیشه برابر سود است",
+                  "feedback": "بازبینی: بازگشت جذب باید حاشیه و زمان وصول را لحاظ کند."
+                },
+                {
+                  "id": "c",
+                  "text": "درآمد مشتری کافی است",
+                  "feedback": "بازبینی: بازگشت جذب باید حاشیه و زمان وصول را لحاظ کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "بازگشت جذب باید حاشیه و زمان وصول را لحاظ کند.",
+              "objective_id": "S02-C1-ST02-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L01-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L01-CARD04"
+            },
+            {
+              "id": "S02-C1-ST02-L01-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "هزینهٔ ثابت در چه معنایی ثابت است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "در دامنه و دورهٔ تعریف‌شده",
+                  "feedback": "درست: هزینه می‌تواند در آستانهٔ ظرفیت پله‌ای شود."
+                },
+                {
+                  "id": "b",
+                  "text": "برای همیشه",
+                  "feedback": "بازبینی: هزینه می‌تواند در آستانهٔ ظرفیت پله‌ای شود."
+                },
+                {
+                  "id": "c",
+                  "text": "در همهٔ سطوح ظرفیت",
+                  "feedback": "بازبینی: هزینه می‌تواند در آستانهٔ ظرفیت پله‌ای شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "هزینه می‌تواند در آستانهٔ ظرفیت پله‌ای شود.",
+              "objective_id": "S02-C1-ST02-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L01-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L01-CARD05"
+            },
+            {
+              "id": "S02-C1-ST02-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل AI چه محرک هزینه‌ای دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "میزان استفاده و هزینهٔ رایانش/بازبینی",
+                  "feedback": "درست: اقتصاد واحد AI به مصرف واقعی و پشتیبانی وابسته است."
+                },
+                {
+                  "id": "b",
+                  "text": "تعداد تبلیغات به‌تنهایی",
+                  "feedback": "بازبینی: اقتصاد واحد AI به مصرف واقعی و پشتیبانی وابسته است."
+                },
+                {
+                  "id": "c",
+                  "text": "عنوان محصول",
+                  "feedback": "بازبینی: اقتصاد واحد AI به مصرف واقعی و پشتیبانی وابسته است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "اقتصاد واحد AI به مصرف واقعی و پشتیبانی وابسته است.",
+              "objective_id": "S02-C1-ST02-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L01-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "طبقه‌بندی و گزارش جریان‌های نقد و یادداشت‌های مرتبط؛ دسترسی کامل تابع ناشر استاندارد است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "مدل محرک‌های درآمد و هزینهٔ سپهر را با فرمول، واحد، منبع داده و سه نقطهٔ سربه‌سر بساز.",
+            "unit": "برگهٔ مدل و کنترل؛ مثال‌ها فرضی‌اند.",
+            "answer": "پاسخ باید ورودی، واحد، فرمول، دوره، منبع و کنترل مستقل را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ بازتولیدپذیری و منطق اقتصادی سنجیده شود.",
+            "rubric": [
+              "درستی فرمول و واحد (۰–۲)",
+              "شفافیت فرض و منبع (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "کنترل خطا و سناریو (۰–۲)",
+              "قابلیت توضیح برای تصمیم‌گیر (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST02-L02",
+          "version": "1-draft",
+          "title": "پیش‌بینی صورت‌ها با فرض صریح",
+          "content_status": "draft",
+          "objective": "یک پیش‌بینی سادهٔ صورت‌های مالی را با محرک و فرض شفاف بسازد و میان تاریخچه، پیش‌بینی و هدف تمایز بگذارد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST02-L02-CARD01",
+              "type": "explanation",
+              "title": "هدف پیش‌بینی",
+              "text": "پیش‌بینی یعنی انتظار مشروط بر اطلاعات و فرض‌های امروز؛ هدف یا آرزو نیست. مدل مدیریتی باید سؤال مشخصی را پاسخ دهد: آیا نقد برای توسعه کافی است؟ اگر فروش کمتر شود چه زمانی به تأمین مالی نیاز داریم؟ دامنه و افق باید با تصمیم تناسب داشته باشد."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD02",
+              "type": "explanation",
+              "title": "تاریخچه و مبنا",
+              "text": "دادهٔ تاریخی را جمع کنید، اما پیش از امتداد آن رویداد یک‌باره، تغییر سیاست، خرید شرکت، فصل‌پذیری و تغییر مدل کسب‌وکار را شناسایی کنید. «سال گذشته × رشد ثابت» یک baseline ساده است نه مدل علّی. هر تعدیل را با دلیل و مرجع ثبت کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD03",
+              "type": "explanation",
+              "title": "محرک‌های صورت سودوزیان",
+              "text": "درآمد را از قیمت، مشتری، حجم یا قرارداد بسازید؛ هزینهٔ متغیر را به محرک مصرف و هزینهٔ ثابت را به ظرفیت پیوند دهید. نرخ‌ها و دوره‌ها را یکسان کنید: درآمد ماهانهٔ تکرارشونده را مستقیم با هزینهٔ سالانه جمع نکنید. در صورت نبود داده، دامنهٔ برآورد را نشان دهید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD04",
+              "type": "explanation",
+              "title": "پیش‌بینی ترازنامه",
+              "text": "دریافتنی را از روزهای وصول یا درصد فروش، موجودی را از گردش/روزهای موجودی و پرداختنی را از روزهای پرداخت برآورد کنید. سرمایه‌گذاری، استهلاک، وام و سود انباشته را نیز به معادلهٔ ترازنامه وصل کنید. اگر تراز نمی‌شود، خطای اتصال یا فرض حذف‌شده را پیدا کنید؛ plug را بدون توضیح پنهان نکنید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD05",
+              "type": "explanation",
+              "title": "جریان نقد و نیاز مالی",
+              "text": "صورت جریان نقد با سود برابر نیست: تغییر سرمایهٔ در گردش و سرمایه‌گذاری وجه می‌خواهد و تأمین مالی شکاف را پوشش می‌دهد. مدل باید نشان دهد کمبود نقد چه زمانی و چه مقدار رخ می‌دهد، نه فقط اینکه سود سالانه مثبت است. ماندهٔ نقد پایان دوره را با افتتاحیه و سه جریان reconcile کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD06",
+              "type": "explanation",
+              "title": "افق و تناوب",
+              "text": "افق کوتاه‌تر می‌تواند ماهانه باشد؛ دورتر ممکن است فصلی یا سالانه معقول‌تر باشد. جزئیات بیش‌ازحد در افق دور ظاهر دقت می‌سازد. افق را با فصل فروش، زمان خرید ظرفیت، شروط وام و مهلت تصمیم هماهنگ کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD07",
+              "type": "explanation",
+              "title": "فرض‌نامه",
+              "text": "برای هر فرض مقدار، واحد، دوره، مبنا، منبع، مالک، دامنهٔ عدم‌قطعیت و تاریخ به‌روزرسانی ثبت کنید. فرض مانند «فروش ۱۵٪ رشد می‌کند» بدون دلیل، پیش‌بینی نیست بلکه عدد ورودی است. تغییر فرض را با نسخهٔ مدل و توضیح اثر نگه دارید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD08",
+              "type": "explanation",
+              "title": "پیش‌بینی در برابر بودجه",
+              "text": "بودجه اغلب تعهد یا تخصیص منابع است؛ پیش‌بینی بهترین انتظار جاری؛ هدف سطح آرمانی عملکرد. مخلوط‌کردن آن‌ها می‌تواند پیش‌بینی را سیاسی کند، چون مدیران از اعلام خبر بد می‌ترسند. سه مقدار را جدا نگه دارید و شکافشان را برای تصمیم توضیح دهید."
+            },
+            {
+              "id": "S02-C1-ST02-L02-CARD09",
+              "type": "explanation",
+              "title": "AI در پیش‌بینی",
+              "text": "AI می‌تواند دادهٔ تاریخی را پاک‌سازی، الگوی فصلی را پیشنهاد یا سناریو بسازد؛ اما تغییر بازار، شکست ساختاری و دادهٔ ناقص را به‌سادگی تشخیص نمی‌دهد. مدل را با دورهٔ خارج از نمونه و baseline ساده مقایسه کنید؛ نسخهٔ داده، فرض و انسان بازبین را ثبت کنید."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST02-L02-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "پیش‌بینی چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "انتظار مشروط به داده و فرض امروز",
+                  "feedback": "درست: پیش‌بینی با فرض‌ها تغییر می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "هدف آرمانی قطعی",
+                  "feedback": "بازبینی: پیش‌بینی با فرض‌ها تغییر می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "تضمین عملکرد",
+                  "feedback": "بازبینی: پیش‌بینی با فرض‌ها تغییر می‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "پیش‌بینی با فرض‌ها تغییر می‌کند.",
+              "objective_id": "S02-C1-ST02-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L02-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L02-CARD02"
+            },
+            {
+              "id": "S02-C1-ST02-L02-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل ترازنامه تراز نمی‌شود؛ قدم مناسب چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "یافتن خطای اتصال یا فرض حذف‌شده",
+                  "feedback": "درست: معادلهٔ ترازنامه کنترل پیوند مدل است."
+                },
+                {
+                  "id": "b",
+                  "text": "قرار دادن عدد plug بی‌توضیح",
+                  "feedback": "بازبینی: معادلهٔ ترازنامه کنترل پیوند مدل است."
+                },
+                {
+                  "id": "c",
+                  "text": "نادیده‌گرفتن تراز",
+                  "feedback": "بازبینی: معادلهٔ ترازنامه کنترل پیوند مدل است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "معادلهٔ ترازنامه کنترل پیوند مدل است.",
+              "objective_id": "S02-C1-ST02-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L02-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L02-CARD03"
+            },
+            {
+              "id": "S02-C1-ST02-L02-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "بودجه، هدف و پیش‌بینی چه تفاوتی دارند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تخصیص/تعهد، آرمان، و انتظار جاری",
+                  "feedback": "درست: تفکیک مانع سیاسی‌شدن خبر و برنامه می‌شود."
+                },
+                {
+                  "id": "b",
+                  "text": "سه نام برای یک عدد",
+                  "feedback": "بازبینی: تفکیک مانع سیاسی‌شدن خبر و برنامه می‌شود."
+                },
+                {
+                  "id": "c",
+                  "text": "هدف همیشه پیش‌بینی است",
+                  "feedback": "بازبینی: تفکیک مانع سیاسی‌شدن خبر و برنامه می‌شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "تفکیک مانع سیاسی‌شدن خبر و برنامه می‌شود.",
+              "objective_id": "S02-C1-ST02-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L02-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L02-CARD04"
+            },
+            {
+              "id": "S02-C1-ST02-L02-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "برای افق دور چه خطر مدلسازی وجود دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جزئیات زیاد ظاهر دقت می‌سازند",
+                  "feedback": "درست: سطح جزئیات را با کیفیت اطلاعات هماهنگ کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "داده حتماً کامل است",
+                  "feedback": "بازبینی: سطح جزئیات را با کیفیت اطلاعات هماهنگ کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "سناریو لازم نیست",
+                  "feedback": "بازبینی: سطح جزئیات را با کیفیت اطلاعات هماهنگ کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "سطح جزئیات را با کیفیت اطلاعات هماهنگ کنید.",
+              "objective_id": "S02-C1-ST02-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L02-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L02-CARD05"
+            },
+            {
+              "id": "S02-C1-ST02-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل پیش‌بینی AI را چگونه ارزیابی کنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مقایسه با baseline و آزمون دادهٔ خارج نمونه",
+                  "feedback": "درست: مقایسه و پایش خطا، تعمیم را می‌سنجد."
+                },
+                {
+                  "id": "b",
+                  "text": "پذیرش بی‌وارسی",
+                  "feedback": "بازبینی: مقایسه و پایش خطا، تعمیم را می‌سنجد."
+                },
+                {
+                  "id": "c",
+                  "text": "حذف ثبت نسخه",
+                  "feedback": "بازبینی: مقایسه و پایش خطا، تعمیم را می‌سنجد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "مقایسه و پایش خطا، تعمیم را می‌سنجد.",
+              "objective_id": "S02-C1-ST02-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L02-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "طبقه‌بندی و گزارش جریان‌های نقد و یادداشت‌های مرتبط؛ دسترسی کامل تابع ناشر استاندارد است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "پیش‌بینی ۱۲ماههٔ سه صورت را با تاریخچه، فرض‌نامه و بودجه/هدف مجزا ارائه کن.",
+            "unit": "برگهٔ مدل و کنترل؛ مثال‌ها فرضی‌اند.",
+            "answer": "پاسخ باید ورودی، واحد، فرمول، دوره، منبع و کنترل مستقل را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ بازتولیدپذیری و منطق اقتصادی سنجیده شود.",
+            "rubric": [
+              "درستی فرمول و واحد (۰–۲)",
+              "شفافیت فرض و منبع (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "کنترل خطا و سناریو (۰–۲)",
+              "قابلیت توضیح برای تصمیم‌گیر (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST02-L03",
+          "version": "1-draft",
+          "title": "اتصال سرمایهٔ در گردش و نقد",
+          "content_status": "draft",
+          "objective": "چرخهٔ تبدیل نقد را برآورد و اثر تغییر دریافتنی، موجودی و پرداختنی را بر نیاز نقد توضیح دهد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST02-L03-CARD01",
+              "type": "explanation",
+              "title": "چرخهٔ نقدی",
+              "text": "چرخهٔ تبدیل نقد تقریباً روزهای موجودی + روزهای وصول − روزهای پرداخت است. این فاصله نشان می‌دهد پول چه مدت در عملیات قفل می‌ماند. فرمول تصویری ساده است؛ قراردادها و مدل اشتراکی یا بازارگاهی ممکن است نیاز به تعریف اختصاصی داشته باشند."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD02",
+              "type": "explanation",
+              "title": "روزهای موجودی",
+              "text": "روزهای موجودی = متوسط موجودی ÷ بهای فروش × تعداد روزهای دوره. اگر موجودی متوسط ۲۰ و بهای فروش سالانه ۱۰۰ باشد، حدود ۷۳ روز است. مخرج سالانه و متوسط‌گیری باید سازگار باشد؛ موجودی فصلی را با ماندهٔ آخر سال ساده‌سازی نکنید."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD03",
+              "type": "explanation",
+              "title": "روزهای وصول",
+              "text": "روزهای فروش دریافتنی (DSO) تقریباً متوسط دریافتنی ÷ فروش اعتباری × روزهای دوره است. در مثال فروش اعتباری ۳۶۵ و دریافتنی ۶۰، DSO حدود ۶۰ روز می‌شود. فقط فروش اعتباری را استفاده کنید و مشتریان عمده و فصل را جدا ببینید."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD04",
+              "type": "explanation",
+              "title": "روزهای پرداخت",
+              "text": "روزهای پرداختنی (DPO) تقریباً متوسط پرداختنی ÷ خرید اعتباری × روزهای دوره است. اگر خرید را به‌جای بهای فروش به‌کار می‌برید، دلیل و داده را روشن کنید. پرداخت دیرتر نقد را حفظ می‌کند اما ممکن است تخفیف، رابطهٔ تأمین‌کننده یا تداوم عرضه را آسیب بزند."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD05",
+              "type": "explanation",
+              "title": "سرمایه در گردش چیست؟",
+              "text": "سرمایهٔ در گردش عملیاتی معمولاً دریافتنی + موجودی − پرداختنی را خلاصه می‌کند، اما تعریف بسته به تصمیم فرق دارد. افزایشش اغلب مصرف نقد است؛ کاهش آن می‌تواند نقد آزاد کند، ولی فشار بر تأمین‌کننده یا کمبود موجودی هم ایجاد کند. به تغییر کیفیت عملیات نگاه کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD06",
+              "type": "explanation",
+              "title": "پل سود تا نقد",
+              "text": "شروع از سود خالص یا سود عملیاتی، افزودن استهلاک و تعدیل تغییر سرمایهٔ در گردش و سرمایه‌گذاری، به فهم نقد کمک می‌کند. اگر دریافتنی ۱۰ زیاد شود و باقی چیزها ثابت باشد، نقد عملیاتی ۱۰ کمتر می‌شود. منفی‌شدن این تغییر به‌تنهایی بد نیست اگر رشد سالم و وصول بعدی وجود داشته باشد."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD07",
+              "type": "explanation",
+              "title": "فصل و سنجهٔ روزانه",
+              "text": "ماندهٔ پایان ماه ممکن است فصل فروش را منحرف کند؛ از میانگین ماهانه/روزانه یا سنجهٔ متناسب استفاده کنید. «Window dressing» پیرامون تاریخ گزارش می‌تواند نسبت را موقت بهتر نشان دهد. دادهٔ ماهانه و سررسیدها را کنار گزارش سالانه ببینید."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD08",
+              "type": "explanation",
+              "title": "پیش‌بینی سناریویی نقد",
+              "text": "یک تأخیر ۱۵روزه در وصول را به حجم فروش و هزینهٔ حقوق وصل کنید تا نیاز تأمین مالی دیده شود. سناریوی پایه، فشار و اقدام را از هم نگه دارید؛ فروش کمتر ممکن است هم دریافتنی را کم کند هم موجودی را راکد بگذارد. برای هر آستانهٔ نقد مسئول و اقدام از پیش تعیین کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L03-CARD09",
+              "type": "explanation",
+              "title": "AI و جریان نقد",
+              "text": "پیش‌بینی وصول با یادگیری ماشین به تاریخ پرداخت، فصل، مشتری و کیفیت فاکتور حساس است. دادهٔ نامتوازن یا تغییر شرایط می‌تواند خطا بسازد؛ خطا را برحسب گروه مشتری و دوره بسنجید و مبنای مدل را نگه دارید. تصمیم اعتبار یا پیگیری خودکار باید مسیر اعتراض و بازبینی انسانی داشته باشد."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST02-L03-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرخهٔ تبدیل نقد چطور محاسبه می‌شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "DIO + DSO − DPO",
+                  "feedback": "درست: روز موجودی و وصول منهای زمان پرداخت."
+                },
+                {
+                  "id": "b",
+                  "text": "DIO − DSO + DPO",
+                  "feedback": "بازبینی: روز موجودی و وصول منهای زمان پرداخت."
+                },
+                {
+                  "id": "c",
+                  "text": "DSO + DPO",
+                  "feedback": "بازبینی: روز موجودی و وصول منهای زمان پرداخت."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "روز موجودی و وصول منهای زمان پرداخت.",
+              "objective_id": "S02-C1-ST02-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L03-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L03-CARD02"
+            },
+            {
+              "id": "S02-C1-ST02-L03-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "DSO با کدام داده ساخته می‌شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "متوسط دریافتنی و فروش اعتباری",
+                  "feedback": "درست: فروش اعتباری و متوسط دریافتنی هم‌دوره شوند."
+                },
+                {
+                  "id": "b",
+                  "text": "کل دارایی و سود خالص",
+                  "feedback": "بازبینی: فروش اعتباری و متوسط دریافتنی هم‌دوره شوند."
+                },
+                {
+                  "id": "c",
+                  "text": "فروش نقدی و بدهی بلندمدت",
+                  "feedback": "بازبینی: فروش اعتباری و متوسط دریافتنی هم‌دوره شوند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فروش اعتباری و متوسط دریافتنی هم‌دوره شوند.",
+              "objective_id": "S02-C1-ST02-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L03-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L03-CARD03"
+            },
+            {
+              "id": "S02-C1-ST02-L03-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "افزایش دریافتنی ۱۰، سایر موارد ثابت؛ اثر تقریبی؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "کاهش ۱۰ در CFO",
+                  "feedback": "درست: رشد دریافتنی به معنی وجه وصول‌نشده است."
+                },
+                {
+                  "id": "b",
+                  "text": "افزایش ۱۰ در CFO",
+                  "feedback": "بازبینی: رشد دریافتنی به معنی وجه وصول‌نشده است."
+                },
+                {
+                  "id": "c",
+                  "text": "بدون اثر نقد",
+                  "feedback": "بازبینی: رشد دریافتنی به معنی وجه وصول‌نشده است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "رشد دریافتنی به معنی وجه وصول‌نشده است.",
+              "objective_id": "S02-C1-ST02-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L03-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L03-CARD04"
+            },
+            {
+              "id": "S02-C1-ST02-L03-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "DPO طولانی‌تر همیشه خوب است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نه؛ می‌تواند رابطه و عرضه را آسیب بزند",
+                  "feedback": "درست: هزینهٔ فرصت و رابطهٔ تأمین‌کننده را بسنجید."
+                },
+                {
+                  "id": "b",
+                  "text": "بله، همیشه نقد رایگان است",
+                  "feedback": "بازبینی: هزینهٔ فرصت و رابطهٔ تأمین‌کننده را بسنجید."
+                },
+                {
+                  "id": "c",
+                  "text": "هیچ اثری ندارد",
+                  "feedback": "بازبینی: هزینهٔ فرصت و رابطهٔ تأمین‌کننده را بسنجید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "هزینهٔ فرصت و رابطهٔ تأمین‌کننده را بسنجید.",
+              "objective_id": "S02-C1-ST02-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L03-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L03-CARD05"
+            },
+            {
+              "id": "S02-C1-ST02-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا ماندهٔ آخر سال ممکن است گمراه کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فصل‌پذیری یا مدیریت موقت مانده",
+                  "feedback": "درست: میانگین دوره و دادهٔ ماهانه را بررسی کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "چون ترازنامه داده ندارد",
+                  "feedback": "بازبینی: میانگین دوره و دادهٔ ماهانه را بررسی کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "چون همهٔ شرکت‌ها فصلی‌اند",
+                  "feedback": "بازبینی: میانگین دوره و دادهٔ ماهانه را بررسی کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "میانگین دوره و دادهٔ ماهانه را بررسی کنید.",
+              "objective_id": "S02-C1-ST02-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L03-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "طبقه‌بندی و گزارش جریان‌های نقد و یادداشت‌های مرتبط؛ دسترسی کامل تابع ناشر استاندارد است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "چرخهٔ نقد را محاسبه و اثر ۱۵ روز تأخیر وصول و یک ماشهٔ تأمین مالی را توضیح بده.",
+            "unit": "برگهٔ مدل و کنترل؛ مثال‌ها فرضی‌اند.",
+            "answer": "پاسخ باید ورودی، واحد، فرمول، دوره، منبع و کنترل مستقل را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ بازتولیدپذیری و منطق اقتصادی سنجیده شود.",
+            "rubric": [
+              "درستی فرمول و واحد (۰–۲)",
+              "شفافیت فرض و منبع (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "کنترل خطا و سناریو (۰–۲)",
+              "قابلیت توضیح برای تصمیم‌گیر (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST02-L04",
+          "version": "1-draft",
+          "title": "کنترل خطا در صفحه‌گسترده",
+          "content_status": "draft",
+          "objective": "مدل صفحه‌گسترده‌ای قابل‌خواندن و قابل‌بازبینی طراحی کند و کنترل‌های خطا و ثبت تغییر را اعمال کند.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST02-L04-CARD01",
+              "type": "explanation",
+              "title": "مدل روشن از ورودی شروع می‌شود",
+              "text": "هدف مدل و کاربر آن را پیش از ساخت بنویسید. مدل تصمیمی با ریسک بالا به کنترل بیشتری از فایل شخصی نیاز دارد. شیت‌های ورودی، محاسبه و خروجی را جدا کنید تا دادهٔ خام، فرمول و نتیجه با هم قاطی نشوند."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD02",
+              "type": "explanation",
+              "title": "ثبات و نشانه‌گذاری",
+              "text": "واحد و دوره را روی هر ورودی مشخص کنید، فرمول‌ها را با الگوی ثابت بنویسید و سلول ورودی را از فرمول متمایز کنید. رنگ‌بندی بدون راهنما و قرارداد مشترک کافی نیست. توضیح منبع و تعریف کنار ورودی، بازبینی و به‌روزرسانی را آسان می‌کند."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD03",
+              "type": "explanation",
+              "title": "فرض و فرمول جدا",
+              "text": "نرخ رشد یا روزهای وصول را در سلول ورودی نگه دارید؛ در فرمول ثابت پنهان نکنید. اگر فرض تغییر کرد، باید اثرش در همهٔ ماه‌ها و صورت‌های وابسته منتشر شود. فرمول‌های hardcode شده در میان ردیف‌ها اغلب خطای خاموش می‌سازند."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD04",
+              "type": "explanation",
+              "title": "کنترل تراز و جمع",
+              "text": "برای مدل سه‌صورت، کنترل دارایی منهای بدهی و حقوق مالکانه باید صفر شود. جمع دوره‌ها، تطبیق نقد افتتاحیه و پایانی، تراز منابع/مصارف و آشتی تعداد مشتری نیز کنترل‌های مستقل‌اند. هشدار را قابل‌دیدن کنید و توضیح دهید اختلاف مجاز از کجا می‌آید."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD05",
+              "type": "explanation",
+              "title": "آزمون ورودی و مرزی",
+              "text": "ورودی صفر، منفی، بسیار بالا، ماه خالی و اضافه‌شدن ردیف را امتحان کنید. مدل رشد نباید با حجم صفر بر صفر تقسیم کند یا با یک ماه اضافه فرمولش قطع شود. تست مرزی پیش از استفادهٔ مدیریتی، رفتار فرمول را روشن می‌کند؛ فایل را روی نسخهٔ کپی‌شده بررسی کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD06",
+              "type": "explanation",
+              "title": "بازبینی مستقل",
+              "text": "شخص دیگری فرض‌های اصلی، فرمول‌های کلیدی، واحد، تاریخ و خروجی را مرور کند. بازبینی فقط پیدا کردن سلول قرمز نیست: مسیر داده و منطق اقتصادی را هم بررسی می‌کند. در مدل مهم، تغییرات را نسخه‌گذاری و تغییر‌دهنده/تاریخ/دلیل را ثبت کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD07",
+              "type": "explanation",
+              "title": "بصری‌سازی و دسترسی",
+              "text": "جدول خروجی باید سناریوها و واحدها را قابل‌خواندن نشان دهد و از نمودار سه‌بعدی بی‌دلیل دوری کند. سلول‌های ورودی قفل‌نشده و اطلاعات محرمانه می‌تواند خطر ایجاد کند. دسترسی، نسخهٔ فایل و محل مرجع را مشخص کنید تا چند نسخهٔ متعارض گردش نکند."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD08",
+              "type": "explanation",
+              "title": "AI برای کمک به مدل",
+              "text": "AI می‌تواند فرمول را توضیح دهد، مورد مرزی پیشنهاد کند یا کد/جدول را نقد کند؛ اما ممکن است فرمولی ظاهراً درست با واحد غلط بسازد. دادهٔ مالی محرمانه را به ابزار عمومی نفرستید؛ هر فرمول تولیدی را با محاسبهٔ دستی، کنترل تراز و نمونهٔ معلوم وارسی کنید."
+            },
+            {
+              "id": "S02-C1-ST02-L04-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Hardcode عدد ثابت در فرمول، input ورودی، formula فرمول، reconciliation آشتی‌دادن مانده‌ها، control check کنترل سازگاری، version control ثبت نسخه و sensitivity table جدول حساسیت است. مدل خوب خروجی قابل‌توضیح می‌دهد؛ نه فقط عددی که جمع می‌شود."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST02-L04-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا ورودی و فرمول جدا می‌شوند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "برای آشکارکردن فرض و جلوگیری از hardcode پنهان",
+                  "feedback": "درست: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "برای رنگی‌شدن فایل",
+                  "feedback": "بازبینی: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "چون هیچ فرمولی نباید وجود داشته باشد",
+                  "feedback": "بازبینی: فرض باید قابل‌تغییر و قابل‌ردیابی باشد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فرض باید قابل‌تغییر و قابل‌ردیابی باشد.",
+              "objective_id": "S02-C1-ST02-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L04-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L04-CARD02"
+            },
+            {
+              "id": "S02-C1-ST02-L04-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "کنترل تراز سه‌صورت چه می‌کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ناسازگاری اتصال حساب‌ها را آشکار می‌کند",
+                  "feedback": "درست: کنترل تراز ضروری است ولی کافی نیست."
+                },
+                {
+                  "id": "b",
+                  "text": "درستی همهٔ فرض‌ها را اثبات می‌کند",
+                  "feedback": "بازبینی: کنترل تراز ضروری است ولی کافی نیست."
+                },
+                {
+                  "id": "c",
+                  "text": "جای بازبینی انسانی را می‌گیرد",
+                  "feedback": "بازبینی: کنترل تراز ضروری است ولی کافی نیست."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "کنترل تراز ضروری است ولی کافی نیست.",
+              "objective_id": "S02-C1-ST02-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L04-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L04-CARD03"
+            },
+            {
+              "id": "S02-C1-ST02-L04-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا آزمون مقدار صفر و مرزی لازم است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "برای یافتن تقسیم بر صفر و فرمول‌های ناقص/شکسته",
+                  "feedback": "درست: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "برای پنهان‌کردن خطا",
+                  "feedback": "بازبینی: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "برای افزایش فرض‌ها",
+                  "feedback": "بازبینی: رفتار مدل در ورودی‌های خاص باید معلوم باشد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "رفتار مدل در ورودی‌های خاص باید معلوم باشد.",
+              "objective_id": "S02-C1-ST02-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L04-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L04-CARD04"
+            },
+            {
+              "id": "S02-C1-ST02-L04-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "AI فرمول پیشنهادی داده؛ قدم بعدی چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "بررسی واحد و محاسبهٔ دستی و کنترل مستقل",
+                  "feedback": "درست: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "اعتماد به ظاهر فرمول",
+                  "feedback": "بازبینی: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "فرستادن دادهٔ محرمانه",
+                  "feedback": "بازبینی: فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فرمول خوش‌ظاهر ممکن است منطق غلط داشته باشد.",
+              "objective_id": "S02-C1-ST02-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L04-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L04-CARD05"
+            },
+            {
+              "id": "S02-C1-ST02-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا نسخه‌گذاری مدل مفید است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ثبت تغییر، زمان و دلیل و امکان بازتولید",
+                  "feedback": "درست: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+                },
+                {
+                  "id": "b",
+                  "text": "حذف نیاز به منبع",
+                  "feedback": "بازبینی: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+                },
+                {
+                  "id": "c",
+                  "text": "یکسان‌کردن همهٔ فرض‌ها",
+                  "feedback": "بازبینی: ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ردیابی تغییر برای بازبینی و پاسخ‌گویی لازم است.",
+              "objective_id": "S02-C1-ST02-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST02-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST02-L04-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "طبقه‌بندی و گزارش جریان‌های نقد و یادداشت‌های مرتبط؛ دسترسی کامل تابع ناشر استاندارد است.",
+              "review_depth": "official_standard_page_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "یک مدل صفحه‌گسترده را با کنترل تراز، آزمون مرزی و یادداشت نسخه طراحی کن.",
+            "unit": "برگهٔ مدل و کنترل؛ مثال‌ها فرضی‌اند.",
+            "answer": "پاسخ باید ورودی، واحد، فرمول، دوره، منبع و کنترل مستقل را نشان دهد.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ بازتولیدپذیری و منطق اقتصادی سنجیده شود.",
+            "rubric": [
+              "درستی فرمول و واحد (۰–۲)",
+              "شفافیت فرض و منبع (۰–۲)",
+              "اتصال صورت‌ها (۰–۲)",
+              "کنترل خطا و سناریو (۰–۲)",
+              "قابلیت توضیح برای تصمیم‌گیر (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        }
+      ],
+      "checkpoint": {
+        "id": "S02-C1-ST02-CHECK",
+        "node_type": "stage_review",
+        "item_count": 6,
+        "coverage": "revenue/cost drivers, explicit assumptions, linked forecasts, working capital and spreadsheet control",
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "id": "S02-C1-ST02-CHECK-Q01",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "درآمد چندمحصولی چه محرک‌هایی دارد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "قیمت، حجم و ترکیب",
+                "feedback": "درست: ترکیب محصول نیز متوسط درآمد را تغییر می‌دهد."
+              },
+              {
+                "id": "b",
+                "text": "فقط کارکنان",
+                "feedback": "بازبینی: ترکیب محصول نیز متوسط درآمد را تغییر می‌دهد."
+              },
+              {
+                "id": "c",
+                "text": "فقط سود خالص",
+                "feedback": "بازبینی: ترکیب محصول نیز متوسط درآمد را تغییر می‌دهد."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "ترکیب محصول نیز متوسط درآمد را تغییر می‌دهد.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q01-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L01-CARD02"
+          },
+          {
+            "id": "S02-C1-ST02-CHECK-Q02",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "پیش‌بینی با هدف چه فرقی دارد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "انتظار مشروط با آرمان عملکرد یکی نیست",
+                "feedback": "درست: پیش‌بینی مشروط به فرض‌هاست."
+              },
+              {
+                "id": "b",
+                "text": "هیچ تفاوتی",
+                "feedback": "بازبینی: پیش‌بینی مشروط به فرض‌هاست."
+              },
+              {
+                "id": "c",
+                "text": "پیش‌بینی تضمین است",
+                "feedback": "بازبینی: پیش‌بینی مشروط به فرض‌هاست."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "پیش‌بینی مشروط به فرض‌هاست.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q02-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L02-CARD03"
+          },
+          {
+            "id": "S02-C1-ST02-CHECK-Q03",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "افزایش DSO معمولاً چه فشاری می‌سازد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "وجه دیرتر وصول می‌شود و نقد در دریافتنی می‌ماند",
+                "feedback": "درست: وصول دیرتر سرمایهٔ در گردش می‌گیرد."
+              },
+              {
+                "id": "b",
+                "text": "CFO قطعی بالا می‌رود",
+                "feedback": "بازبینی: وصول دیرتر سرمایهٔ در گردش می‌گیرد."
+              },
+              {
+                "id": "c",
+                "text": "بدهی خودبه‌خود کم می‌شود",
+                "feedback": "بازبینی: وصول دیرتر سرمایهٔ در گردش می‌گیرد."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "وصول دیرتر سرمایهٔ در گردش می‌گیرد.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q03-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L03-CARD04"
+          },
+          {
+            "id": "S02-C1-ST02-CHECK-Q04",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "چرا ورودی از فرمول جدا باشد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "فرض قابل‌ردیابی و تغییرپذیر می‌شود",
+                "feedback": "درست: جداکردن فرض از فرمول خطای پنهان را کم می‌کند."
+              },
+              {
+                "id": "b",
+                "text": "مدل دیگر محاسبه نمی‌کند",
+                "feedback": "بازبینی: جداکردن فرض از فرمول خطای پنهان را کم می‌کند."
+              },
+              {
+                "id": "c",
+                "text": "رنگ بهتر می‌شود",
+                "feedback": "بازبینی: جداکردن فرض از فرمول خطای پنهان را کم می‌کند."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "جداکردن فرض از فرمول خطای پنهان را کم می‌کند.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q04-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L04-CARD05"
+          },
+          {
+            "id": "S02-C1-ST02-CHECK-Q05",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "مدل تراز نمی‌شود؛ اقدام چیست؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "اتصال یا فرض جاافتاده را پیدا کنیم",
+                "feedback": "درست: معادلهٔ تراز کنترل مهم مدل است."
+              },
+              {
+                "id": "b",
+                "text": "plug پنهان بگذاریم",
+                "feedback": "بازبینی: معادلهٔ تراز کنترل مهم مدل است."
+              },
+              {
+                "id": "c",
+                "text": "تراز را حذف کنیم",
+                "feedback": "بازبینی: معادلهٔ تراز کنترل مهم مدل است."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "معادلهٔ تراز کنترل مهم مدل است.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q05-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L04-CARD06"
+          },
+          {
+            "id": "S02-C1-ST02-CHECK-Q06",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "آزمون مرزی چه فایده دارد؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "کشف رفتار غلط در صفر، مقدار بالا یا دادهٔ خالی",
+                "feedback": "درست: ورودی مرزی خطاهای فرمول را آشکار می‌کند."
+              },
+              {
+                "id": "b",
+                "text": "اثبات پیش‌بینی آینده",
+                "feedback": "بازبینی: ورودی مرزی خطاهای فرمول را آشکار می‌کند."
+              },
+              {
+                "id": "c",
+                "text": "جایگزینی سند منبع",
+                "feedback": "بازبینی: ورودی مرزی خطاهای فرمول را آشکار می‌کند."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "ورودی مرزی خطاهای فرمول را آشکار می‌کند.",
+            "objective_id": "S02-C1-ST02-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST02-CHECK-Q06-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST02-L04-CARD07"
+          }
+        ]
+      },
+      "tool_plan": [
+        {
+          "id": "driver-model",
+          "title": "مدل محرک قیمت، حجم و هزینه",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-forecasting-2026"
+          ]
+        },
+        {
+          "id": "forecast-3-statements",
+          "title": "قالب پیش‌بینی سه صورت با فرض‌نامه",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-forecasting-2026",
+            "ifrs-ias7"
+          ]
+        },
+        {
+          "id": "working-capital-cash",
+          "title": "کاربرگ چرخهٔ نقد و سررسیدها",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-forecasting-2026",
+            "ifrs-ias7"
+          ]
+        },
+        {
+          "id": "spreadsheet-controls",
+          "title": "چک‌لیست کنترل مدل صفحه‌گسترده",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "icaew-spreadsheet-20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S02-C1-ST03",
+      "title": "تحلیل حساسیت و تصمیم",
+      "order": 3,
+      "color_token": "blue",
+      "legacy_research_topic_ids": [
+        "S02-M1"
+      ],
+      "level": "specialist",
+      "source_refs": [
+        "B04",
+        "T10",
+        "R24",
+        "R02"
+      ],
+      "source_alignment": "CFA Institute 2026 forecasting and simulation curriculum informs scenario and sensitivity methods; NIST AI RMF and GenAI Profile inform responsible AI use. These sources frame concepts, not investment advice. All examples and figures are fictional.",
+      "lessons": [
+        {
+          "id": "S02-C1-ST03-L01",
+          "version": "1-draft",
+          "title": "سناریوی خوش‌بینانه و بدبینانه",
+          "content_status": "draft",
+          "objective": "سناریوهای مالی سازگار و تصمیم‌محور بسازد و تفاوت سناریو با پیش‌بینی یا هدف را توضیح دهد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST03-L01-CARD01",
+              "type": "explanation",
+              "title": "سناریو، نه حدس واحد",
+              "text": "سناریو یک مجموعهٔ سازگار از فرض‌هاست که پیامدهای ممکن را برای تصمیم می‌سنجد؛ پیش‌بینی انتظار مشروط و هدف نتیجهٔ مطلوب است. سه ستون «پایه، فشار، فرصت» بسازید، اما هرکدام را داستانی علت‌مند کنید. سه عدد رشد مستقل که با ظرفیت و نقد سازگار نیستند، سناریو نیستند."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD02",
+              "type": "explanation",
+              "title": "انتخاب محرک‌های کلیدی",
+              "text": "برای سپهر، نرخ تمدید، قیمت، روزهای وصول و هزینهٔ رایانش ممکن است محرک‌های مهم باشند. تعداد محرک را محدود کنید به متغیرهایی که نامطمئن‌اند و نتیجه را تغییر می‌دهند. متغیری که هم کم‌اثر و هم قابل‌پیش‌بینی است، پیچیدگی بی‌فایده می‌سازد."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD03",
+              "type": "explanation",
+              "title": "روایت سازگار",
+              "text": "در سناریوی فشار، تمدید کمتر ممکن است هزینهٔ جذب را بالا ببرد و تأخیر وصول نقد را کم کند؛ همین سناریو باید از نظر حجم، ظرفیت، نفرات و تأمین مالی سازگار باشد. فرض‌های متناقض—مثل فروش کمتر با هزینهٔ متغیر بیشتر بدون علت—را علامت بزنید."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD04",
+              "type": "explanation",
+              "title": "مثال سه‌حالته",
+              "text": "پایه: ۱۰۰ مشتری با درآمد سالانهٔ متوسط ۱۲۰ واحد؛ درآمد ۱۲٬۰۰۰. فشار: ۹۰ مشتری × ۱۱۰ = ۹٬۹۰۰. فرصت: ۱۱۰ × ۱۲۵ = ۱۳٬۷۵۰. این محاسبه فقط فروش اسمی است؛ تمدید، تخفیف، زمان وصول، حاشیه و هزینه باید افزوده شود و اعداد آموزشی/فرضی‌اند."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD05",
+              "type": "explanation",
+              "title": "تبدیل به نقد",
+              "text": "همان درآمد ۱۲٬۰۰۰ می‌تواند نقد متفاوتی بسازد اگر دریافتنی ۳۰ یا ۷۵ روز باشد. به هر سناریو دورهٔ وصول، سرمایه‌گذاری، هزینهٔ ثابت و دسترسی مالی اضافه کنید و کمترین ماندهٔ نقد و زمان آن را نشان دهید. سود سالانه ممکن است مثبت بماند درحالی‌که پول نقد در ماه ششم تمام می‌شود."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD06",
+              "type": "explanation",
+              "title": "سناریوی فشار و استرس",
+              "text": "سناریوی فشار الزاماً محتمل‌ترین آینده نیست؛ می‌پرسد اگر شوک خاصی رخ دهد چه می‌شود. مقدار افت، مدت، هم‌زمانی عوامل و واکنش رقبا را توضیح دهید. استرس‌تست باید شدت کافی برای آشکارکردن آسیب‌پذیری داشته باشد، اما روایت بی‌پایه و فاجعه‌پردازی هم تصمیم را منحرف می‌کند."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD07",
+              "type": "explanation",
+              "title": "آستانه و اقدام",
+              "text": "برای هر وضعیت نشانهٔ زودهنگام، آستانه، مالک و اقدام از پیش تعیین کنید: اگر ماندهٔ نقد پیش‌بینی‌شده به زیر نیاز سه‌ماهه برسد، جذب سرمایه یا کاهش تعهدهای برگشت‌پذیر بررسی می‌شود. آستانه‌ها باید به قید واقعی تصمیم وصل شوند و زمان لازم برای واکنش را لحاظ کنند."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD08",
+              "type": "explanation",
+              "title": "محدودیت سناریو",
+              "text": "سه سناریو همهٔ آینده‌های ممکن نیستند و احتمال‌هایشان ممکن است معلوم نباشد. برآوردها را با دامنه و منبع ثبت کنید و از جمع‌زدن احتمالات بی‌پایه بپرهیزید. تصمیم مقاوم گاهی در چند حالت قابل‌قبول است، حتی اگر هیچ‌کدام را دقیق پیش‌بینی نکنیم."
+            },
+            {
+              "id": "S02-C1-ST03-L01-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Base case سناریوی پایه؛ downside سناریوی فشار؛ upside سناریوی فرصت؛ stress test آزمون تنش؛ trigger ماشه؛ runway مدت دوام نقد و assumption فرض است. سناریوها باید به یک انتخاب وصل شوند: اکنون چه کنیم، چه چیزی را پایش کنیم و کدام اقدام را مرحله‌ای نگه داریم؟"
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST03-L01-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "سناریو با پیش‌بینی چه تفاوتی دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "سناریو پیامد فرض‌های سازگار را می‌سنجد؛ پیش‌بینی انتظار مشروط است",
+                  "feedback": "درست: سناریو مجموعه‌ای از آینده‌های قابل‌تصور است."
+                },
+                {
+                  "id": "b",
+                  "text": "هر دو یک آیندهٔ قطعی‌اند",
+                  "feedback": "بازبینی: سناریو مجموعه‌ای از آینده‌های قابل‌تصور است."
+                },
+                {
+                  "id": "c",
+                  "text": "سناریو هدف فروش است",
+                  "feedback": "بازبینی: سناریو مجموعه‌ای از آینده‌های قابل‌تصور است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "سناریو مجموعه‌ای از آینده‌های قابل‌تصور است.",
+              "objective_id": "S02-C1-ST03-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L01-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L01-CARD02"
+            },
+            {
+              "id": "S02-C1-ST03-L01-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چه محرکی را برای سناریو انتخاب کنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نامطمئن و تصمیم‌اثرگذار",
+                  "feedback": "درست: محرک باید انتخاب را تغییر دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "قطعی و کم‌اثر",
+                  "feedback": "بازبینی: محرک باید انتخاب را تغییر دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "هر عدد موجود در فایل",
+                  "feedback": "بازبینی: محرک باید انتخاب را تغییر دهد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "محرک باید انتخاب را تغییر دهد.",
+              "objective_id": "S02-C1-ST03-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L01-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L01-CARD03"
+            },
+            {
+              "id": "S02-C1-ST03-L01-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "فروش سناریوی فشار ۹۹۰۰ است؛ آیا نقد هم معلوم است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "خیر؛ وصول، حاشیه، هزینه و سرمایه‌گذاری لازم‌اند",
+                  "feedback": "درست: فروش با زمان نقد و هزینه یکسان نیست."
+                },
+                {
+                  "id": "b",
+                  "text": "بله، فروش همان نقد است",
+                  "feedback": "بازبینی: فروش با زمان نقد و هزینه یکسان نیست."
+                },
+                {
+                  "id": "c",
+                  "text": "بله، نقد همیشه ۹۹۰۰ است",
+                  "feedback": "بازبینی: فروش با زمان نقد و هزینه یکسان نیست."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فروش با زمان نقد و هزینه یکسان نیست.",
+              "objective_id": "S02-C1-ST03-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L01-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L01-CARD04"
+            },
+            {
+              "id": "S02-C1-ST03-L01-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "سناریوی فشار الزاماً چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "موردی برای آزمون آسیب‌پذیری، نه لزوماً محتمل‌ترین پیش‌بینی",
+                  "feedback": "درست: فشار برای دیدن پیامد شوک طراحی می‌شود."
+                },
+                {
+                  "id": "b",
+                  "text": "پیش‌بینی قطعی",
+                  "feedback": "بازبینی: فشار برای دیدن پیامد شوک طراحی می‌شود."
+                },
+                {
+                  "id": "c",
+                  "text": "هدف داخلی",
+                  "feedback": "بازبینی: فشار برای دیدن پیامد شوک طراحی می‌شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فشار برای دیدن پیامد شوک طراحی می‌شود.",
+              "objective_id": "S02-C1-ST03-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L01-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L01-CARD05"
+            },
+            {
+              "id": "S02-C1-ST03-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ماشهٔ نقد باید چه داشته باشد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "آستانه، منبع، مالک و اقدام",
+                  "feedback": "درست: ماشه وقتی مفید است که واکنش به‌موقع تعریف شود."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط رنگ قرمز",
+                  "feedback": "بازبینی: ماشه وقتی مفید است که واکنش به‌موقع تعریف شود."
+                },
+                {
+                  "id": "c",
+                  "text": "عدد بی‌مهلت",
+                  "feedback": "بازبینی: ماشه وقتی مفید است که واکنش به‌موقع تعریف شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ماشه وقتی مفید است که واکنش به‌موقع تعریف شود.",
+              "objective_id": "S02-C1-ST03-L01-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L01-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            },
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "cfa-backtesting-simulation-2026",
+              "title": "CFA Institute 2026: Backtesting & Simulation",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
+              "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "nist-ai-rmf",
+              "title": "NIST AI Risk Management Framework",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
+              "review_depth": "official_government_framework_reviewed"
+            },
+            {
+              "id": "nist-genai-profile",
+              "title": "NIST AI 600-1: Generative AI Profile",
+              "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+              "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
+              "review_depth": "official_government_primary_document_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "سه سناریوی سازگار برای سپهر بساز و برای هرکدام نقطهٔ کمینهٔ نقد و ماشهٔ اقدام را بنویس.",
+            "unit": "یادداشت تصمیم و پیوست محاسبات؛ همهٔ داده‌های سپهر ساختگی‌اند.",
+            "answer": "پاسخ باید از پیش‌بینی قطعی پرهیز کند، محاسبه را بازتولیدپذیر سازد، منبع و واحد را نشان دهد و کنترل انسانی/محدودیت را بیان کند.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ کیفیت شواهد و منطق تصمیم سنجیده می‌شود.",
+            "rubric": [
+              "محاسبه و تعریف درست (۰–۲)",
+              "شفافیت فرض و سناریو (۰–۲)",
+              "پیوند نقد و اقدام (۰–۲)",
+              "منبع، محرمانگی و کنترل AI (۰–۲)",
+              "توصیهٔ مشروط و قابل‌بازبینی (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST03-L02",
+          "version": "1-draft",
+          "title": "حساسیت سود و نقد به فرض‌ها",
+          "content_status": "draft",
+          "objective": "اثر تغییر یک یا چند فرض را بر سود و ماندهٔ نقد محاسبه و حساسیت تصمیم را گزارش کند.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST03-L02-CARD01",
+              "type": "explanation",
+              "title": "یک‌متغیره",
+              "text": "حساسیت یک‌متغیره یک فرض را تغییر می‌دهد و باقی موارد را ثابت نگه می‌دارد تا اثر مستقیم دیده شود. اگر حاشیهٔ مشارکت ۷۰ و مشتری ۱۰۰ باشد، مشارکت سالانهٔ ساده ۷٬۰۰۰ است؛ افت مشتری به ۹۰ آن را به ۶٬۳۰۰ می‌رساند. هزینهٔ ثابت هنوز کسر نشده است."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD02",
+              "type": "explanation",
+              "title": "حساسیت قیمت",
+              "text": "اگر قیمت ۱۲۰ به ۱۱۰ برسد و مشتری ثابت ۱۰۰ باشد، درآمد ۱۲٬۰۰۰ به ۱۱٬۰۰۰ می‌رسد؛ اما تخفیف ممکن است تمدید و حجم را هم تغییر دهد. اول اثر مکانیکی «سایر موارد ثابت» را نشان دهید، سپس واکنش رفتاری و بازخورد را در سناریوی جدا بسازید."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD03",
+              "type": "explanation",
+              "title": "نقطهٔ سربه‌سر",
+              "text": "نقطهٔ سربه‌سر حجمی = هزینهٔ ثابت ÷ حاشیهٔ مشارکت هر واحد. با هزینهٔ ثابت ۵٬۶۰۰ و مشارکت ۷۰، حدود ۸۰ مشتری لازم است. فرض کنید واحدها هم‌تعریف، قیمت/هزینه در دامنه ثابت و سبد ترکیب ثابت است؛ تغییر ترکیب یا ظرفیت، نقطه را جابه‌جا می‌کند."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD04",
+              "type": "explanation",
+              "title": "تغییر هم‌زمان",
+              "text": "وقتی نرخ تمدید، قیمت و هزینهٔ رایانش هم‌زمان تغییر می‌کنند، رابطهٔ متقابل مهم است. سناریوی سازگار تعریف کنید یا یک ماتریس دو‌متغیره بسازید؛ همهٔ متغیرها را بی‌دلیل بدترین مقدار نگذارید. برهم‌کنش باید علت داشته باشد، مثل افت تمدید همراه با تخفیف بیشتر."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD05",
+              "type": "explanation",
+              "title": "آستانهٔ نقد",
+              "text": "ماندهٔ نقد پایان ماه فقط کافی نیست؛ کمترین مانده و زمان وقوع را گزارش کنید. تأخیر وصول از ۳۰ به ۶۰ روز ممکن است به خط اعتباری پیش از سوددهی نیاز بسازد. حداقل وجه موردنیاز، شروط وام و زمان تأمین را به مدل اضافه کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD06",
+              "type": "explanation",
+              "title": "جدول حساسیت و نمودار",
+              "text": "جدول دو‌بعدی سود/نقد را با نرخ تمدید در سطر و قیمت در ستون بسازید، واحد و رنگ آستانه را مشخص کنید. نمودار آبشاری نشان می‌دهد کدام فرض تغییر خروجی را ساخته است. خروجی تصویری بدون فرمول و محدودهٔ دامنه فقط حس قطعیت می‌دهد."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD07",
+              "type": "explanation",
+              "title": "ارزش اطلاعات",
+              "text": "اگر فرضی هم نامطمئن و هم تصمیم‌ساز است، آزمایش مشتری یا مذاکره با تأمین‌کننده شاید پیش از سرمایه‌گذاری بزرگ ارزش داشته باشد. بپرسید اطلاعات چقدر تصمیم را بهبود می‌دهد، چقدر هزینه/زمان دارد و آیا فرصت تصمیم باقی می‌ماند. اطلاعات کامل و رایگان وجود ندارد."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD08",
+              "type": "explanation",
+              "title": "خطر برون‌یابی",
+              "text": "گذشته همیشه راهنمای آینده نیست؛ شوک قیمت، تغییر پلتفرم یا سیاست رقبا می‌تواند ساختار رابطه‌ها را عوض کند. نمودار حساسیت دامنهٔ مفروض را نشان می‌دهد، نه آنچه واقعاً رخ می‌دهد. نقطهٔ شکست ساختاری را با سناریوی روایی مکمل کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L02-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Sensitivity analysis تحلیل حساسیت؛ break-even سربه‌سر؛ contribution margin حاشیهٔ مشارکت؛ two-way data table جدول دو‌متغیره؛ downside exposure مواجهه با زیان است. نتیجه را با محرک، دامنه، فرمول، فرض ثابت و زمان تصمیم گزارش کنید."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST03-L02-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "در حساسیت یک‌متغیره چه چیزی ثابت می‌ماند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "بقیهٔ ورودی‌ها برای دیدن اثر مستقیم",
+                  "feedback": "درست: یک متغیر تغییر می‌کند تا اثر مستقیم دیده شود."
+                },
+                {
+                  "id": "b",
+                  "text": "همهٔ خروجی‌ها",
+                  "feedback": "بازبینی: یک متغیر تغییر می‌کند تا اثر مستقیم دیده شود."
+                },
+                {
+                  "id": "c",
+                  "text": "تعریف هدف",
+                  "feedback": "بازبینی: یک متغیر تغییر می‌کند تا اثر مستقیم دیده شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "یک متغیر تغییر می‌کند تا اثر مستقیم دیده شود.",
+              "objective_id": "S02-C1-ST03-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L02-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L02-CARD02"
+            },
+            {
+              "id": "S02-C1-ST03-L02-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "هزینهٔ ثابت ۵۶۰۰ و حاشیهٔ هر مشتری ۷۰؛ سربه‌سر؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "۸۰ مشتری",
+                  "feedback": "درست: ۵۶۰۰ تقسیم بر ۷۰ برابر ۸۰ است."
+                },
+                {
+                  "id": "b",
+                  "text": "۷۰ مشتری",
+                  "feedback": "بازبینی: ۵۶۰۰ تقسیم بر ۷۰ برابر ۸۰ است."
+                },
+                {
+                  "id": "c",
+                  "text": "۵۶۰۰ مشتری",
+                  "feedback": "بازبینی: ۵۶۰۰ تقسیم بر ۷۰ برابر ۸۰ است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "۵۶۰۰ تقسیم بر ۷۰ برابر ۸۰ است.",
+              "objective_id": "S02-C1-ST03-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L02-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L02-CARD03"
+            },
+            {
+              "id": "S02-C1-ST03-L02-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا اثر تخفیف را در دو مرحله نشان دهیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "اثر مکانیکی قیمت با واکنش حجم/تمدید فرق دارد",
+                  "feedback": "درست: فرض ثابت را از واکنش رفتاری جدا کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "چون قیمت اثری ندارد",
+                  "feedback": "بازبینی: فرض ثابت را از واکنش رفتاری جدا کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "چون مدل باید فقط فروش را نشان دهد",
+                  "feedback": "بازبینی: فرض ثابت را از واکنش رفتاری جدا کنید."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فرض ثابت را از واکنش رفتاری جدا کنید.",
+              "objective_id": "S02-C1-ST03-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L02-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L02-CARD04"
+            },
+            {
+              "id": "S02-C1-ST03-L02-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چه فرضی ارزش اطلاعات دارد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نامطمئن است و تصمیم را تغییر می‌دهد",
+                  "feedback": "درست: ارزش اطلاعات به عدم‌قطعیت و اثر انتخاب وابسته است."
+                },
+                {
+                  "id": "b",
+                  "text": "قطعی و بی‌اثر است",
+                  "feedback": "بازبینی: ارزش اطلاعات به عدم‌قطعیت و اثر انتخاب وابسته است."
+                },
+                {
+                  "id": "c",
+                  "text": "داده‌اش رایگان و غیرمرتبط است",
+                  "feedback": "بازبینی: ارزش اطلاعات به عدم‌قطعیت و اثر انتخاب وابسته است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ارزش اطلاعات به عدم‌قطعیت و اثر انتخاب وابسته است.",
+              "objective_id": "S02-C1-ST03-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L02-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L02-CARD05"
+            },
+            {
+              "id": "S02-C1-ST03-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "جدول حساسیت چه چیزی را تضمین نمی‌کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "اینکه آینده در دامنهٔ مدل رخ دهد",
+                  "feedback": "درست: دامنه ابزار تحلیل است، نه پیشگویی."
+                },
+                {
+                  "id": "b",
+                  "text": "اثر ریاضی ورودی‌ها در فرض‌ها",
+                  "feedback": "بازبینی: دامنه ابزار تحلیل است، نه پیشگویی."
+                },
+                {
+                  "id": "c",
+                  "text": "مقایسهٔ حالت‌ها",
+                  "feedback": "بازبینی: دامنه ابزار تحلیل است، نه پیشگویی."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "دامنه ابزار تحلیل است، نه پیشگویی.",
+              "objective_id": "S02-C1-ST03-L02-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L02-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            },
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "cfa-backtesting-simulation-2026",
+              "title": "CFA Institute 2026: Backtesting & Simulation",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
+              "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "nist-ai-rmf",
+              "title": "NIST AI Risk Management Framework",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
+              "review_depth": "official_government_framework_reviewed"
+            },
+            {
+              "id": "nist-genai-profile",
+              "title": "NIST AI 600-1: Generative AI Profile",
+              "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+              "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
+              "review_depth": "official_government_primary_document_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "حساسیت نقطهٔ سربه‌سر را به قیمت و تمدید محاسبه کن و فرض‌های ثابت را علامت بزن.",
+            "unit": "یادداشت تصمیم و پیوست محاسبات؛ همهٔ داده‌های سپهر ساختگی‌اند.",
+            "answer": "پاسخ باید از پیش‌بینی قطعی پرهیز کند، محاسبه را بازتولیدپذیر سازد، منبع و واحد را نشان دهد و کنترل انسانی/محدودیت را بیان کند.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ کیفیت شواهد و منطق تصمیم سنجیده می‌شود.",
+            "rubric": [
+              "محاسبه و تعریف درست (۰–۲)",
+              "شفافیت فرض و سناریو (۰–۲)",
+              "پیوند نقد و اقدام (۰–۲)",
+              "منبع، محرمانگی و کنترل AI (۰–۲)",
+              "توصیهٔ مشروط و قابل‌بازبینی (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST03-L03",
+          "version": "1-draft",
+          "title": "نقد گزارش و مدل ساخته‌شده با AI",
+          "content_status": "draft",
+          "objective": "خروجی مالی AI را از نظر منبع، واحد، فرض، خطا و نشت داده وارسی کند و تصمیم را به متخصص انسانی بسپارد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST03-L03-CARD01",
+              "type": "explanation",
+              "title": "AI چه کمکی می‌کند؟",
+              "text": "مدل زبانی می‌تواند گزارش را خلاصه، فرمول را توضیح، دادهٔ ساختاریافته را مرتب یا پرسش‌های آزمون پیشنهاد کند. این کار سرعت پیش‌نویس را بالا می‌برد، اما پاسخ ممکن است جزئیات مهم را حذف یا رابطه‌ای ساختگی بسازد. وظیفهٔ تحلیل‌گر وارسی و تصمیم‌سازی است."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD02",
+              "type": "explanation",
+              "title": "توهم و عدد ساختگی",
+              "text": "مدل مولد ممکن است منبع، نسبت یا نقل‌قولی بسازد که واقعی نیست یا دورهٔ مالی را جابه‌جا کند. هر ادعای عددی را به فایل صورت مالی، یادداشت و دورهٔ اصلی وصل کنید. ارجاع ظاهری به SEC یا CFA جای مشاهدهٔ سند و تطبیق صفحه را نمی‌گیرد."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD03",
+              "type": "explanation",
+              "title": "واحد و تعریف",
+              "text": "عدد ۱۲ ممکن است میلیون باشد یا هزار؛ EBITDA با سود عملیاتی یکی نیست؛ CFO با free cash flow فرق دارد. از AI بخواهید فرمول و واحد را آشکار کند، اما خودتان دوباره محاسبه کنید. تعریف و مبنا را در مدل بنویسید تا جمع درست با مفهوم غلط اشتباه نشود."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD04",
+              "type": "explanation",
+              "title": "کیفیت داده و پوشش",
+              "text": "PDF استخراج‌شده ممکن است ستون جابه‌جا، علامت منفی حذف یا رقم ناقص داشته باشد. مجموع، تراز دارایی و نقد پایان دوره را با سند کنترل کنید و نمونه‌ای از ردیف‌ها را دستی بررسی کنید. اگر داده فقط چند شرکت بزرگ را پوشش می‌دهد، نتیجه را به کل بازار تعمیم ندهید."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD05",
+              "type": "explanation",
+              "title": "سوگیری به خروجی مطمئن",
+              "text": "لحن روان و عدد دقیق می‌تواند اعتماد بی‌جا بسازد. یک پاسخ مخالف بخواهید، فرض‌های پنهان را فهرست کنید و نتیجه را با baseline ساده و تحلیل انسانی مقایسه کنید. مدل را به‌دلیل تأیید نظر اولیه انتخاب نکنید؛ خطای خارج‌نمونه را هم بسنجید."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD06",
+              "type": "explanation",
+              "title": "محرمانگی و کنترل",
+              "text": "اطلاعات غیرعمومی مشتری، حقوق و دستمزد یا پیش‌بینی حساس را بدون مجوز و کنترل به سرویس عمومی نفرستید. دسترسی، محل ذخیره، نگهداری، استفادهٔ آموزشی و امکان حذف را بررسی کنید. نسخهٔ ابزار، تاریخ، داده و بازبین را ثبت کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD07",
+              "type": "explanation",
+              "title": "حاکمیت NIST",
+              "text": "چارچوب NIST AI RMF مدیریت ریسک را در طراحی، استفاده و ارزیابی می‌بیند و بر اعتبار، ایمنی، امنیت، پاسخ‌گویی، شفافیت و انصاف تأکید می‌کند. برای این درس، خروجی AI را براساس پیامد مالی، حساسیت داده و میزان خودکارسازی طبقه‌بندی کنید؛ کنترل متناسب با خطر باشد."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD08",
+              "type": "explanation",
+              "title": "نقش انسان",
+              "text": "متخصص مالی باید بداند مدل در چه دامنه‌ای معتبر است، چه زمانی از آن استفاده نکند و چه کسی خروجی را تأیید می‌کند. تصمیم وام، کاهش هزینه یا حذف نیرو نباید به امتیاز غیرقابل‌توضیح واگذار شود. مسیر اعتراض و اصلاح خطا بخشی از کنترل است."
+            },
+            {
+              "id": "S02-C1-ST03-L03-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار",
+              "text": "Hallucination/confabulation خروجی ساختگی؛ provenance منشأ داده؛ out-of-sample آزمون خارج نمونه؛ leakage نشت داده یا اطلاعات؛ human oversight نظارت انسانی است. AI تصمیم را پشتیبانی می‌کند؛ مسئولیت صحت و اثر تصمیم به مدیر و سازمان می‌ماند."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST03-L03-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "عدد AI در گزارش مالی چه‌طور تأیید می‌شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "با سند اصلی، دوره، واحد و محاسبهٔ مستقل",
+                  "feedback": "درست: ادعای عددی باید به سند و تعریف وصل شود."
+                },
+                {
+                  "id": "b",
+                  "text": "با لحن مطمئن مدل",
+                  "feedback": "بازبینی: ادعای عددی باید به سند و تعریف وصل شود."
+                },
+                {
+                  "id": "c",
+                  "text": "با لینک ظاهری",
+                  "feedback": "بازبینی: ادعای عددی باید به سند و تعریف وصل شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ادعای عددی باید به سند و تعریف وصل شود.",
+              "objective_id": "S02-C1-ST03-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L03-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L03-CARD02"
+            },
+            {
+              "id": "S02-C1-ST03-L03-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چرا تست خارج نمونه مفید است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "می‌سنجد مدل به دادهٔ دیده‌نشده تعمیم دارد یا نه",
+                  "feedback": "درست: تعمیم را می‌سنجد، تضمین نمی‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "درستی همهٔ تصمیم‌ها را تضمین می‌کند",
+                  "feedback": "بازبینی: تعمیم را می‌سنجد، تضمین نمی‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "نیاز به داده ندارد",
+                  "feedback": "بازبینی: تعمیم را می‌سنجد، تضمین نمی‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "تعمیم را می‌سنجد، تضمین نمی‌کند.",
+              "objective_id": "S02-C1-ST03-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L03-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L03-CARD03"
+            },
+            {
+              "id": "S02-C1-ST03-L03-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چه داده‌ای را نباید بی‌وارسی در ابزار عمومی وارد کرد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "اطلاعات غیرعمومی مشتری یا پیش‌بینی حساس",
+                  "feedback": "درست: محرمانگی و سیاست داده باید رعایت شود."
+                },
+                {
+                  "id": "b",
+                  "text": "اطلاعات عمومی منتشرشده",
+                  "feedback": "بازبینی: محرمانگی و سیاست داده باید رعایت شود."
+                },
+                {
+                  "id": "c",
+                  "text": "فرمول آموزشی ساختگی",
+                  "feedback": "بازبینی: محرمانگی و سیاست داده باید رعایت شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "محرمانگی و سیاست داده باید رعایت شود.",
+              "objective_id": "S02-C1-ST03-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L03-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L03-CARD04"
+            },
+            {
+              "id": "S02-C1-ST03-L03-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "NIST AI RMF در این کاربرد چه می‌دهد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک AI",
+                  "feedback": "درست: RMF به مدیریت ریسک و اعتمادپذیری کمک می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل پیش‌بینی مالی قطعی",
+                  "feedback": "بازبینی: RMF به مدیریت ریسک و اعتمادپذیری کمک می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "گواهی صحت هر عدد",
+                  "feedback": "بازبینی: RMF به مدیریت ریسک و اعتمادپذیری کمک می‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "RMF به مدیریت ریسک و اعتمادپذیری کمک می‌کند.",
+              "objective_id": "S02-C1-ST03-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L03-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L03-CARD05"
+            },
+            {
+              "id": "S02-C1-ST03-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چه کسی پاسخ‌گوی تصمیم مالی AI-assisted است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تصمیم‌گیر و سازمان با نظارت انسانی",
+                  "feedback": "درست: AI ابزار تصمیم‌یار است؛ مسئولیت مدیریتی باقی می‌ماند."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل به تنهایی",
+                  "feedback": "بازبینی: AI ابزار تصمیم‌یار است؛ مسئولیت مدیریتی باقی می‌ماند."
+                },
+                {
+                  "id": "c",
+                  "text": "ارائه‌دهندهٔ مدل همیشه",
+                  "feedback": "بازبینی: AI ابزار تصمیم‌یار است؛ مسئولیت مدیریتی باقی می‌ماند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "AI ابزار تصمیم‌یار است؛ مسئولیت مدیریتی باقی می‌ماند.",
+              "objective_id": "S02-C1-ST03-L03-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L03-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            },
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            },
+            {
+              "id": "cfa-backtesting-simulation-2026",
+              "title": "CFA Institute 2026: Backtesting & Simulation",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
+              "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "nist-ai-rmf",
+              "title": "NIST AI Risk Management Framework",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+              "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
+              "review_depth": "official_government_framework_reviewed"
+            },
+            {
+              "id": "nist-genai-profile",
+              "title": "NIST AI 600-1: Generative AI Profile",
+              "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+              "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
+              "review_depth": "official_government_primary_document_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "یک پاسخ AI دربارهٔ سلامت مالی شرکت را با چک‌لیست منشأ، واحد و آزمون مستقل نقد کن.",
+            "unit": "یادداشت تصمیم و پیوست محاسبات؛ همهٔ داده‌های سپهر ساختگی‌اند.",
+            "answer": "پاسخ باید از پیش‌بینی قطعی پرهیز کند، محاسبه را بازتولیدپذیر سازد، منبع و واحد را نشان دهد و کنترل انسانی/محدودیت را بیان کند.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ کیفیت شواهد و منطق تصمیم سنجیده می‌شود.",
+            "rubric": [
+              "محاسبه و تعریف درست (۰–۲)",
+              "شفافیت فرض و سناریو (۰–۲)",
+              "پیوند نقد و اقدام (۰–۲)",
+              "منبع، محرمانگی و کنترل AI (۰–۲)",
+              "توصیهٔ مشروط و قابل‌بازبینی (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        },
+        {
+          "id": "S02-C1-ST03-L04",
+          "version": "1-draft",
+          "title": "نقد گزارش و مدل ساخته‌شده با AI",
+          "content_status": "draft",
+          "objective": "خروجی مالی AI را از نظر منشأ، واحد، فرض، خطا و نشت داده وارسی کند و تصمیم را به انسان مسئول بسپارد.",
+          "learning_cards": [
+            {
+              "id": "S02-C1-ST03-L04-CARD01",
+              "type": "explanation",
+              "title": "سناریوی پایه، فشار و فرصت",
+              "text": "سناریو مجموعه‌ای سازگار از فرض‌هاست که پیامدهای ممکن را برای یک تصمیم می‌سنجد؛ پیش‌بینی انتظار مشروط و هدف نتیجهٔ مطلوب است. سه ستون پایه، فشار و فرصت بسازید و برای هرکدام روایت علّی داشته باشید. چند عدد رشد بی‌ارتباط، سناریوی سازگار نیست."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD02",
+              "type": "explanation",
+              "title": "سربه‌سر و حساسیت سود و نقد",
+              "text": "در مثال سپهر، ۱۰۰ مشتری با درآمد سالانهٔ متوسط ۱۲۰ واحد فروش ۱۲٬۰۰۰ می‌سازد. فشار ۹۰×۱۱۰=۹٬۹۰۰ و فرصت ۱۱۰×۱۲۵=۱۳٬۷۵۰ است. فروش اسمی هنوز نقد نیست؛ تمدید، تخفیف، حاشیه، زمان وصول و هزینهٔ تحویل را هم محاسبه کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD03",
+              "type": "explanation",
+              "title": "راستی‌آزمایی سند، واحد و داده",
+              "text": "یک مدل زبانی ممکن است عدد، منبع یا نسبت بسازد یا دوره را اشتباه کند. هر ادعای مالی را به فایل گزارش، یادداشت و دورهٔ واقعی وصل کنید؛ ارجاع ظاهری کافی نیست. عدد ۱۲ ممکن است هزار، میلیون یا درصد باشد، پس واحد و تعریف را تصریح کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD04",
+              "type": "explanation",
+              "title": "تصمیم مشروط با محدوده و مسئولیت",
+              "text": "اطلاعات PDF استخراج‌شده ممکن است علامت منفی یا ستون را جابه‌جا کند. مجموع‌ها، معادلهٔ ترازنامه و ماندهٔ نقد را با سند کنترل و چند ردیف را دستی نمونه‌برداری کنید. دامنهٔ داده را بنویسید تا تحلیل چند شرکت بزرگ به کل بازار تعمیم داده نشود."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD05",
+              "type": "explanation",
+              "title": "یادداشت یک‌صفحه‌ای برای مدیر",
+              "text": "لحن روان و عدد دقیق اعتماد بی‌جا می‌سازد. از مدل بخواهید فرض‌های پنهان و توضیح مخالف را هم فهرست کند؛ سپس با baseline ساده و شواهد مستقل بسنجید. مدل را برای تأیید نظر اولیه انتخاب نکنید و خطای خارج از نمونه را گزارش کنید."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD06",
+              "type": "explanation",
+              "title": "توصیهٔ مشروط و گزینهٔ جایگزین",
+              "text": "دادهٔ غیرعمومی مشتری، حقوق، یا پیش‌بینی حساس را بدون مجوز به سرویس عمومی نفرستید. دسترسی، ذخیره‌سازی، نگهداری، استفادهٔ آموزشی و حذف را بررسی کنید. نسخهٔ ابزار، تاریخ، داده و بازبین را ثبت کنید تا خروجی قابل بازتولید باشد."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD07",
+              "type": "explanation",
+              "title": "محدودیت‌های مدل و کیفیت داده",
+              "text": "NIST AI RMF مدیریت ریسک را در طراحی، استفاده و ارزیابی می‌بیند و ویژگی‌هایی مانند اعتبار، ایمنی، امنیت، پاسخ‌گویی، شفافیت و انصاف را مطرح می‌کند. کنترل را با پیامد مالی و حساسیت داده متناسب کنید. چارچوب داوطلبانه، گواهی خودکار صحت مدل نیست."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD08",
+              "type": "explanation",
+              "title": "محرمانگی و حاکمیت AI",
+              "text": "متخصص مالی باید بداند مدل در چه دامنه‌ای معتبر است، چه زمانی نباید از آن استفاده کرد و چه کسی خروجی را تأیید می‌کند. وام، کاهش هزینه یا تصمیم دربارهٔ نیروی انسانی را به امتیاز opaque واگذار نکنید. مسیر اعتراض و اصلاح خطا نیز کنترل است."
+            },
+            {
+              "id": "S02-C1-ST03-L04-CARD09",
+              "type": "explanation",
+              "title": "واژه‌های پرتکرار در تحلیل سناریو",
+              "text": "Hallucination/confabulation یعنی خروجی ساختگی؛ provenance منشأ داده؛ out-of-sample آزمون روی دادهٔ ندیده؛ leakage نشت داده؛ human oversight نظارت انسانی است. AI تصمیم را پشتیبانی می‌کند، اما مسئولیت صحت و اثر به مدیر و سازمان می‌ماند."
+            }
+          ],
+          "questions": [
+            {
+              "id": "S02-C1-ST03-L04-Q01",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "سه حالت پایه، فشار و فرصت چه ویژگی دارند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فرض‌های سازگار و مرتبط با تصمیم",
+                  "feedback": "درست: سازگاری فرض‌ها سناریو را معنادار می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط عدد فروش",
+                  "feedback": "بازبینی: سازگاری فرض‌ها سناریو را معنادار می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "احتمال‌های بدون داده",
+                  "feedback": "بازبینی: سازگاری فرض‌ها سناریو را معنادار می‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "سازگاری فرض‌ها سناریو را معنادار می‌کند.",
+              "objective_id": "S02-C1-ST03-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L04-Q01-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L04-CARD02"
+            },
+            {
+              "id": "S02-C1-ST03-L04-Q02",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "فروش سناریو ۹۹۰۰ است؛ آیا نقد پایان سال مشخص است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نه؛ وصول، هزینه، سرمایه‌گذاری و زمان نقد لازم است",
+                  "feedback": "درست: فروش، سود و وجه نقد متفاوت‌اند."
+                },
+                {
+                  "id": "b",
+                  "text": "بله، فروش همان نقد است",
+                  "feedback": "بازبینی: فروش، سود و وجه نقد متفاوت‌اند."
+                },
+                {
+                  "id": "c",
+                  "text": "بله، نقد برابر سود است",
+                  "feedback": "بازبینی: فروش، سود و وجه نقد متفاوت‌اند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "فروش، سود و وجه نقد متفاوت‌اند.",
+              "objective_id": "S02-C1-ST03-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L04-Q02-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L04-CARD03"
+            },
+            {
+              "id": "S02-C1-ST03-L04-Q03",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ادعای AI را چگونه بررسی کنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "سند اصلی، دوره، واحد و محاسبهٔ مستقل",
+                  "feedback": "درست: منبع واقعی و محاسبه لازم است."
+                },
+                {
+                  "id": "b",
+                  "text": "لحن مطمئن مدل",
+                  "feedback": "بازبینی: منبع واقعی و محاسبه لازم است."
+                },
+                {
+                  "id": "c",
+                  "text": "لینک ظاهری",
+                  "feedback": "بازبینی: منبع واقعی و محاسبه لازم است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "منبع واقعی و محاسبه لازم است.",
+              "objective_id": "S02-C1-ST03-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L04-Q03-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L04-CARD04"
+            },
+            {
+              "id": "S02-C1-ST03-L04-Q04",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "تست خارج از نمونه چه می‌سنجد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "عملکرد مدل بر دادهٔ دیده‌نشده",
+                  "feedback": "درست: تعمیم‌پذیری را می‌سنجد، نه تضمین."
+                },
+                {
+                  "id": "b",
+                  "text": "درستی همهٔ آینده‌ها",
+                  "feedback": "بازبینی: تعمیم‌پذیری را می‌سنجد، نه تضمین."
+                },
+                {
+                  "id": "c",
+                  "text": "اعتبار فرمول‌های حسابداری",
+                  "feedback": "بازبینی: تعمیم‌پذیری را می‌سنجد، نه تضمین."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "تعمیم‌پذیری را می‌سنجد، نه تضمین.",
+              "objective_id": "S02-C1-ST03-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L04-Q04-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L04-CARD05"
+            },
+            {
+              "id": "S02-C1-ST03-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "چه کسی پاسخ‌گوی تصمیم مالی AI-assisted است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مدیر و سازمان با نظارت انسانی",
+                  "feedback": "درست: مسئولیت تصمیم به سازمان می‌ماند."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل به تنهایی",
+                  "feedback": "بازبینی: مسئولیت تصمیم به سازمان می‌ماند."
+                },
+                {
+                  "id": "c",
+                  "text": "کاربر نهایی بدون اختیار",
+                  "feedback": "بازبینی: مسئولیت تصمیم به سازمان می‌ماند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "مسئولیت تصمیم به سازمان می‌ماند.",
+              "objective_id": "S02-C1-ST03-L04-OBJ1",
+              "equivalence_group": "S02-C1-ST03-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S02-C1-ST03-L04-CARD06"
+            }
+          ],
+          "source_links": [
+            {
+              "id": "sec-financial-statements",
+              "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+              "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+              "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+              "review_depth": "official_regulator_guide_reviewed"
+            },
+            {
+              "id": "cfa-fsa-intro-2026",
+              "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+              "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-quality-reports-2026",
+              "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+              "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "ifrs-ias7",
+              "title": "IFRS: IAS 7 Statement of Cash Flows",
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+              "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+              "review_depth": "official_standard_page_reviewed"
+            },
+            {
+              "id": "cfa-forecasting-2026",
+              "title": "CFA Institute 2026: Company Analysis—Forecasting",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+              "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "cfa-techniques-2026",
+              "title": "CFA Institute 2026: Financial Analysis Techniques",
+              "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+              "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+              "review_depth": "official_professional_curriculum_reviewed"
+            },
+            {
+              "id": "icaew-spreadsheet-20",
+              "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+              "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+              "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+              "review_depth": "official_professional_guidance_reviewed"
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "prompt": "یک گزارش مالی کوتاه که توسط AI خلاصه شده را با چک‌لیست منشأ، واحد، دوره، محاسبه، پوشش و محرمانگی نقد کن؛ در پایان تصمیم مشروط و دادهٔ لازم برای بازبینی را بنویس.",
+            "unit": "یادداشت تصمیم یک‌صفحه‌ای با پیوست محاسبات؛ دادهٔ مثال فرضی است.",
+            "answer": "پاسخ باید از پیش‌بینی قطعی پرهیز کند، محاسبه را بازتولیدپذیر سازد، منبع و واحد را نشان دهد و محدودیت و بازبین انسانی را بیان کند.",
+            "absolute_tolerance": null,
+            "solution": "پاسخ یگانه نیست؛ کیفیت شواهد و منطق تصمیم سنجیده می‌شود.",
+            "rubric": [
+              "درستی محاسبه و تعریف (۰–۲)",
+              "شفافیت فرض و سناریو (۰–۲)",
+              "منبع و کیفیت داده (۰–۲)",
+              "کنترل AI و محرمانگی (۰–۲)",
+              "توصیهٔ مشروط و قابل‌بازبینی (۰–۲)"
+            ],
+            "auto_grade": false
+          },
+          "review_status": "pending",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false
+        }
+      ],
+      "checkpoint": {
+        "id": "S02-C1-ST03-CHECK",
+        "node_type": "stage_review",
+        "item_count": 6,
+        "coverage": "scenarios, break-even, sensitivity, AI output review and decision memo",
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": true,
+        "questions": [
+          {
+            "id": "S02-C1-ST03-CHECK-Q01",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "سناریو چه چیزی را تضمین نمی‌کند؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "رخ‌دادن آینده در دامنهٔ مدل",
+                "feedback": "درست: سناریو پیشگویی نیست."
+              },
+              {
+                "id": "b",
+                "text": "مقایسهٔ فرض‌ها",
+                "feedback": "بازبینی: سناریو پیشگویی نیست."
+              },
+              {
+                "id": "c",
+                "text": "تصمیم‌محور بودن",
+                "feedback": "بازبینی: سناریو پیشگویی نیست."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "سناریو پیشگویی نیست.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q01-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L01-CARD02"
+          },
+          {
+            "id": "S02-C1-ST03-CHECK-Q02",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "نقطهٔ سربه‌سر به چه چیزی وابسته است؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "هزینهٔ ثابت و حاشیهٔ مشارکت",
+                "feedback": "درست: فرمول هزینهٔ ثابت را بر مشارکت تقسیم می‌کند."
+              },
+              {
+                "id": "b",
+                "text": "فقط درآمد سال قبل",
+                "feedback": "بازبینی: فرمول هزینهٔ ثابت را بر مشارکت تقسیم می‌کند."
+              },
+              {
+                "id": "c",
+                "text": "رنگ نمودار",
+                "feedback": "بازبینی: فرمول هزینهٔ ثابت را بر مشارکت تقسیم می‌کند."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "فرمول هزینهٔ ثابت را بر مشارکت تقسیم می‌کند.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q02-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L02-CARD03"
+          },
+          {
+            "id": "S02-C1-ST03-CHECK-Q03",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "عدد AI چگونه راستی‌آزمایی می‌شود؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "سند اصلی، واحد و محاسبه",
+                "feedback": "درست: منشأ و حساب مجدد ضروری است."
+              },
+              {
+                "id": "b",
+                "text": "اعتماد به لحن",
+                "feedback": "بازبینی: منشأ و حساب مجدد ضروری است."
+              },
+              {
+                "id": "c",
+                "text": "پیوند ظاهری",
+                "feedback": "بازبینی: منشأ و حساب مجدد ضروری است."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "منشأ و حساب مجدد ضروری است.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q03-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L03-CARD04"
+          },
+          {
+            "id": "S02-C1-ST03-CHECK-Q04",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "NIST AI RMF چیست؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "چارچوب داوطلبانهٔ مدیریت ریسک",
+                "feedback": "درست: چارچوب به شناسایی و مدیریت خطر کمک می‌کند."
+              },
+              {
+                "id": "b",
+                "text": "گواهی صحت خروجی",
+                "feedback": "بازبینی: چارچوب به شناسایی و مدیریت خطر کمک می‌کند."
+              },
+              {
+                "id": "c",
+                "text": "مدل مالی آماده",
+                "feedback": "بازبینی: چارچوب به شناسایی و مدیریت خطر کمک می‌کند."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "چارچوب به شناسایی و مدیریت خطر کمک می‌کند.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q04-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L04-CARD05"
+          },
+          {
+            "id": "S02-C1-ST03-CHECK-Q05",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "اطلاعات حساس مالی را کجا وارد کنیم؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "فقط ابزار تأییدشده با کنترل داده",
+                "feedback": "درست: سیاست داده و محرمانگی باید رعایت شود."
+              },
+              {
+                "id": "b",
+                "text": "هر ابزار عمومی",
+                "feedback": "بازبینی: سیاست داده و محرمانگی باید رعایت شود."
+              },
+              {
+                "id": "c",
+                "text": "شبکهٔ اجتماعی",
+                "feedback": "بازبینی: سیاست داده و محرمانگی باید رعایت شود."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "سیاست داده و محرمانگی باید رعایت شود.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q05-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L04-CARD06"
+          },
+          {
+            "id": "S02-C1-ST03-CHECK-Q06",
+            "version": 1,
+            "type": "single_choice",
+            "prompt": "مسئولیت توصیهٔ AI با کیست؟",
+            "options": [
+              {
+                "id": "a",
+                "text": "مدیر/سازمان با بازبینی انسانی",
+                "feedback": "درست: مسئولیت حرفه‌ای به تصمیم‌گیر می‌ماند."
+              },
+              {
+                "id": "b",
+                "text": "مدل",
+                "feedback": "بازبینی: مسئولیت حرفه‌ای به تصمیم‌گیر می‌ماند."
+              },
+              {
+                "id": "c",
+                "text": "بدون مسئول",
+                "feedback": "بازبینی: مسئولیت حرفه‌ای به تصمیم‌گیر می‌ماند."
+              }
+            ],
+            "correct_option_id": "a",
+            "explanation": "مسئولیت حرفه‌ای به تصمیم‌گیر می‌ماند.",
+            "objective_id": "S02-C1-ST03-CHECK-OBJ1",
+            "equivalence_group": "S02-C1-ST03-CHECK-Q06-FAMILY",
+            "variant": "A",
+            "remediation_card_id": "S02-C1-ST03-L04-CARD07"
+          }
+        ]
+      },
+      "tool_plan": [
+        {
+          "id": "financial-scenario-table",
+          "title": "جدول سناریوی درآمد، سود و نقد",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-forecasting-2026"
+          ]
+        },
+        {
+          "id": "break-even-sensitivity",
+          "title": "کاربرگ سربه‌سر و حساسیت",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-techniques-2026",
+            "cfa-backtesting-simulation-2026"
+          ]
+        },
+        {
+          "id": "ai-finance-audit",
+          "title": "چک‌لیست وارسی AI در مدل مالی",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "nist-ai-rmf",
+            "nist-genai-profile",
+            "icaew-spreadsheet-20"
+          ]
+        },
+        {
+          "id": "decision-memo",
+          "title": "قالب یادداشت تصمیم مالی مشروط",
+          "status": "teaching_template_authored",
+          "source_ids": [
+            "cfa-forecasting-2026",
+            "cfa-backtesting-simulation-2026"
+          ]
+        }
+      ]
+    }
+  ],
+  "stages_completed_draft": 3,
+  "current_stage": null
+}

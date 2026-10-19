@@ -1,0 +1,248 @@
+{
+  "id": "C06-ST04-L04",
+  "version": "1-draft",
+  "title": "اختلال تأمین و تصمیم مدیر",
+  "content_status": "draft",
+  "objective": "هشدار AI را با منشأ داده، مالک اقدام و نرخ خطا ارزیابی کند.",
+  "learning_cards": [
+    {
+      "id": "C06-ST04-L04-CARD01",
+      "type": "problem",
+      "title": "هشدار بی‌اقدام",
+      "text": "دادهٔ دیررس یا نبود اختیار تغییر سفارش، هشدار را بی‌اثر می‌کند. سامانه باید جای مشخصی در فرایند تصمیم داشته باشد."
+    },
+    {
+      "id": "C06-ST04-L04-CARD02",
+      "type": "definition",
+      "title": "AI و دیدپذیری",
+      "text": "مدل می‌تواند خبر، دادهٔ مسیر و سابقهٔ تأمین را به سرنخ ریسک تبدیل کند. پیش‌بینی واقعیت قطعی نیست؛ منبع و تازگی داده را بررسی کنید."
+    },
+    {
+      "id": "C06-ST04-L04-CARD03",
+      "type": "explanation",
+      "title": "مورد اکتشافی",
+      "text": "پیش‌چاپ GenAI و گراف دانش، پیوندهای زنجیره را در مطالعه‌ای اکتشافی بررسی می‌کند. این امکان یک روش را نشان می‌دهد، نه دیدپذیری کامل همهٔ سازمان‌ها."
+    },
+    {
+      "id": "C06-ST04-L04-CARD04",
+      "type": "worked_example",
+      "title": "مسیر اقدام",
+      "text": "هشدار → بررسی منبع → سنجش اثر → انتخاب پاسخ → ثبت پیامد. هر گام مالک و مهلت می‌خواهد؛ اطلاع‌رسانی خودکار با تصمیم خودکار یکی نیست."
+    },
+    {
+      "id": "C06-ST04-L04-CARD05",
+      "type": "explanation",
+      "title": "هشدار کاذب",
+      "text": "هشدار غلط زمان و اعتماد تحلیلگر را می‌گیرد؛ هشدار ازدست‌رفته اختلال را پنهان می‌کند. نرخ هر دو و زمان پیش‌آگاهی را ثبت کنید."
+    },
+    {
+      "id": "C06-ST04-L04-CARD06",
+      "type": "contrast",
+      "title": "حاکمیت داده",
+      "text": "دادهٔ تأمین‌کننده ممکن است محرمانه یا ناقص باشد. دسترسی، امنیت، منشأ و راه اصلاح را پیش از ساخت داشبورد تعیین کنید."
+    },
+    {
+      "id": "C06-ST04-L04-CARD07",
+      "type": "key_terms",
+      "title": "واژگان",
+      "text": "دیدپذیری؛ هشدار کاذب؛ هشدار ازدست‌رفته؛ زمان پیش‌آگاهی؛ منشأ داده؛ پاسخ‌گویی."
+    },
+    {
+      "id": "C06-ST04-L04-CARD08",
+      "type": "authored_diagram",
+      "title": "ممیزی سامانه",
+      "text": "سناریو، منبع، اطمینان، مالک بررسی، اقدام مجاز و معیار ارزیابی را ثبت کنید. هشدار مهم را با منبع مستقل بررسی کنید."
+    },
+    {
+      "id": "C06-ST04-L04-CARD09",
+      "type": "summary",
+      "title": "جمع‌بندی",
+      "text": "AI سرنخ می‌سازد؛ تاب‌آوری به دادهٔ قابل اتکا، مالک تصمیم و اقدام نیاز دارد. خطای هشدار را بسنجید و مطالعهٔ موردی را تعمیم ندهید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C06-ST04-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هشدار AI چه چیزی نیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "واقعیت قطعی یا اقدام خودکار",
+          "feedback": "درست: پیش‌بینی را با شاهد وارسی می‌کنیم."
+        },
+        {
+          "id": "b",
+          "text": "سرنخ بررسی",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "خروجی تابع داده",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پیش‌بینی را با شاهد وارسی می‌کنیم.",
+      "objective_id": "C06-ST04-L04-OBJ1",
+      "equivalence_group": "C06-ST04-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L04-CARD02"
+    },
+    {
+      "id": "C06-ST04-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هشدار کاذب چه هزینه‌ای دارد؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "هیچ",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "کمبود را حتماً کم می‌کند",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "زمان و اعتماد تحلیلگر",
+          "feedback": "درست: هشدار غلط خستگی می‌آورد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "هشدار غلط خستگی می‌آورد.",
+      "objective_id": "C06-ST04-L04-OBJ1",
+      "equivalence_group": "C06-ST04-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L04-CARD03"
+    },
+    {
+      "id": "C06-ST04-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دیدپذیری مؤثر چه می‌خواهد؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "مدل پیچیده‌تر",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "دادهٔ تازه، مالک و مسیر اقدام",
+          "feedback": "درست: داده و اختیار هشدار را به پاسخ وصل می‌کنند."
+        },
+        {
+          "id": "b",
+          "text": "داشبورد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "داده و اختیار هشدار را به پاسخ وصل می‌کنند.",
+      "objective_id": "C06-ST04-L04-OBJ1",
+      "equivalence_group": "C06-ST04-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L04-CARD06"
+    },
+    {
+      "id": "C06-ST04-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پیش‌چاپ موردی چه چیزی را ثابت نمی‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اثر در همهٔ زنجیره‌ها",
+          "feedback": "درست: مورد اکتشافی قانون عمومی نیست."
+        },
+        {
+          "id": "b",
+          "text": "امکان یک رویکرد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "محدودیت مورد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مورد اکتشافی قانون عمومی نیست.",
+      "objective_id": "C06-ST04-L04-OBJ1",
+      "equivalence_group": "C06-ST04-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L04-CARD05"
+    },
+    {
+      "id": "C06-ST04-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "سامانه را با چه چیزی می‌سنجیم؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "تعداد هشدار",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "سرعت مدل",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "درستی هشدار، پیش‌آگاهی، اقدام و کمبود",
+          "feedback": "درست: پیامد تصمیم معیار مهم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پیامد تصمیم معیار مهم است.",
+      "objective_id": "C06-ST04-L04-OBJ1",
+      "equivalence_group": "C06-ST04-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L04-CARD07"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "ai-scm-review",
+      "title": "Dai et al. (2025), AI Applications in Supply Chain Management: A Survey",
+      "url": "https://doi.org/10.3390/app15052775",
+      "scope": "مرور کاربردهای AI در زنجیره؛ عملکرد ابزار مشخصی را تضمین نمی‌کند."
+    },
+    {
+      "id": "ai-visibility",
+      "title": "Enhancing Supply Chain Visibility with Generative AI: Exploratory Case Study (preprint)",
+      "url": "https://arxiv.org/abs/2412.03390",
+      "scope": "پیش‌چاپ موردی و اکتشافی؛ نتیجه محدود به همان طراحی است."
+    },
+    {
+      "id": "oecd-resilience",
+      "title": "OECD Supply Chain Resilience Review (2025)",
+      "url": "https://doi.org/10.1787/94e3a8ea-en",
+      "scope": "مرور داده‌ها و سیاست تاب‌آوری؛ تنوع‌بخشی نامتناسب نیز می‌تواند هزینه‌زا باشد."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "برای هشدار AI یک قلم بحرانی، منشأ داده، مالک تأیید، اقدام مجاز، زمان پاسخ و نرخ هشدار کاذب/ازدست‌رفته را طراحی و محدودیت مطالعهٔ موردی را ثبت کنید.",
+    "unit": "تحلیل تاب‌آوری زنجیره",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد را جدا نشان دهد؛ بازبینی انسانی لازم است.",
+    "rubric": [
+      "منشأ داده روشن",
+      "مسئول و اقدام مشخص",
+      "خطا و پیامد سنجیده"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

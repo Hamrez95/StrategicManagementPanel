@@ -1,0 +1,243 @@
+{
+  "id": "C08-ST01-L03",
+  "version": "1-draft",
+  "title": "نمودار درست و نمونهٔ گمراه‌کننده",
+  "content_status": "draft",
+  "objective": "نوع نمودار، محور بریده و نمونهٔ سوگیر را تشخیص دهد.",
+  "learning_cards": [
+    {
+      "id": "C08-ST01-L03-CARD01",
+      "type": "problem",
+      "title": "نمودار برداشت می‌سازد",
+      "text": "نمایش مناسب الگو را روشن می‌کند؛ طراحی بد تفاوت را بزرگ یا پنهان می‌کند."
+    },
+    {
+      "id": "C08-ST01-L03-CARD02",
+      "type": "definition",
+      "title": "نوع نمودار",
+      "text": "میله‌ای برای دسته؛ خطی برای زمان؛ هیستوگرام برای توزیع کمی؛ پراکنش برای دو متغیر کمی."
+    },
+    {
+      "id": "C08-ST01-L03-CARD03",
+      "type": "explanation",
+      "title": "محور بریده",
+      "text": "بریدن محور میله‌ای معمولاً تفاوت طول را بزرگ می‌کند؛ هر بریدگی باید روشن و متناسب باشد."
+    },
+    {
+      "id": "C08-ST01-L03-CARD04",
+      "type": "worked_example",
+      "title": "پیمایش سپهر",
+      "text": "فرم رضایت داوطلبانه فقط پاسخ‌دهندگان را می‌بیند؛ نمودارشان نظر تمام مشتریان نیست.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C08-ST01-L03-CARD05",
+      "type": "explanation",
+      "title": "مقیاس و مخرج",
+      "text": "تعداد، درصد و نرخ متفاوت‌اند؛ شعبهٔ بزرگ شاید تعداد شکایت بالاتر ولی نرخ پایین‌تر داشته باشد."
+    },
+    {
+      "id": "C08-ST01-L03-CARD06",
+      "type": "contrast",
+      "title": "بازه و دسته",
+      "text": "تعریف دسته و دوره را ثابت نگه دارید؛ تغییر محور می‌تواند تفاوت بصری بسازد."
+    },
+    {
+      "id": "C08-ST01-L03-CARD07",
+      "type": "key_terms",
+      "title": "واژگان",
+      "text": "محور، مقیاس، مخرج، نرخ، نمونهٔ داوطلبانه، هیستوگرام."
+    },
+    {
+      "id": "C08-ST01-L03-CARD08",
+      "type": "authored_diagram",
+      "title": "چک‌لیست",
+      "text": "عنوان، منبع، بازه، واحد، مخرج، تعداد در برابر نرخ و موارد حذف‌شده را بپرسید."
+    },
+    {
+      "id": "C08-ST01-L03-CARD09",
+      "type": "summary",
+      "title": "جمع‌بندی",
+      "text": "نمودار را بر اساس سؤال و نوع داده انتخاب کنید؛ تصویر جای وارسی داده نیست."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C08-ST01-L03-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "روند زمانی با چه نموداری؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خطی",
+          "feedback": "درست: خط تغییر در زمان را نشان می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "دایره‌ای",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "هیستوگرام",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خط تغییر در زمان را نشان می‌دهد.",
+      "objective_id": "C08-ST01-L03-OBJ1",
+      "equivalence_group": "C08-ST01-L03-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L03-CARD02"
+    },
+    {
+      "id": "C08-ST01-L03-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "توزیع زمان تحویل؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "نمودار سازمانی",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "میلهٔ منطقه",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "هیستوگرام",
+          "feedback": "درست: هیستوگرام توزیع کمی را نشان می‌دهد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "هیستوگرام توزیع کمی را نشان می‌دهد.",
+      "objective_id": "C08-ST01-L03-OBJ1",
+      "equivalence_group": "C08-ST01-L03-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L03-CARD03"
+    },
+    {
+      "id": "C08-ST01-L03-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "شکایت خام چه چیزی را نادیده می‌گیرد؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "عنوان",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "تعداد سفارش در معرض",
+          "feedback": "درست: نرخ به مخرج نیاز دارد."
+        },
+        {
+          "id": "b",
+          "text": "محور افقی",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نرخ به مخرج نیاز دارد.",
+      "objective_id": "C08-ST01-L03-OBJ1",
+      "equivalence_group": "C08-ST01-L03-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L03-CARD06"
+    },
+    {
+      "id": "C08-ST01-L03-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "محور بریده در میله چه می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تفاوت را بزرگ‌نمایی می‌کند",
+          "feedback": "درست: مقیاس برداشت را تغییر می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "دقت را بالا می‌برد",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "نمونه تصادفی می‌شود",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مقیاس برداشت را تغییر می‌دهد.",
+      "objective_id": "C08-ST01-L03-OBJ1",
+      "equivalence_group": "C08-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L03-CARD05"
+    },
+    {
+      "id": "C08-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نمونهٔ داوطلبانه چه محدودیتی دارد؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "همه غلط‌اند",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "پاسخی ندارد",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "ممکن است نمایندهٔ همه نباشد",
+          "feedback": "درست: خودانتخابی ممکن است سوگیری بسازد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خودانتخابی ممکن است سوگیری بسازد.",
+      "objective_id": "C08-ST01-L03-OBJ1",
+      "equivalence_group": "C08-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L03-CARD07"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "graphs",
+      "title": "OpenStax Business Statistics 2.1: Display Data",
+      "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/2-1-display-data",
+      "scope": "انتخاب نمودار."
+    },
+    {
+      "id": "sampling",
+      "title": "OpenStax Business Statistics 1.2: Sampling",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+      "scope": "نوع داده و نمونه‌گیری."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "یک نمودار را از نظر نوع، محور، واحد، مخرج، منبع، بازه و سوگیری نمونه ممیزی کنید.",
+    "unit": "سواد داده و تحلیل",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+    "rubric": [
+      "نوع مناسب",
+      "مقیاس و مخرج روشن",
+      "نمونه محدودیت دارد"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

@@ -1,0 +1,1215 @@
+{
+  "id": "C08-ST01",
+  "title": "سواد داده و آمار توصیفی",
+  "order": 1,
+  "color_token": "green",
+  "legacy_research_topic_ids": [
+    "C08-M1"
+  ],
+  "level": "foundational",
+  "source_refs": [
+    "B08",
+    "M05",
+    "R28"
+  ],
+  "source_alignment": "OpenStax Business Statistics provides data definitions, descriptive measures and chart selection. NIST GenAI Profile informs verification caveats. All examples independently authored.",
+  "lessons": [
+    {
+      "id": "C08-ST01-L01",
+      "version": "1-draft",
+      "title": "داده چیست و واحد مشاهده کدام است؟",
+      "content_status": "draft",
+      "objective": "واحد، متغیر، منبع و دادهٔ مفقود را تعریف کند.",
+      "learning_cards": [
+        {
+          "id": "C08-ST01-L01-CARD01",
+          "type": "problem",
+          "title": "پرسش پیش از جدول",
+          "text": "برای «چرا تحویل دیر می‌شود؟» جدول فروش کافی نیست؛ واحد و تعریف دیرکرد را باید روشن کنیم."
+        },
+        {
+          "id": "C08-ST01-L01-CARD02",
+          "type": "definition",
+          "title": "جامعه و نمونه",
+          "text": "جامعه مجموعهٔ مورد سؤال است؛ نمونه بخشی از آن. آماره از نمونه محاسبه و پارامتر ویژگی جامعه است."
+        },
+        {
+          "id": "C08-ST01-L01-CARD03",
+          "type": "explanation",
+          "title": "واحد مشاهده",
+          "text": "هر ردیف ممکن است سفارش، مشتری یا روز باشد. سفارش‌های متعدد یک مشتری را نباید مشتریان یکتا شمرد."
+        },
+        {
+          "id": "C08-ST01-L01-CARD04",
+          "type": "worked_example",
+          "title": "نوع متغیر",
+          "text": "منطقه دسته‌ای است؛ زمان تحویل کمی و دارای واحد. شناسهٔ عددی مشتری مقدار کمی برای میانگین نیست.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C08-ST01-L01-CARD05",
+          "type": "explanation",
+          "title": "منبع و زمان",
+          "text": "منبع، تاریخ استخراج، بازه و تغییر تعریف شاخص را ثبت کنید؛ منبع تازه هم ممکن است ناقص باشد."
+        },
+        {
+          "id": "C08-ST01-L01-CARD06",
+          "type": "contrast",
+          "title": "دادهٔ مفقود",
+          "text": "خالی می‌تواند نامعلوم یا ثبت‌نشده باشد. تبدیل همهٔ خالی‌ها به صفر میانگین و نرخ را منحرف می‌کند."
+        },
+        {
+          "id": "C08-ST01-L01-CARD07",
+          "type": "key_terms",
+          "title": "واژگان",
+          "text": "جامعه، نمونه، واحد مشاهده، متغیر، شناسه، آماره، پارامتر و منشأ داده."
+        },
+        {
+          "id": "C08-ST01-L01-CARD08",
+          "type": "authored_diagram",
+          "title": "برگهٔ تعریف",
+          "text": "سؤال → جامعه → واحد → متغیر/واحد → منبع/زمان → قواعد پاک‌سازی. یکتایی شناسه و مقدار ناممکن را وارسی کنید."
+        },
+        {
+          "id": "C08-ST01-L01-CARD09",
+          "type": "summary",
+          "title": "جمع‌بندی",
+          "text": "از تصمیم شروع و واحد مشاهده را روشن کنید. عددی‌بودن ظاهر، معنای کمی نمی‌سازد."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C08-ST01-L01-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "واحد مشاهده چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "چیزی که هر ردیف درباره‌اش داده دارد",
+              "feedback": "درست: واحد همان چیزی است که ردیف نمایندگی می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "نام ستون",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "واحد پول",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "واحد همان چیزی است که ردیف نمایندگی می‌کند.",
+          "objective_id": "C08-ST01-L01-OBJ1",
+          "equivalence_group": "C08-ST01-L01-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L01-CARD02"
+        },
+        {
+          "id": "C08-ST01-L01-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "شناسهٔ مشتری چه نوعی است؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "متغیر کمی پیوسته",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "مقدار قابل میانگین‌گیری",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "شناسهٔ دسته‌ای",
+              "feedback": "درست: عدد شناسه معنای کمی ندارد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "عدد شناسه معنای کمی ندارد.",
+          "objective_id": "C08-ST01-L01-OBJ1",
+          "equivalence_group": "C08-ST01-L01-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L01-CARD03"
+        },
+        {
+          "id": "C08-ST01-L01-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "آماره چیست؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "نام فایل",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "مقداری از نمونه",
+              "feedback": "درست: آماره از نمونه محاسبه می‌شود."
+            },
+            {
+              "id": "b",
+              "text": "ویژگی قطعی جامعه",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "آماره از نمونه محاسبه می‌شود.",
+          "objective_id": "C08-ST01-L01-OBJ1",
+          "equivalence_group": "C08-ST01-L01-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L01-CARD06"
+        },
+        {
+          "id": "C08-ST01-L01-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چرا خالی را صفر نکنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "معناهای مفقودی متفاوت‌اند",
+              "feedback": "درست: صفر و ثبت‌نشدن یکی نیستند."
+            },
+            {
+              "id": "b",
+              "text": "صفر همیشه میانگین است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "مفقودی وجود ندارد",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "صفر و ثبت‌نشدن یکی نیستند.",
+          "objective_id": "C08-ST01-L01-OBJ1",
+          "equivalence_group": "C08-ST01-L01-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L01-CARD05"
+        },
+        {
+          "id": "C08-ST01-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مشتری یکتا را چطور می‌شماریم؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "شمردن همهٔ ردیف‌ها",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "میانگین خرید",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "شناسه و حذف سفارش‌های تکراری",
+              "feedback": "درست: سفارش و مشتری دو واحدند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "سفارش و مشتری دو واحدند.",
+          "objective_id": "C08-ST01-L01-OBJ1",
+          "equivalence_group": "C08-ST01-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L01-CARD07"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "data",
+          "title": "OpenStax Business Statistics 1.1: Definitions",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/1-1-definitions-of-statistics-probability-and-key-terms",
+          "scope": "تعریف جامعه، نمونه، آماره و پارامتر."
+        },
+        {
+          "id": "sampling",
+          "title": "OpenStax Business Statistics 1.2: Sampling",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+          "scope": "نوع داده و نمونه‌گیری."
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "یک سؤال عملیاتی را با جامعه، واحد، سه متغیر، نوع، منبع، بازه و تعریف مفقودی مشخص کنید.",
+        "unit": "سواد داده و تحلیل",
+        "answer": null,
+        "absolute_tolerance": 0,
+        "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+        "rubric": [
+          "واحد مناسب",
+          "نوع/واحد روشن",
+          "منبع و مفقودی روشن"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C08-ST01-L02",
+      "version": "1-draft",
+      "title": "میانگین، میانه و پراکندگی",
+      "content_status": "draft",
+      "objective": "دو مجموعه را از نظر مرکز و پراکندگی مقایسه کند.",
+      "learning_cards": [
+        {
+          "id": "C08-ST01-L02-CARD01",
+          "type": "problem",
+          "title": "مرکز کافی نیست",
+          "text": "دو شعبه میانگین یکسان دارند، اما یکی پایدار و دیگری متکی به چند روز جهشی است."
+        },
+        {
+          "id": "C08-ST01-L02-CARD02",
+          "type": "definition",
+          "title": "میانگین",
+          "text": "مجموع مقدارها تقسیم بر تعداد؛ همهٔ مشاهدات اثر دارند و مقدار خیلی بزرگ میانگین را بالا می‌برد."
+        },
+        {
+          "id": "C08-ST01-L02-CARD03",
+          "type": "explanation",
+          "title": "میانه",
+          "text": "مقدار وسط دادهٔ مرتب‌شده؛ برای تعداد زوج میانگین دو مقدار وسط. در دادهٔ کج گاهی مرکز معمولی‌تری است."
+        },
+        {
+          "id": "C08-ST01-L02-CARD04",
+          "type": "worked_example",
+          "title": "مثال پنج سفارش",
+          "text": "۲،۳،۳،۴،۱۸ روز: میانگین ۶، میانه ۳. مقدار ۱۸ میانگین را بالا می‌کشد و نیاز به بررسی دارد.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C08-ST01-L02-CARD05",
+          "type": "explanation",
+          "title": "دامنه و IQR",
+          "text": "دامنه بیشینه منهای کمینه؛ IQR=Q3−Q1 پراکندگی نیمهٔ میانی را نشان می‌دهد."
+        },
+        {
+          "id": "C08-ST01-L02-CARD06",
+          "type": "contrast",
+          "title": "پراکندگی برای تصمیم",
+          "text": "برای تعهد مشتری میانگین کافی نیست؛ صدک بالا، IQR و سهم دیرکرد را هم بسنجید."
+        },
+        {
+          "id": "C08-ST01-L02-CARD07",
+          "type": "key_terms",
+          "title": "واژگان",
+          "text": "میانگین، میانه، چارک، صدک، دامنه، IQR و توزیع کج."
+        },
+        {
+          "id": "C08-ST01-L02-CARD08",
+          "type": "authored_diagram",
+          "title": "مقایسه",
+          "text": "A: ۲،۳،۳،۴،۱۸؛ B: ۴،۵،۶،۷،۸. میانگین هر دو ۶ ولی میانه و پراکندگی متفاوت است."
+        },
+        {
+          "id": "C08-ST01-L02-CARD09",
+          "type": "summary",
+          "title": "جمع‌بندی",
+          "text": "مرکز را با شکل توزیع و پراکندگی بخوانید؛ شاخص مناسب به تصمیم وابسته است."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C08-ST01-L02-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "میانگین ۲،۳،۳،۴،۱۸؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۶",
+              "feedback": "درست: جمع ۳۰ تقسیم بر پنج است."
+            },
+            {
+              "id": "b",
+              "text": "۳",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "۱۸",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "جمع ۳۰ تقسیم بر پنج است.",
+          "objective_id": "C08-ST01-L02-OBJ1",
+          "equivalence_group": "C08-ST01-L02-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L02-CARD02"
+        },
+        {
+          "id": "C08-ST01-L02-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "میانهٔ داده‌ها؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "۶",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "۴",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "۳",
+              "feedback": "درست: مقدار وسط سوم ۳ است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مقدار وسط سوم ۳ است.",
+          "objective_id": "C08-ST01-L02-OBJ1",
+          "equivalence_group": "C08-ST01-L02-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L02-CARD03"
+        },
+        {
+          "id": "C08-ST01-L02-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "کدام شاخص به مقدار دور مقاوم‌تر است؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "دامنه",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "میانه",
+              "feedback": "درست: میانه کمتر حساس است."
+            },
+            {
+              "id": "b",
+              "text": "میانگین",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "میانه کمتر حساس است.",
+          "objective_id": "C08-ST01-L02-OBJ1",
+          "equivalence_group": "C08-ST01-L02-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L02-CARD06"
+        },
+        {
+          "id": "C08-ST01-L02-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "IQR چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "Q3−Q1",
+              "feedback": "درست: فاصلهٔ چارک سوم و اول است."
+            },
+            {
+              "id": "b",
+              "text": "بیشینه−کمینه",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "جمع تقسیم بر n",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "فاصلهٔ چارک سوم و اول است.",
+          "objective_id": "C08-ST01-L02-OBJ1",
+          "equivalence_group": "C08-ST01-L02-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L02-CARD05"
+        },
+        {
+          "id": "C08-ST01-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چرا شعب با میانگین برابر فرق دارند؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "میانگین غلط است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "تعداد بی‌اهمیت است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "پراکندگی متفاوت است",
+              "feedback": "درست: مرکز شکل را کامل نشان نمی‌دهد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مرکز شکل را کامل نشان نمی‌دهد.",
+          "objective_id": "C08-ST01-L02-OBJ1",
+          "equivalence_group": "C08-ST01-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L02-CARD07"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "center",
+          "title": "OpenStax Business Statistics 2.3: Center",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data",
+          "scope": "میانگین و میانه."
+        },
+        {
+          "id": "spread",
+          "title": "OpenStax Business Statistics 2.7: Spread",
+          "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+          "scope": "پراکندگی و IQR."
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "مرکز و پراکندگی دو شعبه را مقایسه و شاخص مناسب ظرفیت را با محدودیتش پیشنهاد دهید.",
+        "unit": "سواد داده و تحلیل",
+        "answer": null,
+        "absolute_tolerance": 0,
+        "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+        "rubric": [
+          "مرکز درست",
+          "پراکندگی آمده",
+          "توصیه به تصمیم وصل است"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C08-ST01-L03",
+      "version": "1-draft",
+      "title": "نمودار درست و نمونهٔ گمراه‌کننده",
+      "content_status": "draft",
+      "objective": "نوع نمودار، محور بریده و نمونهٔ سوگیر را تشخیص دهد.",
+      "learning_cards": [
+        {
+          "id": "C08-ST01-L03-CARD01",
+          "type": "problem",
+          "title": "نمودار برداشت می‌سازد",
+          "text": "نمایش مناسب الگو را روشن می‌کند؛ طراحی بد تفاوت را بزرگ یا پنهان می‌کند."
+        },
+        {
+          "id": "C08-ST01-L03-CARD02",
+          "type": "definition",
+          "title": "نوع نمودار",
+          "text": "میله‌ای برای دسته؛ خطی برای زمان؛ هیستوگرام برای توزیع کمی؛ پراکنش برای دو متغیر کمی."
+        },
+        {
+          "id": "C08-ST01-L03-CARD03",
+          "type": "explanation",
+          "title": "محور بریده",
+          "text": "بریدن محور میله‌ای معمولاً تفاوت طول را بزرگ می‌کند؛ هر بریدگی باید روشن و متناسب باشد."
+        },
+        {
+          "id": "C08-ST01-L03-CARD04",
+          "type": "worked_example",
+          "title": "پیمایش سپهر",
+          "text": "فرم رضایت داوطلبانه فقط پاسخ‌دهندگان را می‌بیند؛ نمودارشان نظر تمام مشتریان نیست.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C08-ST01-L03-CARD05",
+          "type": "explanation",
+          "title": "مقیاس و مخرج",
+          "text": "تعداد، درصد و نرخ متفاوت‌اند؛ شعبهٔ بزرگ شاید تعداد شکایت بالاتر ولی نرخ پایین‌تر داشته باشد."
+        },
+        {
+          "id": "C08-ST01-L03-CARD06",
+          "type": "contrast",
+          "title": "بازه و دسته",
+          "text": "تعریف دسته و دوره را ثابت نگه دارید؛ تغییر محور می‌تواند تفاوت بصری بسازد."
+        },
+        {
+          "id": "C08-ST01-L03-CARD07",
+          "type": "key_terms",
+          "title": "واژگان",
+          "text": "محور، مقیاس، مخرج، نرخ، نمونهٔ داوطلبانه، هیستوگرام."
+        },
+        {
+          "id": "C08-ST01-L03-CARD08",
+          "type": "authored_diagram",
+          "title": "چک‌لیست",
+          "text": "عنوان، منبع، بازه، واحد، مخرج، تعداد در برابر نرخ و موارد حذف‌شده را بپرسید."
+        },
+        {
+          "id": "C08-ST01-L03-CARD09",
+          "type": "summary",
+          "title": "جمع‌بندی",
+          "text": "نمودار را بر اساس سؤال و نوع داده انتخاب کنید؛ تصویر جای وارسی داده نیست."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C08-ST01-L03-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "روند زمانی با چه نموداری؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "خطی",
+              "feedback": "درست: خط تغییر در زمان را نشان می‌دهد."
+            },
+            {
+              "id": "b",
+              "text": "دایره‌ای",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "هیستوگرام",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "خط تغییر در زمان را نشان می‌دهد.",
+          "objective_id": "C08-ST01-L03-OBJ1",
+          "equivalence_group": "C08-ST01-L03-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L03-CARD02"
+        },
+        {
+          "id": "C08-ST01-L03-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "توزیع زمان تحویل؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "نمودار سازمانی",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "میلهٔ منطقه",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "هیستوگرام",
+              "feedback": "درست: هیستوگرام توزیع کمی را نشان می‌دهد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "هیستوگرام توزیع کمی را نشان می‌دهد.",
+          "objective_id": "C08-ST01-L03-OBJ1",
+          "equivalence_group": "C08-ST01-L03-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L03-CARD03"
+        },
+        {
+          "id": "C08-ST01-L03-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "شکایت خام چه چیزی را نادیده می‌گیرد؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "عنوان",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "تعداد سفارش در معرض",
+              "feedback": "درست: نرخ به مخرج نیاز دارد."
+            },
+            {
+              "id": "b",
+              "text": "محور افقی",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "نرخ به مخرج نیاز دارد.",
+          "objective_id": "C08-ST01-L03-OBJ1",
+          "equivalence_group": "C08-ST01-L03-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L03-CARD06"
+        },
+        {
+          "id": "C08-ST01-L03-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "محور بریده در میله چه می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تفاوت را بزرگ‌نمایی می‌کند",
+              "feedback": "درست: مقیاس برداشت را تغییر می‌دهد."
+            },
+            {
+              "id": "b",
+              "text": "دقت را بالا می‌برد",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "نمونه تصادفی می‌شود",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مقیاس برداشت را تغییر می‌دهد.",
+          "objective_id": "C08-ST01-L03-OBJ1",
+          "equivalence_group": "C08-ST01-L03-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L03-CARD05"
+        },
+        {
+          "id": "C08-ST01-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نمونهٔ داوطلبانه چه محدودیتی دارد؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "همه غلط‌اند",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "پاسخی ندارد",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "ممکن است نمایندهٔ همه نباشد",
+              "feedback": "درست: خودانتخابی ممکن است سوگیری بسازد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "خودانتخابی ممکن است سوگیری بسازد.",
+          "objective_id": "C08-ST01-L03-OBJ1",
+          "equivalence_group": "C08-ST01-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L03-CARD07"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "graphs",
+          "title": "OpenStax Business Statistics 2.1: Display Data",
+          "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/2-1-display-data",
+          "scope": "انتخاب نمودار."
+        },
+        {
+          "id": "sampling",
+          "title": "OpenStax Business Statistics 1.2: Sampling",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+          "scope": "نوع داده و نمونه‌گیری."
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "یک نمودار را از نظر نوع، محور، واحد، مخرج، منبع، بازه و سوگیری نمونه ممیزی کنید.",
+        "unit": "سواد داده و تحلیل",
+        "answer": null,
+        "absolute_tolerance": 0,
+        "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+        "rubric": [
+          "نوع مناسب",
+          "مقیاس و مخرج روشن",
+          "نمونه محدودیت دارد"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C08-ST01-L04",
+      "version": "1-draft",
+      "title": "داستان یک میانگین گمراه‌کننده",
+      "content_status": "draft",
+      "objective": "خلاصه یا نمودار AI را با دادهٔ پایه راستی‌آزمایی کند.",
+      "learning_cards": [
+        {
+          "id": "C08-ST01-L04-CARD01",
+          "type": "problem",
+          "title": "عدد شگفت‌انگیز",
+          "text": "«فروش متوسط دو برابر شد»؛ آیا خرید بالا رفت یا ترکیب مشتری تغییر کرد؟ مخرج را بررسی کنید."
+        },
+        {
+          "id": "C08-ST01-L04-CARD02",
+          "type": "definition",
+          "title": "ترکیب گروه",
+          "text": "میانگین کل با تغییر سهم مناطق بالا می‌رود، حتی اگر هر منطقه ثابت باشد."
+        },
+        {
+          "id": "C08-ST01-L04-CARD03",
+          "type": "explanation",
+          "title": "بازسازی",
+          "text": "دادهٔ خام، واحد، بازه، فیلتر و مخرج را بازسازی کنید؛ چند ردیف را دستی تطبیق دهید."
+        },
+        {
+          "id": "C08-ST01-L04-CARD04",
+          "type": "worked_example",
+          "title": "مثال فروش",
+          "text": "ماه اول خرید ۱۰۰ و ۱۰۰۰؛ میانگین ۵۵۰. ماه دوم دو خرید ۶۰۰؛ میانگین ۶۰۰، رشد حدود ۹٪ است.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C08-ST01-L04-CARD05",
+          "type": "explanation",
+          "title": "AI و خلاصه",
+          "text": "GenAI می‌تواند نمودار بسازد اما عدد یا رابطه را نادرست بیان کند؛ NIST اعتبارسنجی خروجی را توصیه می‌کند."
+        },
+        {
+          "id": "C08-ST01-L04-CARD06",
+          "type": "contrast",
+          "title": "سند ممیزی",
+          "text": "ادعا را به جدول، فیلتر، تعریف و فرمول وصل کنید. متن روان صحت محاسبه را ثابت نمی‌کند."
+        },
+        {
+          "id": "C08-ST01-L04-CARD07",
+          "type": "key_terms",
+          "title": "واژگان",
+          "text": "ترکیب نمونه، مخرج، بازسازی، راستی‌آزمایی و منشأ ادعا."
+        },
+        {
+          "id": "C08-ST01-L04-CARD08",
+          "type": "authored_diagram",
+          "title": "سه سؤال",
+          "text": "چه شمرده شد؟ چه کسی حذف شد؟ آیا عدد بازتولید می‌شود؟ اگر نه، ادعا موقت است."
+        },
+        {
+          "id": "C08-ST01-L04-CARD09",
+          "type": "summary",
+          "title": "جمع‌بندی",
+          "text": "میانگین را با توزیع و ترکیب بخوانید؛ خروجی AI را از دادهٔ پایه بسنجید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C08-ST01-L04-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "میانگین کل چرا تغییر می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ترکیب گروه‌ها تغییر کرده",
+              "feedback": "درست: وزن گروه‌ها میانگین کل را جابه‌جا می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "فقط مدیر اشتباه کرده",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "میانه ثابت است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "وزن گروه‌ها میانگین کل را جابه‌جا می‌کند.",
+          "objective_id": "C08-ST01-L04-OBJ1",
+          "equivalence_group": "C08-ST01-L04-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L04-CARD02"
+        },
+        {
+          "id": "C08-ST01-L04-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "محاسبهٔ AI را چطور وارسی می‌کنیم؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "روانی متن",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "تعداد نمودار",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "داده، فیلتر، مخرج و فرمول",
+              "feedback": "درست: نتیجه باید بازتولید شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "نتیجه باید بازتولید شود.",
+          "objective_id": "C08-ST01-L04-OBJ1",
+          "equivalence_group": "C08-ST01-L04-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L04-CARD03"
+        },
+        {
+          "id": "C08-ST01-L04-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "میانگین ۱۰۰ و ۱۰۰۰؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "۱۰۰",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "۵۵۰",
+              "feedback": "درست: جمع تقسیم بر دو است."
+            },
+            {
+              "id": "b",
+              "text": "۱۱۰۰",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "جمع تقسیم بر دو است.",
+          "objective_id": "C08-ST01-L04-OBJ1",
+          "equivalence_group": "C08-ST01-L04-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L04-CARD06"
+        },
+        {
+          "id": "C08-ST01-L04-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "NIST چه ریسکی می‌گوید؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "خروجی GenAI ممکن است نادرست باشد",
+              "feedback": "درست: اعتبارسنجی لازم است."
+            },
+            {
+              "id": "b",
+              "text": "هر محاسبه تضمین است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "نمونه‌گیری همیشه تصادفی است",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "اعتبارسنجی لازم است.",
+          "objective_id": "C08-ST01-L04-OBJ1",
+          "equivalence_group": "C08-ST01-L04-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L04-CARD05"
+        },
+        {
+          "id": "C08-ST01-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "متن روان چه چیزی را ثابت نمی‌کند؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "خوانایی",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "c",
+              "text": "وجود ادعا",
+              "feedback": "تعریف یا محدودیت اشتباه است."
+            },
+            {
+              "id": "a",
+              "text": "درستی عدد",
+              "feedback": "درست: روانی و صحت یکی نیستند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "روانی و صحت یکی نیستند.",
+          "objective_id": "C08-ST01-L04-OBJ1",
+          "equivalence_group": "C08-ST01-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C08-ST01-L04-CARD07"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "center",
+          "title": "OpenStax Business Statistics 2.3: Center",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data",
+          "scope": "میانگین و میانه."
+        },
+        {
+          "id": "sampling",
+          "title": "OpenStax Business Statistics 1.2: Sampling",
+          "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+          "scope": "نوع داده و نمونه‌گیری."
+        },
+        {
+          "id": "nist",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://doi.org/10.6028/NIST.AI.600-1",
+          "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI."
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "یک ادعای آماری/خلاصهٔ AI را از داده خام بازسازی کنید و فیلتر، واحد، مخرج، محاسبه و محدودیت را ثبت کنید.",
+        "unit": "سواد داده و تحلیل",
+        "answer": null,
+        "absolute_tolerance": 0,
+        "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+        "rubric": [
+          "ادعا به داده وصل است",
+          "محاسبه بازسازی شده",
+          "مخرج بررسی شده"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    }
+  ],
+  "checkpoint": {
+    "id": "C08-ST01-CHECK",
+    "node_type": "stage_review",
+    "item_count": 6,
+    "coverage": "one_per_lesson_plus_two_transfer_items",
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "id": "C08-ST01-CHECK-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "واحد مشاهده چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "چیزی که هر ردیف درباره‌اش داده دارد",
+            "feedback": "درست: ردیف چیزی را نمایندگی می‌کند."
+          },
+          {
+            "id": "b",
+            "text": "عنوان ستون",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "c",
+            "text": "عدد تصادفی",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "ردیف چیزی را نمایندگی می‌کند.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q01-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L01-CARD01"
+      },
+      {
+        "id": "C08-ST01-CHECK-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "کدام مرکز مقاوم‌تر است؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "میانگین",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "c",
+            "text": "دامنه",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "a",
+            "text": "میانه",
+            "feedback": "درست: میانه کمتر حساس است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "میانه کمتر حساس است.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q02-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L02-CARD02"
+      },
+      {
+        "id": "C08-ST01-CHECK-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "روند زمانی با چه نموداری؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "دایره‌ای",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "a",
+            "text": "خطی",
+            "feedback": "درست: خط تغییر زمانی را نشان می‌دهد."
+          },
+          {
+            "id": "b",
+            "text": "هیستوگرام",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "خط تغییر زمانی را نشان می‌دهد.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q03-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L03-CARD03"
+      },
+      {
+        "id": "C08-ST01-CHECK-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "نرخ شکایت چه مخرجی می‌خواهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "تعداد سفارش در معرض",
+            "feedback": "درست: نرخ به مخرج نیاز دارد."
+          },
+          {
+            "id": "b",
+            "text": "تعداد شعب",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "c",
+            "text": "عنوان نمودار",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "نرخ به مخرج نیاز دارد.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q04-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L04-CARD03"
+      },
+      {
+        "id": "C08-ST01-CHECK-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "چرا خلاصه AI را وارسی می‌کنیم؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "همه جدول‌ها غلط‌اند",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "c",
+            "text": "متن کوتاه است",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "a",
+            "text": "ممکن است ادعای نادرست بسازد",
+            "feedback": "درست: خروجی مولد را باید اعتبارسنجی کرد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "خروجی مولد را باید اعتبارسنجی کرد.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q05-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L05-CARD04"
+      },
+      {
+        "id": "C08-ST01-CHECK-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "میانگین چه چیزی را پنهان می‌کند؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "جامعه",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          },
+          {
+            "id": "a",
+            "text": "توزیع و ترکیب گروه‌ها",
+            "feedback": "درست: مرکز کل همه تفاوت‌ها را نشان نمی‌دهد."
+          },
+          {
+            "id": "b",
+            "text": "جمع داده",
+            "feedback": "تعریف یا محدودیت اشتباه است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "مرکز کل همه تفاوت‌ها را نشان نمی‌دهد.",
+        "objective_id": "C08-ST01-CHECK-OBJ1",
+        "equivalence_group": "C08-ST01-CHECK-Q06-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C08-ST01-L06-CARD04"
+      }
+    ]
+  },
+  "tool_plan": [
+    {
+      "id": "data-dictionary",
+      "title": "تعریف جامعه، واحد و متغیر",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "data"
+      ]
+    },
+    {
+      "id": "center-spread",
+      "title": "مقایسهٔ مرکز و پراکندگی",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "center",
+        "spread"
+      ]
+    },
+    {
+      "id": "chart-audit",
+      "title": "ممیزی محور و مخرج",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "graphs"
+      ]
+    },
+    {
+      "id": "ai-audit",
+      "title": "راستی‌آزمایی ادعای AI",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "nist"
+      ]
+    }
+  ]
+}

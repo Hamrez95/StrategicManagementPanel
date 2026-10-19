@@ -1,0 +1,260 @@
+{
+  "id": "S02-C2-ST01-L04",
+  "version": "1-draft",
+  "title": "ارزش‌گذاری با سناریو",
+  "content_status": "draft",
+  "objective": "دامنهٔ ارزش را با سناریوهای سازگار بسازد و وابستگی نتیجه به رشد، نرخ، حاشیه و سرمایه‌گذاری را گزارش کند.",
+  "learning_cards": [
+    {
+      "id": "S02-C2-ST01-L04-CARD01",
+      "type": "explanation",
+      "title": "ارزش یک عدد نیست",
+      "text": "مدل DCF خروجی دقیق حسابی می‌دهد اما ورودی‌ها برآوردی‌اند. گزارش «ارزش ۱۰۲٫۴» دقت اقتصادی کاذب می‌سازد؛ دامنه و محرک‌ها را نشان دهید. نقطهٔ میانی، حقیقت پنهان نیست و باید همراه مفروضات بیاید."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD02",
+      "type": "explanation",
+      "title": "سناریوی سازگار",
+      "text": "سناریوی پایه، فشار و فرصت را با فرض‌های مرتبط بسازید: رشد فروش، حاشیه، سرمایه‌گذاری، سرمایهٔ در گردش و نرخ/ریسک. در فشار، فروش کمتر و وصول دیرتر ممکن است هم‌زمان شوند. اما همهٔ متغیرها را بدترین مقدار نگذارید مگر روایت واقعاً آن را توجیه کند."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD03",
+      "type": "explanation",
+      "title": "احتمال یا بدون احتمال",
+      "text": "اگر احتمال‌ها قابل‌دفاع‌اند، ارزش مورد انتظار = مجموع ارزش هر سناریو × احتمال آن؛ احتمال‌ها باید ۱۰۰٪ شوند و منبع داشته باشند. وقتی احتمال دقیق نداریم، دامنه را بدون برچسب احتمال گزارش کنید. درصدهای ساخته‌شده نباید ظاهر علمی به عدم‌اطمینان بدهند."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD04",
+      "type": "explanation",
+      "title": "مثال دامنه",
+      "text": "فرض کنید ارزش بنگاه در فشار ۷۰۰، پایه ۱۰۰۰ و فرصت ۱۳۰۰ واحد است. اگر احتمال‌های فرضی ۰٫۲، ۰٫۵ و ۰٫۳ باشد، میانگین ۱۰۴۰ می‌شود؛ این خروجی فقط به همان احتمال‌ها و فرض‌ها مشروط است. میانه یا دامنهٔ تصمیم شاید برای مذاکره مفیدتر باشد."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD05",
+      "type": "explanation",
+      "title": "تحلیل حساسیت",
+      "text": "یک‌متغیره نشان می‌دهد تغییر یک ورودی با ثابت‌بودن بقیه چه اثری دارد؛ سناریو چند فرض مرتبط را با هم تغییر می‌دهد. ماتریس WACC و رشد، سهم اثر دو متغیر را می‌بیند. هیچ‌کدام احتمال وقوع آینده یا اعتبار مفروضات را ثابت نمی‌کنند."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD06",
+      "type": "explanation",
+      "title": "شکاف قیمت و ارزش",
+      "text": "وقتی برآورد از قیمت بازار دور است، ابتدا فرمول، واحد، نرخ و داده را کنترل کنید. سپس تفاوت فرض شما با فرض ضمنی بازار—رشد، حاشیه، ریسک یا سودآوری سرمایه—را توضیح دهید. بازار ممکن است اشتباه کند، اما مدل شخصی نیز ممکن است به‌خطا باشد."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD07",
+      "type": "explanation",
+      "title": "ارزش گزینه و انعطاف",
+      "text": "مدیریت می‌تواند پروژه را مرحله‌ای کند، متوقف کند یا پس از یادگیری توسعه دهد؛ DCF ایستا این انعطاف را کم می‌بیند. برای سرمایه‌گذاری برگشت‌ناپذیر در عدم‌قطعیت بالا، نقاط تصمیم و ارزش انتظار را جدا مطرح کنید. real option ارزش انعطاف است، نه افزودنی دلخواه به عدد."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD08",
+      "type": "explanation",
+      "title": "AI و سناریو",
+      "text": "AI می‌تواند سناریوهای فرضی و توضیح خلاف‌واقع پیشنهاد دهد؛ خروجی را با دادهٔ به‌روز، واحد، سازگاری اقتصادی و منبع کنترل کنید. خلاصهٔ اخبار نباید بدون بررسی مستقیم به نرخ رشد/ریسک تبدیل شود. تصمیم نهایی باید گزینه‌ها، اثرات توزیعی و محدودیت داده را نشان دهد."
+    },
+    {
+      "id": "S02-C2-ST01-L04-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "Sensitivity حساسیت؛ scenario سناریو؛ expected value ارزش مورد انتظار؛ range of value دامنهٔ ارزش؛ implied assumptions مفروضات ضمنی قیمت؛ real option اختیار واقعی است. به‌جای ادعای یک ارزش قطعی، دامنه، فرض، محرک تصمیم و دادهٔ لازم برای تنگ‌ترکردن دامنه را بیان کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C2-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش‌گذاری سناریویی چه مزیتی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نمایش چند مجموعه فرض و دامنهٔ نتیجه",
+          "feedback": "درست: سناریو عدم‌قطعیت را آشکار می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "حذف عدم‌قطعیت",
+          "feedback": "بازبینی: سناریو عدم‌قطعیت را آشکار می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "تضمین قیمت بازار",
+          "feedback": "بازبینی: سناریو عدم‌قطعیت را آشکار می‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "سناریو عدم‌قطعیت را آشکار می‌کند.",
+      "objective_id": "S02-C2-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L04-CARD02"
+    },
+    {
+      "id": "S02-C2-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "وقتی احتمال سناریوها بی‌پایه است، چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دامنه را بدون احتمال جعلی گزارش کنیم",
+          "feedback": "درست: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+        },
+        {
+          "id": "b",
+          "text": "احتمال دقیق بسازیم",
+          "feedback": "بازبینی: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+        },
+        {
+          "id": "c",
+          "text": "فقط فرصت را نشان دهیم",
+          "feedback": "بازبینی: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "عدد احتمال نیازمند مبنای قابل‌دفاع است.",
+      "objective_id": "S02-C2-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L04-CARD03"
+    },
+    {
+      "id": "S02-C2-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش مورد انتظار چگونه محاسبه می‌شود؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "جمع ارزش هر سناریو ضربدر احتمال آن",
+          "feedback": "درست: احتمال‌ها باید معتبر و جمعشان یک باشد."
+        },
+        {
+          "id": "b",
+          "text": "میانگین سادهٔ سه فرض بدون توضیح",
+          "feedback": "بازبینی: احتمال‌ها باید معتبر و جمعشان یک باشد."
+        },
+        {
+          "id": "c",
+          "text": "TV منهای WACC",
+          "feedback": "بازبینی: احتمال‌ها باید معتبر و جمعشان یک باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "احتمال‌ها باید معتبر و جمعشان یک باشد.",
+      "objective_id": "S02-C2-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L04-CARD04"
+    },
+    {
+      "id": "S02-C2-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "اگر DCF از قیمت بازار دور است، نخست چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "کنترل داده، واحد و فرض و سپس مقایسهٔ مفروضات",
+          "feedback": "درست: اختلاف می‌تواند از هر دو طرف باشد."
+        },
+        {
+          "id": "b",
+          "text": "قیمت را اشتباه قطعی بدانیم",
+          "feedback": "بازبینی: اختلاف می‌تواند از هر دو طرف باشد."
+        },
+        {
+          "id": "c",
+          "text": "مدل را بدون توضیح عوض کنیم",
+          "feedback": "بازبینی: اختلاف می‌تواند از هر دو طرف باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اختلاف می‌تواند از هر دو طرف باشد.",
+      "objective_id": "S02-C2-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L04-CARD05"
+    },
+    {
+      "id": "S02-C2-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "انعطاف مرحله‌ای در DCF ساده چه محدودیتی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارزش اختیار توقف/گسترش در جریان ایستا کم دیده می‌شود",
+          "feedback": "درست: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+        },
+        {
+          "id": "b",
+          "text": "هیچ اثری ندارد",
+          "feedback": "بازبینی: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+        },
+        {
+          "id": "c",
+          "text": "جریان نقد را حذف می‌کند",
+          "feedback": "بازبینی: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نقاط تصمیم ارزش انعطاف ایجاد می‌کنند.",
+      "objective_id": "S02-C2-ST01-L04-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L04-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "damodaran-dcf-lectures",
+      "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+      "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+      "review_depth": "official_university_course_material_reviewed"
+    },
+    {
+      "id": "damodaran-terminal-value",
+      "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+      "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+      "review_depth": "official_university_teaching_resource_reviewed"
+    },
+    {
+      "id": "damodaran-valuation-tools",
+      "title": "NYU Stern: Valuation Spreadsheets and Tools",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+      "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+      "review_depth": "official_university_teaching_resource_reviewed"
+    },
+    {
+      "id": "cfa-forecasting-2026",
+      "title": "CFA Institute 2026: Company Analysis—Forecasting",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+      "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "سه دامنهٔ ارزش برای سپهر بساز و توصیهٔ مشروط همراه با محرک تغییر تصمیم بنویس.",
+    "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+    "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+    "rubric": [
+      "مدل و فرمول درست (۰–۲)",
+      "سازگاری نرخ/ارز/جریان (۰–۲)",
+      "فرض و منبع آشکار (۰–۲)",
+      "حساسیت و توضیح محدودیت (۰–۲)",
+      "توصیهٔ مشروط (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

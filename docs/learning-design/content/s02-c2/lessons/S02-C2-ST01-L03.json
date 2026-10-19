@@ -1,0 +1,260 @@
+{
+  "id": "S02-C2-ST01-L03",
+  "version": "1-draft",
+  "title": "ارزش پایانی و حساسیت آن",
+  "content_status": "draft",
+  "objective": "ارزش پایانی را با رشد باثبات سازگار محاسبه و سهم آن از ارزش کل و حساسیت مفروضات را توضیح دهد.",
+  "learning_cards": [
+    {
+      "id": "S02-C2-ST01-L03-CARD01",
+      "type": "explanation",
+      "title": "چرا ارزش پایانی لازم است",
+      "text": "کسب‌وکار معمولاً بعد از افق پیش‌بینی ادامه دارد و پیش‌بینی یک‌به‌یک تا ابد ممکن نیست. ارزش پایانی نمایندهٔ جریان پس از دورهٔ صریح است؛ چون بخش بزرگی از ارزش ممکن است از همین برآورد بیاید، فرض‌هایش باید آشکار و آزمون شوند."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD02",
+      "type": "explanation",
+      "title": "مدل رشد باثبات",
+      "text": "در مدل رشد پایدار، TV در انتهای سال n برابر FCFF سال n+1 تقسیم بر (WACC−g) است، به شرط WACC>g. جریان سال پایانی را برای وضعیت باثبات نرمال کنید؛ رشد باید با اقتصاد بلندمدت ارز و توان سرمایه‌گذاری سازگار باشد."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD03",
+      "type": "explanation",
+      "title": "ارزش در زمان درست",
+      "text": "ارزش پایانی در انتهای دورهٔ پیش‌بینی محاسبه می‌شود، سپس به امروز تنزیل می‌گردد. فراموش‌کردن تنزیل یا استفاده از جریان سال n به‌جای n+1 ارزش را جابه‌جا می‌کند. تاریخ جریان (پایان/میان‌سال) نیز بر عامل تنزیل اثر دارد."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD04",
+      "type": "explanation",
+      "title": "مثال عددی ساده",
+      "text": "اگر FCFF سال بعد ۱۰۰، WACC برابر ۱۰٪ و g برابر ۳٪ باشد، TV=100/(.10−.03)=1428.6 در پایان سال n است. اگر افق پنج‌ساله و تنزیل سالانه باشد، این مقدار به امروز با ÷1.10^5 برمی‌گردد. مثال فرضی است، نه توصیه یا برآورد بازار."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD05",
+      "type": "explanation",
+      "title": "حساسیت به g و WACC",
+      "text": "وقتی فاصلهٔ WACC−g کوچک می‌شود، ارزش پایانی به‌سرعت بزرگ می‌شود. جدول دوبعدی WACC و g بسازید و خانه‌های ناممکن—مثل g≥WACC—را حذف/علامت‌گذاری کنید. نشان دهید چقدر از EV امروز از TV می‌آید؛ سهم بسیار بالا حساسیت نتیجه را زیاد می‌کند."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD06",
+      "type": "explanation",
+      "title": "رشد پایدار و سرمایه‌گذاری",
+      "text": "رشد ابدی بدون سرمایه‌گذاری ممکن نیست. در دورهٔ باثبات، بازسرمایه‌گذاری لازم با نرخ رشد تقسیم بر بازده سرمایه محاسبه می‌شود؛ اگر مدل رشد زیاد و بازده ناممکن می‌خواهد، فرض‌های عملیاتی ناسازگارند. افزایش بهره‌وری می‌تواند بازده را موقتاً بالا ببرد اما مزیت ابدی فرض نشود."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD07",
+      "type": "explanation",
+      "title": "روش چندگانهٔ خروج",
+      "text": "اعمال multiple به سود سال آخر رویکرد نسبی بازار است، نه کاملاً DCF ذاتی. اگر به‌عنوان cross-check استفاده می‌کنید، مضرب، شرکت‌های مقایسه و چرایی آن را جدا نشان دهید و از مخلوط‌کردن دو روش به‌عنوان یک حقیقت پرهیز کنید."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD08",
+      "type": "explanation",
+      "title": "تست معقول‌بودن",
+      "text": "TV را با جریان نقد باثبات، حاشیه، سرمایه‌گذاری، رشد اقتصاد و شرکت مقایسه کنید. اگر شرکت پس از ۵ سال هنوز حاشیهٔ غیرممکن یا رشد بی‌پایان دارد، مرحلهٔ گذار یا سود رقابتی را بازمدل کنید. چک معقول‌بودن، جای شواهد صنعت را نمی‌گیرد."
+    },
+    {
+      "id": "S02-C2-ST01-L03-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "Terminal value ارزش پایانی؛ stable growth رشد باثبات؛ perpetuity perpetuity/جریان دائمی؛ exit multiple مضرب خروج؛ terminal year سال انتهایی؛ reinvestment بازسرمایه‌گذاری است. TV را تخمین نقطه‌ای قطعی ندانید؛ سهم، فرض رشد و نرخ را با دامنه گزارش کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C2-ST01-L03-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "شرط مدل رشد پایدار چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "WACC بزرگ‌تر از g",
+          "feedback": "درست: مخرج باید مثبت بماند."
+        },
+        {
+          "id": "b",
+          "text": "g بزرگ‌تر از WACC",
+          "feedback": "بازبینی: مخرج باید مثبت بماند."
+        },
+        {
+          "id": "c",
+          "text": "WACC برابر صفر",
+          "feedback": "بازبینی: مخرج باید مثبت بماند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مخرج باید مثبت بماند.",
+      "objective_id": "S02-C2-ST01-L03-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L03-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L03-CARD02"
+    },
+    {
+      "id": "S02-C2-ST01-L03-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "FCFF سال بعد ۱۰۰، WACC ۱۰٪، g ۳٪؛ TV انتهای دوره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حدود ۱۴۲۹",
+          "feedback": "درست: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+        },
+        {
+          "id": "b",
+          "text": "۱۰۰۰",
+          "feedback": "بازبینی: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+        },
+        {
+          "id": "c",
+          "text": "۷۰۰",
+          "feedback": "بازبینی: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶.",
+      "objective_id": "S02-C2-ST01-L03-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L03-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L03-CARD03"
+    },
+    {
+      "id": "S02-C2-ST01-L03-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش پایانی ابتدا در چه تاریخی است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "انتهای افق صریح و سپس تنزیل می‌شود",
+          "feedback": "درست: محل زمانی TV در مدل مهم است."
+        },
+        {
+          "id": "b",
+          "text": "امروز بدون تنزیل",
+          "feedback": "بازبینی: محل زمانی TV در مدل مهم است."
+        },
+        {
+          "id": "c",
+          "text": "ابتدای سال اول",
+          "feedback": "بازبینی: محل زمانی TV در مدل مهم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "محل زمانی TV در مدل مهم است.",
+      "objective_id": "S02-C2-ST01-L03-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L03-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L03-CARD04"
+    },
+    {
+      "id": "S02-C2-ST01-L03-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "g نزدیک WACC چه خطری دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارزش پایانی به فرض بسیار حساس می‌شود",
+          "feedback": "درست: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "ارزش صفر است",
+          "feedback": "بازبینی: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "حساسیت را حذف می‌کند",
+          "feedback": "بازبینی: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند.",
+      "objective_id": "S02-C2-ST01-L03-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L03-CARD05"
+    },
+    {
+      "id": "S02-C2-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "exit multiple چه رویکردی وارد می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مقایسهٔ نسبی بازار",
+          "feedback": "درست: مضرب بازار، رویکرد نسبی است."
+        },
+        {
+          "id": "b",
+          "text": "فقط جریان ذاتی",
+          "feedback": "بازبینی: مضرب بازار، رویکرد نسبی است."
+        },
+        {
+          "id": "c",
+          "text": "نرخ بدون ریسک",
+          "feedback": "بازبینی: مضرب بازار، رویکرد نسبی است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مضرب بازار، رویکرد نسبی است.",
+      "objective_id": "S02-C2-ST01-L03-OBJ1",
+      "equivalence_group": "S02-C2-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST01-L03-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "damodaran-dcf-lectures",
+      "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+      "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+      "review_depth": "official_university_course_material_reviewed"
+    },
+    {
+      "id": "damodaran-terminal-value",
+      "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+      "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+      "review_depth": "official_university_teaching_resource_reviewed"
+    },
+    {
+      "id": "damodaran-valuation-tools",
+      "title": "NYU Stern: Valuation Spreadsheets and Tools",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+      "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+      "review_depth": "official_university_teaching_resource_reviewed"
+    },
+    {
+      "id": "cfa-forecasting-2026",
+      "title": "CFA Institute 2026: Company Analysis—Forecasting",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+      "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "TV را محاسبه کن، سپس سهم آن از ارزش را با WACC و g در جدول دوبعدی نشان بده.",
+    "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+    "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+    "rubric": [
+      "مدل و فرمول درست (۰–۲)",
+      "سازگاری نرخ/ارز/جریان (۰–۲)",
+      "فرض و منبع آشکار (۰–۲)",
+      "حساسیت و توضیح محدودیت (۰–۲)",
+      "توصیهٔ مشروط (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

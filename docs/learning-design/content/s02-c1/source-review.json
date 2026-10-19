@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-19",
+  "course_id": "S02-C1",
+  "status": "draft_sources_reviewed_pending_expert_content_review",
+  "source_use_note": "آموزش مدیریتی است، نه توصیهٔ سرمایه‌گذاری یا حسابداری. مثال سپهر فرضی است؛ تفاوت IFRS/US GAAP و صنعت در کاربرد واقعی بررسی شود.",
+  "sources": [
+    {
+      "id": "sec-financial-statements",
+      "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
+      "review_depth": "official_regulator_guide_reviewed"
+    },
+    {
+      "id": "cfa-fsa-intro-2026",
+      "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
+      "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "cfa-quality-reports-2026",
+      "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+      "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "ifrs-ias7",
+      "title": "IFRS: IAS 7 Statement of Cash Flows",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
+      "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
+      "review_depth": "official_standard_page_reviewed"
+    },
+    {
+      "id": "cfa-forecasting-2026",
+      "title": "CFA Institute 2026: Company Analysis—Forecasting",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+      "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "cfa-techniques-2026",
+      "title": "CFA Institute 2026: Financial Analysis Techniques",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+      "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "icaew-spreadsheet-20",
+      "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
+      "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
+      "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
+      "review_depth": "official_professional_guidance_reviewed"
+    }
+  ],
+  "stage_notes": [
+    {
+      "stage_id": "S02-C1-ST01",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "اتصال سه صورت، سود تعهدی، کیفیت سود/نقد، نسبت‌ها و هشدار مالی تألیف شد.",
+      "ai_note": "استخراج خودکار PDF/EDGAR یا کشف ناهنجاری باید با سند اصلی تطبیق داده شود؛ توصیهٔ سرمایه‌گذاری خودکار تولید نمی‌شود."
+    },
+    {
+      "stage_id": "S02-C1-ST02",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "محرک‌های درآمد/هزینه، پیش‌بینی سه صورت، سرمایهٔ در گردش و کنترل خطای صفحه‌گسترده تدوین شد.",
+      "ai_note": "خروجی AI در پیش‌بینی و فرمول‌نویسی باید با دادهٔ بیرون‌نمونه، کنترل مستقل، منبع و بازبینی انسانی سنجیده شود."
+    },
+    {
+      "stage_id": "S02-C1-ST03",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "سناریو، حساسیت، سربه‌سر، راستی‌آزمایی AI و یادداشت تصمیم مالی تکمیل شد.",
+      "ai_note": "خروجی GenAI باید با سند، داده، واحد و آزمون مستقل وارسی شود؛ توصیه یا تصمیم مالی خودکار تولید نمی‌شود."
+    }
+  ]
+}

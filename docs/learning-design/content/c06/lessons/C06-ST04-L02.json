@@ -1,0 +1,243 @@
+{
+  "id": "C06-ST04-L02",
+  "version": "1-draft",
+  "title": "اختلال و گزینهٔ جایگزین",
+  "content_status": "draft",
+  "objective": "سناریوی اختلال را با اثر، زمان بازیابی و گزینه‌ها تحلیل کند.",
+  "learning_cards": [
+    {
+      "id": "C06-ST04-L02-CARD01",
+      "type": "problem",
+      "title": "انواع اختلال",
+      "text": "اختلال ظرفیت منبع را کم می‌کند، مسیر را می‌بندد یا تقاضا را بالا می‌برد. سناریو را از وابستگی نقشه‌شده و پیامد مشتری آغاز کنید."
+    },
+    {
+      "id": "C06-ST04-L02-CARD02",
+      "type": "definition",
+      "title": "اثر و زمان",
+      "text": "مقدار عرضهٔ ازدست‌رفته، مدت، قلم‌های متأثر و زمان تا اثر را ثبت کنید. بازیابی گاهی تأیید منبع و انتقال تولید را هم می‌خواهد."
+    },
+    {
+      "id": "C06-ST04-L02-CARD03",
+      "type": "explanation",
+      "title": "زیان مورد انتظار",
+      "text": "احتمال در پیامد برای اولویت‌بندی تقریبی مفید است؛ پیش‌بینی دقیق نیست. رخداد نادر اما فاجعه‌آمیز را فقط به‌خاطر میانگین کم کنار نگذارید."
+    },
+    {
+      "id": "C06-ST04-L02-CARD04",
+      "type": "worked_example",
+      "title": "مثال جایگزین",
+      "text": "تأمین‌کنندهٔ اصلی ۸۰٪ قطعه را می‌دهد؛ منبع دوم فقط ۲۰٪ ظرفیت دارد و انتقال سفارش ۵ روز می‌برد. گزینهٔ دوم بخشی از ریسک را کم می‌کند، نه همه را.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C06-ST04-L02-CARD05",
+      "type": "explanation",
+      "title": "گزینه‌های پاسخ",
+      "text": "ذخیرهٔ هدفمند، منبع دوم، طراحی جایگزین، ظرفیت رزرو و تغییر مسیر زمان و هزینهٔ متفاوت دارند؛ پاسخ باید به نوع اختلال بخورد."
+    },
+    {
+      "id": "C06-ST04-L02-CARD06",
+      "type": "contrast",
+      "title": "تمرین سناریو",
+      "text": "محرک، مالک تصمیم، اقدام روز نخست و مشتری اولویت‌دار را بنویسید. تمرین رومیزی نشان می‌دهد اختیار و اطلاعات واقعاً در دسترس هست یا نه."
+    },
+    {
+      "id": "C06-ST04-L02-CARD07",
+      "type": "key_terms",
+      "title": "واژگان",
+      "text": "محرک؛ زمان بازیابی؛ سطح خدمت؛ ظرفیت رزرو؛ منبع جایگزین؛ زیان مورد انتظار."
+    },
+    {
+      "id": "C06-ST04-L02-CARD08",
+      "type": "authored_diagram",
+      "title": "ماتریس سناریو",
+      "text": "احتمال، اثر، زمان کشف و بازیابی را جدا بسنجید. ماتریس گفت‌وگو را منظم می‌کند اما دقت کاذب نسازد."
+    },
+    {
+      "id": "C06-ST04-L02-CARD09",
+      "type": "summary",
+      "title": "جمع‌بندی",
+      "text": "اختلال را با اثر و مدت تعریف کنید. گزینه‌ها را با زمان/هزینه مقایسه و برنامه را با مالک و تمرین اجرایی کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C06-ST04-L02-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "بازیابی چه چیزی را شامل می‌شود؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تأیید و انتقال به گزینهٔ جایگزین",
+          "feedback": "درست: انتقال نیز زمان می‌برد."
+        },
+        {
+          "id": "b",
+          "text": "فقط تعمیر",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "فقط اطلاع",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "انتقال نیز زمان می‌برد.",
+      "objective_id": "C06-ST04-L02-OBJ1",
+      "equivalence_group": "C06-ST04-L02-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L02-CARD02"
+    },
+    {
+      "id": "C06-ST04-L02-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "زیان مورد انتظار چه کمکی می‌کند؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "تضمین زمان رخداد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "حذف ریسک نادر",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "اولویت‌بندی تقریبی احتمال و اثر",
+          "feedback": "درست: میانگین همهٔ ریسک‌ها را نمی‌پوشاند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "میانگین همهٔ ریسک‌ها را نمی‌پوشاند.",
+      "objective_id": "C06-ST04-L02-OBJ1",
+      "equivalence_group": "C06-ST04-L02-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L02-CARD03"
+    },
+    {
+      "id": "C06-ST04-L02-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "جایگزین ۲۰٪ ظرفیت چه می‌گوید؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "ذخیره بی‌اهمیت شد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "جایگزین کامل نیست و تخصیص می‌خواهد",
+          "feedback": "درست: ظرفیت و زمان انتقال باید سنجیده شود."
+        },
+        {
+          "id": "b",
+          "text": "ریسک تمام شد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ظرفیت و زمان انتقال باید سنجیده شود.",
+      "objective_id": "C06-ST04-L02-OBJ1",
+      "equivalence_group": "C06-ST04-L02-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L02-CARD06"
+    },
+    {
+      "id": "C06-ST04-L02-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تمرین رومیزی چه می‌آزماید؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مالکیت، اختیار و زمان واکنش",
+          "feedback": "درست: قابلیت اجرای برنامه را می‌سنجد."
+        },
+        {
+          "id": "b",
+          "text": "فقط اسلایدها",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "قیمت قطعه",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "قابلیت اجرای برنامه را می‌سنجد.",
+      "objective_id": "C06-ST04-L02-OBJ1",
+      "equivalence_group": "C06-ST04-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L02-CARD05"
+    },
+    {
+      "id": "C06-ST04-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا احتمال کم را خودکار حذف نمی‌کنیم؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "احتمال همیشه بالاست",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "زیان مورد انتظار دقیق است",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "پیامد نادر می‌تواند شدید باشد",
+          "feedback": "درست: میانگین ممکن است دنبالهٔ ریسک را پنهان کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "میانگین ممکن است دنبالهٔ ریسک را پنهان کند.",
+      "objective_id": "C06-ST04-L02-OBJ1",
+      "equivalence_group": "C06-ST04-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L02-CARD07"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "mit-scm",
+      "title": "MIT Sloan 15.761 Introduction to Operations Management",
+      "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/cases-and-readings/",
+      "scope": "منبع آموزشی مدیریت عملیات و زنجیره."
+    },
+    {
+      "id": "oecd-resilience",
+      "title": "OECD Supply Chain Resilience Review (2025)",
+      "url": "https://doi.org/10.1787/94e3a8ea-en",
+      "scope": "مرور داده‌ها و سیاست تاب‌آوری؛ تنوع‌بخشی نامتناسب نیز می‌تواند هزینه‌زا باشد."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "برای اختلال مهم، محرک، اثر، مدت، گزینه‌ها، زمان انتقال، مالک و اقدام فوری را بنویسید؛ دو گزینه را با هزینه و زمان بازیابی مقایسه کنید.",
+    "unit": "تحلیل تاب‌آوری زنجیره",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد را جدا نشان دهد؛ بازبینی انسانی لازم است.",
+    "rubric": [
+      "اثر و سناریو مشخص",
+      "ظرفیت گزینه لحاظ",
+      "مالک و زمان پاسخ روشن"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
