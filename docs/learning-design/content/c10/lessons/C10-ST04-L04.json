@@ -1,0 +1,248 @@
+{
+  "id": "C10-ST04-L04",
+  "version": "1-draft",
+  "title": "منفعت AI و هزینه‌های بیرونی",
+  "content_status": "draft",
+  "objective": "سرمایه‌گذاری AI را با ارزش کل، اثر بیرونی و گزینه‌های جایگزین بسنجند.",
+  "learning_cards": [
+    {
+      "id": "C10-ST04-L04-CARD01",
+      "type": "explanation",
+      "title": "پایلوت تا استقرار",
+      "text": "پایلوت زمان را کم کرده؛ خرید سراسری داده، زیرساخت و کنترل کیفیت می‌خواهد و خودبه‌خود مقیاس‌پذیر نیست."
+    },
+    {
+      "id": "C10-ST04-L04-CARD02",
+      "type": "explanation",
+      "title": "هزینهٔ کامل",
+      "text": "مجوز، محاسبه، یکپارچه‌سازی، امنیت، بازبینی، خطا و خروج فروشنده را بسنجید."
+    },
+    {
+      "id": "C10-ST04-L04-CARD03",
+      "type": "explanation",
+      "title": "اثر بیرونی",
+      "text": "هزینه ممکن است به کارکنان، مشتری، انرژی یا جامعه منتقل شود و در بودجهٔ پروژه دیده نشود."
+    },
+    {
+      "id": "C10-ST04-L04-CARD04",
+      "type": "explanation",
+      "title": "مرز سنجش",
+      "text": "حجم و محل پردازش، منبع انرژی و نرخ استفاده بر برآورد اثر اثر دارد؛ معلوم و تخمینی را جدا کنید."
+    },
+    {
+      "id": "C10-ST04-L04-CARD05",
+      "type": "explanation",
+      "title": "گزینهٔ مقایسه",
+      "text": "AI، بهبود فرایند و انجام انسانی را با هدف و کیفیت یکسان بسنجید؛ فناوری تازه را بهترین فرض نکنید."
+    },
+    {
+      "id": "C10-ST04-L04-CARD06",
+      "type": "explanation",
+      "title": "محاسبهٔ بازکاری",
+      "text": "در 1,000 خروجی با 15٪ بازکاری و 4 دقیقه اصلاح، 150 خروجی و 600 دقیقه یعنی 10 ساعت بازکاری داریم."
+    },
+    {
+      "id": "C10-ST04-L04-CARD07",
+      "type": "explanation",
+      "title": "شرط توقف",
+      "text": "اگر خطا یا هزینه از آستانه بگذرد، مالک اختیار کاهش دامنه، توقف یا بازگشت داشته باشد."
+    },
+    {
+      "id": "C10-ST04-L04-CARD08",
+      "type": "explanation",
+      "title": "ثبت تصمیم",
+      "text": "فرض، سنجه، هزینه، اثر ذی‌نفع و شرط بازنگری را ثبت کنید؛ سناریو را از اندازه‌گیری واقعی جدا نگه دارید."
+    },
+    {
+      "id": "C10-ST04-L04-CARD09",
+      "type": "explanation",
+      "title": "جمع‌بندی",
+      "text": "ارزش واقعی را بسنجید، هزینه را به دیگران منتقل نکنید و پایلوت/سنجه/مسیر توقف داشته باشید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C10-ST04-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "1000 خروجی، 15٪ بازکاری، هرکدام 4 دقیقه؛ زمان اصلاح؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 ساعت",
+          "feedback": "درست: 150×4=600 دقیقه، یعنی 10 ساعت."
+        },
+        {
+          "id": "b",
+          "text": "4 ساعت",
+          "feedback": "این انتخاب مرز یا هزینهٔ مهم را نادیده می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "15 ساعت",
+          "feedback": "این گزینه از سنجه نتیجهٔ گسترده‌تری می‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "150×4=600 دقیقه، یعنی 10 ساعت.",
+      "objective_id": "C10-ST04-L04-OBJ1",
+      "equivalence_group": "C10-ST04-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C10-ST04-L04-CARD06"
+    },
+    {
+      "id": "C10-ST04-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا پایلوت نتیجهٔ سراسری را تضمین نمی‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "کاربر، هزینه و کیفیت در اجرا فرق می‌کنند",
+          "feedback": "درست: تعمیم باید در محیط واقعی آزموده شود."
+        },
+        {
+          "id": "b",
+          "text": "پایلوت بی‌ارزش است",
+          "feedback": "این انتخاب مرز یا هزینهٔ مهم را نادیده می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "فقط مجوز مهم است",
+          "feedback": "این گزینه از سنجه نتیجهٔ گسترده‌تری می‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تعمیم باید در محیط واقعی آزموده شود.",
+      "objective_id": "C10-ST04-L04-OBJ1",
+      "equivalence_group": "C10-ST04-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C10-ST04-L04-CARD01"
+    },
+    {
+      "id": "C10-ST04-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هزینهٔ کل AI چه چیزی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "محاسبه، امنیت، یکپارچه‌سازی و بازکاری",
+          "feedback": "درست: چرخهٔ کامل از مجوز فراتر است."
+        },
+        {
+          "id": "b",
+          "text": "فقط مجوز",
+          "feedback": "این انتخاب مرز یا هزینهٔ مهم را نادیده می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "فقط نیروی حذف‌شده",
+          "feedback": "این گزینه از سنجه نتیجهٔ گسترده‌تری می‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "چرخهٔ کامل از مجوز فراتر است.",
+      "objective_id": "C10-ST04-L04-OBJ1",
+      "equivalence_group": "C10-ST04-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C10-ST04-L04-CARD02"
+    },
+    {
+      "id": "C10-ST04-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "شرط توقف را چه وقت تعیین کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "پیش از اجرا",
+          "feedback": "درست: اختیار واکنش باید پیشاپیش معلوم باشد."
+        },
+        {
+          "id": "b",
+          "text": "بعد از آسیب بی‌مالک",
+          "feedback": "این انتخاب مرز یا هزینهٔ مهم را نادیده می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "هرگز",
+          "feedback": "این گزینه از سنجه نتیجهٔ گسترده‌تری می‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اختیار واکنش باید پیشاپیش معلوم باشد.",
+      "objective_id": "C10-ST04-L04-OBJ1",
+      "equivalence_group": "C10-ST04-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C10-ST04-L04-CARD07"
+    },
+    {
+      "id": "C10-ST04-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا گزینهٔ غیر AI را هم بسنجیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "بهبود فرایند ممکن است با ریسک کمتر هدف را برآورد",
+          "feedback": "درست: تصمیم نیازمند مقایسهٔ جایگزین‌هاست."
+        },
+        {
+          "id": "b",
+          "text": "فناوری همیشه بد است",
+          "feedback": "این انتخاب مرز یا هزینهٔ مهم را نادیده می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "حذف نوآوری",
+          "feedback": "این گزینه از سنجه نتیجهٔ گسترده‌تری می‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تصمیم نیازمند مقایسهٔ جایگزین‌هاست.",
+      "objective_id": "C10-ST04-L04-OBJ1",
+      "equivalence_group": "C10-ST04-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C10-ST04-L04-CARD05"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "iea",
+      "title": "IEA Energy and AI (2025)",
+      "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+      "scope": "سناریوهای تقاضای برق مراکز داده و AI."
+    },
+    {
+      "id": "nist",
+      "title": "NIST AI RMF Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "scope": "سنجش و مدیریت ریسک AI در چرخهٔ عمر."
+    },
+    {
+      "id": "oecd",
+      "title": "OECD Responsible Business Conduct Guidelines",
+      "url": "https://www.oecd.org/en/publications/2023/06/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_a0b49990.html",
+      "scope": "رفتار مسئولانه و بررسی موشکافانهٔ آثار."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "سرمایه‌گذاری AI را با ارزش کل، اثر بیرونی و گزینه‌های جایگزین بسنجند.؛ تصمیمی را با سنجه، مرز، ذی‌نفع، هزینه و شرط بازبینی تحلیل کنید.",
+    "unit": "اخلاق، حکمرانی و محیط کسب‌وکار",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید ادعا را به داده/مرز/زمان وصل کند و اثر متأثران را از ریسک مالی تفکیک کند.",
+    "rubric": [
+      "معیار و مرز و افق روشن",
+      "هزینه و اثر ذی‌نفع بررسی شده",
+      "اقدام و مالک و شرط بازنگری دارد"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
