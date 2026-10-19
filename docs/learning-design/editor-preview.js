@@ -16,7 +16,8 @@ function draw(){
  currentCourse=data.courses.find(c=>c.id===$('course').value);if(!currentCourse)return;
  $('title').textContent=currentCourse.title;
  $('count').textContent=f(data.counts.courses_excluding_bridge)+' درس در نقشه؛ '+f(authoredLessons.size)+' درس‌نامهٔ نوشته‌شده برای بازبینی';
- $('subtitle').textContent=f(currentCourse.counts.stages)+' مرحله، '+f(currentCourse.counts.lessons)+' درس‌نامه. '+(authoredCourses.has(currentCourse.id)?'متن و تمرین نسخهٔ نخست نوشته شده؛ تأیید نهایی هنوز انجام نشده.':'متن این درس هنوز در صف نگارش است.')+' ترتیب مطالعه پیشنهادی است.';
+ const authoredCount=currentCourse.stages.flatMap(s=>s.lessons).filter(l=>authoredLessons.has(l.id)).length;
+ $('subtitle').textContent=f(currentCourse.counts.stages)+' مرحله، '+f(authoredCount)+' از '+f(currentCourse.counts.lessons)+' درس‌نامه پیش‌نویس دارد؛ متن‌های نوشته‌شده هنوز نیازمند بازبینی‌اند. ترتیب مطالعه پیشنهادی است.';
  const root=$('journey');root.replaceChildren();
  for(const st of currentCourse.stages){
   const box=elt('section',undefined,'stage');box.style.setProperty('--stage','var(--'+st.color_token+')');box.append(elt('h3','مرحلهٔ '+f(st.order)+'؛ '+st.title));const nodes=elt('div',undefined,'nodes');
@@ -78,3 +79,4 @@ function finish(){
 }
 for(const path of data.paths){const o=elt('option',path.title);o.value=path.id;$('path').append(o);}
 $('path').onchange=courses;$('course').onchange=draw;$('close').onclick=returnPath;$('theme').onclick=()=>document.body.classList.toggle('dark');$('strategy').onclick=()=>{$('path').value='GENERAL';courses();};$('path').value='GENERAL';courses();
+
