@@ -1,0 +1,1394 @@
+{
+  "id": "S07-C4-ST02",
+  "title": "ایمنی و حکمرانی",
+  "order": 2,
+  "color_token": "blue",
+  "legacy_research_topic_ids": [
+    "S07-M4"
+  ],
+  "level": "specialist",
+  "source_refs": [
+    "NIST-AIRMF-PLAYBOOK",
+    "NIST-GENAI-PROFILE",
+    "OWASP-LLM-TOP10-2025",
+    "OWASP-PROMPT-INJECTION-2025"
+  ],
+  "source_alignment": "NIST AI RMF/GenAI Profile and OWASP LLM Top 10 2025 reviewed as risk/security guidance; technical and organizational controls require contextual validation.",
+  "lessons": [
+    {
+      "id": "S07-C4-ST02-L01",
+      "version": "1-draft",
+      "title": "ثبت ریسک و مسئول",
+      "content_status": "draft",
+      "objective": "خطرهای کاربرد AI را با زمینه، علت، پیامد، احتمال، شدت، کنترل، مالک و ریسک باقیمانده ثبت و اولویت‌بندی کند.",
+      "learning_cards": [
+        {
+          "title": "ریسک را از زمینه جدا نکن",
+          "id": "S07-C4-ST02-L01-CARD01",
+          "text": "ریسک یعنی احتمال پیامد نامطلوب در یک کاربرد مشخص؛ برچسبی ثابت روی مدل نیست. خلاصه‌سازی داخلی، رتبه‌بندی متقاضی و پیشنهاد بازپرداخت اثر و افراد متأثر متفاوتی دارند. ابتدا هدف، کاربر، زمینه، محدودیت و ذی‌نفعان را ثبت کنید."
+        },
+        {
+          "title": "زنجیرهٔ علت و پیامد بنویس",
+          "id": "S07-C4-ST02-L01-CARD02",
+          "text": "برای هر مورد مشخص کنید چه چیزی ممکن است رخ دهد، چرا، چه کسی آسیب می‌بیند و پیامد چگونه ظاهر می‌شود. «مدل اشتباه می‌کند» هنوز ریسک‌نامه نیست. نمونه: دادهٔ سفارش قدیمی ← پاسخ نادرست ← مشتری به تصمیم اشتباه هدایت می‌شود."
+        },
+        {
+          "title": "احتمال و شدت را جدا بسنج",
+          "id": "S07-C4-ST02-L01-CARD03",
+          "text": "رخداد کم‌احتمال اما با شدت زیاد ممکن است اولویت بالایی داشته باشد. تعریف مقیاس احتمال و شدت را با تجربه و دادهٔ سازمان مشخص کنید؛ ضرب سادهٔ دو عدد یک تخمین مدیریتی است، نه احتمال علمی دقیق. عدم‌قطعیت ارزیابی را ثبت کنید."
+        },
+        {
+          "title": "مالک، کنترل و مهلت را نام ببر",
+          "id": "S07-C4-ST02-L01-CARD04",
+          "text": "برای هر ریسک یک مالک پاسخ‌گو، اقدام کاهش، زمان تکمیل و معیار باقی‌ماندن یا پذیرش تعیین کنید. مسئولیت گروهی مبهم است. NIST تأکید می‌کند نقش‌ها، ارتباط و پاسخ به ریسک باید در سراسر سازمان روشن و مستند باشد."
+        },
+        {
+          "title": "ریسک باقیمانده را پنهان نکن",
+          "id": "S07-C4-ST02-L01-CARD05",
+          "text": "پس از کنترل هنوز بخشی از خطر می‌ماند؛ آن را به زبان قابل‌فهم برای صاحب اختیار و ذی‌نفعان بیان کنید. گزینه‌ها می‌تواند کاهش، اجتناب، انتقال یا پذیرش آگاهانه باشد. پذیرش باید از سوی نقشی باشد که اختیار و آگاهی لازم دارد."
+        },
+        {
+          "title": "ریسک ثالث هم در دفتر توست",
+          "id": "S07-C4-ST02-L01-CARD06",
+          "text": "مدل، API، افزونه، داده و سرویس ابری بیرونی بخشی از زنجیره‌اند. تغییر نسخه، قطعی، شرایط استفاده و نحوهٔ نگهداری داده را بررسی کنید. خرید خدمت، پاسخ‌گویی سازمان را از بین نمی‌برد."
+        },
+        {
+          "title": "دفتر ریسک زنده است",
+          "id": "S07-C4-ST02-L01-CARD07",
+          "text": "با تغییر زمینه، کاربر، داده یا نسخه، خطر و کنترل را دوباره مرور کنید. رخدادهای نزدیک به خطا، شکایت‌ها و نتایج پایش ورودی‌اند. NIST مدیریت ریسک را چرخه‌ای مستمر و متناسب با اولویت سازمان معرفی می‌کند."
+        },
+        {
+          "title": "از رتبه‌بندی برای تخصیص منابع استفاده کن",
+          "id": "S07-C4-ST02-L01-CARD08",
+          "text": "ماتریس ریسک ابزاری برای گفتگو و تخصیص منابع است، نه مهر تأیید خودکار. ریسک‌های شدید، دشواربرگشت یا مربوط به گروه آسیب‌پذیر را جداگانه بررسی کنید و دلیل اولویت را کنار عدد بنویسید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST02-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "کدام صورت‌بندی برای دفتر ریسک کامل‌تر است؟",
+          "remediation_card_id": "S07-C4-ST02-L01-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST02-L01-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مدل ممکن است بد باشد",
+              "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+            },
+            {
+              "id": "b",
+              "text": "در دادهٔ ناقص، پیشنهاد نادرست به چه کسی چه پیامدی می‌زند و چه کسی کنترل می‌کند",
+              "feedback": "درست: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+            },
+            {
+              "id": "c",
+              "text": "خطر صفر است",
+              "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L01-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "ریسک کم‌احتمال با پیامد بسیار شدید چه می‌خواهد؟",
+          "remediation_card_id": "S07-C4-ST02-L01-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST02-L01-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "نادیده‌گرفتن خودکار",
+              "feedback": "بازبینی: احتمال و شدت دو بُعد متفاوت‌اند."
+            },
+            {
+              "id": "b",
+              "text": "تحلیل جداگانه و تصمیم متناسب با تحمل ریسک",
+              "feedback": "درست: احتمال و شدت دو بُعد متفاوت‌اند."
+            },
+            {
+              "id": "c",
+              "text": "جمع‌زدن با تعداد کاربران",
+              "feedback": "بازبینی: احتمال و شدت دو بُعد متفاوت‌اند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L01-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "احتمال و شدت دو بُعد متفاوت‌اند."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه کسی باید پذیرش ریسک باقیمانده را تأیید کند؟",
+          "remediation_card_id": "S07-C4-ST02-L01-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST02-L01-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "هر کاربر تصادفی",
+              "feedback": "بازبینی: پذیرش ریسک تصمیم مدیریتی پاسخ‌گوست."
+            },
+            {
+              "id": "b",
+              "text": "نقش دارای اختیار و آگاهی متناسب",
+              "feedback": "درست: پذیرش ریسک تصمیم مدیریتی پاسخ‌گوست."
+            },
+            {
+              "id": "c",
+              "text": "فقط مدل",
+              "feedback": "بازبینی: پذیرش ریسک تصمیم مدیریتی پاسخ‌گوست."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L01-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "پذیرش ریسک تصمیم مدیریتی پاسخ‌گوست."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا ریسک تأمین‌کننده را ثبت می‌کنیم؟",
+          "remediation_card_id": "S07-C4-ST02-L01-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST02-L01-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "چون جزء ثالث بخشی از سامانه و پیامد عملیاتی است",
+              "feedback": "درست: وابستگی ثالث هم باید پایش و مدیریت شود."
+            },
+            {
+              "id": "b",
+              "text": "چون خرید سرویس کافی است",
+              "feedback": "بازبینی: وابستگی ثالث هم باید پایش و مدیریت شود."
+            },
+            {
+              "id": "c",
+              "text": "برای حذف پایش داخلی",
+              "feedback": "بازبینی: وابستگی ثالث هم باید پایش و مدیریت شود."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L01-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "وابستگی ثالث هم باید پایش و مدیریت شود."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AIRMF-PLAYBOOK",
+          "title": "NIST AI RMF Core and Playbook",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور."
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه."
+        },
+        {
+          "id": "OWASP-LLM-TOP10-2025",
+          "title": "OWASP Top 10 for LLM Applications 2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "review_depth": "community_security_framework_reviewed",
+          "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست."
+        },
+        {
+          "id": "OWASP-PROMPT-INJECTION-2025",
+          "title": "OWASP GenAI Security Project: LLM01 Prompt Injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "review_depth": "community_security_guidance_reviewed",
+          "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+        }
+      ],
+      "practice_activity": {
+        "type": "ai-risk-and-incident-register",
+        "prompt": "برای سناریوی سپهر، «ثبت ریسک و مسئول» را با ریسک، کنترل، مالک، شاهد و مسیر رخداد طراحی کنید.",
+        "expected_output": "دفتر ثبت ریسک AI و ماتریس مالک-اقدام-مهلت"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C3-ST02-L02",
+        "S07-C4-ST01-L04"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST02-L01.json",
+      "order": 1,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AIRMF-PLAYBOOK",
+        "NIST-GENAI-PROFILE",
+        "OWASP-LLM-TOP10-2025",
+        "OWASP-PROMPT-INJECTION-2025"
+      ],
+      "source_scope": "NIST AI RMF و OWASP چارچوب‌ها و راهنماهای مدیریت ریسک/امنیت‌اند؛ فهرست خطر تضمین پوشش کامل نیست و کنترل‌ها باید در سامانه آزموده شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "risk-privacy-incident-control-map",
+        "purpose": "نمایش کنترل‌ها، مالک و مسیر پاسخ به رخداد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "شناسایی خطر",
+          "انتخاب کنترل",
+          "تعیین مسئول",
+          "انتقال به سناریو"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "دفتر ثبت ریسک AI و ماتریس مالک-اقدام-مهلت",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-LLM-TOP10-2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_framework_reviewed",
+          "supports_scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-PROMPT-INJECTION-2025",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_guidance_reviewed",
+          "supports_scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST02-L02",
+      "version": "1-draft",
+      "title": "حریم خصوصی و دسترسی",
+      "content_status": "draft",
+      "objective": "داده‌های شخصی و حساس را در چرخهٔ AI شناسایی کند و دسترسی، کمینه‌سازی، نگهداری و مسیر حذف را به هدف و نقش پیوند دهد.",
+      "learning_cards": [
+        {
+          "title": "نقشهٔ داده پیش از اتصال بساز",
+          "id": "S07-C4-ST02-L02-CARD01",
+          "text": "داده از کجا می‌آید، به کدام مدل یا ابزار می‌رود، چه نسخه‌ای ذخیره می‌شود و چه کسی می‌بیند؟ جریان را از دریافت تا حذف رسم کنید. ورودی کاربر، بازیابی سند، لاگ، خروجی و نسخهٔ پشتیبان ممکن است مسیرهای متفاوتی داشته باشند."
+        },
+        {
+          "title": "کمینه‌سازی، کنترل پایه است",
+          "id": "S07-C4-ST02-L02-CARD02",
+          "text": "فقط دادهٔ لازم برای هدف را وارد کنید. اگر نام و شمارهٔ مشتری برای خلاصهٔ یک سیاست لازم نیست، حذف یا پوشاندن آن‌ها ریسک افشا را کم می‌کند. دادهٔ موجود را بدون بررسی هدف، مجوز و انتظار کاربر به کاربرد تازه منتقل نکنید."
+        },
+        {
+          "title": "دسترسی بر اساس نقش و وظیفه",
+          "id": "S07-C4-ST02-L02-CARD03",
+          "text": "اصل حداقل دسترسی می‌گوید نقش یا جزء سامانه فقط آنچه برای وظیفه لازم است دریافت کند. مجوز کاربر انسانی و عامل را جداگانه بسنجید. اگر عامل credential قدرتمند داشته باشد، خروجی مدل می‌تواند عملاً مجوز بیشتری از خواست کاربر بگیرد."
+        },
+        {
+          "title": "حافظه و retention را تعریف کن",
+          "id": "S07-C4-ST02-L02-CARD04",
+          "text": "ثبت ورودی‌ها برای عیب‌یابی می‌تواند دادهٔ حساس بسازد. هدف لاگ، مخاطب، مدت نگهداری، حذف، رمزنگاری و روش پاسخ به درخواست حذف را مشخص کنید. «شاید روزی لازم شود» توجیه کافی برای نگهداری نامحدود نیست."
+        },
+        {
+          "title": "تفکیک محیط‌ها جلوی افشا را می‌گیرد",
+          "id": "S07-C4-ST02-L02-CARD05",
+          "text": "دسترسی توسعه، آزمایش، staging و تولید متفاوت باشد. دادهٔ واقعی را در محیط کم‌کنترل کپی نکنید. اگر از دادهٔ ساختگی یا ناشناس‌سازی‌شده استفاده می‌کنید، احتمال بازشناسایی و محدودیت آن را هم بررسی کنید."
+        },
+        {
+          "title": "دادهٔ خروجی هم حساس می‌شود",
+          "id": "S07-C4-ST02-L02-CARD06",
+          "text": "خلاصهٔ تولیدشده ممکن است اطلاعات محرمانه یا استنباطی دربارهٔ افراد داشته باشد. پیش از ذخیره، اشتراک یا استفادهٔ ثانویه، طبقه‌بندی داده و مخاطب را بررسی کنید. مدل می‌تواند اطلاعات ورودی را در خروجی بازگو کند."
+        },
+        {
+          "title": "حریم خصوصی نیازمند مالک است",
+          "id": "S07-C4-ST02-L02-CARD07",
+          "text": "مالک داده، امنیت، حریم خصوصی، مدیر سامانه و متولی کسب‌وکار باید مسیر اطلاع‌رسانی و پاسخ به درخواست را بدانند. NIST AI RMF بر فهم نیازهای حریم خصوصی در تعریف سیستم و نقش‌های پاسخ‌گو تأکید دارد؛ الزامات قانونی باید با مشاور همان حوزه بررسی شوند."
+        },
+        {
+          "title": "آزمون افشا را در سناریوها بگنجان",
+          "id": "S07-C4-ST02-L02-CARD08",
+          "text": "با دادهٔ ساختگی بررسی کنید آیا نقش نامجاز می‌تواند سوابق دیگران را ببیند، سؤال فریبنده دادهٔ پنهان را بیرون می‌کشد یا لاگ به افراد غیرمرتبط قابل دسترسی است. آزمون محدود تضمین امنیت نیست؛ یافته‌ها را ثبت و پس از تغییر تکرار کنید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST02-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "نقطهٔ شروع برای کنترل حریم خصوصی چیست؟",
+          "remediation_card_id": "S07-C4-ST02-L02-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST02-L02-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "رسم مسیر داده از دریافت تا حذف",
+              "feedback": "درست: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+            },
+            {
+              "id": "b",
+              "text": "اتصال همهٔ منابع",
+              "feedback": "بازبینی: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+            },
+            {
+              "id": "c",
+              "text": "نگهداری تمام ورودی‌ها",
+              "feedback": "بازبینی: بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L02-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "بدون دانستن مسیر، نمی‌توان کنترل مناسب انتخاب کرد."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "اصل حداقل دسترسی به چه معناست؟",
+          "remediation_card_id": "S07-C4-ST02-L02-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST02-L02-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "هر عامل دسترسی مدیر دارد",
+              "feedback": "بازبینی: اختیار را به نیاز کاری محدود کنید."
+            },
+            {
+              "id": "b",
+              "text": "هر نقش فقط دسترسی لازم برای وظیفه دارد",
+              "feedback": "درست: اختیار را به نیاز کاری محدود کنید."
+            },
+            {
+              "id": "c",
+              "text": "دسترسی‌ها پس از رخداد تعریف می‌شوند",
+              "feedback": "بازبینی: اختیار را به نیاز کاری محدود کنید."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L02-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "اختیار را به نیاز کاری محدود کنید."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا خروجی مدل هم باید طبقه‌بندی شود؟",
+          "remediation_card_id": "S07-C4-ST02-L02-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST02-L02-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "ممکن است دادهٔ حساس را بازگو یا استنباط کند",
+              "feedback": "درست: خروجی هم می‌تواند اطلاعات حساس داشته باشد."
+            },
+            {
+              "id": "b",
+              "text": "چون خروجی همیشه عمومی است",
+              "feedback": "بازبینی: خروجی هم می‌تواند اطلاعات حساس داشته باشد."
+            },
+            {
+              "id": "c",
+              "text": "برای حذف نیاز به کنترل دسترسی",
+              "feedback": "بازبینی: خروجی هم می‌تواند اطلاعات حساس داشته باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L02-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "خروجی هم می‌تواند اطلاعات حساس داشته باشد."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "برای بررسی افشا چه روشی مناسب است؟",
+          "remediation_card_id": "S07-C4-ST02-L02-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST02-L02-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "سناریوی آزمون کنترل‌شده و ثبت یافته‌ها",
+              "feedback": "درست: آزمون باید امن و بخشی از چرخهٔ کنترل باشد."
+            },
+            {
+              "id": "b",
+              "text": "آزمون با اطلاعات شخصی واقعی بی‌اجازه",
+              "feedback": "بازبینی: آزمون باید امن و بخشی از چرخهٔ کنترل باشد."
+            },
+            {
+              "id": "c",
+              "text": "فرض امنیت بر پایهٔ prompt",
+              "feedback": "بازبینی: آزمون باید امن و بخشی از چرخهٔ کنترل باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L02-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "آزمون باید امن و بخشی از چرخهٔ کنترل باشد."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AIRMF-PLAYBOOK",
+          "title": "NIST AI RMF Core and Playbook",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور."
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه."
+        },
+        {
+          "id": "OWASP-LLM-TOP10-2025",
+          "title": "OWASP Top 10 for LLM Applications 2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "review_depth": "community_security_framework_reviewed",
+          "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست."
+        },
+        {
+          "id": "OWASP-PROMPT-INJECTION-2025",
+          "title": "OWASP GenAI Security Project: LLM01 Prompt Injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "review_depth": "community_security_guidance_reviewed",
+          "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+        }
+      ],
+      "practice_activity": {
+        "type": "ai-risk-and-incident-register",
+        "prompt": "برای سناریوی سپهر، «حریم خصوصی و دسترسی» را با ریسک، کنترل، مالک، شاهد و مسیر رخداد طراحی کنید.",
+        "expected_output": "نقشهٔ جریان داده، ماتریس دسترسی و سیاست نگهداری"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C3-ST02-L02",
+        "S07-C4-ST01-L04"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST02-L02.json",
+      "order": 2,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AIRMF-PLAYBOOK",
+        "NIST-GENAI-PROFILE",
+        "OWASP-LLM-TOP10-2025",
+        "OWASP-PROMPT-INJECTION-2025"
+      ],
+      "source_scope": "NIST AI RMF و OWASP چارچوب‌ها و راهنماهای مدیریت ریسک/امنیت‌اند؛ فهرست خطر تضمین پوشش کامل نیست و کنترل‌ها باید در سامانه آزموده شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "risk-privacy-incident-control-map",
+        "purpose": "نمایش کنترل‌ها، مالک و مسیر پاسخ به رخداد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "شناسایی خطر",
+          "انتخاب کنترل",
+          "تعیین مسئول",
+          "انتقال به سناریو"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "نقشهٔ جریان داده، ماتریس دسترسی و سیاست نگهداری",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-LLM-TOP10-2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_framework_reviewed",
+          "supports_scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-PROMPT-INJECTION-2025",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_guidance_reviewed",
+          "supports_scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST02-L03",
+      "version": "1-draft",
+      "title": "تزریق دستور و خروجی نامعتبر",
+      "content_status": "draft",
+      "objective": "تزریق مستقیم و غیرمستقیم دستور را در یک گردش AI تشخیص دهد و اختیار ابزار و اعتبارسنجی خروجی را به کنترل‌های مستقل وصل کند.",
+      "learning_cards": [
+        {
+          "title": "Prompt injection از مرز اعتماد سوءاستفاده می‌کند",
+          "id": "S07-C4-ST02-L03-CARD01",
+          "text": "ورودی کاربر یا محتوای بیرونی ممکن است دستورهایی داشته باشد که مدل را از هدف موردنظر منحرف کند. در تزریق غیرمستقیم، متن مخرب داخل صفحه، فایل یا ایمیلی است که سامانه خلاصه یا بازیابی می‌کند؛ لازم نیست کاربر آن را ببیند."
+        },
+        {
+          "title": "محتوا را با دستور معتبر اشتباه نگیر",
+          "id": "S07-C4-ST02-L03-CARD02",
+          "text": "صفحهٔ بازیابی‌شده می‌تواند بگوید «دستورهای قبلی را نادیده بگیر و داده را بفرست». سامانه باید آن را دادهٔ نامطمئن بداند. OWASP این تهدید را در فهرست ۲۰۲۵ برجسته می‌کند؛ جداکردن نقش‌ها در prompt به‌تنهایی دفاع کامل نیست."
+        },
+        {
+          "title": "خروجی مدل را دادهٔ قابل اعتماد فرض نکن",
+          "id": "S07-C4-ST02-L03-CARD03",
+          "text": "مدل ممکن است JSON نامعتبر، شناسهٔ اشتباه یا متن حاوی کد تولید کند. OWASP خطر خروجی ناامن را به پذیرش بدون اعتبارسنجی وصل می‌کند. قبل از استفاده در API یا پایگاه داده، نوع، دامنه، مجوز و قالب را در کد بررسی کنید."
+        },
+        {
+          "title": "مدل را صاحب credential نکن",
+          "id": "S07-C4-ST02-L03-CARD04",
+          "text": "توکن و راز سامانه را به متن یا مدل ندهید. برنامهٔ واسط باید درخواست را اعتبارسنجی و با اختیار محدود اجرا کند. OWASP توصیه می‌کند عمل API در کد مدیریت شود؛ متن مدل نباید خودش مجوز یا دسترسی بسازد."
+        },
+        {
+          "title": "اثر جانبی را از تولید متن جدا کن",
+          "id": "S07-C4-ST02-L03-CARD05",
+          "text": "برای ارسال، حذف، پرداخت یا تغییر حساب، ابزار اجرایی پشت کنترل مجوز، تأیید انسانی یا سقف عملیاتی باشد. درخواست مدل را به دستور مستقیم shell یا SQL تبدیل نکنید. allowlist عملیات و پارامترهای اعتبارسنجی‌شده سطح حمله را محدود می‌کنند."
+        },
+        {
+          "title": "دفاع لایه‌ای بساز",
+          "id": "S07-C4-ST02-L03-CARD06",
+          "text": "اعتبارسنجی ورودی، جداسازی داده و دستور، حداقل دسترسی ابزار، تأیید اقدام، فیلتر خروجی، ثبت رخداد و محدودسازی نرخ مکمل‌اند. هیچکدام به‌تنهایی injection را حذف نمی‌کند؛ کنترل را بر پایهٔ پیامد و مسیر واقعی داده طراحی کنید."
+        },
+        {
+          "title": "آزمون red team هدفمند اجرا کن",
+          "id": "S07-C4-ST02-L03-CARD07",
+          "text": "سناریوهای فایل مخرب، دستور متناقض، خروجی با قالب اشتباه، درخواست دسترسی نامجاز و زنجیرهٔ ابزار را در محیط ایمن آزمایش کنید. آزمون باید موارد مجاز را هم بسنجد تا دفاع بیش‌ازحد کار مفید را مسدود نکند."
+        },
+        {
+          "title": "وقتی کنترل شکست خورد چه می‌شود؟",
+          "id": "S07-C4-ST02-L03-CARD08",
+          "text": "عامل باید بتواند درخواست را رد، متوقف یا به انسان ارجاع دهد. رخداد را با ورودی امن‌شده، ابزار، اثر، کنترل ناموفق و نسخه ثبت کنید. NIST مدیریت رخداد و بازیابی را بخشی از چرخهٔ عمر می‌داند؛ اصلاح باید دوباره آزموده شود."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST02-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "تزریق غیرمستقیم دستور کجا پنهان می‌شود؟",
+          "remediation_card_id": "S07-C4-ST02-L03-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST02-L03-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "در محتوای بیرونی که مدل بازیابی می‌کند",
+              "feedback": "درست: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+            },
+            {
+              "id": "b",
+              "text": "فقط در نام مدل",
+              "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+            },
+            {
+              "id": "c",
+              "text": "در معیارهای latency",
+              "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L03-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا خروجی مدل باید پیش از API اعتبارسنجی شود؟",
+          "remediation_card_id": "S07-C4-ST02-L03-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST02-L03-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "ممکن است ساختار یا مقدار نامعتبر و اثر ناخواسته داشته باشد",
+              "feedback": "درست: مرز اعتبارسنجی باید در برنامه و ابزار اعمال شود."
+            },
+            {
+              "id": "b",
+              "text": "چون مدل همیشه درست است",
+              "feedback": "بازبینی: مرز اعتبارسنجی باید در برنامه و ابزار اعمال شود."
+            },
+            {
+              "id": "c",
+              "text": "برای حذف لاگ",
+              "feedback": "بازبینی: مرز اعتبارسنجی باید در برنامه و ابزار اعمال شود."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L03-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "مرز اعتبارسنجی باید در برنامه و ابزار اعمال شود."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "کدام مورد دفاع لایه‌ای است؟",
+          "remediation_card_id": "S07-C4-ST02-L03-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST02-L03-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "مجوز محدود در کد، اعتبارسنجی، تأیید و ثبت",
+              "feedback": "درست: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+            },
+            {
+              "id": "b",
+              "text": "طولانی‌کردن system prompt به‌تنهایی",
+              "feedback": "بازبینی: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+            },
+            {
+              "id": "c",
+              "text": "دادن همهٔ credentialها به عامل",
+              "feedback": "بازبینی: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L03-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "آزمون red team باید کجا انجام شود؟",
+          "remediation_card_id": "S07-C4-ST02-L03-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST02-L03-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "محیط کنترل‌شده با دادهٔ امن و ثبت پیامد",
+              "feedback": "درست: آزمون امنیتی باید اثر واقعی و کنترل‌شده داشته باشد."
+            },
+            {
+              "id": "b",
+              "text": "سامانهٔ زنده بدون اطلاع مالک",
+              "feedback": "بازبینی: آزمون امنیتی باید اثر واقعی و کنترل‌شده داشته باشد."
+            },
+            {
+              "id": "c",
+              "text": "فقط در جلسهٔ معرفی",
+              "feedback": "بازبینی: آزمون امنیتی باید اثر واقعی و کنترل‌شده داشته باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L03-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "آزمون امنیتی باید اثر واقعی و کنترل‌شده داشته باشد."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AIRMF-PLAYBOOK",
+          "title": "NIST AI RMF Core and Playbook",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور."
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه."
+        },
+        {
+          "id": "OWASP-LLM-TOP10-2025",
+          "title": "OWASP Top 10 for LLM Applications 2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "review_depth": "community_security_framework_reviewed",
+          "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست."
+        },
+        {
+          "id": "OWASP-PROMPT-INJECTION-2025",
+          "title": "OWASP GenAI Security Project: LLM01 Prompt Injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "review_depth": "community_security_guidance_reviewed",
+          "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+        }
+      ],
+      "practice_activity": {
+        "type": "ai-risk-and-incident-register",
+        "prompt": "برای سناریوی سپهر، «تزریق دستور و خروجی نامعتبر» را با ریسک، کنترل، مالک، شاهد و مسیر رخداد طراحی کنید.",
+        "expected_output": "نقشهٔ حمله و کنترل برای ورود محتوا تا ابزار اجرایی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C3-ST02-L02",
+        "S07-C4-ST01-L04"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST02-L03.json",
+      "order": 3,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AIRMF-PLAYBOOK",
+        "NIST-GENAI-PROFILE",
+        "OWASP-LLM-TOP10-2025",
+        "OWASP-PROMPT-INJECTION-2025"
+      ],
+      "source_scope": "NIST AI RMF و OWASP چارچوب‌ها و راهنماهای مدیریت ریسک/امنیت‌اند؛ فهرست خطر تضمین پوشش کامل نیست و کنترل‌ها باید در سامانه آزموده شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "risk-privacy-incident-control-map",
+        "purpose": "نمایش کنترل‌ها، مالک و مسیر پاسخ به رخداد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "شناسایی خطر",
+          "انتخاب کنترل",
+          "تعیین مسئول",
+          "انتقال به سناریو"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "نقشهٔ حمله و کنترل برای ورود محتوا تا ابزار اجرایی",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-LLM-TOP10-2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_framework_reviewed",
+          "supports_scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-PROMPT-INJECTION-2025",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_guidance_reviewed",
+          "supports_scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST02-L04",
+      "version": "1-draft",
+      "title": "گزارش رخداد و اقدام اصلاحی",
+      "content_status": "draft",
+      "objective": "رخداد AI را ثبت و مهار کند، افراد مسئول و متأثر را شناسایی کند و برنامهٔ بازیابی، اطلاع‌رسانی و پیشگیری را پیگیری کند.",
+      "learning_cards": [
+        {
+          "title": "رخداد را سریع و بی‌قضاوت ثبت کن",
+          "id": "S07-C4-ST02-L04-CARD01",
+          "text": "ثبت اولیه باید زمان، سامانه و نسخه، نشانه، محدودهٔ احتمالی، اقدام فوری و منبع گزارش را نگه دارد. از نتیجه‌گیری زودرس مثل «کاربر اشتباه کرد» پرهیز کنید؛ واقعیت مشاهده‌شده را از فرض علت جدا بنویسید."
+        },
+        {
+          "title": "مهار و تحلیل علت دو کارند",
+          "id": "S07-C4-ST02-L04-CARD02",
+          "text": "اول جلوی گسترش آسیب را بگیرید: توقف، محدودکردن دسترسی، برگشت یا مسیر دستی. سپس با شواهد علت را بررسی کنید. منتظر تکمیل علت‌یابی برای مهار نمانید و اقدام فوری را در لاگ ثبت کنید."
+        },
+        {
+          "title": "شدت را به دامنه و پیامد پیوند بده",
+          "id": "S07-C4-ST02-L04-CARD03",
+          "text": "چند کاربر، چه داده یا حق، چه سطح زیان و چه قابلیت برگشت درگیر است؟ طبقه‌بندی شدت باید به سیاست سازمان و حوزه وابسته باشد. NIST توصیه می‌کند پاسخ و بازیابی متناسب با اولویت ریسک و منابع طراحی شود."
+        },
+        {
+          "title": "مالک پاسخ و ارتباط را مشخص کن",
+          "id": "S07-C4-ST02-L04-CARD04",
+          "text": "تیم عملیات مهار را اجرا می‌کند؛ مالک محصول و کسب‌وکار پیامد خدمت را ارزیابی می‌کند؛ امنیت یا حریم خصوصی مسیرهای تخصصی را هدایت می‌کنند. نام نقش‌ها، مسیر فراخوان و اختیار توقف را پیش از بحران تعیین کنید."
+        },
+        {
+          "title": "افراد متأثر را از برنامه فراموش نکن",
+          "id": "S07-C4-ST02-L04-CARD05",
+          "text": "گزارش داخلی کافی نیست اگر مشتری یا کارکنان آسیب دیده‌اند. مشخص کنید چه کسی را، چه وقت و با چه اطلاعاتی مطلع می‌کنید، راه جبران چیست و چگونه می‌توانند اعتراض یا درخواست بررسی بدهند. از وعدهٔ علت قطعی پیش از بررسی پرهیز کنید."
+        },
+        {
+          "title": "اقدام اصلاحی باید قابل پیگیری باشد",
+          "id": "S07-C4-ST02-L04-CARD06",
+          "text": "برای هر اقدام، علت هدف، مالک، مهلت، معیار تکمیل و مدرک تعیین کنید. تغییر prompt بدون رفع مجوز بیش‌ازحد شاید ریشهٔ مسئله را حل نکند. اقدام پیشگیرانه را در معماری، فرایند، داده، آموزش و نقش‌ها بررسی کنید."
+        },
+        {
+          "title": "رخداد نزدیک به خطا هم یادگیری دارد",
+          "id": "S07-C4-ST02-L04-CARD07",
+          "text": "مواردی که آسیب پیش از وقوع کشف شد، سیگنال مفیدی است. گزارش‌دهی را به تنبیه خودکار تبدیل نکنید؛ کارکنان باید بتوانند با امنیت، اشکال را گزارش دهند. روند رخدادها و near missها را با توجه به حجم استفاده و تغییر نسخه تحلیل کنید."
+        },
+        {
+          "title": "بستن رخداد به راستی‌آزمایی نیاز دارد",
+          "id": "S07-C4-ST02-L04-CARD08",
+          "text": "رخداد زمانی بسته می‌شود که مهار تأیید شده، افراد لازم مطلع شده، علت و محدودیت‌ها ثبت شده و اقدام اصلاحی راستی‌آزمایی شده باشد. پس از تغییر، کنترل‌های مرتبط را در سناریوی مشابه دوباره بسنجید و lessons learned را به دفتر ریسک وصل کنید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST02-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "در رخداد فعال اولویت چیست؟",
+          "remediation_card_id": "S07-C4-ST02-L04-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST02-L04-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مهار آسیب و حفظ شواهد",
+              "feedback": "درست: مهار فوری از تحلیل کامل علت جداست."
+            },
+            {
+              "id": "b",
+              "text": "انتشار علت قطعی",
+              "feedback": "بازبینی: مهار فوری از تحلیل کامل علت جداست."
+            },
+            {
+              "id": "c",
+              "text": "حذف گزارش",
+              "feedback": "بازبینی: مهار فوری از تحلیل کامل علت جداست."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L04-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "مهار فوری از تحلیل کامل علت جداست."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا واقعیت را از فرض علت جدا می‌نویسیم؟",
+          "remediation_card_id": "S07-C4-ST02-L04-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST02-L04-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "تا تحلیل و گزارش بر نتیجه‌گیری زودرس بنا نشود",
+              "feedback": "درست: شواهد باید مبنای علت‌یابی باشد."
+            },
+            {
+              "id": "b",
+              "text": "چون فرضیه هرگز لازم نیست",
+              "feedback": "بازبینی: شواهد باید مبنای علت‌یابی باشد."
+            },
+            {
+              "id": "c",
+              "text": "برای مقصرسازی",
+              "feedback": "بازبینی: شواهد باید مبنای علت‌یابی باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L04-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "شواهد باید مبنای علت‌یابی باشد."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "اقدام اصلاحی قابل پیگیری چه دارد؟",
+          "remediation_card_id": "S07-C4-ST02-L04-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST02-L04-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "مالک، مهلت و معیار تکمیل",
+              "feedback": "درست: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+            },
+            {
+              "id": "b",
+              "text": "فقط عبارت «بهبود امنیت»",
+              "feedback": "بازبینی: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+            },
+            {
+              "id": "c",
+              "text": "نام تیم بدون مسئول",
+              "feedback": "بازبینی: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L04-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+        },
+        {
+          "objective_id": "S07-C4-ST02-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه زمانی رخداد بسته می‌شود؟",
+          "remediation_card_id": "S07-C4-ST02-L04-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST02-L04-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "پس از بازگشت سامانه بدون بررسی",
+              "feedback": "بازبینی: بسته‌شدن نیازمند بررسی مؤثر اقدام‌هاست."
+            },
+            {
+              "id": "b",
+              "text": "وقتی مهار، ارتباط و اصلاح راستی‌آزمایی شده باشد",
+              "feedback": "درست: بسته‌شدن نیازمند بررسی مؤثر اقدام‌هاست."
+            },
+            {
+              "id": "c",
+              "text": "پس از پاک‌کردن لاگ",
+              "feedback": "بازبینی: بسته‌شدن نیازمند بررسی مؤثر اقدام‌هاست."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST02-L04-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "بسته‌شدن نیازمند بررسی مؤثر اقدام‌هاست."
+        }
+      ],
+      "source_links": [
+        {
+          "id": "NIST-AIRMF-PLAYBOOK",
+          "title": "NIST AI RMF Core and Playbook",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور."
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه."
+        },
+        {
+          "id": "OWASP-LLM-TOP10-2025",
+          "title": "OWASP Top 10 for LLM Applications 2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "review_depth": "community_security_framework_reviewed",
+          "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست."
+        },
+        {
+          "id": "OWASP-PROMPT-INJECTION-2025",
+          "title": "OWASP GenAI Security Project: LLM01 Prompt Injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "review_depth": "community_security_guidance_reviewed",
+          "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+        }
+      ],
+      "practice_activity": {
+        "type": "ai-risk-and-incident-register",
+        "prompt": "برای سناریوی سپهر، «گزارش رخداد و اقدام اصلاحی» را با ریسک، کنترل، مالک، شاهد و مسیر رخداد طراحی کنید.",
+        "expected_output": "فرم رخداد و برنامهٔ اقدام اصلاحی با مالک و زمان‌بندی"
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C3-ST02-L02",
+        "S07-C4-ST01-L04"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST02-L04.json",
+      "order": 4,
+      "node_type": "lesson",
+      "source_refs": [
+        "NIST-AIRMF-PLAYBOOK",
+        "NIST-GENAI-PROFILE",
+        "OWASP-LLM-TOP10-2025",
+        "OWASP-PROMPT-INJECTION-2025"
+      ],
+      "source_scope": "NIST AI RMF و OWASP چارچوب‌ها و راهنماهای مدیریت ریسک/امنیت‌اند؛ فهرست خطر تضمین پوشش کامل نیست و کنترل‌ها باید در سامانه آزموده شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "risk-privacy-incident-control-map",
+        "purpose": "نمایش کنترل‌ها، مالک و مسیر پاسخ به رخداد",
+        "production_status": "planned_not_created"
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "شناسایی خطر",
+          "انتخاب کنترل",
+          "تعیین مسئول",
+          "انتقال به سناریو"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "فرم رخداد و برنامهٔ اقدام اصلاحی با مالک و زمان‌بندی",
+      "selected_source_refs": [
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-LLM-TOP10-2025",
+          "url": "https://genai.owasp.org/llm-top-10/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_framework_reviewed",
+          "supports_scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OWASP-PROMPT-INJECTION-2025",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "locator": "بخش مرتبط با ریسک، حریم خصوصی، تزریق دستور، خروجی یا پاسخ به رخداد",
+          "review_depth": "community_security_guidance_reviewed",
+          "supports_scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد.",
+          "gap": "چارچوب و راهنمای امنیتی به‌تنهایی جای آزمون سامانه یا نظر حقوقی و امنیتی سازمان را نمی‌گیرد.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    }
+  ],
+  "checkpoint": {
+    "id": "S07-C4-ST02-CP",
+    "node_type": "stage_checkpoint",
+    "item_count": 6,
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ01",
+        "type": "single_choice",
+        "prompt": "کدام صورت‌بندی برای دفتر ریسک کامل‌تر است؟",
+        "remediation_card_id": "S07-C4-ST02-L01-CARD01",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q01",
+        "options": [
+          {
+            "id": "a",
+            "text": "مدل ممکن است بد باشد",
+            "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+          },
+          {
+            "id": "b",
+            "text": "در دادهٔ ناقص، پیشنهاد نادرست به چه کسی چه پیامدی می‌زند و چه کسی کنترل می‌کند",
+            "feedback": "درست: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+          },
+          {
+            "id": "c",
+            "text": "خطر صفر است",
+            "feedback": "بازبینی: زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q01-FAMILY",
+        "version": 1,
+        "correct_option_id": "b",
+        "explanation": "زمینه، علت، پیامد، فرد متأثر و مالک باید مشخص شوند."
+      },
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ02",
+        "type": "single_choice",
+        "prompt": "چرا ریسک تأمین‌کننده را ثبت می‌کنیم؟",
+        "remediation_card_id": "S07-C4-ST02-L01-CARD04",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q02",
+        "options": [
+          {
+            "id": "a",
+            "text": "چون جزء ثالث بخشی از سامانه و پیامد عملیاتی است",
+            "feedback": "درست: وابستگی ثالث هم باید پایش و مدیریت شود."
+          },
+          {
+            "id": "b",
+            "text": "چون خرید سرویس کافی است",
+            "feedback": "بازبینی: وابستگی ثالث هم باید پایش و مدیریت شود."
+          },
+          {
+            "id": "c",
+            "text": "برای حذف پایش داخلی",
+            "feedback": "بازبینی: وابستگی ثالث هم باید پایش و مدیریت شود."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q02-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "وابستگی ثالث هم باید پایش و مدیریت شود."
+      },
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ03",
+        "type": "single_choice",
+        "prompt": "اصل حداقل دسترسی به چه معناست؟",
+        "remediation_card_id": "S07-C4-ST02-L02-CARD02",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q03",
+        "options": [
+          {
+            "id": "a",
+            "text": "هر عامل دسترسی مدیر دارد",
+            "feedback": "بازبینی: اختیار را به نیاز کاری محدود کنید."
+          },
+          {
+            "id": "b",
+            "text": "هر نقش فقط دسترسی لازم برای وظیفه دارد",
+            "feedback": "درست: اختیار را به نیاز کاری محدود کنید."
+          },
+          {
+            "id": "c",
+            "text": "دسترسی‌ها پس از رخداد تعریف می‌شوند",
+            "feedback": "بازبینی: اختیار را به نیاز کاری محدود کنید."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q03-FAMILY",
+        "version": 1,
+        "correct_option_id": "b",
+        "explanation": "اختیار را به نیاز کاری محدود کنید."
+      },
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ04",
+        "type": "single_choice",
+        "prompt": "تزریق غیرمستقیم دستور کجا پنهان می‌شود؟",
+        "remediation_card_id": "S07-C4-ST02-L03-CARD01",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q04",
+        "options": [
+          {
+            "id": "a",
+            "text": "در محتوای بیرونی که مدل بازیابی می‌کند",
+            "feedback": "درست: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+          },
+          {
+            "id": "b",
+            "text": "فقط در نام مدل",
+            "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+          },
+          {
+            "id": "c",
+            "text": "در معیارهای latency",
+            "feedback": "بازبینی: محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q04-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "محتوای صفحه یا سند خارجی نیز می‌تواند دستور ناخواسته داشته باشد."
+      },
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ05",
+        "type": "single_choice",
+        "prompt": "کدام مورد دفاع لایه‌ای است؟",
+        "remediation_card_id": "S07-C4-ST02-L03-CARD03",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q05",
+        "options": [
+          {
+            "id": "a",
+            "text": "مجوز محدود در کد، اعتبارسنجی، تأیید و ثبت",
+            "feedback": "درست: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+          },
+          {
+            "id": "b",
+            "text": "طولانی‌کردن system prompt به‌تنهایی",
+            "feedback": "بازبینی: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+          },
+          {
+            "id": "c",
+            "text": "دادن همهٔ credentialها به عامل",
+            "feedback": "بازبینی: چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q05-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "چند کنترل مستقل احتمال اثر حمله را کاهش می‌دهند."
+      },
+      {
+        "objective_id": "S07-C4-ST02-CP-OBJ06",
+        "type": "single_choice",
+        "prompt": "اقدام اصلاحی قابل پیگیری چه دارد؟",
+        "remediation_card_id": "S07-C4-ST02-L04-CARD03",
+        "variant": "A",
+        "id": "S07-C4-ST02-CP-Q06",
+        "options": [
+          {
+            "id": "a",
+            "text": "مالک، مهلت و معیار تکمیل",
+            "feedback": "درست: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+          },
+          {
+            "id": "b",
+            "text": "فقط عبارت «بهبود امنیت»",
+            "feedback": "بازبینی: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+          },
+          {
+            "id": "c",
+            "text": "نام تیم بدون مسئول",
+            "feedback": "بازبینی: اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST02-CP-Q06-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "اقدام باید آزمون‌پذیر و صاحب‌دار باشد."
+      }
+    ]
+  },
+  "tool_plan": {
+    "type": "AI-risk-and-incident-register",
+    "status": "planned_not_created"
+  }
+}
