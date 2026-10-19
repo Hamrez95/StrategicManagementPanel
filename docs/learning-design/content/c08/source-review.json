@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C08",
-  "status": "two_stages_draft_pending_expert_review",
+  "status": "three_stages_draft_pending_expert_review",
   "source_review": "official_open_textbook_and_standards_profile",
   "source_use_note": "توضیح، مثال و تمرین مستقل تألیف شده است. شروط مجوز CC BY-NC-SA کتاب OpenStax و سازگاری استفادهٔ تجاری/مشتق باید جدا بررسی شود.",
   "sources": [
@@ -74,6 +74,27 @@
       "url": "https://otexts.com/fpp3/tscv.html",
       "scope": "اعتبارسنجی پیش‌رونده و جلوگیری از استفاده از آینده.",
       "review_depth": "official_open_textbook_reviewed"
+    },
+    {
+      "id": "whatif",
+      "title": "Hernán & Robins, Causal Inference: What If",
+      "url": "https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/04/hernanrobins_WhatIf_26apr24.pdf",
+      "scope": "پیامدهای بالقوه، اثر علّی، مخدوش‌گری و طراحی/تفسیر مطالعه.",
+      "review_depth": "official_academic_or_practitioner_source_reviewed"
+    },
+    {
+      "id": "causalab",
+      "title": "Harvard CAUSALab: Causal Inference resources",
+      "url": "https://hsph.harvard.edu/research/causalab/",
+      "scope": "منابع آموزشی و روش‌شناختی استنباط علّی.",
+      "review_depth": "official_academic_or_practitioner_source_reviewed"
+    },
+    {
+      "id": "exp",
+      "title": "Microsoft ExP Platform: Sample Ratio Mismatch",
+      "url": "https://exp-platform.com/Documents/2019_KDDFabijanGupchupFuptaOmhoverVermeerDmitriev.pdf",
+      "scope": "خطای نسبت نمونه و هشدارهای داده/اجرای آزمایش آنلاین.",
+      "review_depth": "official_academic_or_practitioner_source_reviewed"
     }
   ],
   "stage_notes": [
@@ -88,6 +109,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "احتمال شرطی، ارزیابی پیش‌بینی خارج از نمونه، سناریو/حساسیت و ممیزی خروجی AI پوشش داده شد.",
       "ai_note": "پیش‌بینی نقطه‌ای و شبیه‌سازی قطعیت نمی‌آورند؛ NIST 600-1 راهنمای مدیریت ریسک مولد است، نه مدرک خطای همگانی."
+    },
+    {
+      "stage_id": "C08-ST03",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "همبستگی/علیت، طراحی آزمایش، ممیزی ادعای AI و اعتبار انتقال نتیجه پوشش داده شد.",
+      "ai_note": "راهنمای NIST به‌عنوان راهنمای ریسک استفاده شده و ادعاهای بهره‌وری به مطالعهٔ علّی محصول خاص نسبت داده نشده‌اند."
     }
   ]
 }
