@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S06-C4",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "ساختار مرحلهٔ رشد با دورهٔ تحصیلات تکمیلی MIT OCW 15.392 در بهار ۲۰۲۶ هم‌راستا شده است؛ منبع آموزشی آزاد OpenStax چرخهٔ عمر و مدیریت منابع را پوشش می‌دهد و شبیه‌سازی MIT Sloan برای کاربرد تصمیم‌های رشد ثبت شده است. انطباق دقیق درس‌نامه با کلاس دانشگاهی ادعا نمی‌شود.",
+  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
+  "source_use_note": "ساختار مرحلهٔ رشد با دورهٔ تحصیلات تکمیلی MIT OCW 15.392 در بهار ۲۰۲۶ هم‌راستا شده است؛ منبع آموزشی آزاد OpenStax چرخهٔ عمر و مدیریت منابع را پوشش می‌دهد و شبیه‌سازی MIT Sloan برای کاربرد تصمیم‌های رشد ثبت شده است. انطباق دقیق درس‌نامه با کلاس دانشگاهی ادعا نمی‌شود. مرحلهٔ شبکه با متن OpenStax دربارهٔ اتحادها، مقالات داوری‌شدهٔ Chesbrough دربارهٔ نوآوری باز و مدل نظری Rochet–Tirole دربارهٔ بازار دوسویه تکمیل شده؛ مدل نظری را با توصیف قطعی همهٔ بازارها یکی نمی‌گیریم.",
   "sources": [
     {
       "id": "MIT-15-392-SCALING-2026",
@@ -31,6 +31,34 @@
       "url": "https://mitsloan.mit.edu/teaching-resources-library/cleanstart-simulating-a-clean-energy-startup",
       "review_depth": "official_teaching_simulation_page_reviewed",
       "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی در رشد شرکت نوپا."
+    },
+    {
+      "id": "OPENSTAX-ENT-GROWTH-10.5",
+      "title": "OpenStax Entrepreneurship 10.5 Growth: Signs, Pains, and Cautions",
+      "url": "https://openstax.org/books/entrepreneurship/pages/10-5-growth-signs-pains-and-cautions",
+      "review_depth": "open_textbook_section_reviewed",
+      "scope": "رشد شرکت، دردهای رشد و اتحادهای راهبردی."
+    },
+    {
+      "id": "CHESBROUGH-APPLEYARD-OPEN-INNOVATION",
+      "title": "Chesbrough & Appleyard: Open Innovation and Strategy",
+      "url": "https://pdxscholar.library.pdx.edu/busadmin_fac/23/",
+      "review_depth": "peer_reviewed_article_author_repository_reviewed",
+      "scope": "نوآوری باز، شبکه‌ها، ارزش‌آفرینی و ارزش‌گیری."
+    },
+    {
+      "id": "CHESBROUGH-VALUE-OPEN-INNOVATION-2018",
+      "title": "Value Creation and Value Capture in Open Innovation",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/jpim.12471",
+      "review_depth": "peer_reviewed_journal_article_reviewed",
+      "scope": "چارچوب مفهومی خلق و تصاحب ارزش در نوآوری باز."
+    },
+    {
+      "id": "ROCHET-TIROLE-PLATFORM-2003",
+      "title": "Rochet & Tirole: Platform Competition in Two-Sided Markets",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1162/154247603322493212",
+      "review_depth": "peer_reviewed_foundational_economic_model_reviewed",
+      "scope": "مدل رقابت و ساختار قیمت در بازار دوسویه؛ نتیجهٔ نظری تابع فرض‌های مدل."
     }
   ],
   "stage_notes": {
@@ -45,6 +73,19 @@
         "مثال سپهر ساختگی است.",
         "فرمول‌های ساده CAC/LTV نیازمند فرض‌های آشکار و دادهٔ واقعی‌اند.",
         "صفحهٔ شبیه‌سازی، جزئیات حل کیس را به‌تنهایی ارائه نمی‌کند."
+      ]
+    },
+    "S06-C4-ST02": {
+      "covered": [
+        "نقش کانال و شراکت در اکوسیستم",
+        "نوآوری باز و خلق/تصاحب ارزش",
+        "اثر شبکه و ساختار قیمت در بازار دوسویه",
+        "حاکمیت، وابستگی و برنامهٔ خروج"
+      ],
+      "limits": [
+        "مدل Rochet–Tirole نظری و مبتنی بر فرض‌های مشخص است.",
+        "مثال‌های واقعی باید جداگانه راستی‌آزمایی شوند.",
+        "سناریوی سپهر ساختگی است."
       ]
     }
   }
