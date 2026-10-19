@@ -1,0 +1,267 @@
+{
+  "id": "S02-C2-ST03-L01",
+  "version": "1-draft",
+  "title": "مقایسهٔ پروژه‌های ناسازگار",
+  "content_status": "draft",
+  "objective": "پروژه‌های متقابلاً انحصاری را با NPV، جریان‌های سازگار و محدودیت سرمایه مقایسه کند و از تفسیر مکانیکی IRR دوری کند.",
+  "learning_cards": [
+    {
+      "id": "S02-C2-ST03-L01-CARD01",
+      "type": "explanation",
+      "title": "جریان پروژه",
+      "text": "برای تصمیم سرمایه‌ای، جریان افزایشی را بسنجید: چه نقدی به‌دلیل انجام پروژه اضافه یا حذف می‌شود؟ هزینهٔ انجام‌شده معمولاً sunk cost است؛ هزینهٔ فرصت منابع و اثر جانبی بر فروش/ظرفیت مهم است. جریان حسابداری را بدون تعدیل به‌جای وجه نقد نگذارید."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD02",
+      "type": "explanation",
+      "title": "ارزش فعلی خالص",
+      "text": "NPV = ارزش فعلی جریان‌های نقد آینده − سرمایه‌گذاری اولیه. اگر NPV مثبت باشد، برآورد نشان می‌دهد بازده از نرخ مانع بالاتر است، مشروط به فرض‌ها. برای پروژهٔ A با سرمایهٔ ۱۰۰ و جریان ۶۰ در هر یک از دو سال با نرخ ۱۰٪، NPV تقریباً ۴٫۱۳+ است؛ ارقام آموزشی‌اند."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD03",
+      "type": "explanation",
+      "title": "IRR چیست؟",
+      "text": "IRR نرخی است که NPV را صفر می‌کند. این شاخص خلاصهٔ درصدی جذاب است، ولی ممکن است چند جواب یا جواب نامعقول بسازد اگر جریان علامت‌های متعدد عوض کند. اندازهٔ سرمایه‌گذاری و زمان جریان‌ها را نیز باید دید."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD04",
+      "type": "explanation",
+      "title": "پروژه‌های ناسازگار",
+      "text": "اگر دو پروژهٔ متقابلاً انحصاری متفاوت‌الحجم یا متفاوت‌زمان باشند، رتبهٔ IRR و NPV می‌تواند فرق کند. NPV معمولاً ارزش افزودهٔ مطلق را با نرخ مانع مشترک مقایسه می‌کند؛ IRR نرخ بازده درصدی پروژه است. معیار را با هدف ارزش، محدودیت سرمایه و ریسک انتخاب کنید."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD05",
+      "type": "explanation",
+      "title": "مقیاس و افق",
+      "text": "پروژهٔ کوچک با IRR بالا ممکن است ارزش کمتری از پروژهٔ بزرگ با NPV بیشتر بسازد. عمر متفاوت گاهی به مقایسهٔ افق مشترک یا replacement chain نیاز دارد، اما فرض تکرارپذیری را باید گفت. تفاوت دورهٔ جریان را به نرخ سالانهٔ یکسان تبدیل کنید."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD06",
+      "type": "explanation",
+      "title": "سرمایهٔ محدود",
+      "text": "اگر بودجهٔ سرمایه‌گذاری محدود است، انتخاب یک پروژه ممکن است پروژهٔ دیگر را کنار بزند. نسبت شاخص سودآوری (PV ورودی‌ها به سرمایه) گاهی برای بسته‌بندی اولیه کمک می‌کند، اما پروژه‌ها ممکن است تقسیم‌پذیر یا مستقل نباشند. ظرفیت، ریسک هم‌بسته و گزینه‌های غیرمالی را هم لحاظ کنید."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD07",
+      "type": "explanation",
+      "title": "ریسک جریان و نرخ",
+      "text": "نرخ مانع باید با ریسک جریان تناسب داشته باشد؛ دو پروژه با جریان اسمی مشابه ولی ریسک متفاوت الزاماً نرخ یکسان ندارند. ریسک را هم در جریان سناریویی و هم نرخ به‌طور ناسازگار دو بار وارد نکنید. تحلیل حساسیت، نرخ و سناریو را جدا نشان می‌دهد."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD08",
+      "type": "explanation",
+      "title": "انتخاب و پاسخ‌گویی",
+      "text": "پیش از محاسبه معیار اصلی، محدودیت و افق را روشن کنید. اگر مدیر پس از مشاهدهٔ خروجی معیار را عوض می‌کند، آن را صریح و با دلیل ثبت کند. توضیح تفاوت NPV/IRR از گزارش یک نرخ تنها برای کمیتهٔ سرمایه‌گذاری مفیدتر است."
+    },
+    {
+      "id": "S02-C2-ST03-L01-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "NPV خالص ارزش فعلی؛ IRR نرخ بازده داخلی؛ mutually exclusive متقابلاً انحصاری؛ incremental cash flow جریان افزایشی؛ hurdle rate نرخ مانع؛ capital rationing محدودیت سرمایه؛ payback period دورهٔ بازگشت است. NPV تخمین مشروط ارزش افزوده است، نه تضمین نتیجه."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C2-ST03-L01-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "NPV مثبت تحت چه شرطی معنا دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "جریان و نرخ با فرض‌های مدل سازگارند",
+          "feedback": "درست: NPV به جریان و نرخ و فرض وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "هر ورودی قطعی است",
+          "feedback": "بازبینی: NPV به جریان و نرخ و فرض وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "ریسک وجود ندارد",
+          "feedback": "بازبینی: NPV به جریان و نرخ و فرض وابسته است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "NPV به جریان و نرخ و فرض وابسته است.",
+      "objective_id": "S02-C2-ST03-L01-OBJ1",
+      "equivalence_group": "S02-C2-ST03-L01-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST03-L01-CARD02"
+    },
+    {
+      "id": "S02-C2-ST03-L01-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "IRR چه نرخی است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نرخی که NPV را صفر می‌کند",
+          "feedback": "درست: تعریف ریاضی IRR همین است."
+        },
+        {
+          "id": "b",
+          "text": "نرخ رشد فروش",
+          "feedback": "بازبینی: تعریف ریاضی IRR همین است."
+        },
+        {
+          "id": "c",
+          "text": "WACC همیشه",
+          "feedback": "بازبینی: تعریف ریاضی IRR همین است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تعریف ریاضی IRR همین است.",
+      "objective_id": "S02-C2-ST03-L01-OBJ1",
+      "equivalence_group": "S02-C2-ST03-L01-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST03-L01-CARD03"
+    },
+    {
+      "id": "S02-C2-ST03-L01-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دو پروژهٔ ناسازگار؛ چرا IRR ممکن است گمراه کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اندازه و زمان جریان‌ها رتبه را تغییر می‌دهند",
+          "feedback": "درست: در تضاد رتبه، هدف و مقیاس مهم‌اند."
+        },
+        {
+          "id": "b",
+          "text": "IRR همیشه اشتباه است",
+          "feedback": "بازبینی: در تضاد رتبه، هدف و مقیاس مهم‌اند."
+        },
+        {
+          "id": "c",
+          "text": "NPV به نرخ نیاز ندارد",
+          "feedback": "بازبینی: در تضاد رتبه، هدف و مقیاس مهم‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "در تضاد رتبه، هدف و مقیاس مهم‌اند.",
+      "objective_id": "S02-C2-ST03-L01-OBJ1",
+      "equivalence_group": "S02-C2-ST03-L01-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST03-L01-CARD04"
+    },
+    {
+      "id": "S02-C2-ST03-L01-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هزینهٔ انجام‌شدهٔ گذشته چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "معمولاً sunk cost و برای تصمیم آینده غیرقابل‌بازگشت",
+          "feedback": "درست: تصمیم با جریان آینده و هزینهٔ فرصت سنجیده می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "همیشه هزینهٔ افزایشی آینده",
+          "feedback": "بازبینی: تصمیم با جریان آینده و هزینهٔ فرصت سنجیده می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ فرصت",
+          "feedback": "بازبینی: تصمیم با جریان آینده و هزینهٔ فرصت سنجیده می‌شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تصمیم با جریان آینده و هزینهٔ فرصت سنجیده می‌شود.",
+      "objective_id": "S02-C2-ST03-L01-OBJ1",
+      "equivalence_group": "S02-C2-ST03-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST03-L01-CARD05"
+    },
+    {
+      "id": "S02-C2-ST03-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "در سرمایهٔ محدود چه چیزی علاوه بر NPV مهم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ظرفیت، وابستگی و پروژه‌های کنارگذاشته‌شده",
+          "feedback": "درست: محدودیت سبد و امکان اجرا مهم است."
+        },
+        {
+          "id": "b",
+          "text": "فقط عنوان پروژه",
+          "feedback": "بازبینی: محدودیت سبد و امکان اجرا مهم است."
+        },
+        {
+          "id": "c",
+          "text": "رنگ داشبورد",
+          "feedback": "بازبینی: محدودیت سبد و امکان اجرا مهم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "محدودیت سبد و امکان اجرا مهم است.",
+      "objective_id": "S02-C2-ST03-L01-OBJ1",
+      "equivalence_group": "S02-C2-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C2-ST03-L01-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "cfa-capital-budgeting",
+      "title": "CFA Institute: Corporate Issuers curriculum—Capital Budgeting",
+      "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+      "scope": "مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "damodaran-inflation-valuation",
+      "title": "NYU Stern: Inflation and Valuation—DCF Inputs",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html",
+      "scope": "سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.",
+      "review_depth": "official_university_course_material_reviewed"
+    },
+    {
+      "id": "damodaran-capital-budgeting",
+      "title": "NYU Stern: Applied Corporate Finance—Investment Analysis Problems",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
+      "scope": "NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.",
+      "review_depth": "official_university_course_material_reviewed"
+    },
+    {
+      "id": "nist-genai-profile",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "scope": "خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.",
+      "review_depth": "official_government_primary_document_reviewed"
+    },
+    {
+      "id": "nist-ai-rmf",
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "scope": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک و اعتمادپذیری AI؛ به‌روزرسانی‌های جاری را در استفاده بررسی کنید.",
+      "review_depth": "official_government_framework_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "یک برگهٔ مقایسهٔ دو پروژهٔ ناسازگار با NPV، IRR، سرمایهٔ محدود و جریان افزایشی تهیه کن.",
+    "unit": "یادداشت یا پیوست محاسبات؛ داده‌های مثال ساختگی است.",
+    "answer": "پاسخ باید هم‌ارزی جریان و نرخ، دامنهٔ فرض و شاهد و محدودیت را نشان دهد؛ توصیهٔ واقعی سرمایه‌گذاری نیست.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ روش و قابلیت بازبینی ارزیابی شود.",
+    "rubric": [
+      "درستی روش (۰–۲)",
+      "سازگاری داده و نرخ (۰–۲)",
+      "محرک و دامنه (۰–۲)",
+      "ریسک و محدودیت (۰–۲)",
+      "وضوح توصیه و ماشه (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
