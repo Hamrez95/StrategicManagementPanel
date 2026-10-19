@@ -1,0 +1,292 @@
+{
+  "id": "S05-C2-ST01-L02",
+  "version": 1,
+  "title": "پیش‌بینی پایه برای مقایسه",
+  "content_status": "draft",
+  "objective": "روش مبنا را محاسبه و با روش دیگر مقایسه کند.",
+  "learning_cards": [
+    {
+      "title": "نکتهٔ 1",
+      "id": "S05-C2-ST01-L02-CARD01",
+      "text": "مدل پیچیده را با یک مبنای ساده مقایسه کنید. روش ساده اگر همان‌قدر خوب یا بهتر باشد، هزینهٔ نگهداری و توضیح کمتری دارد و خطای مدل پیچیده را زودتر آشکار می‌کند.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 2",
+      "id": "S05-C2-ST01-L02-CARD02",
+      "text": "پیش‌بینی آخرین مشاهده می‌گوید دورهٔ بعد برابر مقدار فعلی است؛ میانگین ساده از میانگین گذشته استفاده می‌کند. این‌ها در بازارهای مختلف عملکرد متفاوت دارند، اما مقایسهٔ شفاف می‌سازند.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 3",
+      "id": "S05-C2-ST01-L02-CARD03",
+      "text": "روش فصلی ساده مقدار دورهٔ مشابه قبلی را مبنا می‌گیرد. اگر تقاضا در ماه مشابه هر سال بالا می‌رود، این مرجع از میانگین کل واقع‌بینانه‌تر است.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 4",
+      "id": "S05-C2-ST01-L02-CARD04",
+      "text": "میانگین متحرک سه‌دوره‌ای برای مقادیر ۱۰۰، ۱۱۰ و ۱۲۰ برابر ۱۱۰ است. پنجرهٔ کوتاه به تغییر سریع‌تر واکنش می‌دهد اما نوسان بیشتری دارد.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 5",
+      "id": "S05-C2-ST01-L02-CARD05",
+      "text": "هموارسازی نمایی وزن بیشتری به مشاهدات اخیر می‌دهد و با پارامتر هموارسازی بین واکنش و ثبات موازنه می‌کند. انتخاب پارامتر را با آزمون زمانی بسنجید، نه صرفاً زیبایی خط.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 6",
+      "id": "S05-C2-ST01-L02-CARD06",
+      "text": "نمودار پیش‌بینی باید تاریخ برش، افق، سطح تجمیع و بازهٔ عدم‌قطعیت را نشان دهد. عدد نقطه‌ای به‌تنهایی می‌تواند دقتی بیش از داده القا کند.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 7",
+      "id": "S05-C2-ST01-L02-CARD07",
+      "text": "قضاوت مدیران ممکن است اطلاعات تازه مثل قرارداد یا رویداد عرضه را وارد کند؛ هر تعدیل را همراه دلیل و منبع ثبت کنید تا بعداً ارزش افزودهٔ قضاوت سنجیده شود.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 8",
+      "id": "S05-C2-ST01-L02-CARD08",
+      "text": "در سپهر، تقاضای پایه ۱۱۰ واحد است اما قرارداد جدید ۳۰ واحد افزوده می‌شود. مبنا را با تغییر شناخته‌شده تعدیل کنید و فرض تحقق قرارداد را به‌عنوان عدم‌قطعیت نگه دارید.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 9",
+      "id": "S05-C2-ST01-L02-CARD09",
+      "text": "پیش‌بینی یک برآورد شرطی است: اگر الگوها و فرض‌ها دوام آورند، انتظار ما این مقدار است. پیش‌بینی را تعهد قطعی فروش یا هدف عملکرد کارکنان نکنید. پیش‌بینی تعدیل‌شده را کنار پیش‌بینی سیستمی نگه دارید. بعداً اختلاف، دلیل و نتیجه را بررسی کنید تا مشخص شود اطلاعات تازه واقعاً ارزش داشت یا فقط خطا را پنهان کرد.",
+      "type": "explanation"
+    }
+  ],
+  "questions": [
+    {
+      "explanation": "مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+      "remediation_card_id": "S05-C2-ST01-L02-CARD04",
+      "variant": "A",
+      "options": [
+        {
+          "text": "۱۱۰",
+          "feedback": "درست: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+          "id": "a"
+        },
+        {
+          "text": "۱۲۰",
+          "feedback": "بازبینی: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+          "id": "b"
+        },
+        {
+          "text": "۳۳۰",
+          "feedback": "بازبینی: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L02-Q01-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L02-Q01",
+      "objective_id": "S05-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "سه مقدار اخیر ۱۰۰، ۱۱۰، ۱۲۰ است. میانگین سه‌دوره‌ای؟"
+    },
+    {
+      "explanation": "روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+      "remediation_card_id": "S05-C2-ST01-L02-CARD03",
+      "variant": "A",
+      "options": [
+        {
+          "text": "مقدار تابستان مشابه سال قبل",
+          "feedback": "درست: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+          "id": "a"
+        },
+        {
+          "text": "فقط آخرین هفته",
+          "feedback": "بازبینی: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+          "id": "b"
+        },
+        {
+          "text": "میانگین همهٔ فصل‌ها بدون جداسازی",
+          "feedback": "بازبینی: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L02-Q02-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L02-Q02",
+      "objective_id": "S05-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای تقاضای مشابه هر تابستان، کدام مبنا مناسب‌تر است؟"
+    },
+    {
+      "explanation": "مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+      "remediation_card_id": "S05-C2-ST01-L02-CARD01",
+      "variant": "A",
+      "options": [
+        {
+          "text": "برای سنجش ارزش افزودهٔ روش پیچیده",
+          "feedback": "درست: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+          "id": "a"
+        },
+        {
+          "text": "چون مدل پیچیده همیشه بد است",
+          "feedback": "بازبینی: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+          "id": "b"
+        },
+        {
+          "text": "برای حذف داده",
+          "feedback": "بازبینی: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L02-Q03-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L02-Q03",
+      "objective_id": "S05-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا مدل ساده را حفظ می‌کنیم؟"
+    },
+    {
+      "explanation": "فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+      "remediation_card_id": "S05-C2-ST01-L02-CARD07",
+      "variant": "A",
+      "options": [
+        {
+          "text": "با منبع و فرض تحقق قرارداد کنار پیش‌بینی سیستمی",
+          "feedback": "درست: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+          "id": "a"
+        },
+        {
+          "text": "فقط در ذهن برنامه‌ریز",
+          "feedback": "بازبینی: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+          "id": "b"
+        },
+        {
+          "text": "به‌عنوان واقعیت قطعی",
+          "feedback": "بازبینی: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L02-Q04-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L02-Q04",
+      "objective_id": "S05-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "تعدیل مدیر به دلیل قرارداد جدید را چگونه ثبت کنیم؟"
+    },
+    {
+      "explanation": "۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+      "remediation_card_id": "S05-C2-ST01-L02-CARD08",
+      "variant": "A",
+      "options": [
+        {
+          "text": "۱۴۰",
+          "feedback": "درست: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+          "id": "a"
+        },
+        {
+          "text": "۸۰",
+          "feedback": "بازبینی: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+          "id": "b"
+        },
+        {
+          "text": "۳۰",
+          "feedback": "بازبینی: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L02-Q05-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L02-Q05",
+      "objective_id": "S05-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "پیش‌بینی ۱۱۰ با قرارداد افزودهٔ ۳۰ واحد، برآورد تعدیل‌شدهٔ ساده چند است؟"
+    }
+  ],
+  "source_links": [
+    {
+      "title": "Hyndman & Athanasopoulos, Forecasting: Principles and Practice (3e)",
+      "id": "fpp3-time-series",
+      "url": "https://otexts.com/fpp3/intro.html",
+      "review_depth": "open_textbook_reviewed",
+      "scope": "کتاب درسی آزاد برای الگوهای سری زمانی و روش پیش‌بینی؛ مفروضات سری منظم و زمینهٔ کاربرد باید حفظ شود."
+    },
+    {
+      "title": "FPP3: Forecast Accuracy",
+      "id": "fpp3-accuracy",
+      "url": "https://otexts.com/fpp3/accuracy.html",
+      "review_depth": "open_textbook_method_reviewed",
+      "scope": "تعریف و محدودیت معیارهای خطا؛ انتخاب معیار باید با داده و هزینهٔ تصمیم تناسب داشته باشد."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "absolute_tolerance": null,
+    "auto_grade": false,
+    "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+    "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+    "rubric": [
+      "تعریف افق و داده (۰–۲)",
+      "انتخاب مبنای قابل دفاع (۰–۲)",
+      "آزمون بدون نشت (۰–۲)",
+      "تفسیر معیار و سوگیری (۰–۲)",
+      "پیوند با هزینهٔ تصمیم (۰–۲)"
+    ],
+    "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+    "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "M06",
+    "O03",
+    "R15"
+  ],
+  "source_scope": "inherits_topic_candidates_not_claim_level",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "amazon-capital-operations",
+      "toyota-process",
+      "klarna-service-ai",
+      "aravind-service"
+    ],
+    "real_case_status": "choose_and_verify_during_authoring"
+  },
+  "media_plan": {
+    "type": "authored_diagram_or_worked_table",
+    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "مفهوم",
+      "تشخیص خطای رایج",
+      "مثال کاربردی",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true
+  },
+  "suggested_minutes": {
+    "learning": 8,
+    "practice": 5
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+}

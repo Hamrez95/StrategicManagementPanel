@@ -1,0 +1,292 @@
+{
+  "id": "S05-C2-ST01-L04",
+  "version": 1,
+  "title": "خطای پیش‌بینی و هزینهٔ تصمیم",
+  "content_status": "draft",
+  "objective": "خطای پیش‌بینی را با هزینه و تصمیم مدیریتی پیوند دهد.",
+  "learning_cards": [
+    {
+      "title": "نکتهٔ 1",
+      "id": "S05-C2-ST01-L04-CARD01",
+      "text": "خطا فقط یک عدد نیست؛ پیامد آن به تصمیم وابسته است. پیش‌بینی کمتر از تقاضا می‌تواند کمبود بسازد و پیش‌بینی بیش از تقاضا ممکن است موجودی مازاد یا هزینهٔ نگهداری ایجاد کند.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 2",
+      "id": "S05-C2-ST01-L04-CARD02",
+      "text": "خطای واقعی منهای پیش‌بینی جهت را نشان می‌دهد؛ میانگین خطا می‌تواند بیش‌پیش‌بینی یا کم‌پیش‌بینی پایدار را نشان دهد. با تعریف علامت ثابت، سوگیری را قابل تفسیر کنید.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 3",
+      "id": "S05-C2-ST01-L04-CARD03",
+      "text": "MAE خطای قدر مطلق را در واحد اصلی میانگین می‌گیرد؛ RMSE خطای بزرگ را بیشتر جریمه می‌کند. انتخاب تابع باید با شدت تصمیم و هزینهٔ خطا همخوان باشد.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 4",
+      "id": "S05-C2-ST01-L04-CARD04",
+      "text": "MAPE خطا را نسبی می‌کند، اما مقدار واقعی صفر یا نزدیک صفر مشکل‌ساز است و کالاهای کوچک را به‌طور نامتناسب وزن می‌دهد. آن را بی‌بررسی معیار بی‌طرف فرض نکنید.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 5",
+      "id": "S05-C2-ST01-L04-CARD05",
+      "text": "معیار مقیاس‌ناوابسته مثل MASE می‌تواند سری‌های با مقیاس متفاوت را نسبت به مبنای ساده مقایسه کند؛ تعریف مبنا و مخرج همچنان باید روشن باشد.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 6",
+      "id": "S05-C2-ST01-L04-CARD06",
+      "text": "ارزش افزودهٔ پیش‌بینی می‌پرسد آیا تعدیل مرحله‌ای—فروش، بازاریابی یا برنامه‌ریز—دقت یا سوگیری را بهتر کرد؟ ثبت هر مرحله اجازه می‌دهد گام‌های بدون ارزش حذف شوند.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 7",
+      "id": "S05-C2-ST01-L04-CARD07",
+      "text": "پیش‌بینی را فقط برای دقت رتبه‌بندی نکنید؛ مقدار موجودی، سطح خدمت، کمبود و مازاد و هزینهٔ تأمین را بسنجید. معیار کوچک‌تر ممکن است تصمیم بدتری بسازد.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 8",
+      "id": "S05-C2-ST01-L04-CARD08",
+      "text": "در سپهر، خطای کمبود داروی حیاتی پیامد بیشتری از مازاد کالای کم‌هزینه دارد. تابع خطا و سطح خدمت را متناسب با ریسک گروه تنظیم کنید، نه با یک معیار واحد.",
+      "type": "explanation"
+    },
+    {
+      "title": "نکتهٔ 9",
+      "id": "S05-C2-ST01-L04-CARD09",
+      "text": "هشدار سوگیری با تغییر تقاضا و خطای داده متفاوت است. روند خطا را با رویدادها، سطح تجمیع و هزینهٔ تصمیم بخوانید و برای اقدام بازبینی تعیین کنید. افق و مقدار سفارش به تصمیم متصل‌اند. حتی خطای آماری پایین ممکن است اگر هنگام تأمین دیر برسد ارزش کمی داشته باشد؛ زمان تأمین، حداقل سفارش و سیاست موجودی را در تفسیر وارد کنید.",
+      "type": "explanation"
+    }
+  ],
+  "questions": [
+    {
+      "explanation": "مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+      "remediation_card_id": "S05-C2-ST01-L04-CARD03",
+      "variant": "A",
+      "options": [
+        {
+          "text": "RMSE به‌دلیل مجذورکردن خطا",
+          "feedback": "درست: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+          "id": "a"
+        },
+        {
+          "text": "MAE همیشه",
+          "feedback": "بازبینی: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+          "id": "b"
+        },
+        {
+          "text": "MAPE در همهٔ داده‌ها",
+          "feedback": "بازبینی: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L04-Q01-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L04-Q01",
+      "objective_id": "S05-C2-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "کدام معیار نسبت به خطای بزرگ حساس‌تر است؟"
+    },
+    {
+      "explanation": "مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+      "remediation_card_id": "S05-C2-ST01-L04-CARD04",
+      "variant": "A",
+      "options": [
+        {
+          "text": "مخرج صفر و درصد تعریف‌ناپذیر می‌شود",
+          "feedback": "درست: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+          "id": "a"
+        },
+        {
+          "text": "واحد اصلی حفظ می‌شود",
+          "feedback": "بازبینی: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+          "id": "b"
+        },
+        {
+          "text": "سوگیری را حذف می‌کند",
+          "feedback": "بازبینی: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L04-Q02-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L04-Q02",
+      "objective_id": "S05-C2-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "وقتی تقاضای واقعی صفر است MAPE چه مشکلی دارد؟"
+    },
+    {
+      "explanation": "علامت خطا جهت سوگیری را نشان می‌دهد.",
+      "remediation_card_id": "S05-C2-ST01-L04-CARD02",
+      "variant": "A",
+      "options": [
+        {
+          "text": "کم‌پیش‌بینی یا بیش‌پیش‌بینی پایدار",
+          "feedback": "درست: علامت خطا جهت سوگیری را نشان می‌دهد.",
+          "id": "a"
+        },
+        {
+          "text": "اندازهٔ مطلق خطا به‌تنهایی",
+          "feedback": "بازبینی: علامت خطا جهت سوگیری را نشان می‌دهد.",
+          "id": "b"
+        },
+        {
+          "text": "هزینهٔ نگهداری",
+          "feedback": "بازبینی: علامت خطا جهت سوگیری را نشان می‌دهد.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L04-Q03-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L04-Q03",
+      "objective_id": "S05-C2-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "میانگین خطای جهت‌دار چه چیزی را نشان می‌دهد؟"
+    },
+    {
+      "explanation": "هزینهٔ خطاها ممکن است نامتقارن باشد.",
+      "remediation_card_id": "S05-C2-ST01-L04-CARD08",
+      "variant": "A",
+      "options": [
+        {
+          "text": "خطا همراه هزینهٔ کمبود و سطح خدمت",
+          "feedback": "درست: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+          "id": "a"
+        },
+        {
+          "text": "فقط میانگین خطای کل",
+          "feedback": "بازبینی: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+          "id": "b"
+        },
+        {
+          "text": "فقط هزینهٔ مازاد",
+          "feedback": "بازبینی: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L04-Q04-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L04-Q04",
+      "objective_id": "S05-C2-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای کالای حیاتی کدام ارزیابی کامل‌تر است؟"
+    },
+    {
+      "explanation": "هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+      "remediation_card_id": "S05-C2-ST01-L04-CARD06",
+      "variant": "A",
+      "options": [
+        {
+          "text": "آیا تعدیل انسانی نسبت به پیش‌بینی قبلی ارزش افزود",
+          "feedback": "درست: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+          "id": "a"
+        },
+        {
+          "text": "فقط سرعت محاسبه",
+          "feedback": "بازبینی: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+          "id": "b"
+        },
+        {
+          "text": "فقط تعداد مداخلات",
+          "feedback": "بازبینی: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+          "id": "c"
+        }
+      ],
+      "correct_option_id": "a",
+      "equivalence_group": "S05-C2-ST01-L04-Q05-FAMILY",
+      "version": 1,
+      "id": "S05-C2-ST01-L04-Q05",
+      "objective_id": "S05-C2-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "Forecast value added چه چیزی را می‌آزماید؟"
+    }
+  ],
+  "source_links": [
+    {
+      "title": "FPP3: Forecast Accuracy",
+      "id": "fpp3-accuracy",
+      "url": "https://otexts.com/fpp3/accuracy.html",
+      "review_depth": "open_textbook_method_reviewed",
+      "scope": "تعریف و محدودیت معیارهای خطا؛ انتخاب معیار باید با داده و هزینهٔ تصمیم تناسب داشته باشد."
+    },
+    {
+      "title": "Forecast value added in demand planning (International Journal of Forecasting, 2024)",
+      "id": "fva-demand-planning-2024",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0169207024000736",
+      "review_depth": "peer_reviewed_article_reviewed",
+      "scope": "پژوهش دربارهٔ سنجش اثر تعدیلات انسانی بر دقت و سوگیری پیش‌بینی؛ یافته‌ها به داده و زمینهٔ مطالعه وابسته‌اند."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "absolute_tolerance": null,
+    "auto_grade": false,
+    "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+    "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+    "rubric": [
+      "تعریف افق و داده (۰–۲)",
+      "انتخاب مبنای قابل دفاع (۰–۲)",
+      "آزمون بدون نشت (۰–۲)",
+      "تفسیر معیار و سوگیری (۰–۲)",
+      "پیوند با هزینهٔ تصمیم (۰–۲)"
+    ],
+    "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+    "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "M06",
+    "O03",
+    "R15"
+  ],
+  "source_scope": "inherits_topic_candidates_not_claim_level",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "amazon-capital-operations",
+      "toyota-process",
+      "klarna-service-ai",
+      "aravind-service"
+    ],
+    "real_case_status": "choose_and_verify_during_authoring"
+  },
+  "media_plan": {
+    "type": "authored_diagram_or_worked_table",
+    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "مفهوم",
+      "تشخیص خطای رایج",
+      "مثال کاربردی",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true
+  },
+  "suggested_minutes": {
+    "learning": 8,
+    "practice": 5
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+}

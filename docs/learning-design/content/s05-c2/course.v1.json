@@ -1,0 +1,1408 @@
+{
+  "schema_version": "1.0",
+  "id": "S05-C2",
+  "title": "برنامه‌ریزی، پیش‌بینی و موجودی",
+  "version": 1,
+  "status": "draft_in_progress",
+  "stages_completed_draft": 1,
+  "current_stage": "S05-C2-ST02",
+  "stages": [
+    {
+      "id": "S05-C2-ST01",
+      "title": "تقاضا و پیش‌بینی",
+      "order": 1,
+      "color_token": "green",
+      "legacy_research_topic_ids": [
+        "S05-M2"
+      ],
+      "level": "specialist",
+      "source_refs": [
+        "B03",
+        "O09",
+        "R16",
+        "R34"
+      ],
+      "source_alignment": "FPP3 برای سری زمانی و ارزیابی؛ مقالهٔ FVA برای تعدیل پیش‌بینی انسانی با محدودیت‌های تعمیم.",
+      "lessons": [
+        {
+          "id": "S05-C2-ST01-L01",
+          "version": 1,
+          "title": "الگوی داده و فصل‌مندی",
+          "content_status": "draft",
+          "objective": "روند، فصل‌مندی و رخداد را از دادهٔ تقاضا تفکیک کند.",
+          "learning_cards": [
+            {
+              "title": "نکتهٔ 1",
+              "id": "S05-C2-ST01-L01-CARD01",
+              "text": "سری زمانی، مشاهده‌های مرتب در زمان است؛ واحد بازه، مانند روز یا هفته، باید ثابت یا تفاوتش آشکار باشد. فروش روزانه با تقاضای هفتگی همان واحد تحلیل نیست و جمع‌کردن بی‌قاعده اطلاعات را پنهان می‌کند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 2",
+              "id": "S05-C2-ST01-L01-CARD02",
+              "text": "روند حرکت بلندمدت سطح داده است؛ فصل‌مندی الگویی است که با دورهٔ تقویمی تکرار می‌شود. رویداد، تعطیلی و تغییر قیمت نیز ممکن است الگوی جداگانه بسازند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 3",
+              "id": "S05-C2-ST01-L01-CARD03",
+              "text": "الگوی فصلی باید بیش از یک چرخه مشاهده شود. اگر فقط یک اوج نوروزی دارید، نمی‌دانید اثر تکرارشونده است یا یک رخداد خاص؛ فرض‌ها را با احتیاط ثبت کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 4",
+              "id": "S05-C2-ST01-L01-CARD04",
+              "text": "تقاضای مشاهده‌شده با تقاضای واقعی فرق دارد. فروش صفر شاید نبود مشتری باشد یا کمبود موجودی؛ دادهٔ فروش را با موجودی، لغو، تبلیغ و روزهای تعطیل تفسیر کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 5",
+              "id": "S05-C2-ST01-L01-CARD05",
+              "text": "تغییر ساختاری مانند افتتاح کانال تازه یا قیمت‌گذاری جدید ممکن است رابطهٔ گذشته را بشکند. تاریخ مداخله را روی نمودار علامت بزنید و پیش از برازش مدل داده را بخش‌بندی کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 6",
+              "id": "S05-C2-ST01-L01-CARD06",
+              "text": "گمشدگی و دورافتاده‌ها را حذف خودکار نکنید. خطای سامانه، فروش بزرگ واقعی یا رخداد خاص هرکدام برخورد متفاوت می‌خواهد؛ دلیل پاک‌سازی و روش جایگزین را ثبت کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 7",
+              "id": "S05-C2-ST01-L01-CARD07",
+              "text": "تجمیع داده نویز را کم می‌کند اما قله‌های تقاضا و تفاوت مشتری را محو می‌سازد. سطح پیش‌بینی باید با تصمیم موجودی و زمان تأمین سازگار باشد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 8",
+              "id": "S05-C2-ST01-L01-CARD08",
+              "text": "در سپهر، سفارش هفتگی پس از کمپین جهش می‌کند. عدد فروش را به‌تنهایی فصل‌مندی ننامید؛ موجودی در دسترس، تخفیف و بازه‌های سال‌های قبل را کنار هم ببینید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 9",
+              "id": "S05-C2-ST01-L01-CARD09",
+              "text": "واژهٔ «فصل‌مندی» به چرخهٔ نسبتاً تکرارشونده با طول مشخص اشاره دارد؛ «چرخه» ممکن است دورهٔ بلند و نامنظم داشته باشد. شکل نمودار سرنخ است، نه اثبات علت. پیش از انتخاب روش، کیفیت تقویم و دادهٔ ثبت را بررسی کنید: ماه‌های ۲۸ تا ۳۱ روزه یا هفته‌های ناقص می‌توانند تغییر حجم را با تغییر نرخ اشتباه کنند. زمان‌بندی داده را همسان یا اثرش را جداگانه مدل کنید.",
+              "type": "explanation"
+            }
+          ],
+          "questions": [
+            {
+              "explanation": "یک چرخهٔ منفرد اثر تکرارشونده را ثابت نمی‌کند.",
+              "remediation_card_id": "S05-C2-ST01-L01-CARD03",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "الگوی تکراری در چند چرخهٔ تقویمی",
+                  "feedback": "درست: یک چرخهٔ منفرد اثر تکرارشونده را ثابت نمی‌کند.",
+                  "id": "a"
+                },
+                {
+                  "text": "یک جهش در یک ماه",
+                  "feedback": "بازبینی: یک چرخهٔ منفرد اثر تکرارشونده را ثابت نمی‌کند.",
+                  "id": "b"
+                },
+                {
+                  "text": "پیش‌بینی مدیر",
+                  "feedback": "بازبینی: یک چرخهٔ منفرد اثر تکرارشونده را ثابت نمی‌کند.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L01-Q01-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L01-Q01",
+              "objective_id": "S05-C2-ST01-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام شاهد برای فصل‌مندی قوی‌تر است؟"
+            },
+            {
+              "explanation": "فروش مشاهده‌شده در کمبود موجودی تقاضای از دست‌رفته را نشان نمی‌دهد.",
+              "remediation_card_id": "S05-C2-ST01-L01-CARD04",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "تقاضای واقعی ممکن است ثبت نشده باشد",
+                  "feedback": "درست: فروش مشاهده‌شده در کمبود موجودی تقاضای از دست‌رفته را نشان نمی‌دهد.",
+                  "id": "a"
+                },
+                {
+                  "text": "تقاضا قطعاً صفر بوده",
+                  "feedback": "بازبینی: فروش مشاهده‌شده در کمبود موجودی تقاضای از دست‌رفته را نشان نمی‌دهد.",
+                  "id": "b"
+                },
+                {
+                  "text": "فصل‌مندی از بین رفته",
+                  "feedback": "بازبینی: فروش مشاهده‌شده در کمبود موجودی تقاضای از دست‌رفته را نشان نمی‌دهد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L01-Q02-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L01-Q02",
+              "objective_id": "S05-C2-ST01-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "فروش روز صفر شده اما موجودی هم صفر بوده. چه می‌فهمیم؟"
+            },
+            {
+              "explanation": "تغییر ساختاری ممکن است رابطهٔ تاریخی را عوض کند.",
+              "remediation_card_id": "S05-C2-ST01-L01-CARD05",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "تاریخ مداخله را ثبت و دوره‌ها را بررسی می‌کنیم",
+                  "feedback": "درست: تغییر ساختاری ممکن است رابطهٔ تاریخی را عوض کند.",
+                  "id": "a"
+                },
+                {
+                  "text": "همهٔ داده را یکسان فرض می‌کنیم",
+                  "feedback": "بازبینی: تغییر ساختاری ممکن است رابطهٔ تاریخی را عوض کند.",
+                  "id": "b"
+                },
+                {
+                  "text": "دادهٔ قبل را حذف می‌کنیم",
+                  "feedback": "بازبینی: تغییر ساختاری ممکن است رابطهٔ تاریخی را عوض کند.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L01-Q03-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L01-Q03",
+              "objective_id": "S05-C2-ST01-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "افت پس از تغییر قیمت چگونه تحلیل می‌شود؟"
+            },
+            {
+              "explanation": "سطح تجمیع باید با تصمیم موردنیاز سازگار باشد.",
+              "remediation_card_id": "S05-C2-ST01-L01-CARD07",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "قلهٔ روزانه و تفاوت روزهای هفته را پنهان می‌کند",
+                  "feedback": "درست: سطح تجمیع باید با تصمیم موردنیاز سازگار باشد.",
+                  "id": "a"
+                },
+                {
+                  "text": "همیشه خطا را صفر می‌کند",
+                  "feedback": "بازبینی: سطح تجمیع باید با تصمیم موردنیاز سازگار باشد.",
+                  "id": "b"
+                },
+                {
+                  "text": "هیچ کاربردی ندارد",
+                  "feedback": "بازبینی: سطح تجمیع باید با تصمیم موردنیاز سازگار باشد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L01-Q04-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L01-Q04",
+              "objective_id": "S05-C2-ST01-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا تجمیع هفتگی ممکن است مسئله‌ساز باشد؟"
+            },
+            {
+              "explanation": "یک رخداد به‌تنهایی چرخهٔ تکرارشونده نیست.",
+              "remediation_card_id": "S05-C2-ST01-L01-CARD03",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "رخداد خاص تا زمانی که تکرار فصلی اثبات نشده",
+                  "feedback": "درست: یک رخداد به‌تنهایی چرخهٔ تکرارشونده نیست.",
+                  "id": "a"
+                },
+                {
+                  "text": "فصل‌مندی قطعی",
+                  "feedback": "بازبینی: یک رخداد به‌تنهایی چرخهٔ تکرارشونده نیست.",
+                  "id": "b"
+                },
+                {
+                  "text": "روند بلندمدت",
+                  "feedback": "بازبینی: یک رخداد به‌تنهایی چرخهٔ تکرارشونده نیست.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L01-Q05-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L01-Q05",
+              "objective_id": "S05-C2-ST01-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "جهش یکباره پس از تبلیغ را چگونه نام‌گذاری کنیم؟"
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Hyndman & Athanasopoulos, Forecasting: Principles and Practice (3e)",
+              "id": "fpp3-time-series",
+              "url": "https://otexts.com/fpp3/intro.html",
+              "review_depth": "open_textbook_reviewed",
+              "scope": "کتاب درسی آزاد برای الگوهای سری زمانی و روش پیش‌بینی؛ مفروضات سری منظم و زمینهٔ کاربرد باید حفظ شود."
+            },
+            {
+              "title": "FPP3: Time Series Cross-Validation",
+              "id": "fpp3-tscv",
+              "url": "https://otexts.com/fpp3/tscv.html",
+              "review_depth": "open_textbook_method_reviewed",
+              "scope": "اعتبارسنجی با مبدأ چرخشی و جلوگیری از استفاده از آینده؛ افق و شکل آزمون باید با تصمیم هماهنگ باشد."
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "absolute_tolerance": null,
+            "auto_grade": false,
+            "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+            "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+            "rubric": [
+              "تعریف افق و داده (۰–۲)",
+              "انتخاب مبنای قابل دفاع (۰–۲)",
+              "آزمون بدون نشت (۰–۲)",
+              "تفسیر معیار و سوگیری (۰–۲)",
+              "پیوند با هزینهٔ تصمیم (۰–۲)"
+            ],
+            "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+            "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L01.json",
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "O03",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": true,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C2-ST01-L02",
+          "version": 1,
+          "title": "پیش‌بینی پایه برای مقایسه",
+          "content_status": "draft",
+          "objective": "روش مبنا را محاسبه و با روش دیگر مقایسه کند.",
+          "learning_cards": [
+            {
+              "title": "نکتهٔ 1",
+              "id": "S05-C2-ST01-L02-CARD01",
+              "text": "مدل پیچیده را با یک مبنای ساده مقایسه کنید. روش ساده اگر همان‌قدر خوب یا بهتر باشد، هزینهٔ نگهداری و توضیح کمتری دارد و خطای مدل پیچیده را زودتر آشکار می‌کند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 2",
+              "id": "S05-C2-ST01-L02-CARD02",
+              "text": "پیش‌بینی آخرین مشاهده می‌گوید دورهٔ بعد برابر مقدار فعلی است؛ میانگین ساده از میانگین گذشته استفاده می‌کند. این‌ها در بازارهای مختلف عملکرد متفاوت دارند، اما مقایسهٔ شفاف می‌سازند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 3",
+              "id": "S05-C2-ST01-L02-CARD03",
+              "text": "روش فصلی ساده مقدار دورهٔ مشابه قبلی را مبنا می‌گیرد. اگر تقاضا در ماه مشابه هر سال بالا می‌رود، این مرجع از میانگین کل واقع‌بینانه‌تر است.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 4",
+              "id": "S05-C2-ST01-L02-CARD04",
+              "text": "میانگین متحرک سه‌دوره‌ای برای مقادیر ۱۰۰، ۱۱۰ و ۱۲۰ برابر ۱۱۰ است. پنجرهٔ کوتاه به تغییر سریع‌تر واکنش می‌دهد اما نوسان بیشتری دارد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 5",
+              "id": "S05-C2-ST01-L02-CARD05",
+              "text": "هموارسازی نمایی وزن بیشتری به مشاهدات اخیر می‌دهد و با پارامتر هموارسازی بین واکنش و ثبات موازنه می‌کند. انتخاب پارامتر را با آزمون زمانی بسنجید، نه صرفاً زیبایی خط.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 6",
+              "id": "S05-C2-ST01-L02-CARD06",
+              "text": "نمودار پیش‌بینی باید تاریخ برش، افق، سطح تجمیع و بازهٔ عدم‌قطعیت را نشان دهد. عدد نقطه‌ای به‌تنهایی می‌تواند دقتی بیش از داده القا کند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 7",
+              "id": "S05-C2-ST01-L02-CARD07",
+              "text": "قضاوت مدیران ممکن است اطلاعات تازه مثل قرارداد یا رویداد عرضه را وارد کند؛ هر تعدیل را همراه دلیل و منبع ثبت کنید تا بعداً ارزش افزودهٔ قضاوت سنجیده شود.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 8",
+              "id": "S05-C2-ST01-L02-CARD08",
+              "text": "در سپهر، تقاضای پایه ۱۱۰ واحد است اما قرارداد جدید ۳۰ واحد افزوده می‌شود. مبنا را با تغییر شناخته‌شده تعدیل کنید و فرض تحقق قرارداد را به‌عنوان عدم‌قطعیت نگه دارید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 9",
+              "id": "S05-C2-ST01-L02-CARD09",
+              "text": "پیش‌بینی یک برآورد شرطی است: اگر الگوها و فرض‌ها دوام آورند، انتظار ما این مقدار است. پیش‌بینی را تعهد قطعی فروش یا هدف عملکرد کارکنان نکنید. پیش‌بینی تعدیل‌شده را کنار پیش‌بینی سیستمی نگه دارید. بعداً اختلاف، دلیل و نتیجه را بررسی کنید تا مشخص شود اطلاعات تازه واقعاً ارزش داشت یا فقط خطا را پنهان کرد.",
+              "type": "explanation"
+            }
+          ],
+          "questions": [
+            {
+              "explanation": "مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+              "remediation_card_id": "S05-C2-ST01-L02-CARD04",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "۱۱۰",
+                  "feedback": "درست: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+                  "id": "a"
+                },
+                {
+                  "text": "۱۲۰",
+                  "feedback": "بازبینی: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+                  "id": "b"
+                },
+                {
+                  "text": "۳۳۰",
+                  "feedback": "بازبینی: مجموع ۳۳۰ تقسیم بر سه برابر ۱۱۰ است.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L02-Q01-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L02-Q01",
+              "objective_id": "S05-C2-ST01-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "سه مقدار اخیر ۱۰۰، ۱۱۰، ۱۲۰ است. میانگین سه‌دوره‌ای؟"
+            },
+            {
+              "explanation": "روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+              "remediation_card_id": "S05-C2-ST01-L02-CARD03",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "مقدار تابستان مشابه سال قبل",
+                  "feedback": "درست: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+                  "id": "a"
+                },
+                {
+                  "text": "فقط آخرین هفته",
+                  "feedback": "بازبینی: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+                  "id": "b"
+                },
+                {
+                  "text": "میانگین همهٔ فصل‌ها بدون جداسازی",
+                  "feedback": "بازبینی: روش فصلی ساده الگوی دورهٔ مشابه را مرجع می‌گیرد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L02-Q02-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L02-Q02",
+              "objective_id": "S05-C2-ST01-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "برای تقاضای مشابه هر تابستان، کدام مبنا مناسب‌تر است؟"
+            },
+            {
+              "explanation": "مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+              "remediation_card_id": "S05-C2-ST01-L02-CARD01",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "برای سنجش ارزش افزودهٔ روش پیچیده",
+                  "feedback": "درست: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+                  "id": "a"
+                },
+                {
+                  "text": "چون مدل پیچیده همیشه بد است",
+                  "feedback": "بازبینی: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+                  "id": "b"
+                },
+                {
+                  "text": "برای حذف داده",
+                  "feedback": "بازبینی: مبنا نشان می‌دهد پیچیدگی چه بهبودی می‌دهد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L02-Q03-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L02-Q03",
+              "objective_id": "S05-C2-ST01-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا مدل ساده را حفظ می‌کنیم؟"
+            },
+            {
+              "explanation": "فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+              "remediation_card_id": "S05-C2-ST01-L02-CARD07",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "با منبع و فرض تحقق قرارداد کنار پیش‌بینی سیستمی",
+                  "feedback": "درست: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+                  "id": "a"
+                },
+                {
+                  "text": "فقط در ذهن برنامه‌ریز",
+                  "feedback": "بازبینی: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+                  "id": "b"
+                },
+                {
+                  "text": "به‌عنوان واقعیت قطعی",
+                  "feedback": "بازبینی: فرض و دلیل اجازه می‌دهد ارزش تعدیل بعداً سنجیده شود.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L02-Q04-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L02-Q04",
+              "objective_id": "S05-C2-ST01-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "تعدیل مدیر به دلیل قرارداد جدید را چگونه ثبت کنیم؟"
+            },
+            {
+              "explanation": "۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+              "remediation_card_id": "S05-C2-ST01-L02-CARD08",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "۱۴۰",
+                  "feedback": "درست: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+                  "id": "a"
+                },
+                {
+                  "text": "۸۰",
+                  "feedback": "بازبینی: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+                  "id": "b"
+                },
+                {
+                  "text": "۳۰",
+                  "feedback": "بازبینی: ۱۱۰ پایه به‌علاوهٔ ۳۰ واحد فرضی می‌شود ۱۴۰.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L02-Q05-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L02-Q05",
+              "objective_id": "S05-C2-ST01-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "پیش‌بینی ۱۱۰ با قرارداد افزودهٔ ۳۰ واحد، برآورد تعدیل‌شدهٔ ساده چند است؟"
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Hyndman & Athanasopoulos, Forecasting: Principles and Practice (3e)",
+              "id": "fpp3-time-series",
+              "url": "https://otexts.com/fpp3/intro.html",
+              "review_depth": "open_textbook_reviewed",
+              "scope": "کتاب درسی آزاد برای الگوهای سری زمانی و روش پیش‌بینی؛ مفروضات سری منظم و زمینهٔ کاربرد باید حفظ شود."
+            },
+            {
+              "title": "FPP3: Forecast Accuracy",
+              "id": "fpp3-accuracy",
+              "url": "https://otexts.com/fpp3/accuracy.html",
+              "review_depth": "open_textbook_method_reviewed",
+              "scope": "تعریف و محدودیت معیارهای خطا؛ انتخاب معیار باید با داده و هزینهٔ تصمیم تناسب داشته باشد."
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "absolute_tolerance": null,
+            "auto_grade": false,
+            "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+            "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+            "rubric": [
+              "تعریف افق و داده (۰–۲)",
+              "انتخاب مبنای قابل دفاع (۰–۲)",
+              "آزمون بدون نشت (۰–۲)",
+              "تفسیر معیار و سوگیری (۰–۲)",
+              "پیوند با هزینهٔ تصمیم (۰–۲)"
+            ],
+            "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+            "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L02.json",
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "O03",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C2-ST01-L03",
+          "version": 1,
+          "title": "ارزیابی بیرون نمونه",
+          "content_status": "draft",
+          "objective": "اعتبارسنجی بیرون‌نمونهٔ زمان‌مند با افق مناسب طراحی کند.",
+          "learning_cards": [
+            {
+              "title": "نکتهٔ 1",
+              "id": "S05-C2-ST01-L03-CARD01",
+              "text": "خطای آموزشی از پیش‌بینی روی داده‌ای می‌آید که مدل آن را دیده؛ ارزیابی بیرون‌نمونه داده‌ای را می‌سنجد که هنگام ساخت مدل کنار گذاشته شده است. خطای درون‌نمونه معمولاً خوش‌بینانه‌تر است.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 2",
+              "id": "S05-C2-ST01-L03-CARD02",
+              "text": "برای دادهٔ زمان‌مند، تقسیم تصادفی می‌تواند آینده را به آموزش وارد کند. پنجرهٔ متحرک مبنای پیش‌بینی را به جلو می‌برد و تنها گذشته را برای هر آزمون به‌کار می‌گیرد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 3",
+              "id": "S05-C2-ST01-L03-CARD03",
+              "text": "افق ارزیابی باید با تصمیم هماهنگ باشد. یک‌هفته جلو برای برنامه‌ریزی شیفت و شش‌ماه جلو برای قرارداد تأمین یک معیار مشترک ندارند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 4",
+              "id": "S05-C2-ST01-L03-CARD04",
+              "text": "تاریخ برش، پنجرهٔ آموزش و اندازهٔ آزمون را ثبت کنید. هر پیش‌بینی باید تنها از دادهٔ قابل‌دسترس همان تاریخ ساخته شده باشد؛ اصلاحات بعدی می‌توانند نشت ایجاد کنند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 5",
+              "id": "S05-C2-ST01-L03-CARD05",
+              "text": "مدل را در چند مبدأ زمانی و فصل‌های مختلف بسنجید. یک دورهٔ آزمایش ممکن است غیرعادی باشد و رتبه‌بندی روش‌ها را برگرداند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 6",
+              "id": "S05-C2-ST01-L03-CARD06",
+              "text": "خطا را بر اساس افق، کالا و گروه مشتری ببینید. میانگین کل می‌تواند گروه‌های پرهزینه یا کم‌نمونه را پنهان کند؛ حداقل اندازه و حریم خصوصی را رعایت کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 7",
+              "id": "S05-C2-ST01-L03-CARD07",
+              "text": "پیش‌بینی احتمالی بازه یا چندک می‌دهد. اگر بازهٔ ۸۰٪ طراحی شده، در دوره‌های متعدد انتظار داریم حدود ۸۰٪ مقدارها داخل آن باشند؛ این ویژگی را به‌صورت کالیبراسیون می‌سنجیم.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 8",
+              "id": "S05-C2-ST01-L03-CARD08",
+              "text": "در سپهر، مدل تبلیغاتی با دادهٔ پس از انتشار تبلیغ آزمون می‌شود؛ نتیجه قابل استفاده نیست. نقطهٔ زمانی دانستن کمپین و دادهٔ قابل دسترس را بازسازی کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 9",
+              "id": "S05-C2-ST01-L03-CARD09",
+              "text": "اعتبارسنجی چرخشی آزمون‌های متعدد می‌سازد اما کمبود تاریخ، تغییر ساختاری و انتخاب مکرر مدل را جادویی حل نمی‌کند. محدودیت داده را کنار نتیجه گزارش کنید. بازآموزی مکرر روی تمام داده‌ها می‌تواند اطلاعات آزمون قبلی را در تصمیم انتخاب مدل دخیل کند. برای مقایسهٔ نهایی، دورهٔ دست‌نخورده یا فرایند چرخشی از پیش‌تعریف‌شده نگه دارید.",
+              "type": "explanation"
+            }
+          ],
+          "questions": [
+            {
+              "explanation": "مدل روی دادهٔ آموزش برازش شده و خطا کمتر به نظر می‌رسد.",
+              "remediation_card_id": "S05-C2-ST01-L03-CARD01",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "معمولاً خوش‌بینانه‌تر از خطای آینده است",
+                  "feedback": "درست: مدل روی دادهٔ آموزش برازش شده و خطا کمتر به نظر می‌رسد.",
+                  "id": "a"
+                },
+                {
+                  "text": "همیشه برابر آزمون است",
+                  "feedback": "بازبینی: مدل روی دادهٔ آموزش برازش شده و خطا کمتر به نظر می‌رسد.",
+                  "id": "b"
+                },
+                {
+                  "text": "مستقل از داده است",
+                  "feedback": "بازبینی: مدل روی دادهٔ آموزش برازش شده و خطا کمتر به نظر می‌رسد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L03-Q01-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L03-Q01",
+              "objective_id": "S05-C2-ST01-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "خطای آموزشی روی دادهٔ دیده‌شده چه مشکلی دارد؟"
+            },
+            {
+              "explanation": "مدل در زمان تصمیم فقط گذشته را می‌دانسته است.",
+              "remediation_card_id": "S05-C2-ST01-L03-CARD02",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "آموزش گذشته و آزمون آینده",
+                  "feedback": "درست: مدل در زمان تصمیم فقط گذشته را می‌دانسته است.",
+                  "id": "a"
+                },
+                {
+                  "text": "تقسیم تصادفی همهٔ تاریخ‌ها",
+                  "feedback": "بازبینی: مدل در زمان تصمیم فقط گذشته را می‌دانسته است.",
+                  "id": "b"
+                },
+                {
+                  "text": "آموزش روی آینده",
+                  "feedback": "بازبینی: مدل در زمان تصمیم فقط گذشته را می‌دانسته است.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L03-Q02-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L03-Q02",
+              "objective_id": "S05-C2-ST01-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "برای آزمون زمانی کدام ترتیب معتبرتر است؟"
+            },
+            {
+              "explanation": "عملکرد یک‌قدم جلو تضمین عملکرد چندقدم جلو نیست.",
+              "remediation_card_id": "S05-C2-ST01-L03-CARD03",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "خطا با فاصلهٔ پیش‌بینی تغییر می‌کند",
+                  "feedback": "درست: عملکرد یک‌قدم جلو تضمین عملکرد چندقدم جلو نیست.",
+                  "id": "a"
+                },
+                {
+                  "text": "چون همهٔ افق‌ها برابرند",
+                  "feedback": "بازبینی: عملکرد یک‌قدم جلو تضمین عملکرد چندقدم جلو نیست.",
+                  "id": "b"
+                },
+                {
+                  "text": "برای افزایش تعداد آزمون",
+                  "feedback": "بازبینی: عملکرد یک‌قدم جلو تضمین عملکرد چندقدم جلو نیست.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L03-Q03-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L03-Q03",
+              "objective_id": "S05-C2-ST01-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا افق چندماهه را جداگانه می‌سنجیم؟"
+            },
+            {
+              "explanation": "هر برش تاریخی فقط دادهٔ قبل از پیش‌بینی را می‌گیرد.",
+              "remediation_card_id": "S05-C2-ST01-L03-CARD02",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "حرکت‌دادن نقطهٔ مبنا و ساخت آزمون با گذشتهٔ همان زمان",
+                  "feedback": "درست: هر برش تاریخی فقط دادهٔ قبل از پیش‌بینی را می‌گیرد.",
+                  "id": "a"
+                },
+                {
+                  "text": "میانگین‌گیری از آینده",
+                  "feedback": "بازبینی: هر برش تاریخی فقط دادهٔ قبل از پیش‌بینی را می‌گیرد.",
+                  "id": "b"
+                },
+                {
+                  "text": "تقسیم تصادفی سری",
+                  "feedback": "بازبینی: هر برش تاریخی فقط دادهٔ قبل از پیش‌بینی را می‌گیرد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L03-Q04-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L03-Q04",
+              "objective_id": "S05-C2-ST01-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "مبدأ چرخشی چیست؟"
+            },
+            {
+              "explanation": "آزمون‌های چند مبدأ زمانی پایداری را بهتر می‌سنجند.",
+              "remediation_card_id": "S05-C2-ST01-L03-CARD05",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "ممکن است دوره غیرعادی باشد و رتبه‌بندی ناپایدار شود",
+                  "feedback": "درست: آزمون‌های چند مبدأ زمانی پایداری را بهتر می‌سنجند.",
+                  "id": "a"
+                },
+                {
+                  "text": "نتیجه قطعاً بی‌فایده است",
+                  "feedback": "بازبینی: آزمون‌های چند مبدأ زمانی پایداری را بهتر می‌سنجند.",
+                  "id": "b"
+                },
+                {
+                  "text": "دیگر هیچ شاخصی نمی‌توان ساخت",
+                  "feedback": "بازبینی: آزمون‌های چند مبدأ زمانی پایداری را بهتر می‌سنجند.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L03-Q05-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L03-Q05",
+              "objective_id": "S05-C2-ST01-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "اگر فقط یک دورهٔ آزمون داریم چه محدودیتی وجود دارد؟"
+            }
+          ],
+          "source_links": [
+            {
+              "title": "FPP3: Time Series Cross-Validation",
+              "id": "fpp3-tscv",
+              "url": "https://otexts.com/fpp3/tscv.html",
+              "review_depth": "open_textbook_method_reviewed",
+              "scope": "اعتبارسنجی با مبدأ چرخشی و جلوگیری از استفاده از آینده؛ افق و شکل آزمون باید با تصمیم هماهنگ باشد."
+            },
+            {
+              "title": "FPP3: Forecast Accuracy",
+              "id": "fpp3-accuracy",
+              "url": "https://otexts.com/fpp3/accuracy.html",
+              "review_depth": "open_textbook_method_reviewed",
+              "scope": "تعریف و محدودیت معیارهای خطا؛ انتخاب معیار باید با داده و هزینهٔ تصمیم تناسب داشته باشد."
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "absolute_tolerance": null,
+            "auto_grade": false,
+            "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+            "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+            "rubric": [
+              "تعریف افق و داده (۰–۲)",
+              "انتخاب مبنای قابل دفاع (۰–۲)",
+              "آزمون بدون نشت (۰–۲)",
+              "تفسیر معیار و سوگیری (۰–۲)",
+              "پیوند با هزینهٔ تصمیم (۰–۲)"
+            ],
+            "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+            "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L03.json",
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "O03",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C2-ST01-L04",
+          "version": 1,
+          "title": "خطای پیش‌بینی و هزینهٔ تصمیم",
+          "content_status": "draft",
+          "objective": "خطای پیش‌بینی را با هزینه و تصمیم مدیریتی پیوند دهد.",
+          "learning_cards": [
+            {
+              "title": "نکتهٔ 1",
+              "id": "S05-C2-ST01-L04-CARD01",
+              "text": "خطا فقط یک عدد نیست؛ پیامد آن به تصمیم وابسته است. پیش‌بینی کمتر از تقاضا می‌تواند کمبود بسازد و پیش‌بینی بیش از تقاضا ممکن است موجودی مازاد یا هزینهٔ نگهداری ایجاد کند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 2",
+              "id": "S05-C2-ST01-L04-CARD02",
+              "text": "خطای واقعی منهای پیش‌بینی جهت را نشان می‌دهد؛ میانگین خطا می‌تواند بیش‌پیش‌بینی یا کم‌پیش‌بینی پایدار را نشان دهد. با تعریف علامت ثابت، سوگیری را قابل تفسیر کنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 3",
+              "id": "S05-C2-ST01-L04-CARD03",
+              "text": "MAE خطای قدر مطلق را در واحد اصلی میانگین می‌گیرد؛ RMSE خطای بزرگ را بیشتر جریمه می‌کند. انتخاب تابع باید با شدت تصمیم و هزینهٔ خطا همخوان باشد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 4",
+              "id": "S05-C2-ST01-L04-CARD04",
+              "text": "MAPE خطا را نسبی می‌کند، اما مقدار واقعی صفر یا نزدیک صفر مشکل‌ساز است و کالاهای کوچک را به‌طور نامتناسب وزن می‌دهد. آن را بی‌بررسی معیار بی‌طرف فرض نکنید.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 5",
+              "id": "S05-C2-ST01-L04-CARD05",
+              "text": "معیار مقیاس‌ناوابسته مثل MASE می‌تواند سری‌های با مقیاس متفاوت را نسبت به مبنای ساده مقایسه کند؛ تعریف مبنا و مخرج همچنان باید روشن باشد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 6",
+              "id": "S05-C2-ST01-L04-CARD06",
+              "text": "ارزش افزودهٔ پیش‌بینی می‌پرسد آیا تعدیل مرحله‌ای—فروش، بازاریابی یا برنامه‌ریز—دقت یا سوگیری را بهتر کرد؟ ثبت هر مرحله اجازه می‌دهد گام‌های بدون ارزش حذف شوند.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 7",
+              "id": "S05-C2-ST01-L04-CARD07",
+              "text": "پیش‌بینی را فقط برای دقت رتبه‌بندی نکنید؛ مقدار موجودی، سطح خدمت، کمبود و مازاد و هزینهٔ تأمین را بسنجید. معیار کوچک‌تر ممکن است تصمیم بدتری بسازد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 8",
+              "id": "S05-C2-ST01-L04-CARD08",
+              "text": "در سپهر، خطای کمبود داروی حیاتی پیامد بیشتری از مازاد کالای کم‌هزینه دارد. تابع خطا و سطح خدمت را متناسب با ریسک گروه تنظیم کنید، نه با یک معیار واحد.",
+              "type": "explanation"
+            },
+            {
+              "title": "نکتهٔ 9",
+              "id": "S05-C2-ST01-L04-CARD09",
+              "text": "هشدار سوگیری با تغییر تقاضا و خطای داده متفاوت است. روند خطا را با رویدادها، سطح تجمیع و هزینهٔ تصمیم بخوانید و برای اقدام بازبینی تعیین کنید. افق و مقدار سفارش به تصمیم متصل‌اند. حتی خطای آماری پایین ممکن است اگر هنگام تأمین دیر برسد ارزش کمی داشته باشد؛ زمان تأمین، حداقل سفارش و سیاست موجودی را در تفسیر وارد کنید.",
+              "type": "explanation"
+            }
+          ],
+          "questions": [
+            {
+              "explanation": "مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+              "remediation_card_id": "S05-C2-ST01-L04-CARD03",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "RMSE به‌دلیل مجذورکردن خطا",
+                  "feedback": "درست: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+                  "id": "a"
+                },
+                {
+                  "text": "MAE همیشه",
+                  "feedback": "بازبینی: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+                  "id": "b"
+                },
+                {
+                  "text": "MAPE در همهٔ داده‌ها",
+                  "feedback": "بازبینی: مربع‌کردن به خطاهای بزرگ وزن بیشتری می‌دهد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L04-Q01-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L04-Q01",
+              "objective_id": "S05-C2-ST01-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام معیار نسبت به خطای بزرگ حساس‌تر است؟"
+            },
+            {
+              "explanation": "مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+              "remediation_card_id": "S05-C2-ST01-L04-CARD04",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "مخرج صفر و درصد تعریف‌ناپذیر می‌شود",
+                  "feedback": "درست: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+                  "id": "a"
+                },
+                {
+                  "text": "واحد اصلی حفظ می‌شود",
+                  "feedback": "بازبینی: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+                  "id": "b"
+                },
+                {
+                  "text": "سوگیری را حذف می‌کند",
+                  "feedback": "بازبینی: مقدار صفر برای خطای درصدی مسئله ایجاد می‌کند.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L04-Q02-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L04-Q02",
+              "objective_id": "S05-C2-ST01-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "وقتی تقاضای واقعی صفر است MAPE چه مشکلی دارد؟"
+            },
+            {
+              "explanation": "علامت خطا جهت سوگیری را نشان می‌دهد.",
+              "remediation_card_id": "S05-C2-ST01-L04-CARD02",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "کم‌پیش‌بینی یا بیش‌پیش‌بینی پایدار",
+                  "feedback": "درست: علامت خطا جهت سوگیری را نشان می‌دهد.",
+                  "id": "a"
+                },
+                {
+                  "text": "اندازهٔ مطلق خطا به‌تنهایی",
+                  "feedback": "بازبینی: علامت خطا جهت سوگیری را نشان می‌دهد.",
+                  "id": "b"
+                },
+                {
+                  "text": "هزینهٔ نگهداری",
+                  "feedback": "بازبینی: علامت خطا جهت سوگیری را نشان می‌دهد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L04-Q03-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L04-Q03",
+              "objective_id": "S05-C2-ST01-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "میانگین خطای جهت‌دار چه چیزی را نشان می‌دهد؟"
+            },
+            {
+              "explanation": "هزینهٔ خطاها ممکن است نامتقارن باشد.",
+              "remediation_card_id": "S05-C2-ST01-L04-CARD08",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "خطا همراه هزینهٔ کمبود و سطح خدمت",
+                  "feedback": "درست: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+                  "id": "a"
+                },
+                {
+                  "text": "فقط میانگین خطای کل",
+                  "feedback": "بازبینی: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+                  "id": "b"
+                },
+                {
+                  "text": "فقط هزینهٔ مازاد",
+                  "feedback": "بازبینی: هزینهٔ خطاها ممکن است نامتقارن باشد.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L04-Q04-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L04-Q04",
+              "objective_id": "S05-C2-ST01-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "برای کالای حیاتی کدام ارزیابی کامل‌تر است؟"
+            },
+            {
+              "explanation": "هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+              "remediation_card_id": "S05-C2-ST01-L04-CARD06",
+              "variant": "A",
+              "options": [
+                {
+                  "text": "آیا تعدیل انسانی نسبت به پیش‌بینی قبلی ارزش افزود",
+                  "feedback": "درست: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+                  "id": "a"
+                },
+                {
+                  "text": "فقط سرعت محاسبه",
+                  "feedback": "بازبینی: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+                  "id": "b"
+                },
+                {
+                  "text": "فقط تعداد مداخلات",
+                  "feedback": "بازبینی: هر مرحلهٔ تعدیل را با شاهد و دقت و سوگیری مقایسه می‌کند.",
+                  "id": "c"
+                }
+              ],
+              "correct_option_id": "a",
+              "equivalence_group": "S05-C2-ST01-L04-Q05-FAMILY",
+              "version": 1,
+              "id": "S05-C2-ST01-L04-Q05",
+              "objective_id": "S05-C2-ST01-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "Forecast value added چه چیزی را می‌آزماید؟"
+            }
+          ],
+          "source_links": [
+            {
+              "title": "FPP3: Forecast Accuracy",
+              "id": "fpp3-accuracy",
+              "url": "https://otexts.com/fpp3/accuracy.html",
+              "review_depth": "open_textbook_method_reviewed",
+              "scope": "تعریف و محدودیت معیارهای خطا؛ انتخاب معیار باید با داده و هزینهٔ تصمیم تناسب داشته باشد."
+            },
+            {
+              "title": "Forecast value added in demand planning (International Journal of Forecasting, 2024)",
+              "id": "fva-demand-planning-2024",
+              "url": "https://www.sciencedirect.com/science/article/pii/S0169207024000736",
+              "review_depth": "peer_reviewed_article_reviewed",
+              "scope": "پژوهش دربارهٔ سنجش اثر تعدیلات انسانی بر دقت و سوگیری پیش‌بینی؛ یافته‌ها به داده و زمینهٔ مطالعه وابسته‌اند."
+            }
+          ],
+          "practice_activity": {
+            "type": "short_answer",
+            "absolute_tolerance": null,
+            "auto_grade": false,
+            "unit": "داده‌های سپهر ساختگی و آموزشی‌اند.",
+            "answer": "پاسخ یگانه نیست؛ افق، مبنا، آزمون و هزینهٔ تصمیم باید سازگار باشند.",
+            "rubric": [
+              "تعریف افق و داده (۰–۲)",
+              "انتخاب مبنای قابل دفاع (۰–۲)",
+              "آزمون بدون نشت (۰–۲)",
+              "تفسیر معیار و سوگیری (۰–۲)",
+              "پیوند با هزینهٔ تصمیم (۰–۲)"
+            ],
+            "solution": "الگو و کیفیت داده را بررسی کن؛ مبنا انتخاب کن؛ مبدأهای تاریخی آزمون بساز؛ معیار خطا و جهت سوگیری را محاسبه کن؛ پیامد عملی و محدودیت را ثبت کن.",
+            "prompt": "برای تقاضای سپهر، داده و بازه را تعریف کن، روش مبنا و آزمون زمانی بساز و خطا را با هزینهٔ کمبود یا مازاد تفسیر کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c2/lessons/S05-C2-ST01-L04.json",
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "O03",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        }
+      ],
+      "checkpoint": {
+        "item_count": 6,
+        "unlocks_next_stage": true,
+        "questions": [
+          {
+            "id": "S05-C2-ST01-CP-Q01",
+            "objective_id": "S05-C2-ST01-OBJ01",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "چه چیزی می‌تواند افزایش فروش را بدون افزایش تقاضای پنهان کند؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q01-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L01-CARD04",
+            "explanation": "فروش مشاهده‌شده ممکن است به‌علت نبود موجودی کمتر از تقاضا باشد.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: فروش مشاهده‌شده ممکن است به‌علت نبود موجودی کمتر از تقاضا باشد.",
+                "text": "کمبود موجودی که فروش واقعی را محدود کرده"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: فروش مشاهده‌شده ممکن است به‌علت نبود موجودی کمتر از تقاضا باشد.",
+                "text": "روز هفته"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: فروش مشاهده‌شده ممکن است به‌علت نبود موجودی کمتر از تقاضا باشد.",
+                "text": "تعریف نمودار"
+              }
+            ]
+          },
+          {
+            "id": "S05-C2-ST01-CP-Q02",
+            "objective_id": "S05-C2-ST01-OBJ02",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "میانگین متحرک سه‌دوره‌ای ۱۰۰، ۱۱۰، ۱۲۰ چند است؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q02-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L02-CARD04",
+            "explanation": "جمع ۳۳۰ تقسیم بر سه، ۱۱۰ می‌شود.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: جمع ۳۳۰ تقسیم بر سه، ۱۱۰ می‌شود.",
+                "text": "۱۱۰"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: جمع ۳۳۰ تقسیم بر سه، ۱۱۰ می‌شود.",
+                "text": "۱۲۰"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: جمع ۳۳۰ تقسیم بر سه، ۱۱۰ می‌شود.",
+                "text": "۱۰۰"
+              }
+            ]
+          },
+          {
+            "id": "S05-C2-ST01-CP-Q03",
+            "objective_id": "S05-C2-ST01-OBJ03",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "مبدأ چرخشی چه چیزی را تضمین می‌کند؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q03-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L03-CARD02",
+            "explanation": "پنجرهٔ چرخشی مانع استفاده از آینده در هر آزمون می‌شود.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: پنجرهٔ چرخشی مانع استفاده از آینده در هر آزمون می‌شود.",
+                "text": "آزمون فقط با دادهٔ پیش از تاریخ پیش‌بینی ساخته شود"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: پنجرهٔ چرخشی مانع استفاده از آینده در هر آزمون می‌شود.",
+                "text": "مدل هیچ خطایی ندارد"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: پنجرهٔ چرخشی مانع استفاده از آینده در هر آزمون می‌شود.",
+                "text": "تغییر بازار نادیده نمی‌ماند"
+              }
+            ]
+          },
+          {
+            "id": "S05-C2-ST01-CP-Q04",
+            "objective_id": "S05-C2-ST01-OBJ04",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "چرا خطای میانگین کل ممکن است ناکافی باشد؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q04-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L04-CARD02",
+            "explanation": "برش‌بندی و جهت خطا برای تصمیم لازم است.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: برش‌بندی و جهت خطا برای تصمیم لازم است.",
+                "text": "گروه پرهزینه یا سوگیری جهت‌دار را پنهان می‌کند"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: برش‌بندی و جهت خطا برای تصمیم لازم است.",
+                "text": "چون همهٔ میانگین‌ها غلط‌اند"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: برش‌بندی و جهت خطا برای تصمیم لازم است.",
+                "text": "چون خطا واحد ندارد"
+              }
+            ]
+          },
+          {
+            "id": "S05-C2-ST01-CP-Q05",
+            "objective_id": "S05-C2-ST01-OBJ02",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "چرا آخرین مقدار ساده را حفظ می‌کنیم؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q05-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L02-CARD01",
+            "explanation": "مبنای ساده مشخص می‌کند پیچیدگی چه چیزی می‌افزاید.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: مبنای ساده مشخص می‌کند پیچیدگی چه چیزی می‌افزاید.",
+                "text": "برای سنجش ارزش افزودهٔ مدل پیچیده"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: مبنای ساده مشخص می‌کند پیچیدگی چه چیزی می‌افزاید.",
+                "text": "برای حذف آزمون"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: مبنای ساده مشخص می‌کند پیچیدگی چه چیزی می‌افزاید.",
+                "text": "برای تضمین دقت"
+              }
+            ]
+          },
+          {
+            "id": "S05-C2-ST01-CP-Q06",
+            "objective_id": "S05-C2-ST01-OBJ04",
+            "type": "single_choice",
+            "variant": "A",
+            "correct_option_id": "a",
+            "prompt": "خطای کمبود کالای حیاتی چه پیامدی دارد؟",
+            "version": 1,
+            "equivalence_group": "S05-C2-ST01-CP-Q06-FAMILY",
+            "remediation_card_id": "S05-C2-ST01-L04-CARD08",
+            "explanation": "پیامد تصمیم می‌تواند نامتقارن باشد.",
+            "options": [
+              {
+                "id": "a",
+                "feedback": "درست: پیامد تصمیم می‌تواند نامتقارن باشد.",
+                "text": "ممکن است از همان اندازهٔ خطای مازاد کم‌هزینه نباشد"
+              },
+              {
+                "id": "b",
+                "feedback": "بازبینی: پیامد تصمیم می‌تواند نامتقارن باشد.",
+                "text": "همیشه بی‌هزینه است"
+              },
+              {
+                "id": "c",
+                "feedback": "بازبینی: پیامد تصمیم می‌تواند نامتقارن باشد.",
+                "text": "فقط MAPE را تغییر می‌دهد"
+              }
+            ]
+          }
+        ],
+        "coverage": "time-series patterns, baseline forecasts, rolling evaluation, error measures and decision cost",
+        "id": "S05-C2-ST01-CHECK",
+        "node_type": "stage_review",
+        "bank_status": "authored_draft_pending_review"
+      },
+      "tool_plan": [
+        {
+          "title": "نمودار الگوی تقاضا",
+          "id": "demand-pattern-chart",
+          "purpose": "نمایش روند، فصل‌مندی و رخداد",
+          "status": "draft"
+        },
+        {
+          "title": "برگهٔ پیش‌بینی مبنا",
+          "id": "baseline-forecast-sheet",
+          "purpose": "محاسبهٔ naïve و میانگین و فصلی ساده",
+          "status": "draft"
+        },
+        {
+          "title": "آزمون مبدأ چرخشی",
+          "id": "rolling-origin-backtest",
+          "purpose": "ارزیابی تاریخی بدون استفاده از آینده",
+          "status": "draft"
+        },
+        {
+          "title": "نقشهٔ خطا و هزینه",
+          "id": "forecast-error-cost-map",
+          "purpose": "پیوند خطا، سوگیری، کمبود و مازاد",
+          "status": "draft"
+        }
+      ]
+    }
+  ]
+}
