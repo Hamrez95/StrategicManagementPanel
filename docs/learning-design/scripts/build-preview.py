@@ -58,7 +58,7 @@ for c in catalog['courses']:
             progress['lessons'].append({'id':l['id'],'course_id':c['id'],'title':l['title'],'authoring':'draft_done' if l['id'] in authored_ids else 'todo','review':'pending' if l['id'] in authored_ids else 'not_started','production_ready':False,'content_ref':l.get('content_ref') if l['id'] in authored_ids else None})
 progress['counts']={'total':len(progress['lessons']),'draft_done':len(authored_ids),'todo':len(progress['lessons'])-len(authored_ids),'production_ready':0}
 write(ROOT/'content/authoring-progress.json',progress)
-write(ROOT/'catalog.v1.json',catalog)
+(ROOT/'catalog.v1.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
 def payload(value):return json.dumps(value,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 page=ROOT/'curriculum-explorer.html';text=page.read_text(encoding='utf-8')
 text=re.sub(r'(<script id="catalogData" type="application/json">).*?(</script>)',lambda m:m[1]+payload(view)+m[2],text,flags=re.S,count=1)
@@ -72,3 +72,4 @@ extra='''/* authoring-review-components */
 if '/* authoring-review-components */' not in text:text=text.replace('</style>',extra+'</style>',1)
 page.write_text(text,encoding='utf-8')
 print(json.dumps({'bundles':len(bundles['courses']),'lessons':sum(len(s['lessons']) for c in bundles['courses'] for s in c['stages']),'page_bytes':page.stat().st_size}))
+
