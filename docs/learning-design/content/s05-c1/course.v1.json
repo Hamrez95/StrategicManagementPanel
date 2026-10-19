@@ -1,0 +1,1408 @@
+{
+  "schema_version": "1.0",
+  "id": "S05-C1",
+  "title": "طراحی فرایند و بهبود عملیات",
+  "version": 1,
+  "status": "draft_in_progress",
+  "stages_completed_draft": 1,
+  "current_stage": "S05-C1-ST02",
+  "stages": [
+    {
+      "id": "S05-C1-ST01",
+      "title": "شناخت فرایند",
+      "order": 1,
+      "color_token": "green",
+      "legacy_research_topic_ids": [
+        "S05-M1"
+      ],
+      "level": "specialist",
+      "source_refs": [
+        "B01",
+        "O07",
+        "R14",
+        "R31"
+      ],
+      "source_alignment": "LEI برای VSM و واژگان؛ Little (1961) برای L=lambda W در سیستم پایدار و واحدهای سازگار.",
+      "lessons": [
+        {
+          "id": "S05-C1-ST01-L01",
+          "version": 1,
+          "title": "نقشهٔ جریان ارزش",
+          "content_status": "draft",
+          "objective": "جریان ارزش جاری را با گام، انتظار، داده و تحویل رسم کند.",
+          "learning_cards": [
+            {
+              "type": "explanation",
+              "text": "نقشهٔ جریان ارزش مسیر درخواست را از آغاز تا تحویل ارزش دنبال می‌کند؛ در تولید ماده و اطلاعات و در خدمت پرونده و تصمیم را نشان می‌دهد. هدف دیدن جریان انتهابه‌انتهاست، نه زیبایی نمودار.",
+              "id": "S05-C1-ST01-L01-CARD01",
+              "title": "نکتهٔ 1"
+            },
+            {
+              "type": "explanation",
+              "text": "مرز جریان را روشن کنید: مشتری، خروجی، رویداد آغاز و پایان و واحد تحلیل. اگر پرونده بازمی‌گردد، تعریف تمام‌شدن باید اصلاح و بازکاری را هم در نظر بگیرد.",
+              "id": "S05-C1-ST01-L01-CARD02",
+              "title": "نکتهٔ 2"
+            },
+            {
+              "type": "explanation",
+              "text": "نقشهٔ وضعیت موجود را با مشاهدهٔ واقعی بسازید، نه نمودار رسمی فرایند. زمان انتظار، صف، انتقال، دوباره‌کاری و تصمیم را کنار فعالیت‌های ارزش‌آفرین ثبت کنید.",
+              "id": "S05-C1-ST01-L01-CARD03",
+              "title": "نکتهٔ 3"
+            },
+            {
+              "type": "explanation",
+              "text": "برای هر گام مالک، ورودی، خروجی، زمان چرخه و کار در جریان را بنویسید. دادهٔ تخمینی را علامت بزنید و منبع و بازهٔ اندازه‌گیری را ثبت کنید.",
+              "id": "S05-C1-ST01-L01-CARD04",
+              "title": "نکتهٔ 4"
+            },
+            {
+              "type": "explanation",
+              "text": "جریان اطلاعات به اندازهٔ جریان کار مهم است: درخواست از کجا می‌آید، اولویت چه کسی را عوض می‌کند و چه زمانی کار شروع می‌شود؟ صف دیجیتال نیز صف است.",
+              "id": "S05-C1-ST01-L01-CARD05",
+              "title": "نکتهٔ 5"
+            },
+            {
+              "type": "explanation",
+              "text": "نقشهٔ جریان ارزش با نقشهٔ گام‌ها یکسان نیست؛ ارتباط زمان، داده و جریان را برای بهبود سیستم نشان می‌دهد. جزئیات کار را می‌توان در نقشهٔ دیگری بسط داد.",
+              "id": "S05-C1-ST01-L01-CARD06",
+              "title": "نکتهٔ 6"
+            },
+            {
+              "type": "explanation",
+              "text": "نقشهٔ آینده آرمان بی‌قید نیست. مسئلهٔ مشخصی مثل انتظار زیاد را هدف بگیرید، فرض طراحی را بنویسید و تغییرها را به برنامهٔ اجرایی وصل کنید.",
+              "id": "S05-C1-ST01-L01-CARD07",
+              "title": "نکتهٔ 7"
+            },
+            {
+              "type": "explanation",
+              "text": "در سپهر، شکایت از ورود تا تأیید نهایی نقشه می‌شود. اگر پرونده بین پشتیبانی و عملیات چند بار رفت‌وبرگشت دارد، نقشه محل انتظار و ارجاع را آشکار می‌کند.",
+              "id": "S05-C1-ST01-L01-CARD08",
+              "title": "نکتهٔ 8"
+            },
+            {
+              "type": "explanation",
+              "text": "زمان ارزش‌آفرین کارِ نزدیک‌کنندهٔ خروجی به خواستهٔ مشتری است. هر کار لازم و قانونی الزاماً حذف‌پذیر نیست؛ ارزش، اتلاف و کنترل الزامی را جدا کنید. در نگاشت خدمت، کاربرگ می‌تواند یک پروندهٔ نمونه را از نقطهٔ تماس تا نتیجه دنبال کند. برای هر انتقال بنویسید چه اطلاعاتی کم است و چه کسی حق تصمیم دارد؛ همین دو پرسش اغلب حلقهٔ انتظار را پیدا می‌کنند.",
+              "id": "S05-C1-ST01-L01-CARD09",
+              "title": "نکتهٔ 9"
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S05-C1-ST01-L01-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L01-CARD01",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "جریان انتهابه‌انتها انتقال و انتظار میان واحدها را آشکار می‌کند.",
+              "id": "S05-C1-ST01-L01-Q01",
+              "prompt": "کدام محدوده برای نقشهٔ جریان ارزش مناسب‌تر است؟",
+              "options": [
+                {
+                  "text": "از ورود نیاز مشتری تا تحویل و تأیید ارزش",
+                  "id": "a",
+                  "feedback": "درست: جریان انتهابه‌انتها انتقال و انتظار میان واحدها را آشکار می‌کند."
+                },
+                {
+                  "text": "فقط فعالیت یک کارمند",
+                  "id": "b",
+                  "feedback": "بازبینی: جریان انتهابه‌انتها انتقال و انتظار میان واحدها را آشکار می‌کند."
+                },
+                {
+                  "text": "فقط ساختار سازمان",
+                  "id": "c",
+                  "feedback": "بازبینی: جریان انتهابه‌انتها انتقال و انتظار میان واحدها را آشکار می‌کند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L01-Q01-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L01-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L01-CARD03",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "نقشهٔ جاری باید آنچه واقعاً رخ می‌دهد را ثبت کند.",
+              "id": "S05-C1-ST01-L01-Q02",
+              "prompt": "برای فهم فرایند جاری، نقشه را بر چه مبنایی بسازیم؟",
+              "options": [
+                {
+                  "text": "مشاهدهٔ پرونده‌های واقعی و ثبت زمان و انتقال",
+                  "id": "a",
+                  "feedback": "درست: نقشهٔ جاری باید آنچه واقعاً رخ می‌دهد را ثبت کند."
+                },
+                {
+                  "text": "طرح رسمی فرایند به تنهایی",
+                  "id": "b",
+                  "feedback": "بازبینی: نقشهٔ جاری باید آنچه واقعاً رخ می‌دهد را ثبت کند."
+                },
+                {
+                  "text": "نقشهٔ آیندهٔ مطلوب",
+                  "id": "c",
+                  "feedback": "بازبینی: نقشهٔ جاری باید آنچه واقعاً رخ می‌دهد را ثبت کند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L01-Q02-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L01-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L01-CARD05",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "قواعد ورود و اولویت بر جریان کار اثر مستقیم دارند.",
+              "id": "S05-C1-ST01-L01-Q03",
+              "prompt": "در خدمت، کدام مورد بخشی از جریان اطلاعات است؟",
+              "options": [
+                {
+                  "text": "قواعد اولویت‌دهی و انتقال پرونده",
+                  "id": "a",
+                  "feedback": "درست: قواعد ورود و اولویت بر جریان کار اثر مستقیم دارند."
+                },
+                {
+                  "text": "فقط حرکت فیزیکی محصول",
+                  "id": "b",
+                  "feedback": "بازبینی: قواعد ورود و اولویت بر جریان کار اثر مستقیم دارند."
+                },
+                {
+                  "text": "فهرست مهارت‌های کارکنان",
+                  "id": "c",
+                  "feedback": "بازبینی: قواعد ورود و اولویت بر جریان کار اثر مستقیم دارند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L01-Q03-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L01-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L01-CARD07",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "طرح آینده باید مسئله و اجرای تغییر را هدف بگیرد.",
+              "id": "S05-C1-ST01-L01-Q04",
+              "prompt": "وضعیت آیندهٔ نقشه با چه چیزی پیوند می‌خورد؟",
+              "options": [
+                {
+                  "text": "مسئلهٔ بهبود و برنامهٔ اقدام",
+                  "id": "a",
+                  "feedback": "درست: طرح آینده باید مسئله و اجرای تغییر را هدف بگیرد."
+                },
+                {
+                  "text": "حذف همهٔ کنترل‌ها",
+                  "id": "b",
+                  "feedback": "بازبینی: طرح آینده باید مسئله و اجرای تغییر را هدف بگیرد."
+                },
+                {
+                  "text": "افزایش جزئیات نمودار",
+                  "id": "c",
+                  "feedback": "بازبینی: طرح آینده باید مسئله و اجرای تغییر را هدف بگیرد."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L01-Q04-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L01-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L01-CARD08",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "انتقال و اطلاعات ناقص علت‌های محتمل تأخیر را نشان می‌دهند.",
+              "id": "S05-C1-ST01-L01-Q05",
+              "prompt": "یک پرونده سه بار بین واحدها ارجاع می‌شود. کدام شواهد را ثبت کنیم؟",
+              "options": [
+                {
+                  "text": "علت ارجاع، انتظار و اطلاعات ناقص هر انتقال",
+                  "id": "a",
+                  "feedback": "درست: انتقال و اطلاعات ناقص علت‌های محتمل تأخیر را نشان می‌دهند."
+                },
+                {
+                  "text": "فقط نام واحد آخر",
+                  "id": "b",
+                  "feedback": "بازبینی: انتقال و اطلاعات ناقص علت‌های محتمل تأخیر را نشان می‌دهند."
+                },
+                {
+                  "text": "فقط زمان کل سالانه",
+                  "id": "c",
+                  "feedback": "بازبینی: انتقال و اطلاعات ناقص علت‌های محتمل تأخیر را نشان می‌دهند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L01-Q05-FAMILY",
+              "correct_option_id": "a"
+            }
+          ],
+          "source_links": [
+            {
+              "url": "https://elearning.lean.org/courses/LTS",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "روش نقشه‌برداری جریان کار و اطلاعات، وضعیت جاری و آینده؛ برای خدمت تطبیق لازم است.",
+              "id": "lei-value-stream-map",
+              "title": "Lean Enterprise Institute: Value-Stream Mapping / Learning to See"
+            },
+            {
+              "url": "https://www.lean.org/lexicon-terms/cycle-time/",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
+              "id": "lei-cycle-time",
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+            }
+          ],
+          "practice_activity": {
+            "solution": "مرز و واحد را تعیین کن؛ دادهٔ جاری را از مشاهده جدا کن؛ ظرفیت و WIP را تحلیل کن؛ کیفیت را کنار زمان بگذار؛ فرض و سنجهٔ بازبینی بنویس.",
+            "absolute_tolerance": null,
+            "type": "short_answer",
+            "rubric": [
+              "تعریف مرز و واحد (۰–۲)",
+              "تمایز پردازش و انتظار (۰–۲)",
+              "محاسبه یا تفسیر سازگار (۰–۲)",
+              "شناسایی محدودیت (۰–۲)",
+              "اقدام و سنجهٔ کیفیت (۰–۲)"
+            ],
+            "answer": "پاسخ یگانه نیست؛ مرز جریان، تعریف زمان و محدودیت داده آشکار باشد.",
+            "unit": "اعداد مثال آموزشی‌اند و واحدها باید سازگار باشند.",
+            "auto_grade": false,
+            "prompt": "برای جریان شکایت سپهر، مسیر، زمان پردازش و انتظار، WIP و نرخ خروج را ثبت و یک بهبود پیشنهاد کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c1/lessons/S05-C1-ST01-L01.json",
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "M13",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": true,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C1-ST01-L02",
+          "version": 1,
+          "title": "ظرفیت و گلوگاه",
+          "content_status": "draft",
+          "objective": "ظرفیت نظری و گلوگاه را از روی زمان و نرخ تحلیل کند.",
+          "learning_cards": [
+            {
+              "type": "explanation",
+              "text": "ظرفیت یعنی توان انجام کار در یک بازه و شرایط تعریف‌شده؛ عدد اسمی دستگاه یا تعداد کارکنان با ظرفیت واقعی سیستم برابر نیست. مهارت و توقف و تنوع کار اثر دارند.",
+              "id": "S05-C1-ST01-L02-CARD01",
+              "title": "نکتهٔ 1"
+            },
+            {
+              "type": "explanation",
+              "text": "برای یک گام ساده، ظرفیت نظری برابر زمان مفید تقسیم بر زمان چرخهٔ هر واحد است. ۴۲۰ دقیقهٔ مفید با چرخهٔ ۲ دقیقه، ۲۱۰ واحد ظرفیت نظری می‌دهد.",
+              "id": "S05-C1-ST01-L02-CARD02",
+              "title": "نکتهٔ 2"
+            },
+            {
+              "type": "explanation",
+              "text": "گلوگاه گامی است که نرخ خروجی سیستم را محدود می‌کند، نه هر ایستگاه شلوغ. نرخ ظرفیت کل زنجیره معمولاً از محدودکننده‌ترین مرحله فراتر نمی‌رود.",
+              "id": "S05-C1-ST01-L02-CARD03",
+              "title": "نکتهٔ 3"
+            },
+            {
+              "type": "explanation",
+              "text": "بار کاری را با ظرفیت قابل‌اتکا مقایسه کنید. بهره‌برداری نزدیک صددرصد در کار متغیر حاشیهٔ پاسخ به نوسان را کم می‌کند و صف می‌سازد.",
+              "id": "S05-C1-ST01-L02-CARD04",
+              "title": "نکتهٔ 4"
+            },
+            {
+              "type": "explanation",
+              "text": "گلوگاه می‌تواند جابه‌جا شود؛ ترکیب محصول، شیفت یا تجهیزات محدودیت را عوض می‌کند. بهبود یک گام ممکن است صف را به نقطهٔ بعد منتقل کند.",
+              "id": "S05-C1-ST01-L02-CARD05",
+              "title": "نکتهٔ 5"
+            },
+            {
+              "type": "explanation",
+              "text": "در نظریهٔ محدودیت‌ها نخست محدودیت را پیدا کنید، از آن بهره ببرید، کارهای دیگر را با آن هم‌راستا کنید، ظرفیتش را بالا ببرید و دوباره بررسی کنید.",
+              "id": "S05-C1-ST01-L02-CARD06",
+              "title": "نکتهٔ 6"
+            },
+            {
+              "type": "explanation",
+              "text": "زمان توقف را دسته‌بندی کنید: خرابی، انتظار تصمیم، کمبود ورودی، تنظیم یا دوباره‌کاری. این تفکیک به اصلاح علت مشخص کمک می‌کند، نه درخواست تلاش بیشتر.",
+              "id": "S05-C1-ST01-L02-CARD07",
+              "title": "نکتهٔ 7"
+            },
+            {
+              "type": "explanation",
+              "text": "در سپهر، فقط دو کارشناس تأیید بازپرداخت دارند. افزودن نیروی پذیرش ممکن است صف تأیید را بزرگ‌تر کند؛ ظرفیت تأیید و قواعد ارجاع را بسنجید.",
+              "id": "S05-C1-ST01-L02-CARD08",
+              "title": "نکتهٔ 8"
+            },
+            {
+              "type": "explanation",
+              "text": "ظرفیت بافر زمانی یا منابعی است که برای نوسان نگه می‌داریم. آن را آگاهانه طراحی کنید تا از انسداد جلوگیری شود، نه اینکه صف پنهان دائمی بسازیم. مثال ظرفیت فرض می‌کند چرخه یکنواخت و زمان مفید پیوسته است. برای تصمیم واقعی، توقف، استراحت، تغییر نوع کار و بازده درست‌باراول را اضافه کنید. ظرفیت نظری سقف ساده‌شده است و تعهد خروجی نیست. اگر زمان چرخهٔ هر مرحله متفاوت است، ظرفیت ایستگاه‌ها را با زمان مفید و ترکیب کار بسنجید. یک مرحلهٔ کوتاه‌تر ممکن است به‌دلیل تنظیم یا کمبود ورودی، خروج واقعی کمی داشته باشد.",
+              "id": "S05-C1-ST01-L02-CARD09",
+              "title": "نکتهٔ 9"
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S05-C1-ST01-L02-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L02-CARD02",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "ظرفیت نظری = زمان مفید تقسیم بر چرخهٔ واحد.",
+              "id": "S05-C1-ST01-L02-Q01",
+              "prompt": "با ۴۲۰ دقیقهٔ مفید و چرخهٔ ۲ دقیقه، ظرفیت نظری چند واحد است؟",
+              "options": [
+                {
+                  "text": "۲۱۰",
+                  "id": "a",
+                  "feedback": "درست: ظرفیت نظری = زمان مفید تقسیم بر چرخهٔ واحد."
+                },
+                {
+                  "text": "۴۲۰",
+                  "id": "b",
+                  "feedback": "بازبینی: ظرفیت نظری = زمان مفید تقسیم بر چرخهٔ واحد."
+                },
+                {
+                  "text": "۸۴۰",
+                  "id": "c",
+                  "feedback": "بازبینی: ظرفیت نظری = زمان مفید تقسیم بر چرخهٔ واحد."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L02-Q01-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L02-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L02-CARD03",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "محدودیت را با اثرش بر نرخ خروج کل تعریف می‌کنیم.",
+              "id": "S05-C1-ST01-L02-Q02",
+              "prompt": "کدام نشانه گلوگاه واقعی را بهتر مشخص می‌کند؟",
+              "options": [
+                {
+                  "text": "گامی که خروج کل را محدود می‌کند",
+                  "id": "a",
+                  "feedback": "درست: محدودیت را با اثرش بر نرخ خروج کل تعریف می‌کنیم."
+                },
+                {
+                  "text": "هر کارمند شلوغ",
+                  "id": "b",
+                  "feedback": "بازبینی: محدودیت را با اثرش بر نرخ خروج کل تعریف می‌کنیم."
+                },
+                {
+                  "text": "طولانی‌ترین جلسه",
+                  "id": "c",
+                  "feedback": "بازبینی: محدودیت را با اثرش بر نرخ خروج کل تعریف می‌کنیم."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L02-Q02-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L02-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L02-CARD04",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "استفادهٔ کامل می‌تواند صف را در برابر نوسان آسیب‌پذیر کند.",
+              "id": "S05-C1-ST01-L02-Q03",
+              "prompt": "در کار متغیر، بهره‌برداری صددرصدی چه خطری دارد؟",
+              "options": [
+                {
+                  "text": "نبود حاشیه برای نوسان و شکل‌گیری صف",
+                  "id": "a",
+                  "feedback": "درست: استفادهٔ کامل می‌تواند صف را در برابر نوسان آسیب‌پذیر کند."
+                },
+                {
+                  "text": "افزایش ظرفیت قطعی",
+                  "id": "b",
+                  "feedback": "بازبینی: استفادهٔ کامل می‌تواند صف را در برابر نوسان آسیب‌پذیر کند."
+                },
+                {
+                  "text": "حذف توقف",
+                  "id": "c",
+                  "feedback": "بازبینی: استفادهٔ کامل می‌تواند صف را در برابر نوسان آسیب‌پذیر کند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L02-Q03-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L02-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L02-CARD05",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "گلوگاه ممکن است جابه‌جا شود و محدودیت تازه ظاهر شود.",
+              "id": "S05-C1-ST01-L02-Q04",
+              "prompt": "پس از افزایش ظرفیت یک گلوگاه چه چیزی را دوباره بررسی می‌کنیم؟",
+              "options": [
+                {
+                  "text": "محل محدودیت بعدی و اثر بر کل جریان",
+                  "id": "a",
+                  "feedback": "درست: گلوگاه ممکن است جابه‌جا شود و محدودیت تازه ظاهر شود."
+                },
+                {
+                  "text": "فقط میزان بودجه",
+                  "id": "b",
+                  "feedback": "بازبینی: گلوگاه ممکن است جابه‌جا شود و محدودیت تازه ظاهر شود."
+                },
+                {
+                  "text": "نام تیم",
+                  "id": "c",
+                  "feedback": "بازبینی: گلوگاه ممکن است جابه‌جا شود و محدودیت تازه ظاهر شود."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L02-Q04-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L02-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L02-CARD08",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "افزایش ورودی بدون ظرفیت خروج می‌تواند WIP را بیشتر کند.",
+              "id": "S05-C1-ST01-L02-Q05",
+              "prompt": "دو کارشناس تأیید پرونده محدودند؛ افزودن پذیرش چه اثری ممکن است داشته باشد؟",
+              "options": [
+                {
+                  "text": "افزایش صف پیش از تأیید",
+                  "id": "a",
+                  "feedback": "درست: افزایش ورودی بدون ظرفیت خروج می‌تواند WIP را بیشتر کند."
+                },
+                {
+                  "text": "حذف گلوگاه به‌طور قطعی",
+                  "id": "b",
+                  "feedback": "بازبینی: افزایش ورودی بدون ظرفیت خروج می‌تواند WIP را بیشتر کند."
+                },
+                {
+                  "text": "تغییر تقاضای مشتری",
+                  "id": "c",
+                  "feedback": "بازبینی: افزایش ورودی بدون ظرفیت خروج می‌تواند WIP را بیشتر کند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L02-Q05-FAMILY",
+              "correct_option_id": "a"
+            }
+          ],
+          "source_links": [
+            {
+              "url": "https://www.lean.org/lexicon-terms/takt-time/",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "زمان در دسترس تقسیم بر تقاضا برای هم‌ترازی نرخ کار با مشتری.",
+              "id": "lei-takt-time",
+              "title": "Lean Enterprise Institute Lexicon: Takt Time"
+            },
+            {
+              "url": "https://www.lean.org/lexicon-terms/cycle-time/",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
+              "id": "lei-cycle-time",
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+            }
+          ],
+          "practice_activity": {
+            "solution": "مرز و واحد را تعیین کن؛ دادهٔ جاری را از مشاهده جدا کن؛ ظرفیت و WIP را تحلیل کن؛ کیفیت را کنار زمان بگذار؛ فرض و سنجهٔ بازبینی بنویس.",
+            "absolute_tolerance": null,
+            "type": "short_answer",
+            "rubric": [
+              "تعریف مرز و واحد (۰–۲)",
+              "تمایز پردازش و انتظار (۰–۲)",
+              "محاسبه یا تفسیر سازگار (۰–۲)",
+              "شناسایی محدودیت (۰–۲)",
+              "اقدام و سنجهٔ کیفیت (۰–۲)"
+            ],
+            "answer": "پاسخ یگانه نیست؛ مرز جریان، تعریف زمان و محدودیت داده آشکار باشد.",
+            "unit": "اعداد مثال آموزشی‌اند و واحدها باید سازگار باشند.",
+            "auto_grade": false,
+            "prompt": "برای جریان شکایت سپهر، مسیر، زمان پردازش و انتظار، WIP و نرخ خروج را ثبت و یک بهبود پیشنهاد کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c1/lessons/S05-C1-ST01-L02.json",
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "M13",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C1-ST01-L03",
+          "version": 1,
+          "title": "صف و کار در جریان",
+          "content_status": "draft",
+          "objective": "رابطهٔ WIP، خروج و زمان را با واحد سازگار به‌کار ببرد.",
+          "learning_cards": [
+            {
+              "type": "explanation",
+              "text": "کار در جریان یا WIP کاری است که شروع شده اما خروجی نهایی نشده. WIP زیاد چندوظیفگی، انتظار و دشواری اولویت را بالا می‌برد؛ مقداری کار باز برای جریان لازم است.",
+              "id": "S05-C1-ST01-L03-CARD01",
+              "title": "نکتهٔ 1"
+            },
+            {
+              "type": "explanation",
+              "text": "قانون لیتل رابطهٔ میانگین کار در سیستم، نرخ خروج و زمان جریان را می‌دهد: L=λW. اگر ۳۶ پرونده در سیستم و خروج ۱۲ در ساعت باشد، میانگین جریان ۳ ساعت است.",
+              "id": "S05-C1-ST01-L03-CARD02",
+              "title": "نکتهٔ 2"
+            },
+            {
+              "type": "explanation",
+              "text": "این رابطه در سیستم پایدار و با مرز و واحدهای سازگار به‌کار می‌رود؛ برای صفی که بی‌وقفه رشد می‌کند، یک عدد متوسط علت را حل نمی‌کند.",
+              "id": "S05-C1-ST01-L03-CARD03",
+              "title": "نکتهٔ 3"
+            },
+            {
+              "type": "explanation",
+              "text": "اگر نرخ خروج ثابت باشد، کاهش WIP می‌تواند زمان جریان متوسط را کم کند؛ محدودکردن ورودی بدون رفع گلوگاه ممکن است خدمت را مسدود کند.",
+              "id": "S05-C1-ST01-L03-CARD04",
+              "title": "نکتهٔ 4"
+            },
+            {
+              "type": "explanation",
+              "text": "صف از تفاوت نرخ ورود و خروج یا نوسان آن‌ها شکل می‌گیرد. اگر ورود مدتی از ظرفیت بیشتر شود، کار انباشته می‌شود؛ کاهش زمان تصمیم هم می‌تواند کمک کند.",
+              "id": "S05-C1-ST01-L03-CARD05",
+              "title": "نکتهٔ 5"
+            },
+            {
+              "type": "explanation",
+              "text": "قاعدهٔ اولویت را شفاف کنید: فوریت، ارزش، ریسک یا زمان انتظار؟ چند صف پنهان ممکن است کار قدیمی را برای همیشه عقب بیندازد.",
+              "id": "S05-C1-ST01-L03-CARD06",
+              "title": "نکتهٔ 6"
+            },
+            {
+              "type": "explanation",
+              "text": "حد WIP می‌گوید تیم هم‌زمان چقدر کار باز نگه دارد. حد را با مشاهدهٔ گلوگاه تنظیم کنید و استثنای اضطراری را ثبت کنید تا همه‌چیز اضطراری نشود.",
+              "id": "S05-C1-ST01-L03-CARD07",
+              "title": "نکتهٔ 7"
+            },
+            {
+              "type": "explanation",
+              "text": "در سپهر هفته‌ای ۶۰ پرونده وارد و ۵۰ پرونده خارج می‌شود؛ WIP بالا می‌رود. قانون لیتل عدم توازن را روشن می‌کند اما خودش علت را حل نمی‌کند.",
+              "id": "S05-C1-ST01-L03-CARD08",
+              "title": "نکتهٔ 8"
+            },
+            {
+              "type": "explanation",
+              "text": "زمان جریان از ورود کار به سیستم تا خروج است؛ زمان پردازش فقط لحظه‌های کار فعال را می‌شمارد. تفاوت این دو بخش بزرگی از انتظار پنهان را نشان می‌دهد. نرخ خروج را در همان واحد زمانی WIP و زمان بسنجید. اگر نرخ ساعتی را با WIP روزانه یا میانگین چند دورهٔ متفاوت ترکیب کنید، حاصل از نظر واحد معنی ندارد. ثبات را با روند ورود و خروج بسنجید. این قانون میانگین را پیوند می‌دهد و دربارهٔ تک‌پرونده زمان تحویل دقیق نمی‌دهد. برای پروندهٔ خاص، تفاوت نوع کار و اولویت و تغییر ظرفیت را جداگانه بررسی کنید.",
+              "id": "S05-C1-ST01-L03-CARD09",
+              "title": "نکتهٔ 9"
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S05-C1-ST01-L03-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L03-CARD02",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "W=L/λ؛ ۳۶ تقسیم بر ۱۲ برابر ۳ ساعت.",
+              "id": "S05-C1-ST01-L03-Q01",
+              "prompt": "با میانگین ۳۶ کار در سیستم و خروج ۱۲ در ساعت، زمان جریان متوسط چقدر است؟",
+              "options": [
+                {
+                  "text": "۳ ساعت",
+                  "id": "a",
+                  "feedback": "درست: W=L/λ؛ ۳۶ تقسیم بر ۱۲ برابر ۳ ساعت."
+                },
+                {
+                  "text": "۱۲ ساعت",
+                  "id": "b",
+                  "feedback": "بازبینی: W=L/λ؛ ۳۶ تقسیم بر ۱۲ برابر ۳ ساعت."
+                },
+                {
+                  "text": "۴۸ ساعت",
+                  "id": "c",
+                  "feedback": "بازبینی: W=L/λ؛ ۳۶ تقسیم بر ۱۲ برابر ۳ ساعت."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L03-Q01-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L03-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L03-CARD03",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "میانگین‌های هم‌واحد و سیستم پایدار برای تفسیر لازم‌اند.",
+              "id": "S05-C1-ST01-L03-Q02",
+              "prompt": "پیش‌شرط مهم به‌کارگیری قانون لیتل چیست؟",
+              "options": [
+                {
+                  "text": "مرز روشن و واحدهای سازگار در سیستم پایدار",
+                  "id": "a",
+                  "feedback": "درست: میانگین‌های هم‌واحد و سیستم پایدار برای تفسیر لازم‌اند."
+                },
+                {
+                  "text": "تعداد دقیق یکسان در هر لحظه",
+                  "id": "b",
+                  "feedback": "بازبینی: میانگین‌های هم‌واحد و سیستم پایدار برای تفسیر لازم‌اند."
+                },
+                {
+                  "text": "نبود هرگونه انتظار",
+                  "id": "c",
+                  "feedback": "بازبینی: میانگین‌های هم‌واحد و سیستم پایدار برای تفسیر لازم‌اند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L03-Q02-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L03-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L03-CARD04",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "با فرض‌های ثابت، L کمتر در رابطهٔ لیتل به W کمتر می‌انجامد.",
+              "id": "S05-C1-ST01-L03-Q03",
+              "prompt": "اگر نرخ خروج ثابت بماند و WIP کم شود، چه اثری محتمل است؟",
+              "options": [
+                {
+                  "text": "کاهش زمان جریان متوسط",
+                  "id": "a",
+                  "feedback": "درست: با فرض‌های ثابت، L کمتر در رابطهٔ لیتل به W کمتر می‌انجامد."
+                },
+                {
+                  "text": "افزایش قطعی تقاضا",
+                  "id": "b",
+                  "feedback": "بازبینی: با فرض‌های ثابت، L کمتر در رابطهٔ لیتل به W کمتر می‌انجامد."
+                },
+                {
+                  "text": "حذف هر نوع صف",
+                  "id": "c",
+                  "feedback": "بازبینی: با فرض‌های ثابت، L کمتر در رابطهٔ لیتل به W کمتر می‌انجامد."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L03-Q03-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L03-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L03-CARD08",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "ورودی بیش از خروج WIP را بالا می‌برد؛ علت و راهکار نیازمند تحلیل است.",
+              "id": "S05-C1-ST01-L03-Q04",
+              "prompt": "ورود هفتگی ۶۰ و خروج ۵۰ پرونده است. چه برداشتی مناسب‌تر است؟",
+              "options": [
+                {
+                  "text": "انباشت کار محتمل است و قانون لیتل علت را به‌تنهایی رفع نمی‌کند",
+                  "id": "a",
+                  "feedback": "درست: ورودی بیش از خروج WIP را بالا می‌برد؛ علت و راهکار نیازمند تحلیل است."
+                },
+                {
+                  "text": "سیستم حتماً پایدار است",
+                  "id": "b",
+                  "feedback": "بازبینی: ورودی بیش از خروج WIP را بالا می‌برد؛ علت و راهکار نیازمند تحلیل است."
+                },
+                {
+                  "text": "باید همهٔ ورودی‌ها را متوقف کرد",
+                  "id": "c",
+                  "feedback": "بازبینی: ورودی بیش از خروج WIP را بالا می‌برد؛ علت و راهکار نیازمند تحلیل است."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L03-Q04-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L03-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L03-CARD09",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "زمان جریان انتظار و پردازش را در مرز تعریف‌شده در بر می‌گیرد.",
+              "id": "S05-C1-ST01-L03-Q05",
+              "prompt": "زمان جریان چه چیزی را شامل می‌شود؟",
+              "options": [
+                {
+                  "text": "ورود به سیستم تا خروج، شامل انتظار",
+                  "id": "a",
+                  "feedback": "درست: زمان جریان انتظار و پردازش را در مرز تعریف‌شده در بر می‌گیرد."
+                },
+                {
+                  "text": "فقط زمان کار فعال",
+                  "id": "b",
+                  "feedback": "بازبینی: زمان جریان انتظار و پردازش را در مرز تعریف‌شده در بر می‌گیرد."
+                },
+                {
+                  "text": "فقط زمان ثبت در نرم‌افزار",
+                  "id": "c",
+                  "feedback": "بازبینی: زمان جریان انتظار و پردازش را در مرز تعریف‌شده در بر می‌گیرد."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L03-Q05-FAMILY",
+              "correct_option_id": "a"
+            }
+          ],
+          "source_links": [
+            {
+              "url": "https://pubsonline.informs.org/doi/abs/10.1287/opre.9.3.383",
+              "review_depth": "peer_reviewed_foundational_article_reviewed",
+              "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
+              "id": "little-1961",
+              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+            },
+            {
+              "url": "https://www.lean.org/lexicon-terms/cycle-time/",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
+              "id": "lei-cycle-time",
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+            }
+          ],
+          "practice_activity": {
+            "solution": "مرز و واحد را تعیین کن؛ دادهٔ جاری را از مشاهده جدا کن؛ ظرفیت و WIP را تحلیل کن؛ کیفیت را کنار زمان بگذار؛ فرض و سنجهٔ بازبینی بنویس.",
+            "absolute_tolerance": null,
+            "type": "short_answer",
+            "rubric": [
+              "تعریف مرز و واحد (۰–۲)",
+              "تمایز پردازش و انتظار (۰–۲)",
+              "محاسبه یا تفسیر سازگار (۰–۲)",
+              "شناسایی محدودیت (۰–۲)",
+              "اقدام و سنجهٔ کیفیت (۰–۲)"
+            ],
+            "answer": "پاسخ یگانه نیست؛ مرز جریان، تعریف زمان و محدودیت داده آشکار باشد.",
+            "unit": "اعداد مثال آموزشی‌اند و واحدها باید سازگار باشند.",
+            "auto_grade": false,
+            "prompt": "برای جریان شکایت سپهر، مسیر، زمان پردازش و انتظار، WIP و نرخ خروج را ثبت و یک بهبود پیشنهاد کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c1/lessons/S05-C1-ST01-L03.json",
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "M13",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        },
+        {
+          "id": "S05-C1-ST01-L04",
+          "version": 1,
+          "title": "اندازه‌گیری زمان واقعی",
+          "content_status": "draft",
+          "objective": "شاخص‌های زمان را تعریف و با توزیع و کیفیت تفسیر کند.",
+          "learning_cards": [
+            {
+              "type": "explanation",
+              "text": "اندازه‌گیری زمان باید به تصمیم بهبود وصل شود. پیش از جمع‌آوری داده بپرسید چه پرسشی داریم، واحد تحلیل چیست و نتیجه کدام تصمیم را تغییر می‌دهد.",
+              "id": "S05-C1-ST01-L04-CARD01",
+              "title": "نکتهٔ 1"
+            },
+            {
+              "type": "explanation",
+              "text": "زمان پردازش، چرخه، انتظار و عبور کل را تعریف کنید. اگر سازمان یک نام را برای دو تعریف به‌کار ببرد، واژه‌نامهٔ شاخص از مقایسهٔ نادرست جلوگیری می‌کند.",
+              "id": "S05-C1-ST01-L04-CARD02",
+              "title": "نکتهٔ 2"
+            },
+            {
+              "type": "explanation",
+              "text": "میانگین می‌تواند تجربهٔ بد بخش بزرگی از مشتریان را پنهان کند. میانه و صدک ۹۰ را کنار میانگین ببینید، به‌ویژه وقتی پروندهٔ پیچیده دنبالهٔ طولانی می‌سازد.",
+              "id": "S05-C1-ST01-L04-CARD03",
+              "title": "نکتهٔ 3"
+            },
+            {
+              "type": "explanation",
+              "text": "اگر ۸۰ درصد درخواست‌ها در یک روز و ۲۰ درصد در ده روز بسته شوند، میانگین ۲٫۸ روز است؛ این عدد به‌تنهایی شکاف گروه کندتر را نشان نمی‌دهد.",
+              "id": "S05-C1-ST01-L04-CARD04",
+              "title": "نکتهٔ 4"
+            },
+            {
+              "type": "explanation",
+              "text": "نقطهٔ شروع و پایان را به رویداد ثبت‌شده وصل کنید. زمان ثبت دستی ممکن است دیر باشد؛ دادهٔ سامانه را با نمونه‌برداری مشاهده‌ای مقایسه کنید.",
+              "id": "S05-C1-ST01-L04-CARD05",
+              "title": "نکتهٔ 5"
+            },
+            {
+              "type": "explanation",
+              "text": "کامل‌بودن در بار اول، نرخ بازگشت، خطا و تجربهٔ مشتری را کنار زمان بگذارید تا سرعت به قیمت دوباره‌کاری یا کیفیت تمام نشود.",
+              "id": "S05-C1-ST01-L04-CARD06",
+              "title": "نکتهٔ 6"
+            },
+            {
+              "type": "explanation",
+              "text": "تغییر ترکیب کار را ثبت کنید. مقایسهٔ هفتهٔ آرام با اوج تقاضا بدون تفکیک نوع درخواست ممکن است تیم را ناعادلانه قضاوت کند.",
+              "id": "S05-C1-ST01-L04-CARD07",
+              "title": "نکتهٔ 7"
+            },
+            {
+              "type": "explanation",
+              "text": "نمودار سری زمانی به تشخیص تغییر کمک می‌کند؛ تغییر شیفت و قاعده را نشانه‌گذاری کنید. روند به‌تنهایی علت را ثابت نمی‌کند.",
+              "id": "S05-C1-ST01-L04-CARD08",
+              "title": "نکتهٔ 8"
+            },
+            {
+              "type": "explanation",
+              "text": "پایایی داده یعنی اندازه‌گیری در شرایط مشابه قابل تکرار باشد. اگر دو سامانه رویدادهای متفاوتی را مبنا می‌گیرند، اول تعریف و ثبت را هماهنگ کنید. یک تعریف شاخص باید رویداد سامانه، منطقهٔ زمانی، پرونده‌های لغوشده و کارهای باز را روشن کند. پاک‌کردن موارد دشوار از نمونه شاید عدد را بهتر کند اما نمایندگی عملکرد را کاهش می‌دهد. وقتی صدک بالا بدتر می‌شود اما میانگین ثابت است، ممکن است فقط گروه کوچکی آسیب دیده باشد. ترکیب پرونده و مسیرهای استثنا را با حفظ حریم خصوصی تحلیل کنید و اقدام را به علت مشاهده‌شده وصل کنید.",
+              "id": "S05-C1-ST01-L04-CARD09",
+              "title": "نکتهٔ 9"
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S05-C1-ST01-L04-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L04-CARD02",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "تعریف سازگار مقایسه را معنادار می‌کند.",
+              "id": "S05-C1-ST01-L04-Q01",
+              "prompt": "پیش از مقایسهٔ دو شاخص زمان چه چیزی باید همسان باشد؟",
+              "options": [
+                {
+                  "text": "تعریف رویداد آغاز و پایان و واحد",
+                  "id": "a",
+                  "feedback": "درست: تعریف سازگار مقایسه را معنادار می‌کند."
+                },
+                {
+                  "text": "رنگ نمودار",
+                  "id": "b",
+                  "feedback": "بازبینی: تعریف سازگار مقایسه را معنادار می‌کند."
+                },
+                {
+                  "text": "نام ابزار",
+                  "id": "c",
+                  "feedback": "بازبینی: تعریف سازگار مقایسه را معنادار می‌کند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L04-Q01-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L04-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L04-CARD03",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "صدک بالا بخشی از پرونده‌های کند را نشان می‌دهد.",
+              "id": "S05-C1-ST01-L04-Q02",
+              "prompt": "چرا صدک ۹۰ کنار میانگین مفید است؟",
+              "options": [
+                {
+                  "text": "دنبالهٔ کند و تجربهٔ بدتر را آشکار می‌کند",
+                  "id": "a",
+                  "feedback": "درست: صدک بالا بخشی از پرونده‌های کند را نشان می‌دهد."
+                },
+                {
+                  "text": "همیشه برابر زمان متوسط است",
+                  "id": "b",
+                  "feedback": "بازبینی: صدک بالا بخشی از پرونده‌های کند را نشان می‌دهد."
+                },
+                {
+                  "text": "خطای ثبت را حذف می‌کند",
+                  "id": "c",
+                  "feedback": "بازبینی: صدک بالا بخشی از پرونده‌های کند را نشان می‌دهد."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L04-Q02-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L04-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L04-CARD04",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "۰٫۸×۱ + ۰٫۲×۱۰ = ۲٫۸ روز.",
+              "id": "S05-C1-ST01-L04-Q03",
+              "prompt": "۸۰٪ یک روز و ۲۰٪ ده روز؛ میانگین سادهٔ زمان چند روز است؟",
+              "options": [
+                {
+                  "text": "۲٫۸",
+                  "id": "a",
+                  "feedback": "درست: ۰٫۸×۱ + ۰٫۲×۱۰ = ۲٫۸ روز."
+                },
+                {
+                  "text": "۱٫۸",
+                  "id": "b",
+                  "feedback": "بازبینی: ۰٫۸×۱ + ۰٫۲×۱۰ = ۲٫۸ روز."
+                },
+                {
+                  "text": "۱۰",
+                  "id": "c",
+                  "feedback": "بازبینی: ۰٫۸×۱ + ۰٫۲×۱۰ = ۲٫۸ روز."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L04-Q03-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L04-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L04-CARD05",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "کیفیت ثبت و تعریف عملیاتی باید بررسی شود.",
+              "id": "S05-C1-ST01-L04-Q04",
+              "prompt": "زمان ثبت دستی با مشاهدهٔ واقعی نمی‌خواند. اقدام مناسب چیست؟",
+              "options": [
+                {
+                  "text": "تعریف رویداد و کیفیت ثبت را با نمونه بررسی کنیم",
+                  "id": "a",
+                  "feedback": "درست: کیفیت ثبت و تعریف عملیاتی باید بررسی شود."
+                },
+                {
+                  "text": "زمان‌ها را بی‌بررسی بپذیریم",
+                  "id": "b",
+                  "feedback": "بازبینی: کیفیت ثبت و تعریف عملیاتی باید بررسی شود."
+                },
+                {
+                  "text": "پرونده‌های کند را حذف کنیم",
+                  "id": "c",
+                  "feedback": "بازبینی: کیفیت ثبت و تعریف عملیاتی باید بررسی شود."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L04-Q04-FAMILY",
+              "correct_option_id": "a"
+            },
+            {
+              "objective_id": "S05-C1-ST01-L04-OBJ01",
+              "remediation_card_id": "S05-C1-ST01-L04-CARD06",
+              "type": "single_choice",
+              "variant": "A",
+              "explanation": "سنجه‌های جانبی از بهینه‌سازی یک‌بعدی جلوگیری می‌کنند.",
+              "id": "S05-C1-ST01-L04-Q05",
+              "prompt": "چرا زمان را همراه نرخ بازگشت و کیفیت می‌سنجیم؟",
+              "options": [
+                {
+                  "text": "تا سرعت با دوباره‌کاری یا افت کیفیت اشتباه نشود",
+                  "id": "a",
+                  "feedback": "درست: سنجه‌های جانبی از بهینه‌سازی یک‌بعدی جلوگیری می‌کنند."
+                },
+                {
+                  "text": "تا هر شاخص زیاد شود",
+                  "id": "b",
+                  "feedback": "بازبینی: سنجه‌های جانبی از بهینه‌سازی یک‌بعدی جلوگیری می‌کنند."
+                },
+                {
+                  "text": "تا زمان حذف شود",
+                  "id": "c",
+                  "feedback": "بازبینی: سنجه‌های جانبی از بهینه‌سازی یک‌بعدی جلوگیری می‌کنند."
+                }
+              ],
+              "version": 1,
+              "equivalence_group": "S05-C1-ST01-L04-Q05-FAMILY",
+              "correct_option_id": "a"
+            }
+          ],
+          "source_links": [
+            {
+              "url": "https://pubsonline.informs.org/doi/abs/10.1287/opre.9.3.383",
+              "review_depth": "peer_reviewed_foundational_article_reviewed",
+              "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
+              "id": "little-1961",
+              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+            },
+            {
+              "url": "https://www.lean.org/lexicon-terms/cycle-time/",
+              "review_depth": "professional_practice_reference_reviewed",
+              "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
+              "id": "lei-cycle-time",
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+            }
+          ],
+          "practice_activity": {
+            "solution": "مرز و واحد را تعیین کن؛ دادهٔ جاری را از مشاهده جدا کن؛ ظرفیت و WIP را تحلیل کن؛ کیفیت را کنار زمان بگذار؛ فرض و سنجهٔ بازبینی بنویس.",
+            "absolute_tolerance": null,
+            "type": "short_answer",
+            "rubric": [
+              "تعریف مرز و واحد (۰–۲)",
+              "تمایز پردازش و انتظار (۰–۲)",
+              "محاسبه یا تفسیر سازگار (۰–۲)",
+              "شناسایی محدودیت (۰–۲)",
+              "اقدام و سنجهٔ کیفیت (۰–۲)"
+            ],
+            "answer": "پاسخ یگانه نیست؛ مرز جریان، تعریف زمان و محدودیت داده آشکار باشد.",
+            "unit": "اعداد مثال آموزشی‌اند و واحدها باید سازگار باشند.",
+            "auto_grade": false,
+            "prompt": "برای جریان شکایت سپهر، مسیر، زمان پردازش و انتظار، WIP و نرخ خروج را ثبت و یک بهبود پیشنهاد کن."
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s05-c1/lessons/S05-C1-ST01-L04.json",
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "M06",
+            "M13",
+            "R15"
+          ],
+          "source_scope": "inherits_topic_candidates_not_claim_level",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "amazon-capital-operations",
+              "toyota-process",
+              "klarna-service-ai",
+              "aravind-service"
+            ],
+            "real_case_status": "choose_and_verify_during_authoring"
+          },
+          "media_plan": {
+            "type": "authored_diagram_or_worked_table",
+            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "مفهوم",
+              "تشخیص خطای رایج",
+              "مثال کاربردی",
+              "تصمیم در سناریو",
+              "انتقال به موقعیت تازه"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true
+          },
+          "suggested_minutes": {
+            "learning": 8,
+            "practice": 5
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+        }
+      ],
+      "checkpoint": {
+        "node_type": "stage_review",
+        "questions": [
+          {
+            "id": "S05-C1-ST01-CP-Q01",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ01",
+            "prompt": "نقشهٔ جاری چطور ساخته می‌شود؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q01-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "مشاهده پایهٔ تشخیص فرصت بهبود است.",
+            "options": [
+              {
+                "feedback": "درست: مشاهده پایهٔ تشخیص فرصت بهبود است.",
+                "text": "با مشاهدهٔ مسیر و ثبت انتظار",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: مشاهده پایهٔ تشخیص فرصت بهبود است.",
+                "text": "از طرح رسمی تنها",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: مشاهده پایهٔ تشخیص فرصت بهبود است.",
+                "text": "با حذف گام پیش از ثبت",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L01-CARD03"
+          },
+          {
+            "id": "S05-C1-ST01-CP-Q02",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ02",
+            "prompt": "ظرفیت نظری بیشتر از خروج واقعی است؛ چه بررسی می‌کنیم؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q02-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "ظرفیت واقعی از توقف و ترکیب کار اثر می‌گیرد.",
+            "options": [
+              {
+                "feedback": "درست: ظرفیت واقعی از توقف و ترکیب کار اثر می‌گیرد.",
+                "text": "توقف و تنوع و محدودیت واقعی",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: ظرفیت واقعی از توقف و ترکیب کار اثر می‌گیرد.",
+                "text": "فقط تلاش کارکنان",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: ظرفیت واقعی از توقف و ترکیب کار اثر می‌گیرد.",
+                "text": "افزایش هدف",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L02-CARD02"
+          },
+          {
+            "id": "S05-C1-ST01-CP-Q03",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ03",
+            "prompt": "۲۴ پرونده در سیستم و خروج ۸ پرونده در ساعت است. زمان متوسط؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q03-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "W=L/lambda؛ ۲۴ تقسیم بر ۸ برابر ۳ ساعت.",
+            "options": [
+              {
+                "feedback": "درست: W=L/lambda؛ ۲۴ تقسیم بر ۸ برابر ۳ ساعت.",
+                "text": "۳ ساعت",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: W=L/lambda؛ ۲۴ تقسیم بر ۸ برابر ۳ ساعت.",
+                "text": "۸ ساعت",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: W=L/lambda؛ ۲۴ تقسیم بر ۸ برابر ۳ ساعت.",
+                "text": "۱۹۲ ساعت",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L03-CARD02"
+          },
+          {
+            "id": "S05-C1-ST01-CP-Q04",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ04",
+            "prompt": "چرا میانگین زمان به‌تنهایی کافی نیست؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q04-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "صدک‌ها تفاوت تجربه و دنبالهٔ کند را نشان می‌دهند.",
+            "options": [
+              {
+                "feedback": "درست: صدک‌ها تفاوت تجربه و دنبالهٔ کند را نشان می‌دهند.",
+                "text": "پراکندگی و دنبالهٔ کند را پنهان می‌کند",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: صدک‌ها تفاوت تجربه و دنبالهٔ کند را نشان می‌دهند.",
+                "text": "واحد دقیقه ندارد",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: صدک‌ها تفاوت تجربه و دنبالهٔ کند را نشان می‌دهند.",
+                "text": "میانه همیشه بیشتر است",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L04-CARD03"
+          },
+          {
+            "id": "S05-C1-ST01-CP-Q05",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ02",
+            "prompt": "چرا سریع‌کردن یک گام ممکن است کل سیستم را بهتر نکند؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q05-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "بهبود موضعی می‌تواند صف را جابه‌جا کند.",
+            "options": [
+              {
+                "feedback": "درست: بهبود موضعی می‌تواند صف را جابه‌جا کند.",
+                "text": "گلوگاه جای دیگری است یا بازکاری بیشتر می‌شود",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: بهبود موضعی می‌تواند صف را جابه‌جا کند.",
+                "text": "هر سرعتی بد است",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: بهبود موضعی می‌تواند صف را جابه‌جا کند.",
+                "text": "مشتری همیشه انتظار دارد",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L02-CARD05"
+          },
+          {
+            "id": "S05-C1-ST01-CP-Q06",
+            "type": "single_choice",
+            "objective_id": "S05-C1-ST01-OBJ04",
+            "prompt": "پیش از هدف‌گذاری زمان چه چیزی باید تعریف شود؟",
+            "equivalence_group": "S05-C1-ST01-CP-Q06-FAMILY",
+            "variant": "A",
+            "version": 1,
+            "explanation": "تعریف مشترک مقایسه و اقدام را معتبرتر می‌کند.",
+            "options": [
+              {
+                "feedback": "درست: تعریف مشترک مقایسه و اقدام را معتبرتر می‌کند.",
+                "text": "شروع، پایان و واحد سنجش",
+                "id": "a"
+              },
+              {
+                "feedback": "بازبینی: تعریف مشترک مقایسه و اقدام را معتبرتر می‌کند.",
+                "text": "رنگ داشبورد",
+                "id": "b"
+              },
+              {
+                "feedback": "بازبینی: تعریف مشترک مقایسه و اقدام را معتبرتر می‌کند.",
+                "text": "نام مدیر",
+                "id": "c"
+              }
+            ],
+            "correct_option_id": "a",
+            "remediation_card_id": "S05-C1-ST01-L04-CARD02"
+          }
+        ],
+        "id": "S05-C1-ST01-CHECK",
+        "coverage": "value-stream mapping, capacity, bottleneck, WIP, Little Law and time metrics",
+        "unlocks_next_stage": true,
+        "bank_status": "authored_draft_pending_review",
+        "item_count": 6
+      },
+      "tool_plan": [
+        {
+          "purpose": "رسم وضعیت جاری، انتظار و جریان اطلاعات",
+          "status": "draft",
+          "id": "service-value-stream-map",
+          "title": "نقشهٔ جریان ارزش خدمت"
+        },
+        {
+          "purpose": "محاسبهٔ ظرفیت نظری و محدودیت واقعی",
+          "status": "draft",
+          "id": "capacity-bottleneck-sheet",
+          "title": "برگهٔ ظرفیت و گلوگاه"
+        },
+        {
+          "purpose": "پیوند WIP، نرخ خروج و زمان جریان",
+          "status": "draft",
+          "id": "wip-little-law-calculator",
+          "title": "ماشین‌حساب WIP و قانون لیتل"
+        },
+        {
+          "purpose": "تعریف شروع، پایان، پردازش، انتظار و صدک‌ها",
+          "status": "draft",
+          "id": "time-metric-dictionary",
+          "title": "واژه‌نامهٔ زمان فرایند"
+        }
+      ]
+    }
+  ]
+}
