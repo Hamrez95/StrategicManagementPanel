@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C05",
-  "status": "stage_01_partial_draft",
+  "status": "stage_02_partial_draft",
   "source_review": "official_textbook_sections_and_official_mba_curriculum_pages",
   "source_use_note": "سرفصل‌های HBS و Oxford فقط برای هم‌راستایی موضوعی بررسی شده‌اند؛ هیچ تأیید رسمی یا دسترسی به مواد کلاس ادعا نمی‌شود. درس‌ها و سناریوها مستقل نوشته شده‌اند.",
   "sources": [
@@ -67,6 +67,55 @@
       "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
       "scope": "Organisational Behaviour یکی از هشت درس هسته‌ای MBA است؛ صرفاً تطبیق نام و دامنهٔ سرفصل.",
       "review_depth": "official_page_review"
+    },
+    {
+      "id": "openstax-ob-teamwork-10.1",
+      "title": "OpenStax Organizational Behavior 10.1: Teamwork in the Workplace",
+      "url": "https://openstax.org/books/organizational-behavior/pages/10-1-teamwork-in-the-workplace",
+      "scope": "تعریف تیم، هدف مشترک، پاسخ‌گویی؛ چارچوب مفهومی، نه نسخهٔ آمادهٔ مدیریت هر تیم.",
+      "review_depth": "official_text_section_or_report_review"
+    },
+    {
+      "id": "openstax-ob-team-management-10.3",
+      "title": "OpenStax Organizational Behavior 10.3: Things to Consider When Managing Teams",
+      "url": "https://openstax.org/books/organizational-behavior/pages/10-3-things-to-consider-when-managing-teams",
+      "scope": "ملاحظات طراحی و مدیریت تیم.",
+      "review_depth": "official_text_section_or_report_review"
+    },
+    {
+      "id": "openstax-ob-team-conflict-10.4",
+      "title": "OpenStax Organizational Behavior 10.4: Opportunities and Challenges to Team Building",
+      "url": "https://openstax.org/books/organizational-behavior/pages/10-4-opportunities-and-challenges-to-team-building",
+      "scope": "فرصت‌ها و مخاطرات تعارض؛ تعارض سازنده را تضمین‌کنندهٔ عملکرد فرض نمی‌کنیم.",
+      "review_depth": "official_text_section_or_report_review"
+    },
+    {
+      "id": "openstax-ob-multicultural-teams-10.6",
+      "title": "OpenStax Organizational Behavior 10.6: Multicultural Teams",
+      "url": "https://openstax.org/books/organizational-behavior/pages/10-6-multicultural-teams",
+      "scope": "هماهنگی تیم‌های چندفرهنگی؛ مثال‌های آموزشی مستقل‌اند.",
+      "review_depth": "official_text_section_or_report_review"
+    },
+    {
+      "id": "orsc-cybernetic-teammate-2026",
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork, Organization Science (2026)",
+      "url": "https://doi.org/10.1287/orsc.2025.20702",
+      "scope": "آزمایش میدانی پیش‌ثبت‌شده با ۷۹۱ متخصص P&G در مسائل نوآوری محصول و کار مجازی یک‌روزه؛ شواهد زمینه‌مند و دارای محدودیت تعمیم.",
+      "review_depth": "article_abstract_and_published_details_reviewed"
+    },
+    {
+      "id": "acm-chi-human-collaboration-ai-2024",
+      "title": "When Teams Embrace AI: Human Collaboration Strategies in Generative Prompting in a Creative Design Task (CHI 2024)",
+      "url": "https://doi.org/10.1145/3613904.3642133",
+      "scope": "راهبردهای همکاری انسانی در یک تکلیف طراحی خلاق؛ یافته به زمینهٔ مطالعه محدود است.",
+      "review_depth": "official_conference_record_reviewed"
+    },
+    {
+      "id": "oxford-mba-ob-curriculum-2026",
+      "title": "Oxford MBA: Core courses and electives (2026–27 curriculum pages)",
+      "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+      "scope": "هم‌راستایی موضوعی با Organizational Behaviour و کار گروهی؛ سیلابس عمومی همهٔ منابع درسی را منتشر نمی‌کند.",
+      "review_depth": "official_curriculum_page_reviewed"
     }
   ],
   "stage_notes": [
@@ -75,6 +124,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "مفاهیم رفتار، انگیزش و پاداش بر پایهٔ متن OpenStax Organizational Behavior؛ هم‌راستایی دوره از HBS LEAD و Oxford OB بررسی شده است.",
       "ai_note": "پیمایش OECD 2025 دربارهٔ استفادهٔ کارفرمایان از ابزارهای مدیریت الگوریتمی است؛ گزارش ادراک پاسخ‌دهندگان است و اثر علّی بر افراد را ثابت نمی‌کند."
+    },
+    {
+      "stage_id": "C05-ST02",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "چهار درس‌نامهٔ تیم، ارتباط و تعارض بر اساس فصل‌های ۱۰ OpenStax Organizational Behavior و هم‌راستایی موضوعی Oxford MBA تألیف مستقل شدند. پژوهش ۲۰۲۶ Organization Science به‌عنوان شاهد محدود به زمینهٔ آزمایش معرفی شده است.",
+      "ai_note": "The Cybernetic Teammate یک آزمایش پیش‌ثبت‌شده با ۷۹۱ متخصص در یک شرکت کالاهای مصرفی، مسئلهٔ نوآوری محصول و کار مجازی یک‌روزه است؛ مطالعه اثبات نمی‌کند AI همهٔ تیم‌ها یا کارها را بهتر می‌کند."
     }
   ]
 }
