@@ -59,6 +59,27 @@
       "id": "lei-standard-work",
       "title": "Lean Enterprise Institute: Standardized Work",
       "scope": "استانداردسازی به‌عنوان مبنای اجرای قابل مشاهده و بهبود کایزن؛ استاندارد باید با کار و استثناها بازنگری شود."
+    },
+    {
+      "id": "nist-monitoring-2026",
+      "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
+      "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
+      "review_depth": "official_research_report_reviewed",
+      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+    },
+    {
+      "id": "nist-ai-rmf-core",
+      "title": "NIST AI RMF Core",
+      "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
+      "review_depth": "official_framework_reviewed",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "id": "nist-human-ai-interaction",
+      "title": "NIST AI RMF Appendix C: Human-AI Interaction",
+      "scope": "راهنمای نقش انسان و تعامل با AI در محیط عملیاتی؛ تفسیر باید با کاربرد خاص انجام شود.",
+      "review_depth": "official_framework_guidance_reviewed",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/"
     }
   ],
   "stage_notes": [
@@ -76,6 +97,16 @@
       "scope": "تعریف کیفیت، علت‌یابی، کار استاندارد، آزمون PDSA و هزینهٔ کیفیت",
       "stage_id": "S05-C1-ST02",
       "source_use": "ASQ برای دسته‌بندی هزینه‌ها، IHI برای چرخهٔ آزمایش و LEI برای کار استاندارد؛ توصیه‌ها در بافت فرایند سنجیده شوند."
+    },
+    {
+      "scope": "گزینه‌های طراحی مجدد، درجهٔ اتوماسیون و مسیر استثنا، پایش AI در عملیات و سنجه‌های قبل و بعد",
+      "stage_id": "S05-C1-ST03",
+      "source_use": "NIST برای نقش و پایش AI؛ IHI برای آزمون تغییر؛ ادعاهای کاربردی با آزمون در محیط مشخص پشتیبانی شوند."
+    },
+    {
+      "scope": "طراحی مجدد، مرز اتوماسیون، استثناها و پایش AI و طرح سنجش قبل و بعد",
+      "stage_id": "S05-C1-ST03",
+      "source_use": "NIST برای چرخهٔ AI و پایش؛ IHI برای یادگیری محلی. ادعاهای اثر در خدمت باید آزمون شوند."
     }
   ]
 }
