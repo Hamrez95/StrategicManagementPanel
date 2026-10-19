@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-19",
+  "course_id": "S05-C4",
+  "status": "targeted_source_review_for_stage_1; expert_review_pending",
+  "source_use_note": "منابع جدید OECD 2025 و NIST 2026 برای تاب‌آوری و due diligence زنجیره افزوده شده‌اند؛ NIST راهنمای ریسک زنجیرهٔ سایبری است. صفحهٔ Toyota شرح رسمی شرکت از TPS است. منبع Oxford و مقالهٔ R15 در کتابخانه نامزد پشتیبان موضوعی‌اند، نه اثبات اینکه دانشگاه محتوای همین درس را تدریس می‌کند.",
+  "sources": [
+    {
+      "title": "OECD Supply Chain Resilience Review (2025)",
+      "id": "OECD-SCRR-2025",
+      "url": "https://www.oecd.org/en/publications/2025/06/oecd-supply-chain-resilience-review_9930d256.html",
+      "review_depth": "official_report_reviewed",
+      "scope": "شواهد و توصیه‌های سیاستی دربارهٔ تاب‌آوری و وابستگی زنجیره؛ تمرکز کلان، نه نسخهٔ آماده برای یک شرکت."
+    },
+    {
+      "title": "NIST SP 1326: Cybersecurity Supply Chain Risk Management Due Diligence Assessment Quick-Start Guide (2026)",
+      "id": "NIST-SP1326-2026",
+      "url": "https://csrc.nist.gov/pubs/sp/1326/final",
+      "review_depth": "official_guide_reviewed",
+      "scope": "راهنمای بررسی منشأ، تاب‌آوری، امنیت پایه و لایه‌های زنجیرهٔ فناوری؛ چارچوب امنیتی است و جایگزین ارزیابی همهٔ ریسک‌های عملیات نیست."
+    },
+    {
+      "title": "Toyota Production System",
+      "id": "K03",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/",
+      "review_depth": "official_company_description_reviewed",
+      "scope": "شرح رسمی JIT، jidoka، آشکارسازی ناهنجاری و بهبود مستمر از دید Toyota؛ روایت شرکت است و ارزیابی مستقل پیامدهای کاربردی نیست."
+    },
+    {
+      "title": "MIT OCW, Operations Strategy",
+      "id": "M13",
+      "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
+      "review_depth": "official_syllabus_reviewed",
+      "scope": "چارچوب تصمیم‌های راهبردی عملیات، منبع آموزشی دانشگاهی قدیمی‌تر اما بنیادی."
+    },
+    {
+      "title": "NIST C-SCRM Due Diligence Assessment",
+      "id": "NIST-SP1326-2026",
+      "url": "https://csrc.nist.gov/pubs/sp/1326/final",
+      "review_depth": "official_guide_reviewed",
+      "scope": "ارزیابی due diligence برای ریسک زنجیرهٔ تأمین سایبری و منشأ."
+    }
+  ],
+  "stage_notes": {
+    "S05-C4-ST01": {
+      "covered": [
+        "نقشهٔ وابستگی و نقطهٔ شکست",
+        "احتمال، اثر و دامنهٔ عدم‌قطعیت",
+        "طراحی سناریوی اختلال",
+        "RTO و آزمون ظرفیت جایگزین"
+      ],
+      "limits": [
+        "سناریوهای سپهر ساختگی‌اند.",
+        "ماتریس ریسک ابزار غربال است و احتمال آماری دقیق نمی‌دهد.",
+        "RTO/RPO در چارچوب‌های فناوری با تعریف سازمانی باید تطبیق داده شوند."
+      ]
+    }
+  }
+}

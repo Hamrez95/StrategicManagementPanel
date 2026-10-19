@@ -1,0 +1,285 @@
+{
+  "id": "S05-C4-ST01-L04",
+  "version": "1-draft",
+  "title": "زمان بازیابی و ظرفیت جایگزین",
+  "content_status": "draft",
+  "objective": "«زمان بازیابی و ظرفیت جایگزین» را برای جریان حیاتی تحلیل کند، شواهد و عدم‌قطعیت را تفکیک کند و مالک یا اقدام مشخصی پیشنهاد دهد.",
+  "learning_cards": [
+    {
+      "title": "بازیابی با سرعت جایگزین فرق دارد",
+      "id": "S05-C4-ST01-L04-CARD01",
+      "text": "Recovery Time Objective (RTO) زمان هدف برای بازگرداندن خدمت مهم است؛ زمان واقعی بازیابی ممکن است بیشتر شود. Recovery Point Objective (RPO) در فناوری میزان دادهٔ ازدست‌رفتن قابل‌قبول را می‌سنجد؛ این شاخص را با زمان بازگرداندن عملیات اشتباه نگیرید."
+    },
+    {
+      "title": "حداقل خدمت قابل قبول",
+      "id": "S05-C4-ST01-L04-CARD02",
+      "text": "در اختلال، شاید کل عملیات را فوراً برنگردانیم. Minimum Business Continuity Objective یا سطح خدمت حداقلی کمک می‌کند سفارش حیاتی، ایمنی و ارتباط با مشتری را حفظ کنیم؛ حداقل را با مشتری و وظایف بحرانی، نه بر پایهٔ راحتی داخلی تعریف کنید."
+    },
+    {
+      "title": "ظرفیت جایگزین باید واقعی باشد",
+      "id": "S05-C4-ST01-L04-CARD03",
+      "text": "تأمین‌کنندهٔ دوم در فهرست، ظرفیت جایگزین محسوب نمی‌شود تا زمانی که مشخصات، کیفیت، ابزار، قرارداد، مجوز و زمان راه‌اندازی آزموده شده باشد. ظرفیت اعلامی فروشنده ممکن است با سفارش‌های دیگر مشتریان هم‌پوشان باشد."
+    },
+    {
+      "title": "زمان تغییر منبع",
+      "id": "S05-C4-ST01-L04-CARD04",
+      "text": "مهندسی، نمونه‌سازی، تأیید کیفیت، انتقال داده، آموزش و جابه‌جایی قالب می‌توانند هفته‌ها زمان ببرند. زمان فعال‌سازی را در تقویم آزموده ثبت کنید و نقطهٔ تصمیم را پیش از پایان موجودی یا از دست رفتن مشتری تعیین کنید."
+    },
+    {
+      "title": "ذخیره و ظرفیت انعطاف‌پذیر",
+      "id": "S05-C4-ST01-L04-CARD05",
+      "text": "ذخیرهٔ ایمن، ظرفیت رزروشده یا طراحی ماژولار می‌تواند زمان بازیابی را کوتاه کند، اما هزینهٔ نگهداری و فرصت ازدست‌رفته دارد. مقدار آن را با طول اختلال، نرخ مصرف، زمان تجدید و پیامد توقف هماهنگ کنید."
+    },
+    {
+      "title": "وابستگی‌های خود برنامه",
+      "id": "S05-C4-ST01-L04-CARD06",
+      "text": "بازیابی ممکن است به برق، شبکه، دسترسی به حساب، افراد دارای مجوز یا دادهٔ سالم وابسته باشد. نقشهٔ بازیابی را با همان سناریوی اختلال تست کنید؛ پشتیبان در همان ساختمان یا اکانت مدیر در دسترس‌نبودن سامانه کمک نمی‌کند."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S05-C4-ST01-L04-CARD07",
+      "text": "برای حسگر ویژه، تأمین‌کنندهٔ دوم نمونه را در ۱۲ روز می‌سازد اما تأیید مهندسی ۲۰ روز می‌برد. RTO تولید پنج روز است؛ پس جایگزین فعلی سریع‌تر از توقف عمل نمی‌کند و باید قطعهٔ مشترک، ذخیرهٔ محدود یا کاهش زمان تأیید بررسی شود."
+    },
+    {
+      "title": "هزینهٔ بازیابی و ارزش زمان",
+      "id": "S05-C4-ST01-L04-CARD08",
+      "text": "هزینهٔ ذخیره و قرارداد ظرفیت را با هزینهٔ توقف، حاشیهٔ ازدست‌رفته، جریمه و آسیب به اعتماد مقایسه کنید. برای همهٔ اقلام یک هدف بازیابی واحد نگذارید؛ سطح اهمیت خدمت و برگشت‌پذیری تفاوت دارد."
+    },
+    {
+      "title": "آزمون و ثبت شواهد",
+      "id": "S05-C4-ST01-L04-CARD09",
+      "text": "یک تمرین رومیزی یا آزمون واقعی زمان کشف، تصمیم، فعال‌سازی و بازگشت را ثبت می‌کند. برنامه را پس از تغییر زیرساخت یا فروشنده به‌روزرسانی کنید؛ داشتن سندِ هرگز آزمون‌نشده، آمادگی اثبات‌شده نیست."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S05-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "RTO معمولاً چه چیزی را می‌سنجد؟",
+      "remediation_card_id": "S05-C4-ST01-L04-CARD03",
+      "variant": "A",
+      "id": "S05-C4-ST01-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "زمان هدف برای بازگرداندن خدمت مهم",
+          "feedback": "درست: RTO به زمان بازگشت خدمت مربوط است."
+        },
+        {
+          "id": "b",
+          "text": "مقدار دادهٔ قابل‌از‌دست‌رفتن",
+          "feedback": "بازبینی: RTO به زمان بازگشت خدمت مربوط است."
+        },
+        {
+          "id": "c",
+          "text": "موجودی پایان سال",
+          "feedback": "بازبینی: RTO به زمان بازگشت خدمت مربوط است."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST01-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "RTO به زمان بازگشت خدمت مربوط است."
+    },
+    {
+      "objective_id": "S05-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "تأمین‌کنندهٔ دوم چه وقت ظرفیت جایگزین واقعی است؟",
+      "remediation_card_id": "S05-C4-ST01-L04-CARD04",
+      "variant": "A",
+      "id": "S05-C4-ST01-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی در فهرست فروشنده‌ها ثبت شده",
+          "feedback": "بازبینی: فهرست بدون آزمون، قابلیت اجرایی را ثابت نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "وقتی قیمت اعلام کرده",
+          "feedback": "بازبینی: فهرست بدون آزمون، قابلیت اجرایی را ثابت نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "وقتی مشخصات، مجوز، کیفیت و زمان فعال‌سازی آزموده شده",
+          "feedback": "درست: فهرست بدون آزمون، قابلیت اجرایی را ثابت نمی‌کند."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST01-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "فهرست بدون آزمون، قابلیت اجرایی را ثابت نمی‌کند."
+    },
+    {
+      "objective_id": "S05-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "ذخیرهٔ ایمنی چگونه تعیین شود؟",
+      "remediation_card_id": "S05-C4-ST01-L04-CARD05",
+      "variant": "A",
+      "id": "S05-C4-ST01-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "صرفاً بر پایهٔ فضای انبار",
+          "feedback": "بازبینی: ذخیره trade-off هزینه و تداوم است."
+        },
+        {
+          "id": "b",
+          "text": "با مصرف، زمان تجدید، طول اختلال و هزینهٔ توقف",
+          "feedback": "درست: ذخیره trade-off هزینه و تداوم است."
+        },
+        {
+          "id": "c",
+          "text": "یکسان برای هر قلم",
+          "feedback": "بازبینی: ذخیره trade-off هزینه و تداوم است."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST01-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "ذخیره trade-off هزینه و تداوم است."
+    },
+    {
+      "objective_id": "S05-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا تمرین بازیابی لازم است؟",
+      "remediation_card_id": "S05-C4-ST01-L04-CARD06",
+      "variant": "A",
+      "id": "S05-C4-ST01-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای اندازه‌گیری زمان کشف، تصمیم، فعال‌سازی و بازگشت",
+          "feedback": "درست: تمرین شواهد می‌دهد که برنامه در عمل اجرا می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "چون سند باید طولانی‌تر شود",
+          "feedback": "بازبینی: تمرین شواهد می‌دهد که برنامه در عمل اجرا می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "برای حذف برنامهٔ جایگزین",
+          "feedback": "بازبینی: تمرین شواهد می‌دهد که برنامه در عمل اجرا می‌شود."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST01-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تمرین شواهد می‌دهد که برنامه در عمل اجرا می‌شود."
+    },
+    {
+      "objective_id": "S05-C4-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "پشتیبان سامانه کدام زمان را بهتر می‌کند؟",
+      "remediation_card_id": "S05-C4-ST01-L04-CARD07",
+      "variant": "A",
+      "id": "S05-C4-ST01-L04-Q05",
+      "options": [
+        {
+          "id": "a",
+          "text": "همیشه کل عملیات را فوری برمی‌گرداند",
+          "feedback": "بازبینی: فناوری یکی از وابستگی‌های بازیابی است، نه کل برنامه."
+        },
+        {
+          "id": "b",
+          "text": "هیچ ربطی به تداوم ندارد",
+          "feedback": "بازبینی: فناوری یکی از وابستگی‌های بازیابی است، نه کل برنامه."
+        },
+        {
+          "id": "c",
+          "text": "RPO/RTO مطابق آزمون و معماری؛ لزوماً زمان بازیابی کل عملیات نیست",
+          "feedback": "درست: فناوری یکی از وابستگی‌های بازیابی است، نه کل برنامه."
+        }
+      ],
+      "equivalence_group": "S05-C4-ST01-L04-Q05-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "فناوری یکی از وابستگی‌های بازیابی است، نه کل برنامه."
+    }
+  ],
+  "source_links": [
+    {
+      "title": "OECD Supply Chain Resilience Review (2025)",
+      "id": "OECD-SCRR-2025",
+      "url": "https://www.oecd.org/en/publications/2025/06/oecd-supply-chain-resilience-review_9930d256.html",
+      "review_depth": "official_report_reviewed",
+      "scope": "شواهد و توصیه‌های سیاستی دربارهٔ تاب‌آوری و وابستگی زنجیره؛ تمرکز کلان، نه نسخهٔ آماده برای یک شرکت."
+    },
+    {
+      "title": "NIST SP 1326: Cybersecurity Supply Chain Risk Management Due Diligence Assessment Quick-Start Guide (2026)",
+      "id": "NIST-SP1326-2026",
+      "url": "https://csrc.nist.gov/pubs/sp/1326/final",
+      "review_depth": "official_guide_reviewed",
+      "scope": "راهنمای بررسی منشأ، تاب‌آوری، امنیت پایه و لایه‌های زنجیرهٔ فناوری؛ چارچوب امنیتی است و جایگزین ارزیابی همهٔ ریسک‌های عملیات نیست."
+    },
+    {
+      "title": "Toyota Production System",
+      "id": "K03",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/",
+      "review_depth": "official_company_description_reviewed",
+      "scope": "شرح رسمی JIT، jidoka، آشکارسازی ناهنجاری و بهبود مستمر از دید Toyota؛ روایت شرکت است و ارزیابی مستقل پیامدهای کاربردی نیست."
+    },
+    {
+      "title": "MIT OCW, Operations Strategy",
+      "id": "M13",
+      "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
+      "review_depth": "official_syllabus_reviewed",
+      "scope": "چارچوب تصمیم‌های راهبردی عملیات، منبع آموزشی دانشگاهی قدیمی‌تر اما بنیادی."
+    }
+  ],
+  "practice_activity": {
+    "type": "risk-register",
+    "prompt": "برای سپهر یک ردیف ثبت ریسک بسازید: وابستگی، علت، رخداد، پیامد چندبعدی، سطح اطمینان، کنترل جاری، مالک و تریگر بازبینی را بنویسید.",
+    "expected_output": "ثبت ریسک و سناریوی قابل مرور"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c4/lessons/S05-C4-ST01-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "O03",
+    "K03",
+    "R15"
+  ],
+  "source_scope": "candidate_support; not evidence of exact university assignment",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "toyota-supplier-resilience",
+      "global-supply-chain-disruptions"
+    ],
+    "real_case_status": "candidate_requires_separate_fact_check"
+  },
+  "media_plan": {
+    "type": "authored_dependency_map_or_scenario_table",
+    "purpose": "نمایش وابستگی، دامنهٔ اثر و مسیر بازیابی",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "تعریف",
+      "خطای رایج",
+      "تحلیل علت",
+      "کاربرد سناریو",
+      "تصمیم و انتقال"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 10,
+    "practice": 6
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "ثبت ریسک با مالک و تریگر بازبینی"
+}
