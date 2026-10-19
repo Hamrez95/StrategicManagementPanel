@@ -1,0 +1,292 @@
+{
+  "id": "S05-C2-ST02-L02",
+  "version": 1,
+  "title": "سفارش اقتصادی و پیش‌فرض‌ها",
+  "content_status": "draft",
+  "objective": "EOQ را با واحد و فرض درست محاسبه و محدودیتش را توضیح دهد.",
+  "learning_cards": [
+    {
+      "id": "S05-C2-ST02-L02-CARD01",
+      "text": "مقدار اقتصادی سفارش یا EOQ برای مدل کلاسیک، مقداری است که هزینهٔ ثابت سفارش و نگهداری موجودی چرخه را متعادل می‌کند. فرمول Q*=sqrt(2DS/H) از مفروضات مشخص می‌آید.",
+      "type": "explanation",
+      "title": "نکتهٔ 1"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD02",
+      "text": "D تقاضای سالانه، S هزینهٔ ثابت هر سفارش و H هزینهٔ نگهداری سالانهٔ هر واحد است. همه باید بازهٔ زمانی و واحد سازگار داشته باشند؛ اشتباه ماه و سال ریشهٔ خطای رایج است.",
+      "type": "explanation",
+      "title": "نکتهٔ 2"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD03",
+      "text": "مثلاً D=1200 واحد در سال، S=50 و H=2 واحد پول در سال برای هر واحد: Q*=sqrt(60000)، حدود ۲۴۵ واحد است. این راهنمای اقتصادی است، نه دستور خرید قطعی.",
+      "type": "explanation",
+      "title": "نکتهٔ 3"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD04",
+      "text": "مدل کلاسیک تقاضای ثابت و معلوم، زمان تأمین ثابت، تحویل یکباره، نبود تخفیف مقداری و کمبود را فرض می‌کند. اگر این شرایط نقض شود، مقدار بهینه می‌تواند فرق کند.",
+      "type": "explanation",
+      "title": "نکتهٔ 4"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD05",
+      "text": "EOQ مقدار سفارش را می‌گوید، نه زمان سفارش. نقطهٔ سفارش مجدد با تقاضای مورد انتظار طی زمان تأمین و در صورت نیاز ذخیرهٔ اطمینان تعیین می‌شود.",
+      "type": "explanation",
+      "title": "نکتهٔ 5"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD06",
+      "text": "بسته‌بندی اجباری، حداقل سفارش، فضای محدود، عمر قفسه‌ای و تخفیف پلکانی می‌تواند Q محاسبه‌شده را ناممکن کند. گزینهٔ اجرایی نزدیک را با هزینهٔ کل و محدودیت بررسی کنید.",
+      "type": "explanation",
+      "title": "نکتهٔ 6"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD07",
+      "text": "برآورد H گاهی نرخ سرمایه به ارزش کالا وابسته است. هزینهٔ نگهداری را به‌روز کنید و مشخص کنید نرخ درصدی روی ارزش خرید یا هزینهٔ دیگری اعمال می‌شود.",
+      "type": "explanation",
+      "title": "نکتهٔ 7"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD08",
+      "text": "در سپهر مقدار ۲۴۵ را به بستهٔ ۲۵۰ تبدیل می‌کند؛ موجودی و هزینهٔ واقعی بسته را دوباره حساب کنید و ببینید آیا تخفیف، انقضا یا فضای انبار تصمیم را عوض می‌کند.",
+      "type": "explanation",
+      "title": "نکتهٔ 8"
+    },
+    {
+      "id": "S05-C2-ST02-L02-CARD09",
+      "text": "اصطلاح «مقدار اقتصادی» تابع مدل است و تضمین سود نیست. حساسیت به D، S و H را نشان دهید؛ اگر ورودی‌ها دقیق نیستند، خروجی هم تقریبی است. جواب فرمول ممکن است با MOQ یا ظرفیت بسته سازگار نباشد. مقادیر اجرایی اطراف EOQ را با کل هزینه و قید تأمین مقایسه کنید؛ گردکردن همیشه به سمت بالا بهترین انتخاب نیست.",
+      "type": "explanation",
+      "title": "نکتهٔ 9"
+    }
+  ],
+  "questions": [
+    {
+      "id": "S05-C2-ST02-L02-Q01",
+      "equivalence_group": "S05-C2-ST02-L02-Q01-FAMILY",
+      "type": "single_choice",
+      "prompt": "EOQ کلاسیک چه رابطه‌ای دارد؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: فرمول مقدار بهینه از تعادل سفارش ثابت و نگهداری می‌آید.",
+          "id": "a",
+          "text": "sqrt(2DS/H)"
+        },
+        {
+          "feedback": "بازبینی: فرمول مقدار بهینه از تعادل سفارش ثابت و نگهداری می‌آید.",
+          "id": "b",
+          "text": "D+S+H"
+        },
+        {
+          "feedback": "بازبینی: فرمول مقدار بهینه از تعادل سفارش ثابت و نگهداری می‌آید.",
+          "id": "c",
+          "text": "H/(DS)"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "فرمول مقدار بهینه از تعادل سفارش ثابت و نگهداری می‌آید.",
+      "objective_id": "S05-C2-ST02-L02-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L02-CARD01"
+    },
+    {
+      "id": "S05-C2-ST02-L02-Q02",
+      "equivalence_group": "S05-C2-ST02-L02-Q02-FAMILY",
+      "type": "single_choice",
+      "prompt": "چرا D و H باید دورهٔ زمانی سازگار داشته باشند؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: ورودی ماهانه با هزینهٔ سالانه خروجی را مخدوش می‌کند.",
+          "id": "a",
+          "text": "چون نسبت در فرمول باید واحد معتبر بسازد"
+        },
+        {
+          "feedback": "بازبینی: ورودی ماهانه با هزینهٔ سالانه خروجی را مخدوش می‌کند.",
+          "id": "b",
+          "text": "برای حذف هزینهٔ سفارش"
+        },
+        {
+          "feedback": "بازبینی: ورودی ماهانه با هزینهٔ سالانه خروجی را مخدوش می‌کند.",
+          "id": "c",
+          "text": "چون مقدار همیشه سالانه است"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "ورودی ماهانه با هزینهٔ سالانه خروجی را مخدوش می‌کند.",
+      "objective_id": "S05-C2-ST02-L02-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L02-CARD02"
+    },
+    {
+      "id": "S05-C2-ST02-L02-Q03",
+      "equivalence_group": "S05-C2-ST02-L02-Q03-FAMILY",
+      "type": "single_choice",
+      "prompt": "کدام فرض مدل کلاسیک ممکن است در عمل نقض شود؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: عدم‌قطعیت تقاضا و زمان تأمین از محدودیت‌های مدل‌اند.",
+          "id": "a",
+          "text": "تقاضای معلوم و ثابت"
+        },
+        {
+          "feedback": "بازبینی: عدم‌قطعیت تقاضا و زمان تأمین از محدودیت‌های مدل‌اند.",
+          "id": "b",
+          "text": "وجود هزینهٔ سفارش"
+        },
+        {
+          "feedback": "بازبینی: عدم‌قطعیت تقاضا و زمان تأمین از محدودیت‌های مدل‌اند.",
+          "id": "c",
+          "text": "وجود موجودی"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "عدم‌قطعیت تقاضا و زمان تأمین از محدودیت‌های مدل‌اند.",
+      "objective_id": "S05-C2-ST02-L02-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L02-CARD04"
+    },
+    {
+      "id": "S05-C2-ST02-L02-Q04",
+      "equivalence_group": "S05-C2-ST02-L02-Q04-FAMILY",
+      "type": "single_choice",
+      "prompt": "EOQ به چه پرسشی پاسخ می‌دهد؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: نقطهٔ سفارش و سطح خدمت پرسش‌های جداگانه‌اند.",
+          "id": "a",
+          "text": "چه مقدار سفارش دهیم"
+        },
+        {
+          "feedback": "بازبینی: نقطهٔ سفارش و سطح خدمت پرسش‌های جداگانه‌اند.",
+          "id": "b",
+          "text": "چه زمانی سفارش دهیم"
+        },
+        {
+          "feedback": "بازبینی: نقطهٔ سفارش و سطح خدمت پرسش‌های جداگانه‌اند.",
+          "id": "c",
+          "text": "چه سطح خدمتی انتخاب کنیم"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "نقطهٔ سفارش و سطح خدمت پرسش‌های جداگانه‌اند.",
+      "objective_id": "S05-C2-ST02-L02-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L02-CARD05"
+    },
+    {
+      "id": "S05-C2-ST02-L02-Q05",
+      "equivalence_group": "S05-C2-ST02-L02-Q05-FAMILY",
+      "type": "single_choice",
+      "prompt": "حداقل سفارش ۲۵۰ و EOQ حدود ۲۴۵ است. چه می‌کنیم؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: قید بسته‌بندی یا عرضه را باید در مقایسهٔ عملی وارد کرد.",
+          "id": "a",
+          "text": "گزینهٔ اجرایی را با هزینهٔ کل و قیود می‌سنجیم"
+        },
+        {
+          "feedback": "بازبینی: قید بسته‌بندی یا عرضه را باید در مقایسهٔ عملی وارد کرد.",
+          "id": "b",
+          "text": "همیشه ۲۴۵ سفارش می‌دهیم"
+        },
+        {
+          "feedback": "بازبینی: قید بسته‌بندی یا عرضه را باید در مقایسهٔ عملی وارد کرد.",
+          "id": "c",
+          "text": "حتماً سفارش را دوبرابر می‌کنیم"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "قید بسته‌بندی یا عرضه را باید در مقایسهٔ عملی وارد کرد.",
+      "objective_id": "S05-C2-ST02-L02-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L02-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
+      "id": "mit-inventory-eoq",
+      "review_depth": "university_course_material_reviewed",
+      "scope": "یادداشت درسی دربارهٔ موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان؛ زمینهٔ مدل و فرض‌های آموزشی حفظ شوند.",
+      "title": "MIT OCW Logistics Systems: Inventory Management"
+    },
+    {
+      "url": "https://academic.oup.com/imaman/article/36/4/649/8251395",
+      "id": "oxford-eoq-stochastic-2025",
+      "review_depth": "peer_reviewed_article_reviewed",
+      "scope": "پژوهش دربارهٔ EOQ اکتشافی همراه ذخیرهٔ اطمینان در موجودی تصادفی؛ نتایج نظری و شرایط مدل محدودکننده‌اند.",
+      "title": "Simple Economic Order Quantity heuristics for stochastic inventory control (Oxford Academic, 2025)"
+    }
+  ],
+  "practice_activity": {
+    "unit": "مقادیر ساختگی و فقط برای آموزش هستند.",
+    "solution": "مدل مناسب را انتخاب کن؛ واحد و دوره را همسان کن؛ مقدار را محاسبه کن؛ محدودیت‌های زمان تأمین و مازاد را بررسی کن؛ حساسیت و سطح خدمت را ثبت کن.",
+    "answer": "پاسخ یگانه نیست؛ ورودی، واحد، فرض و هزینهٔ تصمیم باید شفاف باشد.",
+    "prompt": "برای کالای سپهر، تقاضا و هزینهٔ سفارش و نگهداری یا کمبود را ثبت کن؛ EOQ یا مقدار فصلی را حساب و فرض و حساسیت را توضیح بده.",
+    "absolute_tolerance": null,
+    "rubric": [
+      "انتخاب مدل مناسب (۰–۲)",
+      "سازگاری واحدها (۰–۲)",
+      "محاسبه یا تفسیر (۰–۲)",
+      "ذکر فرض و محدودیت (۰–۲)",
+      "پیامد و سطح خدمت (۰–۲)"
+    ],
+    "type": "short_answer",
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c2/lessons/S05-C2-ST02-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "M06",
+    "O03",
+    "R15"
+  ],
+  "source_scope": "inherits_topic_candidates_not_claim_level",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "amazon-capital-operations",
+      "toyota-process",
+      "klarna-service-ai",
+      "aravind-service"
+    ],
+    "real_case_status": "choose_and_verify_during_authoring"
+  },
+  "media_plan": {
+    "type": "authored_diagram_or_worked_table",
+    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "مفهوم",
+      "تشخیص خطای رایج",
+      "مثال کاربردی",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true
+  },
+  "suggested_minutes": {
+    "learning": 8,
+    "practice": 5
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+}
