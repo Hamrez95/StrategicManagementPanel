@@ -1,0 +1,243 @@
+{
+  "id": "C06-ST04-L01",
+  "version": "1-draft",
+  "title": "شبکهٔ تأمین و وابستگی",
+  "content_status": "draft",
+  "objective": "زنجیرهٔ چندلایهٔ یک قلم را ترسیم و وابستگی بحرانی را مشخص کند.",
+  "learning_cards": [
+    {
+      "id": "C06-ST04-L01-CARD01",
+      "type": "problem",
+      "title": "لایه‌های پنهان",
+      "text": "محصول از فروشندهٔ مستقیم تا زیرتأمین‌کننده، ماده، مسیر حمل و توزیع می‌گذرد. دیدن فقط ردیف اول ممکن است منبع یا مسیر مشترک پایین‌تر را پنهان کند."
+    },
+    {
+      "id": "C06-ST04-L01-CARD02",
+      "type": "definition",
+      "title": "نقشهٔ شبکه",
+      "text": "گره‌ها (تأمین‌کننده، کارخانه، انبار، حمل‌کننده، مشتری) و پیوند جریان مواد و اطلاعات را رسم کنید. داده، محصول و پرداخت را یکی نگیرید؛ هرکدام ریسک متفاوتی دارد."
+    },
+    {
+      "id": "C06-ST04-L01-CARD03",
+      "type": "explanation",
+      "title": "وابستگی بحرانی",
+      "text": "گره بحرانی‌تر معمولاً جایگزینی سخت، بازیابی طولانی یا پیامد توقف بالا دارد. قیمت خرید تنها معیار نیست؛ قطعهٔ ارزان می‌تواند خط تولید گران را متوقف کند."
+    },
+    {
+      "id": "C06-ST04-L01-CARD04",
+      "type": "worked_example",
+      "title": "مثال سپهر",
+      "text": "قطعهٔ دستگاه از فروشنده، سازندهٔ ماده و مسیر حمل نقشه می‌شود. دو فروشنده شاید به یک ماده یا بندر وابسته باشند؛ تنوع نام فروشنده استقلال واقعی نمی‌سازد.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C06-ST04-L01-CARD05",
+      "type": "explanation",
+      "title": "دیدپذیری داده",
+      "text": "زمان تأمین، ظرفیت و سفارش را با تعریف مشترک ثبت کنید. تازگی داده، پوشش لایه‌ها و اجازهٔ اشتراک محدودیت ایجاد می‌کنند."
+    },
+    {
+      "id": "C06-ST04-L01-CARD06",
+      "type": "contrast",
+      "title": "ریسک گره و پیوند",
+      "text": "گره ممکن است تعطیل شود؛ پیوند ممکن است مسیر یا زیرساخت مشترک باشد. اختلال می‌تواند در شبکه منتشر شود و چند واحد را هم‌زمان متأثر کند."
+    },
+    {
+      "id": "C06-ST04-L01-CARD07",
+      "type": "key_terms",
+      "title": "واژگان",
+      "text": "گره؛ پیوند؛ زنجیرهٔ چندلایه؛ منبع تک‌گانه؛ وابستگی مشترک؛ دیدپذیری؛ زمان بازیابی."
+    },
+    {
+      "id": "C06-ST04-L01-CARD08",
+      "type": "authored_diagram",
+      "title": "نقشهٔ نمونه",
+      "text": "محصول ← مونتاژ ← قطعه ← سازنده ← مادهٔ خاص ← مسیر حمل. کنار هر گره، مالک داده، جایگزین و زمان انتقال را بنویسید."
+    },
+    {
+      "id": "C06-ST04-L01-CARD09",
+      "type": "summary",
+      "title": "جمع‌بندی",
+      "text": "شبکه را فراتر از فروشندهٔ مستقیم ببینید. وابستگی را با جایگزینی، زمان بازیابی و پیامد بسنجید؛ منابع مشترک را بررسی کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C06-ST04-L01-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا نقشهٔ چندلایه مهم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "منبع یا مسیر مشترک پایین‌دست پنهان می‌ماند",
+          "feedback": "درست: وابستگی مشترک می‌تواند ریسک بسازد."
+        },
+        {
+          "id": "b",
+          "text": "قیمت ثابت می‌ماند",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "همهٔ داده عمومی است",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "وابستگی مشترک می‌تواند ریسک بسازد.",
+      "objective_id": "C06-ST04-L01-OBJ1",
+      "equivalence_group": "C06-ST04-L01-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L01-CARD02"
+    },
+    {
+      "id": "C06-ST04-L01-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "قطعهٔ ارزان چه وقت بحرانی است؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "فقط اگر گران‌ترین باشد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "هرگز",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "وقتی نبودش کار مهمی را متوقف کند",
+          "feedback": "درست: پیامد توقف مهم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پیامد توقف مهم است.",
+      "objective_id": "C06-ST04-L01-OBJ1",
+      "equivalence_group": "C06-ST04-L01-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L01-CARD03"
+    },
+    {
+      "id": "C06-ST04-L01-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دو فروشنده چه وقت تنوع واقعی نیستند؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "وقتی قیمت متفاوت است",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "وقتی منبع یا مسیر مشترک دارند",
+          "feedback": "درست: ریسک مشترک با دو قرارداد حذف نمی‌شود."
+        },
+        {
+          "id": "b",
+          "text": "وقتی نامشان فرق دارد",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ریسک مشترک با دو قرارداد حذف نمی‌شود.",
+      "objective_id": "C06-ST04-L01-OBJ1",
+      "equivalence_group": "C06-ST04-L01-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L01-CARD06"
+    },
+    {
+      "id": "C06-ST04-L01-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نقشهٔ شبکه چه دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "گره و پیوند مواد و اطلاعات",
+          "feedback": "درست: شبکه اجزا و ارتباط آن‌هاست."
+        },
+        {
+          "id": "b",
+          "text": "فقط چارت سازمانی",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "فقط فهرست قیمت",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "شبکه اجزا و ارتباط آن‌هاست.",
+      "objective_id": "C06-ST04-L01-OBJ1",
+      "equivalence_group": "C06-ST04-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L01-CARD05"
+    },
+    {
+      "id": "C06-ST04-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "بحرانی‌بودن را چطور می‌سنجیم؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "قیمت خرید تنها",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "c",
+          "text": "تعداد ایمیل",
+          "feedback": "وابستگی یا محدودیت مهمی جا افتاده."
+        },
+        {
+          "id": "a",
+          "text": "جایگزینی، زمان بازیابی و پیامد",
+          "feedback": "درست: اثر عملیاتی و بازیابی مهم‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اثر عملیاتی و بازیابی مهم‌اند.",
+      "objective_id": "C06-ST04-L01-OBJ1",
+      "equivalence_group": "C06-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C06-ST04-L01-CARD07"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "openstax-risk",
+      "title": "OpenStax Foundations of Information Systems 11.2: Logistics and Risk Management",
+      "url": "https://openstax.org/books/foundations-information-systems/pages/11-2-global-information-systems-business-models-logistics-and-risk-management",
+      "scope": "مدیریت زنجیره از منبع تا مشتری و ریسک."
+    },
+    {
+      "id": "mit-scm",
+      "title": "MIT Sloan 15.761 Introduction to Operations Management",
+      "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/cases-and-readings/",
+      "scope": "منبع آموزشی مدیریت عملیات و زنجیره."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "شبکهٔ چندلایهٔ یک قلم حیاتی را رسم کنید و منبع جایگزین، وابستگی مشترک، مالک داده و زمان انتقال را ثبت کنید.",
+    "unit": "تحلیل تاب‌آوری زنجیره",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد را جدا نشان دهد؛ بازبینی انسانی لازم است.",
+    "rubric": [
+      "دو لایه بررسی شده",
+      "وابستگی مشترک مشخص است",
+      "جایگزین و زمان ثبت شده"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

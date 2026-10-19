@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C06",
-  "status": "stage_03_partial_draft",
+  "status": "draft_complete_pending_review",
   "source_review": "official_course_materials_and_primary_research_records",
   "source_use_note": "منابع برای آموزش مفاهیم و محدودیت شواهد استفاده شده‌اند؛ متن، مثال‌ها، ابزارها و پرسش‌ها مستقلاً تألیف شده‌اند. متن دارای مجوز OpenStax پیش از استفادهٔ تجاری نیازمند بررسی دقیق شروط مجوز است. منبع arXiv در این درس پیش‌چاپ است، نه مقالهٔ داوری‌شده.",
   "sources": [
@@ -102,6 +102,48 @@
       "url": "https://doi.org/10.1108/IJPDLM-01-2025-0022",
       "scope": "پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا؛ نقش فرایند و قابلیت سازمانی را بررسی می‌کند، قابل تعمیم بی‌قید نیست.",
       "review_depth": "official_course_or_research_record_reviewed"
+    },
+    {
+      "id": "openstax-risk",
+      "title": "OpenStax Foundations of Information Systems 11.2: Logistics and Risk Management",
+      "url": "https://openstax.org/books/foundations-information-systems/pages/11-2-global-information-systems-business-models-logistics-and-risk-management",
+      "scope": "مدیریت زنجیره از منبع تا مشتری و ریسک.",
+      "review_depth": "official_report_or_research_record_reviewed"
+    },
+    {
+      "id": "mit-scm",
+      "title": "MIT Sloan 15.761 Introduction to Operations Management",
+      "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/cases-and-readings/",
+      "scope": "منبع آموزشی مدیریت عملیات و زنجیره.",
+      "review_depth": "official_report_or_research_record_reviewed"
+    },
+    {
+      "id": "oecd-resilience",
+      "title": "OECD Supply Chain Resilience Review (2025)",
+      "url": "https://doi.org/10.1787/94e3a8ea-en",
+      "scope": "مرور داده‌ها و سیاست تاب‌آوری؛ تنوع‌بخشی نامتناسب نیز می‌تواند هزینه‌زا باشد.",
+      "review_depth": "official_report_or_research_record_reviewed"
+    },
+    {
+      "id": "swink-resilience",
+      "title": "Swink et al. (2025), Inventory and Supply Chain Planning Systems as Drivers of Resilience",
+      "url": "https://doi.org/10.1177/10591478251320528",
+      "scope": "تحلیل شبه‌طبیعی دوران COVID؛ در نمونهٔ مطالعه موجودی اضافه به‌تنهایی تاب‌آوری را بالا نبرد، سامانه‌های برنامه‌ریزی با بازیابی بهتر همراه بودند.",
+      "review_depth": "official_report_or_research_record_reviewed"
+    },
+    {
+      "id": "ai-scm-review",
+      "title": "Dai et al. (2025), AI Applications in Supply Chain Management: A Survey",
+      "url": "https://doi.org/10.3390/app15052775",
+      "scope": "مرور کاربردهای AI در زنجیره؛ عملکرد ابزار مشخصی را تضمین نمی‌کند.",
+      "review_depth": "official_report_or_research_record_reviewed"
+    },
+    {
+      "id": "ai-visibility",
+      "title": "Enhancing Supply Chain Visibility with Generative AI: Exploratory Case Study (preprint)",
+      "url": "https://arxiv.org/abs/2412.03390",
+      "scope": "پیش‌چاپ موردی و اکتشافی؛ نتیجه محدود به همان طراحی است.",
+      "review_depth": "official_report_or_research_record_reviewed"
     }
   ],
   "stage_notes": [
@@ -122,6 +164,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "چهار درس‌نامهٔ هزینهٔ موجودی، EOQ، ذخیرهٔ اطمینان و ارزیابی پیش‌بینی تألیف مستقل شدند؛ محاسبات همراه فرض‌ها توضیح داده شده‌اند.",
       "ai_note": "مرور ۲۰۲۵ و مطالعهٔ تولیدکنندهٔ ایتالیایی به‌عنوان شواهد روش‌مند اما محدود معرفی می‌شوند؛ خطای پیش‌بینی به‌تنهایی اثبات‌کنندهٔ بهبود سیاست موجودی نیست."
+    },
+    {
+      "stage_id": "C06-ST04",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "چهار درس‌نامه دربارهٔ نقشهٔ شبکه، اختلال، توازن تاب‌آوری و هشدار AI تکمیل شد.",
+      "ai_note": "پژوهش Swink زمینه‌مند و گراف دانش GenAI پیش‌چاپ اکتشافی است؛ تعمیم مستقیم به همهٔ زنجیره‌ها درست نیست."
     }
   ]
 }
