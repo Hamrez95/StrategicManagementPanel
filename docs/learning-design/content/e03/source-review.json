@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-19",
+  "course_id": "E03",
+  "status": "targeted_source_review_for_stage_1; expert_review_pending",
+  "source_use_note": "مرحلهٔ اول از OpenStax برای مبانی کشش و بازاریابی، AEJ:M 2024 برای مدل نظری اطلاعات و قیمت، QJE برای مطالعهٔ میدانی بخش‌بندی قیمت در خرده‌فروشی برق، و HBR به‌عنوان راهنمای حرفه‌ای ارزش‌بنیاد استفاده می‌کند. ادعاهای بازار سپهر ساختگی‌اند و هیچ منبعی قیمت بهینهٔ آن را تعیین نمی‌کند.",
+  "sources": [
+    {
+      "id": "OPENSTAX-MICRO-ELASTICITY",
+      "title": "OpenStax, Principles of Microeconomics 3e: Elasticity and Pricing",
+      "url": "https://openstax.org/books/principles-economics-3e/pages/5-3-elasticity-and-pricing",
+      "review_depth": "open_educational_textbook_reviewed",
+      "scope": "تعریف کشش و رابطهٔ آن با قیمت و درآمد؛ مثال‌های فصل زمینه‌ای‌اند و کشش هر کسب‌وکار را برآورد نمی‌کنند."
+    },
+    {
+      "id": "OPENSTAX-MARKETING",
+      "title": "OpenStax, Principles of Marketing",
+      "url": "https://openstax.org/books/principles-marketing/pages/preface",
+      "review_depth": "open_educational_textbook_targeted_chapters_pending",
+      "scope": "مفاهیم بازاریابی، ارزش و بخش‌بندی؛ فصل‌های مرتبط باید هنگام بازبینی تخصصی به‌طور دقیق ارجاع داده شوند."
+    },
+    {
+      "id": "AEA-PRICE-EXPERIMENT-2024",
+      "title": "American Economic Journal: Microeconomics, (Reverse) Price Discrimination with Information Design",
+      "url": "https://pubs.aeaweb.org/doi/10.1257/mic.20220242",
+      "review_depth": "peer_reviewed_theory_article_reviewed",
+      "scope": "مدل نظری قیمت و اطلاعات تحت تمایل پرداخت خصوصی؛ نتیجهٔ نظری بدون فرض‌های مقاله، دستورالعمل قیمت‌گذاری تجربی نیست."
+    },
+    {
+      "id": "QJE-PRICE-NEGOTIATION-FIELD-EXPERIMENT",
+      "title": "Price Discrimination by Negotiation: A Field Experiment in Retail Electricity",
+      "url": "https://academic.oup.com/qje/article/137/4/2499/6570715",
+      "review_depth": "peer_reviewed_field_experiment_reviewed",
+      "scope": "شواهد میدانی دربارهٔ قیمت‌های مذاکره‌شده، بخش‌بندی و زمینهٔ برق خرده‌فروشی؛ تعمیم به محصول دیجیتال و دورهٔ آنلاین نیازمند احتیاط است."
+    },
+    {
+      "id": "HBR-VALUE-BASED-PRICING",
+      "title": "Harvard Business Review, A Quick Guide to Value-Based Pricing",
+      "url": "https://hbr.org/2016/08/a-quick-guide-to-value-based-pricing",
+      "review_depth": "practitioner_article_reviewed",
+      "scope": "راهنمای مدیریتی برای نگاه به ارزش مشتری در قیمت‌گذاری؛ منبع حرفه‌ای است و جای تخمین اقتصادی یا آزمایش را نمی‌گیرد."
+    }
+  ],
+  "stage_reviews": [
+    {
+      "stage_id": "E03-ST01",
+      "status": "draft_complete_pending_review",
+      "source_ids": [
+        "OPENSTAX-MICRO-ELASTICITY",
+        "OPENSTAX-MARKETING",
+        "AEA-PRICE-EXPERIMENT-2024",
+        "QJE-PRICE-NEGOTIATION-FIELD-EXPERIMENT",
+        "HBR-VALUE-BASED-PRICING"
+      ],
+      "limitations": "OpenStax باز است اما ارجاع فصل بازاریابی باید دقیق شود؛ مطالعهٔ میدانی بازار برق به آموزش آنلاین تعمیم قطعی ندارد؛ روش ارزش‌بنیاد یک چارچوب حرفه‌ای است."
+    }
+  ],
+  "open_questions": [
+    "شمارهٔ دقیق فصل‌های OpenStax Marketing دربارهٔ segmentation در بازبینی متخصص ثبت شود.",
+    "قیمت و WTP با آزمایش محصول و بخش‌های واقعی سنجیده شود؛ دادهٔ نظرسنجی به‌تنهایی کافی نیست.",
+    "بررسی حقوقی و انصاف برای قواعد تخفیف/بخش‌بندی در بازار هدف تکمیل شود."
+  ]
+}
