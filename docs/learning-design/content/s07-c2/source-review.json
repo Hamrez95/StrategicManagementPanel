@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C2",
-  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
-  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند. مرحلهٔ طراحی ارزیابی با راهنمای Google برای مجموعهٔ آزمون و پایش، پیش‌نویس چارچوب NIST TEVV و مطالعهٔ میدانی دستیار پشتیبانی مشتری مستند شده است. مطالعهٔ میدانی نمونهٔ ارزیابی است، نه معیار تضمینی برای سازمان سپهر.",
+  "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
+  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند. مرحلهٔ طراحی ارزیابی با راهنمای Google برای مجموعهٔ آزمون و پایش، پیش‌نویس چارچوب NIST TEVV و مطالعهٔ میدانی دستیار پشتیبانی مشتری مستند شده است. مطالعهٔ میدانی نمونهٔ ارزیابی است، نه معیار تضمینی برای سازمان سپهر. مرحلهٔ سبد کاربردها از راهنمای pipeline گوگل، NIST AI RMF/پیش‌نویس TEVV و مطالعهٔ چندشرکتی NBER استفاده می‌کند. مطالعهٔ چندشرکتی تغییر الگوی کار را سنجیده، نه هزینهٔ کامل یا سودآوری کاربرد خاص را.",
   "sources": [
     {
       "id": "NBER-GENAI-WORK-2025",
@@ -45,6 +45,27 @@
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
       "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+    },
+    {
+      "id": "GOOGLE-ML-PIPELINES",
+      "title": "Google for Developers: ML Pipelines",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش."
+    },
+    {
+      "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
+      "title": "Shifting Work Patterns with Generative AI",
+      "url": "https://www.nber.org/papers/w33795",
+      "review_depth": "primary_multifirm_field_experiment_reviewed",
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ."
     }
   ],
   "stage_notes": {
@@ -72,6 +93,19 @@
         "چارچوب NIST 2026 پیش‌نویس اولیه است.",
         "آزمایش تصادفی همیشه از نظر اخلاقی یا عملی مناسب نیست.",
         "مطالعهٔ یک شرکت اثر همگانی را اثبات نمی‌کند."
+      ]
+    },
+    "S07-C2-ST03": {
+      "covered": [
+        "دامنه و مالک پایلوت",
+        "رتبه‌بندی ارزش و ریسک",
+        "هزینهٔ کار کامل‌شده در حجم",
+        "شرط گسترش، تغییر یا توقف"
+      ],
+      "limits": [
+        "قیمت و مصرف ابزار تابع قرارداد و الگوی واقعی استفاده است.",
+        "مطالعات میدانی اثرها را در زمینهٔ خاص سنجیده‌اند.",
+        "آستانه‌های تمرین مثال‌اند و باید محلی تعریف شوند."
       ]
     }
   }

@@ -1,0 +1,250 @@
+{
+  "id": "S07-C2-ST03-L04",
+  "version": "1-draft",
+  "title": "تصمیم توسعه یا توقف کاربرد",
+  "content_status": "draft",
+  "objective": "نتیجهٔ پایلوت را با معیار، هزینه، ریسک و عدم‌قطعیت جمع‌بندی کند و تصمیم مرحله‌ای گسترش، اصلاح یا توقف مستند بسازد.",
+  "learning_cards": [
+    {
+      "title": "سه گزینهٔ تصمیم",
+      "id": "S07-C2-ST03-L04-CARD01",
+      "text": "گسترش یعنی شواهد و کنترل برای دامنهٔ بزرگ‌تر کافی است؛ اصلاح یعنی فرض یا فرایند باید تغییر کند؛ توقف یعنی ارزش آینده از هزینه و ریسک بیشتر نیست یا guardrail نقض شده است."
+    },
+    {
+      "title": "گسترش مرحله‌ای",
+      "id": "S07-C2-ST03-L04-CARD02",
+      "text": "از پایلوت به یک تیم، سپس بخش یا کانال مشابه بروید و در هر پله عملکرد و هزینه را دوباره بسنجید. نتیجهٔ محیط محدود تضمین مقیاس نیست؛ حجم، ترکیب کاربر و استثناها تغییر می‌کنند."
+    },
+    {
+      "title": "اصلاح کاربرد",
+      "id": "S07-C2-ST03-L04-CARD03",
+      "text": "شاید مدل خلاصه‌سازی خوب است اما رتبه‌بندی ضعیف؛ یا پاسخ مناسب فقط با منبع معتبر ممکن است. بخش مفید را نگه دارید و مرز وظیفه را تغییر دهید؛ «AI کار نکرد» نتیجهٔ بیش از حد کلی است."
+    },
+    {
+      "title": "توقف به‌موقع",
+      "id": "S07-C2-ST03-L04-CARD04",
+      "text": "نقض امنیت، آسیب، خطای جدی، بی‌ارزشی یا هزینهٔ بیش از سقف، شرط توقف است. هزینهٔ قبلی دلیل ادامه نیست؛ هزینهٔ قرارداد و خروج را نیز بررسی کنید."
+    },
+    {
+      "title": "تصمیم از شواهد",
+      "id": "S07-C2-ST03-L04-CARD05",
+      "text": "بهترین تصمیم ممکن است با شواهد ناقص باشد. سطح اطمینان، دادهٔ غایب و فرض باقی‌مانده را بنویسید؛ تصمیم برگشت‌پذیر می‌تواند با شواهد کمتر و تعهد محدود انجام شود."
+    },
+    {
+      "title": "مسئولیت و ارتباط",
+      "id": "S07-C2-ST03-L04-CARD06",
+      "text": "تصمیم‌گیر، مالک اقدام، کاربران متأثر، مسئول داده و تاریخ بازبینی را مشخص کنید. توقف یا تغییر مسیر را شفاف اطلاع دهید؛ کاربردهای AI نیز بخشی از عملیات انسانی‌اند."
+    },
+    {
+      "title": "سند تصمیم پس از استقرار",
+      "id": "S07-C2-ST03-L04-CARD07",
+      "text": "نسخهٔ مدل، معیار قبل و بعد، موارد خطا، هزینهٔ واقعی، استثنا و شکایت را ثبت کنید. با تغییر داده یا مدل، ارزیابی تکرار و شرط rollback اجرا شود."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST03-L04-CARD08",
+      "text": "پایلوت زمان را کم کرده اما تماس دوباره افزایش یافته و هزینهٔ بازبین زیاد است. تصمیم گسترش کامل نیست؛ سپهر خلاصه‌سازی را برای یک نوع تیکت نگه می‌دارد، توصیهٔ اقدام را متوقف و پس از اصلاح نمونه دوباره می‌آزماید."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه وقت گسترش معقول است؟",
+      "remediation_card_id": "S07-C2-ST03-L04-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST03-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون دمو موفق شد",
+          "feedback": "بازبینی: گسترش به شواهد و آمادگی وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "چون هزینه شده",
+          "feedback": "بازبینی: گسترش به شواهد و آمادگی وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "شواهد، کنترل و اقتصاد برای دامنهٔ بعدی کافی باشد",
+          "feedback": "درست: گسترش به شواهد و آمادگی وابسته است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "گسترش به شواهد و آمادگی وابسته است."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "نتیجهٔ «AI کار نکرد» چه مشکلی دارد؟",
+      "remediation_card_id": "S07-C2-ST03-L04-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST03-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "هزینه ندارد",
+          "feedback": "بازبینی: کاربردها را جدا ارزیابی کنید."
+        },
+        {
+          "id": "b",
+          "text": "فرض و گام‌های مختلف را یکی می‌کند",
+          "feedback": "درست: کاربردها را جدا ارزیابی کنید."
+        },
+        {
+          "id": "c",
+          "text": "خیلی دقیق است",
+          "feedback": "بازبینی: کاربردها را جدا ارزیابی کنید."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "کاربردها را جدا ارزیابی کنید."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "نقض امنیت در پایلوت چه می‌خواهد؟",
+      "remediation_card_id": "S07-C2-ST03-L04-CARD04",
+      "variant": "A",
+      "id": "S07-C2-ST03-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "توقف و پاسخ رخداد طبق قاعده",
+          "feedback": "درست: شرط توقف برای حفاظت از افراد و سازمان است."
+        },
+        {
+          "id": "b",
+          "text": "ادامه تا پایان بودجه",
+          "feedback": "بازبینی: شرط توقف برای حفاظت از افراد و سازمان است."
+        },
+        {
+          "id": "c",
+          "text": "حذف گزارش",
+          "feedback": "بازبینی: شرط توقف برای حفاظت از افراد و سازمان است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "شرط توقف برای حفاظت از افراد و سازمان است."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "چرا نتیجه را پس از تغییر مدل بازسنجی می‌کنیم؟",
+      "remediation_card_id": "S07-C2-ST03-L04-CARD07",
+      "variant": "A",
+      "id": "S07-C2-ST03-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای تکرار بی‌هدف",
+          "feedback": "بازبینی: پایش و ارزیابی در چرخهٔ عمر ادامه دارد."
+        },
+        {
+          "id": "b",
+          "text": "چون داده بی‌اهمیت است",
+          "feedback": "بازبینی: پایش و ارزیابی در چرخهٔ عمر ادامه دارد."
+        },
+        {
+          "id": "c",
+          "text": "نسخهٔ جدید می‌تواند عملکرد را عوض کند",
+          "feedback": "درست: پایش و ارزیابی در چرخهٔ عمر ادامه دارد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "پایش و ارزیابی در چرخهٔ عمر ادامه دارد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "ارزیابی متناسب با کاربرد و اثر در محیط واقعی."
+    },
+    {
+      "id": "GOOGLE-ML-PIPELINES",
+      "title": "Google for Developers: ML Pipelines",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش."
+    },
+    {
+      "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
+      "title": "Shifting Work Patterns with Generative AI",
+      "url": "https://www.nber.org/papers/w33795",
+      "review_depth": "primary_multifirm_field_experiment_reviewed",
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-pilot-prioritization-decision",
+    "prompt": "سه کاربرد سپهر را با ارزش، امکان، ریسک و اطمینان شواهد رتبه‌بندی کنید؛ برای کاربرد منتخب هزینهٔ هر کار کامل‌شده را بسنجید و شرط گسترش/اصلاح/توقف بنویسید.",
+    "expected_output": "سبد کاربرد AI و تصمیم مرحله‌ای پایلوت"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST03-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PIPELINES",
+    "NIST-GENAI-PROFILE",
+    "NBER-SHIFTING-WORK-PATTERNS-2025"
+  ],
+  "source_scope": "چارچوب ارزیابی NIST نسخهٔ اولیه است؛ مثال ساختگی و نتایج مطالعات محدود به بافت‌اند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "research_scope_reviewed; limited_external_validity"
+  },
+  "media_plan": {
+    "type": "AI-portfolio-prioritization-and-scale-stop-scorecard",
+    "purpose": "مقایسهٔ ارزش، امکان، ریسک، هزینه و قواعد گسترش",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "طراحی پایلوت",
+      "اولویت‌بندی",
+      "هزینهٔ مقیاس",
+      "تصمیم گسترش یا توقف"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "سبد AI با یادداشت تصمیم و معیار توقف"
+}

@@ -1,0 +1,250 @@
+{
+  "id": "S07-C2-ST03-L03",
+  "version": "1-draft",
+  "title": "اقتصاد مقیاس و هزینهٔ مصرف",
+  "content_status": "draft",
+  "objective": "هزینه و ظرفیت AI را به واحد کسب‌وکار ترجمه کند و تغییر هزینهٔ مصرف، ارزیابی و بازبینی را هنگام رشد حجم تحلیل کند.",
+  "learning_cards": [
+    {
+      "title": "واحد هزینه را تعریف کنید",
+      "id": "S07-C2-ST03-L03-CARD01",
+      "text": "هزینه را به هر تیکت، سفارش، کاربر فعال یا تصمیم وصل کنید. هزینهٔ کل ماهانهٔ ابزار بدون حجم و کیفیت خروجی امکان مقایسهٔ منصفانه نمی‌دهد."
+    },
+    {
+      "title": "مصرف و حجم متغیر",
+      "id": "S07-C2-ST03-L03-CARD02",
+      "text": "دفعات فراخوانی، اندازهٔ زمینه، تعداد بازتولید، بازیابی و ابزارهای همراه مصرف را تغییر می‌دهند. حجم کم آزمایشی را مستقیم به حجم تولید تعمیم ندهید؛ سناریوهای مصرف بسازید."
+    },
+    {
+      "title": "هزینهٔ بازبینی و خطا",
+      "id": "S07-C2-ST03-L03-CARD03",
+      "text": "هزینه شامل نیروی انسانی برای کنترل، اصلاح، ارجاع، رسیدگی به شکایت و رخداد است. اگر خروجی نادرست به فرایند بعدی برود، هزینهٔ اصلاح دیرهنگام ممکن است بسیار بیشتر باشد."
+    },
+    {
+      "title": "مقیاس و تخفیف پنهان",
+      "id": "S07-C2-ST03-L03-CARD04",
+      "text": "هزینهٔ واحد ممکن است پایین بیاید، اما حجم بیشتر، نگهداری، زیرساخت، مشتری و بار رسیدگی را بالا می‌برد. اثر خالص را در سناریوی ماهانه و سالانه همراه ظرفیت تیم ببینید."
+    },
+    {
+      "title": "کیفیت بر قیمت مقدم است؟",
+      "id": "S07-C2-ST03-L03-CARD05",
+      "text": "ارزان‌ترین خروجی اگر خطا، دوباره‌کاری یا آسیب بسازد، اقتصادی نیست. هزینه را به ازای «کار درست و کامل‌شده» بسنجید، نه به ازای فراخوانی یا متن تولیدشده."
+    },
+    {
+      "title": "وابستگی و قیمت آینده",
+      "id": "S07-C2-ST03-L03-CARD06",
+      "text": "تغییر مدل، شرایط فروشنده و حد مصرف می‌تواند اقتصاد را تغییر دهد. قیمت را از حساب جاری تأیید و سناریوی افزایش مصرف و جایگزین را لحاظ کنید؛ قیمت امروز تضمین آینده نیست."
+    },
+    {
+      "title": "هزینهٔ فرصت سرمایه",
+      "id": "S07-C2-ST03-L03-CARD07",
+      "text": "زمان تیمی که صرف اتصال یا نظارت می‌شود از توسعهٔ دیگر کم می‌کند. ارزش فرصت عقب‌افتاده را نیز در تصمیم ساخت/خرید یا مقیاس وارد کنید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST03-L03-CARD08",
+      "text": "برای ۱۰هزار تیکت، سپهر تعداد فراخوانی، مصرف متوسط، نرخ بازبینی، دقیقهٔ اصلاح، هزینهٔ شکایت و ظرفیت پشتیبانی را تخمین می‌زند. سپس قیمت به ازای هر تیکتِ حل‌شده را با خط مبنای فعلی مقایسه می‌کند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "هزینه را به چه واحدی وصل کنیم؟",
+      "remediation_card_id": "S07-C2-ST03-L03-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST03-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط ماه اشتراک",
+          "feedback": "بازبینی: واحد کسب‌وکار امکان مقایسهٔ ارزش را می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "فقط متن تولیدشده",
+          "feedback": "بازبینی: واحد کسب‌وکار امکان مقایسهٔ ارزش را می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "تیکت یا سفارش کامل‌شده",
+          "feedback": "درست: واحد کسب‌وکار امکان مقایسهٔ ارزش را می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "واحد کسب‌وکار امکان مقایسهٔ ارزش را می‌دهد."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا حجم آزمایشی هزینهٔ تولید را تضمین نمی‌کند؟",
+      "remediation_card_id": "S07-C2-ST03-L03-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST03-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون داده لازم نیست",
+          "feedback": "بازبینی: مصرف واقعی به الگوی استفاده وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "فراخوانی و زمینه و بازتولید با حجم فرق دارد",
+          "feedback": "درست: مصرف واقعی به الگوی استفاده وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "چون هزینه ثابت است",
+          "feedback": "بازبینی: مصرف واقعی به الگوی استفاده وابسته است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "مصرف واقعی به الگوی استفاده وابسته است."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "ارزان‌ترین خروجی چه وقت اقتصادی نیست؟",
+      "remediation_card_id": "S07-C2-ST03-L03-CARD05",
+      "variant": "A",
+      "id": "S07-C2-ST03-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی خطا و اصلاح هزینه را بالا ببرد",
+          "feedback": "درست: باید هزینهٔ کار درست و کامل‌شده را سنجید."
+        },
+        {
+          "id": "b",
+          "text": "همیشه هست",
+          "feedback": "بازبینی: باید هزینهٔ کار درست و کامل‌شده را سنجید."
+        },
+        {
+          "id": "c",
+          "text": "وقتی مدل کوچک است",
+          "feedback": "بازبینی: باید هزینهٔ کار درست و کامل‌شده را سنجید."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "باید هزینهٔ کار درست و کامل‌شده را سنجید."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "هزینهٔ فرصت چیست؟",
+      "remediation_card_id": "S07-C2-ST03-L03-CARD07",
+      "variant": "A",
+      "id": "S07-C2-ST03-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط پول API",
+          "feedback": "بازبینی: ظرفیت تیم نیز محدود و ارزشمند است."
+        },
+        {
+          "id": "b",
+          "text": "هزینهٔ ثابت",
+          "feedback": "بازبینی: ظرفیت تیم نیز محدود و ارزشمند است."
+        },
+        {
+          "id": "c",
+          "text": "کاری که تیم به‌دلیل صرف وقت در این پروژه عقب می‌اندازد",
+          "feedback": "درست: ظرفیت تیم نیز محدود و ارزشمند است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "ظرفیت تیم نیز محدود و ارزشمند است."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "ارزیابی متناسب با کاربرد و اثر در محیط واقعی."
+    },
+    {
+      "id": "GOOGLE-ML-PIPELINES",
+      "title": "Google for Developers: ML Pipelines",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline."
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش."
+    },
+    {
+      "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
+      "title": "Shifting Work Patterns with Generative AI",
+      "url": "https://www.nber.org/papers/w33795",
+      "review_depth": "primary_multifirm_field_experiment_reviewed",
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-pilot-prioritization-decision",
+    "prompt": "سه کاربرد سپهر را با ارزش، امکان، ریسک و اطمینان شواهد رتبه‌بندی کنید؛ برای کاربرد منتخب هزینهٔ هر کار کامل‌شده را بسنجید و شرط گسترش/اصلاح/توقف بنویسید.",
+    "expected_output": "سبد کاربرد AI و تصمیم مرحله‌ای پایلوت"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST03-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PIPELINES",
+    "NIST-GENAI-PROFILE",
+    "NBER-SHIFTING-WORK-PATTERNS-2025"
+  ],
+  "source_scope": "چارچوب ارزیابی NIST نسخهٔ اولیه است؛ مثال ساختگی و نتایج مطالعات محدود به بافت‌اند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "research_scope_reviewed; limited_external_validity"
+  },
+  "media_plan": {
+    "type": "AI-portfolio-prioritization-and-scale-stop-scorecard",
+    "purpose": "مقایسهٔ ارزش، امکان، ریسک، هزینه و قواعد گسترش",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "طراحی پایلوت",
+      "اولویت‌بندی",
+      "هزینهٔ مقیاس",
+      "تصمیم گسترش یا توقف"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "سبد AI با یادداشت تصمیم و معیار توقف"
+}
