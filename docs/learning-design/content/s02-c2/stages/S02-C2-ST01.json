@@ -1,0 +1,1278 @@
+{
+  "id": "S02-C2-ST01",
+  "title": "ارزش‌گذاری جریان نقد",
+  "order": 1,
+  "color_token": "green",
+  "legacy_research_topic_ids": [
+    "S02-M2"
+  ],
+  "level": "specialist",
+  "source_refs": [
+    "B04",
+    "T10",
+    "R24",
+    "R02"
+  ],
+  "source_alignment": "NYU Stern/Damodaran provides open university valuation lectures, spreadsheets and terminal-value explanations. CFA Institute 2026 forecasting curriculum supplies a professional framework. The teaching examples are synthetic; model values are not investment recommendations.",
+  "lessons": [
+    {
+      "id": "S02-C2-ST01-L01",
+      "version": "1-draft",
+      "title": "جریان نقد آزاد و مرز مدل",
+      "content_status": "draft",
+      "objective": "مدل جریان نقد تنزیل‌شده را انتخاب کند، جریان وجه متناسب با ادعا را بسازد و ارزش بنگاه را از ارزش حقوق مالکانه جدا کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST01-L01-CARD01",
+          "type": "explanation",
+          "title": "ارزش ذاتی با قیمت یکی نیست",
+          "text": "ارزش ذاتی برآوردی از ارزش امروز جریان‌های نقد آینده با فرض‌های صریح است؛ قیمت معامله مشاهدهٔ بازار در یک زمان است. هر دو با عدم‌قطعیت روبه‌رو هستند و اختلافشان به‌تنهایی اثبات خطا نیست. ارزش‌گذاری را برای تصمیم مشخص—خرید، سرمایه‌گذاری یا مقایسهٔ پروژه—انجام دهید."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD02",
+          "type": "explanation",
+          "title": "اصل ارزش فعلی",
+          "text": "ارزش امروز هر جریان = جریان آینده ÷ (۱+نرخ تنزیل)^دوره. برای دو جریان ۱۱۰ در یک سال و ۱۲۱ در دو سال با نرخ ۱۰٪، ارزش هرکدام ۱۰۰ می‌شود و مجموع ۲۰۰ است. هرچه ریسک/زمان بیشتر باشد، ارزش فعلی کمتر؛ نرخ و جریان باید هم‌تعریف باشند."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD03",
+          "type": "explanation",
+          "title": "FCFF و FCFE",
+          "text": "FCFF جریان آزاد در دسترس همهٔ تأمین‌کنندگان سرمایه پیش از پرداخت بهرهٔ بدهی است و معمولاً با WACC تنزیل می‌شود تا ارزش بنگاه (Enterprise Value) به‌دست آید. FCFE جریان باقیمانده برای سهام‌داران پس از بدهی و سرمایه‌گذاری است و با هزینهٔ حقوق مالکانه تنزیل می‌شود تا ارزش حقوق مالکانه به‌دست آید."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD04",
+          "type": "explanation",
+          "title": "فرمول سادهٔ FCFF",
+          "text": "FCFF تقریبی = EBIT×(1−نرخ مالیات) + استهلاک − سرمایه‌گذاری ثابت − افزایش سرمایهٔ در گردش عملیاتی. سود عملیاتی پس از مالیات را NOPAT نیز می‌نامند. تعریف بدهی، نقد مازاد، اجاره و سرمایه‌گذاری باید با صورت‌ها و روش تنزیل سازگار باشد."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD05",
+          "type": "explanation",
+          "title": "مدل حقوق مالکانه",
+          "text": "FCFE از سود خالص، اقلام غیرنقدی، سرمایه‌گذاری و تأمین مالی خالص بدهی ساخته می‌شود. اگر جریان به سهام‌دار را با WACC تنزیل کنیم، ادعاهای بدهی را دوباره‌شماری می‌کنیم؛ اگر FCFF را با هزینهٔ حقوق مالکانه تنزیل کنیم، نرخ جریان نامتناسب می‌شود. انتخاب مدل را در صفحهٔ نخست ثبت کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD06",
+          "type": "explanation",
+          "title": "افق پیش‌بینی",
+          "text": "جریان سال‌های تفصیلی را فقط تا زمانی پیش‌بینی کنید که محرک‌ها قابل‌توضیح‌اند؛ سپس دورهٔ باثبات را با ارزش پایانی بازنمایی کنید. یک افق ۵ تا ۱۰ ساله قانون جهان‌شمول نیست؛ چرخهٔ مزیت رقابتی، رسیدن به بلوغ و کیفیت داده تعیین‌کننده‌اند."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD07",
+          "type": "explanation",
+          "title": "از بنگاه تا سهام",
+          "text": "در رویکرد FCFF، ارزش بنگاه معمولاً با کسر ارزش بازار بدهی و افزودن نقد مازاد و دارایی‌های غیرعملیاتی به ارزش حقوق مالکانه وصل می‌شود. باید تعریف نقد موردنیاز عملیات و بدهی شبه‌حقوقی روشن باشد. تعداد سهام رقیق‌شده نیز قیمت هر سهم را تغییر می‌دهد."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD08",
+          "type": "explanation",
+          "title": "دارایی یا مدل خاص",
+          "text": "بانک و بیمه به‌دلیل نقش بدهی و سرمایهٔ نظارتی با مدل عملیاتی غیرمالی یکی نیستند؛ برای کسب‌وکار زیان‌ده، FCFF ممکن است پیش از تثبیت منفی باشد. برای استارتاپ، بقا، رقیق‌شدن و تأمین مالی سناریویی مهم است. مدل را با اقتصاد و صنعت تناسب دهید."
+        },
+        {
+          "id": "S02-C2-ST01-L01-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "DCF تنزیل جریان نقد؛ FCFF جریان آزاد بنگاه؛ FCFE جریان آزاد حقوق مالکانه؛ EV ارزش بنگاه؛ equity value ارزش حقوق مالکانه؛ NOPAT سود عملیاتی پس از مالیات؛ discount rate نرخ تنزیل است. جریان و نرخ باید از نظر ذی‌نفع، ارز و واقعی/اسمی سازگار باشند."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST01-L01-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "FCFF معمولاً چه چیزی می‌دهد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ارزش بنگاه با تنزیل در WACC",
+              "feedback": "درست: FCFF به همهٔ سرمایه‌دهندگان تعلق دارد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت قطعی سهم",
+              "feedback": "بازبینی: FCFF به همهٔ سرمایه‌دهندگان تعلق دارد."
+            },
+            {
+              "id": "c",
+              "text": "درآمد سال بعد",
+              "feedback": "بازبینی: FCFF به همهٔ سرمایه‌دهندگان تعلق دارد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "FCFF به همهٔ سرمایه‌دهندگان تعلق دارد.",
+          "objective_id": "S02-C2-ST01-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L01-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L01-CARD02"
+        },
+        {
+          "id": "S02-C2-ST01-L01-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "FCFE با چه نرخی تنزیل می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "هزینهٔ حقوق مالکانه",
+              "feedback": "درست: جریان و نرخ باید با ادعای سهام‌دار همخوان باشد."
+            },
+            {
+              "id": "b",
+              "text": "WACC بدون توجه به بدهی",
+              "feedback": "بازبینی: جریان و نرخ باید با ادعای سهام‌دار همخوان باشد."
+            },
+            {
+              "id": "c",
+              "text": "نرخ رشد فروش",
+              "feedback": "بازبینی: جریان و نرخ باید با ادعای سهام‌دار همخوان باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "جریان و نرخ باید با ادعای سهام‌دار همخوان باشد.",
+          "objective_id": "S02-C2-ST01-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L01-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L01-CARD03"
+        },
+        {
+          "id": "S02-C2-ST01-L01-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "FCFF را به ارزش سهام چگونه پل می‌زنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "کسر بدهی و افزودن نقد مازاد و دارایی غیرعملیاتی",
+              "feedback": "درست: تعریف اقلام غیرعملیاتی و بدهی باید روشن باشد."
+            },
+            {
+              "id": "b",
+              "text": "افزودن کل فروش",
+              "feedback": "بازبینی: تعریف اقلام غیرعملیاتی و بدهی باید روشن باشد."
+            },
+            {
+              "id": "c",
+              "text": "کسر تمام هزینه‌های گذشته",
+              "feedback": "بازبینی: تعریف اقلام غیرعملیاتی و بدهی باید روشن باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تعریف اقلام غیرعملیاتی و بدهی باید روشن باشد.",
+          "objective_id": "S02-C2-ST01-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L01-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L01-CARD04"
+        },
+        {
+          "id": "S02-C2-ST01-L01-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش فعلی ۱۱۰ یک‌سال بعد با ۱۰٪؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۱۰۰",
+              "feedback": "درست: ۱۱۰ تقسیم بر ۱٫۱ برابر ۱۰۰ است."
+            },
+            {
+              "id": "b",
+              "text": "۱۱۰",
+              "feedback": "بازبینی: ۱۱۰ تقسیم بر ۱٫۱ برابر ۱۰۰ است."
+            },
+            {
+              "id": "c",
+              "text": "۱۲۱",
+              "feedback": "بازبینی: ۱۱۰ تقسیم بر ۱٫۱ برابر ۱۰۰ است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۱۱۰ تقسیم بر ۱٫۱ برابر ۱۰۰ است.",
+          "objective_id": "S02-C2-ST01-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L01-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L01-CARD05"
+        },
+        {
+          "id": "S02-C2-ST01-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چرا جریان و نرخ باید هم‌ارز باشند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تا ادعا و ریسک دوباره‌شماری یا حذف نشود",
+              "feedback": "درست: FCFF/WACC و FCFE/هزینهٔ equity تطبیق دارند."
+            },
+            {
+              "id": "b",
+              "text": "برای بالاترشدن ارزش",
+              "feedback": "بازبینی: FCFF/WACC و FCFE/هزینهٔ equity تطبیق دارند."
+            },
+            {
+              "id": "c",
+              "text": "چون همهٔ نرخ‌ها برابرند",
+              "feedback": "بازبینی: FCFF/WACC و FCFE/هزینهٔ equity تطبیق دارند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "FCFF/WACC و FCFE/هزینهٔ equity تطبیق دارند.",
+          "objective_id": "S02-C2-ST01-L01-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L01-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "damodaran-dcf-lectures",
+          "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+          "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "damodaran-terminal-value",
+          "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+          "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "damodaran-valuation-tools",
+          "title": "NYU Stern: Valuation Spreadsheets and Tools",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+          "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "cfa-forecasting-2026",
+          "title": "CFA Institute 2026: Company Analysis—Forecasting",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+          "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "برای دو شرکت فرضی FCFF و FCFE را تطبیق بده و پل EV تا ارزش سهام را بنویس.",
+        "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+        "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+        "rubric": [
+          "مدل و فرمول درست (۰–۲)",
+          "سازگاری نرخ/ارز/جریان (۰–۲)",
+          "فرض و منبع آشکار (۰–۲)",
+          "حساسیت و توضیح محدودیت (۰–۲)",
+          "توصیهٔ مشروط (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST01-L02",
+      "version": "1-draft",
+      "title": "نرخ تنزیل و واحد پول",
+      "content_status": "draft",
+      "objective": "نرخ تنزیل را به نوع جریان، ارز، تورم و ریسک پیوند دهد و از اختلاط جریان واقعی و اسمی جلوگیری کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST01-L02-CARD01",
+          "type": "explanation",
+          "title": "نرخ، ترجمهٔ ریسک و زمان",
+          "text": "نرخ تنزیل بازده مورد انتظار متناسب با زمان و ریسک جریان است، نه عدد دلخواه برای رساندن ارزش به قیمت بازار. تغییر نرخ حتی یک واحد درصد می‌تواند ارزش را محسوس عوض کند، به‌ویژه در جریان‌های دور. منشأ، تاریخ و روش برآورد نرخ را ثبت کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD02",
+          "type": "explanation",
+          "title": "هزینهٔ حقوق مالکانه",
+          "text": "در مدل پایهٔ CAPM، هزینهٔ حقوق مالکانه ≈ نرخ بدون ریسک + بتای حقوق مالکانه × صرف ریسک بازار. بتا حساسیت بازده سهم نسبت به بازار را تخمین می‌زند و ناپایدار/وابسته به نمونه است. برای کشور، صنعت یا اندازه ممکن است تعدیل‌های بحث‌برانگیز دیگری مطرح شود؛ آن‌ها را جداگانه آشکار کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD03",
+          "type": "explanation",
+          "title": "WACC",
+          "text": "WACC میانگین موزون هزینهٔ بدهی پس از مالیات و هزینهٔ حقوق مالکانه است؛ وزن‌ها ترجیحاً با ارزش بازار ساختار سرمایه را منعکس می‌کنند. با تغییر اهرم یا ریسک، نرخ ثابت نمی‌ماند. مدل سادهٔ WACC برای هر شرکت یا پروژه بدون بازبینی ساختار سرمایه مناسب نیست."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD04",
+          "type": "explanation",
+          "title": "ارز جریان",
+          "text": "اگر جریان‌ها به دلار باشند، نرخ‌ها و ورودی‌ها باید با ریسک و ارز دلاری باشند؛ جریان ریالی را با نرخ دلاری تنزیل نکنید. نرخ ارز انتظاری، محدودیت انتقال وجه و تورم ارزها بر جریان‌ها اثر می‌گذارند. تبدیل ارز بعد از ارزش‌گذاری باید تعریف شود."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD05",
+          "type": "explanation",
+          "title": "اسمی یا واقعی",
+          "text": "جریان اسمی شامل تورم مورد انتظار است و باید با نرخ اسمی تنزیل شود؛ جریان واقعی به قدرت خرید ثابت است و نرخ واقعی لازم دارد. رابطهٔ فیشر به‌صورت تقریبی نرخ اسمی ≈ نرخ واقعی + تورم است؛ ترکیب دقیق‌تر ضربی است. تورم را هم در درآمد/هزینه و هم در نرخ دوباره‌شماری نکنید."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD06",
+          "type": "explanation",
+          "title": "ریسک را دوبار اضافه نکن",
+          "text": "اگر جریان مورد انتظار با احتمال شکست تعدیل شده، افزودن همان ریسک دوباره به نرخ ممکن است ارزش را بیش‌ازحد کم کند. بعضی ریسک‌های قابل‌تنوع با نرخ بازار و بعضی عدم‌قطعیت‌های خاص با سناریو/جریان مدل می‌شوند. مسیر مدل را واضح بنویسید و سازگاری روش را بررسی کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD07",
+          "type": "explanation",
+          "title": "ریسک کشور و داده",
+          "text": "صرف ریسک و نرخ بدون ریسک به بازار و ارز وابسته‌اند و منابع به‌روزرسانی می‌شوند. تاریخ داده، بازار مرجع و روش را نگه دارید؛ نرخ‌های امروز را به ارزش‌گذاری گذشته بدون توضیح نچسبانید. ریسک کشور صرفاً یک عدد ثابت نیست و محدودیت سرمایه یا پرداخت خارجی نیز مهم است."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD08",
+          "type": "explanation",
+          "title": "AI در نرخ‌گذاری",
+          "text": "مدل AI ممکن است بتا، نرخ بدون ریسک یا صرف ریسک را از بازهٔ زمانی/کشور نادرست بگیرد. هر ورودی را با منبع اصلی و تاریخ کنترل کنید و واحد درصد/اعشاری را چک کنید؛ ۵٪ با ۵ فرق محاسباتی بزرگ دارد. نرخ نهایی را به‌عنوان برآورد گزارش کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L02-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Risk-free rate نرخ بدون ریسک؛ beta بتا؛ ERP صرف ریسک بازار سهام؛ cost of equity هزینهٔ حقوق مالکانه؛ WACC میانگین موزون هزینهٔ سرمایه؛ nominal اسمی؛ real واقعی است. تاریخ، ارز، مالیات و نوع جریان را کنار هر نرخ ثبت کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST01-L02-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "جریان اسمی با چه نرخی تنزیل می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نرخ اسمی هم‌ارز",
+              "feedback": "درست: تورم باید در جریان و نرخ سازگار باشد."
+            },
+            {
+              "id": "b",
+              "text": "نرخ واقعی",
+              "feedback": "بازبینی: تورم باید در جریان و نرخ سازگار باشد."
+            },
+            {
+              "id": "c",
+              "text": "هر نرخ در دسترس",
+              "feedback": "بازبینی: تورم باید در جریان و نرخ سازگار باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تورم باید در جریان و نرخ سازگار باشد.",
+          "objective_id": "S02-C2-ST01-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L02-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L02-CARD02"
+        },
+        {
+          "id": "S02-C2-ST01-L02-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مدل CAPM پایه چه ورودی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نرخ بدون ریسک، بتا و صرف ریسک بازار",
+              "feedback": "درست: CAPM رابطهٔ ریسک بازار و بازده مورد انتظار را تقریب می‌زند."
+            },
+            {
+              "id": "b",
+              "text": "فروش، حاشیه و DSO",
+              "feedback": "بازبینی: CAPM رابطهٔ ریسک بازار و بازده مورد انتظار را تقریب می‌زند."
+            },
+            {
+              "id": "c",
+              "text": "نقد و موجودی",
+              "feedback": "بازبینی: CAPM رابطهٔ ریسک بازار و بازده مورد انتظار را تقریب می‌زند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "CAPM رابطهٔ ریسک بازار و بازده مورد انتظار را تقریب می‌زند.",
+          "objective_id": "S02-C2-ST01-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L02-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L02-CARD03"
+        },
+        {
+          "id": "S02-C2-ST01-L02-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ریسک دوبارشماری چه زمانی رخ می‌دهد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "هم در جریان تعدیل شود هم در نرخ بدون دلیل سازگار",
+              "feedback": "درست: روش تعدیل ریسک را یکپارچه و شفاف کنید."
+            },
+            {
+              "id": "b",
+              "text": "فقط در نرخ",
+              "feedback": "بازبینی: روش تعدیل ریسک را یکپارچه و شفاف کنید."
+            },
+            {
+              "id": "c",
+              "text": "فقط در صورت‌ها",
+              "feedback": "بازبینی: روش تعدیل ریسک را یکپارچه و شفاف کنید."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "روش تعدیل ریسک را یکپارچه و شفاف کنید.",
+          "objective_id": "S02-C2-ST01-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L02-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L02-CARD04"
+        },
+        {
+          "id": "S02-C2-ST01-L02-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "جریان ریالی با چه نرخی تنزیل می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نرخ سازگار با ریال و ریسک جریان",
+              "feedback": "درست: ارز و نرخ باید هم‌واحد باشند."
+            },
+            {
+              "id": "b",
+              "text": "نرخ دلاری بدون تبدیل",
+              "feedback": "بازبینی: ارز و نرخ باید هم‌واحد باشند."
+            },
+            {
+              "id": "c",
+              "text": "نرخ رشد شرکت",
+              "feedback": "بازبینی: ارز و نرخ باید هم‌واحد باشند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ارز و نرخ باید هم‌واحد باشند.",
+          "objective_id": "S02-C2-ST01-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L02-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L02-CARD05"
+        },
+        {
+          "id": "S02-C2-ST01-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "چرا بتا را ورودی قطعی نمی‌دانیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "به نمونه، دوره و ساختار سرمایه حساس است",
+              "feedback": "درست: بتا برآوردی تاریخی و ناپایدار است."
+            },
+            {
+              "id": "b",
+              "text": "همیشه ثابت است",
+              "feedback": "بازبینی: بتا برآوردی تاریخی و ناپایدار است."
+            },
+            {
+              "id": "c",
+              "text": "قیمت سهمی نیست",
+              "feedback": "بازبینی: بتا برآوردی تاریخی و ناپایدار است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "بتا برآوردی تاریخی و ناپایدار است.",
+          "objective_id": "S02-C2-ST01-L02-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L02-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "damodaran-dcf-lectures",
+          "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+          "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "damodaran-terminal-value",
+          "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+          "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "damodaran-valuation-tools",
+          "title": "NYU Stern: Valuation Spreadsheets and Tools",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+          "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "cfa-forecasting-2026",
+          "title": "CFA Institute 2026: Company Analysis—Forecasting",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+          "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "یک مدل CAPM/WACC با ارز و تورم سازگار بساز و ورودی‌های حساس را منبع‌دار کن.",
+        "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+        "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+        "rubric": [
+          "مدل و فرمول درست (۰–۲)",
+          "سازگاری نرخ/ارز/جریان (۰–۲)",
+          "فرض و منبع آشکار (۰–۲)",
+          "حساسیت و توضیح محدودیت (۰–۲)",
+          "توصیهٔ مشروط (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST01-L03",
+      "version": "1-draft",
+      "title": "ارزش پایانی و حساسیت آن",
+      "content_status": "draft",
+      "objective": "ارزش پایانی را با رشد باثبات سازگار محاسبه و سهم آن از ارزش کل و حساسیت مفروضات را توضیح دهد.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST01-L03-CARD01",
+          "type": "explanation",
+          "title": "چرا ارزش پایانی لازم است",
+          "text": "کسب‌وکار معمولاً بعد از افق پیش‌بینی ادامه دارد و پیش‌بینی یک‌به‌یک تا ابد ممکن نیست. ارزش پایانی نمایندهٔ جریان پس از دورهٔ صریح است؛ چون بخش بزرگی از ارزش ممکن است از همین برآورد بیاید، فرض‌هایش باید آشکار و آزمون شوند."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD02",
+          "type": "explanation",
+          "title": "مدل رشد باثبات",
+          "text": "در مدل رشد پایدار، TV در انتهای سال n برابر FCFF سال n+1 تقسیم بر (WACC−g) است، به شرط WACC>g. جریان سال پایانی را برای وضعیت باثبات نرمال کنید؛ رشد باید با اقتصاد بلندمدت ارز و توان سرمایه‌گذاری سازگار باشد."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD03",
+          "type": "explanation",
+          "title": "ارزش در زمان درست",
+          "text": "ارزش پایانی در انتهای دورهٔ پیش‌بینی محاسبه می‌شود، سپس به امروز تنزیل می‌گردد. فراموش‌کردن تنزیل یا استفاده از جریان سال n به‌جای n+1 ارزش را جابه‌جا می‌کند. تاریخ جریان (پایان/میان‌سال) نیز بر عامل تنزیل اثر دارد."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD04",
+          "type": "explanation",
+          "title": "مثال عددی ساده",
+          "text": "اگر FCFF سال بعد ۱۰۰، WACC برابر ۱۰٪ و g برابر ۳٪ باشد، TV=100/(.10−.03)=1428.6 در پایان سال n است. اگر افق پنج‌ساله و تنزیل سالانه باشد، این مقدار به امروز با ÷1.10^5 برمی‌گردد. مثال فرضی است، نه توصیه یا برآورد بازار."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD05",
+          "type": "explanation",
+          "title": "حساسیت به g و WACC",
+          "text": "وقتی فاصلهٔ WACC−g کوچک می‌شود، ارزش پایانی به‌سرعت بزرگ می‌شود. جدول دوبعدی WACC و g بسازید و خانه‌های ناممکن—مثل g≥WACC—را حذف/علامت‌گذاری کنید. نشان دهید چقدر از EV امروز از TV می‌آید؛ سهم بسیار بالا حساسیت نتیجه را زیاد می‌کند."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD06",
+          "type": "explanation",
+          "title": "رشد پایدار و سرمایه‌گذاری",
+          "text": "رشد ابدی بدون سرمایه‌گذاری ممکن نیست. در دورهٔ باثبات، بازسرمایه‌گذاری لازم با نرخ رشد تقسیم بر بازده سرمایه محاسبه می‌شود؛ اگر مدل رشد زیاد و بازده ناممکن می‌خواهد، فرض‌های عملیاتی ناسازگارند. افزایش بهره‌وری می‌تواند بازده را موقتاً بالا ببرد اما مزیت ابدی فرض نشود."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD07",
+          "type": "explanation",
+          "title": "روش چندگانهٔ خروج",
+          "text": "اعمال multiple به سود سال آخر رویکرد نسبی بازار است، نه کاملاً DCF ذاتی. اگر به‌عنوان cross-check استفاده می‌کنید، مضرب، شرکت‌های مقایسه و چرایی آن را جدا نشان دهید و از مخلوط‌کردن دو روش به‌عنوان یک حقیقت پرهیز کنید."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD08",
+          "type": "explanation",
+          "title": "تست معقول‌بودن",
+          "text": "TV را با جریان نقد باثبات، حاشیه، سرمایه‌گذاری، رشد اقتصاد و شرکت مقایسه کنید. اگر شرکت پس از ۵ سال هنوز حاشیهٔ غیرممکن یا رشد بی‌پایان دارد، مرحلهٔ گذار یا سود رقابتی را بازمدل کنید. چک معقول‌بودن، جای شواهد صنعت را نمی‌گیرد."
+        },
+        {
+          "id": "S02-C2-ST01-L03-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Terminal value ارزش پایانی؛ stable growth رشد باثبات؛ perpetuity perpetuity/جریان دائمی؛ exit multiple مضرب خروج؛ terminal year سال انتهایی؛ reinvestment بازسرمایه‌گذاری است. TV را تخمین نقطه‌ای قطعی ندانید؛ سهم، فرض رشد و نرخ را با دامنه گزارش کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST01-L03-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "شرط مدل رشد پایدار چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "WACC بزرگ‌تر از g",
+              "feedback": "درست: مخرج باید مثبت بماند."
+            },
+            {
+              "id": "b",
+              "text": "g بزرگ‌تر از WACC",
+              "feedback": "بازبینی: مخرج باید مثبت بماند."
+            },
+            {
+              "id": "c",
+              "text": "WACC برابر صفر",
+              "feedback": "بازبینی: مخرج باید مثبت بماند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مخرج باید مثبت بماند.",
+          "objective_id": "S02-C2-ST01-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L03-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L03-CARD02"
+        },
+        {
+          "id": "S02-C2-ST01-L03-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "FCFF سال بعد ۱۰۰، WACC ۱۰٪، g ۳٪؛ TV انتهای دوره؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "حدود ۱۴۲۹",
+              "feedback": "درست: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+            },
+            {
+              "id": "b",
+              "text": "۱۰۰۰",
+              "feedback": "بازبینی: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+            },
+            {
+              "id": "c",
+              "text": "۷۰۰",
+              "feedback": "بازبینی: ۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۱۰۰ تقسیم بر ۰٫۰۷ ≈ ۱۴۲۸٫۶.",
+          "objective_id": "S02-C2-ST01-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L03-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L03-CARD03"
+        },
+        {
+          "id": "S02-C2-ST01-L03-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش پایانی ابتدا در چه تاریخی است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "انتهای افق صریح و سپس تنزیل می‌شود",
+              "feedback": "درست: محل زمانی TV در مدل مهم است."
+            },
+            {
+              "id": "b",
+              "text": "امروز بدون تنزیل",
+              "feedback": "بازبینی: محل زمانی TV در مدل مهم است."
+            },
+            {
+              "id": "c",
+              "text": "ابتدای سال اول",
+              "feedback": "بازبینی: محل زمانی TV در مدل مهم است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "محل زمانی TV در مدل مهم است.",
+          "objective_id": "S02-C2-ST01-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L03-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L03-CARD04"
+        },
+        {
+          "id": "S02-C2-ST01-L03-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "g نزدیک WACC چه خطری دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ارزش پایانی به فرض بسیار حساس می‌شود",
+              "feedback": "درست: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "ارزش صفر است",
+              "feedback": "بازبینی: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "حساسیت را حذف می‌کند",
+              "feedback": "بازبینی: فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "فاصلهٔ کم مخرج را کوچک و TV را بزرگ می‌کند.",
+          "objective_id": "S02-C2-ST01-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L03-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L03-CARD05"
+        },
+        {
+          "id": "S02-C2-ST01-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "exit multiple چه رویکردی وارد می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "مقایسهٔ نسبی بازار",
+              "feedback": "درست: مضرب بازار، رویکرد نسبی است."
+            },
+            {
+              "id": "b",
+              "text": "فقط جریان ذاتی",
+              "feedback": "بازبینی: مضرب بازار، رویکرد نسبی است."
+            },
+            {
+              "id": "c",
+              "text": "نرخ بدون ریسک",
+              "feedback": "بازبینی: مضرب بازار، رویکرد نسبی است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مضرب بازار، رویکرد نسبی است.",
+          "objective_id": "S02-C2-ST01-L03-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L03-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "damodaran-dcf-lectures",
+          "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+          "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "damodaran-terminal-value",
+          "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+          "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "damodaran-valuation-tools",
+          "title": "NYU Stern: Valuation Spreadsheets and Tools",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+          "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "cfa-forecasting-2026",
+          "title": "CFA Institute 2026: Company Analysis—Forecasting",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+          "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "TV را محاسبه کن، سپس سهم آن از ارزش را با WACC و g در جدول دوبعدی نشان بده.",
+        "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+        "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+        "rubric": [
+          "مدل و فرمول درست (۰–۲)",
+          "سازگاری نرخ/ارز/جریان (۰–۲)",
+          "فرض و منبع آشکار (۰–۲)",
+          "حساسیت و توضیح محدودیت (۰–۲)",
+          "توصیهٔ مشروط (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "S02-C2-ST01-L04",
+      "version": "1-draft",
+      "title": "ارزش‌گذاری با سناریو",
+      "content_status": "draft",
+      "objective": "دامنهٔ ارزش را با سناریوهای سازگار بسازد و وابستگی نتیجه به رشد، نرخ، حاشیه و سرمایه‌گذاری را گزارش کند.",
+      "learning_cards": [
+        {
+          "id": "S02-C2-ST01-L04-CARD01",
+          "type": "explanation",
+          "title": "ارزش یک عدد نیست",
+          "text": "مدل DCF خروجی دقیق حسابی می‌دهد اما ورودی‌ها برآوردی‌اند. گزارش «ارزش ۱۰۲٫۴» دقت اقتصادی کاذب می‌سازد؛ دامنه و محرک‌ها را نشان دهید. نقطهٔ میانی، حقیقت پنهان نیست و باید همراه مفروضات بیاید."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD02",
+          "type": "explanation",
+          "title": "سناریوی سازگار",
+          "text": "سناریوی پایه، فشار و فرصت را با فرض‌های مرتبط بسازید: رشد فروش، حاشیه، سرمایه‌گذاری، سرمایهٔ در گردش و نرخ/ریسک. در فشار، فروش کمتر و وصول دیرتر ممکن است هم‌زمان شوند. اما همهٔ متغیرها را بدترین مقدار نگذارید مگر روایت واقعاً آن را توجیه کند."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD03",
+          "type": "explanation",
+          "title": "احتمال یا بدون احتمال",
+          "text": "اگر احتمال‌ها قابل‌دفاع‌اند، ارزش مورد انتظار = مجموع ارزش هر سناریو × احتمال آن؛ احتمال‌ها باید ۱۰۰٪ شوند و منبع داشته باشند. وقتی احتمال دقیق نداریم، دامنه را بدون برچسب احتمال گزارش کنید. درصدهای ساخته‌شده نباید ظاهر علمی به عدم‌اطمینان بدهند."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD04",
+          "type": "explanation",
+          "title": "مثال دامنه",
+          "text": "فرض کنید ارزش بنگاه در فشار ۷۰۰، پایه ۱۰۰۰ و فرصت ۱۳۰۰ واحد است. اگر احتمال‌های فرضی ۰٫۲، ۰٫۵ و ۰٫۳ باشد، میانگین ۱۰۴۰ می‌شود؛ این خروجی فقط به همان احتمال‌ها و فرض‌ها مشروط است. میانه یا دامنهٔ تصمیم شاید برای مذاکره مفیدتر باشد."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD05",
+          "type": "explanation",
+          "title": "تحلیل حساسیت",
+          "text": "یک‌متغیره نشان می‌دهد تغییر یک ورودی با ثابت‌بودن بقیه چه اثری دارد؛ سناریو چند فرض مرتبط را با هم تغییر می‌دهد. ماتریس WACC و رشد، سهم اثر دو متغیر را می‌بیند. هیچ‌کدام احتمال وقوع آینده یا اعتبار مفروضات را ثابت نمی‌کنند."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD06",
+          "type": "explanation",
+          "title": "شکاف قیمت و ارزش",
+          "text": "وقتی برآورد از قیمت بازار دور است، ابتدا فرمول، واحد، نرخ و داده را کنترل کنید. سپس تفاوت فرض شما با فرض ضمنی بازار—رشد، حاشیه، ریسک یا سودآوری سرمایه—را توضیح دهید. بازار ممکن است اشتباه کند، اما مدل شخصی نیز ممکن است به‌خطا باشد."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD07",
+          "type": "explanation",
+          "title": "ارزش گزینه و انعطاف",
+          "text": "مدیریت می‌تواند پروژه را مرحله‌ای کند، متوقف کند یا پس از یادگیری توسعه دهد؛ DCF ایستا این انعطاف را کم می‌بیند. برای سرمایه‌گذاری برگشت‌ناپذیر در عدم‌قطعیت بالا، نقاط تصمیم و ارزش انتظار را جدا مطرح کنید. real option ارزش انعطاف است، نه افزودنی دلخواه به عدد."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD08",
+          "type": "explanation",
+          "title": "AI و سناریو",
+          "text": "AI می‌تواند سناریوهای فرضی و توضیح خلاف‌واقع پیشنهاد دهد؛ خروجی را با دادهٔ به‌روز، واحد، سازگاری اقتصادی و منبع کنترل کنید. خلاصهٔ اخبار نباید بدون بررسی مستقیم به نرخ رشد/ریسک تبدیل شود. تصمیم نهایی باید گزینه‌ها، اثرات توزیعی و محدودیت داده را نشان دهد."
+        },
+        {
+          "id": "S02-C2-ST01-L04-CARD09",
+          "type": "explanation",
+          "title": "واژه‌های پرتکرار",
+          "text": "Sensitivity حساسیت؛ scenario سناریو؛ expected value ارزش مورد انتظار؛ range of value دامنهٔ ارزش؛ implied assumptions مفروضات ضمنی قیمت؛ real option اختیار واقعی است. به‌جای ادعای یک ارزش قطعی، دامنه، فرض، محرک تصمیم و دادهٔ لازم برای تنگ‌ترکردن دامنه را بیان کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "S02-C2-ST01-L04-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش‌گذاری سناریویی چه مزیتی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نمایش چند مجموعه فرض و دامنهٔ نتیجه",
+              "feedback": "درست: سناریو عدم‌قطعیت را آشکار می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "حذف عدم‌قطعیت",
+              "feedback": "بازبینی: سناریو عدم‌قطعیت را آشکار می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "تضمین قیمت بازار",
+              "feedback": "بازبینی: سناریو عدم‌قطعیت را آشکار می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "سناریو عدم‌قطعیت را آشکار می‌کند.",
+          "objective_id": "S02-C2-ST01-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L04-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L04-CARD02"
+        },
+        {
+          "id": "S02-C2-ST01-L04-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "وقتی احتمال سناریوها بی‌پایه است، چه کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "دامنه را بدون احتمال جعلی گزارش کنیم",
+              "feedback": "درست: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+            },
+            {
+              "id": "b",
+              "text": "احتمال دقیق بسازیم",
+              "feedback": "بازبینی: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+            },
+            {
+              "id": "c",
+              "text": "فقط فرصت را نشان دهیم",
+              "feedback": "بازبینی: عدد احتمال نیازمند مبنای قابل‌دفاع است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "عدد احتمال نیازمند مبنای قابل‌دفاع است.",
+          "objective_id": "S02-C2-ST01-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L04-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L04-CARD03"
+        },
+        {
+          "id": "S02-C2-ST01-L04-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش مورد انتظار چگونه محاسبه می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "جمع ارزش هر سناریو ضربدر احتمال آن",
+              "feedback": "درست: احتمال‌ها باید معتبر و جمعشان یک باشد."
+            },
+            {
+              "id": "b",
+              "text": "میانگین سادهٔ سه فرض بدون توضیح",
+              "feedback": "بازبینی: احتمال‌ها باید معتبر و جمعشان یک باشد."
+            },
+            {
+              "id": "c",
+              "text": "TV منهای WACC",
+              "feedback": "بازبینی: احتمال‌ها باید معتبر و جمعشان یک باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "احتمال‌ها باید معتبر و جمعشان یک باشد.",
+          "objective_id": "S02-C2-ST01-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L04-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L04-CARD04"
+        },
+        {
+          "id": "S02-C2-ST01-L04-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "اگر DCF از قیمت بازار دور است، نخست چه کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "کنترل داده، واحد و فرض و سپس مقایسهٔ مفروضات",
+              "feedback": "درست: اختلاف می‌تواند از هر دو طرف باشد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت را اشتباه قطعی بدانیم",
+              "feedback": "بازبینی: اختلاف می‌تواند از هر دو طرف باشد."
+            },
+            {
+              "id": "c",
+              "text": "مدل را بدون توضیح عوض کنیم",
+              "feedback": "بازبینی: اختلاف می‌تواند از هر دو طرف باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "اختلاف می‌تواند از هر دو طرف باشد.",
+          "objective_id": "S02-C2-ST01-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L04-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L04-CARD05"
+        },
+        {
+          "id": "S02-C2-ST01-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "انعطاف مرحله‌ای در DCF ساده چه محدودیتی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ارزش اختیار توقف/گسترش در جریان ایستا کم دیده می‌شود",
+              "feedback": "درست: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+            },
+            {
+              "id": "b",
+              "text": "هیچ اثری ندارد",
+              "feedback": "بازبینی: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+            },
+            {
+              "id": "c",
+              "text": "جریان نقد را حذف می‌کند",
+              "feedback": "بازبینی: نقاط تصمیم ارزش انعطاف ایجاد می‌کنند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "نقاط تصمیم ارزش انعطاف ایجاد می‌کنند.",
+          "objective_id": "S02-C2-ST01-L04-OBJ1",
+          "equivalence_group": "S02-C2-ST01-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S02-C2-ST01-L04-CARD06"
+        }
+      ],
+      "source_links": [
+        {
+          "id": "damodaran-dcf-lectures",
+          "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+          "scope": "چارچوب FCFF/FCFE، نرخ تنزیل و ارزش پایانی؛ اسلایدها و جداول آموزشی دانشگاهی.",
+          "review_depth": "official_university_course_material_reviewed"
+        },
+        {
+          "id": "damodaran-terminal-value",
+          "title": "NYU Stern, Aswath Damodaran: Estimating Terminal Value",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm",
+          "scope": "مدل رشد باثبات، محدودیت رشد و سازگاری ارزش پایانی.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "damodaran-valuation-tools",
+          "title": "NYU Stern: Valuation Spreadsheets and Tools",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/spreadsh.htm",
+          "scope": "مدل‌ها و جداول آموزشی قابل‌دستکاری؛ ورودی‌ها باید با تاریخ و بازار هدف به‌روزرسانی شوند.",
+          "review_depth": "official_university_teaching_resource_reviewed"
+        },
+        {
+          "id": "cfa-forecasting-2026",
+          "title": "CFA Institute 2026: Company Analysis—Forecasting",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
+          "scope": "چارچوب پیش‌بینی جریان‌ها و سناریو؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+          "review_depth": "official_professional_curriculum_reviewed"
+        }
+      ],
+      "practice_activity": {
+        "type": "short_answer",
+        "prompt": "سه دامنهٔ ارزش برای سپهر بساز و توصیهٔ مشروط همراه با محرک تغییر تصمیم بنویس.",
+        "unit": "برگهٔ ارزش‌گذاری؛ ارقام صرفاً فرضی و آموزشی است.",
+        "answer": "پاسخ باید نوع جریان، نرخ، ارز، زمان، فرض‌های رشد و محدودیت مدل را شفاف کند.",
+        "absolute_tolerance": null,
+        "solution": "پاسخ یگانه نیست؛ انسجام جریان/نرخ و قابلیت بازتولید سنجیده می‌شود.",
+        "rubric": [
+          "مدل و فرمول درست (۰–۲)",
+          "سازگاری نرخ/ارز/جریان (۰–۲)",
+          "فرض و منبع آشکار (۰–۲)",
+          "حساسیت و توضیح محدودیت (۰–۲)",
+          "توصیهٔ مشروط (۰–۲)"
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [],
+      "prerequisites_block_access": false
+    }
+  ],
+  "checkpoint": {
+    "id": "S02-C2-ST01-CHECK",
+    "node_type": "stage_review",
+    "item_count": 6,
+    "coverage": "FCFF/FCFE, discount rate, currency/inflation, terminal value and scenario range",
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "id": "S02-C2-ST01-CHECK-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "FCFF تنزیل‌شده معمولاً چه ارزشی می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ارزش بنگاه",
+            "feedback": "درست: جریان برای همهٔ سرمایه‌دهندگان است."
+          },
+          {
+            "id": "b",
+            "text": "ارزش سهم بدون تعدیل",
+            "feedback": "بازبینی: جریان برای همهٔ سرمایه‌دهندگان است."
+          },
+          {
+            "id": "c",
+            "text": "درآمد دوره",
+            "feedback": "بازبینی: جریان برای همهٔ سرمایه‌دهندگان است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "جریان برای همهٔ سرمایه‌دهندگان است.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q01-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L01-CARD02"
+      },
+      {
+        "id": "S02-C2-ST01-CHECK-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "FCFE با کدام نرخ تنزیل می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "هزینهٔ حقوق مالکانه",
+            "feedback": "درست: جریان و نرخ باید به یک ادعا تعلق داشته باشند."
+          },
+          {
+            "id": "b",
+            "text": "WACC همیشه",
+            "feedback": "بازبینی: جریان و نرخ باید به یک ادعا تعلق داشته باشند."
+          },
+          {
+            "id": "c",
+            "text": "نرخ تورم",
+            "feedback": "بازبینی: جریان و نرخ باید به یک ادعا تعلق داشته باشند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "جریان و نرخ باید به یک ادعا تعلق داشته باشند.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q02-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L02-CARD03"
+      },
+      {
+        "id": "S02-C2-ST01-CHECK-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "برای جریان واقعی چه نرخی لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "نرخ واقعی",
+            "feedback": "درست: تورم در هر دو سمت سازگار باشد."
+          },
+          {
+            "id": "b",
+            "text": "نرخ اسمی بدون تعدیل",
+            "feedback": "بازبینی: تورم در هر دو سمت سازگار باشد."
+          },
+          {
+            "id": "c",
+            "text": "رشد فروش",
+            "feedback": "بازبینی: تورم در هر دو سمت سازگار باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "تورم در هر دو سمت سازگار باشد.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q03-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L03-CARD04"
+      },
+      {
+        "id": "S02-C2-ST01-CHECK-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "فرمول رشد پایدار به چه شرطی نیاز دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "WACC>g",
+            "feedback": "درست: مخرج WACC منهای g مثبت است."
+          },
+          {
+            "id": "b",
+            "text": "g>WACC",
+            "feedback": "بازبینی: مخرج WACC منهای g مثبت است."
+          },
+          {
+            "id": "c",
+            "text": "g=100٪",
+            "feedback": "بازبینی: مخرج WACC منهای g مثبت است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "مخرج WACC منهای g مثبت است.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q04-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L04-CARD05"
+      },
+      {
+        "id": "S02-C2-ST01-CHECK-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "سناریوی دارای احتمال ساختگی چه ایرادی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "ظاهر دقت می‌سازد و ارزش مورد انتظار را منحرف می‌کند",
+            "feedback": "درست: احتمال باید قابل دفاع باشد."
+          },
+          {
+            "id": "b",
+            "text": "ارزش را دقیق‌تر می‌کند",
+            "feedback": "بازبینی: احتمال باید قابل دفاع باشد."
+          },
+          {
+            "id": "c",
+            "text": "هیچ ایرادی ندارد",
+            "feedback": "بازبینی: احتمال باید قابل دفاع باشد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "احتمال باید قابل دفاع باشد.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q05-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L04-CARD06"
+      },
+      {
+        "id": "S02-C2-ST01-CHECK-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "قیمت بازار با ارزش ذاتی چه رابطه‌ای دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "دو برآورد متفاوت‌اند؛ اختلاف نیازمند تحلیل فرض‌هاست",
+            "feedback": "درست: هیچ‌کدام حقیقت قطعی نیستند."
+          },
+          {
+            "id": "b",
+            "text": "همیشه برابرند",
+            "feedback": "بازبینی: هیچ‌کدام حقیقت قطعی نیستند."
+          },
+          {
+            "id": "c",
+            "text": "قیمت حتماً غلط است",
+            "feedback": "بازبینی: هیچ‌کدام حقیقت قطعی نیستند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "هیچ‌کدام حقیقت قطعی نیستند.",
+        "objective_id": "S02-C2-ST01-CHECK-OBJ1",
+        "equivalence_group": "S02-C2-ST01-CHECK-Q06-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "S02-C2-ST01-L04-CARD07"
+      }
+    ]
+  },
+  "tool_plan": [
+    {
+      "id": "dcf-model-boundary",
+      "title": "نقشهٔ انتخاب FCFF یا FCFE",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "damodaran-dcf-lectures"
+      ]
+    },
+    {
+      "id": "discount-rate-worksheet",
+      "title": "کاربرگ نرخ، ارز و تورم",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "damodaran-dcf-lectures"
+      ]
+    },
+    {
+      "id": "terminal-sensitivity",
+      "title": "جدول رشد پایدار و حساسیت ارزش پایانی",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "damodaran-terminal-value"
+      ]
+    },
+    {
+      "id": "valuation-range",
+      "title": "برگهٔ ارزش‌گذاری سناریویی و دامنهٔ ارزش",
+      "status": "teaching_template_authored",
+      "source_ids": [
+        "damodaran-valuation-tools",
+        "cfa-forecasting-2026"
+      ]
+    }
+  ]
+}
