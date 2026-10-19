@@ -4,8 +4,8 @@
   "title": "تحول دیجیتال و هوش مصنوعی برای مدیران",
   "version": "1-draft",
   "status": "in_progress_draft",
-  "stages_completed_draft": 1,
-  "current_stage": 2,
+  "stages_completed_draft": 2,
+  "current_stage": 3,
   "stages": [
     {
       "id": "E02-ST01",
@@ -1321,6 +1321,1481 @@
       },
       "tool_plan": {
         "type": "digital-transformation-strategy-readiness-canvas",
+        "status": "planned_not_created"
+      }
+    },
+    {
+      "id": "E02-ST02",
+      "title": "اقتصاد داده و پلتفرم",
+      "order": 2,
+      "color_token": "orange",
+      "legacy_research_topic_ids": [
+        "E02-M2"
+      ],
+      "level": "applied",
+      "source_refs": [
+        "WORLD-BANK-WDR2021-DATA",
+        "WORLD-BANK-WDR2021-PLATFORMS",
+        "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+        "NBER-W30881-DATA-PLATFORM-ECONOMY",
+        "STRATEGYZER-BMC"
+      ],
+      "source_alignment": "گزارش نهادی بانک جهانی دربارهٔ ارزش/حکمرانی داده و مدل‌های پلتفرمی، مقالهٔ کاری نظری دربارهٔ بازخورد داده و رقابت پلتفرم، و چارچوب حرفه‌ای BMC؛ نوع و محدودیت هر منبع در درسنامه تصریح شده است.",
+      "lessons": [
+        {
+          "id": "E02-ST02-L01",
+          "version": "1-draft",
+          "title": "داده چگونه ارزش می‌سازد؟",
+          "content_status": "draft",
+          "objective": "مسیر تبدیل داده به تصمیم و ارزش مشتری را توضیح دهد؛ محدودیت ارزش‌گذاری داده و حلقهٔ بازخورد را تشخیص دهد.",
+          "learning_cards": [
+            {
+              "id": "E02-ST02-L01-CARD01",
+              "title": "داده به‌تنهایی ارزش نیست",
+              "text": "ردیف‌های ثبت‌شده، فایل بزرگ یا داشبورد پر از نمودار به‌خودی‌خود ارزش اقتصادی ندارند. ارزش وقتی شکل می‌گیرد که داده به پرسشی مهم پاسخ دهد، تصمیم یا کنشی را بهتر کند و پیامد آن برای مشتری یا سازمان سنجیده شود."
+            },
+            {
+              "id": "E02-ST02-L01-CARD02",
+              "title": "زنجیرهٔ ارزش داده",
+              "text": "یک زنجیرهٔ کاربردی را این‌طور ببینید: گردآوری مناسب، کیفیت و دسترسی، تحلیل یا استنباط، تصمیم، اقدام، و سنجش نتیجه. گسست در هر حلقه می‌تواند کل سرمایه‌گذاری را بی‌اثر کند؛ مثلاً پیش‌بینی خوب بدون اختیار اقدام فقط یک گزارش دقیق است."
+            },
+            {
+              "id": "E02-ST02-L01-CARD03",
+              "title": "داده هم ورودی است هم بازخورد",
+              "text": "در کسب‌وکار دیجیتال، فعالیت مشتری داده تولید می‌کند؛ داده می‌تواند پیشنهاد، موجودی یا خدمت بعدی را بهتر کند و تجربهٔ بعدی دوباره داده بسازد. این حلقهٔ بازخورد یک فرضیهٔ ارزش است و باید با آزمایش سنجید آیا بهبود واقعی رخ می‌دهد یا فقط استفاده بیشتر ثبت می‌شود."
+            },
+            {
+              "id": "E02-ST02-L01-CARD04",
+              "title": "داده را با دارایی فیزیکی یکی ندان",
+              "text": "بسیاری از داده‌ها با استفاده تمام نمی‌شوند و می‌توانند در چند تحلیل به کار روند؛ اما جمع‌آوری، پاک‌سازی، تفسیر، نگهداری، مجوز و حفاظت رایگان نیست. هزینهٔ اصلی اغلب در قابلیت استفادهٔ مسئولانه و مرتبط بودن با تصمیم نهفته است، نه صرفاً ذخیره‌سازی."
+            },
+            {
+              "id": "E02-ST02-L01-CARD05",
+              "title": "کیفیت وابسته به کاربرد است",
+              "text": "یک داده برای یک تصمیم مناسب و برای تصمیم دیگری ناکافی یا گمراه‌کننده است. تازگی، پوشش، دقت، نمایندگی گروه‌ها و معنای فیلدها را با کاربرد بسنجید. دادهٔ زیاد، سوگیری نمونه‌گیری یا تعریف ناهماهنگ را خودبه‌خود درمان نمی‌کند."
+            },
+            {
+              "id": "E02-ST02-L01-CARD06",
+              "title": "اندازه‌گیری از تصمیم آغاز می‌شود",
+              "text": "پیش از ساخت داشبورد، تصمیم‌گیرنده و انتخابی را مشخص کنید که قرار است تغییر کند. سپس معیار پیشرو مانند زمان پاسخ و معیار پیامدی مانند حل موفق مسئله را کنار هم بگذارید. اگر معیار پیشرو بالا رود اما پیامد ثابت بماند، زنجیرهٔ ارزش هنوز اثبات نشده است."
+            },
+            {
+              "id": "E02-ST02-L01-CARD07",
+              "title": "حکمرانی شرط استفادهٔ پایدار است",
+              "text": "مالکیت و مجوز استفاده، هدف گردآوری، کیفیت، دسترسی، نگهداری و حذف باید روشن باشند. دادهٔ حساس یا استفادهٔ ثانویه ممکن است اعتماد مشتری را کم کند. ارزش تجاری را همراه با هزینه‌های حریم خصوصی، امنیت، انصاف و پیامدهای اجتماعی ارزیابی کنید."
+            },
+            {
+              "id": "E02-ST02-L01-CARD08",
+              "title": "یک محاسبهٔ ساده برای سپهر",
+              "text": "فرض کنید پیشنهاد هوشمند نرخ خرید را از ۸٪ به ۹٪ می‌رساند؛ این افزایش یک واحد درصد است، نه یک درصد. اثر مالی را با تعداد کاربران واجد شرایط، حاشیهٔ سود هر سفارش، هزینهٔ پیاده‌سازی و پشتیبانی و احتمال اثر علّی حساب کنید. مقایسهٔ سادهٔ قبل و بعد ممکن است فصل یا تغییر قیمت را با اثر پیشنهاد اشتباه بگیرد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E02-ST02-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام زنجیره نشان می‌دهد داده به ارزش نزدیک شده است؟",
+              "remediation_card_id": "E02-ST02-L01-CARD01",
+              "variant": "A",
+              "id": "E02-ST02-L01-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "دادهٔ مرتبط ← تصمیم مشخص ← اقدام ← پیامد سنجیده",
+                  "feedback": "درست: داده تنها زمانی ارزش عملی پیدا می‌کند که در تصمیم و اقدام مؤثر قرار گیرد و پیامد بررسی شود."
+                },
+                {
+                  "id": "b",
+                  "text": "ذخیره‌سازی بیشتر ← گزارش‌های بیشتر ← ارزش قطعی",
+                  "feedback": "بازبینی: داده تنها زمانی ارزش عملی پیدا می‌کند که در تصمیم و اقدام مؤثر قرار گیرد و پیامد بررسی شود."
+                },
+                {
+                  "id": "c",
+                  "text": "مدل پیچیده ← حذف نیاز به اقدام",
+                  "feedback": "بازبینی: داده تنها زمانی ارزش عملی پیدا می‌کند که در تصمیم و اقدام مؤثر قرار گیرد و پیامد بررسی شود."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "داده تنها زمانی ارزش عملی پیدا می‌کند که در تصمیم و اقدام مؤثر قرار گیرد و پیامد بررسی شود."
+            },
+            {
+              "objective_id": "E02-ST02-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "سپهر نرخ کلیک پیشنهاد را بالا برده اما حل موفق درخواست مشتری تغییر نکرده. نتیجهٔ درست چیست؟",
+              "remediation_card_id": "E02-ST02-L01-CARD02",
+              "variant": "A",
+              "id": "E02-ST02-L01-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تحول قطعاً موفق بوده چون تعامل بالا رفته",
+                  "feedback": "بازبینی: کلیک معیار پیشرو است؛ افزایش آن جای بهبود نتیجهٔ مورد انتظار را نمی‌گیرد."
+                },
+                {
+                  "id": "b",
+                  "text": "دادهٔ مشتری دیگر ارزشی ندارد",
+                  "feedback": "بازبینی: کلیک معیار پیشرو است؛ افزایش آن جای بهبود نتیجهٔ مورد انتظار را نمی‌گیرد."
+                },
+                {
+                  "id": "c",
+                  "text": "اثر بر پیامد هنوز ثابت نشده و باید سازوکار و معیار نهایی بررسی شود",
+                  "feedback": "درست: کلیک معیار پیشرو است؛ افزایش آن جای بهبود نتیجهٔ مورد انتظار را نمی‌گیرد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "کلیک معیار پیشرو است؛ افزایش آن جای بهبود نتیجهٔ مورد انتظار را نمی‌گیرد."
+            },
+            {
+              "objective_id": "E02-ST02-L01-OBJ03",
+              "type": "single_choice",
+              "prompt": "چرا یک مجموعه‌داده را نمی‌توان همیشه بدون هزینه و محدودیت بازاستفاده کرد؟",
+              "remediation_card_id": "E02-ST02-L01-CARD03",
+              "variant": "A",
+              "id": "E02-ST02-L01-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چون داده با یک بار استفاده نابود می‌شود",
+                  "feedback": "بازبینی: غیررقابتی بودن بسیاری از داده‌ها به معنی بی‌هزینه بودن استفادهٔ مسئولانه نیست."
+                },
+                {
+                  "id": "b",
+                  "text": "کیفیت، مجوز، حفاظت، نگهداری و تناسب با کاربرد هزینه و قید ایجاد می‌کنند",
+                  "feedback": "درست: غیررقابتی بودن بسیاری از داده‌ها به معنی بی‌هزینه بودن استفادهٔ مسئولانه نیست."
+                },
+                {
+                  "id": "c",
+                  "text": "چون هر بار باید همهٔ مشتریان دوباره خرید کنند",
+                  "feedback": "بازبینی: غیررقابتی بودن بسیاری از داده‌ها به معنی بی‌هزینه بودن استفادهٔ مسئولانه نیست."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "غیررقابتی بودن بسیاری از داده‌ها به معنی بی‌هزینه بودن استفادهٔ مسئولانه نیست."
+            },
+            {
+              "objective_id": "E02-ST02-L01-OBJ04",
+              "type": "single_choice",
+              "prompt": "برای ارزیابی افزایش خرید از ۸٪ به ۹٪ کدام تفسیر درست است؟",
+              "remediation_card_id": "E02-ST02-L01-CARD04",
+              "variant": "A",
+              "id": "E02-ST02-L01-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "افزایش یک واحد درصد است و باید اثر مالی و علت آن جداگانه سنجیده شود",
+                  "feedback": "درست: یک واحد درصد با یک درصد نسبی فرق دارد؛ طرح سنجش هم برای استنباط علّی لازم است."
+                },
+                {
+                  "id": "b",
+                  "text": "افزایش یک درصد است و اثبات می‌کند مدل علت رشد بوده",
+                  "feedback": "بازبینی: یک واحد درصد با یک درصد نسبی فرق دارد؛ طرح سنجش هم برای استنباط علّی لازم است."
+                },
+                {
+                  "id": "c",
+                  "text": "بدون تعداد کاربران، حاشیهٔ سود و هزینه نتیجهٔ اقتصادی قطعی است",
+                  "feedback": "بازبینی: یک واحد درصد با یک درصد نسبی فرق دارد؛ طرح سنجش هم برای استنباط علّی لازم است."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "یک واحد درصد با یک درصد نسبی فرق دارد؛ طرح سنجش هم برای استنباط علّی لازم است."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "WORLD-BANK-WDR2021-DATA",
+              "title": "World Bank, World Development Report 2021: Data for Better Lives",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار."
+            },
+            {
+              "id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "title": "World Bank, Leveling the playing field: data-driven business models and platforms",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند."
+            },
+            {
+              "id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "title": "World Bank, The social contract for data",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است."
+            },
+            {
+              "id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "title": "NBER Working Paper 30881, Data Economy and Platform Competition",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید."
+            },
+            {
+              "id": "STRATEGYZER-BMC",
+              "title": "Strategyzer, The Business Model Canvas",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند."
+            }
+          ],
+          "practice_activity": {
+            "type": "data-platform-model-analysis",
+            "prompt": "برای سناریوی ساختگی سپهر، «داده چگونه ارزش می‌سازد؟» را تحلیل کنید. یک فرضیهٔ روشن، شاهد موردنیاز، معیار پیامد و ریسک اصلی را ثبت کنید.",
+            "expected_output": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E02-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "content_ref": "content/e02/lessons/E02-ST02-L01.json",
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "WORLD-BANK-WDR2021-DATA",
+            "WORLD-BANK-WDR2021-PLATFORMS",
+            "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+            "NBER-W30881-DATA-PLATFORM-ECONOMY",
+            "STRATEGYZER-BMC"
+          ],
+          "source_scope": "گزارش بانک جهانی منبع نهادی زمینه‌ای؛ NBER 30881 مقالهٔ کاری نظری و نه داوری نهایی؛ Strategyzer چارچوب حرفه‌ای است. سناریوی سپهر ساختگی است و ادعاهای علّی باید آزموده شوند.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "پلتفرم‌های خدمات محلی چندسویه"
+            ],
+            "real_case_status": "conceptual_example_only; no firm-specific causal claims"
+          },
+          "media_plan": {
+            "type": "data-value-chain",
+            "purpose": "نمایش سازوکار و فرض‌های اقتصادی درس",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "فهم مفهوم",
+              "تشخیص خطا",
+              "کاربرد در سپهر",
+              "انتقال به تصمیم مدیریتی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 22,
+            "practice": 20
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی",
+          "selected_source_refs": [
+            {
+              "source_id": "WORLD-BANK-WDR2021-DATA",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "supports_scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "supports_scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "STRATEGYZER-BMC",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "supports_scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E02-ST02-L02",
+          "version": "1-draft",
+          "title": "اقتصاد پلتفرم و اثر شبکه",
+          "content_status": "draft",
+          "objective": "بازار چندسویه، اثر شبکهٔ مستقیم و غیرمستقیم و مسئلهٔ شروع بازار را تحلیل کند و معیار نقدشوندگی هر سوی پلتفرم را برگزیند.",
+          "learning_cards": [
+            {
+              "id": "E02-ST02-L02-CARD01",
+              "title": "پلتفرم چه می‌کند؟",
+              "text": "پلتفرم زیرساخت یا قواعدی فراهم می‌کند تا دو یا چند گروه مستقل تعامل و مبادله کنند؛ مانند خریدار و فروشنده. ارزش پیشنهادی آن فقط خود نرم‌افزار نیست، بلکه کیفیت تطبیق، اعتماد و کاهش هزینهٔ جست‌وجو یا معامله نیز هست."
+            },
+            {
+              "id": "E02-ST02-L02-CARD02",
+              "title": "چند سوی بازار وابسته‌اند",
+              "text": "در بازار چندسویه، ارزش یک گروه می‌تواند به اندازه یا کیفیت گروه دیگر وابسته باشد. خریدار بیشتر ممکن است فروشنده را جذب کند و تنوع فروشنده انتخاب خریدار را بهتر کند. «بیشتر» همیشه بهتر نیست: کیفیت، تناسب و ازدحام نیز مهم‌اند."
+            },
+            {
+              "id": "E02-ST02-L02-CARD03",
+              "title": "اثر شبکهٔ مستقیم",
+              "text": "اثر مستقیم وقتی رخ می‌دهد که مشارکت کاربران همان سوی بازار، ارزش را برای دیگر اعضای آن گروه تغییر دهد؛ مثل ارتباطات در یک شبکهٔ اجتماعی. این اثر را با شمار حساب‌ها یکی نگیرید؛ کاربران فعال، ارتباط‌های مفید و تعامل امن معنادارترند."
+            },
+            {
+              "id": "E02-ST02-L02-CARD04",
+              "title": "اثر شبکهٔ غیرمستقیم",
+              "text": "اثر غیرمستقیم وقتی است که رشد یک سوی بازار از راه تغییر عرضه یا مکمل‌ها بر سوی دیگر اثر بگذارد. مثلاً فروشگاه با عرضهٔ مرتبط‌تر ممکن است برای خریدار جذاب‌تر شود. جهت و شدت اثر باید در هر بازار جداگانه آزموده شود."
+            },
+            {
+              "id": "E02-ST02-L02-CARD05",
+              "title": "مسئلهٔ مرغ و تخم‌مرغ",
+              "text": "در آغاز، هر گروه می‌پرسد گروه دیگر کجاست. راه ورود می‌تواند تمرکز بر یک بخش جغرافیایی یا دستهٔ خاص، جذب موقت یک سوی بازار، یا ساخت ارزش مستقل اولیه باشد. یارانه دادن بدون فرضیهٔ روشن فقط هزینهٔ رشد را بالا می‌برد."
+            },
+            {
+              "id": "E02-ST02-L02-CARD06",
+              "title": "نقدشوندگی مهم‌تر از ثبت‌نام است",
+              "text": "معیار پلتفرم باید احتمال و سرعت تطبیق موفق را نشان دهد: چند درخواست به عرضهٔ مناسب می‌رسد، در چه زمانی، با چه لغو یا شکایتی؟ تعداد ثبت‌نام بدون تعامل معتبر، مسئلهٔ بازار را حل نمی‌کند."
+            },
+            {
+              "id": "E02-ST02-L02-CARD07",
+              "title": "اثر شبکه تضمین برنده‌شدن نیست",
+              "text": "اثر شبکه می‌تواند رشد و تمایز را تقویت کند، اما رقبا، چندخانگی کاربران، استانداردهای باز، کیفیت تجربه، اعتماد، هزینهٔ تغییر و مقررات بر نتیجه اثر دارند. ادعای «برنده همه‌چیز را می‌برد» را قانون طبیعی بازار فرض نکنید."
+            },
+            {
+              "id": "E02-ST02-L02-CARD08",
+              "title": "نقشهٔ دو سوی سپهر",
+              "text": "سپهر خدمات مشتری را به متخصصان مستقل وصل می‌کند. قبل از گسترش شهرها، برای یک محله بسنجید: درخواست مناسب در هفته، زمان تا پذیرش، نرخ انجام، بازگشت مشتری و درآمد خالص متخصص. ممکن است تمرکز محلی شبکهٔ سالم‌تری از رشد پراکنده بسازد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E02-ST02-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام مورد اثر شبکهٔ غیرمستقیم را نشان می‌دهد؟",
+              "remediation_card_id": "E02-ST02-L02-CARD01",
+              "variant": "A",
+              "id": "E02-ST02-L02-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "افزایش متخصصان مرتبط باعث انتخاب بهتر مشتریان می‌شود و مشتری تازه عرضه را جذاب‌تر می‌کند",
+                  "feedback": "درست: اثر غیرمستقیم از تعامل ارزش میان سوی‌های متفاوت بازار می‌آید."
+                },
+                {
+                  "id": "b",
+                  "text": "کاربر از رابط کاربری ساده‌تر در تنهایی لذت می‌برد",
+                  "feedback": "بازبینی: اثر غیرمستقیم از تعامل ارزش میان سوی‌های متفاوت بازار می‌آید."
+                },
+                {
+                  "id": "c",
+                  "text": "هزینهٔ سرور با بهینه‌سازی کد پایین می‌آید",
+                  "feedback": "بازبینی: اثر غیرمستقیم از تعامل ارزش میان سوی‌های متفاوت بازار می‌آید."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "اثر غیرمستقیم از تعامل ارزش میان سوی‌های متفاوت بازار می‌آید."
+            },
+            {
+              "objective_id": "E02-ST02-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "برای مسئلهٔ شروع بازار سپهر، چه انتخابی معقول‌تر است؟",
+              "remediation_card_id": "E02-ST02-L02-CARD02",
+              "variant": "A",
+              "id": "E02-ST02-L02-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "راه‌اندازی هم‌زمان در همهٔ شهرها بدون عرضهٔ کافی",
+                  "feedback": "بازبینی: تمرکز جغرافیایی می‌تواند شانس تطبیق موفق را در بازار آغازین بالا ببرد."
+                },
+                {
+                  "id": "b",
+                  "text": "خرید تبلیغ گسترده و سنجش فقط نصب اپ",
+                  "feedback": "بازبینی: تمرکز جغرافیایی می‌تواند شانس تطبیق موفق را در بازار آغازین بالا ببرد."
+                },
+                {
+                  "id": "c",
+                  "text": "آغاز در یک محدودهٔ کوچک و ایجاد تراکم درخواست و متخصص متناسب",
+                  "feedback": "درست: تمرکز جغرافیایی می‌تواند شانس تطبیق موفق را در بازار آغازین بالا ببرد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "تمرکز جغرافیایی می‌تواند شانس تطبیق موفق را در بازار آغازین بالا ببرد."
+            },
+            {
+              "objective_id": "E02-ST02-L02-OBJ03",
+              "type": "single_choice",
+              "prompt": "چرا ثبت‌نام به‌تنهایی معیار مناسبی برای نقدشوندگی نیست؟",
+              "remediation_card_id": "E02-ST02-L02-CARD03",
+              "variant": "A",
+              "id": "E02-ST02-L02-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چون هر ثبت‌نام الزاماً یک معاملهٔ سودآور است",
+                  "feedback": "بازبینی: نقدشوندگی کیفیت و سرعت تطبیق واقعی دو سوی بازار را می‌سنجد."
+                },
+                {
+                  "id": "b",
+                  "text": "چون ثبت‌نام نشان نمی‌دهد درخواست‌ها به تطبیق موفق و به‌موقع می‌رسند",
+                  "feedback": "درست: نقدشوندگی کیفیت و سرعت تطبیق واقعی دو سوی بازار را می‌سنجد."
+                },
+                {
+                  "id": "c",
+                  "text": "چون ثبت‌نام فقط برای مشتریان قابل سنجش است",
+                  "feedback": "بازبینی: نقدشوندگی کیفیت و سرعت تطبیق واقعی دو سوی بازار را می‌سنجد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "نقدشوندگی کیفیت و سرعت تطبیق واقعی دو سوی بازار را می‌سنجد."
+            },
+            {
+              "objective_id": "E02-ST02-L02-OBJ04",
+              "type": "single_choice",
+              "prompt": "مدیر می‌گوید اثر شبکه یعنی بازار حتماً به یک پلتفرم می‌رسد. پاسخ دقیق‌تر چیست؟",
+              "remediation_card_id": "E02-ST02-L02-CARD04",
+              "variant": "A",
+              "id": "E02-ST02-L02-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "اثر شبکه یکی از سازوکارهاست و رقابت، چندخانگی، اعتماد و هزینهٔ تغییر نیز نتیجه را شکل می‌دهند",
+                  "feedback": "درست: این گزاره بیش از شواهد ادعا می‌کند؛ اثر شبکه کافی نیست و زمینه مهم است."
+                },
+                {
+                  "id": "b",
+                  "text": "درست است؛ هر پلتفرم بزرگ‌تر همیشه حذف رقبا را تضمین می‌کند",
+                  "feedback": "بازبینی: این گزاره بیش از شواهد ادعا می‌کند؛ اثر شبکه کافی نیست و زمینه مهم است."
+                },
+                {
+                  "id": "c",
+                  "text": "اثر شبکه فقط در بازارهای رایگان دیده می‌شود",
+                  "feedback": "بازبینی: این گزاره بیش از شواهد ادعا می‌کند؛ اثر شبکه کافی نیست و زمینه مهم است."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "این گزاره بیش از شواهد ادعا می‌کند؛ اثر شبکه کافی نیست و زمینه مهم است."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "WORLD-BANK-WDR2021-DATA",
+              "title": "World Bank, World Development Report 2021: Data for Better Lives",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار."
+            },
+            {
+              "id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "title": "World Bank, Leveling the playing field: data-driven business models and platforms",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند."
+            },
+            {
+              "id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "title": "World Bank, The social contract for data",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است."
+            },
+            {
+              "id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "title": "NBER Working Paper 30881, Data Economy and Platform Competition",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید."
+            },
+            {
+              "id": "STRATEGYZER-BMC",
+              "title": "Strategyzer, The Business Model Canvas",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند."
+            }
+          ],
+          "practice_activity": {
+            "type": "data-platform-model-analysis",
+            "prompt": "برای سناریوی ساختگی سپهر، «اقتصاد پلتفرم و اثر شبکه» را تحلیل کنید. یک فرضیهٔ روشن، شاهد موردنیاز، معیار پیامد و ریسک اصلی را ثبت کنید.",
+            "expected_output": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E02-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "content_ref": "content/e02/lessons/E02-ST02-L02.json",
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "WORLD-BANK-WDR2021-DATA",
+            "WORLD-BANK-WDR2021-PLATFORMS",
+            "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+            "NBER-W30881-DATA-PLATFORM-ECONOMY",
+            "STRATEGYZER-BMC"
+          ],
+          "source_scope": "گزارش بانک جهانی منبع نهادی زمینه‌ای؛ NBER 30881 مقالهٔ کاری نظری و نه داوری نهایی؛ Strategyzer چارچوب حرفه‌ای است. سناریوی سپهر ساختگی است و ادعاهای علّی باید آزموده شوند.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "پلتفرم‌های خدمات محلی چندسویه"
+            ],
+            "real_case_status": "conceptual_example_only; no firm-specific causal claims"
+          },
+          "media_plan": {
+            "type": "two-sided-platform-map",
+            "purpose": "نمایش سازوکار و فرض‌های اقتصادی درس",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "فهم مفهوم",
+              "تشخیص خطا",
+              "کاربرد در سپهر",
+              "انتقال به تصمیم مدیریتی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 22,
+            "practice": 20
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی",
+          "selected_source_refs": [
+            {
+              "source_id": "WORLD-BANK-WDR2021-DATA",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "supports_scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "supports_scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "STRATEGYZER-BMC",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "supports_scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E02-ST02-L03",
+          "version": "1-draft",
+          "title": "مقیاس، وابستگی و هزینه",
+          "content_status": "draft",
+          "objective": "صرفه‌های مقیاس دیجیتال را از هزینهٔ کل و حاشیه‌ای، وابستگی و قفل‌شدگی جدا کند و گزینه‌های کاهش هزینهٔ تغییر را ارزیابی کند.",
+          "learning_cards": [
+            {
+              "id": "E02-ST02-L03-CARD01",
+              "title": "مقیاس دیجیتال و هزینهٔ حاشیه‌ای",
+              "text": "پس از ساخت محصول دیجیتال، خدمت‌رسانی به کاربر بعدی ممکن است هزینهٔ حاشیه‌ای کمی داشته باشد؛ اما صفر نیست. پشتیبانی، پردازش، پرداخت، کنترل تقلب، محتوا و ظرفیت شبکه می‌توانند با رشد افزایش یابند."
+            },
+            {
+              "id": "E02-ST02-L03-CARD02",
+              "title": "هزینهٔ ثابت و هزینهٔ کل",
+              "text": "زیرساخت اولیه، توسعه و امنیت ممکن است هزینهٔ ثابت یا مرحله‌ای باشند؛ هزینهٔ کل را باید در افق زمانی و سطح خدمت دید. میانگین هزینه ممکن است با حجم کم شود، اما نقطهٔ ازدحام یا نیاز به ظرفیت جدید می‌تواند آن را دوباره بالا ببرد."
+            },
+            {
+              "id": "E02-ST02-L03-CARD03",
+              "title": "صرفهٔ مقیاس با صرفهٔ دامنه فرق دارد",
+              "text": "صرفهٔ مقیاس یعنی میانگین هزینه با افزایش حجم کاهش یابد. صرفهٔ دامنه یعنی چند خدمت با استفادهٔ مشترک از قابلیت‌ها، داده یا کانال ارزان‌تر ارائه شوند. اشتراک منابع فقط وقتی صرفه است که پیچیدگی، هماهنگی و ریسک اضافه از منفعت بیشتر نشود."
+            },
+            {
+              "id": "E02-ST02-L03-CARD04",
+              "title": "وابستگی عملیاتی را حساب کن",
+              "text": "رشد به ارائه‌دهندهٔ ابر، فروشگاه اپ، سامانهٔ پرداخت یا مدل هوش مصنوعی وابستگی می‌آورد. سطح خدمت، قابلیت انتقال، امکان خروج، محل داده، هزینهٔ خروج و استمرار کسب‌وکار را در تصمیم خرید و طراحی معماری وارد کنید."
+            },
+            {
+              "id": "E02-ST02-L03-CARD05",
+              "title": "قفل‌شدگی از کجا می‌آید؟",
+              "text": "هزینهٔ جابه‌جایی داده، مهارت‌های اختصاصی، گردش‌کارهای متصل، شبکهٔ مخاطب و قراردادهای طولانی می‌توانند تغییر ارائه‌دهنده را دشوار کنند. قفل‌شدگی الزاماً بد نیست، اما باید آگاهانه باشد و ارزش افزوده‌اش با ریسک و قدرت چانه‌زنی سنجیده شود."
+            },
+            {
+              "id": "E02-ST02-L03-CARD06",
+              "title": "قابلیت جابه‌جایی و تعامل‌پذیری",
+              "text": "قالب‌های قابل انتقال، رابط‌های استاندارد و امکان دریافت داده می‌توانند هزینهٔ تغییر را کم کنند. انتقال‌پذیری فنی به‌تنهایی کافی نیست: کیفیت داده، مجوز، معنای فیلدها، آموزش کارکنان و تداوم خدمت نیز باید حفظ شوند."
+            },
+            {
+              "id": "E02-ST02-L03-CARD07",
+              "title": "سناریو بساز، عدد قطعی نساز",
+              "text": "هزینه را برای رشد کم، پایه و زیاد مدل کنید: کاربران فعال، مصرف پردازش، پشتیبانی، هزینهٔ عرضه، خسارت خطا و هزینهٔ خروج. فرض‌ها را جدا ثبت کنید و حساسیت نتیجه را ببینید؛ تخمین نقطه‌ای در بازاری با عدم قطعیت دقت کاذب می‌سازد."
+            },
+            {
+              "id": "E02-ST02-L03-CARD08",
+              "title": "تصمیم تأمین در سپهر",
+              "text": "فرض کنید سامانهٔ پیشنهاددهی هزینهٔ اولیهٔ بالا و هزینهٔ مصرف متغیر دارد. گزینهٔ خرید، ساخت یا ترکیب را با هزینهٔ سه‌ساله، کیفیت، زمان عرضه، امنیت، وابستگی، قابلیت تعویض و مالکیت دانش مقایسه کنید. ارزان‌ترین ماه اول ممکن است گران‌ترین مسیر خروج باشد."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E02-ST02-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "هزینهٔ حاشیه‌ای کم برای هر کاربر تازه چه چیزی را ثابت نمی‌کند؟",
+              "remediation_card_id": "E02-ST02-L03-CARD01",
+              "variant": "A",
+              "id": "E02-ST02-L03-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "این‌که هزینهٔ کل رشد صفر است؛ پشتیبانی و ظرفیت می‌توانند زیاد شوند",
+                  "feedback": "درست: حاشیه‌ای را از ثابت، مرحله‌ای و هزینه‌های پشتیبانی جدا کنید."
+                },
+                {
+                  "id": "b",
+                  "text": "این‌که خدمت دیجیتال هیچ هزینهٔ اولیه‌ای ندارد",
+                  "feedback": "بازبینی: حاشیه‌ای را از ثابت، مرحله‌ای و هزینه‌های پشتیبانی جدا کنید."
+                },
+                {
+                  "id": "c",
+                  "text": "این‌که کیفیت در هر مقیاسی ثابت می‌ماند",
+                  "feedback": "بازبینی: حاشیه‌ای را از ثابت، مرحله‌ای و هزینه‌های پشتیبانی جدا کنید."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "حاشیه‌ای را از ثابت، مرحله‌ای و هزینه‌های پشتیبانی جدا کنید."
+            },
+            {
+              "objective_id": "E02-ST02-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "کدام تعریف صرفهٔ دامنه را بهتر بیان می‌کند؟",
+              "remediation_card_id": "E02-ST02-L03-CARD02",
+              "variant": "A",
+              "id": "E02-ST02-L03-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "هزینهٔ میانگین یک خدمت فقط با رشد تعداد مشتریان کم می‌شود",
+                  "feedback": "بازبینی: صرفهٔ دامنه از استفادهٔ مشترک منابع در چند محصول می‌آید."
+                },
+                {
+                  "id": "b",
+                  "text": "هزینهٔ هر تراکنش در هر شرایطی ثابت می‌ماند",
+                  "feedback": "بازبینی: صرفهٔ دامنه از استفادهٔ مشترک منابع در چند محصول می‌آید."
+                },
+                {
+                  "id": "c",
+                  "text": "چند خدمت از قابلیت مشترک استفاده می‌کنند و در نتیجه مجموع ارائهٔ آن‌ها کم‌هزینه‌تر می‌شود",
+                  "feedback": "درست: صرفهٔ دامنه از استفادهٔ مشترک منابع در چند محصول می‌آید."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "صرفهٔ دامنه از استفادهٔ مشترک منابع در چند محصول می‌آید."
+            },
+            {
+              "objective_id": "E02-ST02-L03-OBJ03",
+              "type": "single_choice",
+              "prompt": "پیش از واگذاری کار حیاتی به یک ارائه‌دهنده، چه چیزی باید در تحلیل باشد؟",
+              "remediation_card_id": "E02-ST02-L03-CARD03",
+              "variant": "A",
+              "id": "E02-ST02-L03-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط تعداد ویژگی‌های محصول",
+                  "feedback": "بازبینی: تصمیم خرید بدون مسیر خروج ریسک وابستگی را نادیده می‌گیرد."
+                },
+                {
+                  "id": "b",
+                  "text": "هزینه و امکان خروج، انتقال داده، سطح خدمت و تداوم عملیات",
+                  "feedback": "درست: تصمیم خرید بدون مسیر خروج ریسک وابستگی را نادیده می‌گیرد."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط قیمت ماه اول",
+                  "feedback": "بازبینی: تصمیم خرید بدون مسیر خروج ریسک وابستگی را نادیده می‌گیرد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "تصمیم خرید بدون مسیر خروج ریسک وابستگی را نادیده می‌گیرد."
+            },
+            {
+              "objective_id": "E02-ST02-L03-OBJ04",
+              "type": "single_choice",
+              "prompt": "چرا مدل‌سازی چند سناریوی هزینه از یک عدد دقیق مفیدتر است؟",
+              "remediation_card_id": "E02-ST02-L03-CARD04",
+              "variant": "A",
+              "id": "E02-ST02-L03-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چون مصرف، پشتیبانی و ظرفیت نامطمئن‌اند و حساسیت فرض‌ها را آشکار می‌کند",
+                  "feedback": "درست: سناریوها عدم قطعیت را نشان می‌دهند و تصمیم را به فرض‌ها پیوند می‌دهند."
+                },
+                {
+                  "id": "b",
+                  "text": "چون هزینه‌های واقعی را غیرضروری می‌کند",
+                  "feedback": "بازبینی: سناریوها عدم قطعیت را نشان می‌دهند و تصمیم را به فرض‌ها پیوند می‌دهند."
+                },
+                {
+                  "id": "c",
+                  "text": "چون رشد همیشه خطی و قابل پیش‌بینی است",
+                  "feedback": "بازبینی: سناریوها عدم قطعیت را نشان می‌دهند و تصمیم را به فرض‌ها پیوند می‌دهند."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "سناریوها عدم قطعیت را نشان می‌دهند و تصمیم را به فرض‌ها پیوند می‌دهند."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "WORLD-BANK-WDR2021-DATA",
+              "title": "World Bank, World Development Report 2021: Data for Better Lives",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار."
+            },
+            {
+              "id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "title": "World Bank, Leveling the playing field: data-driven business models and platforms",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند."
+            },
+            {
+              "id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "title": "World Bank, The social contract for data",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است."
+            },
+            {
+              "id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "title": "NBER Working Paper 30881, Data Economy and Platform Competition",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید."
+            },
+            {
+              "id": "STRATEGYZER-BMC",
+              "title": "Strategyzer, The Business Model Canvas",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند."
+            }
+          ],
+          "practice_activity": {
+            "type": "data-platform-model-analysis",
+            "prompt": "برای سناریوی ساختگی سپهر، «مقیاس، وابستگی و هزینه» را تحلیل کنید. یک فرضیهٔ روشن، شاهد موردنیاز، معیار پیامد و ریسک اصلی را ثبت کنید.",
+            "expected_output": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E02-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "content_ref": "content/e02/lessons/E02-ST02-L03.json",
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "WORLD-BANK-WDR2021-DATA",
+            "WORLD-BANK-WDR2021-PLATFORMS",
+            "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+            "NBER-W30881-DATA-PLATFORM-ECONOMY",
+            "STRATEGYZER-BMC"
+          ],
+          "source_scope": "گزارش بانک جهانی منبع نهادی زمینه‌ای؛ NBER 30881 مقالهٔ کاری نظری و نه داوری نهایی؛ Strategyzer چارچوب حرفه‌ای است. سناریوی سپهر ساختگی است و ادعاهای علّی باید آزموده شوند.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "پلتفرم‌های خدمات محلی چندسویه"
+            ],
+            "real_case_status": "conceptual_example_only; no firm-specific causal claims"
+          },
+          "media_plan": {
+            "type": "unit-economics-cost-scenarios",
+            "purpose": "نمایش سازوکار و فرض‌های اقتصادی درس",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "فهم مفهوم",
+              "تشخیص خطا",
+              "کاربرد در سپهر",
+              "انتقال به تصمیم مدیریتی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 22,
+            "practice": 20
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی",
+          "selected_source_refs": [
+            {
+              "source_id": "WORLD-BANK-WDR2021-DATA",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "supports_scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "supports_scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "STRATEGYZER-BMC",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "supports_scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        },
+        {
+          "id": "E02-ST02-L04",
+          "version": "1-draft",
+          "title": "بررسی یک مدل کسب‌وکار دیجیتال",
+          "content_status": "draft",
+          "objective": "مدل دیجیتال را با پیوند ارزش پیشنهادی، گروه‌های مشتری، سازوکار پلتفرم، درآمد، هزینه، فعالیت‌ها و ریسک تحلیل و یک فرضیهٔ قابل‌آزمون بسازد.",
+          "learning_cards": [
+            {
+              "id": "E02-ST02-L04-CARD01",
+              "title": "از توصیف محصول به منطق کسب‌وکار",
+              "text": "مدل کسب‌وکار توضیح می‌دهد سازمان برای چه کسی چه ارزشی خلق و ارائه می‌کند و چگونه بخشی از آن ارزش را پایدار می‌سازد. اپلیکیشن، کانال است؛ تا مشتری، ارزش، عملیات و منطق درآمد روشن نباشد، مدل کامل نداریم."
+            },
+            {
+              "id": "E02-ST02-L04-CARD02",
+              "title": "گروه مشتری و کار مورد انتظار",
+              "text": "برای هر گروه مشخص کنید چه کاری می‌خواهد انجام دهد، جایگزین فعلی چیست و مانع یا هزینهٔ مبادله کجاست. در پلتفرم، هر سوی بازار ممکن است کار، انگیزه و تعریف ارزش متفاوت داشته باشد؛ این تفاوت را در یک مشتری خیالی حل نکنید."
+            },
+            {
+              "id": "E02-ST02-L04-CARD03",
+              "title": "ارزش پیشنهادی را قابل مشاهده کن",
+              "text": "ارزش می‌تواند دسترسی، سرعت، انتخاب، اطمینان یا کاهش هزینهٔ جست‌وجو باشد. سازوکار را بنویسید: چه فعالیتی برای کدام گروه عوض می‌شود و چه چیزی باید بهتر شود؟ سپس شاهدی تعیین کنید که فرضیه را رد هم بتواند بکند."
+            },
+            {
+              "id": "E02-ST02-L04-CARD04",
+              "title": "درآمد و قیمت‌گذاری میان گروه‌ها",
+              "text": "درآمد می‌تواند کمیسیون، اشتراک، فروش مستقیم یا خدمات مکمل باشد. پلتفرم ممکن است یک سوی بازار را ارزان‌تر جذب کند و از سوی دیگر درآمد بگیرد؛ قیمت پایین به معنای رایگان بودن هزینهٔ واقعی یا پایدار بودن مدل نیست."
+            },
+            {
+              "id": "E02-ST02-L04-CARD05",
+              "title": "فعالیت، منبع و شریک کلیدی",
+              "text": "برای تحویل ارزش، فعالیت‌های ضروری، منابع متمایز و شرکای وابسته را فهرست کنید. در خدمت دیجیتال شاید تطبیق، پشتیبانی، پرداخت و مدیریت اعتماد مهم‌تر از ساختن اپ باشد. برون‌سپاری هر فعالیت، مسئولیت تجربه و ریسک را حذف نمی‌کند."
+            },
+            {
+              "id": "E02-ST02-L04-CARD06",
+              "title": "هزینه‌ها را به سازوکار وصل کن",
+              "text": "هزینهٔ جذب هر گروه، مشوق عرضه، زیرساخت، پشتیبانی، نظارت، تقلب و شکایت را جدا کنید. هزینهٔ خدمت موفق را با درآمد خالص آن مقایسه کنید؛ متوسط کل می‌تواند زیان یک گروه یا منطقه را پنهان کند."
+            },
+            {
+              "id": "E02-ST02-L04-CARD07",
+              "title": "بوم فرضیه است، صورت‌حساب نیست",
+              "text": "Business Model Canvas راهی برای دیدن پیوند اجزاست، نه اثبات سودآوری. هر خانه را با فرضیه و شاهد برچسب بزنید. اگر درآمد به کمیسیون وابسته است، پیش‌فرض «تراکنش کافی و ارزشمند» را در میدان آزمایش کنید."
+            },
+            {
+              "id": "E02-ST02-L04-CARD08",
+              "title": "نمونهٔ کوچک برای سپهر",
+              "text": "در یک محله، مشتری زمان مطمئن می‌خواهد و متخصص سفارش مناسب و پرداخت قابل‌اعتماد. سپهر از هر خدمت موفق کارمزد می‌گیرد. آزمایش محدود باید نرخ تطبیق، زمان انتظار، تکمیل، بازگشت دو گروه، درآمد خالص و شکایت را بسنجد؛ رشد نصب، آزمون مدل نیست."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "E02-ST02-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "کدام توصیف یک مدل کسب‌وکار کامل‌تری است؟",
+              "remediation_card_id": "E02-ST02-L04-CARD01",
+              "variant": "A",
+              "id": "E02-ST02-L04-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مخاطب و ارزش، روش ارائه، درآمد و هزینه و قابلیت اجرای آن به هم متصل‌اند",
+                  "feedback": "درست: مدل کسب‌وکار منطق خلق، ارائه و پایداری ارزش را در پیوند اجزا توضیح می‌دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "فهرست ویژگی‌های اپ و فناوری مورد استفاده",
+                  "feedback": "بازبینی: مدل کسب‌وکار منطق خلق، ارائه و پایداری ارزش را در پیوند اجزا توضیح می‌دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "برنامهٔ تبلیغاتی بدون توضیح مشتری یا درآمد",
+                  "feedback": "بازبینی: مدل کسب‌وکار منطق خلق، ارائه و پایداری ارزش را در پیوند اجزا توضیح می‌دهد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "مدل کسب‌وکار منطق خلق، ارائه و پایداری ارزش را در پیوند اجزا توضیح می‌دهد."
+            },
+            {
+              "objective_id": "E02-ST02-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "در پلتفرم سپهر، چرا باید دو سوی بازار جدا تحلیل شوند؟",
+              "remediation_card_id": "E02-ST02-L04-CARD02",
+              "variant": "A",
+              "id": "E02-ST02-L04-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چون فقط فروشنده مشتری واقعی است",
+                  "feedback": "بازبینی: تحلیل جداگانه، فرضیه‌های ارزش و مشارکت هر طرف را قابل‌آزمون می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "چون درآمد کمیسیون همهٔ هزینه‌ها را توضیح می‌دهد",
+                  "feedback": "بازبینی: تحلیل جداگانه، فرضیه‌های ارزش و مشارکت هر طرف را قابل‌آزمون می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "چون نیاز، انگیزه و هزینهٔ هر گروه متفاوت است و ارزش هر سو به سوی دیگر وابسته است",
+                  "feedback": "درست: تحلیل جداگانه، فرضیه‌های ارزش و مشارکت هر طرف را قابل‌آزمون می‌کند."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "تحلیل جداگانه، فرضیه‌های ارزش و مشارکت هر طرف را قابل‌آزمون می‌کند."
+            },
+            {
+              "objective_id": "E02-ST02-L04-OBJ03",
+              "type": "single_choice",
+              "prompt": "یک Canvas پرشده چه چیزی را ثابت نمی‌کند؟",
+              "remediation_card_id": "E02-ST02-L04-CARD03",
+              "variant": "A",
+              "id": "E02-ST02-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "این‌که فرض‌ها روی کاغذ ثبت شده‌اند",
+                  "feedback": "بازبینی: بوم ابزار ساخت و گفت‌وگوست، نه مدرک موفقیت."
+                },
+                {
+                  "id": "b",
+                  "text": "سودآوری یا کشش بازار؛ فرضیه‌ها هنوز باید با شواهد آزموده شوند",
+                  "feedback": "درست: بوم ابزار ساخت و گفت‌وگوست، نه مدرک موفقیت."
+                },
+                {
+                  "id": "c",
+                  "text": "این‌که اجزای مدل به هم فکر شده‌اند",
+                  "feedback": "بازبینی: بوم ابزار ساخت و گفت‌وگوست، نه مدرک موفقیت."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "بوم ابزار ساخت و گفت‌وگوست، نه مدرک موفقیت."
+            },
+            {
+              "objective_id": "E02-ST02-L04-OBJ04",
+              "type": "single_choice",
+              "prompt": "برای آزمون مدل کمیسیون سپهر کدام شاخص‌ها مرتبط‌ترند؟",
+              "remediation_card_id": "E02-ST02-L04-CARD04",
+              "variant": "A",
+              "id": "E02-ST02-L04-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نرخ تطبیق و تکمیل، بازگشت هر دو گروه، درآمد خالص و هزینهٔ خدمت موفق",
+                  "feedback": "درست: مدل کمیسیون باید هم تعامل دوطرفه و هم اقتصاد تراکنش را نشان دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "تعداد نصب بدون پیگیری رفتار",
+                  "feedback": "بازبینی: مدل کمیسیون باید هم تعامل دوطرفه و هم اقتصاد تراکنش را نشان دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "تعداد قابلیت‌های منتشرشده",
+                  "feedback": "بازبینی: مدل کمیسیون باید هم تعامل دوطرفه و هم اقتصاد تراکنش را نشان دهد."
+                }
+              ],
+              "equivalence_group": "E02-ST02-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "مدل کمیسیون باید هم تعامل دوطرفه و هم اقتصاد تراکنش را نشان دهد."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "WORLD-BANK-WDR2021-DATA",
+              "title": "World Bank, World Development Report 2021: Data for Better Lives",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار."
+            },
+            {
+              "id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "title": "World Bank, Leveling the playing field: data-driven business models and platforms",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند."
+            },
+            {
+              "id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "title": "World Bank, The social contract for data",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "review_depth": "primary_institutional_report_reviewed",
+              "scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است."
+            },
+            {
+              "id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "title": "NBER Working Paper 30881, Data Economy and Platform Competition",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید."
+            },
+            {
+              "id": "STRATEGYZER-BMC",
+              "title": "Strategyzer, The Business Model Canvas",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند."
+            }
+          ],
+          "practice_activity": {
+            "type": "data-platform-model-analysis",
+            "prompt": "برای سناریوی ساختگی سپهر، «بررسی یک مدل کسب‌وکار دیجیتال» را تحلیل کنید. یک فرضیهٔ روشن، شاهد موردنیاز، معیار پیامد و ریسک اصلی را ثبت کنید.",
+            "expected_output": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [
+            "E02-ST01-L01"
+          ],
+          "prerequisites_block_access": false,
+          "content_ref": "content/e02/lessons/E02-ST02-L04.json",
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "WORLD-BANK-WDR2021-DATA",
+            "WORLD-BANK-WDR2021-PLATFORMS",
+            "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+            "NBER-W30881-DATA-PLATFORM-ECONOMY",
+            "STRATEGYZER-BMC"
+          ],
+          "source_scope": "گزارش بانک جهانی منبع نهادی زمینه‌ای؛ NBER 30881 مقالهٔ کاری نظری و نه داوری نهایی؛ Strategyzer چارچوب حرفه‌ای است. سناریوی سپهر ساختگی است و ادعاهای علّی باید آزموده شوند.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "پلتفرم‌های خدمات محلی چندسویه"
+            ],
+            "real_case_status": "conceptual_example_only; no firm-specific causal claims"
+          },
+          "media_plan": {
+            "type": "business-model-canvas",
+            "purpose": "نمایش سازوکار و فرض‌های اقتصادی درس",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "فهم مفهوم",
+              "تشخیص خطا",
+              "کاربرد در سپهر",
+              "انتقال به تصمیم مدیریتی"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 22,
+            "practice": 20
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "جدول فرضیه، سازوکار، شاخص، هزینه/ریسک و تصمیم آزمایشی",
+          "selected_source_refs": [
+            {
+              "source_id": "WORLD-BANK-WDR2021-DATA",
+              "url": "https://wdr2021.worldbank.org/the-report/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "چارچوب ارزش داده، بخش خصوصی، بازاستفاده، زیرساخت، حکمرانی و رقابت؛ گزارش مروری/سیاستی با داده‌های عمدتاً تا حوالی 2020 و نه برآورد لحظه‌ای بازار.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-WDR2021-PLATFORMS",
+              "url": "https://wdr2021.worldbank.org/stories/leveling-the-playing-field/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_evidence_and_policy_reviewed",
+              "supports_scope": "چرخهٔ داده در کسب‌وکار، رشد پلتفرم و ریسک تمرکز/قدرت بازار؛ نمونه‌ها و داده‌های وب صفحه مربوط به 2020 هستند و برای وضعیت امروز باید با منابع جدید تکمیل شوند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "WORLD-BANK-DATA-SOCIAL-CONTRACT",
+              "url": "https://wdr2021.worldbank.org/stories/the-social-contract-for-data/",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_institutional_report_reviewed",
+              "supports_scope": "ارزش داده از استفاده و بینش، صرفه‌های مقیاس و لزوم اعتماد و حکمرانی؛ منبع آموزشی مفهومی است.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "NBER-W30881-DATA-PLATFORM-ECONOMY",
+              "url": "https://www.nber.org/system/files/working_papers/w30881/revisions/w30881.rev0.pdf",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "working_paper_theory_reviewed_not_peer_reviewed",
+              "supports_scope": "مدل نظری تعامل دادهٔ کاربر، بهبود محصول، اثرات شبکه و رقابت پلتفرم؛ نتیجهٔ مدل را به‌عنوان قانون تجربی همهٔ بازارها تعمیم ندهید.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            },
+            {
+              "source_id": "STRATEGYZER-BMC",
+              "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+              "locator": "WDR 2021 chapters 3–7 / data-driven business models / platform competition; NBER theory sections on data feedback and network externalities; Strategyzer BMC nine building blocks as framework",
+              "review_depth": "primary_practitioner_framework_reviewed",
+              "supports_scope": "چارچوب عملی برای ترسیم منطق ارزش و اجزای مدل کسب‌وکار؛ ابزار آموزشی/عملی است و شواهد سودآوری فراهم نمی‌کند.",
+              "gap": "منابع چارچوب، شواهد تاریخی یا مدل نظری‌اند؛ برای تصمیم سازمانی روز باید دادهٔ موردی، منابع جدید و ارزیابی متخصص افزوده شود.",
+              "coverage": "partial",
+              "publication_status": "open_reference_candidate",
+              "checked_at": "2026-10-19"
+            }
+          ]
+        }
+      ],
+      "checkpoint": {
+        "id": "E02-ST02-CP",
+        "node_type": "stage_checkpoint",
+        "item_count": 6,
+        "bank_status": "authored_draft",
+        "unlocks_next_stage": false,
+        "questions": [
+          {
+            "objective_id": "E02-ST02-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "چرا ثبت دادهٔ بیشتر به‌تنهایی ارزش را ثابت نمی‌کند؟",
+            "remediation_card_id": "E02-ST02-L01-CARD02",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q01",
+            "options": [
+              {
+                "id": "a",
+                "text": "داده باید به تصمیم و اقدام و پیامد قابل سنجش وصل شود",
+                "feedback": "درست: ارزش داده از استفادهٔ مسئولانه و بینش/اقدام ناشی می‌شود"
+              },
+              {
+                "id": "b",
+                "text": "تعداد فایل‌ها مستقیماً سود را نشان می‌دهد",
+                "feedback": "بازبینی: ارزش داده از استفادهٔ مسئولانه و بینش/اقدام ناشی می‌شود"
+              },
+              {
+                "id": "c",
+                "text": "دادهٔ بیشتر همیشه کیفیت نمونه را تضمین می‌کند",
+                "feedback": "بازبینی: ارزش داده از استفادهٔ مسئولانه و بینش/اقدام ناشی می‌شود"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "ارزش داده از استفادهٔ مسئولانه و بینش/اقدام ناشی می‌شود"
+          },
+          {
+            "objective_id": "E02-ST02-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "سپهر کلیک را بالا برده ولی نتیجهٔ مشتری تغییر نکرده است. چه باید کرد؟",
+            "remediation_card_id": "E02-ST02-L01-CARD06",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q02",
+            "options": [
+              {
+                "id": "a",
+                "text": "موفقیت را فقط با کلیک اعلام کنیم",
+                "feedback": "بازبینی: تعامل، نتیجهٔ نهایی نیست؛ سازوکار باید ارزیابی شود"
+              },
+              {
+                "id": "b",
+                "text": "همهٔ داده‌ها را حذف کنیم",
+                "feedback": "بازبینی: تعامل، نتیجهٔ نهایی نیست؛ سازوکار باید ارزیابی شود"
+              },
+              {
+                "id": "c",
+                "text": "زنجیرهٔ فرضیه تا پیامد را بررسی و معیار نهایی را بسنجیم",
+                "feedback": "درست: تعامل، نتیجهٔ نهایی نیست؛ سازوکار باید ارزیابی شود"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "تعامل، نتیجهٔ نهایی نیست؛ سازوکار باید ارزیابی شود"
+          },
+          {
+            "objective_id": "E02-ST02-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "ارزش یک سوی پلتفرم با افزایش گروه دیگر بیشتر می‌شود. این چه اثری است؟",
+            "remediation_card_id": "E02-ST02-L02-CARD04",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q03",
+            "options": [
+              {
+                "id": "a",
+                "text": "هزینهٔ تغییر",
+                "feedback": "بازبینی: وابستگی ارزش دو سوی متفاوت بازار نشان‌دهندهٔ اثر غیرمستقیم است"
+              },
+              {
+                "id": "b",
+                "text": "اثر شبکهٔ غیرمستقیم",
+                "feedback": "درست: وابستگی ارزش دو سوی متفاوت بازار نشان‌دهندهٔ اثر غیرمستقیم است"
+              },
+              {
+                "id": "c",
+                "text": "صرفهٔ مقیاس تولید",
+                "feedback": "بازبینی: وابستگی ارزش دو سوی متفاوت بازار نشان‌دهندهٔ اثر غیرمستقیم است"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "وابستگی ارزش دو سوی متفاوت بازار نشان‌دهندهٔ اثر غیرمستقیم است"
+          },
+          {
+            "objective_id": "E02-ST02-CP-OBJ04",
+            "type": "single_choice",
+            "prompt": "برای شروع بازار دوطرفهٔ محلی کدام معیار مفیدتر است؟",
+            "remediation_card_id": "E02-ST02-L02-CARD06",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q04",
+            "options": [
+              {
+                "id": "a",
+                "text": "سرعت و نرخ تطبیق موفق در یک محدودهٔ مشخص",
+                "feedback": "درست: معیار نقدشوندگی، تطبیق به‌موقع و باکیفیت را می‌سنجد"
+              },
+              {
+                "id": "b",
+                "text": "تعداد ثبت‌نام کل بدون تعامل",
+                "feedback": "بازبینی: معیار نقدشوندگی، تطبیق به‌موقع و باکیفیت را می‌سنجد"
+              },
+              {
+                "id": "c",
+                "text": "تعداد کشورهایی که تبلیغ دیده‌اند",
+                "feedback": "بازبینی: معیار نقدشوندگی، تطبیق به‌موقع و باکیفیت را می‌سنجد"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "معیار نقدشوندگی، تطبیق به‌موقع و باکیفیت را می‌سنجد"
+          },
+          {
+            "objective_id": "E02-ST02-CP-OBJ05",
+            "type": "single_choice",
+            "prompt": "هزینهٔ حاشیه‌ای پایین چه چیزی را نفی نمی‌کند؟",
+            "remediation_card_id": "E02-ST02-L03-CARD01",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q05",
+            "options": [
+              {
+                "id": "a",
+                "text": "صفر بودن هزینهٔ ساخت اولیه",
+                "feedback": "بازبینی: هزینه‌های ثابت، مرحله‌ای و پشتیبانی را باید جدا دید"
+              },
+              {
+                "id": "b",
+                "text": "ثابت بودن کیفیت در هر مقیاس",
+                "feedback": "بازبینی: هزینه‌های ثابت، مرحله‌ای و پشتیبانی را باید جدا دید"
+              },
+              {
+                "id": "c",
+                "text": "افزایش هزینهٔ پشتیبانی، زیرساخت و کنترل با رشد",
+                "feedback": "درست: هزینه‌های ثابت، مرحله‌ای و پشتیبانی را باید جدا دید"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "هزینه‌های ثابت، مرحله‌ای و پشتیبانی را باید جدا دید"
+          },
+          {
+            "objective_id": "E02-ST02-CP-OBJ06",
+            "type": "single_choice",
+            "prompt": "بوم مدل کسب‌وکار پر شده؛ چه نتیجه‌ای می‌توان گرفت؟",
+            "remediation_card_id": "E02-ST02-L04-CARD07",
+            "variant": "A",
+            "id": "E02-ST02-CP-Q06",
+            "options": [
+              {
+                "id": "a",
+                "text": "نیازی به سنجش بازار نیست",
+                "feedback": "بازبینی: Canvas چارچوب تحلیل است و موفقیت را اثبات نمی‌کند"
+              },
+              {
+                "id": "b",
+                "text": "فرضیه‌ها ساختار یافته‌اند اما باید با شواهد و اقتصاد واقعی آزموده شوند",
+                "feedback": "درست: Canvas چارچوب تحلیل است و موفقیت را اثبات نمی‌کند"
+              },
+              {
+                "id": "c",
+                "text": "سودآوری تضمین شده است",
+                "feedback": "بازبینی: Canvas چارچوب تحلیل است و موفقیت را اثبات نمی‌کند"
+              }
+            ],
+            "equivalence_group": "E02-ST02-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "Canvas چارچوب تحلیل است و موفقیت را اثبات نمی‌کند"
+          }
+        ]
+      },
+      "tool_plan": {
+        "type": "data-value-chain-platform-economics-business-model-canvas",
         "status": "planned_not_created"
       }
     }
