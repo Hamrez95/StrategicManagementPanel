@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Design contract; does not prescribe app framework, database migration or deployment",
+  "entities": {
+    "path": {"fields": ["id", "title", "kind", "course_ids", "recommended_order"]},
+    "course": {"fields": ["id", "version", "title", "group", "path_id", "stages", "final_assessment", "release_status"]},
+    "stage": {"fields": ["id", "title", "order", "color_token", "lessons", "checkpoint", "legacy_research_topic_ids"]},
+    "lesson": {"fields": ["id", "version", "title", "objective", "content_status", "learning_cards", "assessment_ref", "source_refs", "free_sample"]},
+    "question": {"private_bank_fields": ["id", "version", "objective_id", "type", "prompt", "options", "correct_option_id", "explanation", "equivalence_group", "remediation_card_id"], "public_delivery_omits": ["correct_option_id", "private_rubric", "unsubmitted_feedback"]},
+    "attempt": {"fields": ["id", "idempotency_key", "learner_id", "assessment_id", "content_version", "question_variant_ids", "responses", "hint_used", "started_at", "submitted_at", "server_result"]},
+    "progress": {"fields": ["learner_id", "lesson_id", "content_version", "last_card_id", "learning_status", "mastery_status", "save_status", "review_due_at"]},
+    "note": {"fields": ["id", "learner_id", "lesson_id", "card_id", "content_version", "body", "visibility", "optional_workspace_context"]}
+  },
+  "enums": {
+    "content_status": ["outline", "draft", "reviewed", "published", "archived"],
+    "learning_status": ["not_started", "in_progress", "read", "completed"],
+    "mastery_status": ["not_assessed", "review_needed", "mastered"],
+    "access_status": ["free", "entitled", "not_in_package", "expired"],
+    "save_status": ["saved", "pending_sync", "failed"],
+    "card_type": ["problem", "definition", "explanation", "worked_example", "real_case", "contrast", "authored_diagram", "formula", "table", "summary"],
+    "question_type": ["single_choice", "multiple_choice", "numeric", "matching", "ordering", "scenario_choice", "short_response", "canvas_activity"]
+  },
+  "invariants": [
+    "Access is determined by free sample or package entitlement, never by learning_status or mastery_status.",
+    "Stage color is independent of progress, and always accompanied by text and status marker.",
+    "A viewed card, a corrected answer and an independently correct answer are distinct events.",
+    "Submitting a repeated idempotency key does not create another attempt or payment.",
+    "Open-response and canvas submissions are not auto-marked correct merely because they were saved.",
+    "No live lesson route may represent an outline as authored teaching content.",
+    "The sample JSON exposes answer keys only for design review and is not a production API payload.",
+    "Legacy research IDs are provenance links, not an automatic learner-progress migration.",
+    "Personal notes remain private; any linked workspace data also requires that workspace membership."
+  ],
+  "initial_product_settings": {
+    "lesson_items": 5,
+    "lesson_independent_mastery_correct": 4,
+    "stage_review_items_for_four_lessons": 6,
+    "course_final_items_per_stage": 5,
+    "C07_final_items": 24,
+    "course_final_target_percent": 80,
+    "review_suggestion_days": [1, 3, 7, 21],
+    "settings_evidence": "Editorial product defaults; not experimentally validated for this app"
+  }
+}

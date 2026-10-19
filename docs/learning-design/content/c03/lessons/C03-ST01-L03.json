@@ -1,0 +1,276 @@
+{
+  "id": "C03-ST01-L03",
+  "version": "2-draft",
+  "title": "نرخ واقعی، اسمی و خطای واحد",
+  "content_status": "draft",
+  "objective": "نرخ واقعی/اسمی و نرخ ماهانه/سالانه را از هم تفکیک کند.",
+  "learning_cards": [
+    {
+      "id": "C03-ST01-L03-CARD01",
+      "type": "problem",
+      "title": "هدف این درس‌نامه",
+      "text": "نرخ واقعی/اسمی و نرخ ماهانه/سالانه را از هم تفکیک کند."
+    },
+    {
+      "id": "C03-ST01-L03-CARD02",
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "نرخ اسمی پیش از تعدیل تورم است؛ نرخ واقعی تغییر قدرت خرید را می‌سنجد. رابطهٔ دقیق فیشر: (1+i)=(1+r)(1+π)، که i اسمی، r واقعی و π تورم هم‌دوره است. تفریق نرخ‌ها تقریب است."
+    },
+    {
+      "id": "C03-ST01-L03-CARD03",
+      "type": "explanation",
+      "title": "روش کار",
+      "text": "واحد زمانی را بخوانید. نرخ مؤثر سالانهٔ ماهانهٔ مرکب از (1+rₘ)^12−1 است. برای نرخ واقعی، نرخ و تورم یک افق را در رابطهٔ فیشر بگذارید. مشخص کنید نرخ تنزیل اسمی یا واقعی و مؤثر یا اسمی اعلامی است."
+    },
+    {
+      "id": "C03-ST01-L03-CARD04",
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ سپهر فرضی",
+      "text": "نرخ ماهانهٔ مؤثر ۱٪، سالانه (۱٫۰۱)^۱۲−۱≈۱۲٫۶۸٪ می‌شود. اسمی ۱۰٪ و تورم ۴٪ نرخ واقعی دقیق ۵٫۷۷٪ می‌دهد؛ ۶٪ فقط تقریب تفاضلی است.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C03-ST01-L03-CARD05",
+      "type": "contrast",
+      "title": "خطای رایج",
+      "text": "نرخ ماهانه را با تعداد سال در توان نگذارید. تورم موردانتظار برای تصمیم آینده را با تورم تحقق‌یافته برای بازده گذشته اشتباه نگیرید."
+    },
+    {
+      "id": "C03-ST01-L03-CARD06",
+      "type": "explanation",
+      "title": "هم‌دوره‌کردن نرخ و قدرت خرید",
+      "text": "اگر بهره هر ماه روی ماندهٔ ماه پیش اضافه شود، نرخ سالانه اثر ترکیب دوازده‌باره را دارد؛ ضرب سادهٔ نرخ ماهانه در ۱۲ فقط تقریب است. رابطهٔ دقیق فیشر نیز نسبت رشد پول را بر نسبت تغییر سطح قیمت تقسیم می‌کند. پیش از آینده، از تورم موردانتظار برای همان افق استفاده می‌کنیم؛ پس از پایان دوره، تورم مشاهده‌شده برای محاسبهٔ بازده واقعی تحقق‌یافته مناسب است. این دو پاسخ پرسش‌های زمانی متفاوت‌اند و در یک تصمیم نباید بی‌توضیح جابه‌جا شوند."
+    },
+    {
+      "id": "C03-ST01-L03-CARD07",
+      "type": "key_terms",
+      "title": "واژگان تخصصی پرتکرار",
+      "text": "در واژگان منابع، Nominal rate نرخ اسمی؛ real rate نرخ واقعی؛ effective annual rate نرخ مؤثر سالانه با ترکیب؛ compounding ترکیب بهره؛ Fisher equation رابطهٔ دقیق میان نرخ اسمی، واقعی و تورم است."
+    },
+    {
+      "id": "C03-ST01-L03-CARD08",
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+      "elements": [
+        "نرخ اعلامی",
+        "دفعات ترکیب",
+        "نرخ مؤثر",
+        "تعدیل تورم"
+      ],
+      "alt": "نرخ اعلامی؛ دفعات ترکیب؛ نرخ مؤثر؛ تعدیل تورم"
+    },
+    {
+      "id": "C03-ST01-L03-CARD09",
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "نرخ، دوره، دفعات ترکیب و نوع تورم را صریح ثبت کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C03-ST01-L03-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "۱٪ ماهانهٔ مرکب، نرخ مؤثر سالانه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "۱۲٫۶۸٪",
+          "feedback": "ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+        },
+        {
+          "id": "b",
+          "text": "۱۲٪ دقیق",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+        },
+        {
+          "id": "c",
+          "text": "۱٪",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L03-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "اسمی۱۰٪ و تورم۴٪، نرخ واقعی دقیق؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "۶٪ دقیق",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+        },
+        {
+          "id": "c",
+          "text": "۱۴٪",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+        },
+        {
+          "id": "a",
+          "text": "۵٫۷۷٪",
+          "feedback": "۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L03-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای جریان ماهانه چه نرخ مستقیم‌تر سازگار است؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "تورم سال قبل",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید هم‌دوره باشد."
+        },
+        {
+          "id": "a",
+          "text": "نرخ مؤثر ماهانه",
+          "feedback": "دورهٔ جریان و نرخ باید هم‌دوره باشد."
+        },
+        {
+          "id": "b",
+          "text": "سالانه بدون تبدیل",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید هم‌دوره باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دورهٔ جریان و نرخ باید هم‌دوره باشد.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L03-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تصمیم پیش از آینده به کدام تورم نیاز دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تورم موردانتظار همان افق",
+          "feedback": "تصمیم پیشینی بر انتظار متکی است."
+        },
+        {
+          "id": "b",
+          "text": "فقط تورم گذشته",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکی است."
+        },
+        {
+          "id": "c",
+          "text": "نرخ ارز",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکی است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تصمیم پیشینی بر انتظار متکی است.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ اسمی اعلامی به‌تنهایی چه چیزی را کامل روشن نمی‌کند؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "عدد اعلامی",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. هزینهٔ واقعی به این فرض‌ها وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "نام وام‌دهنده",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. هزینهٔ واقعی به این فرض‌ها وابسته است."
+        },
+        {
+          "id": "a",
+          "text": "ترکیب، تورم و افق",
+          "feedback": "هزینهٔ واقعی به این فرض‌ها وابسته است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "هزینهٔ واقعی به این فرض‌ها وابسته است.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "oxexec",
+      "title": "برنامهٔ اجرایی مالی آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+      "accessed_on": "2026-10-19",
+      "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+    },
+    {
+      "id": "ox",
+      "title": "هستهٔ Business Finance در MBA آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+    },
+    {
+      "id": "hbs",
+      "title": "هاروارد: Finance I و Finance II در MBA",
+      "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+    },
+    {
+      "id": "nyunotes",
+      "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+      "accessed_on": "2026-10-19",
+      "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "نرخ مؤثر سالانهٔ نرخ ماهانهٔ ۱٪ را بیابید.",
+    "unit": "درصد",
+    "answer": 12.68,
+    "absolute_tolerance": 0.02,
+    "solution": "(۱٫۰۱)^۱۲−۱=۱۲٫۶۸٪.",
+    "rubric": [
+      "ترکیب دوازده ماه",
+      "تبدیل به درصد"
+    ],
+    "auto_grade": true
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+  ],
+  "prerequisites_block_access": false
+}

@@ -1,0 +1,276 @@
+{
+  "id": "C03-ST01-L04",
+  "version": "2-draft",
+  "title": "نرخ و واحد پول را یکسان کنیم",
+  "content_status": "draft",
+  "objective": "جریان نقد را با ارز و نرخ تنزیل هم‌واحد کند.",
+  "learning_cards": [
+    {
+      "id": "C03-ST01-L04-CARD01",
+      "type": "problem",
+      "title": "هدف این درس‌نامه",
+      "text": "جریان نقد را با ارز و نرخ تنزیل هم‌واحد کند."
+    },
+    {
+      "id": "C03-ST01-L04-CARD02",
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "جریان و نرخ تنزیل باید با ارز و دوره سازگار باشند؛ یا جریان ارزی را با تاریخ و نرخ تبدیل روشن به ارز گزارش برگردانیم. تبدیل ارز یک فرض زمان‌دار است، نه مرحلهٔ بی‌اثر فرمول."
+    },
+    {
+      "id": "C03-ST01-L04-CARD03",
+      "type": "explanation",
+      "title": "روش کار",
+      "text": "ارز گزارش را مشخص کنید؛ تاریخ جریان و نرخ تبدیل را ثبت کنید؛ جریان‌ها را هم‌واحد کنید؛ سپس نرخ تنزیل هم‌ارز و متناسب با ریسک را به‌کار ببرید. در پروژهٔ چندارزی، هر جریان و سناریوی ارز را جدا بررسی کنید."
+    },
+    {
+      "id": "C03-ST01-L04-CARD04",
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ سپهر فرضی",
+      "text": "سپهر یک سال بعد ۱۰۰۰ دلار می‌گیرد. با فرض آموزشی ۱٫۲ واحد داخلی برای هر دلار، جریان داخلی ۱۲۰۰ می‌شود. با نرخ داخلی ۱۰٪، PV≈۱۰۹۰٫۹۱ واحد داخلی. نرخ واقعی ارز تضمین نشده است و مثال پیش‌بینی نیست.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C03-ST01-L04-CARD05",
+      "type": "contrast",
+      "title": "خطای رایج",
+      "text": "۱۰۰۰ دلار را مستقیم با ۱۰۰۰ واحد داخلی جمع نکنید. جریان دلاری را با نرخ داخلی بدون تبدیل تنزیل نکنید؛ جریان اسمی و نرخ واقعی هم‌جنس نیستند."
+    },
+    {
+      "id": "C03-ST01-L04-CARD06",
+      "type": "explanation",
+      "title": "واحد تحلیل بخشی از مدل است",
+      "text": "واحد پول مانند واحد اندازه‌گیری فیزیکی است: جمع دو ارز بدون تبدیل معنا ندارد. اگر یک جریان دلاری را به واحد داخلی گزارش می‌کنیم، باید نرخ ارز و تاریخ تبدیل را مشخص کنیم. درآمد و هزینهٔ ارزی نیز ممکن است در جهت‌های متفاوت اثر بگیرند. در تحلیل حساسیت، نرخ ارز، زمان دریافت و نرخ تنزیل را جدا بررسی کنید تا ریسک در یک میانگین پنهان نشود. تبدیل عدد به ارز گزارش، عدم‌قطعیت اقتصادی را از بین نمی‌برد؛ فقط فرض آن را آشکار می‌کند."
+    },
+    {
+      "id": "C03-ST01-L04-CARD07",
+      "type": "key_terms",
+      "title": "واژگان تخصصی پرتکرار",
+      "text": "در واژگان منابع، Currency consistency سازگاری ارز جریان و نرخ؛ exchange rate نرخ تبدیل با جهت مشخص؛ nominal cash flow جریان اسمی؛ discount rate نرخ تنزیل است. تاریخ نرخ ارز و نوع نرخ باید روشن باشد."
+    },
+    {
+      "id": "C03-ST01-L04-CARD08",
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+      "elements": [
+        "ارز مبنا",
+        "ارز و تاریخ جریان",
+        "نرخ سازگار",
+        "تبدیل و حساسیت"
+      ],
+      "alt": "ارز مبنا؛ ارز و تاریخ جریان؛ نرخ سازگار؛ تبدیل و حساسیت"
+    },
+    {
+      "id": "C03-ST01-L04-CARD09",
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "واحد ارز را روی هر جریان و نرخ بنویسید و فرض تبدیل را جدا ثبت کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C03-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای جمع دو جریان چه لازم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارز و دورهٔ مشترک",
+          "feedback": "مقادیر باید هم‌واحد باشند."
+        },
+        {
+          "id": "b",
+          "text": "فقط اعشار مشابه",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مقادیر باید هم‌واحد باشند."
+        },
+        {
+          "id": "c",
+          "text": "نام شرکت مشترک",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مقادیر باید هم‌واحد باشند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مقادیر باید هم‌واحد باشند.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "۱۰۰۰ دلار با نرخ۱٫۲ واحد داخلی/دلار چند واحد داخلی؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "۸۳۳٫۳۳",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "۱۰۰۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+        },
+        {
+          "id": "a",
+          "text": "۱۲۰۰",
+          "feedback": "مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش‌گذاری داخلی با جریان ارزی چه می‌خواهد؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "جمع مستقیم اعداد",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. نرخ و جریان باید هم‌ارز شوند."
+        },
+        {
+          "id": "a",
+          "text": "تبدیل زمان‌دار و نرخ داخلی سازگار",
+          "feedback": "نرخ و جریان باید هم‌ارز شوند."
+        },
+        {
+          "id": "b",
+          "text": "نادیده‌گرفتن ارز",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. نرخ و جریان باید هم‌ارز شوند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نرخ و جریان باید هم‌ارز شوند.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش فعلی ۱۲۰۰ آینده با نرخ۱۰٪ چقدر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "۱۰۹۰٫۹۱",
+          "feedback": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        },
+        {
+          "id": "b",
+          "text": "۱۲۰۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        },
+        {
+          "id": "c",
+          "text": "۱۳۲۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "فرض نرخ ارز مثال چه چیزی را تضمین نمی‌کند؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "محاسبهٔ فرضی",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. فرض آموزشی، پیش‌بینی یا تضمین نیست."
+        },
+        {
+          "id": "c",
+          "text": "واحد تبدیل",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. فرض آموزشی، پیش‌بینی یا تضمین نیست."
+        },
+        {
+          "id": "a",
+          "text": "نرخ واقعی آینده",
+          "feedback": "فرض آموزشی، پیش‌بینی یا تضمین نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فرض آموزشی، پیش‌بینی یا تضمین نیست.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "ox",
+      "title": "هستهٔ Business Finance در MBA آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+    },
+    {
+      "id": "oxexec",
+      "title": "برنامهٔ اجرایی مالی آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+      "accessed_on": "2026-10-19",
+      "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+    },
+    {
+      "id": "hbs",
+      "title": "هاروارد: Finance I و Finance II در MBA",
+      "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+    },
+    {
+      "id": "nyunotes",
+      "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+      "accessed_on": "2026-10-19",
+      "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "ارزش فعلی جریان ۱۰۰۰ دلار، نرخ تبدیل فرضی ۱٫۲ داخلی/دلار و نرخ تنزیل داخلی۱۰٪؟",
+    "unit": "واحد داخلی امروز",
+    "answer": 1090.91,
+    "absolute_tolerance": 0.02,
+    "solution": "۱۰۰۰×۱٫۲=۱۲۰۰؛ ۱۲۰۰/۱٫۱۰=۱۰۹۰٫۹۱.",
+    "rubric": [
+      "اول تبدیل ارز",
+      "بعد تنزیل هم‌ارز"
+    ],
+    "auto_grade": true
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+  ],
+  "prerequisites_block_access": false
+}
