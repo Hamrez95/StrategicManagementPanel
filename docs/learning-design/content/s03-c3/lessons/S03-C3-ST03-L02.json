@@ -1,0 +1,267 @@
+{
+  "id": "S03-C3-ST03-L02",
+  "version": "1-draft",
+  "title": "توصیه‌گر و محتوای مولد",
+  "content_status": "draft",
+  "objective": "توصیه‌گر یا محتوای مولد را با هدف مشتری، جایگزین انسانی، کیفیت و پیامد جانبی ارزیابی کند و برای خروجی AI منشأ، کنترل و پایش تعیین کند.",
+  "learning_cards": [
+    {
+      "id": "S03-C3-ST03-L02-CARD01",
+      "type": "explanation",
+      "title": "توصیه‌گر چیست",
+      "text": "توصیه‌گر گزینه‌ها را رتبه‌بندی یا پیشنهاد می‌کند، مثلاً محصول مکمل یا محتوای مرتبط. این سامانه بر تعامل قابل‌مشاهده تکیه دارد و ممکن است کلیک را به‌جای رضایت یا نتیجه بهینه کند. هدف مدل را با نتیجهٔ مشتری و کسب‌وکار هم‌راستا کنید."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD02",
+      "type": "explanation",
+      "title": "تعامل بیشتر همیشه بهتر نیست",
+      "text": "افزایش کلیک می‌تواند از پیشنهاد جذاب یا از حواس‌پرتی و فشار آمده باشد. سنجه‌هایی مانند خرید موفق، بازگشت، تنوع گزینه، شکایت و زمان رسیدن به هدف را کنار CTR ببینید. کوتاه‌مدت و بلندمدت را جدا بسنجید."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD03",
+      "type": "explanation",
+      "title": "سوگیری داده و چرخهٔ محبوبیت",
+      "text": "گزینه‌هایی که بیشتر نمایش داده شده‌اند دادهٔ بیشتری می‌گیرند و دوباره بالاتر می‌آیند؛ موارد تازه یا اقلیت دیده نمی‌شوند. برای کشف ترجیح واقعی، exploration کنترل‌شده و محدود می‌تواند لازم باشد. پیامد آن بر تجربه و ریسک را بررسی کنید."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD04",
+      "type": "explanation",
+      "title": "هدف‌های چندطرفه",
+      "text": "در بازارگاه توصیه به خریدار بر فروشنده و ترکیب عرضه اثر دارد؛ در رسانه، رتبه‌بندی بر تنوع محتوا و مواجهه اثر می‌گذارد. اگر فقط حاشیهٔ فروش یک طرف هدف باشد، ارزش و اعتماد طرف‌های دیگر نادیده می‌ماند. تابع هدف و قیدها را مستند کنید."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD05",
+      "type": "explanation",
+      "title": "محتوای مولد در تجربه",
+      "text": "مدل مولد می‌تواند توضیح محصول، پاسخ پشتیبانی یا خلاصهٔ گزینه‌ها بسازد؛ اما ممکن است اطلاعات نادرست، وعدهٔ نامجاز یا زبان تبعیض‌آمیز تولید کند. محتوا باید به دادهٔ تأییدشده محدود، نمونه‌برداری و بازبینی و راه اصلاح انسانی داشته باشد."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD06",
+      "type": "explanation",
+      "title": "افشای نقش AI",
+      "text": "کاربر باید بداند چه بخش تعاملی یا توصیه‌ای خودکار است وقتی این آگاهی برای اعتماد یا تصمیم مهم است. توضیح کوتاه دربارهٔ عوامل اصلی، حدود داده و راه تغییر ترجیح می‌تواند مفید باشد؛ ادعای «کاملاً شخصی‌سازی‌شده» اگر دقیق نیست اعتماد را می‌کاهد."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD07",
+      "type": "explanation",
+      "title": "معیار کیفیت و زیان",
+      "text": "در توصیه‌گر، relevance، پوشش کاتالوگ، تازگی و تنوع را کنار تبدیل بسنجید. در محتوای مولد، درستی، پوشش، لحن، نرخ اصلاح، ارجاع انسانی و شکایت را بسنجید. خطای کمیاب ولی پرخطر را در میانگین پنهان نکنید."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD08",
+      "type": "explanation",
+      "title": "بازخورد و اختیار مشتری",
+      "text": "کاربر باید بتواند پیشنهاد نامرتبط را رد کند، موضوع را تغییر دهد و اگر ممکن است از توصیهٔ شخصی خارج شود. بازخوردهای منفی و نادیده‌گرفتن پیشنهاد را ثبت کنید. پروفایل قدیمی را حقیقت ثابت ندانید؛ سلیقه و نیاز تغییر می‌کند."
+    },
+    {
+      "id": "S03-C3-ST03-L02-CARD09",
+      "type": "explanation",
+      "title": "واژگان پرتکرار",
+      "text": "Recommender system سامانهٔ توصیه‌گر؛ ranking رتبه‌بندی؛ CTR نرخ کلیک؛ exposure نمایش؛ popularity bias سوگیری محبوبیت؛ exploration کاوش؛ generated content محتوای مولد؛ human escalation ارجاع انسانی است. کلیک بالاتر به‌تنهایی تجربهٔ بهتر را ثابت نمی‌کند."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S03-C3-ST03-L02-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "توصیه‌گر چه چیزی را می‌تواند رتبه‌بندی کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "گزینه‌ها بر اساس سیگنال و هدف تعریف‌شده",
+          "feedback": "درست: گزینه‌ها بر اساس سیگنال و هدف تعریف‌شده."
+        },
+        {
+          "id": "b",
+          "text": "حقیقت رضایت مشتری",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        },
+        {
+          "id": "c",
+          "text": "نیاز همهٔ افراد",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "درست: گزینه‌ها بر اساس سیگنال و هدف تعریف‌شده.",
+      "objective_id": "S03-C3-ST03-L02-OBJ1",
+      "equivalence_group": "S03-C3-ST03-L02-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S03-C3-ST03-L02-CARD01"
+    },
+    {
+      "id": "S03-C3-ST03-L02-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "CTR بالاتر چه چیزی را خودکار ثابت نمی‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نتیجه یا رضایت بهتر مشتری را",
+          "feedback": "درست: نتیجه یا رضایت بهتر مشتری را."
+        },
+        {
+          "id": "b",
+          "text": "کلیک بیشتر",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        },
+        {
+          "id": "c",
+          "text": "وجود تعامل",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "درست: نتیجه یا رضایت بهتر مشتری را.",
+      "objective_id": "S03-C3-ST03-L02-OBJ1",
+      "equivalence_group": "S03-C3-ST03-L02-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S03-C3-ST03-L02-CARD02"
+    },
+    {
+      "id": "S03-C3-ST03-L02-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرخهٔ محبوبیت چگونه شکل می‌گیرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نمایش بیشتر داده می‌سازد و گزینه دوباره رتبهٔ بالاتر می‌گیرد",
+          "feedback": "درست: نمایش بیشتر داده می‌سازد و گزینه دوباره رتبهٔ بالاتر می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text": "داده حذف می‌شود",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        },
+        {
+          "id": "c",
+          "text": "همهٔ گزینه‌ها برابر دیده می‌شوند",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "درست: نمایش بیشتر داده می‌سازد و گزینه دوباره رتبهٔ بالاتر می‌گیرد.",
+      "objective_id": "S03-C3-ST03-L02-OBJ1",
+      "equivalence_group": "S03-C3-ST03-L02-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S03-C3-ST03-L02-CARD03"
+    },
+    {
+      "id": "S03-C3-ST03-L02-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "محتوای مولد چه ریسکی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ادعای نادرست یا نامجاز در پاسخ به مشتری",
+          "feedback": "درست: ادعای نادرست یا نامجاز در پاسخ به مشتری."
+        },
+        {
+          "id": "b",
+          "text": "فقط متن کوتاه",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        },
+        {
+          "id": "c",
+          "text": "فقط نگارش سریع",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "درست: ادعای نادرست یا نامجاز در پاسخ به مشتری.",
+      "objective_id": "S03-C3-ST03-L02-OBJ1",
+      "equivalence_group": "S03-C3-ST03-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S03-C3-ST03-L02-CARD05"
+    },
+    {
+      "id": "S03-C3-ST03-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "اختیار رد پیشنهاد چه فایده‌ای دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اصلاح تجربه و کاهش تحمیل پروفایل اشتباه",
+          "feedback": "درست: اصلاح تجربه و کاهش تحمیل پروفایل اشتباه."
+        },
+        {
+          "id": "b",
+          "text": "تضمین خرید",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        },
+        {
+          "id": "c",
+          "text": "حذف نیاز به سنجه",
+          "feedback": "بازبینی: معیار و کنترل را با اثر واقعی مشتری بسنج."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "درست: اصلاح تجربه و کاهش تحمیل پروفایل اشتباه.",
+      "objective_id": "S03-C3-ST03-L02-OBJ1",
+      "equivalence_group": "S03-C3-ST03-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S03-C3-ST03-L02-CARD08"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "nist-ai-rmf-core",
+      "title": "NIST AI Risk Management Framework (AI RMF)",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "scope": "چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.",
+      "review_depth": "official_framework_reviewed"
+    },
+    {
+      "id": "nist-genai-profile",
+      "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1)",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "scope": "پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.",
+      "review_depth": "official_framework_profile_reviewed"
+    },
+    {
+      "id": "mit-recommender-retail",
+      "title": "MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends",
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends",
+      "scope": "شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.",
+      "review_depth": "university_research_summary_reviewed"
+    },
+    {
+      "id": "mit-code-experiments",
+      "title": "MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation",
+      "url": "https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/",
+      "scope": "اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.",
+      "review_depth": "official_university_research_event_reviewed"
+    },
+    {
+      "id": "mit-cx-strategy",
+      "title": "MIT Sloan Executive Education: Breakthrough Customer Experience Strategy",
+      "url": "https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html",
+      "scope": "شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.",
+      "review_depth": "official_university_program_page_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "سپهر برای بازارگاه خود توصیه‌گر محصول و متن معرفی مولد می‌خواهد. هدف اصلی و دو شاخص حفاظتی تعریف کن، چرخهٔ محبوبیت و خطای محتوایی را بررسی کن، چه زمانی بازبین انسانی وارد شود، و چگونه کاربر بتواند توصیه را رد یا اصلاح کند.",
+    "unit": "طرح تجربه و حاکمیت دادهٔ سپهر؛ سناریو ساختگی است.",
+    "answer": "پاسخ باید هدف خدمت، دادهٔ لازم، کنترل، شاخص نتیجه و محدودیت علت‌یابی را پیوند دهد.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ اختیار مشتری، ریسک و اعتبار اندازه‌گیری باید آشکار باشد.",
+    "rubric": [
+      "تعریف کار و ارزش مشتری (۰–۲)",
+      "تناسب توصیه/محتوا با نیاز و هدف (۰–۲)",
+      "حفاظت داده و کنترل انسانی (۰–۲)",
+      "طراحی سنجش و مقایسه (۰–۲)",
+      "شاخص حفاظتی و شرط توقف (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
