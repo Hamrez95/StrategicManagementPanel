@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-19",
+  "course_id": "S07-C2",
+  "status": "targeted_source_review_for_stage_1; expert_review_pending",
+  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند.",
+  "sources": [
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
+      "url": "https://www.nber.org/papers/w31161",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل."
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار."
+    }
+  ],
+  "stage_notes": {
+    "S07-C2-ST01": {
+      "covered": [
+        "تعریف کاربر، کار و تصمیم",
+        "خط مبنا و شاخص‌های کیفیت",
+        "ارزش زمان و کیفیت برای ذی‌نفعان",
+        "هزینهٔ کل و آمادگی استقرار"
+      ],
+      "limits": [
+        "مثال سپهر و اعداد تمرینی ساختگی‌اند.",
+        "مطالعهٔ میدانی در یک شرکت و وظیفه انجام شده و تعمیم نیازمند آزمون محلی است.",
+        "قیمت اولیهٔ ابزار تمام هزینهٔ استقرار را نشان نمی‌دهد."
+      ]
+    }
+  }
+}
