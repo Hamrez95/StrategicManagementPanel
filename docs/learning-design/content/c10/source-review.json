@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C10",
-  "status": "stage_01_pending_expert_review",
+  "status": "two_stages_pending_expert_review",
   "source_review": "university_ethics_framework_oecd_and_primary_enforcement_documents",
   "source_use_note": "پیوندها برای مراجعه‌اند؛ چارچوب و گزارش‌های اصلی را بازنشر نمی‌کنیم. مثال، درس و سؤال مستقل نوشته شده. جزئیات کیس بر اساس منابع اولیه و با ذکر تاریخ/نهاد صورت‌بندی شده.",
   "sources": [
@@ -32,6 +32,27 @@
       "url": "https://www.justice.gov/usao-wdnc/pr/wells-fargo-agrees-pay-3-billion-resolve-criminal-and-civil-investigations-sales",
       "scope": "شرح توافق و یافته‌های رسمی دربارهٔ رفتار فروش 2002–2016 و اصلاحات؛ منبع اولیهٔ دولتی.",
       "review_depth": "primary_or_official_source_reviewed"
+    },
+    {
+      "id": "coso",
+      "title": "COSO Internal Control—Integrated Framework",
+      "url": "https://www.coso.org/internal-control",
+      "scope": "محیط کنترل، ریسک، فعالیت‌های کنترل، اطلاعات و پایش.",
+      "review_depth": "official_framework_reviewed"
+    },
+    {
+      "id": "nist",
+      "title": "NIST AI RMF Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "scope": "حکمرانی، نقشه، سنجش و مدیریت ریسک AI در چرخهٔ عمر.",
+      "review_depth": "official_framework_reviewed"
+    },
+    {
+      "id": "playbook",
+      "title": "NIST AI RMF Playbook",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/",
+      "scope": "اقدام‌های عملیاتی پیشنهادی برای توابع AI RMF.",
+      "review_depth": "official_framework_reviewed"
     }
   ],
   "stage_notes": [
@@ -40,6 +61,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "قانون/اخلاق، ذی‌نفع و تعارض، روش تصمیم‌گیری و کیس مستند Wells Fargo پوشش داده شد.",
       "ai_note": "این مرحله بر منبع رسمی متکی است؛ برداشت علّی از یافته‌های اجرایی تفکیک شده است."
+    },
+    {
+      "stage_id": "C10-ST02",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "نقش نظارت و اجرا، کنترل داخلی، حکمرانی چرخهٔ AI و پاسخ‌گویی تصمیم پوشش داده شد.",
+      "ai_note": "NIST AI RMF چارچوب ریسک/نظارت است و جای آزمون معتبر در کاربرد مقصد را نمی‌گیرد."
     }
   ]
 }
