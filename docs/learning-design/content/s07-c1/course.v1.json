@@ -3,9 +3,9 @@
   "id": "S07-C1",
   "title": "داده، یادگیری ماشین و AI مولد",
   "version": "1-draft",
-  "status": "draft_in_progress",
-  "stages_completed_draft": 2,
-  "current_stage": "S07-C1-ST03",
+  "status": "draft_complete_pending_review",
+  "stages_completed_draft": 3,
+  "current_stage": null,
   "stages": [
     {
       "id": "S07-C1-ST01",
@@ -2414,6 +2414,1731 @@
         "RAG-retrieval-quality-check",
         "access-boundary-review"
       ]
+    },
+    {
+      "id": "S07-C1-ST03",
+      "title": "انتخاب ابزار برای مسئله",
+      "order": 3,
+      "color_token": "blue",
+      "legacy_research_topic_ids": [],
+      "level": "specialist",
+      "source_refs": [
+        "GOOGLE-ML-MONITORING",
+        "GOOGLE-ML-PRODUCTIONIZATION",
+        "NIST-TEVV-ATHLON-2026",
+        "NIST-AI-RMF-MEASURE"
+      ],
+      "source_alignment": "Google_production_ML_guidance_and_current_NIST_TE​​VV_initial_draft_reviewed",
+      "lessons": [
+        {
+          "id": "S07-C1-ST03-L01",
+          "version": "1-draft",
+          "title": "قاعدهٔ ساده یا مدل؟",
+          "content_status": "draft",
+          "objective": "مسئلهٔ مدیریتی را با خط مبنای ساده شروع کند و وقتی داده، تکرار و ارزش تصمیم توجیه دارد پیچیدگی مدل را بررسی کند.",
+          "learning_cards": [
+            {
+              "title": "از تصمیم و قاعده شروع کنید",
+              "id": "S07-C1-ST03-L01-CARD01",
+              "text": "اگر بتوانید تصمیم را با چند شرط روشن توضیح دهید، یک قاعدهٔ ساده می‌تواند شفاف و ارزان باشد. پیش‌بینی مشتری تازه با الگوهای پیچیده شاید مدل بخواهد؛ اما باید از قاعدهٔ فعلی بهتر عمل کند."
+            },
+            {
+              "title": "خط مبنا چیست؟",
+              "id": "S07-C1-ST03-L01-CARD02",
+              "text": "خط مبنا روش فعلی یا ساده‌ترین روش قابل قبول است: «هفتهٔ بعد مثل هفتهٔ قبل»، «همیشه سفارش فوری را اول بگذار» یا تصمیم انسانی ثبت‌شده. مدل جدید باید در معیار مرتبط از آن ارزش افزوده بسازد."
+            },
+            {
+              "title": "چه وقت مدل ارزش دارد؟",
+              "id": "S07-C1-ST03-L01-CARD03",
+              "text": "وقتی تصمیم پرتکرار است، دادهٔ کافی و مجاز داریم، الگو را انسان به‌سختی می‌بیند، پیامد خطا قابل مدیریت است و بهبود ارزش اقتصادی دارد. پیچیدگی بدون این شروط هزینهٔ تحلیل و نگهداری می‌سازد."
+            },
+            {
+              "title": "دادهٔ کم یا برچسب نامطمئن",
+              "id": "S07-C1-ST03-L01-CARD04",
+              "text": "مدل از برچسب نادرست و پوشش محدود الگوی نادرست می‌آموزد. اگر هر تصمیم کارشناس تعریف متفاوتی دارد، شاید نخست باید روی تعریف، ثبت و کیفیت فرایند توافق شود؛ الگوریتم ابهام مفهومی را جادو نمی‌کند."
+            },
+            {
+              "title": "قاعده و مدل قابل توضیح",
+              "id": "S07-C1-ST03-L01-CARD05",
+              "text": "قاعدهٔ ساده هم ممکن است تبعیض‌آمیز یا بد باشد؛ مدل پیچیده نیز می‌تواند ارزشمند اما دشوارتر برای ممیزی باشد. مقایسه باید عملکرد، توضیح، کنترل، پایداری، اثر بر افراد و هزینهٔ پاسخ‌گویی را پوشش دهد."
+            },
+            {
+              "title": "اتوماسیون در برابر تصمیم کمکی",
+              "id": "S07-C1-ST03-L01-CARD06",
+              "text": "خروجی می‌تواند هشدار برای بررسی انسان باشد یا تصمیم خودکار. با بالا رفتن پیامد و برگشت‌ناپذیری، سطح شواهد، تأیید و امکان اعتراض باید قوی‌تر شود."
+            },
+            {
+              "title": "هزینهٔ پیچیدگی",
+              "id": "S07-C1-ST03-L01-CARD07",
+              "text": "مدل نیازمند داده، pipeline، محاسبه، نسخه‌بندی، امنیت، ارزیابی و پایش است. گروه کوچک ممکن است برای مدل ساده و فرایند انسانی بهتر از مدل اختصاصیِ بدون مالک و نگهدارنده باشد."
+            },
+            {
+              "title": "مثال سپهر",
+              "id": "S07-C1-ST03-L01-CARD08",
+              "text": "اگر فقط چند تأمین‌کننده و قواعد موعد روشن‌اند، قاعدهٔ امتیازدهی ممکن است کافی باشد. وقتی سفارش‌ها، مناطق و الگوها زیاد شوند، مدل پیش‌بینی را با همان خط مبنا مقایسه می‌کنند و تنها در صورت منفعت و کنترل مناسب توسعه می‌دهند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S07-C1-ST03-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "خط مبنا چه فایده‌ای دارد؟",
+              "remediation_card_id": "S07-C1-ST03-L01-CARD02",
+              "variant": "A",
+              "id": "S07-C1-ST03-L01-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جایگزین تصمیم",
+                  "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+                },
+                {
+                  "id": "b",
+                  "text": "تضمین سود",
+                  "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+                },
+                {
+                  "id": "c",
+                  "text": "معیار مقایسه برای ارزش افزودهٔ مدل",
+                  "feedback": "درست: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه زمانی مدل پیچیده توجیه دارد؟",
+              "remediation_card_id": "S07-C1-ST03-L01-CARD03",
+              "variant": "A",
+              "id": "S07-C1-ST03-L01-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وقتی مفهوم برچسب مبهم است",
+                  "feedback": "بازبینی: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+                },
+                {
+                  "id": "b",
+                  "text": "دادهٔ مجاز و تکرار و منفعت قابل سنجش داریم",
+                  "feedback": "درست: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+                },
+                {
+                  "id": "c",
+                  "text": "هر وقت AI در دسترس است",
+                  "feedback": "بازبینی: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "مدل چگونه با تعریف مبهم برچسب روبه‌رو می‌شود؟",
+              "remediation_card_id": "S07-C1-ST03-L01-CARD04",
+              "variant": "A",
+              "id": "S07-C1-ST03-L01-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ابهام فرایند را به‌تنهایی حل نمی‌کند",
+                  "feedback": "درست: کیفیت مفهوم و ثبت قبل از الگوریتم اهمیت دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "همیشه حقیقت را می‌آموزد",
+                  "feedback": "بازبینی: کیفیت مفهوم و ثبت قبل از الگوریتم اهمیت دارد."
+                },
+                {
+                  "id": "c",
+                  "text": "دادهٔ بیشتری لازم نیست",
+                  "feedback": "بازبینی: کیفیت مفهوم و ثبت قبل از الگوریتم اهمیت دارد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "کیفیت مفهوم و ثبت قبل از الگوریتم اهمیت دارد."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "برای تصمیم پراثر چه تغییری لازم است؟",
+              "remediation_card_id": "S07-C1-ST03-L01-CARD06",
+              "variant": "A",
+              "id": "S07-C1-ST03-L01-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "آستانهٔ بی‌بررسی",
+                  "feedback": "بازبینی: شدت حاکمیت باید با پیامد خطا متناسب باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "حذف پایش",
+                  "feedback": "بازبینی: شدت حاکمیت باید با پیامد خطا متناسب باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "شواهد، کنترل انسانی و امکان اعتراض بیشتر",
+                  "feedback": "درست: شدت حاکمیت باید با پیامد خطا متناسب باشد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "شدت حاکمیت باید با پیامد خطا متناسب باشد."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "GOOGLE-ML-MONITORING",
+              "title": "Google ML Crash Course: Production Monitoring Pipelines",
+              "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+            },
+            {
+              "id": "GOOGLE-ML-PRODUCTIONIZATION",
+              "title": "Google for Developers: Productionization",
+              "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+            },
+            {
+              "id": "NIST-TEVV-ATHLON-2026",
+              "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+              "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+              "review_depth": "official_framework_initial_public_draft_reviewed",
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+            },
+            {
+              "id": "NIST-AI-RMF-MEASURE",
+              "title": "NIST AI RMF Core: Measure",
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "review_depth": "official_risk_framework_reviewed",
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+            }
+          ],
+          "practice_activity": {
+            "type": "AI-solution-selection-memo",
+            "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L01.json",
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "GOOGLE-ML-MONITORING",
+            "GOOGLE-ML-PRODUCTIONIZATION",
+            "NIST-TEVV-ATHLON-2026",
+            "NIST-AI-RMF-MEASURE"
+          ],
+          "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_case"
+          },
+          "media_plan": {
+            "type": "solution-selection-and-TEVV-scorecard",
+            "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "خط مبنا",
+              "هزینهٔ عمر",
+              "ارزیابی منصفانه",
+              "یادداشت انتخاب"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 16,
+            "practice": 18
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+        },
+        {
+          "id": "S07-C1-ST03-L02",
+          "version": "1-draft",
+          "title": "دادهٔ لازم و هزینهٔ نگهداری",
+          "content_status": "draft",
+          "objective": "نیاز داده و هزینهٔ کل عمر مدل را برآورد کند و مالکیت، کیفیت، مجوز، نسخه و بار پایش را در تصمیم خرید یا ساخت وارد کند.",
+          "learning_cards": [
+            {
+              "title": "دادهٔ لازم، نه هر داده",
+              "id": "S07-C1-ST03-L02-CARD01",
+              "text": "فهرست ویژگی لازم را از تصمیم استخراج کنید: منبع، مالک، نرخ تازه‌شدن، مجوز، کیفیت و زمان دسترسی. دادهٔ بیشتر لزوماً ارزش بیشتر ندارد و دادهٔ حساس خطر و هزینهٔ نگهداری می‌آورد."
+            },
+            {
+              "title": "جریان داده تا خروجی",
+              "id": "S07-C1-ST03-L02-CARD02",
+              "text": "از ورود تا استفاده نقشه کنید: گردآوری، پاک‌سازی، پیوند، برچسب، ذخیره، استنتاج و نمایش. هر انتقال مالک، کنترل کیفیت و مجوز می‌خواهد؛ پروژه معمولاً بیش از خود مدل اجزا دارد."
+            },
+            {
+              "title": "هزینهٔ کامل چرخهٔ عمر",
+              "id": "S07-C1-ST03-L02-CARD03",
+              "text": "هزینه شامل آماده‌سازی، برچسب‌گذاری، محاسبه، مجوز، زیرساخت، ارزیابی، ادغام، امنیت، پشتیبانی، بازآموزی و خروج است. نسخهٔ اولیه ممکن است ارزان به نظر برسد اما عملیات مداوم هزینه بسازد."
+            },
+            {
+              "title": "مالکیت داده و مدل",
+              "id": "S07-C1-ST03-L02-CARD04",
+              "text": "مشخص کنید چه تیمی داده را تعریف و اصلاح می‌کند، چه کسی مدل را نسخه‌بندی می‌کند و چه کسی رخداد را پاسخ می‌دهد. محصول بدون مالک عملیاتی پس از تغییر منبع داده فرسوده می‌شود."
+            },
+            {
+              "title": "تغییر توزیع و پایش",
+              "id": "S07-C1-ST03-L02-CARD05",
+              "text": "الگوی مشتری، قیمت، فصل و سیستم‌های بالادستی تغییر می‌کنند. توزیع ویژگی، نرخ خطا، latency، کیفیت برچسب و عملکرد زیرگروه را دنبال کنید و برای افت چه کسی هشدار و چه اقدامی دارد تعیین کنید."
+            },
+            {
+              "title": "دادهٔ مصنوعی و محدودیت",
+              "id": "S07-C1-ST03-L02-CARD06",
+              "text": "دادهٔ مصنوعی می‌تواند برای تمرین یا پوشش حالت‌های نادر کمک کند؛ اما ممکن است الگوها را هموار، سوگیری را تکرار یا حریم خصوصی را تهدید کند. آن را با دادهٔ واقعی و تعریف مسئله اعتبارسنجی کنید."
+            },
+            {
+              "title": "خرید خدمت در برابر مالکیت",
+              "id": "S07-C1-ST03-L02-CARD07",
+              "text": "خدمت آماده ممکن است داده را نزد فروشنده پردازش کند یا وابستگی بسازد. شروط نگهداری، استفاده برای آموزش، محل پردازش، خروج داده، نسخهٔ مدل و تغییر سرویس را بررسی کنید. قرارداد و فنی با هم ارزیابی شوند."
+            },
+            {
+              "title": "مثال سپهر",
+              "id": "S07-C1-ST03-L02-CARD08",
+              "text": "پیش‌بینی به تاریخ سفارش، موعد و تاریخچهٔ تأمین‌کننده نیاز دارد. اطلاعات خرید ممکن است حساس باشد؛ تیم منبع، مجوز، تأخیر به‌روزرسانی، مالک برچسب و راه حذف داده پس از توقف را در برگه ثبت می‌کند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S07-C1-ST03-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا دادهٔ بیشتر همیشه بهتر نیست؟",
+              "remediation_card_id": "S07-C1-ST03-L02-CARD01",
+              "variant": "A",
+              "id": "S07-C1-ST03-L02-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "چون مدل داده نمی‌خواند",
+                  "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "چون کیفیت مهم نیست",
+                  "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "هزینه، حساسیت و عدم ارتباط می‌تواند ریسک بسازد",
+                  "feedback": "درست: داده باید به تصمیم مربوط و مجاز باشد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "داده باید به تصمیم مربوط و مجاز باشد."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "هزینهٔ عمر مدل شامل چیست؟",
+              "remediation_card_id": "S07-C1-ST03-L02-CARD03",
+              "variant": "A",
+              "id": "S07-C1-ST03-L02-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط حق اشتراک",
+                  "feedback": "بازبینی: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+                },
+                {
+                  "id": "b",
+                  "text": "ادغام، پایش، امنیت، نگهداری و خروج",
+                  "feedback": "درست: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط آموزش اولیه",
+                  "feedback": "بازبینی: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "تغییر توزیع چه می‌کند؟",
+              "remediation_card_id": "S07-C1-ST03-L02-CARD05",
+              "variant": "A",
+              "id": "S07-C1-ST03-L02-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "رابطهٔ داده و عملکرد را در زمان جابه‌جا می‌کند",
+                  "feedback": "درست: پایش زنده برای تغییر فرایند لازم است."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل را دقیق‌تر می‌کند",
+                  "feedback": "بازبینی: پایش زنده برای تغییر فرایند لازم است."
+                },
+                {
+                  "id": "c",
+                  "text": "داده را حذف می‌کند",
+                  "feedback": "بازبینی: پایش زنده برای تغییر فرایند لازم است."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "پایش زنده برای تغییر فرایند لازم است."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "پیش از خرید API چه بررسی کنیم؟",
+              "remediation_card_id": "S07-C1-ST03-L02-CARD07",
+              "variant": "A",
+              "id": "S07-C1-ST03-L02-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط سرعت دمو",
+                  "feedback": "بازبینی: وابستگی و پردازش داده بر ریسک اثر دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط نام فروشنده",
+                  "feedback": "بازبینی: وابستگی و پردازش داده بر ریسک اثر دارد."
+                },
+                {
+                  "id": "c",
+                  "text": "نگهداری داده، آموزش، خروج، نسخه و پردازش",
+                  "feedback": "درست: وابستگی و پردازش داده بر ریسک اثر دارد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "وابستگی و پردازش داده بر ریسک اثر دارد."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "GOOGLE-ML-MONITORING",
+              "title": "Google ML Crash Course: Production Monitoring Pipelines",
+              "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+            },
+            {
+              "id": "GOOGLE-ML-PRODUCTIONIZATION",
+              "title": "Google for Developers: Productionization",
+              "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+            },
+            {
+              "id": "NIST-TEVV-ATHLON-2026",
+              "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+              "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+              "review_depth": "official_framework_initial_public_draft_reviewed",
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+            },
+            {
+              "id": "NIST-AI-RMF-MEASURE",
+              "title": "NIST AI RMF Core: Measure",
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "review_depth": "official_risk_framework_reviewed",
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+            }
+          ],
+          "practice_activity": {
+            "type": "AI-solution-selection-memo",
+            "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L02.json",
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "GOOGLE-ML-MONITORING",
+            "GOOGLE-ML-PRODUCTIONIZATION",
+            "NIST-TEVV-ATHLON-2026",
+            "NIST-AI-RMF-MEASURE"
+          ],
+          "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_case"
+          },
+          "media_plan": {
+            "type": "solution-selection-and-TEVV-scorecard",
+            "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "خط مبنا",
+              "هزینهٔ عمر",
+              "ارزیابی منصفانه",
+              "یادداشت انتخاب"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 16,
+            "practice": 18
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+        },
+        {
+          "id": "S07-C1-ST03-L03",
+          "version": "1-draft",
+          "title": "مقایسهٔ خروجی انسان و ابزار",
+          "content_status": "draft",
+          "objective": "مقایسهٔ منصفانهٔ خروجی انسان، مدل یا همکاری انسان و مدل طراحی کند و کیفیت، زمان، خطا و پیامد را با نمونه و داوری مناسب بسنجد.",
+          "learning_cards": [
+            {
+              "title": "معیار موفقیت را پیشاپیش تعریف کنید",
+              "id": "S07-C1-ST03-L03-CARD01",
+              "text": "آیا هدف دقت، زمان، پوشش، یکنواختی، رضایت مشتری یا کاهش هزینه است؟ یک معیار تنها می‌تواند هزینه را جابه‌جا کند؛ معیار اصلی و guardrail را قبل از دیدن نتیجه ثبت کنید."
+            },
+            {
+              "title": "نمونهٔ نماینده و آزمون کور",
+              "id": "S07-C1-ST03-L03-CARD02",
+              "text": "موارد ارزیابی باید شبیه کار واقعی و شامل نمونه‌های دشوار و زیرگروه‌های مهم باشند. ارزیاب تا حد امکان نداند پاسخ را انسان یا ابزار ساخته تا انتظارش نمره را منحرف نکند."
+            },
+            {
+              "title": "مقایسهٔ سیب با سیب",
+              "id": "S07-C1-ST03-L03-CARD03",
+              "text": "انسان و ابزار باید دستور، اطلاعات، زمان و معیار یکسان یا تفاوتشان ثبت شده باشد. یک کار ساده برای AI و کار پیچیده برای انسان مقایسهٔ منصفانه نیست. زمان آماده‌سازی و بازبینی را هم به حساب بیاورید."
+            },
+            {
+              "title": "کیفیت و انواع خطا",
+              "id": "S07-C1-ST03-L03-CARD04",
+              "text": "برای خلاصه، حذف نکتهٔ مهم؛ برای طبقه‌بندی، مثبت/منفی کاذب؛ برای توصیه، زیان تصمیم و تفاوت زیرگروه را بررسی کنید. نمونه‌های بد و علت خطا را مرور کنید، نه فقط میانگین نمره."
+            },
+            {
+              "title": "انسان تنها، AI تنها، همکاری",
+              "id": "S07-C1-ST03-L03-CARD05",
+              "text": "سه وضعیت را جدا بسنجید: کارشناس تنها، ابزار تنها و کارشناس با ابزار. همکاری ممکن است بهترین باشد، یا سوگیری اتوماسیون باعث شود انسان خطای مدل را بپذیرد. بازبینی واقعی باید زمان و اختیار اصلاح داشته باشد."
+            },
+            {
+              "title": "هزینه و ارزش عملیاتی",
+              "id": "S07-C1-ST03-L03-CARD06",
+              "text": "اگر مدل دقت را بهتر اما زمان بررسی را دو برابر کند، سود سازمان نامعلوم است. واحد اقتصادی را کامل کنید: زمان، مجوز، خطا، دوباره‌کاری، خسارت و ظرفیت آزادشده."
+            },
+            {
+              "title": "آزمون در محیط واقعی محدود",
+              "id": "S07-C1-ST03-L03-CARD07",
+              "text": "بعد از آزمون آزمایشگاهی، پایلوت با دامنهٔ کوچک و نظارت انسانی اجرا کنید. نرخ مفقودی، شکایت، واکنش کاربر و خطای ثبت‌نشده را دنبال و مسیر بازگشت به فرایند قبلی آماده کنید."
+            },
+            {
+              "title": "مثال سپهر",
+              "id": "S07-C1-ST03-L03-CARD08",
+              "text": "۵۰ سفارش با نمونهٔ دشوار انتخاب می‌شود؛ دو کارشناس مستقل و مدل هر کدام دیرکرد را برچسب می‌زنند. داور سوم اختلاف را حل می‌کند؛ زمان، recall موارد دیررس، هشدار بی‌مورد و تفاوت تأمین‌کنندگان گزارش می‌شود."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S07-C1-ST03-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "معیار و guardrail را چه وقت ثبت کنیم؟",
+              "remediation_card_id": "S07-C1-ST03-L03-CARD01",
+              "variant": "A",
+              "id": "S07-C1-ST03-L03-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "پس از انتخاب برنده",
+                  "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط برای مدل",
+                  "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "پیش از دیدن نتایج مقایسه",
+                  "feedback": "درست: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "چرا ارزیابی کور مفید است؟",
+              "remediation_card_id": "S07-C1-ST03-L03-CARD02",
+              "variant": "A",
+              "id": "S07-C1-ST03-L03-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "مدل را آموزش می‌دهد",
+                  "feedback": "بازبینی: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+                },
+                {
+                  "id": "b",
+                  "text": "انتظار ارزیاب کمتر بر نمره اثر می‌گذارد",
+                  "feedback": "درست: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+                },
+                {
+                  "id": "c",
+                  "text": "داده را حذف می‌کند",
+                  "feedback": "بازبینی: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "چه سه وضعیتی را می‌توان مقایسه کرد؟",
+              "remediation_card_id": "S07-C1-ST03-L03-CARD05",
+              "variant": "A",
+              "id": "S07-C1-ST03-L03-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "انسان تنها، ابزار تنها، انسان با ابزار",
+                  "feedback": "درست: اثر همکاری ممکن است با ابزار تنها فرق کند."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط انسان و مدل",
+                  "feedback": "بازبینی: اثر همکاری ممکن است با ابزار تنها فرق کند."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط مدل‌های رقیب",
+                  "feedback": "بازبینی: اثر همکاری ممکن است با ابزار تنها فرق کند."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "اثر همکاری ممکن است با ابزار تنها فرق کند."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "یک معیار دقت بالا و زمان بررسی دوبرابر؛ نتیجه؟",
+              "remediation_card_id": "S07-C1-ST03-L03-CARD06",
+              "variant": "A",
+              "id": "S07-C1-ST03-L03-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "قطعا بهتر است",
+                  "feedback": "بازبینی: باید کیفیت، زمان و هزینه را با هم بسنجیم."
+                },
+                {
+                  "id": "b",
+                  "text": "قطعا شکست است",
+                  "feedback": "بازبینی: باید کیفیت، زمان و هزینه را با هم بسنجیم."
+                },
+                {
+                  "id": "c",
+                  "text": "ارزش عملیاتی هنوز روشن نیست",
+                  "feedback": "درست: باید کیفیت، زمان و هزینه را با هم بسنجیم."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "باید کیفیت، زمان و هزینه را با هم بسنجیم."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "GOOGLE-ML-MONITORING",
+              "title": "Google ML Crash Course: Production Monitoring Pipelines",
+              "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+            },
+            {
+              "id": "GOOGLE-ML-PRODUCTIONIZATION",
+              "title": "Google for Developers: Productionization",
+              "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+            },
+            {
+              "id": "NIST-TEVV-ATHLON-2026",
+              "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+              "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+              "review_depth": "official_framework_initial_public_draft_reviewed",
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+            },
+            {
+              "id": "NIST-AI-RMF-MEASURE",
+              "title": "NIST AI RMF Core: Measure",
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "review_depth": "official_risk_framework_reviewed",
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+            }
+          ],
+          "practice_activity": {
+            "type": "AI-solution-selection-memo",
+            "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L03.json",
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "GOOGLE-ML-MONITORING",
+            "GOOGLE-ML-PRODUCTIONIZATION",
+            "NIST-TEVV-ATHLON-2026",
+            "NIST-AI-RMF-MEASURE"
+          ],
+          "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_case"
+          },
+          "media_plan": {
+            "type": "solution-selection-and-TEVV-scorecard",
+            "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "خط مبنا",
+              "هزینهٔ عمر",
+              "ارزیابی منصفانه",
+              "یادداشت انتخاب"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 16,
+            "practice": 18
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+        },
+        {
+          "id": "S07-C1-ST03-L04",
+          "version": "1-draft",
+          "title": "یادداشت انتخاب نوع راه‌حل",
+          "content_status": "draft",
+          "objective": "یادداشت انتخابی بسازد که مسئله، خط مبنا، گزینه‌های قاعده/انسان/مدل/GenAI، داده، ارزش، ریسک، شواهد و شرط بازنگری را مستند کند.",
+          "learning_cards": [
+            {
+              "title": "یادداشت تصمیم یک‌صفحه‌ای",
+              "id": "S07-C1-ST03-L04-CARD01",
+              "text": "مسئله و کاربر، تصمیمی که می‌خواهد بهتر شود، مالک، دامنه و پیامد خطا را بنویسید. صورت مسئله باید بی‌طرف باشد؛ «می‌خواهیم AI نصب کنیم» مسئله نیست."
+            },
+            {
+              "title": "گزینه‌ها را کامل فهرست کنید",
+              "id": "S07-C1-ST03-L04-CARD02",
+              "text": "گزینه‌ها می‌تواند قاعدهٔ دستی، بهبود فرایند، گزارش، ML پیش‌بین، مدل زبانی، RAG، خرید خدمت یا عدم اقدام باشد. ابزارهای ساده و تغییر فرایند را از ابتدا حذف نکنید."
+            },
+            {
+              "title": "تناسب داده و فناوری",
+              "id": "S07-C1-ST03-L04-CARD03",
+              "text": "برای هر گزینه دادهٔ لازم، زمان دسترس‌پذیری، کیفیت، مجوز، هزینه و توان نگهداری را مقایسه کنید. روش باید نوع کار را حل کند؛ متن مولد برای محاسبهٔ دقیق یا تصمیم قطعی شاید انتخاب مناسبی نباشد."
+            },
+            {
+              "title": "ارزش و پیامد",
+              "id": "S07-C1-ST03-L04-CARD04",
+              "text": "منفعت را در زمان، کیفیت، خطا یا تصمیم بهتر برآورد و هزینهٔ چرخهٔ عمر را کسر کنید. پیامد برای مشتری، کارمند و گروه‌های متأثر را اضافه کنید؛ صرفه‌جویی ظاهری می‌تواند هزینه را به فرد دیگری منتقل کند."
+            },
+            {
+              "title": "ریسک و کنترل",
+              "id": "S07-C1-ST03-L04-CARD05",
+              "text": "مالک داده و مدل، سطح اختیار، تأیید انسانی، اعتراض، پایش، ثبت نسخه، امنیت و توقف را تعیین کنید. برای کاربرد پراثر، معیار و شواهد قوی‌تر و مسیر پاسخ‌گویی روشن لازم است."
+            },
+            {
+              "title": "شواهد و آزمایش بعدی",
+              "id": "S07-C1-ST03-L04-CARD06",
+              "text": "کیفیت شواهد فعلی را بگویید و آزمونی با معیار، نمونه، زمان و هزینه طراحی کنید. اگر خروجی به آستانه نرسد چه می‌کنید؟ اگر هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد، آزمایش را بازطراحی کنید."
+            },
+            {
+              "title": "شرط انتخاب و بازبینی",
+              "id": "S07-C1-ST03-L04-CARD07",
+              "text": "گزینهٔ برتر را مشروط اعلام کنید: چه شاهدی اجازهٔ گسترش می‌دهد، چه تغییری باعث توقف می‌شود و چه کسی در چه تاریخی بازبینی می‌کند؟ یادداشت پس از استقرار هم با عملکرد واقعی به‌روزرسانی می‌شود."
+            },
+            {
+              "title": "مثال سپهر و جمع‌بندی",
+              "id": "S07-C1-ST03-L04-CARD08",
+              "text": "سپهر برای دیرکرد اول کیفیت تاریخ‌ها و قاعدهٔ موجود را اصلاح می‌کند، بعد مدل را با خط مبنا می‌سنجد. اگر بهبود ارزشمند باشد و هزینه/ریسک قابل مدیریت بماند، پایلوت محدود می‌گیرد؛ «AI» هدف نهایی نیست، تصمیم عملیاتی بهتر است."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S07-C1-ST03-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "یادداشت انتخاب راه‌حل از چه چیزی شروع می‌شود؟",
+              "remediation_card_id": "S07-C1-ST03-L04-CARD01",
+              "variant": "A",
+              "id": "S07-C1-ST03-L04-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نام مدل",
+                  "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قیمت اشتراک",
+                  "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "مسئله و تصمیم، نه نام ابزار",
+                  "feedback": "درست: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه گزینه‌هایی را در نظر بگیریم؟",
+              "remediation_card_id": "S07-C1-ST03-L04-CARD02",
+              "variant": "A",
+              "id": "S07-C1-ST03-L04-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط ساخت سفارشی",
+                  "feedback": "بازبینی: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "قاعده، فرایند، انسان، ML، GenAI یا عدم اقدام",
+                  "feedback": "درست: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط آخرین مدل",
+                  "feedback": "بازبینی: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "شرط گسترش را چه وقت تعریف کنیم؟",
+              "remediation_card_id": "S07-C1-ST03-L04-CARD07",
+              "variant": "A",
+              "id": "S07-C1-ST03-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "پیش از پایلوت و نتیجه",
+                  "feedback": "درست: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+                },
+                {
+                  "id": "b",
+                  "text": "پس از خرج کامل",
+                  "feedback": "بازبینی: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+                },
+                {
+                  "id": "c",
+                  "text": "وقتی فروشنده وعده داد",
+                  "feedback": "بازبینی: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+            },
+            {
+              "objective_id": "S07-C1-ST03-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "اگر هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد؟",
+              "remediation_card_id": "S07-C1-ST03-L04-CARD06",
+              "variant": "A",
+              "id": "S07-C1-ST03-L04-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "باز هم همهٔ داده را جمع کنیم",
+                  "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "آن را موفق اعلام کنیم",
+                  "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "آزمایش را بازطراحی یا حذف کنیم",
+                  "feedback": "درست: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+                }
+              ],
+              "equivalence_group": "S07-C1-ST03-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+            }
+          ],
+          "source_links": [
+            {
+              "id": "GOOGLE-ML-MONITORING",
+              "title": "Google ML Crash Course: Production Monitoring Pipelines",
+              "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+            },
+            {
+              "id": "GOOGLE-ML-PRODUCTIONIZATION",
+              "title": "Google for Developers: Productionization",
+              "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+              "review_depth": "official_technical_education_reviewed",
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+            },
+            {
+              "id": "NIST-TEVV-ATHLON-2026",
+              "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+              "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+              "review_depth": "official_framework_initial_public_draft_reviewed",
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+            },
+            {
+              "id": "NIST-AI-RMF-MEASURE",
+              "title": "NIST AI RMF Core: Measure",
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "review_depth": "official_risk_framework_reviewed",
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+            }
+          ],
+          "practice_activity": {
+            "type": "AI-solution-selection-memo",
+            "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L04.json",
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "GOOGLE-ML-MONITORING",
+            "GOOGLE-ML-PRODUCTIONIZATION",
+            "NIST-TEVV-ATHLON-2026",
+            "NIST-AI-RMF-MEASURE"
+          ],
+          "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [],
+            "real_case_status": "fictional_case"
+          },
+          "media_plan": {
+            "type": "solution-selection-and-TEVV-scorecard",
+            "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 4,
+            "targets": [
+              "خط مبنا",
+              "هزینهٔ عمر",
+              "ارزیابی منصفانه",
+              "یادداشت انتخاب"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 16,
+            "practice": 18
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+        }
+      ],
+      "checkpoint": {
+        "unlocks_next_stage": false,
+        "id": "S07-C1-ST03-CP",
+        "item_count": 6,
+        "node_type": "stage_checkpoint",
+        "bank_status": "authored_draft",
+        "questions": [
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "خط مبنا چه فایده‌ای دارد؟",
+            "remediation_card_id": "S07-C1-ST03-L01-CARD02",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q01",
+            "options": [
+              {
+                "id": "a",
+                "text": "جایگزین تصمیم",
+                "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+              },
+              {
+                "id": "b",
+                "text": "تضمین سود",
+                "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+              },
+              {
+                "id": "c",
+                "text": "معیار مقایسه برای ارزش افزودهٔ مدل",
+                "feedback": "درست: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+          },
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "چرا دادهٔ بیشتر همیشه بهتر نیست؟",
+            "remediation_card_id": "S07-C1-ST03-L02-CARD01",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q02",
+            "options": [
+              {
+                "id": "a",
+                "text": "چون مدل داده نمی‌خواند",
+                "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+              },
+              {
+                "id": "b",
+                "text": "چون کیفیت مهم نیست",
+                "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+              },
+              {
+                "id": "c",
+                "text": "هزینه، حساسیت و عدم ارتباط می‌تواند ریسک بسازد",
+                "feedback": "درست: داده باید به تصمیم مربوط و مجاز باشد."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "داده باید به تصمیم مربوط و مجاز باشد."
+          },
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "معیار و guardrail را چه وقت ثبت کنیم؟",
+            "remediation_card_id": "S07-C1-ST03-L03-CARD01",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q03",
+            "options": [
+              {
+                "id": "a",
+                "text": "پس از انتخاب برنده",
+                "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+              },
+              {
+                "id": "b",
+                "text": "فقط برای مدل",
+                "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+              },
+              {
+                "id": "c",
+                "text": "پیش از دیدن نتایج مقایسه",
+                "feedback": "درست: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+          },
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ04",
+            "type": "single_choice",
+            "prompt": "یادداشت انتخاب راه‌حل از چه چیزی شروع می‌شود؟",
+            "remediation_card_id": "S07-C1-ST03-L04-CARD01",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q04",
+            "options": [
+              {
+                "id": "a",
+                "text": "نام مدل",
+                "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+              },
+              {
+                "id": "b",
+                "text": "قیمت اشتراک",
+                "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+              },
+              {
+                "id": "c",
+                "text": "مسئله و تصمیم، نه نام ابزار",
+                "feedback": "درست: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+          },
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ05",
+            "type": "single_choice",
+            "prompt": "چه زمانی مدل پیچیده توجیه دارد؟",
+            "remediation_card_id": "S07-C1-ST03-L01-CARD03",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q05",
+            "options": [
+              {
+                "id": "a",
+                "text": "وقتی مفهوم برچسب مبهم است",
+                "feedback": "بازبینی: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+              },
+              {
+                "id": "b",
+                "text": "دادهٔ مجاز و تکرار و منفعت قابل سنجش داریم",
+                "feedback": "درست: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+              },
+              {
+                "id": "c",
+                "text": "هر وقت AI در دسترس است",
+                "feedback": "بازبینی: نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "نیاز، داده و ارزش باید همزمان وجود داشته باشند."
+          },
+          {
+            "objective_id": "S07-C1-ST03-CP-OBJ06",
+            "type": "single_choice",
+            "prompt": "چرا ارزیابی کور مفید است؟",
+            "remediation_card_id": "S07-C1-ST03-L03-CARD02",
+            "variant": "A",
+            "id": "S07-C1-ST03-CP-Q06",
+            "options": [
+              {
+                "id": "a",
+                "text": "مدل را آموزش می‌دهد",
+                "feedback": "بازبینی: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+              },
+              {
+                "id": "b",
+                "text": "انتظار ارزیاب کمتر بر نمره اثر می‌گذارد",
+                "feedback": "درست: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+              },
+              {
+                "id": "c",
+                "text": "داده را حذف می‌کند",
+                "feedback": "بازبینی: دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+              }
+            ],
+            "equivalence_group": "S07-C1-ST03-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "دانستن منبع پاسخ می‌تواند قضاوت را منحرف کند."
+          }
+        ],
+        "coverage": [
+          "قاعده یا مدل",
+          "هزینه و داده",
+          "مقایسهٔ منصفانه",
+          "یادداشت انتخاب و TEVV"
+        ]
+      },
+      "tool_plan": [
+        "rule-vs-model-baseline",
+        "data-lifecycle-cost-sheet",
+        "human-model-comparison-protocol",
+        "AI-solution-decision-memo"
+      ]
     }
-  ]
+  ],
+  "final_assessment": {
+    "id": "S07-C1-FINAL",
+    "version": "1-draft",
+    "status": "authored_draft",
+    "questions": [
+      {
+        "objective_id": "S07-C1-ST01-L01-OBJ01",
+        "type": "single_choice",
+        "prompt": "واحد مشاهده چیست؟",
+        "remediation_card_id": "S07-C1-ST01-L01-CARD02",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q01",
+        "options": [
+          {
+            "id": "a",
+            "text": "نام پایگاه داده",
+            "feedback": "بازبینی: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+          },
+          {
+            "id": "b",
+            "text": "واحد پول",
+            "feedback": "بازبینی: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+          },
+          {
+            "id": "c",
+            "text": "چیزی که هر ردیف دربارهٔ آن است",
+            "feedback": "درست: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q01-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "تعریف ردیف با تصمیم و داده هماهنگ می‌شود.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST01-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST01-L01"
+      },
+      {
+        "objective_id": "S07-C1-ST01-L02-OBJ01",
+        "type": "single_choice",
+        "prompt": "رگرسیون معمولاً چه چیزی برآورد می‌کند؟",
+        "remediation_card_id": "S07-C1-ST01-L02-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q02",
+        "options": [
+          {
+            "id": "a",
+            "text": "فقط دستهٔ بله/خیر",
+            "feedback": "بازبینی: مثال تقاضای هفتگی کمیت عددی است."
+          },
+          {
+            "id": "b",
+            "text": "اقدام قطعی",
+            "feedback": "بازبینی: مثال تقاضای هفتگی کمیت عددی است."
+          },
+          {
+            "id": "c",
+            "text": "کمیت عددی پیوسته",
+            "feedback": "درست: مثال تقاضای هفتگی کمیت عددی است."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q02-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "مثال تقاضای هفتگی کمیت عددی است.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST01-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST01-L02"
+      },
+      {
+        "objective_id": "S07-C1-ST01-L03-OBJ01",
+        "type": "single_choice",
+        "prompt": "آموزش برای چه استفاده می‌شود؟",
+        "remediation_card_id": "S07-C1-ST01-L03-CARD02",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q03",
+        "options": [
+          {
+            "id": "a",
+            "text": "گزارش نهایی عملکرد",
+            "feedback": "بازبینی: مدل از نمونهٔ آموزش الگو می‌گیرد."
+          },
+          {
+            "id": "b",
+            "text": "تنظیم قرارداد",
+            "feedback": "بازبینی: مدل از نمونهٔ آموزش الگو می‌گیرد."
+          },
+          {
+            "id": "c",
+            "text": "برازش مدل روی نمونهٔ یادگیری",
+            "feedback": "درست: مدل از نمونهٔ آموزش الگو می‌گیرد."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q03-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "مدل از نمونهٔ آموزش الگو می‌گیرد.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST01-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST01-L03"
+      },
+      {
+        "objective_id": "S07-C1-ST01-L04-OBJ01",
+        "type": "single_choice",
+        "prompt": "زمان واقعی تحویل در پیش‌بینی هنگام سفارش چه وضعی دارد؟",
+        "remediation_card_id": "S07-C1-ST01-L04-CARD02",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q04",
+        "options": [
+          {
+            "id": "a",
+            "text": "ویژگی مفید در همان لحظه",
+            "feedback": "بازبینی: این داده پس از تصمیم معلوم می‌شود."
+          },
+          {
+            "id": "b",
+            "text": "هدف مدیریتی",
+            "feedback": "بازبینی: این داده پس از تصمیم معلوم می‌شود."
+          },
+          {
+            "id": "c",
+            "text": "نشت آینده و نباید feature باشد",
+            "feedback": "درست: این داده پس از تصمیم معلوم می‌شود."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q04-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "این داده پس از تصمیم معلوم می‌شود.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST01-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST01-L04"
+      },
+      {
+        "objective_id": "S07-C1-ST01-L04-OBJ02",
+        "type": "single_choice",
+        "prompt": "عملکرد تولید ممکن است چرا افت کند؟",
+        "remediation_card_id": "S07-C1-ST01-L04-CARD06",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q05",
+        "options": [
+          {
+            "id": "a",
+            "text": "چون آزمون همیشه خطاست",
+            "feedback": "بازبینی: تغییر توزیع و فرایند نیازمند پایش است."
+          },
+          {
+            "id": "b",
+            "text": "چون مدل هرگز به‌روز نمی‌شود",
+            "feedback": "بازبینی: تغییر توزیع و فرایند نیازمند پایش است."
+          },
+          {
+            "id": "c",
+            "text": "جمعیت و داده و رفتار در زمان تغییر کند",
+            "feedback": "درست: تغییر توزیع و فرایند نیازمند پایش است."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q05-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "تغییر توزیع و فرایند نیازمند پایش است.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST01-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST01-L04"
+      },
+      {
+        "objective_id": "S07-C1-ST02-L01-OBJ01",
+        "type": "single_choice",
+        "prompt": "توکن چیست؟",
+        "remediation_card_id": "S07-C1-ST02-L01-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q06",
+        "options": [
+          {
+            "id": "a",
+            "text": "همیشه یک واژهٔ کامل",
+            "feedback": "بازبینی: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+          },
+          {
+            "id": "b",
+            "text": "یک سند منبع",
+            "feedback": "بازبینی: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+          },
+          {
+            "id": "c",
+            "text": "واحد پردازش متن که می‌تواند واژه یا بخش واژه باشد",
+            "feedback": "درست: متن پیش از پردازش به توکن‌ها بخش می‌شود."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q06-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "متن پیش از پردازش به توکن‌ها بخش می‌شود.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST02-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST02-L01"
+      },
+      {
+        "objective_id": "S07-C1-ST02-L02-OBJ01",
+        "type": "single_choice",
+        "prompt": "دستور خوب چه چیزی را روشن می‌کند؟",
+        "remediation_card_id": "S07-C1-ST02-L02-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q07",
+        "options": [
+          {
+            "id": "a",
+            "text": "فقط نقش پرطمطراق",
+            "feedback": "بازبینی: وضوح درخواست به تفسیر درست کمک می‌کند."
+          },
+          {
+            "id": "b",
+            "text": "فقط طول پاسخ",
+            "feedback": "بازبینی: وضوح درخواست به تفسیر درست کمک می‌کند."
+          },
+          {
+            "id": "c",
+            "text": "وظیفه، دامنه، مخاطب و قالب",
+            "feedback": "درست: وضوح درخواست به تفسیر درست کمک می‌کند."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q07-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "وضوح درخواست به تفسیر درست کمک می‌کند.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST02-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST02-L02"
+      },
+      {
+        "objective_id": "S07-C1-ST02-L03-OBJ01",
+        "type": "single_choice",
+        "prompt": "Confabulation چه نشانه‌ای دارد؟",
+        "remediation_card_id": "S07-C1-ST02-L03-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q08",
+        "options": [
+          {
+            "id": "a",
+            "text": "فقط املاهای غلط",
+            "feedback": "بازبینی: اطمینان زبانی دلیل صحت نیست."
+          },
+          {
+            "id": "b",
+            "text": "همیشه پاسخ «نمی‌دانم»",
+            "feedback": "بازبینی: اطمینان زبانی دلیل صحت نیست."
+          },
+          {
+            "id": "c",
+            "text": "ادعای نادرست با بیان قانع‌کننده",
+            "feedback": "درست: اطمینان زبانی دلیل صحت نیست."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q08-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "اطمینان زبانی دلیل صحت نیست.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST02-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST02-L03"
+      },
+      {
+        "objective_id": "S07-C1-ST02-L04-OBJ01",
+        "type": "single_choice",
+        "prompt": "RAG چه مراحلی دارد؟",
+        "remediation_card_id": "S07-C1-ST02-L04-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q09",
+        "options": [
+          {
+            "id": "a",
+            "text": "فقط آموزش دوبارهٔ مدل",
+            "feedback": "بازبینی: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+          },
+          {
+            "id": "b",
+            "text": "فقط خلاصه‌سازی",
+            "feedback": "بازبینی: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+          },
+          {
+            "id": "c",
+            "text": "بازیابی، افزودن زمینه، تولید",
+            "feedback": "درست: سند مرتبط پس از آموزش به زمینه افزوده می‌شود."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q09-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "سند مرتبط پس از آموزش به زمینه افزوده می‌شود.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST02-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST02-L04"
+      },
+      {
+        "objective_id": "S07-C1-ST02-L04-OBJ02",
+        "type": "single_choice",
+        "prompt": "تعداد سند بیشتر چه چیزی را ثابت نمی‌کند؟",
+        "remediation_card_id": "S07-C1-ST02-L04-CARD04",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q10",
+        "options": [
+          {
+            "id": "a",
+            "text": "وجود مخزن",
+            "feedback": "بازبینی: معیار باید بازیابی درست و استناد باشد."
+          },
+          {
+            "id": "b",
+            "text": "زمان جست‌وجو",
+            "feedback": "بازبینی: معیار باید بازیابی درست و استناد باشد."
+          },
+          {
+            "id": "c",
+            "text": "کیفیت و ارتباط شواهد",
+            "feedback": "درست: معیار باید بازیابی درست و استناد باشد."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q10-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "معیار باید بازیابی درست و استناد باشد.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST02-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST02-L04"
+      },
+      {
+        "objective_id": "S07-C1-ST03-L01-OBJ01",
+        "type": "single_choice",
+        "prompt": "خط مبنا چه فایده‌ای دارد؟",
+        "remediation_card_id": "S07-C1-ST03-L01-CARD02",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q11",
+        "options": [
+          {
+            "id": "a",
+            "text": "جایگزین تصمیم",
+            "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+          },
+          {
+            "id": "b",
+            "text": "تضمین سود",
+            "feedback": "بازبینی: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+          },
+          {
+            "id": "c",
+            "text": "معیار مقایسه برای ارزش افزودهٔ مدل",
+            "feedback": "درست: بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q11-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "بدون مقایسه نمی‌دانیم مدل از روش فعلی بهتر است.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST03-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST03-L01"
+      },
+      {
+        "objective_id": "S07-C1-ST03-L02-OBJ01",
+        "type": "single_choice",
+        "prompt": "چرا دادهٔ بیشتر همیشه بهتر نیست؟",
+        "remediation_card_id": "S07-C1-ST03-L02-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q12",
+        "options": [
+          {
+            "id": "a",
+            "text": "چون مدل داده نمی‌خواند",
+            "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+          },
+          {
+            "id": "b",
+            "text": "چون کیفیت مهم نیست",
+            "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+          },
+          {
+            "id": "c",
+            "text": "هزینه، حساسیت و عدم ارتباط می‌تواند ریسک بسازد",
+            "feedback": "درست: داده باید به تصمیم مربوط و مجاز باشد."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q12-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "داده باید به تصمیم مربوط و مجاز باشد.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST03-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST03-L02"
+      },
+      {
+        "objective_id": "S07-C1-ST03-L03-OBJ01",
+        "type": "single_choice",
+        "prompt": "معیار و guardrail را چه وقت ثبت کنیم؟",
+        "remediation_card_id": "S07-C1-ST03-L03-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q13",
+        "options": [
+          {
+            "id": "a",
+            "text": "پس از انتخاب برنده",
+            "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+          },
+          {
+            "id": "b",
+            "text": "فقط برای مدل",
+            "feedback": "بازبینی: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+          },
+          {
+            "id": "c",
+            "text": "پیش از دیدن نتایج مقایسه",
+            "feedback": "درست: ثبت قبلی سوگیری انتخاب معیار را کم می‌کند."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q13-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "ثبت قبلی سوگیری انتخاب معیار را کم می‌کند.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST03-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST03-L03"
+      },
+      {
+        "objective_id": "S07-C1-ST03-L04-OBJ01",
+        "type": "single_choice",
+        "prompt": "یادداشت انتخاب راه‌حل از چه چیزی شروع می‌شود؟",
+        "remediation_card_id": "S07-C1-ST03-L04-CARD01",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q14",
+        "options": [
+          {
+            "id": "a",
+            "text": "نام مدل",
+            "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+          },
+          {
+            "id": "b",
+            "text": "قیمت اشتراک",
+            "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+          },
+          {
+            "id": "c",
+            "text": "مسئله و تصمیم، نه نام ابزار",
+            "feedback": "درست: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q14-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "انتخاب فناوری باید به نیاز تصمیم وصل باشد.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST03-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST03-L04"
+      },
+      {
+        "objective_id": "S07-C1-ST03-L04-OBJ02",
+        "type": "single_choice",
+        "prompt": "اگر هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد؟",
+        "remediation_card_id": "S07-C1-ST03-L04-CARD06",
+        "variant": "A",
+        "id": "S07-C1-FINAL-Q15",
+        "options": [
+          {
+            "id": "a",
+            "text": "باز هم همهٔ داده را جمع کنیم",
+            "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+          },
+          {
+            "id": "b",
+            "text": "آن را موفق اعلام کنیم",
+            "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+          },
+          {
+            "id": "c",
+            "text": "آزمایش را بازطراحی یا حذف کنیم",
+            "feedback": "درست: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+          }
+        ],
+        "equivalence_group": "S07-C1-FINAL-Q15-FAMILY",
+        "version": 1,
+        "correct_option_id": "c",
+        "explanation": "آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد.",
+        "coverage_lesson_ids": [
+          "S07-C1-ST03-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "S07-C1-ST03-L04"
+      }
+    ],
+    "unlocks_content": false,
+    "target_percent": 80,
+    "target_is_editorial_default": true,
+    "fresh_equivalent_variants": 0
+  }
 }

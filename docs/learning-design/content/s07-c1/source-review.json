@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "S07-C1",
-  "status": "targeted_source_review_for_stages_1_and_2; expert_review_pending",
-  "source_use_note": "مفاهیم فنی پایه با دورهٔ آموزشی رسمی Google و هستهٔ جاری NIST AI RMF بررسی شده است. این متن برای مدیران است و جای آموزش پیاده‌سازی یا ارزیابی تخصصی سامانهٔ پرخطر را نمی‌گیرد. مرحلهٔ مولد بر Google ML Crash Course، پروفایل رسمی NIST برای GenAI و مستندات Google Cloud دربارهٔ بازیابی و تولید متکی است. RAG می‌تواند زمینهٔ مرتبط را فراهم کند، اما کیفیت پاسخ را تضمین نمی‌کند.",
+  "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
+  "source_use_note": "مفاهیم فنی پایه با دورهٔ آموزشی رسمی Google و هستهٔ جاری NIST AI RMF بررسی شده است. این متن برای مدیران است و جای آموزش پیاده‌سازی یا ارزیابی تخصصی سامانهٔ پرخطر را نمی‌گیرد. مرحلهٔ مولد بر Google ML Crash Course، پروفایل رسمی NIST برای GenAI و مستندات Google Cloud دربارهٔ بازیابی و تولید متکی است. RAG می‌تواند زمینهٔ مرتبط را فراهم کند، اما کیفیت پاسخ را تضمین نمی‌کند. مرحلهٔ انتخاب ابزار با راهنمای تولید ML گوگل، هستهٔ NIST AI RMF و پیش‌نویس عمومی ۲۰۲۶ چارچوب TEVV بررسی شد. نسخهٔ NIST پیش‌نویس است و برای طراحی ارزیابی زمینه‌مند استفاده شده است.",
   "sources": [
     {
       "id": "GOOGLE-ML-DATASETS",
@@ -59,6 +59,34 @@
       "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
       "review_depth": "official_technical_documentation_reviewed",
       "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
     }
   ],
   "stage_notes": {
@@ -86,6 +114,19 @@
         "RAG نیز می‌تواند سند نامرتبط یا تفسیر غلط بسازد.",
         "نمونهٔ سپهر ساختگی است.",
         "پروفایل NIST چارچوب ریسک است نه ضمانت کیفیت مدل."
+      ]
+    },
+    "S07-C1-ST03": {
+      "covered": [
+        "قاعده در برابر مدل و خط مبنا",
+        "داده و هزینهٔ چرخهٔ عمر",
+        "مقایسهٔ انسان و ابزار",
+        "یادداشت انتخاب و ارزیابی TEVV"
+      ],
+      "limits": [
+        "چارچوب TEVV-Athlon منبع پیش‌نویس عمومی است.",
+        "مثال سپهر ساختگی است.",
+        "انتخاب نهایی نیازمند داده و ارزیابی متناسب با کاربرد است."
       ]
     }
   }

@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST03-L02",
+  "version": "1-draft",
+  "title": "دادهٔ لازم و هزینهٔ نگهداری",
+  "content_status": "draft",
+  "objective": "نیاز داده و هزینهٔ کل عمر مدل را برآورد کند و مالکیت، کیفیت، مجوز، نسخه و بار پایش را در تصمیم خرید یا ساخت وارد کند.",
+  "learning_cards": [
+    {
+      "title": "دادهٔ لازم، نه هر داده",
+      "id": "S07-C1-ST03-L02-CARD01",
+      "text": "فهرست ویژگی لازم را از تصمیم استخراج کنید: منبع، مالک، نرخ تازه‌شدن، مجوز، کیفیت و زمان دسترسی. دادهٔ بیشتر لزوماً ارزش بیشتر ندارد و دادهٔ حساس خطر و هزینهٔ نگهداری می‌آورد."
+    },
+    {
+      "title": "جریان داده تا خروجی",
+      "id": "S07-C1-ST03-L02-CARD02",
+      "text": "از ورود تا استفاده نقشه کنید: گردآوری، پاک‌سازی، پیوند، برچسب، ذخیره، استنتاج و نمایش. هر انتقال مالک، کنترل کیفیت و مجوز می‌خواهد؛ پروژه معمولاً بیش از خود مدل اجزا دارد."
+    },
+    {
+      "title": "هزینهٔ کامل چرخهٔ عمر",
+      "id": "S07-C1-ST03-L02-CARD03",
+      "text": "هزینه شامل آماده‌سازی، برچسب‌گذاری، محاسبه، مجوز، زیرساخت، ارزیابی، ادغام، امنیت، پشتیبانی، بازآموزی و خروج است. نسخهٔ اولیه ممکن است ارزان به نظر برسد اما عملیات مداوم هزینه بسازد."
+    },
+    {
+      "title": "مالکیت داده و مدل",
+      "id": "S07-C1-ST03-L02-CARD04",
+      "text": "مشخص کنید چه تیمی داده را تعریف و اصلاح می‌کند، چه کسی مدل را نسخه‌بندی می‌کند و چه کسی رخداد را پاسخ می‌دهد. محصول بدون مالک عملیاتی پس از تغییر منبع داده فرسوده می‌شود."
+    },
+    {
+      "title": "تغییر توزیع و پایش",
+      "id": "S07-C1-ST03-L02-CARD05",
+      "text": "الگوی مشتری، قیمت، فصل و سیستم‌های بالادستی تغییر می‌کنند. توزیع ویژگی، نرخ خطا، latency، کیفیت برچسب و عملکرد زیرگروه را دنبال کنید و برای افت چه کسی هشدار و چه اقدامی دارد تعیین کنید."
+    },
+    {
+      "title": "دادهٔ مصنوعی و محدودیت",
+      "id": "S07-C1-ST03-L02-CARD06",
+      "text": "دادهٔ مصنوعی می‌تواند برای تمرین یا پوشش حالت‌های نادر کمک کند؛ اما ممکن است الگوها را هموار، سوگیری را تکرار یا حریم خصوصی را تهدید کند. آن را با دادهٔ واقعی و تعریف مسئله اعتبارسنجی کنید."
+    },
+    {
+      "title": "خرید خدمت در برابر مالکیت",
+      "id": "S07-C1-ST03-L02-CARD07",
+      "text": "خدمت آماده ممکن است داده را نزد فروشنده پردازش کند یا وابستگی بسازد. شروط نگهداری، استفاده برای آموزش، محل پردازش، خروج داده، نسخهٔ مدل و تغییر سرویس را بررسی کنید. قرارداد و فنی با هم ارزیابی شوند."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C1-ST03-L02-CARD08",
+      "text": "پیش‌بینی به تاریخ سفارش، موعد و تاریخچهٔ تأمین‌کننده نیاز دارد. اطلاعات خرید ممکن است حساس باشد؛ تیم منبع، مجوز، تأخیر به‌روزرسانی، مالک برچسب و راه حذف داده پس از توقف را در برگه ثبت می‌کند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا دادهٔ بیشتر همیشه بهتر نیست؟",
+      "remediation_card_id": "S07-C1-ST03-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C1-ST03-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون مدل داده نمی‌خواند",
+          "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+        },
+        {
+          "id": "b",
+          "text": "چون کیفیت مهم نیست",
+          "feedback": "بازبینی: داده باید به تصمیم مربوط و مجاز باشد."
+        },
+        {
+          "id": "c",
+          "text": "هزینه، حساسیت و عدم ارتباط می‌تواند ریسک بسازد",
+          "feedback": "درست: داده باید به تصمیم مربوط و مجاز باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "داده باید به تصمیم مربوط و مجاز باشد."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "هزینهٔ عمر مدل شامل چیست؟",
+      "remediation_card_id": "S07-C1-ST03-L02-CARD03",
+      "variant": "A",
+      "id": "S07-C1-ST03-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط حق اشتراک",
+          "feedback": "بازبینی: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+        },
+        {
+          "id": "b",
+          "text": "ادغام، پایش، امنیت، نگهداری و خروج",
+          "feedback": "درست: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+        },
+        {
+          "id": "c",
+          "text": "فقط آموزش اولیه",
+          "feedback": "بازبینی: هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "هزینه‌های عملیاتی پس از ساخت ادامه می‌یابند."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "تغییر توزیع چه می‌کند؟",
+      "remediation_card_id": "S07-C1-ST03-L02-CARD05",
+      "variant": "A",
+      "id": "S07-C1-ST03-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "رابطهٔ داده و عملکرد را در زمان جابه‌جا می‌کند",
+          "feedback": "درست: پایش زنده برای تغییر فرایند لازم است."
+        },
+        {
+          "id": "b",
+          "text": "مدل را دقیق‌تر می‌کند",
+          "feedback": "بازبینی: پایش زنده برای تغییر فرایند لازم است."
+        },
+        {
+          "id": "c",
+          "text": "داده را حذف می‌کند",
+          "feedback": "بازبینی: پایش زنده برای تغییر فرایند لازم است."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "پایش زنده برای تغییر فرایند لازم است."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "پیش از خرید API چه بررسی کنیم؟",
+      "remediation_card_id": "S07-C1-ST03-L02-CARD07",
+      "variant": "A",
+      "id": "S07-C1-ST03-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط سرعت دمو",
+          "feedback": "بازبینی: وابستگی و پردازش داده بر ریسک اثر دارد."
+        },
+        {
+          "id": "b",
+          "text": "فقط نام فروشنده",
+          "feedback": "بازبینی: وابستگی و پردازش داده بر ریسک اثر دارد."
+        },
+        {
+          "id": "c",
+          "text": "نگهداری داده، آموزش، خروج، نسخه و پردازش",
+          "feedback": "درست: وابستگی و پردازش داده بر ریسک اثر دارد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "وابستگی و پردازش داده بر ریسک اثر دارد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-solution-selection-memo",
+    "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-MONITORING",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-TEVV-ATHLON-2026",
+    "NIST-AI-RMF-MEASURE"
+  ],
+  "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "solution-selection-and-TEVV-scorecard",
+    "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "خط مبنا",
+      "هزینهٔ عمر",
+      "ارزیابی منصفانه",
+      "یادداشت انتخاب"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+}
