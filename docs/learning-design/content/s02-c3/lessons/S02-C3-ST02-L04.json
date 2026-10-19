@@ -1,0 +1,260 @@
+{
+  "id": "S02-C3-ST02-L04",
+  "version": "1-draft",
+  "title": "کنترل ریسک بدون دقت ساختگی",
+  "content_status": "draft",
+  "objective": "ریسک مالی را با دامنه، سناریو و آستانه مدیریت کند و میان دقت محاسبه و قطعیت برآورد تمایز بگذارد.",
+  "learning_cards": [
+    {
+      "id": "S02-C3-ST02-L04-CARD01",
+      "type": "explanation",
+      "title": "ریسک را قابل‌مدیریت کن",
+      "text": "ریسک امکان پیامدهای متفاوت و زیان است؛ مدیریت ریسک فقط حذف خطر نیست، بلکه انتخاب ریسک متناسب با هدف، ظرفیت و تحمل است. ابتدا منبع، اثر، زمان و صاحب پاسخ را بشناسید. عدد احتمال بدون پشتوانه ظاهری دقت می‌سازد."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD02",
+      "type": "explanation",
+      "title": "احتمال و شدت",
+      "text": "ماتریس احتمال/شدت برای گفت‌وگو مفید است اما دسته‌بندی «کم/متوسط/زیاد» اندازه‌گیری دقیق نیست. تعریف هر سطح، دامنه و شواهد را بنویسید. ریسک کم‌احتمال و بسیار پراثر ممکن است به سناریو و برنامهٔ تداوم نیاز داشته باشد."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD03",
+      "type": "explanation",
+      "title": "مواجهه و آسیب‌پذیری",
+      "text": "ریسک بازار بیرونی با مواجههٔ شرکت یکی نیست؛ اندازهٔ بدهی شناور، ارز، نقد آزاد و امکان تغییر قیمت تعیین می‌کند ضربه چه اثری دارد. عامل خطر را با حساسیت خروجی و سازوکار انتقال به ارزش/نقد ترسیم کنید."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD04",
+      "type": "explanation",
+      "title": "محدودیت VaR",
+      "text": "VaR تخمین زیان در سطح اطمینان و افق مشخص است، تحت مفروضات مدل. این عدد نمی‌گوید زیان فراتر از آستانه چقدر می‌تواند باشد و در شوک ساختاری ممکن است خطا کند. دنباله، نقدشوندگی و حساسیت نمونه را جدا بررسی کنید."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD05",
+      "type": "explanation",
+      "title": "تنش و سناریو",
+      "text": "تنش‌سنجی شوکی را می‌آزماید که از دادهٔ عادی فراتر است؛ سناریو ترکیب سازگار تغییرها را می‌سنجد. گذشته می‌تواند الهام‌بخش باشد اما تکرار آینده را تضمین نمی‌کند. شدت، مدت، هم‌زمانی و واکنش شرکت را بنویسید."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD06",
+      "type": "explanation",
+      "title": "حد ریسک و ماشه",
+      "text": "حد مواجهه باید به اختیار توقف یا کاهش وصل باشد. اگر نرخ یا سررسید از آستانه عبور کرد، مسئول چه اقدامی تا چه مهلتی می‌کند؟ ماشه بدون مسیر واکنش فقط هشدار است. حدی که دائماً نقض و نادیده گرفته می‌شود، اعتبار ندارد."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD07",
+      "type": "explanation",
+      "title": "ریسک باقیمانده",
+      "text": "پوشش مشتقه یا تنوع‌بخشی ریسک را به طرف مقابل، basis، نقد تسویه یا خطای مدل منتقل می‌کند. ریسک باقیمانده را بعد از اقدام دوباره بسنجید. پوشش کامل شاید هزینهٔ زیاد و فرصت ازدست‌رفته داشته باشد."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD08",
+      "type": "explanation",
+      "title": "مدل و AI",
+      "text": "AI می‌تواند متن خبر یا داده را دسته‌بندی کند و الگو پیشنهاد دهد؛ false positive و false negative هر دو هزینه دارند. دادهٔ آموزش، تعریف برچسب، پنجره و گروه‌ها را بررسی کنید. خروجی برای تصمیم پراثر باید انسانی بازبینی شود و نشانهٔ عدم‌قطعیت/منبع داشته باشد."
+    },
+    {
+      "id": "S02-C3-ST02-L04-CARD09",
+      "type": "explanation",
+      "title": "واژه‌های پرتکرار",
+      "text": "Risk appetite تمایل به ریسک؛ risk tolerance حد پذیرش؛ exposure مواجهه؛ stress test آزمون تنش؛ VaR ارزش در معرض خطر؛ tail risk ریسک دنباله‌ای؛ residual risk ریسک باقیمانده؛ false positive هشدار کاذب است. هر عدد ریسک را با افق، تعریف، دامنه و محدودیت گزارش کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S02-C3-ST02-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ماتریس احتمال و شدت چه محدودیتی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "رده‌بندی آن دقت کمی قطعی نیست",
+          "feedback": "درست: تعریف و شواهد هر رده لازم است."
+        },
+        {
+          "id": "b",
+          "text": "هیچ کمکی به گفت‌وگو نمی‌کند",
+          "feedback": "بازبینی: تعریف و شواهد هر رده لازم است."
+        },
+        {
+          "id": "c",
+          "text": "احتمال را ثابت می‌کند",
+          "feedback": "بازبینی: تعریف و شواهد هر رده لازم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تعریف و شواهد هر رده لازم است.",
+      "objective_id": "S02-C3-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C3-ST02-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C3-ST02-L04-CARD02"
+    },
+    {
+      "id": "S02-C3-ST02-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "VaR چه چیزی را نمی‌گوید؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "زیان فراتر از آستانه چقدر می‌شود",
+          "feedback": "درست: دم زیان را VaR معمولاً خلاصه نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "سطح اطمینان مفروض",
+          "feedback": "بازبینی: دم زیان را VaR معمولاً خلاصه نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "افق زمانی مدل",
+          "feedback": "بازبینی: دم زیان را VaR معمولاً خلاصه نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دم زیان را VaR معمولاً خلاصه نمی‌کند.",
+      "objective_id": "S02-C3-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C3-ST02-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C3-ST02-L04-CARD03"
+    },
+    {
+      "id": "S02-C3-ST02-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پوشش ریسک چه چیزی می‌تواند ایجاد کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ریسک طرف مقابل یا basis و نقد تسویه",
+          "feedback": "درست: ریسک ممکن است جابه‌جا شود."
+        },
+        {
+          "id": "b",
+          "text": "حذف همهٔ ریسک‌ها",
+          "feedback": "بازبینی: ریسک ممکن است جابه‌جا شود."
+        },
+        {
+          "id": "c",
+          "text": "سود قطعی",
+          "feedback": "بازبینی: ریسک ممکن است جابه‌جا شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ریسک ممکن است جابه‌جا شود.",
+      "objective_id": "S02-C3-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C3-ST02-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C3-ST02-L04-CARD04"
+    },
+    {
+      "id": "S02-C3-ST02-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هشدار AI پرخطا چه پیامدی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "هشدار کاذب یا از دست‌دادن خطر واقعی",
+          "feedback": "درست: خطاهای دو نوع هر دو هزینه دارند."
+        },
+        {
+          "id": "b",
+          "text": "حذف ریسک",
+          "feedback": "بازبینی: خطاهای دو نوع هر دو هزینه دارند."
+        },
+        {
+          "id": "c",
+          "text": "دقت قطعی",
+          "feedback": "بازبینی: خطاهای دو نوع هر دو هزینه دارند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خطاهای دو نوع هر دو هزینه دارند.",
+      "objective_id": "S02-C3-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C3-ST02-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C3-ST02-L04-CARD05"
+    },
+    {
+      "id": "S02-C3-ST02-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "حد ریسک چه وقت مفید است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی مالک و اقدام و مهلت به آن وصل باشند",
+          "feedback": "درست: حد بدون پاسخ اجرایی، کنترل واقعی نیست."
+        },
+        {
+          "id": "b",
+          "text": "وقتی فقط روی نمودار است",
+          "feedback": "بازبینی: حد بدون پاسخ اجرایی، کنترل واقعی نیست."
+        },
+        {
+          "id": "c",
+          "text": "بعد از نکول",
+          "feedback": "بازبینی: حد بدون پاسخ اجرایی، کنترل واقعی نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "حد بدون پاسخ اجرایی، کنترل واقعی نیست.",
+      "objective_id": "S02-C3-ST02-L04-OBJ1",
+      "equivalence_group": "S02-C3-ST02-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S02-C3-ST02-L04-CARD06"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "cfa-risk-management-2026",
+      "title": "CFA Institute 2026: Introduction to Risk Management",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-risk-management",
+      "scope": "چارچوب حاکمیت، شناسایی، سنجش، کاهش و ارتباط ریسک و پیوند آن به هدف سازمان؛ متن کامل ممکن است نیازمند دسترسی باشد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "cfa-portfolio-risk-2026",
+      "title": "CFA Institute 2026: Portfolio Risk and Return—Part I",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+      "scope": "تنوع، همبستگی، ریسک و بازده؛ برای منطق تنوع و محدودیت داده استفاده می‌شود.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "cfa-capital-structure",
+      "title": "CFA Institute: Corporate Issuers—Capital Structure curriculum",
+      "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
+      "scope": "مبادلهٔ مزیت و هزینهٔ اهرم مالی؛ راهنمای curriculum قدیمی‌تر است و به بازبینی نسخهٔ جدید نیاز دارد.",
+      "review_depth": "official_professional_curriculum_reviewed"
+    },
+    {
+      "id": "sec-corporate-bonds",
+      "title": "Investor.gov/SEC: Corporate Bonds",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products",
+      "scope": "تعهد بهره و اصل، سررسید و ماهیت ادعای طلبکار.",
+      "review_depth": "official_regulator_education_reviewed"
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "ثبت ریسک شامل تعریف، افق، احتمال/شدت، کنترل، ریسک باقیمانده و مالک تهیه کن.",
+    "unit": "برگهٔ ریسک و سیاست مالی؛ داده‌های مثال فرضی است.",
+    "answer": "پاسخ باید مواجهه، سناریو، اقدام، هزینه و ریسک باقیمانده را روشن کند.",
+    "absolute_tolerance": null,
+    "solution": "پاسخ یگانه نیست؛ تناسب کنترل با ریسک مهم است.",
+    "rubric": [
+      "درستی تعریف (۰–۲)",
+      "کیفیت سناریو (۰–۲)",
+      "پیوند اقدام به نقد/هدف (۰–۲)",
+      "هزینه و ریسک باقیمانده (۰–۲)",
+      "مالک و ماشه (۰–۲)"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
