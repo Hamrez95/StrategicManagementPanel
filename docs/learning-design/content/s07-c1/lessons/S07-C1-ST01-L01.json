@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST01-L01",
+  "version": "1-draft",
+  "title": "داده و واحد مشاهده",
+  "content_status": "draft",
+  "objective": "واحد تحلیل و مشاهده را متناسب با پرسش مدیریتی تعریف کند و محدودیت کیفیت، پوشش و زمان داده را توضیح دهد.",
+  "learning_cards": [
+    {
+      "title": "از تصمیم شروع کنید",
+      "id": "S07-C1-ST01-L01-CARD01",
+      "text": "پیش از جمع‌آوری داده بپرسید کدام تصمیم قرار است بهتر شود. پیش‌بینی تأخیر سفارش به دادهٔ سفارش نیاز دارد؛ پیش‌بینی ریزش مشتری به واحد مشتری و تاریخچهٔ رابطه. دادهٔ فراوان بدون پرسش تصمیم‌محور ممکن است فقط نمودارهای فراوان بسازد."
+    },
+    {
+      "title": "واحد مشاهده",
+      "id": "S07-C1-ST01-L01-CARD02",
+      "text": "واحد مشاهده چیزی است که هر ردیف داده دربارهٔ آن است: مشتری، سفارش، کارمند، تماس یا روز. اگر یک مشتری چند سفارش دارد، ردیف‌ها مستقل نیستند؛ شمار ردیف را با شمار مشتری یکی نگیرید."
+    },
+    {
+      "title": "ویژگی و برچسب",
+      "id": "S07-C1-ST01-L01-CARD03",
+      "text": "ویژگی یا feature ورودی مدل است؛ برچسب یا label نتیجه‌ای است که می‌خواهیم پیش‌بینی کنیم. مثال: ویژگی‌ها زمان سفارش و تأمین‌کننده، برچسب دیرکرد. برچسب باید تعریف عملیاتی و زمان ثبت روشن داشته باشد."
+    },
+    {
+      "title": "زمان و دانه‌بندی",
+      "id": "S07-C1-ST01-L01-CARD04",
+      "text": "دادهٔ روزانه، ماهانه و رخدادمحور الگوهای متفاوتی نشان می‌دهد. سطح تجمیع را با تصمیم هماهنگ کنید؛ میانگین ماهانه ممکن است روزهای پرترافیک را پنهان کند. زمان رخداد، زمان ورود سیستم و زمان تصمیم را جدا نگه دارید."
+    },
+    {
+      "title": "کیفیت و پوشش",
+      "id": "S07-C1-ST01-L01-CARD05",
+      "text": "کامل‌بودن، دقت، سازگاری، تازگی، یکتایی و نمایندگی را بررسی کنید. دادهٔ مفقود تصادفی فرض نشود؛ ممکن است واحدهایی که اطلاعات ندارند با دیگران فرق کنند. پاک‌سازی باید منطق و تغییرات را ثبت کند."
+    },
+    {
+      "title": "انتخاب و سوگیری نمونه",
+      "id": "S07-C1-ST01-L01-CARD06",
+      "text": "دادهٔ موجود بازتاب کسانی است که وارد فرایند ثبت شده‌اند. مشتریان بی‌تعامل، سفارش لغوشده یا گروه‌های دسترسی‌نداشته ممکن است حذف باشند. مجموعهٔ تاریخی به‌تنهایی نشان نمی‌دهد چه کسانی اصلاً در نمونه حضور ندارند."
+    },
+    {
+      "title": "شناسه و حریم خصوصی",
+      "id": "S07-C1-ST01-L01-CARD07",
+      "text": "شناسه‌ها برای پیوند ردیف‌ها مفیدند اما دادهٔ شخصی یا حساس خطر می‌سازند. هدف، مجوز، حداقل‌سازی، نگهداری و دسترسی را روشن کنید. دادهٔ واقعی مشتری را برای آموزش آزمایشی بی‌بررسی وارد ابزار بیرونی نکنید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C1-ST01-L01-CARD08",
+      "text": "برای تحلیل دیرکرد، یک ردیف به‌ازای سفارش و شناسهٔ ناشناس سفارش؛ ویژگی‌ها فقط آنچه تا زمان تصمیم در دسترس بوده؛ برچسب دیرکرد طبق تعریف موعد قراردادی. اگر سفارش‌های لغوشده حذف شوند، نتیجه فقط برای سفارش‌های تکمیل‌شده معتبر است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "واحد مشاهده چیست؟",
+      "remediation_card_id": "S07-C1-ST01-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C1-ST01-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "نام پایگاه داده",
+          "feedback": "بازبینی: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "واحد پول",
+          "feedback": "بازبینی: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "چیزی که هر ردیف دربارهٔ آن است",
+          "feedback": "درست: تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "تعریف ردیف با تصمیم و داده هماهنگ می‌شود."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "ویژگی چه تفاوتی با برچسب دارد؟",
+      "remediation_card_id": "S07-C1-ST01-L01-CARD03",
+      "variant": "A",
+      "id": "S07-C1-ST01-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "برچسب همیشه شناسه است",
+          "feedback": "بازبینی: ویژگی‌ها برای پیش‌بینی و label برای هدف‌اند."
+        },
+        {
+          "id": "b",
+          "text": "ویژگی ورودی و برچسب نتیجهٔ مورد پیش‌بینی است",
+          "feedback": "درست: ویژگی‌ها برای پیش‌بینی و label برای هدف‌اند."
+        },
+        {
+          "id": "c",
+          "text": "هیچ؛ واژه‌های مترادف‌اند",
+          "feedback": "بازبینی: ویژگی‌ها برای پیش‌بینی و label برای هدف‌اند."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "ویژگی‌ها برای پیش‌بینی و label برای هدف‌اند."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "حذف ردیف ناقص چه خطری دارد؟",
+      "remediation_card_id": "S07-C1-ST01-L01-CARD06",
+      "variant": "A",
+      "id": "S07-C1-ST01-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "نمونه ممکن است از گروه خاصی خالی شود",
+          "feedback": "درست: مفقودی ممکن است سیستماتیک باشد."
+        },
+        {
+          "id": "b",
+          "text": "همیشه کیفیت را بالا می‌برد",
+          "feedback": "بازبینی: مفقودی ممکن است سیستماتیک باشد."
+        },
+        {
+          "id": "c",
+          "text": "برچسب خودکار درست می‌شود",
+          "feedback": "بازبینی: مفقودی ممکن است سیستماتیک باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "مفقودی ممکن است سیستماتیک باشد."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "چرا زمان ویژگی مهم است؟",
+      "remediation_card_id": "S07-C1-ST01-L01-CARD04",
+      "variant": "A",
+      "id": "S07-C1-ST01-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای رنگ نمودار",
+          "feedback": "بازبینی: زمان ثبت و دسترسی از تعریف ویژگی است."
+        },
+        {
+          "id": "b",
+          "text": "چون مدل تاریخ نمی‌خواند",
+          "feedback": "بازبینی: زمان ثبت و دسترسی از تعریف ویژگی است."
+        },
+        {
+          "id": "c",
+          "text": "نباید اطلاعات پس از تصمیم وارد پیش‌بینی قبلی شود",
+          "feedback": "درست: زمان ثبت و دسترسی از تعریف ویژگی است."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "زمان ثبت و دسترسی از تعریف ویژگی است."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-DATASETS",
+      "title": "Google Machine Learning Crash Course: Data Characteristics",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google Machine Learning Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTION-MONITORING",
+      "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده و برچسب و خطا در استقرار."
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI Risk Management Framework Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+    }
+  ],
+  "practice_activity": {
+    "type": "managerial-ml-data-card",
+    "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
+    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST01-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-DATASETS",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-PRODUCTION-MONITORING",
+    "NIST-AI-RMF-CORE"
+  ],
+  "source_scope": "منابع فنی رسمی و چارچوب ریسک؛ مثال سپهر آموزشی و ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "data-unit-feature-label-evaluation-diagram",
+    "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "واحد داده",
+      "نوع مسئله",
+      "ارزیابی مدل",
+      "نشت اطلاعات"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 15
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "کارت تعریف داده و ارزیابی"
+}

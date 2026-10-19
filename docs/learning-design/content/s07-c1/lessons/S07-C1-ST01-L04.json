@@ -1,0 +1,248 @@
+{
+  "id": "S07-C1-ST01-L04",
+  "version": "1-draft",
+  "title": "نشت داده و خطای اعتبارسنجی",
+  "content_status": "draft",
+  "objective": "نمونه‌های رایج نشت اطلاعات و تقسیم نادرست داده را شناسایی کند و توضیح دهد چرا نتیجهٔ آزمون آزمایشگاهی ممکن است در تولید افت کند.",
+  "learning_cards": [
+    {
+      "title": "نشت یعنی پاسخ پنهانی وارد شد",
+      "id": "S07-C1-ST01-L04-CARD01",
+      "text": "نشت داده وقتی رخ می‌دهد که ویژگی هنگام تصمیم واقعی در دسترس نیست اما در آموزش وجود دارد؛ یا برچسب مستقیم و غیرمستقیم از ویژگی قابل خواندن است. نتیجهٔ غیرواقعی و بیش‌ازحد خوب می‌شود."
+    },
+    {
+      "title": "نشت زمانی",
+      "id": "S07-C1-ST01-L04-CARD02",
+      "text": "برای پیش‌بینی دیرکرد در روز سفارش، زمان واقعی تحویل یا تماس پس از تأخیر نباید ویژگی باشد. این متغیرها بعداً ثبت می‌شوند؛ مدل در آزمون گذشته جواب را دیده اما در زمان تصمیم آینده آن را نخواهد داشت."
+    },
+    {
+      "title": "نشت گروهی و تکراری",
+      "id": "S07-C1-ST01-L04-CARD03",
+      "text": "اگر سفارش‌های یک مشتری هم در train و هم test باشند، مدل ممکن است الگوی همان مشتری را حفظ کند. تکرار رکورد نیز عملکرد را باد می‌کند. تقسیم باید گروهی باشد و شناسه و نسخهٔ داده بررسی شود."
+    },
+    {
+      "title": "نشت در پیش‌پردازش",
+      "id": "S07-C1-ST01-L04-CARD04",
+      "text": "اگر میانگین‌گیری، انتخاب ویژگی یا پرکردن دادهٔ مفقود را روی کل مجموعه انجام دهید، اطلاعات آزمون به آموزش راه یافته است. تبدیل را فقط روی train برازش کنید و سپس بدون بازبرازش روی validation/test اعمال کنید."
+    },
+    {
+      "title": "نشت برچسب و جانشین",
+      "id": "S07-C1-ST01-L04-CARD05",
+      "text": "ویژگی‌ای که پس از تصمیم ساخته شده یا به نتیجه وابسته است ممکن است label leakage باشد. حتی شناسه یا کد فرایندی می‌تواند جانشین نتیجه شود. منشأ و زمان هر feature را با مالک کسب‌وکار بررسی کنید."
+    },
+    {
+      "title": "تفاوت آزمایشگاه و تولید",
+      "id": "S07-C1-ST01-L04-CARD06",
+      "text": "دادهٔ تولید ممکن است جدید، ناقص یا از جمعیت متفاوت باشد؛ کاربران نیز با مداخلهٔ مدل رفتارشان را عوض می‌کنند. توزیع ورودی، نرخ برچسب، کیفیت و پیامد را پس از استقرار پایش کنید."
+    },
+    {
+      "title": "شکاف عملکرد زیرگروه",
+      "id": "S07-C1-ST01-L04-CARD07",
+      "text": "میانگین خوب ممکن است خطای شدید در منطقه یا گروه کوچک را مخفی کند. تعریف گروه‌های حساس و معیارهای آن را پیشاپیش ثبت کنید، نمونهٔ کافی جمع کنید و در تصمیم‌های پراثر مسیر رسیدگی انسانی داشته باشید."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C1-ST01-L04-CARD08",
+      "text": "مدل دیرکرد عملکرد تقریباً کامل دارد؛ بازبینی می‌بیند ویژگی «زمان تحویل واقعی» در داده هست. این نشتی آشکار است. پس از حذف، عملکرد پایین‌تر اما واقعی‌تر می‌شود؛ آزمون زمانی و گروهی تازه برای تصمیم استقرار لازم است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "زمان واقعی تحویل در پیش‌بینی هنگام سفارش چه وضعی دارد؟",
+      "remediation_card_id": "S07-C1-ST01-L04-CARD02",
+      "variant": "A",
+      "id": "S07-C1-ST01-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "ویژگی مفید در همان لحظه",
+          "feedback": "بازبینی: این داده پس از تصمیم معلوم می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "هدف مدیریتی",
+          "feedback": "بازبینی: این داده پس از تصمیم معلوم می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "نشت آینده و نباید feature باشد",
+          "feedback": "درست: این داده پس از تصمیم معلوم می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "این داده پس از تصمیم معلوم می‌شود."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا سفارش یک مشتری را در train/test جدا کنیم؟",
+      "remediation_card_id": "S07-C1-ST01-L04-CARD03",
+      "variant": "A",
+      "id": "S07-C1-ST01-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای حذف مشتریان",
+          "feedback": "بازبینی: تقسیم گروهی تعمیم به مشتری تازه را بهتر می‌سنجد."
+        },
+        {
+          "id": "b",
+          "text": "تا مدل نمونهٔ همان مشتری را حفظ نکند",
+          "feedback": "درست: تقسیم گروهی تعمیم به مشتری تازه را بهتر می‌سنجد."
+        },
+        {
+          "id": "c",
+          "text": "برای زیادشدن تعداد ردیف",
+          "feedback": "بازبینی: تقسیم گروهی تعمیم به مشتری تازه را بهتر می‌سنجد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "تقسیم گروهی تعمیم به مشتری تازه را بهتر می‌سنجد."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "پیش‌پردازش را کجا برازش می‌کنیم؟",
+      "remediation_card_id": "S07-C1-ST01-L04-CARD04",
+      "variant": "A",
+      "id": "S07-C1-ST01-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "روی train و سپس اعمال به مجموعه‌های دیگر",
+          "feedback": "درست: آمار test نباید وارد یادگیری شود."
+        },
+        {
+          "id": "b",
+          "text": "روی کل داده",
+          "feedback": "بازبینی: آمار test نباید وارد یادگیری شود."
+        },
+        {
+          "id": "c",
+          "text": "فقط روی test",
+          "feedback": "بازبینی: آمار test نباید وارد یادگیری شود."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "آمار test نباید وارد یادگیری شود."
+    },
+    {
+      "objective_id": "S07-C1-ST01-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "عملکرد تولید ممکن است چرا افت کند؟",
+      "remediation_card_id": "S07-C1-ST01-L04-CARD06",
+      "variant": "A",
+      "id": "S07-C1-ST01-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون آزمون همیشه خطاست",
+          "feedback": "بازبینی: تغییر توزیع و فرایند نیازمند پایش است."
+        },
+        {
+          "id": "b",
+          "text": "چون مدل هرگز به‌روز نمی‌شود",
+          "feedback": "بازبینی: تغییر توزیع و فرایند نیازمند پایش است."
+        },
+        {
+          "id": "c",
+          "text": "جمعیت و داده و رفتار در زمان تغییر کند",
+          "feedback": "درست: تغییر توزیع و فرایند نیازمند پایش است."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST01-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "تغییر توزیع و فرایند نیازمند پایش است."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-DATASETS",
+      "title": "Google Machine Learning Crash Course: Data Characteristics",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google Machine Learning Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTION-MONITORING",
+      "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده و برچسب و خطا در استقرار."
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI Risk Management Framework Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+    }
+  ],
+  "practice_activity": {
+    "type": "managerial-ml-data-card",
+    "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
+    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST01-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-DATASETS",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-PRODUCTION-MONITORING",
+    "NIST-AI-RMF-CORE"
+  ],
+  "source_scope": "منابع فنی رسمی و چارچوب ریسک؛ مثال سپهر آموزشی و ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "data-unit-feature-label-evaluation-diagram",
+    "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "واحد داده",
+      "نوع مسئله",
+      "ارزیابی مدل",
+      "نشت اطلاعات"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 15
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "کارت تعریف داده و ارزیابی"
+}
