@@ -20,6 +20,7 @@ $nodeCommand = Get-Command node -ErrorAction SilentlyContinue
 $gitCommand = Get-Command git -ErrorAction SilentlyContinue
 $npmCommand = Get-Command npm -ErrorAction SilentlyContinue
 $dockerCommand = Get-Command docker -ErrorAction SilentlyContinue
+$refreshBranch = $null
 
 if ($Version -and $Refs -and $Refs.Count -gt 0) {
     throw 'Choose a version with -Version or provide explicit refs with -Refs, not both.'
@@ -29,11 +30,12 @@ if ($Version) {
         'main' { @('main') }
         'academy' { @('feat/stratino-academy') }
     }
+    $refreshBranch = if ($Version -eq 'main') { 'main' } else { 'feat/stratino-academy' }
 }
 elseif (-not $Refs -or $Refs.Count -eq 0) {
     Write-Host ''
     Write-Host 'کدام نسخه را برای اجرای محلی می‌خواهید؟' -ForegroundColor Cyan
-    Write-Host '  1) main — نسخه اصلی'
+    Write-Host '  1) main — آخرین نسخه سایت کامل همراه با آموزش'
     Write-Host '  2) academy — شاخه آموزشی feat/stratino-academy'
     $choice = (Read-Host 'شماره نسخه را وارد کنید (1 یا 2)').Trim()
     $Refs = switch ($choice) {
@@ -41,6 +43,7 @@ elseif (-not $Refs -or $Refs.Count -eq 0) {
         '2' { @('feat/stratino-academy') }
         default { throw 'انتخاب نامعتبر بود؛ اسکریپت بدون تغییر مخزن متوقف شد.' }
     }
+    $refreshBranch = if ($choice -eq '1') { 'main' } else { 'feat/stratino-academy' }
 }
 
 if ($WithBackend) {
@@ -184,14 +187,26 @@ function Get-ServerFailure {
 }
 
 try {
+    $sourceRefs = @($Refs)
+    if ($refreshBranch) {
+        $fetchRefspec = "+refs/heads/$($refreshBranch):refs/remotes/origin/$($refreshBranch)"
+        Write-Host "Fetching latest origin/$refreshBranch..."
+        $fetchOutput = & $gitCommand.Source -C $repoRoot fetch --quiet --no-tags origin $fetchRefspec 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not refresh origin/$refreshBranch. Check GitHub access and try again. $($fetchOutput -join [Environment]::NewLine)"
+        }
+        $sourceRefs = @("origin/$refreshBranch")
+    }
+
     # Validate refs and reserve distinct available localhost ports before creating worktrees.
     $commits = @()
     for ($index = 0; $index -lt $Refs.Count; $index++) {
-        $localRef = $Refs[$index]
+        $localRef = $sourceRefs[$index]
         try {
             $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "$localRef^{commit}")
         }
         catch {
+            if ($refreshBranch) { throw "Latest remote ref $localRef was not found after fetching." }
             $commit = Invoke-Git -GitArgs @('rev-parse', '--verify', '--end-of-options', "origin/$localRef^{commit}")
         }
         $commits += $commit
@@ -205,8 +220,8 @@ try {
     New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
     for ($index = 0; $index -lt $Refs.Count; $index++) {
         $ref = $Refs[$index]
-        # Resolve preview independently for each ref, so a multi-ref run keeps main off.
-        $previewEnabled = $AcademyPreview -or ($ref -in @('feat/stratino-academy', 'origin/feat/stratino-academy'))
+        # Keep the integrated Academy visible on main and the standalone Academy branch.
+        $previewEnabled = $AcademyPreview -or ($ref -in @('main', 'origin/main', 'feat/stratino-academy', 'origin/feat/stratino-academy'))
         $commit = $commits[$index]
         if (-not $commit) { throw "Git ref was not found: $ref" }
 
@@ -264,7 +279,8 @@ try {
         $processOptions = @{FilePath=$nodeCommand.Source; ArgumentList=$arguments; WorkingDirectory=$worktreePath; PassThru=$true; RedirectStandardOutput=$stdout; RedirectStandardError=$stderr}
         if ($env:OS -eq 'Windows_NT') { $processOptions['WindowStyle'] = 'Hidden' }
         $process = Start-Process @processOptions
-        $url = "http://127.0.0.1:$port" + $(if ($previewEnabled) { '/academy' } else { '/' })
+        $openPath = if ($ref -in @('feat/stratino-academy', 'origin/feat/stratino-academy')) { '/academy' } else { '/' }
+        $url = "http://127.0.0.1:$port$openPath"
         $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr; ProbeError = '' }
         $servers.Add($server)
 
@@ -288,6 +304,18 @@ try {
             catch { $server.ProbeError = $_.Exception.Message; Start-Sleep -Milliseconds 250 }
         }
         if (-not $ready) { throw (Get-ServerFailure -Server $server) }
+        $academyHealthcheck = 'not-enabled'
+        if ($previewEnabled) {
+            $request = [Net.HttpWebRequest]::Create("http://127.0.0.1:$port/academy")
+            $request.Proxy = $null
+            $request.Timeout = 5000
+            $response = $request.GetResponse()
+            try {
+                if ([int]$response.StatusCode -ne 200) { throw 'The Academy page is not ready.' }
+                $academyHealthcheck = 'HTTP 200'
+            }
+            finally { $response.Close() }
+        }
         if ($WithBackend) {
             $request = [Net.HttpWebRequest]::Create("http://127.0.0.1:$port/api/v1/health/ready")
             $request.Proxy = $null
@@ -300,7 +328,8 @@ try {
 
         $urls.Add($url)
         $runEvidence.Add([pscustomobject]@{ ref = $ref; commit = $commit; url = $url;
-            academyPreview = [bool]$previewEnabled; academyChunks = $academyChunks.Count; healthcheck = 'HTTP 200'; port = $port })
+            academyPreview = [bool]$previewEnabled; academyChunks = $academyChunks.Count; healthcheck = 'HTTP 200';
+            academyHealthcheck = $academyHealthcheck; port = $port })
         Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
     }
 
