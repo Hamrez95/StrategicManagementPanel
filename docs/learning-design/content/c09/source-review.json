@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C09",
-  "status": "two_stages_pending_expert_review",
+  "status": "three_stages_pending_expert_review",
   "source_review": "official_university_negotiation_program_and_book_preview",
   "source_use_note": "پیوندها برای مطالعه و رفرنس‌اند؛ محتوای آموزشی، مثال‌ها و پرسش‌ها مستقل نوشته شده‌اند. وضعیت مجوز هر متن کامل باید پیش از بازنشر جدا بررسی شود.",
   "sources": [
@@ -46,6 +46,27 @@
       "url": "https://www.pon.harvard.edu/daily/batna/too-eager-to-close-nb/",
       "scope": "بررسی گزینهٔ جایگزین، ارزش توافق‌نکردن و خطر توافق نامناسب.",
       "review_depth": "official_university_negotiation_resource_reviewed"
+    },
+    {
+      "id": "mediate",
+      "title": "Harvard PON: Mediation Focus on Interests",
+      "url": "https://www.pon.harvard.edu/daily/mediation/mediation-focus-on-interests-not-rights/",
+      "scope": "میانجی‌گریِ متمرکز بر منافع.",
+      "review_depth": "university_or_primary_preprint_reviewed"
+    },
+    {
+      "id": "ai-study",
+      "title": "Automated Mediator for Human Negotiation (2026 preprint)",
+      "url": "https://arxiv.org/abs/2606.11379",
+      "scope": "دو آزمایش محدود دربارهٔ پیش‌میانجی‌گری ساختاریافته با LLM.",
+      "review_depth": "university_or_primary_preprint_reviewed"
+    },
+    {
+      "id": "arena",
+      "title": "NegotiationArena: How Well Can LLMs Negotiate?",
+      "url": "https://arxiv.org/abs/2402.05863",
+      "scope": "ارزیابی عامل‌های زبانی در محیط آزمایشی مذاکره.",
+      "review_depth": "university_or_primary_preprint_reviewed"
     }
   ],
   "stage_notes": [
@@ -60,6 +81,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "BATNA و حد پذیرش، ZOPA تخمینی، گزینه‌های چندموضوعی و ارزیابی توافق در برابر جایگزین پوشش داده شد.",
       "ai_note": "مثال‌ها و اعداد ساختگی‌اند؛ تحلیلِ هزینهٔ مورد انتظار ساده‌شده و نیازمند تکمیل در کاربرد واقعی است."
+    },
+    {
+      "stage_id": "C09-ST03",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "تعارض، گوش‌دادن و اقناع، میانجی‌گری و حدود AI مذاکره پوشش داده شد.",
+      "ai_note": "مقاله‌های LLM به‌عنوان آزمایش محدود/پیش‌چاپ گزارش شده‌اند و برای مذاکرهٔ خودمختار واقعی توصیه نشده‌اند."
     }
   ]
 }
