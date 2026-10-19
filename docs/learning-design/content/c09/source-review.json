@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "course_id": "C09",
-  "status": "stage_01_pending_expert_review",
+  "status": "two_stages_pending_expert_review",
   "source_review": "official_university_negotiation_program_and_book_preview",
   "source_use_note": "پیوندها برای مطالعه و رفرنس‌اند؛ محتوای آموزشی، مثال‌ها و پرسش‌ها مستقل نوشته شده‌اند. وضعیت مجوز هر متن کامل باید پیش از بازنشر جدا بررسی شود.",
   "sources": [
@@ -32,6 +32,20 @@
       "url": "https://www.pon.harvard.edu/wp-content/uploads/images/posts/Books-by-Roger-Fisher.pdf",
       "scope": "مذاکرهٔ اصولی: منافع، گزینه‌ها، معیارهای عینی و BATNA; preview/catalog context.",
       "review_depth": "official_university_program_or_book_preview_reviewed"
+    },
+    {
+      "id": "integrative",
+      "title": "Harvard Program on Negotiation: Integrative Negotiation",
+      "url": "https://www.pon.harvard.edu/daily/negotiation-skills-daily/find-more-value-at-the-bargaining-table/",
+      "scope": "خلق ارزش با بررسی منافع و مبادلهٔ چندموضوعی.",
+      "review_depth": "official_university_negotiation_resource_reviewed"
+    },
+    {
+      "id": "agreement",
+      "title": "Harvard PON: BATNA analysis and the agreement trap",
+      "url": "https://www.pon.harvard.edu/daily/batna/too-eager-to-close-nb/",
+      "scope": "بررسی گزینهٔ جایگزین، ارزش توافق‌نکردن و خطر توافق نامناسب.",
+      "review_depth": "official_university_negotiation_resource_reviewed"
     }
   ],
   "stage_notes": [
@@ -40,6 +54,12 @@
       "status": "draft_complete_pending_expert_review",
       "scope_note": "موضع/منفعت، آماده‌سازی، حدود اختیار و ارزیابی مسئله‌محور پوشش داده شد.",
       "ai_note": "سناریوها ساختگی و مثال‌های تحلیلی‌اند؛ ادعای نقل رویداد واقعی ندارند."
+    },
+    {
+      "stage_id": "C09-ST02",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "BATNA و حد پذیرش، ZOPA تخمینی، گزینه‌های چندموضوعی و ارزیابی توافق در برابر جایگزین پوشش داده شد.",
+      "ai_note": "مثال‌ها و اعداد ساختگی‌اند؛ تحلیلِ هزینهٔ مورد انتظار ساده‌شده و نیازمند تکمیل در کاربرد واقعی است."
     }
   ]
 }
