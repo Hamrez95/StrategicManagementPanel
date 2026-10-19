@@ -1,0 +1,249 @@
+{
+  "id": "C08-ST01-L04",
+  "version": "1-draft",
+  "title": "داستان یک میانگین گمراه‌کننده",
+  "content_status": "draft",
+  "objective": "خلاصه یا نمودار AI را با دادهٔ پایه راستی‌آزمایی کند.",
+  "learning_cards": [
+    {
+      "id": "C08-ST01-L04-CARD01",
+      "type": "problem",
+      "title": "عدد شگفت‌انگیز",
+      "text": "«فروش متوسط دو برابر شد»؛ آیا خرید بالا رفت یا ترکیب مشتری تغییر کرد؟ مخرج را بررسی کنید."
+    },
+    {
+      "id": "C08-ST01-L04-CARD02",
+      "type": "definition",
+      "title": "ترکیب گروه",
+      "text": "میانگین کل با تغییر سهم مناطق بالا می‌رود، حتی اگر هر منطقه ثابت باشد."
+    },
+    {
+      "id": "C08-ST01-L04-CARD03",
+      "type": "explanation",
+      "title": "بازسازی",
+      "text": "دادهٔ خام، واحد، بازه، فیلتر و مخرج را بازسازی کنید؛ چند ردیف را دستی تطبیق دهید."
+    },
+    {
+      "id": "C08-ST01-L04-CARD04",
+      "type": "worked_example",
+      "title": "مثال فروش",
+      "text": "ماه اول خرید ۱۰۰ و ۱۰۰۰؛ میانگین ۵۵۰. ماه دوم دو خرید ۶۰۰؛ میانگین ۶۰۰، رشد حدود ۹٪ است.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C08-ST01-L04-CARD05",
+      "type": "explanation",
+      "title": "AI و خلاصه",
+      "text": "GenAI می‌تواند نمودار بسازد اما عدد یا رابطه را نادرست بیان کند؛ NIST اعتبارسنجی خروجی را توصیه می‌کند."
+    },
+    {
+      "id": "C08-ST01-L04-CARD06",
+      "type": "contrast",
+      "title": "سند ممیزی",
+      "text": "ادعا را به جدول، فیلتر، تعریف و فرمول وصل کنید. متن روان صحت محاسبه را ثابت نمی‌کند."
+    },
+    {
+      "id": "C08-ST01-L04-CARD07",
+      "type": "key_terms",
+      "title": "واژگان",
+      "text": "ترکیب نمونه، مخرج، بازسازی، راستی‌آزمایی و منشأ ادعا."
+    },
+    {
+      "id": "C08-ST01-L04-CARD08",
+      "type": "authored_diagram",
+      "title": "سه سؤال",
+      "text": "چه شمرده شد؟ چه کسی حذف شد؟ آیا عدد بازتولید می‌شود؟ اگر نه، ادعا موقت است."
+    },
+    {
+      "id": "C08-ST01-L04-CARD09",
+      "type": "summary",
+      "title": "جمع‌بندی",
+      "text": "میانگین را با توزیع و ترکیب بخوانید؛ خروجی AI را از دادهٔ پایه بسنجید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C08-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "میانگین کل چرا تغییر می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ترکیب گروه‌ها تغییر کرده",
+          "feedback": "درست: وزن گروه‌ها میانگین کل را جابه‌جا می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "فقط مدیر اشتباه کرده",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "میانه ثابت است",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "وزن گروه‌ها میانگین کل را جابه‌جا می‌کند.",
+      "objective_id": "C08-ST01-L04-OBJ1",
+      "equivalence_group": "C08-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L04-CARD02"
+    },
+    {
+      "id": "C08-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "محاسبهٔ AI را چطور وارسی می‌کنیم؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "روانی متن",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "تعداد نمودار",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "داده، فیلتر، مخرج و فرمول",
+          "feedback": "درست: نتیجه باید بازتولید شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نتیجه باید بازتولید شود.",
+      "objective_id": "C08-ST01-L04-OBJ1",
+      "equivalence_group": "C08-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L04-CARD03"
+    },
+    {
+      "id": "C08-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "میانگین ۱۰۰ و ۱۰۰۰؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "۱۰۰",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "۵۵۰",
+          "feedback": "درست: جمع تقسیم بر دو است."
+        },
+        {
+          "id": "b",
+          "text": "۱۱۰۰",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "جمع تقسیم بر دو است.",
+      "objective_id": "C08-ST01-L04-OBJ1",
+      "equivalence_group": "C08-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L04-CARD06"
+    },
+    {
+      "id": "C08-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "NIST چه ریسکی می‌گوید؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خروجی GenAI ممکن است نادرست باشد",
+          "feedback": "درست: اعتبارسنجی لازم است."
+        },
+        {
+          "id": "b",
+          "text": "هر محاسبه تضمین است",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "نمونه‌گیری همیشه تصادفی است",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اعتبارسنجی لازم است.",
+      "objective_id": "C08-ST01-L04-OBJ1",
+      "equivalence_group": "C08-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L04-CARD05"
+    },
+    {
+      "id": "C08-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "متن روان چه چیزی را ثابت نمی‌کند؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "خوانایی",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "c",
+          "text": "وجود ادعا",
+          "feedback": "تعریف یا محدودیت اشتباه است."
+        },
+        {
+          "id": "a",
+          "text": "درستی عدد",
+          "feedback": "درست: روانی و صحت یکی نیستند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "روانی و صحت یکی نیستند.",
+      "objective_id": "C08-ST01-L04-OBJ1",
+      "equivalence_group": "C08-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C08-ST01-L04-CARD07"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "center",
+      "title": "OpenStax Business Statistics 2.3: Center",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data",
+      "scope": "میانگین و میانه."
+    },
+    {
+      "id": "sampling",
+      "title": "OpenStax Business Statistics 1.2: Sampling",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+      "scope": "نوع داده و نمونه‌گیری."
+    },
+    {
+      "id": "nist",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "یک ادعای آماری/خلاصهٔ AI را از داده خام بازسازی کنید و فیلتر، واحد، مخرج، محاسبه و محدودیت را ثبت کنید.",
+    "unit": "سواد داده و تحلیل",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ باید واحد، تعریف، محاسبه و محدودیت را روشن کند؛ بازبینی انسانی لازم است.",
+    "rubric": [
+      "ادعا به داده وصل است",
+      "محاسبه بازسازی شده",
+      "مخرج بررسی شده"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}

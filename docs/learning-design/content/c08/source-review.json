@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-19",
+  "course_id": "C08",
+  "status": "stage_01_partial_draft",
+  "source_review": "official_open_textbook_and_standards_profile",
+  "source_use_note": "توضیح، مثال و تمرین مستقل تألیف شده است. شروط مجوز CC BY-NC-SA کتاب OpenStax و سازگاری استفادهٔ تجاری/مشتق باید جدا بررسی شود.",
+  "sources": [
+    {
+      "id": "data",
+      "title": "OpenStax Business Statistics 1.1: Definitions",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/1-1-definitions-of-statistics-probability-and-key-terms",
+      "scope": "تعریف جامعه، نمونه، آماره و پارامتر.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "center",
+      "title": "OpenStax Business Statistics 2.3: Center",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data",
+      "scope": "میانگین و میانه.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "spread",
+      "title": "OpenStax Business Statistics 2.7: Spread",
+      "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "scope": "پراکندگی و IQR.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "graphs",
+      "title": "OpenStax Business Statistics 2.1: Display Data",
+      "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/2-1-display-data",
+      "scope": "انتخاب نمودار.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "sampling",
+      "title": "OpenStax Business Statistics 1.2: Sampling",
+      "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
+      "scope": "نوع داده و نمونه‌گیری.",
+      "review_depth": "official_text_or_standard_reviewed"
+    },
+    {
+      "id": "nist",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI.",
+      "review_depth": "official_text_or_standard_reviewed"
+    }
+  ],
+  "stage_notes": [
+    {
+      "stage_id": "C08-ST01",
+      "status": "draft_complete_pending_expert_review",
+      "scope_note": "واحد مشاهده، مرکز/پراکندگی، نمودار و راستی‌آزمایی خروجی AI پوشش داده شده است.",
+      "ai_note": "NIST چارچوب ریسک است، نه شاهدی که هر نمودار مولد خطا دارد."
+    }
+  ]
+}
