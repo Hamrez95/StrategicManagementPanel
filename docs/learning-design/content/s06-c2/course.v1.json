@@ -3,9 +3,9 @@
   "id": "S06-C2",
   "title": "مدل کسب‌وکار و آزمایش فرضیه",
   "version": "1-draft",
-  "status": "draft_in_progress",
-  "stages_completed_draft": 2,
-  "current_stage": "S06-C2-ST03",
+  "status": "draft_complete_pending_review",
+  "stages_completed_draft": 3,
+  "current_stage": null,
   "stages": [
     {
       "id": "S06-C2-ST01",
@@ -2735,6 +2735,1833 @@
         "evidence-log",
         "decision-threshold-sheet"
       ]
+    },
+    {
+      "id": "S06-C2-ST03",
+      "title": "یادگیری و تغییر مسیر",
+      "order": 3,
+      "color_token": "blue",
+      "legacy_research_topic_ids": [],
+      "level": "specialist",
+      "source_refs": [
+        "STRAT-LEARNING-CARD",
+        "MIT-15-393-PIVOT-2025",
+        "MICROSOFT-GENAI-DEV-RCT-2025",
+        "NBER-CYBERNETIC-TEAMMATE-2025"
+      ],
+      "source_alignment": "official_method_resource_MIT_course_material_and_primary_AI_field_research_reviewed; scope limits stated",
+      "lessons": [
+        {
+          "id": "S06-C2-ST03-L01",
+          "version": "1-draft",
+          "title": "تفسیر موفقیت و شکست آزمایش",
+          "content_status": "draft",
+          "objective": "نتیجهٔ آزمایش را در دامنهٔ روش و نمونه تفسیر کند، بینش را از داده جدا کند و نتیجهٔ نامعین را به یادگیری قابل اقدام تبدیل کند.",
+          "learning_cards": [
+            {
+              "title": "آزمون پایان خط نیست",
+              "id": "S06-C2-ST03-L01-CARD01",
+              "text": "نتیجه فقط یک رنگ سبز یا قرمز نیست؛ می‌پرسیم چه مشاهده‌ای رخ داد، چه فرضی را پشتیبانی یا تضعیف کرد و چه چیزی هنوز نامعلوم است. یک آزمایش خوب حتی اگر فرض را رد کند، هزینهٔ تصمیم اشتباه بزرگ‌تر را کم می‌کند."
+            },
+            {
+              "title": "داده، بینش، اقدام",
+              "id": "S06-C2-ST03-L01-CARD02",
+              "text": "داده: ۴ نفر از ۱۲ مدیر یک فایل دستی فرستادند. بینش: برای بخشی از مشتریان درد مسئله از ادغام خودکار کمتر نیست، اما کار با فایل اصطکاک دارد. اقدام: در آزمون بعدی ارزش گزارش را از سهولت ورود داده جدا کنیم. هر تفسیر باید به مشاهدهٔ قابل ردیابی وصل باشد."
+            },
+            {
+              "title": "حمایت با اثبات فرق دارد",
+              "id": "S06-C2-ST03-L01-CARD03",
+              "text": "اگر مشتریان نمونه رفتار مورد انتظار را نشان دهند، نتیجه با فرض سازگار است؛ بازار یا علیت را اثبات نکرده‌ایم. روش، اندازه و انتخاب نمونه، رفتار واقعی و فرضیه‌های جایگزین را بررسی کنید. از «فرض تأیید شد» دقیق‌تر است بگوییم «شواهد اولیه از فرض پشتیبانی می‌کنند»."
+            },
+            {
+              "title": "نتیجهٔ منفی اطلاعات است",
+              "id": "S06-C2-ST03-L01-CARD04",
+              "text": "کم‌بودن اقدام می‌تواند از فرض غلط، پیام نامفهوم، کانال نامناسب، زمان‌بندی، اعتماد یا طراحی آزمون ناشی شود. شکست آزمون را بی‌درنگ شکست کل مدل ننامید؛ اول مشخص کنید کدام جزء واقعاً سنجیده شده و کدام عامل اجرا نتیجه را مخدوش کرده است."
+            },
+            {
+              "title": "نتیجهٔ نامعین",
+              "id": "S06-C2-ST03-L01-CARD05",
+              "text": "نمونه کم‌کیفیت، اندازهٔ ناکافی، ابزار خراب یا رفتارهای ناسازگار ممکن است پاسخ را نامعین کند. نامعین را موفقیت یا شکست جا نزنید؛ محدودیت را ثبت و یک آزمون تفکیک‌کننده طراحی کنید. گاهی توقف آزمون نامعتبر از افزودن دادهٔ بیشتر بهتر است."
+            },
+            {
+              "title": "تکرار و بازتولید",
+              "id": "S06-C2-ST03-L01-CARD06",
+              "text": "نتیجهٔ غیرمنتظره را در گروه یا زمان تازه بازآزمایی کنید؛ پروتکل، نسخهٔ پیشنهاد و تعریف شاخص را ثابت نگه دارید تا معلوم شود چه چیزی عوض شده است. تکرار دقیق همیشه ممکن نیست، اما تفاوت زمینه‌ها را ثبت کنید."
+            },
+            {
+              "title": "سه‌گانهٔ درس‌آموخته",
+              "id": "S06-C2-ST03-L01-CARD07",
+              "text": "در Learning Card می‌توانیم «فرض کردیم»، «مشاهده کردیم»، «یاد گرفتیم» و «اقدام بعدی» را جدا کنیم. از روایت پسینی که همیشه تصمیم قبلی را خردمندانه جلوه می‌دهد دوری کنید؛ ثبت تاریخ‌دار نشان می‌دهد دانستهٔ واقعی در لحظه چه بوده است."
+            },
+            {
+              "title": "مثال سپهر و واژگان",
+              "id": "S06-C2-ST03-L01-CARD08",
+              "text": "۱۰ حساب دعوت شدند، ۴ فایل دادند، ۲ گزارش را در تصمیم هفتگی استفاده کردند و هیچ‌کدام قیمت را نپذیرفتند. این داده ارزش بالقوه را نشان می‌دهد، اما تمایل پرداخت ضعیف است. «یادگیری معتبر»، «شاهد سازگار»، «نتیجهٔ نامعین» و «فرضیهٔ جایگزین» زبان دقیق‌تر از پیروزی/شکست ساده‌اند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S06-C2-ST03-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "پس از ۴ فایل و ۲ استفاده چه می‌گوییم؟",
+              "remediation_card_id": "S06-C2-ST03-L01-CARD02",
+              "variant": "A",
+              "id": "S06-C2-ST03-L01-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "همهٔ مشتریان محصول را می‌خواهند",
+                  "feedback": "بازبینی: دامنهٔ نتیجه از رفتار مشاهده‌شده فراتر نمی‌رود."
+                },
+                {
+                  "id": "b",
+                  "text": "شاهد اولیه برای ارزش استفاده داریم؛ پرداخت هنوز نامعلوم است",
+                  "feedback": "درست: دامنهٔ نتیجه از رفتار مشاهده‌شده فراتر نمی‌رود."
+                },
+                {
+                  "id": "c",
+                  "text": "مدل اثبات شده است",
+                  "feedback": "بازبینی: دامنهٔ نتیجه از رفتار مشاهده‌شده فراتر نمی‌رود."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L01-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "دامنهٔ نتیجه از رفتار مشاهده‌شده فراتر نمی‌رود."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L01-OBJ01",
+              "type": "single_choice",
+              "prompt": "نتیجهٔ نامعین را چطور ثبت کنیم؟",
+              "remediation_card_id": "S06-C2-ST03-L01-CARD05",
+              "variant": "A",
+              "id": "S06-C2-ST03-L01-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "آن را موفقیت اعلام کنیم",
+                  "feedback": "بازبینی: ابهام را نباید به موفقیت یا شکست تبدیل کرد."
+                },
+                {
+                  "id": "b",
+                  "text": "دادهٔ نامطلوب را حذف کنیم",
+                  "feedback": "بازبینی: ابهام را نباید به موفقیت یا شکست تبدیل کرد."
+                },
+                {
+                  "id": "c",
+                  "text": "محدودیت و آزمون تفکیک‌کننده را بنویسیم",
+                  "feedback": "درست: ابهام را نباید به موفقیت یا شکست تبدیل کرد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L01-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "ابهام را نباید به موفقیت یا شکست تبدیل کرد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "آزمایش منفی همیشه چه معنایی ندارد؟",
+              "remediation_card_id": "S06-C2-ST03-L01-CARD04",
+              "variant": "A",
+              "id": "S06-C2-ST03-L01-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "رد قطعی کل مدل کسب‌وکار",
+                  "feedback": "درست: باید معلوم شود کدام فرض و عامل واقعاً سنجیده شد."
+                },
+                {
+                  "id": "b",
+                  "text": "ممکن است پیام یا کانال مسئله داشته باشد",
+                  "feedback": "بازبینی: باید معلوم شود کدام فرض و عامل واقعاً سنجیده شد."
+                },
+                {
+                  "id": "c",
+                  "text": "ممکن است آزمون مخدوش باشد",
+                  "feedback": "بازبینی: باید معلوم شود کدام فرض و عامل واقعاً سنجیده شد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L01-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "باید معلوم شود کدام فرض و عامل واقعاً سنجیده شد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L01-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا نتیجه را تکرار می‌کنیم؟",
+              "remediation_card_id": "S06-C2-ST03-L01-CARD06",
+              "variant": "A",
+              "id": "S06-C2-ST03-L01-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "برای حذف پروتکل",
+                  "feedback": "بازبینی: تکرار با ثبت تغییر زمینه اعتبار یادگیری را تقویت می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "برای بررسی پایداری و وابستگی به نمونه یا زمان",
+                  "feedback": "درست: تکرار با ثبت تغییر زمینه اعتبار یادگیری را تقویت می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "برای تکرار تا نتیجهٔ دلخواه درآید",
+                  "feedback": "بازبینی: تکرار با ثبت تغییر زمینه اعتبار یادگیری را تقویت می‌کند."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L01-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "تکرار با ثبت تغییر زمینه اعتبار یادگیری را تقویت می‌کند."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L01-OBJ03",
+              "type": "single_choice",
+              "prompt": "Learning Card چه چیزی را جدا می‌کند؟",
+              "remediation_card_id": "S06-C2-ST03-L01-CARD07",
+              "variant": "A",
+              "id": "S06-C2-ST03-L01-Q05",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تبلیغ و قیمت",
+                  "feedback": "بازبینی: تفکیک این چهار مورد مسیر شاهد تا تصمیم را روشن می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "تیم و مشتری",
+                  "feedback": "بازبینی: تفکیک این چهار مورد مسیر شاهد تا تصمیم را روشن می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "فرض، مشاهده، یادگیری و اقدام",
+                  "feedback": "درست: تفکیک این چهار مورد مسیر شاهد تا تصمیم را روشن می‌کند."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L01-Q05-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "تفکیک این چهار مورد مسیر شاهد تا تصمیم را روشن می‌کند."
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Strategyzer Learning Card",
+              "id": "STRAT-LEARNING-CARD",
+              "url": "https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card",
+              "review_depth": "official_method_resource_reviewed",
+              "scope": "ثبت مشاهده، بینش آموخته‌شده و اقدام بعدی؛ ابزار رسمی و نه شاهد اثربخشی مستقل."
+            },
+            {
+              "title": "MIT 15.393 Nuts and Bolts of New Ventures (2025), Session 6 transcript",
+              "id": "MIT-15-393-PIVOT-2025",
+              "url": "https://ocw.mit.edu/courses/15-393-nuts-and-bolts-of-new-ventures-january-iap-2025/1ROWt8HvL_YocUMiLa5C79BZItY1-iTTa_transcript.pdf",
+              "review_depth": "official_current_course_transcript_reviewed",
+              "scope": "بحث کلاس دربارهٔ سازگاری و pivot در کارآفرینی؛ منبع نمونهٔ محتوای دوره است."
+            },
+            {
+              "title": "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers",
+              "id": "MICROSOFT-GENAI-DEV-RCT-2025",
+              "url": "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+              "review_depth": "primary_field_experiment_reviewed",
+              "scope": "سه آزمایش میدانی در کار توسعهٔ نرم‌افزار؛ برای هر فرایند مدیریتی یا کارآفرینانه قابل تعمیم مستقیم نیست."
+            },
+            {
+              "title": "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
+              "id": "NBER-CYBERNETIC-TEAMMATE-2025",
+              "url": "https://www.nber.org/papers/w33641",
+              "review_depth": "primary_field_experiment_and_2026_publication_record_reviewed",
+              "scope": "آزمایش میدانی دربارهٔ AI و همکاری/خبرگی تیم؛ نتیجه‌ها وابسته به وظیفه و زمینه هستند."
+            }
+          ],
+          "practice_activity": {
+            "type": "learning-card-pivot-memo",
+            "prompt": "برای سناریوی سپهر یک Learning Card و یادداشت تصمیم تکمیل کنید: فرض، مشاهده، آموخته، میزان اطمینان، محدودیت، گزینه‌های ادامه/تغییر/توقف و آزمون یا شرط بعدی را بنویسید. اگر AI به‌کار می‌رود، زمان، کیفیت، خطا و بازبینی را جدا بسنجید.",
+            "expected_output": "یادداشت تصمیم مستند به شواهد و آزمون بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s06-c2/lessons/S06-C2-ST03-L01.json",
+          "order": 1,
+          "node_type": "lesson",
+          "source_refs": [
+            "STRAT-LEARNING-CARD",
+            "MIT-15-393-PIVOT-2025",
+            "MICROSOFT-GENAI-DEV-RCT-2025",
+            "NBER-CYBERNETIC-TEAMMATE-2025"
+          ],
+          "source_scope": "منابع روش و پژوهش‌های زمینه‌مند بررسی شده‌اند؛ تعمیم مستقیم یا انتساب دقیق به دورهٔ MBA ادعا نمی‌شود.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "dropbox-mvp",
+              "zappos-concierge"
+            ],
+            "real_case_status": "case_requires_separate_fact_check"
+          },
+          "media_plan": {
+            "type": "learning-card-and-pivot-decision-tree",
+            "purpose": "ردیابی مشاهده تا تصمیم و گام بعدی",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "تفسیر نتیجه",
+              "اصلاح مدل",
+              "اثر AI",
+              "تصمیم ادامه یا توقف",
+              "محدودیت شواهد"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 15,
+            "practice": 15
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "Learning Card، یادداشت تغییر مدل و شرط تصمیم"
+        },
+        {
+          "id": "S06-C2-ST03-L02",
+          "version": "1-draft",
+          "title": "اصلاح مدل و تغییر مسیر",
+          "content_status": "draft",
+          "objective": "تغییر مسیر را به تغییر آگاهانهٔ یک یا چند فرض یا جزء مدل بر اساس شواهد تبدیل کند و آن را از تغییر واکنشی و بی‌قاعده تفکیک کند.",
+          "learning_cards": [
+            {
+              "title": "Pivot یعنی اصلاح جهت با یادگیری",
+              "id": "S06-C2-ST03-L02-CARD01",
+              "text": "تغییر مسیر یا pivot بازنگری اساسی در فرض یا جزء راهبردی مدل است که از یادگیری می‌آید؛ تغییر لوگو یا ویژگی کوچک لزوماً pivot نیست. نام‌گذاری دقیق کمک می‌کند تیم تغییر در بخش مشتری، مسئله، ارزش، کانال، درآمد یا فناوری را روشن کند."
+            },
+            {
+              "title": "تغییر کوچک یا تغییر مدل؟",
+              "id": "S06-C2-ST03-L02-CARD02",
+              "text": "اگر مشتری درست است ولی پیام مبهم، پیام را اصلاح و همان فرض را دوباره بیازمایید. اگر مدیر خرید مسئله را مهم نمی‌داند اما تیم عملیات با هزینهٔ واقعی درگیر است، شاید بخش مشتری یا ارزش پیشنهادی باید تغییر کند. میزان تغییر باید با محل شواهد منفی متناسب باشد."
+            },
+            {
+              "title": "چیزهایی که حفظ می‌شوند",
+              "id": "S06-C2-ST03-L02-CARD03",
+              "text": "در pivot همه‌چیز را دور نمی‌ریزیم: توانمندی، داده، رابطه یا زیرساخت مفید را مشخص و جزء مورد بازنگری را نام می‌بریم. این کار انتقال یادگیری را ممکن می‌کند و از بازشروع بی‌دلیل جلوگیری می‌کند."
+            },
+            {
+              "title": "دفتر تغییر مدل",
+              "id": "S06-C2-ST03-L02-CARD04",
+              "text": "برای هر نسخه تاریخ، مشاهدهٔ محرک، فرض قبلی، تغییر، فرض تازه، هزینهٔ برگشت، آزمون بعدی و مالک تصمیم را ثبت کنید. بوم‌های پیش و پس از تغییر را کنار هم نگه دارید؛ این تاریخچه نشان می‌دهد چرا مسیر عوض شد."
+            },
+            {
+              "title": "سوگیری هزینهٔ ازدست‌رفته",
+              "id": "S06-C2-ST03-L02-CARD05",
+              "text": "پولی که قبلاً خرج شده به‌تنهایی دلیل ادامه نیست؛ اما سرمایه‌گذاری گذشته هم به‌تنهایی دلیل توقف نیست. تصمیم آینده‌نگر را بر هزینه و منفعت آتی، گزینه‌های جایگزین، تعهدهای جاری و اطلاعات تازه بنا کنید."
+            },
+            {
+              "title": "پرهیز از pivot نمایشی",
+              "id": "S06-C2-ST03-L02-CARD06",
+              "text": "تغییر هر هفته بدون آستانه، گروه هدف یا یادگیری ثبت‌شده آزمایش‌گری نیست. هم‌زمان اجزای زیادی را عوض نکنید، وگرنه معلوم نمی‌شود چرا نتیجه تغییر کرد. تغییر کنترل‌شده، فرض‌های ثابت و متغیر را مشخص می‌کند."
+            },
+            {
+              "title": "سپهر: تغییر بخش مشتری",
+              "id": "S06-C2-ST03-L02-CARD07",
+              "text": "مدیران خرید استفاده کردند اما بودجه نداشتند؛ مدیران عملیات برای جلوگیری از توقف تولید مسئلهٔ شدیدتری دارند و بودجهٔ پایلوت در اختیارشان است. سپهر می‌تواند بخش مشتری را آزمایشی تغییر دهد، اما باید نقش خرید، ارزش، کانال فروش و اقتصاد خدمت تازه را دوباره بیازماید."
+            },
+            {
+              "title": "Pivot و واژگان متداول",
+              "id": "S06-C2-ST03-L02-CARD08",
+              "text": "«pivot»، «persevere»، «kill/stop»، «zoom-in»، «customer segment pivot» و «value proposition pivot» در ادبیات کارآفرینی دیده می‌شوند. نام‌ها چارچوب گفت‌وگو هستند؛ طبقه‌بندی واحد و الزام‌آور نیستند. مهم، پیوند تغییر با شاهد و آزمون بعدی است."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S06-C2-ST03-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "تغییر لوگو معمولاً چه چیزی نیست؟",
+              "remediation_card_id": "S06-C2-ST03-L02-CARD01",
+              "variant": "A",
+              "id": "S06-C2-ST03-L02-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تغییر بخش مشتری",
+                  "feedback": "بازبینی: pivot به بازنگری اساسی فرض یا جزء مدل اشاره دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "به‌تنهایی pivot راهبردی",
+                  "feedback": "درست: pivot به بازنگری اساسی فرض یا جزء مدل اشاره دارد."
+                },
+                {
+                  "id": "c",
+                  "text": "تغییر قیمت",
+                  "feedback": "بازبینی: pivot به بازنگری اساسی فرض یا جزء مدل اشاره دارد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L02-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "pivot به بازنگری اساسی فرض یا جزء مدل اشاره دارد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L02-OBJ01",
+              "type": "single_choice",
+              "prompt": "هزینهٔ قبلی را در تصمیم آینده چگونه ببینیم؟",
+              "remediation_card_id": "S06-C2-ST03-L02-CARD05",
+              "variant": "A",
+              "id": "S06-C2-ST03-L02-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط چون خرج کرده‌ایم ادامه دهیم",
+                  "feedback": "بازبینی: هزینهٔ ازدست‌رفته نباید تصمیم آینده را کنترل کند."
+                },
+                {
+                  "id": "b",
+                  "text": "هر سرمایه‌گذاری گذشته یعنی توقف",
+                  "feedback": "بازبینی: هزینهٔ ازدست‌رفته نباید تصمیم آینده را کنترل کند."
+                },
+                {
+                  "id": "c",
+                  "text": "هزینهٔ گذشته را از منافع و هزینه‌های آینده جدا کنیم",
+                  "feedback": "درست: هزینهٔ ازدست‌رفته نباید تصمیم آینده را کنترل کند."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L02-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "هزینهٔ ازدست‌رفته نباید تصمیم آینده را کنترل کند."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا در pivot چند جزء را همزمان عوض نکنیم؟",
+              "remediation_card_id": "S06-C2-ST03-L02-CARD06",
+              "variant": "A",
+              "id": "S06-C2-ST03-L02-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تا بتوانیم اثر تغییر را تفسیر کنیم",
+                  "feedback": "درست: تغییر کنترل‌نشده علت نتیجه را مبهم می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "چون مدل هرگز تغییر نمی‌کند",
+                  "feedback": "بازبینی: تغییر کنترل‌نشده علت نتیجه را مبهم می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "برای افزایش تبلیغ",
+                  "feedback": "بازبینی: تغییر کنترل‌نشده علت نتیجه را مبهم می‌کند."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L02-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "تغییر کنترل‌نشده علت نتیجه را مبهم می‌کند."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L02-OBJ02",
+              "type": "single_choice",
+              "prompt": "اگر عملیات مسئلهٔ شدیدتری دارد چه کنیم؟",
+              "remediation_card_id": "S06-C2-ST03-L02-CARD07",
+              "variant": "A",
+              "id": "S06-C2-ST03-L02-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "بدون آزمون قیمت را بالا ببریم",
+                  "feedback": "بازبینی: بخش تازه، فرض‌های خرید و تحویل تازه دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "تغییر بخش مشتری را به‌صورت فرض تازه بیازماییم",
+                  "feedback": "درست: بخش تازه، فرض‌های خرید و تحویل تازه دارد."
+                },
+                {
+                  "id": "c",
+                  "text": "بازار مدیر خرید را قطعی حذف کنیم",
+                  "feedback": "بازبینی: بخش تازه، فرض‌های خرید و تحویل تازه دارد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L02-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "بخش تازه، فرض‌های خرید و تحویل تازه دارد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L02-OBJ03",
+              "type": "single_choice",
+              "prompt": "دفتر تغییر مدل چه ثبت می‌کند؟",
+              "remediation_card_id": "S06-C2-ST03-L02-CARD04",
+              "variant": "A",
+              "id": "S06-C2-ST03-L02-Q05",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط نام و رنگ محصول",
+                  "feedback": "بازبینی: ردیابی تغییر انتقال یادگیری را ممکن می‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط سرمایهٔ قبلی",
+                  "feedback": "بازبینی: ردیابی تغییر انتقال یادگیری را ممکن می‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "شاهد محرک، تغییر، فرض تازه و آزمون بعدی",
+                  "feedback": "درست: ردیابی تغییر انتقال یادگیری را ممکن می‌کند."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L02-Q05-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "ردیابی تغییر انتقال یادگیری را ممکن می‌کند."
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Strategyzer Learning Card",
+              "id": "STRAT-LEARNING-CARD",
+              "url": "https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card",
+              "review_depth": "official_method_resource_reviewed",
+              "scope": "ثبت مشاهده، بینش آموخته‌شده و اقدام بعدی؛ ابزار رسمی و نه شاهد اثربخشی مستقل."
+            },
+            {
+              "title": "MIT 15.393 Nuts and Bolts of New Ventures (2025), Session 6 transcript",
+              "id": "MIT-15-393-PIVOT-2025",
+              "url": "https://ocw.mit.edu/courses/15-393-nuts-and-bolts-of-new-ventures-january-iap-2025/1ROWt8HvL_YocUMiLa5C79BZItY1-iTTa_transcript.pdf",
+              "review_depth": "official_current_course_transcript_reviewed",
+              "scope": "بحث کلاس دربارهٔ سازگاری و pivot در کارآفرینی؛ منبع نمونهٔ محتوای دوره است."
+            },
+            {
+              "title": "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers",
+              "id": "MICROSOFT-GENAI-DEV-RCT-2025",
+              "url": "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+              "review_depth": "primary_field_experiment_reviewed",
+              "scope": "سه آزمایش میدانی در کار توسعهٔ نرم‌افزار؛ برای هر فرایند مدیریتی یا کارآفرینانه قابل تعمیم مستقیم نیست."
+            },
+            {
+              "title": "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
+              "id": "NBER-CYBERNETIC-TEAMMATE-2025",
+              "url": "https://www.nber.org/papers/w33641",
+              "review_depth": "primary_field_experiment_and_2026_publication_record_reviewed",
+              "scope": "آزمایش میدانی دربارهٔ AI و همکاری/خبرگی تیم؛ نتیجه‌ها وابسته به وظیفه و زمینه هستند."
+            }
+          ],
+          "practice_activity": {
+            "type": "learning-card-pivot-memo",
+            "prompt": "برای سناریوی سپهر یک Learning Card و یادداشت تصمیم تکمیل کنید: فرض، مشاهده، آموخته، میزان اطمینان، محدودیت، گزینه‌های ادامه/تغییر/توقف و آزمون یا شرط بعدی را بنویسید. اگر AI به‌کار می‌رود، زمان، کیفیت، خطا و بازبینی را جدا بسنجید.",
+            "expected_output": "یادداشت تصمیم مستند به شواهد و آزمون بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s06-c2/lessons/S06-C2-ST03-L02.json",
+          "order": 2,
+          "node_type": "lesson",
+          "source_refs": [
+            "STRAT-LEARNING-CARD",
+            "MIT-15-393-PIVOT-2025",
+            "MICROSOFT-GENAI-DEV-RCT-2025",
+            "NBER-CYBERNETIC-TEAMMATE-2025"
+          ],
+          "source_scope": "منابع روش و پژوهش‌های زمینه‌مند بررسی شده‌اند؛ تعمیم مستقیم یا انتساب دقیق به دورهٔ MBA ادعا نمی‌شود.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "dropbox-mvp",
+              "zappos-concierge"
+            ],
+            "real_case_status": "case_requires_separate_fact_check"
+          },
+          "media_plan": {
+            "type": "learning-card-and-pivot-decision-tree",
+            "purpose": "ردیابی مشاهده تا تصمیم و گام بعدی",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "تفسیر نتیجه",
+              "اصلاح مدل",
+              "اثر AI",
+              "تصمیم ادامه یا توقف",
+              "محدودیت شواهد"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 15,
+            "practice": 15
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "Learning Card، یادداشت تغییر مدل و شرط تصمیم"
+        },
+        {
+          "id": "S06-C2-ST03-L03",
+          "version": "1-draft",
+          "title": "اثر AI بر هزینه و سرعت آزمایش",
+          "content_status": "draft",
+          "objective": "کاربرد هوش مصنوعی را در چرخهٔ آزمایش به‌عنوان فرضیه‌ای تازه بسنجد و بهره‌وری، کیفیت یادگیری، ریسک و هزینهٔ بازبینی را جدا گزارش کند.",
+          "learning_cards": [
+            {
+              "title": "AI شتاب‌دهندهٔ فرضیه است، نه شاهد مشتری",
+              "id": "S06-C2-ST03-L03-CARD01",
+              "text": "مدل می‌تواند متن مصاحبه را خلاصه، نسخه‌های پیام را تولید، دادهٔ مصنوعی بسازد یا نمونهٔ اولیه را سریع‌تر آماده کند. خروجی تولیدشدهٔ AI رفتار مشتری واقعی نیست؛ برای ادعای تقاضا باید با افراد و رویدادهای واقعی اعتبارسنجی شود."
+            },
+            {
+              "title": "اثر بر چرخه، نه فقط زمان ساخت",
+              "id": "S06-C2-ST03-L03-CARD02",
+              "text": "زمان ساخت نمونه ممکن است کم شود، اما زمان راستی‌آزمایی، اصلاح خطا، امنیت، حریم خصوصی و آموزش هم هزینه دارد. مقایسه کنید: زمان تا آزمون معتبر، نرخ خطای نمونه، کیفیت تصمیم، هزینهٔ کل و پیامد برای مشتری."
+            },
+            {
+              "title": "پژوهش‌های AI زمینه‌مندند",
+              "id": "S06-C2-ST03-L03-CARD03",
+              "text": "آزمایش‌های میدانی دربارهٔ توسعه‌دهندگان یا تیم‌های دانشی، اثر را در وظایف و سازمان‌های مشخص می‌سنجند. نتایج یک نقش یا ابزار را مستقیم به کشف مشتری، فروش یا ساخت محصول تعمیم ندهید؛ شواهد بیرونی نقطهٔ شروع فرضیهٔ محلی‌اند."
+            },
+            {
+              "title": "یک آزمون مقایسه‌ای کوچک",
+              "id": "S06-C2-ST03-L03-CARD04",
+              "text": "برای سپهر، دو گروه هم‌سطح از تیم‌ها یک خلاصهٔ مصاحبه می‌سازند: با دستیار AI و با روش موجود. تعریف کدها و معیار کیفیت را از قبل تعیین کنید، متن خام را محرمانه نگه دارید، و داور بی‌خبر از روش، دقت نقل‌قول و مفیدبودن بینش را ارزیابی کند."
+            },
+            {
+              "title": "معیار کیفیت خروجی",
+              "id": "S06-C2-ST03-L03-CARD05",
+              "text": "سرعت تنها معیار نیست. نرخ نقل‌قول نادرست، جاافتادن مورد مخالف، توافق میان کدگذاران، تغییر تصمیم و میزان بازبینی را هم ثبت کنید. کاهش ۳۰ دقیقه در خلاصه‌سازی اگر یک شواهد مخالف را حذف کند، ممکن است تصمیم بدتری بسازد."
+            },
+            {
+              "title": "حریم خصوصی و مجوز",
+              "id": "S06-C2-ST03-L03-CARD06",
+              "text": "پیش از واردکردن مصاحبه به سامانهٔ AI، رضایت، حساسیت داده، محل پردازش، دسترسی و نگهداری را بررسی کنید. داده را حداقل‌سازی و شناسه‌ها را حذف کنید؛ سیاست سازمان و تعهد به مشتری مقدم است. خروجی را انسانی بازبینی کنید."
+            },
+            {
+              "title": "AI به‌عنوان مصاحبه‌شوندهٔ مصنوعی؟",
+              "id": "S06-C2-ST03-L03-CARD07",
+              "text": "مدل زبانی می‌تواند سناریو بسازد یا پرسش‌های تیم را نقد کند، اما «مشتری مصنوعی» نمایندهٔ بازار نیست و پاسخ‌های آن برای برآورد تمایل یا رفتار حقیقی اعتبار بیرونی ندارد. برای تمرین داخلی مناسب است؛ ادعای بازار باید از نمونهٔ انسانی/رفتاری بیاید."
+            },
+            {
+              "title": "دفتر AI و واژگان",
+              "id": "S06-C2-ST03-L03-CARD08",
+              "text": "نسخه و تنظیم ابزار، وظیفه، دادهٔ ورودی، زمان صرفه‌جویی‌شده، خطا، بازبینی و اثر تصمیم را ثبت کنید. «human-in-the-loop»، «augmentation»، «automation bias» و «جبههٔ ناهموار توانمندی» به‌ترتیب نظارت انسان، تقویت کار، اعتماد بیش‌ازحد و تفاوت عملکرد میان وظایف را توصیف می‌کنند."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S06-C2-ST03-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "خروجی AI از مصاحبه شاهد تقاضاست؟",
+              "remediation_card_id": "S06-C2-ST03-L03-CARD01",
+              "variant": "A",
+              "id": "S06-C2-ST03-L03-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط اگر طولانی باشد",
+                  "feedback": "بازبینی: تولید مدل جای مشتری و رویداد واقعی را نمی‌گیرد."
+                },
+                {
+                  "id": "b",
+                  "text": "خیر؛ باید با رفتار و گفتهٔ واقعی اعتبارسنجی شود",
+                  "feedback": "درست: تولید مدل جای مشتری و رویداد واقعی را نمی‌گیرد."
+                },
+                {
+                  "id": "c",
+                  "text": "بله؛ چون روان نوشته شده",
+                  "feedback": "بازبینی: تولید مدل جای مشتری و رویداد واقعی را نمی‌گیرد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L03-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "تولید مدل جای مشتری و رویداد واقعی را نمی‌گیرد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L03-OBJ01",
+              "type": "single_choice",
+              "prompt": "برای مقایسهٔ AI و روش عادی چه چیزی بسنجیم؟",
+              "remediation_card_id": "S06-C2-ST03-L03-CARD05",
+              "variant": "A",
+              "id": "S06-C2-ST03-L03-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط تعداد متن‌های تولیدشده",
+                  "feedback": "بازبینی: بهره‌وری و کیفیت و پیامد را جدا اندازه بگیرید."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط رضایت نویسنده",
+                  "feedback": "بازبینی: بهره‌وری و کیفیت و پیامد را جدا اندازه بگیرید."
+                },
+                {
+                  "id": "c",
+                  "text": "زمان، کیفیت کدگذاری، خطا و اثر بر تصمیم",
+                  "feedback": "درست: بهره‌وری و کیفیت و پیامد را جدا اندازه بگیرید."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L03-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "بهره‌وری و کیفیت و پیامد را جدا اندازه بگیرید."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "یافتهٔ آزمایش AI در برنامه‌نویسی به کشف مشتری تعمیم می‌یابد؟",
+              "remediation_card_id": "S06-C2-ST03-L03-CARD03",
+              "variant": "A",
+              "id": "S06-C2-ST03-L03-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نه مستقیم؛ زمینه و وظیفه فرق دارد",
+                  "feedback": "درست: نتیجهٔ تجربی به نمونه و کار مطالعه‌شده محدود است."
+                },
+                {
+                  "id": "b",
+                  "text": "بله، همهٔ کارها یکسان‌اند",
+                  "feedback": "بازبینی: نتیجهٔ تجربی به نمونه و کار مطالعه‌شده محدود است."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط با تغییر نام ابزار",
+                  "feedback": "بازبینی: نتیجهٔ تجربی به نمونه و کار مطالعه‌شده محدود است."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L03-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "نتیجهٔ تجربی به نمونه و کار مطالعه‌شده محدود است."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L03-OBJ02",
+              "type": "single_choice",
+              "prompt": "مصاحبهٔ مصنوعی مدل برای چه مناسب است؟",
+              "remediation_card_id": "S06-C2-ST03-L03-CARD07",
+              "variant": "A",
+              "id": "S06-C2-ST03-L03-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جایگزین مصاحبهٔ مشتری",
+                  "feedback": "بازبینی: خروجی مصنوعی اعتبار بیرونی برای بازار ندارد."
+                },
+                {
+                  "id": "b",
+                  "text": "تمرین داخلی و نقد پرسش، نه ادعای بازار",
+                  "feedback": "درست: خروجی مصنوعی اعتبار بیرونی برای بازار ندارد."
+                },
+                {
+                  "id": "c",
+                  "text": "برآورد واقعی خرید",
+                  "feedback": "بازبینی: خروجی مصنوعی اعتبار بیرونی برای بازار ندارد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L03-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "خروجی مصنوعی اعتبار بیرونی برای بازار ندارد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L03-OBJ03",
+              "type": "single_choice",
+              "prompt": "چه کاری پیش از بارگذاری مصاحبه در AI لازم است؟",
+              "remediation_card_id": "S06-C2-ST03-L03-CARD06",
+              "variant": "A",
+              "id": "S06-C2-ST03-L03-Q05",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ارسال همه‌چیز به ابزار عمومی",
+                  "feedback": "بازبینی: حریم خصوصی و تعهد قراردادی بخشی از طراحی آزمون است."
+                },
+                {
+                  "id": "b",
+                  "text": "حذف بازبینی انسانی",
+                  "feedback": "بازبینی: حریم خصوصی و تعهد قراردادی بخشی از طراحی آزمون است."
+                },
+                {
+                  "id": "c",
+                  "text": "بررسی رضایت، حساسیت و حداقل‌سازی داده",
+                  "feedback": "درست: حریم خصوصی و تعهد قراردادی بخشی از طراحی آزمون است."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L03-Q05-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "حریم خصوصی و تعهد قراردادی بخشی از طراحی آزمون است."
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Strategyzer Learning Card",
+              "id": "STRAT-LEARNING-CARD",
+              "url": "https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card",
+              "review_depth": "official_method_resource_reviewed",
+              "scope": "ثبت مشاهده، بینش آموخته‌شده و اقدام بعدی؛ ابزار رسمی و نه شاهد اثربخشی مستقل."
+            },
+            {
+              "title": "MIT 15.393 Nuts and Bolts of New Ventures (2025), Session 6 transcript",
+              "id": "MIT-15-393-PIVOT-2025",
+              "url": "https://ocw.mit.edu/courses/15-393-nuts-and-bolts-of-new-ventures-january-iap-2025/1ROWt8HvL_YocUMiLa5C79BZItY1-iTTa_transcript.pdf",
+              "review_depth": "official_current_course_transcript_reviewed",
+              "scope": "بحث کلاس دربارهٔ سازگاری و pivot در کارآفرینی؛ منبع نمونهٔ محتوای دوره است."
+            },
+            {
+              "title": "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers",
+              "id": "MICROSOFT-GENAI-DEV-RCT-2025",
+              "url": "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+              "review_depth": "primary_field_experiment_reviewed",
+              "scope": "سه آزمایش میدانی در کار توسعهٔ نرم‌افزار؛ برای هر فرایند مدیریتی یا کارآفرینانه قابل تعمیم مستقیم نیست."
+            },
+            {
+              "title": "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
+              "id": "NBER-CYBERNETIC-TEAMMATE-2025",
+              "url": "https://www.nber.org/papers/w33641",
+              "review_depth": "primary_field_experiment_and_2026_publication_record_reviewed",
+              "scope": "آزمایش میدانی دربارهٔ AI و همکاری/خبرگی تیم؛ نتیجه‌ها وابسته به وظیفه و زمینه هستند."
+            }
+          ],
+          "practice_activity": {
+            "type": "learning-card-pivot-memo",
+            "prompt": "برای سناریوی سپهر یک Learning Card و یادداشت تصمیم تکمیل کنید: فرض، مشاهده، آموخته، میزان اطمینان، محدودیت، گزینه‌های ادامه/تغییر/توقف و آزمون یا شرط بعدی را بنویسید. اگر AI به‌کار می‌رود، زمان، کیفیت، خطا و بازبینی را جدا بسنجید.",
+            "expected_output": "یادداشت تصمیم مستند به شواهد و آزمون بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s06-c2/lessons/S06-C2-ST03-L03.json",
+          "order": 3,
+          "node_type": "lesson",
+          "source_refs": [
+            "STRAT-LEARNING-CARD",
+            "MIT-15-393-PIVOT-2025",
+            "MICROSOFT-GENAI-DEV-RCT-2025",
+            "NBER-CYBERNETIC-TEAMMATE-2025"
+          ],
+          "source_scope": "منابع روش و پژوهش‌های زمینه‌مند بررسی شده‌اند؛ تعمیم مستقیم یا انتساب دقیق به دورهٔ MBA ادعا نمی‌شود.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "dropbox-mvp",
+              "zappos-concierge"
+            ],
+            "real_case_status": "case_requires_separate_fact_check"
+          },
+          "media_plan": {
+            "type": "learning-card-and-pivot-decision-tree",
+            "purpose": "ردیابی مشاهده تا تصمیم و گام بعدی",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "تفسیر نتیجه",
+              "اصلاح مدل",
+              "اثر AI",
+              "تصمیم ادامه یا توقف",
+              "محدودیت شواهد"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 15,
+            "practice": 15
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "Learning Card، یادداشت تغییر مدل و شرط تصمیم"
+        },
+        {
+          "id": "S06-C2-ST03-L04",
+          "version": "1-draft",
+          "title": "تصمیم ادامه، تغییر یا توقف",
+          "content_status": "draft",
+          "objective": "با شواهد، ریسک، هزینهٔ آینده و گزینه‌های جایگزین تصمیم ادامه، اصلاح مسیر یا توقف بگیرد و دلیل و شرط بازنگری آن را مستند کند.",
+          "learning_cards": [
+            {
+              "title": "سه مسیر، یک منطق تصمیم",
+              "id": "S06-C2-ST03-L04-CARD01",
+              "text": "ادامه یعنی فرض‌های کلیدی هنوز شواهد کافی برای گام بعد دارند؛ تغییر مسیر یعنی مسئله یا بخش مهمی از مدل باید بازنگری شود؛ توقف یعنی ارزش مورد انتظار مسیر از هزینه و ریسک آینده کمتر است. این‌ها داوری دربارهٔ هویت بنیان‌گذار نیستند."
+            },
+            {
+              "title": "ادامه با تعهد محدود",
+              "id": "S06-C2-ST03-L04-CARD02",
+              "text": "حتی با شواهد امیدوارکننده، گام بعدی را متناسب با عدم‌قطعیت نگه دارید: مشتری بیشتر، قیمت واقعی، تکرار استفاده یا آزمون تحویل. «ادامه» به معنی مقیاس‌دادن فوری نیست؛ مرحلهٔ بعد باید فرض ریسک‌دار را هدف بگیرد."
+            },
+            {
+              "title": "تغییر مسیر مستند",
+              "id": "S06-C2-ST03-L04-CARD03",
+              "text": "تغییر را به یک مشاهده و فرض مشخص وصل کنید: چه چیزی را حفظ می‌کنیم، چه چیزی عوض می‌شود، هزینهٔ برگشت چیست و آزمون بعدی کدام است؟ نام «pivot» نباید بهانهٔ فرار از معیار یا چسباندن داستان پسینی شود."
+            },
+            {
+              "title": "توقف مسئولانه",
+              "id": "S06-C2-ST03-L04-CARD04",
+              "text": "توقف می‌تواند برای محدودکردن زیان مشتری، حفاظت داده، ایمنی یا سرمایه لازم باشد. تعهدهای قراردادی، بازپرداخت، انتقال داده و ارتباط شفاف با کاربران و کارکنان را لحاظ کنید. اگر آزمون اخلاقی یا قانونی نیست، آن را برای نجات مدل ادامه ندهید."
+            },
+            {
+              "title": "ارزش اطلاعات در برابر هزینه",
+              "id": "S06-C2-ST03-L04-CARD05",
+              "text": "آزمون بعدی زمانی منطقی است که اطلاعات بالقوه بتواند تصمیم را تغییر دهد و ارزش این اطلاعات از هزینهٔ آزمون بیشتر باشد. اگر هیچ نتیجه‌ای برنامه را تغییر نمی‌دهد، آزمون اضافی احتمالاً یادگیری ارزشمندی ندارد."
+            },
+            {
+              "title": "حدود اطمینان و تصمیم مرحله‌ای",
+              "id": "S06-C2-ST03-L04-CARD06",
+              "text": "شواهد قطعی کمیاب‌اند. تصمیم برگشت‌پذیر و کم‌هزینه می‌تواند با اطمینان پایین‌تر اجرا شود؛ سرمایه‌گذاری سنگین و برگشت‌ناپذیر به شاهد قوی‌تر نیاز دارد. گزینهٔ کوچک و مرحله‌بندی‌شده، امکان یادگیری و کنترل ریسک را هم‌زمان نگه می‌دارد."
+            },
+            {
+              "title": "سپهر: تصمیم کمیته",
+              "id": "S06-C2-ST03-L04-CARD07",
+              "text": "دو مشتری گزارش را به کار برده‌اند، اما تعهد پرداخت نیست؛ نمونه هم از مشتریان آشنا بوده. تصمیم معقول می‌تواند ادامهٔ محدود با سه مشتری مستقل و قیمت شفاف باشد، نه ساخت کامل محصول. اگر هیچ‌کدام تمدید نکنند، فرض پرداخت بازنگری یا مسیر متوقف می‌شود."
+            },
+            {
+              "title": "یادداشت تصمیم",
+              "id": "S06-C2-ST03-L04-CARD08",
+              "text": "تاریخ، تصمیم‌گیر، گزینه‌ها، شواهد موافق و مخالف، محدودیت، هزینهٔ بعدی، فرض کلیدی، شرط توقف و تاریخ بازبینی را ثبت کنید. پس از موعد، پیش‌بینی خود را با رخداد واقعی مقایسه کنید تا کیفیت قضاوت مدیریتی بهتر شود."
+            }
+          ],
+          "questions": [
+            {
+              "objective_id": "S06-C2-ST03-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "ادامه یعنی چه؟",
+              "remediation_card_id": "S06-C2-ST03-L04-CARD02",
+              "variant": "A",
+              "id": "S06-C2-ST03-L04-Q01",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نادیده‌گرفتن شواهد مخالف",
+                  "feedback": "بازبینی: ادامهٔ یادگیری مجوز مقیاس بی‌قید نیست."
+                },
+                {
+                  "id": "b",
+                  "text": "گام بعدی متناسب با ریسک و عدم‌قطعیت",
+                  "feedback": "درست: ادامهٔ یادگیری مجوز مقیاس بی‌قید نیست."
+                },
+                {
+                  "id": "c",
+                  "text": "مقیاس کامل فوری",
+                  "feedback": "بازبینی: ادامهٔ یادگیری مجوز مقیاس بی‌قید نیست."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L04-Q01-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "ادامهٔ یادگیری مجوز مقیاس بی‌قید نیست."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L04-OBJ01",
+              "type": "single_choice",
+              "prompt": "چه وقت ارزش آزمون بعدی پایین است؟",
+              "remediation_card_id": "S06-C2-ST03-L04-CARD05",
+              "variant": "A",
+              "id": "S06-C2-ST03-L04-Q02",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وقتی آزمون ارزان است",
+                  "feedback": "بازبینی: آزمون باید ارزش اطلاعاتی بالقوه داشته باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "وقتی شواهد نامطمئن‌اند",
+                  "feedback": "بازبینی: آزمون باید ارزش اطلاعاتی بالقوه داشته باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "وقتی هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد",
+                  "feedback": "درست: آزمون باید ارزش اطلاعاتی بالقوه داشته باشد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L04-Q02-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "آزمون باید ارزش اطلاعاتی بالقوه داشته باشد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "چرا تصمیم برگشت‌ناپذیر شاهد بیشتری می‌خواهد؟",
+              "remediation_card_id": "S06-C2-ST03-L04-CARD06",
+              "variant": "A",
+              "id": "S06-C2-ST03-L04-Q03",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "هزینهٔ خطا و برگشت آن بالاتر است",
+                  "feedback": "درست: شدت شواهد باید متناسب با پیامد خطا باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "چون هر تصمیم باید قطعی باشد",
+                  "feedback": "بازبینی: شدت شواهد باید متناسب با پیامد خطا باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "چون نمونه همیشه دقیق است",
+                  "feedback": "بازبینی: شدت شواهد باید متناسب با پیامد خطا باشد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L04-Q03-FAMILY",
+              "version": 1,
+              "correct_option_id": "a",
+              "explanation": "شدت شواهد باید متناسب با پیامد خطا باشد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L04-OBJ02",
+              "type": "single_choice",
+              "prompt": "در توقف چه موردی را باید لحاظ کرد؟",
+              "remediation_card_id": "S06-C2-ST03-L04-CARD04",
+              "variant": "A",
+              "id": "S06-C2-ST03-L04-Q04",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "فقط نظر بنیان‌گذار",
+                  "feedback": "بازبینی: توقف مسئولانه تعهدهای ذی‌نفعان را پوشش می‌دهد."
+                },
+                {
+                  "id": "b",
+                  "text": "تعهد به مشتری و حفاظت داده و ایمنی",
+                  "feedback": "درست: توقف مسئولانه تعهدهای ذی‌نفعان را پوشش می‌دهد."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط هزینهٔ تبلیغ",
+                  "feedback": "بازبینی: توقف مسئولانه تعهدهای ذی‌نفعان را پوشش می‌دهد."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L04-Q04-FAMILY",
+              "version": 1,
+              "correct_option_id": "b",
+              "explanation": "توقف مسئولانه تعهدهای ذی‌نفعان را پوشش می‌دهد."
+            },
+            {
+              "objective_id": "S06-C2-ST03-L04-OBJ03",
+              "type": "single_choice",
+              "prompt": "برای سپهر کدام گام متناسب‌تر است؟",
+              "remediation_card_id": "S06-C2-ST03-L04-CARD07",
+              "variant": "A",
+              "id": "S06-C2-ST03-L04-Q05",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ساخت کامل بدون سنجش پرداخت",
+                  "feedback": "بازبینی: گام بعدی باید فرض پرداخت را با ریسک کنترل‌شده بیازماید."
+                },
+                {
+                  "id": "b",
+                  "text": "اعلام تقاضای قطعی با دو مشتری",
+                  "feedback": "بازبینی: گام بعدی باید فرض پرداخت را با ریسک کنترل‌شده بیازماید."
+                },
+                {
+                  "id": "c",
+                  "text": "پایلوت محدود با مشتری مستقل و قیمت روشن",
+                  "feedback": "درست: گام بعدی باید فرض پرداخت را با ریسک کنترل‌شده بیازماید."
+                }
+              ],
+              "equivalence_group": "S06-C2-ST03-L04-Q05-FAMILY",
+              "version": 1,
+              "correct_option_id": "c",
+              "explanation": "گام بعدی باید فرض پرداخت را با ریسک کنترل‌شده بیازماید."
+            }
+          ],
+          "source_links": [
+            {
+              "title": "Strategyzer Learning Card",
+              "id": "STRAT-LEARNING-CARD",
+              "url": "https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card",
+              "review_depth": "official_method_resource_reviewed",
+              "scope": "ثبت مشاهده، بینش آموخته‌شده و اقدام بعدی؛ ابزار رسمی و نه شاهد اثربخشی مستقل."
+            },
+            {
+              "title": "MIT 15.393 Nuts and Bolts of New Ventures (2025), Session 6 transcript",
+              "id": "MIT-15-393-PIVOT-2025",
+              "url": "https://ocw.mit.edu/courses/15-393-nuts-and-bolts-of-new-ventures-january-iap-2025/1ROWt8HvL_YocUMiLa5C79BZItY1-iTTa_transcript.pdf",
+              "review_depth": "official_current_course_transcript_reviewed",
+              "scope": "بحث کلاس دربارهٔ سازگاری و pivot در کارآفرینی؛ منبع نمونهٔ محتوای دوره است."
+            },
+            {
+              "title": "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers",
+              "id": "MICROSOFT-GENAI-DEV-RCT-2025",
+              "url": "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+              "review_depth": "primary_field_experiment_reviewed",
+              "scope": "سه آزمایش میدانی در کار توسعهٔ نرم‌افزار؛ برای هر فرایند مدیریتی یا کارآفرینانه قابل تعمیم مستقیم نیست."
+            },
+            {
+              "title": "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
+              "id": "NBER-CYBERNETIC-TEAMMATE-2025",
+              "url": "https://www.nber.org/papers/w33641",
+              "review_depth": "primary_field_experiment_and_2026_publication_record_reviewed",
+              "scope": "آزمایش میدانی دربارهٔ AI و همکاری/خبرگی تیم؛ نتیجه‌ها وابسته به وظیفه و زمینه هستند."
+            }
+          ],
+          "practice_activity": {
+            "type": "learning-card-pivot-memo",
+            "prompt": "برای سناریوی سپهر یک Learning Card و یادداشت تصمیم تکمیل کنید: فرض، مشاهده، آموخته، میزان اطمینان، محدودیت، گزینه‌های ادامه/تغییر/توقف و آزمون یا شرط بعدی را بنویسید. اگر AI به‌کار می‌رود، زمان، کیفیت، خطا و بازبینی را جدا بسنجید.",
+            "expected_output": "یادداشت تصمیم مستند به شواهد و آزمون بعدی"
+          },
+          "review_status": "pending_expert_review",
+          "fresh_equivalent_variants": 0,
+          "prerequisites_suggested": [],
+          "prerequisites_block_access": false,
+          "content_ref": "content/s06-c2/lessons/S06-C2-ST03-L04.json",
+          "order": 4,
+          "node_type": "lesson",
+          "source_refs": [
+            "STRAT-LEARNING-CARD",
+            "MIT-15-393-PIVOT-2025",
+            "MICROSOFT-GENAI-DEV-RCT-2025",
+            "NBER-CYBERNETIC-TEAMMATE-2025"
+          ],
+          "source_scope": "منابع روش و پژوهش‌های زمینه‌مند بررسی شده‌اند؛ تعمیم مستقیم یا انتساب دقیق به دورهٔ MBA ادعا نمی‌شود.",
+          "example_plan": {
+            "fictional_scenario": "SEPEHR-SERVICES",
+            "real_case_candidates": [
+              "dropbox-mvp",
+              "zappos-concierge"
+            ],
+            "real_case_status": "case_requires_separate_fact_check"
+          },
+          "media_plan": {
+            "type": "learning-card-and-pivot-decision-tree",
+            "purpose": "ردیابی مشاهده تا تصمیم و گام بعدی",
+            "production_status": "planned_not_created"
+          },
+          "assessment_plan": {
+            "item_count": 5,
+            "targets": [
+              "تفسیر نتیجه",
+              "اصلاح مدل",
+              "اثر AI",
+              "تصمیم ادامه یا توقف",
+              "محدودیت شواهد"
+            ],
+            "item_bank_status": "authored_draft",
+            "feedback_required": true,
+            "fresh_equivalent_variants": 0
+          },
+          "suggested_minutes": {
+            "learning": 15,
+            "practice": 15
+          },
+          "notes_enabled": true,
+          "bookmarks_enabled": true,
+          "direct_entry_allowed": true,
+          "free_sample": false,
+          "legacy_lesson_ids": [],
+          "expected_artifact": "Learning Card، یادداشت تغییر مدل و شرط تصمیم"
+        }
+      ],
+      "checkpoint": {
+        "unlocks_next_stage": false,
+        "id": "S06-C2-ST03-CP",
+        "item_count": 6,
+        "node_type": "stage_checkpoint",
+        "bank_status": "authored_draft",
+        "questions": [
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "نتیجهٔ سازگار با فرض چه می‌گوید؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L01-CARD03",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q01",
+            "options": [
+              {
+                "id": "a",
+                "text": "علیت قطعی است",
+                "feedback": "بازبینی: روش و نمونه دامنهٔ ادعا را محدود می‌کنند."
+              },
+              {
+                "id": "b",
+                "text": "شاهد اولیه است و فرض را قطعی اثبات نمی‌کند",
+                "feedback": "درست: روش و نمونه دامنهٔ ادعا را محدود می‌کنند."
+              },
+              {
+                "id": "c",
+                "text": "بازار اثبات شد",
+                "feedback": "بازبینی: روش و نمونه دامنهٔ ادعا را محدود می‌کنند."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q01-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "روش و نمونه دامنهٔ ادعا را محدود می‌کنند."
+          },
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ01",
+            "type": "single_choice",
+            "prompt": "pivot به چه وصل است؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L02-CARD04",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q02",
+            "options": [
+              {
+                "id": "a",
+                "text": "تغییر لوگو",
+                "feedback": "بازبینی: تغییر مسیر باید از یادگیری بیاید."
+              },
+              {
+                "id": "b",
+                "text": "هزینهٔ قبلی",
+                "feedback": "بازبینی: تغییر مسیر باید از یادگیری بیاید."
+              },
+              {
+                "id": "c",
+                "text": "شاهد و تغییر فرض یا جزء مدل",
+                "feedback": "درست: تغییر مسیر باید از یادگیری بیاید."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q02-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "تغییر مسیر باید از یادگیری بیاید."
+          },
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "خروجی AI از مصاحبه چه نیست؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L03-CARD01",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q03",
+            "options": [
+              {
+                "id": "a",
+                "text": "شاهد مستقیم مشتری",
+                "feedback": "درست: AI باید با دادهٔ اصلی راستی‌آزمایی شود."
+              },
+              {
+                "id": "b",
+                "text": "کمک برای خلاصه‌سازی",
+                "feedback": "بازبینی: AI باید با دادهٔ اصلی راستی‌آزمایی شود."
+              },
+              {
+                "id": "c",
+                "text": "پیش‌نویس کدگذاری",
+                "feedback": "بازبینی: AI باید با دادهٔ اصلی راستی‌آزمایی شود."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q03-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "AI باید با دادهٔ اصلی راستی‌آزمایی شود."
+          },
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ02",
+            "type": "single_choice",
+            "prompt": "آزمایش AI را چه طور ارزیابی کنیم؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L03-CARD05",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q04",
+            "options": [
+              {
+                "id": "a",
+                "text": "فقط پسند کاربر",
+                "feedback": "بازبینی: زمان تنها معیار بهره‌وری یا کیفیت نیست."
+              },
+              {
+                "id": "b",
+                "text": "زمان، کیفیت، خطا و اثر تصمیم",
+                "feedback": "درست: زمان تنها معیار بهره‌وری یا کیفیت نیست."
+              },
+              {
+                "id": "c",
+                "text": "فقط سرعت تولید",
+                "feedback": "بازبینی: زمان تنها معیار بهره‌وری یا کیفیت نیست."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q04-FAMILY",
+            "version": 1,
+            "correct_option_id": "b",
+            "explanation": "زمان تنها معیار بهره‌وری یا کیفیت نیست."
+          },
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "چه زمانی تغییر مسیر توجیه دارد؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L02-CARD06",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q05",
+            "options": [
+              {
+                "id": "a",
+                "text": "هر هفته یک ایدهٔ تازه",
+                "feedback": "بازبینی: تغییر مستند از واکنش بی‌قاعده جداست."
+              },
+              {
+                "id": "b",
+                "text": "نتیجهٔ نامطلوب را پنهان کنیم",
+                "feedback": "بازبینی: تغییر مستند از واکنش بی‌قاعده جداست."
+              },
+              {
+                "id": "c",
+                "text": "شاهد، فرض تغییرکرده و آزمون بعدی روشن باشد",
+                "feedback": "درست: تغییر مستند از واکنش بی‌قاعده جداست."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q05-FAMILY",
+            "version": 1,
+            "correct_option_id": "c",
+            "explanation": "تغییر مستند از واکنش بی‌قاعده جداست."
+          },
+          {
+            "objective_id": "S06-C2-ST03-CP-OBJ03",
+            "type": "single_choice",
+            "prompt": "ارزش آزمون بعدی چه وقت کم است؟",
+            "remediation_card_id": "S06-C2-ST03-CP-S06-C2-ST03-L04-CARD05",
+            "variant": "A",
+            "id": "S06-C2-ST03-CP-Q06",
+            "options": [
+              {
+                "id": "a",
+                "text": "وقتی هیچ نتیجه‌ای تصمیم را عوض نمی‌کند",
+                "feedback": "درست: ارزش اطلاعات باید از هزینه فراتر رود."
+              },
+              {
+                "id": "b",
+                "text": "وقتی نمونه کوچک است",
+                "feedback": "بازبینی: ارزش اطلاعات باید از هزینه فراتر رود."
+              },
+              {
+                "id": "c",
+                "text": "وقتی زمان می‌برد",
+                "feedback": "بازبینی: ارزش اطلاعات باید از هزینه فراتر رود."
+              }
+            ],
+            "equivalence_group": "S06-C2-ST03-CP-Q06-FAMILY",
+            "version": 1,
+            "correct_option_id": "a",
+            "explanation": "ارزش اطلاعات باید از هزینه فراتر رود."
+          }
+        ],
+        "coverage": [
+          "تفسیر شواهد",
+          "pivot و تغییر مدل",
+          "اثر AI زمینه‌مند",
+          "ادامه، تغییر یا توقف"
+        ]
+      },
+      "tool_plan": [
+        "learning-card",
+        "pivot-change-log",
+        "AI-assisted-experiment-scorecard",
+        "continue-pivot-stop-memo"
+      ]
     }
-  ]
+  ],
+  "final_assessment": {
+    "id": "S06-C2-FINAL",
+    "version": "1-draft",
+    "status": "authored_draft",
+    "questions": [
+      {
+        "id": "S06-C2-FINAL-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "کدام گزاره نقش بوم را درست می‌گوید؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "فقط پیش‌بینی فروش",
+            "feedback": "این انتخاب درست نیست: بوم مشتری، ارزش، اجرا و اقتصاد را یکپارچه می‌کند."
+          },
+          {
+            "id": "o2",
+            "text": "منطق خلق، ارائه و کسب ارزش را به هم وصل می‌کند",
+            "feedback": "درست: بوم مشتری، ارزش، اجرا و اقتصاد را یکپارچه می‌کند."
+          },
+          {
+            "id": "o3",
+            "text": "فقط نقشهٔ سازمانی",
+            "feedback": "این انتخاب درست نیست: بوم مشتری، ارزش، اجرا و اقتصاد را یکپارچه می‌کند."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "بوم مشتری، ارزش، اجرا و اقتصاد را یکپارچه می‌کند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST01-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q01-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST01-L01"
+      },
+      {
+        "id": "S06-C2-FINAL-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "چه چیزی Lean Canvas برجسته می‌کند؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "ساختار حقوقی قطعی",
+            "feedback": "این انتخاب درست نیست: بوم ناب برای آشکارکردن فرض‌های مخاطره‌آمیز مناسب است."
+          },
+          {
+            "id": "o2",
+            "text": "برنامهٔ تولید روزانه",
+            "feedback": "این انتخاب درست نیست: بوم ناب برای آشکارکردن فرض‌های مخاطره‌آمیز مناسب است."
+          },
+          {
+            "id": "o3",
+            "text": "مسئله و فرض‌های پرریسک",
+            "feedback": "درست: بوم ناب برای آشکارکردن فرض‌های مخاطره‌آمیز مناسب است."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "بوم ناب برای آشکارکردن فرض‌های مخاطره‌آمیز مناسب است.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST01-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q02-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST01-L02"
+      },
+      {
+        "id": "S06-C2-FINAL-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "چرا درآمد را با هزینهٔ خدمت می‌سنجیم؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "برای ارزیابی حاشیه و دوام اقتصادی",
+            "feedback": "درست: درآمد بدون هزینهٔ خدمت اقتصاد واحد را نشان نمی‌دهد."
+          },
+          {
+            "id": "o2",
+            "text": "برای حذف نیاز مشتری",
+            "feedback": "این انتخاب درست نیست: درآمد بدون هزینهٔ خدمت اقتصاد واحد را نشان نمی‌دهد."
+          },
+          {
+            "id": "o3",
+            "text": "برای ثابت‌کردن قیمت",
+            "feedback": "این انتخاب درست نیست: درآمد بدون هزینهٔ خدمت اقتصاد واحد را نشان نمی‌دهد."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "درآمد بدون هزینهٔ خدمت اقتصاد واحد را نشان نمی‌دهد.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST01-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q03-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST01-L03"
+      },
+      {
+        "id": "S06-C2-FINAL-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "بوم نسبت به برنامهٔ کسب‌وکار چه جایگاهی دارد؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "هر دو فقط صورت مالی‌اند",
+            "feedback": "این انتخاب درست نیست: دو سند برای پرسش‌های متفاوت‌اند."
+          },
+          {
+            "id": "o2",
+            "text": "نمای فشردهٔ منطق مدل؛ برنامه جزئیات اجرا را می‌گستراند",
+            "feedback": "درست: دو سند برای پرسش‌های متفاوت‌اند."
+          },
+          {
+            "id": "o3",
+            "text": "جایگزین همیشگی برنامه",
+            "feedback": "این انتخاب درست نیست: دو سند برای پرسش‌های متفاوت‌اند."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "دو سند برای پرسش‌های متفاوت‌اند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST01-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q04-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST01-L04"
+      },
+      {
+        "id": "S06-C2-FINAL-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "فرض‌های بوم را چگونه ثبت کنیم؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "به صورت واقعیت قطعی",
+            "feedback": "این انتخاب درست نیست: برچسب و نسخه، تغییر یادگیری را ردیابی می‌کند."
+          },
+          {
+            "id": "o2",
+            "text": "فقط در ذهن تیم",
+            "feedback": "این انتخاب درست نیست: برچسب و نسخه، تغییر یادگیری را ردیابی می‌کند."
+          },
+          {
+            "id": "o3",
+            "text": "از شاهد جدا، نسخه‌دار و قابل بازنگری",
+            "feedback": "درست: برچسب و نسخه، تغییر یادگیری را ردیابی می‌کند."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "برچسب و نسخه، تغییر یادگیری را ردیابی می‌کند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST01-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q05-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST01-L02"
+      },
+      {
+        "id": "S06-C2-FINAL-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "فرضیهٔ معتبرتر کدام است؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "مشتری و رفتار و آستانهٔ روشن دارد",
+            "feedback": "درست: فرض باید قابل سنجش و ابطال باشد."
+          },
+          {
+            "id": "o2",
+            "text": "همه خوششان می‌آید",
+            "feedback": "این انتخاب درست نیست: فرض باید قابل سنجش و ابطال باشد."
+          },
+          {
+            "id": "o3",
+            "text": "محصول بزرگ می‌شود",
+            "feedback": "این انتخاب درست نیست: فرض باید قابل سنجش و ابطال باشد."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "فرض باید قابل سنجش و ابطال باشد.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST02-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q06-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST02-L01"
+      },
+      {
+        "id": "S06-C2-FINAL-Q07",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "روش مناسب سنجش مسئله چیست؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "لایک تبلیغ",
+            "feedback": "این انتخاب درست نیست: رفتار گذشته از اظهار علاقهٔ فرضی شاهد بهتری است."
+          },
+          {
+            "id": "o2",
+            "text": "پرسش رخداد گذشته و مشاهدهٔ فرایند",
+            "feedback": "درست: رفتار گذشته از اظهار علاقهٔ فرضی شاهد بهتری است."
+          },
+          {
+            "id": "o3",
+            "text": "پرسش می‌خرید؟",
+            "feedback": "این انتخاب درست نیست: رفتار گذشته از اظهار علاقهٔ فرضی شاهد بهتری است."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "رفتار گذشته از اظهار علاقهٔ فرضی شاهد بهتری است.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST02-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q07-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST02-L02"
+      },
+      {
+        "id": "S06-C2-FINAL-Q08",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "کدام معیار نرخ اقدام را کامل‌تر می‌کند؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "فقط شمار خام",
+            "feedback": "این انتخاب درست نیست: مخرج و منبع نمونه معنی نرخ را روشن می‌کنند."
+          },
+          {
+            "id": "o2",
+            "text": "فقط درصد",
+            "feedback": "این انتخاب درست نیست: مخرج و منبع نمونه معنی نرخ را روشن می‌کنند."
+          },
+          {
+            "id": "o3",
+            "text": "صورت، مخرج و کیفیت نمونه",
+            "feedback": "درست: مخرج و منبع نمونه معنی نرخ را روشن می‌کنند."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "مخرج و منبع نمونه معنی نرخ را روشن می‌کنند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST02-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q08-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST02-L03"
+      },
+      {
+        "id": "S06-C2-FINAL-Q09",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "اگر مصاحبه‌ها مخالف فرض‌اند، چه کنیم؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "ثبت و بررسی کنیم و تفسیر را از مشاهده جدا کنیم",
+            "feedback": "درست: موارد خلاف انتظار برای نقد فرض ضروری‌اند."
+          },
+          {
+            "id": "o2",
+            "text": "حذف پاسخ مخالف",
+            "feedback": "این انتخاب درست نیست: موارد خلاف انتظار برای نقد فرض ضروری‌اند."
+          },
+          {
+            "id": "o3",
+            "text": "تغییر معیار پس از نتیجه",
+            "feedback": "این انتخاب درست نیست: موارد خلاف انتظار برای نقد فرض ضروری‌اند."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "موارد خلاف انتظار برای نقد فرض ضروری‌اند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST02-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q09-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST02-L04"
+      },
+      {
+        "id": "S06-C2-FINAL-Q10",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "کلیک چه چیزی را ثابت نمی‌کند؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "اثربخشی پیام در آن کانال",
+            "feedback": "این انتخاب درست نیست: سیگنال اولیه معادل نتیجهٔ نهایی نیست."
+          },
+          {
+            "id": "o2",
+            "text": "خرید واقعی یا ماندگاری",
+            "feedback": "درست: سیگنال اولیه معادل نتیجهٔ نهایی نیست."
+          },
+          {
+            "id": "o3",
+            "text": "واکنش اولیه",
+            "feedback": "این انتخاب درست نیست: سیگنال اولیه معادل نتیجهٔ نهایی نیست."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "سیگنال اولیه معادل نتیجهٔ نهایی نیست.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST02-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q10-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST02-L02"
+      },
+      {
+        "id": "S06-C2-FINAL-Q11",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "نتیجهٔ آزمایش با فرض سازگار است؛ چه بنویسیم؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "اثبات بازار",
+            "feedback": "این انتخاب درست نیست: قدرت ادعا باید با روش و نمونه متناسب باشد."
+          },
+          {
+            "id": "o2",
+            "text": "علیت قطعی",
+            "feedback": "این انتخاب درست نیست: قدرت ادعا باید با روش و نمونه متناسب باشد."
+          },
+          {
+            "id": "o3",
+            "text": "شاهد اولیه، در دامنهٔ نمونه و روش",
+            "feedback": "درست: قدرت ادعا باید با روش و نمونه متناسب باشد."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "قدرت ادعا باید با روش و نمونه متناسب باشد.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST03-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q11-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST03-L01"
+      },
+      {
+        "id": "S06-C2-FINAL-Q12",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "pivot چگونه از واکنش‌زدگی جداست؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "به شاهد، تغییر مشخص فرض و آزمون بعدی وصل است",
+            "feedback": "درست: تغییر مسیر باید قابل ردیابی باشد."
+          },
+          {
+            "id": "o2",
+            "text": "هر تغییر ظاهری pivot است",
+            "feedback": "این انتخاب درست نیست: تغییر مسیر باید قابل ردیابی باشد."
+          },
+          {
+            "id": "o3",
+            "text": "هر هفته باید تغییر کرد",
+            "feedback": "این انتخاب درست نیست: تغییر مسیر باید قابل ردیابی باشد."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "تغییر مسیر باید قابل ردیابی باشد.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST03-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q12-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST03-L02"
+      },
+      {
+        "id": "S06-C2-FINAL-Q13",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "سرعت تولید نمونه با AI چه چیزی را اثبات می‌کند؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "نیاز واقعی مشتری",
+            "feedback": "این انتخاب درست نیست: خروجی AI جای شاهد رفتار مشتری را نمی‌گیرد."
+          },
+          {
+            "id": "o2",
+            "text": "فقط سرعت ساخت در آن کار؛ نه تقاضا یا کیفیت یادگیری",
+            "feedback": "درست: خروجی AI جای شاهد رفتار مشتری را نمی‌گیرد."
+          },
+          {
+            "id": "o3",
+            "text": "تمایل پرداخت",
+            "feedback": "این انتخاب درست نیست: خروجی AI جای شاهد رفتار مشتری را نمی‌گیرد."
+          }
+        ],
+        "correct_option_id": "o2",
+        "explanation": "خروجی AI جای شاهد رفتار مشتری را نمی‌گیرد.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST03-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q13-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST03-L03"
+      },
+      {
+        "id": "S06-C2-FINAL-Q14",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "توقف آزمون چه زمانی درست است؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "همیشه با دادهٔ نامطلوب",
+            "feedback": "این انتخاب درست نیست: تعهد و هزینهٔ آینده و ایمنی باید سنجیده شوند."
+          },
+          {
+            "id": "o2",
+            "text": "هرگز، چون خرج شده",
+            "feedback": "این انتخاب درست نیست: تعهد و هزینهٔ آینده و ایمنی باید سنجیده شوند."
+          },
+          {
+            "id": "o3",
+            "text": "نقض ایمنی/حریم خصوصی یا هزینهٔ آتی بیش از ارزش مسیر",
+            "feedback": "درست: تعهد و هزینهٔ آینده و ایمنی باید سنجیده شوند."
+          }
+        ],
+        "correct_option_id": "o3",
+        "explanation": "تعهد و هزینهٔ آینده و ایمنی باید سنجیده شوند.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST03-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q14-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST03-L04"
+      },
+      {
+        "id": "S06-C2-FINAL-Q15",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "در سپهر شواهد استفاده هست اما پرداخت نیست؛ گام بعدی؟",
+        "options": [
+          {
+            "id": "o1",
+            "text": "پایلوت محدود با مشتری مستقل و قیمت شفاف",
+            "feedback": "درست: گام بعدی فرض پرداخت را با ریسک محدود می‌آزماید."
+          },
+          {
+            "id": "o2",
+            "text": "ساخت کامل بی‌درنگ",
+            "feedback": "این انتخاب درست نیست: گام بعدی فرض پرداخت را با ریسک محدود می‌آزماید."
+          },
+          {
+            "id": "o3",
+            "text": "اعلام تناسب بازار قطعی",
+            "feedback": "این انتخاب درست نیست: گام بعدی فرض پرداخت را با ریسک محدود می‌آزماید."
+          }
+        ],
+        "correct_option_id": "o1",
+        "explanation": "گام بعدی فرض پرداخت را با ریسک محدود می‌آزماید.",
+        "coverage_lesson_ids": [
+          "S06-C2-ST03-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "equivalence_group": "S06-C2-FINAL-Q15-FAMILY",
+        "variant": "A",
+        "remediation_lesson_id": "S06-C2-ST03-L04"
+      }
+    ],
+    "unlocks_content": false,
+    "target_percent": 80,
+    "target_is_editorial_default": true,
+    "fresh_equivalent_variants": 0
+  }
 }
