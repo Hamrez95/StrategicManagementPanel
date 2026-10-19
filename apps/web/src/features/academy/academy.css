@@ -656,8 +656,8 @@ html[data-motion='reduced'] .academy * {
   --line: #d8cbb1;
   --control: #82929d;
   --wash: #eadec4;
-  --action: #08719b;
-  --accent: #397c13;
+  --action: #00658c;
+  --accent: #316d0d;
   --success: #347900;
   --danger: #b92c42;
   --danger-wash: #fff0f1;
@@ -1513,6 +1513,14 @@ html[data-theme='dark'] .academy-start-label {
   }
   .academy-header nav > a {
     display: none;
+  }
+  .academy-header nav > .academy-account-link {
+    display: inline-flex;
+    min-block-size: 44px;
+    align-items: center;
+    padding-inline: 0.45rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
   }
   .academy-header nav .ui-button {
     min-block-size: 44px;

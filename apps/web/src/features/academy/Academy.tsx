@@ -301,6 +301,9 @@ export default function Academy() {
           <Button variant="quiet" onClick={toggleTheme}>
             {english ? 'Change theme' : 'تغییر تم'}
           </Button>
+          <Link className="academy-account-link" to="/app/account#subscription">
+            {english ? 'Account and subscriptions' : 'حساب و اشتراک‌ها'}
+          </Link>
           <Link to="/">{english ? 'Back to Stratino' : 'بازگشت به استراتینو'}</Link>
         </nav>
       </header>
