@@ -306,7 +306,7 @@ export default function Academy() {
       </header>
       {!inLesson && <AcademyNavigation />}
       <div className="academy-preview-note" lang="fa" dir="rtl">
-        نسخهٔ تمرینی · شش بخش اولیه هنوز در حال بازبینی‌اند. پیشرفتت فعلاً فقط در همین تب می‌ماند.
+        نسخهٔ تمرینی · شش درس آغازین هنوز نهایی نشده‌اند. پیشرفتت فعلاً فقط در همین تب می‌ماند.
       </div>
       {english && (
         <p className="academy-language-note" lang="en">

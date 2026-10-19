@@ -83,7 +83,7 @@ export default function Site({ academyEnabled = true }: { academyEnabled?: boole
               رفتن به آکادمی <Icon name="arrow" />
             </Link>
             <small>
-              نسخهٔ تمرینی است؛ درس‌های آغازین در حال بازبینی‌اند. پیشرفت به حساب وصل نیست و فقط در
+              نسخهٔ تمرینی است؛ درس‌های آغازین هنوز نهایی نشده‌اند. پیشرفت به حساب وصل نیست و فقط در
               همین تب می‌ماند.
             </small>
           </div>
