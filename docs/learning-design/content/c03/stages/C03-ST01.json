@@ -1,0 +1,1361 @@
+{
+  "id": "C03-ST01",
+  "title": "ارزش زمانی پول و جریان نقد",
+  "order": 1,
+  "color_token": "green",
+  "legacy_research_topic_ids": [
+    "C03-M1"
+  ],
+  "level": "foundational",
+  "source_refs": [
+    "B04",
+    "T09",
+    "R24"
+  ],
+  "source_alignment": "topic_level_candidates_details_in_research_library",
+  "lessons": [
+    {
+      "id": "C03-ST01-L01",
+      "version": "2-draft",
+      "title": "چرا زمان دریافت پول مهم است؟",
+      "content_status": "draft",
+      "objective": "ارزش فعلی دریافت‌های زمان‌دار را با نرخ و دورهٔ یکسان محاسبه کند.",
+      "learning_cards": [
+        {
+          "id": "C03-ST01-L01-CARD01",
+          "type": "problem",
+          "title": "هدف این درس‌نامه",
+          "text": "ارزش فعلی دریافت‌های زمان‌دار را با نرخ و دورهٔ یکسان محاسبه کند."
+        },
+        {
+          "id": "C03-ST01-L01-CARD02",
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "ارزش فعلی می‌گوید یک جریان آینده با نرخ تنزیل مشخص معادل چه مبلغی امروز است: PV=FV/(1+r)^t. زمان و ریسک باعث می‌شوند مبلغ اسمی آینده با پول امروز هم‌ارز نباشد."
+        },
+        {
+          "id": "C03-ST01-L01-CARD03",
+          "type": "explanation",
+          "title": "روش کار",
+          "text": "مبلغ و تاریخ را روی خط زمان بگذارید؛ r را به دورهٔ t هم‌دوره کنید؛ سپس FV را بر (1+r)^t تقسیم کنید. دو پیشنهاد را به تاریخ مبنای مشترک برگردانید. نرخ نباید برای رسیدن به جواب دلخواه انتخاب شود."
+        },
+        {
+          "id": "C03-ST01-L01-CARD04",
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ سپهر فرضی",
+          "text": "سپهر میان ۱۰۰۰ واحد امروز و ۱۱۰۰ واحد یک سال بعد انتخاب دارد. با نرخ سالانهٔ ۱۰٪، PV دریافت آینده ۱۰۰۰ است. در مدل ساده برابرند؛ ریسک پرداخت، هزینه و مالیات وارد مثال نشده است.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C03-ST01-L01-CARD05",
+          "type": "contrast",
+          "title": "خطای رایج",
+          "text": "۱۱۰۰ آینده را فقط به دلیل بزرگ‌تر بودن از ۱۰۰۰ امروز انتخاب نکنید. نرخ سالانه را برای ماه‌ها بدون تبدیل به‌کار نبرید؛ PV به نرخ و تاریخ فرضی وابسته است."
+        },
+        {
+          "id": "C03-ST01-L01-CARD06",
+          "type": "explanation",
+          "title": "ا",
+          "text": "ز"
+        },
+        {
+          "id": "C03-ST01-L01-CARD07",
+          "type": "key_terms",
+          "title": "واژگان تخصصی پرتکرار",
+          "text": "در واژگان منابع، Present value ارزش امروز؛ Future value مبلغ آینده؛ discount rate نرخ تبدیل آینده به امروز؛ r نرخ هر دوره و t تعداد همان دوره‌هاست. این اصطلاح‌ها بدون واحد زمانی ناقص‌اند."
+        },
+        {
+          "id": "C03-ST01-L01-CARD08",
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+          "elements": [
+            "جریان و تاریخ",
+            "نرخ هم‌دوره",
+            "عامل تنزیل",
+            "ارزش فعلی"
+          ],
+          "alt": "جریان و تاریخ؛ نرخ هم‌دوره؛ عامل تنزیل؛ ارزش فعلی"
+        },
+        {
+          "id": "C03-ST01-L01-CARD09",
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "هر دریافت را روی خط زمان ببرید و تاریخ و نرخ را کنار فرمول ثبت کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C03-ST01-L01-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "۱۱۰۰ یک سال بعد با نرخ ۱۰٪ ارزش فعلی‌اش؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۱۰۰۰",
+              "feedback": "۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+            },
+            {
+              "id": "b",
+              "text": "۱۱۰۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+            },
+            {
+              "id": "c",
+              "text": "۹۹۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است.",
+          "objective_id": "C03-ST01-L01-OBJ1",
+          "equivalence_group": "C03-ST01-L01-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L01-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L01-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نرخ r در فرمول باید چه باشد؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "هر نرخ سالانه بدون تبدیل",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+            },
+            {
+              "id": "c",
+              "text": "نرخ دلخواه",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+            },
+            {
+              "id": "a",
+              "text": "نرخ هم‌دوره با t",
+              "feedback": "توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "توان دوره‌ها باید با دورهٔ نرخ سازگار باشد.",
+          "objective_id": "C03-ST01-L01-OBJ1",
+          "equivalence_group": "C03-ST01-L01-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L01-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L01-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "دو دریافت را چطور مقایسه کنیم؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "زمان را حذف کنیم",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+            },
+            {
+              "id": "a",
+              "text": "به یک تاریخ ارزش‌گذاری برگردانیم",
+              "feedback": "تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "مبلغ اسمی را تنها مقایسه کنیم",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تاریخ مبنای مشترک مقایسه را منصفانه می‌کند.",
+          "objective_id": "C03-ST01-L01-OBJ1",
+          "equivalence_group": "C03-ST01-L01-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L01-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L01-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نرخ مثبت و زمان بیشتر معمولاً PV را چه می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "کاهش می‌دهد",
+              "feedback": "عامل تنزیل بزرگ‌تر می‌شود."
+            },
+            {
+              "id": "b",
+              "text": "زیاد می‌کند",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شود."
+            },
+            {
+              "id": "c",
+              "text": "بی‌اثر است",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "عامل تنزیل بزرگ‌تر می‌شود.",
+          "objective_id": "C03-ST01-L01-OBJ1",
+          "equivalence_group": "C03-ST01-L01-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L01-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برابر بودن PV در مثال چه چیزی را حذف نمی‌کند؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "نیاز به تاریخ",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+            },
+            {
+              "id": "c",
+              "text": "نیاز به نرخ",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+            },
+            {
+              "id": "a",
+              "text": "ریسک و قطعیت قرارداد",
+              "feedback": "مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند.",
+          "objective_id": "C03-ST01-L01-OBJ1",
+          "equivalence_group": "C03-ST01-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L01-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "ox",
+          "title": "هستهٔ Business Finance در MBA آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+        },
+        {
+          "id": "oxexec",
+          "title": "برنامهٔ اجرایی مالی آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+          "accessed_on": "2026-10-19",
+          "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+        },
+        {
+          "id": "hbs",
+          "title": "Finance I/II در MBA هاروارد",
+          "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+        },
+        {
+          "id": "nyu",
+          "title": "درس مالی شرکتی MBA دانشگاه نیویورک",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/corpfin.html",
+          "accessed_on": "2026-10-19",
+          "scope": "صفحهٔ رسمی استاد: درس ۲۶جلسه‌ای همراه سیلابس، جزوه، پروژه، تمرین و دادهٔ عمومی."
+        },
+        {
+          "id": "nyunotes",
+          "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+          "accessed_on": "2026-10-19",
+          "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+        }
+      ],
+      "practice_activity": {
+        "type": "numeric",
+        "prompt": "PV مبلغ ۱٬۲۱۰ در دو سال با نرخ مؤثر سالانهٔ ۱۰٪؟",
+        "unit": "واحد امروز",
+        "answer": 1000,
+        "absolute_tolerance": 0.01,
+        "solution": "۱۲۱۰÷۱٫۱۰²=۱۰۰۰.",
+        "rubric": [
+          "دو دوره",
+          "نرخ سالانه"
+        ],
+        "auto_grade": true
+      },
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+      ],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C03-ST01-L02",
+      "version": "2-draft",
+      "title": "تنزیل جریان‌های نامساوی",
+      "content_status": "draft",
+      "objective": "NPV جریان‌های نامساوی را محاسبه و با فرض نرخ تفسیر کند.",
+      "learning_cards": [
+        {
+          "id": "C03-ST01-L02-CARD01",
+          "type": "problem",
+          "title": "هدف این درس‌نامه",
+          "text": "NPV جریان‌های نامساوی را محاسبه و با فرض نرخ تفسیر کند."
+        },
+        {
+          "id": "C03-ST01-L02-CARD02",
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "NPV جمع جریان‌های نقدی هر دوره پس از تنزیل، به‌اضافهٔ جریان زمان صفر است: NPV=ΣCFₜ/(1+r)^t. با جریان و نرخ مناسب، NPV مثبت یعنی پروژه بیش از نرخ بازده لازم مفروض ارزش می‌سازد."
+        },
+        {
+          "id": "C03-ST01-L02-CARD03",
+          "type": "explanation",
+          "title": "روش کار",
+          "text": "جریان افزایشی هر تاریخ را فهرست کنید؛ هزینهٔ فرصت مرتبط را لحاظ کنید؛ نرخ متناسب با ریسک و ارز را تعیین کنید؛ هر جریان را جدا تنزیل و جمع کنید. برای پروژه‌های ناسازگار، محدودیت بودجه و ترکیب پروژه‌ها را نیز بررسی کنید."
+        },
+        {
+          "id": "C03-ST01-L02-CARD04",
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ سپهر فرضی",
+          "text": "سپهر ۱۰۰ واحد امروز می‌پردازد و ۵۰ سال اول و ۷۰ سال دوم می‌گیرد. با نرخ ۱۰٪، NPV=−۱۰۰+۵۰/۱٫۱۰+۷۰/۱٫۱۰²≈۳٫۳۱. تغییر نرخ یا جریان می‌تواند نتیجه را عوض کند.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C03-ST01-L02-CARD05",
+          "type": "contrast",
+          "title": "خطای رایج",
+          "text": "جمع اسمی جریان‌ها زمان را حذف می‌کند. سود حسابداری را جای جریان نقد افزایشی نگذارید؛ هزینهٔ غرق‌شدهٔ گذشته به‌تنهایی دلیل سرمایه‌گذاری امروز نیست."
+        },
+        {
+          "id": "C03-ST01-L02-CARD06",
+          "type": "explanation",
+          "title": "چ",
+          "text": "ر"
+        },
+        {
+          "id": "C03-ST01-L02-CARD07",
+          "type": "key_terms",
+          "title": "واژگان تخصصی پرتکرار",
+          "text": "در واژگان منابع، NPV ارزش فعلی خالص؛ capital budgeting بودجه‌بندی سرمایه‌ای؛ incremental cash flow جریان ناشی از تصمیم؛ discount rate نرخ تنزیل است. NPV مثبت نتیجه‌ای وابسته به پیش‌بینی و نرخ است، نه تضمین سود محقق‌شده."
+        },
+        {
+          "id": "C03-ST01-L02-CARD08",
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+          "elements": [
+            "جریان زمان صفر",
+            "جریان‌های آینده",
+            "تنزیل دوره‌به‌دوره",
+            "جمع و حساسیت"
+          ],
+          "alt": "جریان زمان صفر؛ جریان‌های آینده؛ تنزیل دوره‌به‌دوره؛ جمع و حساسیت"
+        },
+        {
+          "id": "C03-ST01-L02-CARD09",
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "جریان افزایشی، نرخ، NPV و حساسیت را کنار هم گزارش کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C03-ST01-L02-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "جریان زمان صفر چگونه وارد NPV می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "بدون تنزیل",
+              "feedback": "زمان صفر همان تاریخ مبناست."
+            },
+            {
+              "id": "b",
+              "text": "پس از یک سال تنزیل",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. زمان صفر همان تاریخ مبناست."
+            },
+            {
+              "id": "c",
+              "text": "از محاسبه حذف می‌شود",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. زمان صفر همان تاریخ مبناست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "زمان صفر همان تاریخ مبناست.",
+          "objective_id": "C03-ST01-L02-OBJ1",
+          "equivalence_group": "C03-ST01-L02-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L02-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L02-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "NPV سپهر تقریباً؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "۲۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. محاسبهٔ تنزیل دو جریان حدود ۳٫۳۱ می‌دهد."
+            },
+            {
+              "id": "c",
+              "text": "منفی ۱۰۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. محاسبهٔ تنزیل دو جریان حدود ۳٫۳۱ می‌دهد."
+            },
+            {
+              "id": "a",
+              "text": "۳٫۳۱",
+              "feedback": "محاسبهٔ تنزیل دو جریان حدود ۳٫۳۱ می‌دهد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "محاسبهٔ تنزیل دو جریان حدود ۳٫۳۱ می‌دهد.",
+          "objective_id": "C03-ST01-L02-OBJ1",
+          "equivalence_group": "C03-ST01-L02-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L02-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L02-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "کدام ورودی مناسب‌تر است؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "هزینهٔ غرق‌شده تنها",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV پیامد نقدی ناشی از انتخاب را می‌سنجد."
+            },
+            {
+              "id": "a",
+              "text": "جریان نقد افزایشی زمان‌بندی‌شده",
+              "feedback": "NPV پیامد نقدی ناشی از انتخاب را می‌سنجد."
+            },
+            {
+              "id": "b",
+              "text": "سود تاریخی بی‌زمان",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV پیامد نقدی ناشی از انتخاب را می‌سنجد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "NPV پیامد نقدی ناشی از انتخاب را می‌سنجد.",
+          "objective_id": "C03-ST01-L02-OBJ1",
+          "equivalence_group": "C03-ST01-L02-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L02-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L02-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "بالارفتن نرخ برای جریان مثبت آینده عموماً؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "PV را کم می‌کند",
+              "feedback": "مخرج تنزیل بزرگ‌تر می‌شود."
+            },
+            {
+              "id": "b",
+              "text": "PV را زیاد می‌کند",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مخرج تنزیل بزرگ‌تر می‌شود."
+            },
+            {
+              "id": "c",
+              "text": "اثر ندارد",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مخرج تنزیل بزرگ‌تر می‌شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مخرج تنزیل بزرگ‌تر می‌شود.",
+          "objective_id": "C03-ST01-L02-OBJ1",
+          "equivalence_group": "C03-ST01-L02-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L02-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "در بودجهٔ محدود چه باید کرد؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "هر NPV مثبت را هم‌زمان گرفت",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV مثبت به‌تنهایی بهترین سبد را تعیین نمی‌کند."
+            },
+            {
+              "id": "c",
+              "text": "فقط عمر پروژه را دید",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV مثبت به‌تنهایی بهترین سبد را تعیین نمی‌کند."
+            },
+            {
+              "id": "a",
+              "text": "ترکیب و محدودیت سرمایه را هم سنجید",
+              "feedback": "NPV مثبت به‌تنهایی بهترین سبد را تعیین نمی‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "NPV مثبت به‌تنهایی بهترین سبد را تعیین نمی‌کند.",
+          "objective_id": "C03-ST01-L02-OBJ1",
+          "equivalence_group": "C03-ST01-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L02-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "npv",
+          "title": "روش NPV در Principles of Finance 2e",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method",
+          "accessed_on": "2026-10-19",
+          "scope": "بخش NPV بررسی شد؛ تمرین و مثال این بسته مستقل تألیف شده است."
+        },
+        {
+          "id": "ox",
+          "title": "هستهٔ Business Finance در MBA آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+        },
+        {
+          "id": "hbs",
+          "title": "Finance I/II در MBA هاروارد",
+          "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+        },
+        {
+          "id": "oxexec",
+          "title": "برنامهٔ اجرایی مالی آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+          "accessed_on": "2026-10-19",
+          "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+        },
+        {
+          "id": "nyunotes",
+          "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+          "accessed_on": "2026-10-19",
+          "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+        }
+      ],
+      "practice_activity": {
+        "type": "numeric",
+        "prompt": "NPV سپهر: −۱۰۰ امروز، +۵۰ سال اول، +۷۰ سال دوم، نرخ ۱۰٪؟",
+        "unit": "واحد امروز",
+        "answer": 3.31,
+        "absolute_tolerance": 0.02,
+        "solution": "−۱۰۰+۵۰/۱٫۱۰+۷۰/۱٫۱۰²≈۳٫۳۱.",
+        "rubric": [
+          "زمان‌بندی درست",
+          "جریان آغازین منفی"
+        ],
+        "auto_grade": true
+      },
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+      ],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C03-ST01-L03",
+      "version": "2-draft",
+      "title": "نرخ واقعی، اسمی و خطای واحد",
+      "content_status": "draft",
+      "objective": "نرخ واقعی/اسمی و نرخ ماهانه/سالانه را از هم تفکیک کند.",
+      "learning_cards": [
+        {
+          "id": "C03-ST01-L03-CARD01",
+          "type": "problem",
+          "title": "هدف این درس‌نامه",
+          "text": "نرخ واقعی/اسمی و نرخ ماهانه/سالانه را از هم تفکیک کند."
+        },
+        {
+          "id": "C03-ST01-L03-CARD02",
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "نرخ اسمی پیش از تعدیل تورم است؛ نرخ واقعی تغییر قدرت خرید را می‌سنجد. رابطهٔ دقیق فیشر: (1+i)=(1+r)(1+π)، که i اسمی، r واقعی و π تورم هم‌دوره است. تفریق نرخ‌ها تقریب است."
+        },
+        {
+          "id": "C03-ST01-L03-CARD03",
+          "type": "explanation",
+          "title": "روش کار",
+          "text": "واحد زمانی را بخوانید. نرخ مؤثر سالانهٔ ماهانهٔ مرکب از (1+rₘ)^12−1 است. برای نرخ واقعی، نرخ و تورم یک افق را در رابطهٔ فیشر بگذارید. مشخص کنید نرخ تنزیل اسمی یا واقعی و مؤثر یا اسمی اعلامی است."
+        },
+        {
+          "id": "C03-ST01-L03-CARD04",
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ سپهر فرضی",
+          "text": "نرخ ماهانهٔ مؤثر ۱٪، سالانه (۱٫۰۱)^۱۲−۱≈۱۲٫۶۸٪ می‌شود. اسمی ۱۰٪ و تورم ۴٪ نرخ واقعی دقیق ۵٫۷۷٪ می‌دهد؛ ۶٪ فقط تقریب تفاضلی است.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C03-ST01-L03-CARD05",
+          "type": "contrast",
+          "title": "خطای رایج",
+          "text": "نرخ ماهانه را با تعداد سال در توان نگذارید. تورم موردانتظار برای تصمیم آینده را با تورم تحقق‌یافته برای بازده گذشته اشتباه نگیرید."
+        },
+        {
+          "id": "C03-ST01-L03-CARD06",
+          "type": "explanation",
+          "title": "ه",
+          "text": "م"
+        },
+        {
+          "id": "C03-ST01-L03-CARD07",
+          "type": "key_terms",
+          "title": "واژگان تخصصی پرتکرار",
+          "text": "در واژگان منابع، Nominal rate نرخ اسمی؛ real rate نرخ واقعی؛ effective annual rate نرخ مؤثر سالانه با ترکیب؛ compounding ترکیب بهره؛ Fisher equation رابطهٔ دقیق میان نرخ اسمی، واقعی و تورم است."
+        },
+        {
+          "id": "C03-ST01-L03-CARD08",
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+          "elements": [
+            "نرخ اعلامی",
+            "دفعات ترکیب",
+            "نرخ مؤثر",
+            "تعدیل تورم"
+          ],
+          "alt": "نرخ اعلامی؛ دفعات ترکیب؛ نرخ مؤثر؛ تعدیل تورم"
+        },
+        {
+          "id": "C03-ST01-L03-CARD09",
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "نرخ، دوره، دفعات ترکیب و نوع تورم را صریح ثبت کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C03-ST01-L03-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "۱٪ ماهانهٔ مرکب، نرخ مؤثر سالانه؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۱۲٫۶۸٪",
+              "feedback": "ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+            },
+            {
+              "id": "b",
+              "text": "۱۲٪ دقیق",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+            },
+            {
+              "id": "c",
+              "text": "۱٪",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ترکیب دوازده‌باره حدود۱۲٫۶۸٪ است.",
+          "objective_id": "C03-ST01-L03-OBJ1",
+          "equivalence_group": "C03-ST01-L03-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L03-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L03-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "اسمی۱۰٪ و تورم۴٪، نرخ واقعی دقیق؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "۶٪ دقیق",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+            },
+            {
+              "id": "c",
+              "text": "۱۴٪",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+            },
+            {
+              "id": "a",
+              "text": "۵٫۷۷٪",
+              "feedback": "۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۱٫۱۰/۱٫۰۴−۱≈۵٫۷۷٪؛ تفریق تقریب است.",
+          "objective_id": "C03-ST01-L03-OBJ1",
+          "equivalence_group": "C03-ST01-L03-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L03-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L03-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای جریان ماهانه چه نرخ مستقیم‌تر سازگار است؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "تورم سال قبل",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید هم‌دوره باشد."
+            },
+            {
+              "id": "a",
+              "text": "نرخ مؤثر ماهانه",
+              "feedback": "دورهٔ جریان و نرخ باید هم‌دوره باشد."
+            },
+            {
+              "id": "b",
+              "text": "سالانه بدون تبدیل",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید هم‌دوره باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "دورهٔ جریان و نرخ باید هم‌دوره باشد.",
+          "objective_id": "C03-ST01-L03-OBJ1",
+          "equivalence_group": "C03-ST01-L03-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L03-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L03-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تصمیم پیش از آینده به کدام تورم نیاز دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تورم موردانتظار همان افق",
+              "feedback": "تصمیم پیشینی بر انتظار متکی است."
+            },
+            {
+              "id": "b",
+              "text": "فقط تورم گذشته",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکی است."
+            },
+            {
+              "id": "c",
+              "text": "نرخ ارز",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکی است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تصمیم پیشینی بر انتظار متکی است.",
+          "objective_id": "C03-ST01-L03-OBJ1",
+          "equivalence_group": "C03-ST01-L03-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L03-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نرخ اسمی اعلامی به‌تنهایی چه چیزی را کامل روشن نمی‌کند؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "عدد اعلامی",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. هزینهٔ واقعی به این فرض‌ها وابسته است."
+            },
+            {
+              "id": "c",
+              "text": "نام وام‌دهنده",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. هزینهٔ واقعی به این فرض‌ها وابسته است."
+            },
+            {
+              "id": "a",
+              "text": "ترکیب، تورم و افق",
+              "feedback": "هزینهٔ واقعی به این فرض‌ها وابسته است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "هزینهٔ واقعی به این فرض‌ها وابسته است.",
+          "objective_id": "C03-ST01-L03-OBJ1",
+          "equivalence_group": "C03-ST01-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L03-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "oxexec",
+          "title": "برنامهٔ اجرایی مالی آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+          "accessed_on": "2026-10-19",
+          "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+        },
+        {
+          "id": "ox",
+          "title": "هستهٔ Business Finance در MBA آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+        },
+        {
+          "id": "hbs",
+          "title": "Finance I/II در MBA هاروارد",
+          "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+        },
+        {
+          "id": "nyunotes",
+          "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+          "accessed_on": "2026-10-19",
+          "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+        }
+      ],
+      "practice_activity": {
+        "type": "numeric",
+        "prompt": "نرخ مؤثر سالانهٔ نرخ ماهانهٔ ۱٪ را بیابید.",
+        "unit": "درصد",
+        "answer": 12.68,
+        "absolute_tolerance": 0.02,
+        "solution": "(۱٫۰۱)^۱۲−۱=۱۲٫۶۸٪.",
+        "rubric": [
+          "ترکیب دوازده ماه",
+          "تبدیل به درصد"
+        ],
+        "auto_grade": true
+      },
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+      ],
+      "prerequisites_block_access": false
+    },
+    {
+      "id": "C03-ST01-L04",
+      "version": "2-draft",
+      "title": "نرخ و واحد پول را یکسان کنیم",
+      "content_status": "draft",
+      "objective": "جریان نقد را با ارز و نرخ تنزیل هم‌واحد کند.",
+      "learning_cards": [
+        {
+          "id": "C03-ST01-L04-CARD01",
+          "type": "problem",
+          "title": "هدف این درس‌نامه",
+          "text": "جریان نقد را با ارز و نرخ تنزیل هم‌واحد کند."
+        },
+        {
+          "id": "C03-ST01-L04-CARD02",
+          "type": "definition",
+          "title": "مفهوم را ساده کنیم",
+          "text": "جریان و نرخ تنزیل باید با ارز و دوره سازگار باشند؛ یا جریان ارزی را با تاریخ و نرخ تبدیل روشن به ارز گزارش برگردانیم. تبدیل ارز یک فرض زمان‌دار است، نه مرحلهٔ بی‌اثر فرمول."
+        },
+        {
+          "id": "C03-ST01-L04-CARD03",
+          "type": "explanation",
+          "title": "روش کار",
+          "text": "ارز گزارش را مشخص کنید؛ تاریخ جریان و نرخ تبدیل را ثبت کنید؛ جریان‌ها را هم‌واحد کنید؛ سپس نرخ تنزیل هم‌ارز و متناسب با ریسک را به‌کار ببرید. در پروژهٔ چندارزی، هر جریان و سناریوی ارز را جدا بررسی کنید."
+        },
+        {
+          "id": "C03-ST01-L04-CARD04",
+          "type": "worked_example",
+          "title": "مثال حل‌شده؛ سپهر فرضی",
+          "text": "سپهر یک سال بعد ۱۰۰۰ دلار می‌گیرد. با فرض آموزشی ۱٫۲ واحد داخلی برای هر دلار، جریان داخلی ۱۲۰۰ می‌شود. با نرخ داخلی ۱۰٪، PV≈۱۰۹۰٫۹۱ واحد داخلی. نرخ واقعی ارز تضمین نشده است و مثال پیش‌بینی نیست.",
+          "example_kind": "fictional"
+        },
+        {
+          "id": "C03-ST01-L04-CARD05",
+          "type": "contrast",
+          "title": "خطای رایج",
+          "text": "۱۰۰۰ دلار را مستقیم با ۱۰۰۰ واحد داخلی جمع نکنید. جریان دلاری را با نرخ داخلی بدون تبدیل تنزیل نکنید؛ جریان اسمی و نرخ واقعی هم‌جنس نیستند."
+        },
+        {
+          "id": "C03-ST01-L04-CARD06",
+          "type": "explanation",
+          "title": "و",
+          "text": "ا"
+        },
+        {
+          "id": "C03-ST01-L04-CARD07",
+          "type": "key_terms",
+          "title": "واژگان تخصصی پرتکرار",
+          "text": "در واژگان منابع، Currency consistency سازگاری ارز جریان و نرخ؛ exchange rate نرخ تبدیل با جهت مشخص؛ nominal cash flow جریان اسمی؛ discount rate نرخ تنزیل است. تاریخ نرخ ارز و نوع نرخ باید روشن باشد."
+        },
+        {
+          "id": "C03-ST01-L04-CARD08",
+          "type": "authored_diagram",
+          "title": "نقشهٔ مفهوم",
+          "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+          "elements": [
+            "ارز مبنا",
+            "ارز و تاریخ جریان",
+            "نرخ سازگار",
+            "تبدیل و حساسیت"
+          ],
+          "alt": "ارز مبنا؛ ارز و تاریخ جریان؛ نرخ سازگار؛ تبدیل و حساسیت"
+        },
+        {
+          "id": "C03-ST01-L04-CARD09",
+          "type": "summary",
+          "title": "برای تصمیم بعدی",
+          "text": "واحد ارز را روی هر جریان و نرخ بنویسید و فرض تبدیل را جدا ثبت کنید."
+        }
+      ],
+      "questions": [
+        {
+          "id": "C03-ST01-L04-Q01",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای جمع دو جریان چه لازم است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ارز و دورهٔ مشترک",
+              "feedback": "مقادیر باید هم‌واحد باشند."
+            },
+            {
+              "id": "b",
+              "text": "فقط اعشار مشابه",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مقادیر باید هم‌واحد باشند."
+            },
+            {
+              "id": "c",
+              "text": "نام شرکت مشترک",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مقادیر باید هم‌واحد باشند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مقادیر باید هم‌واحد باشند.",
+          "objective_id": "C03-ST01-L04-OBJ1",
+          "equivalence_group": "C03-ST01-L04-Q01-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L04-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L04-Q02",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "۱۰۰۰ دلار با نرخ۱٫۲ واحد داخلی/دلار چند واحد داخلی؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "۸۳۳٫۳۳",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+            },
+            {
+              "id": "c",
+              "text": "۱۰۰۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+            },
+            {
+              "id": "a",
+              "text": "۱۲۰۰",
+              "feedback": "مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مبلغ ارزی در نرخ داخلی به‌ازای دلار ضرب می‌شود.",
+          "objective_id": "C03-ST01-L04-OBJ1",
+          "equivalence_group": "C03-ST01-L04-Q02-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L04-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L04-Q03",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش‌گذاری داخلی با جریان ارزی چه می‌خواهد؟",
+          "options": [
+            {
+              "id": "c",
+              "text": "جمع مستقیم اعداد",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. نرخ و جریان باید هم‌ارز شوند."
+            },
+            {
+              "id": "a",
+              "text": "تبدیل زمان‌دار و نرخ داخلی سازگار",
+              "feedback": "نرخ و جریان باید هم‌ارز شوند."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن ارز",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. نرخ و جریان باید هم‌ارز شوند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "نرخ و جریان باید هم‌ارز شوند.",
+          "objective_id": "C03-ST01-L04-OBJ1",
+          "equivalence_group": "C03-ST01-L04-Q03-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L04-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L04-Q04",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "PVِ ۱۲۰۰ آینده با نرخ۱۰٪ چقدر است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "۱۰۹۰٫۹۱",
+              "feedback": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+            },
+            {
+              "id": "b",
+              "text": "۱۲۰۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+            },
+            {
+              "id": "c",
+              "text": "۱۳۲۰",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱.",
+          "objective_id": "C03-ST01-L04-OBJ1",
+          "equivalence_group": "C03-ST01-L04-Q04-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L04-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        },
+        {
+          "id": "C03-ST01-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "فرض نرخ ارز مثال چه چیزی را تضمین نمی‌کند؟",
+          "options": [
+            {
+              "id": "b",
+              "text": "محاسبهٔ فرضی",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. فرض آموزشی، پیش‌بینی یا تضمین نیست."
+            },
+            {
+              "id": "c",
+              "text": "واحد تبدیل",
+              "feedback": "این گزینه با فرض مسئله سازگار نیست. فرض آموزشی، پیش‌بینی یا تضمین نیست."
+            },
+            {
+              "id": "a",
+              "text": "نرخ واقعی آینده",
+              "feedback": "فرض آموزشی، پیش‌بینی یا تضمین نیست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "فرض آموزشی، پیش‌بینی یا تضمین نیست.",
+          "objective_id": "C03-ST01-L04-OBJ1",
+          "equivalence_group": "C03-ST01-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "C03-ST01-L04-CARD03",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "ox",
+          "title": "هستهٔ Business Finance در MBA آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+        },
+        {
+          "id": "oxexec",
+          "title": "برنامهٔ اجرایی مالی آکسفورد",
+          "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+          "accessed_on": "2026-10-19",
+          "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+        },
+        {
+          "id": "hbs",
+          "title": "Finance I/II در MBA هاروارد",
+          "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+          "accessed_on": "2026-10-19",
+          "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+        },
+        {
+          "id": "nyunotes",
+          "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+          "accessed_on": "2026-10-19",
+          "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+        }
+      ],
+      "practice_activity": {
+        "type": "numeric",
+        "prompt": "PV جریان ۱۰۰۰ دلار، نرخ تبدیل فرضی ۱٫۲ داخلی/دلار و نرخ تنزیل داخلی۱۰٪؟",
+        "unit": "واحد داخلی امروز",
+        "answer": 1090.91,
+        "absolute_tolerance": 0.02,
+        "solution": "۱۰۰۰×۱٫۲=۱۲۰۰؛ ۱۲۰۰/۱٫۱۰=۱۰۹۰٫۹۱.",
+        "rubric": [
+          "اول تبدیل ارز",
+          "بعد تنزیل هم‌ارز"
+        ],
+        "auto_grade": true
+      },
+      "review_status": {
+        "editorial": "pending",
+        "subject_expert": "pending",
+        "learner_pilot": "pending"
+      },
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+      ],
+      "prerequisites_block_access": false
+    }
+  ],
+  "checkpoint": {
+    "id": "C03-ST01-CHECK",
+    "node_type": "stage_review",
+    "item_count": 6,
+    "coverage": "at_least_one_per_lesson_plus_two_transfer_items",
+    "questions": [
+      {
+        "id": "C03-ST01-CHECK-Q01",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "۱۱۰۰ سال بعد با نرخ۱۰٪، PV؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "۱۰۰۰",
+            "feedback": "تقسیم بر۱٫۱۰ مقدار۱۰۰۰ می‌دهد."
+          },
+          {
+            "id": "b",
+            "text": "۱۱۰۰",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. تقسیم بر۱٫۱۰ مقدار۱۰۰۰ می‌دهد."
+          },
+          {
+            "id": "c",
+            "text": "۹۹۰",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. تقسیم بر۱٫۱۰ مقدار۱۰۰۰ می‌دهد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "تقسیم بر۱٫۱۰ مقدار۱۰۰۰ می‌دهد.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q01-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L01"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "C03-ST01-L01"
+      },
+      {
+        "id": "C03-ST01-CHECK-Q02",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "نرخ ماهانه برای جریان سالانه؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "بدون تبدیل به توان۱۲ برسد",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید سازگار باشند."
+          },
+          {
+            "id": "c",
+            "text": "با نرخ ارز جمع شود",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. دورهٔ جریان و نرخ باید سازگار باشند."
+          },
+          {
+            "id": "a",
+            "text": "به نرخ مؤثر سالانه تبدیل شود",
+            "feedback": "دورهٔ جریان و نرخ باید سازگار باشند."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "دورهٔ جریان و نرخ باید سازگار باشند.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q02-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L02"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "C03-ST01-L02"
+      },
+      {
+        "id": "C03-ST01-CHECK-Q03",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "NPV منفی تحت فرض‌ها می‌گوید؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "وجه حتماً صفر است",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV سنجهٔ جریان و نرخ مفروض است."
+          },
+          {
+            "id": "a",
+            "text": "از بازده لازم مفروض کمتر ارزش می‌سازد",
+            "feedback": "NPV سنجهٔ جریان و نرخ مفروض است."
+          },
+          {
+            "id": "b",
+            "text": "سود حسابداری حتماً منفی است",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. NPV سنجهٔ جریان و نرخ مفروض است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "NPV سنجهٔ جریان و نرخ مفروض است.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q03-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L03"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "C03-ST01-L03"
+      },
+      {
+        "id": "C03-ST01-CHECK-Q04",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "نرخ واقعی دقیق از اسمی۱۰٪ و تورم۴٪؟",
+        "options": [
+          {
+            "id": "a",
+            "text": "۵٫۷۷٪",
+            "feedback": "رابطهٔ فیشر ۱٫۱۰/۱٫۰۴ است."
+          },
+          {
+            "id": "b",
+            "text": "۶٪ دقیق",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. رابطهٔ فیشر ۱٫۱۰/۱٫۰۴ است."
+          },
+          {
+            "id": "c",
+            "text": "۱۴٪",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. رابطهٔ فیشر ۱٫۱۰/۱٫۰۴ است."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "رابطهٔ فیشر ۱٫۱۰/۱٫۰۴ است.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q04-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L04"
+        ],
+        "assessment_role": "lesson_coverage",
+        "remediation_lesson_id": "C03-ST01-L04"
+      },
+      {
+        "id": "C03-ST01-CHECK-Q05",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "جریان ارزی در مدل داخلی چه لازم دارد؟",
+        "options": [
+          {
+            "id": "b",
+            "text": "جمع بی‌تبدیل",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. واحد پول باید همسان شود."
+          },
+          {
+            "id": "c",
+            "text": "حذف ریسک ارز",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. واحد پول باید همسان شود."
+          },
+          {
+            "id": "a",
+            "text": "نرخ و تاریخ تبدیل روشن",
+            "feedback": "واحد پول باید همسان شود."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "واحد پول باید همسان شود.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q05-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L01",
+          "C03-ST01-L02",
+          "C03-ST01-L03",
+          "C03-ST01-L04"
+        ],
+        "assessment_role": "transfer",
+        "remediation_lesson_id": "C03-ST01-L04"
+      },
+      {
+        "id": "C03-ST01-CHECK-Q06",
+        "version": 1,
+        "type": "single_choice",
+        "prompt": "NPV با تغییر کوچک نرخ علامت عوض می‌کند؛ گزارش؟",
+        "options": [
+          {
+            "id": "c",
+            "text": "عدد را قطعی بخوانیم",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. تغییر علامت حساسیت به فرض را نشان می‌دهد."
+          },
+          {
+            "id": "a",
+            "text": "حساسیت تصمیم به نرخ را نشان دهیم",
+            "feedback": "تغییر علامت حساسیت به فرض را نشان می‌دهد."
+          },
+          {
+            "id": "b",
+            "text": "نرخ دلخواه بگیریم",
+            "feedback": "این گزینه با فرض مسئله سازگار نیست. تغییر علامت حساسیت به فرض را نشان می‌دهد."
+          }
+        ],
+        "correct_option_id": "a",
+        "explanation": "تغییر علامت حساسیت به فرض را نشان می‌دهد.",
+        "objective_id": "C03-ST01-CHECK-OBJ1",
+        "equivalence_group": "C03-ST01-CHECK-Q06-FAMILY",
+        "variant": "A",
+        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "hint_used_may_not_count_as_independent": true,
+        "coverage_lesson_ids": [
+          "C03-ST01-L01",
+          "C03-ST01-L02",
+          "C03-ST01-L03",
+          "C03-ST01-L04"
+        ],
+        "assessment_role": "transfer",
+        "remediation_lesson_id": "C03-ST01-L04"
+      }
+    ],
+    "unlocks_next_stage": false
+  }
+}

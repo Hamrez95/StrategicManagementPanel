@@ -1,0 +1,283 @@
+{
+  "id": "C03-ST01-L01",
+  "version": "2-draft",
+  "title": "چرا زمان دریافت پول مهم است؟",
+  "content_status": "draft",
+  "objective": "ارزش فعلی دریافت‌های زمان‌دار را با نرخ و دورهٔ یکسان محاسبه کند.",
+  "learning_cards": [
+    {
+      "id": "C03-ST01-L01-CARD01",
+      "type": "problem",
+      "title": "هدف این درس‌نامه",
+      "text": "ارزش فعلی دریافت‌های زمان‌دار را با نرخ و دورهٔ یکسان محاسبه کند."
+    },
+    {
+      "id": "C03-ST01-L01-CARD02",
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "ارزش فعلی می‌گوید یک جریان آینده با نرخ تنزیل مشخص معادل چه مبلغی امروز است: PV=FV/(1+r)^t. زمان و ریسک باعث می‌شوند مبلغ اسمی آینده با پول امروز هم‌ارز نباشد."
+    },
+    {
+      "id": "C03-ST01-L01-CARD03",
+      "type": "explanation",
+      "title": "روش کار",
+      "text": "مبلغ و تاریخ را روی خط زمان بگذارید؛ r را به دورهٔ t هم‌دوره کنید؛ سپس FV را بر (1+r)^t تقسیم کنید. دو پیشنهاد را به تاریخ مبنای مشترک برگردانید. نرخ نباید برای رسیدن به جواب دلخواه انتخاب شود."
+    },
+    {
+      "id": "C03-ST01-L01-CARD04",
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ سپهر فرضی",
+      "text": "سپهر میان ۱۰۰۰ واحد امروز و ۱۱۰۰ واحد یک سال بعد انتخاب دارد. با نرخ سالانهٔ ۱۰٪، PV دریافت آینده ۱۰۰۰ است. در مدل ساده برابرند؛ ریسک پرداخت، هزینه و مالیات وارد مثال نشده است.",
+      "example_kind": "fictional"
+    },
+    {
+      "id": "C03-ST01-L01-CARD05",
+      "type": "contrast",
+      "title": "خطای رایج",
+      "text": "۱۱۰۰ آینده را فقط به دلیل بزرگ‌تر بودن از ۱۰۰۰ امروز انتخاب نکنید. نرخ سالانه را برای ماه‌ها بدون تبدیل به‌کار نبرید؛ PV به نرخ و تاریخ فرضی وابسته است."
+    },
+    {
+      "id": "C03-ST01-L01-CARD06",
+      "type": "explanation",
+      "title": "ا",
+      "text": "ز"
+    },
+    {
+      "id": "C03-ST01-L01-CARD07",
+      "type": "key_terms",
+      "title": "واژگان تخصصی پرتکرار",
+      "text": "در واژگان منابع، Present value ارزش امروز؛ Future value مبلغ آینده؛ discount rate نرخ تبدیل آینده به امروز؛ r نرخ هر دوره و t تعداد همان دوره‌هاست. این اصطلاح‌ها بدون واحد زمانی ناقص‌اند."
+    },
+    {
+      "id": "C03-ST01-L01-CARD08",
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "رابطهٔ اجزای این درس به‌صورت تألیفی نمایش داده شده.",
+      "elements": [
+        "جریان و تاریخ",
+        "نرخ هم‌دوره",
+        "عامل تنزیل",
+        "ارزش فعلی"
+      ],
+      "alt": "جریان و تاریخ؛ نرخ هم‌دوره؛ عامل تنزیل؛ ارزش فعلی"
+    },
+    {
+      "id": "C03-ST01-L01-CARD09",
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "هر دریافت را روی خط زمان ببرید و تاریخ و نرخ را کنار فرمول ثبت کنید."
+    }
+  ],
+  "questions": [
+    {
+      "id": "C03-ST01-L01-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "۱۱۰۰ یک سال بعد با نرخ ۱۰٪ ارزش فعلی‌اش؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "۱۰۰۰",
+          "feedback": "۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+        },
+        {
+          "id": "b",
+          "text": "۱۱۰۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+        },
+        {
+          "id": "c",
+          "text": "۹۹۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "۱۱۰۰ تقسیم بر ۱٫۱۰ برابر ۱۰۰۰ است.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L01-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ r در فرمول باید چه باشد؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "هر نرخ سالانه بدون تبدیل",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+        },
+        {
+          "id": "c",
+          "text": "نرخ دلخواه",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+        },
+        {
+          "id": "a",
+          "text": "نرخ هم‌دوره با t",
+          "feedback": "توان دوره‌ها باید با دورهٔ نرخ سازگار باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "توان دوره‌ها باید با دورهٔ نرخ سازگار باشد.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L01-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دو دریافت را چطور مقایسه کنیم؟",
+      "options": [
+        {
+          "id": "c",
+          "text": "زمان را حذف کنیم",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+        },
+        {
+          "id": "a",
+          "text": "به یک تاریخ ارزش‌گذاری برگردانیم",
+          "feedback": "تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "مبلغ اسمی را تنها مقایسه کنیم",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تاریخ مبنای مشترک مقایسه را منصفانه می‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تاریخ مبنای مشترک مقایسه را منصفانه می‌کند.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L01-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ مثبت و زمان بیشتر معمولاً PV را چه می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "کاهش می‌دهد",
+          "feedback": "عامل تنزیل بزرگ‌تر می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "زیاد می‌کند",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "بی‌اثر است",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "عامل تنزیل بزرگ‌تر می‌شود.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    },
+    {
+      "id": "C03-ST01-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برابر بودن PV در مثال چه چیزی را حذف نمی‌کند؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "نیاز به تاریخ",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+        },
+        {
+          "id": "c",
+          "text": "نیاز به نرخ",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+        },
+        {
+          "id": "a",
+          "text": "ریسک و قطعیت قرارداد",
+          "feedback": "مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مدل ساده تفاوت ریسک و شرایط پرداخت را کامل نمی‌بیند.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "ox",
+      "title": "هستهٔ Business Finance در MBA آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی هستهٔ MBA: جریان نقد، ریسک و بازده، سهام و بدهی و مدیریت ریسک."
+    },
+    {
+      "id": "oxexec",
+      "title": "برنامهٔ اجرایی مالی آکسفورد",
+      "url": "https://www.sbs.ox.ac.uk/programmes/executive-education/online-learning/oxford-executive-finance-programme",
+      "accessed_on": "2026-10-19",
+      "scope": "برنامهٔ اجرایی جدا از MBA؛ ارزش زمانی پول، NPV/IRR، ریسک و هزینهٔ سرمایه."
+    },
+    {
+      "id": "hbs",
+      "title": "Finance I/II در MBA هاروارد",
+      "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
+      "accessed_on": "2026-10-19",
+      "scope": "شرح رسمی: بودجه‌بندی سرمایه‌ای، DCF، ریسک، ارزش‌گذاری، تأمین مالی و توزیع سرمایه."
+    },
+    {
+      "id": "nyu",
+      "title": "درس مالی شرکتی MBA دانشگاه نیویورک",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/corpfin.html",
+      "accessed_on": "2026-10-19",
+      "scope": "صفحهٔ رسمی استاد: درس ۲۶جلسه‌ای همراه سیلابس، جزوه، پروژه، تمرین و دادهٔ عمومی."
+    },
+    {
+      "id": "nyunotes",
+      "title": "جزوهٔ مالی شرکتی NYU، بهار ۲۰۲۶",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/cflect.htm",
+      "accessed_on": "2026-10-19",
+      "scope": "جزوه‌های عمومی به‌روز: تحلیل سرمایه‌گذاری؛ ساختار سرمایه، سود سهام و ارزش‌گذاری."
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "PV مبلغ ۱٬۲۱۰ در دو سال با نرخ مؤثر سالانهٔ ۱۰٪؟",
+    "unit": "واحد امروز",
+    "answer": 1000,
+    "absolute_tolerance": 0.01,
+    "solution": "۱۲۱۰÷۱٫۱۰²=۱۰۰۰.",
+    "rubric": [
+      "دو دوره",
+      "نرخ سالانه"
+    ],
+    "auto_grade": true
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "درصد و چهار عمل؛ مرور صورت‌های مالی حسابداری پیشنهادی است"
+  ],
+  "prerequisites_block_access": false
+}
