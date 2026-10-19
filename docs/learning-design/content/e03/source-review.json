@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "E03",
-  "status": "targeted_source_review_for_stages_1_2; expert_review_pending",
-  "source_use_note": "مرحلهٔ اول از OpenStax برای مبانی کشش و بازاریابی، AEJ:M 2024 برای مدل نظری اطلاعات و قیمت، QJE برای مطالعهٔ میدانی بخش‌بندی قیمت در خرده‌فروشی برق، و HBR به‌عنوان راهنمای حرفه‌ای ارزش‌بنیاد استفاده می‌کند. ادعاهای بازار سپهر ساختگی‌اند و هیچ منبعی قیمت بهینهٔ آن را تعیین نمی‌کند. مرحلهٔ دوم قیمت‌گذاری با آزمایش پژوهشی 2024 دربارهٔ گذار به قیمت متغیر، مطالعهٔ 2024 قیمت شخصی‌سازی‌شده، پژوهش بسته‌بندی پویا و راهنمای عملیاتی Stripe مرور شد. Stripe ذی‌نفع تجاری است؛ شواهد انصاف به سناریو محدود است.",
+  "status": "targeted_source_review_for_stages_1_3; expert_review_pending",
+  "source_use_note": "مرحلهٔ اول از OpenStax برای مبانی کشش و بازاریابی، AEJ:M 2024 برای مدل نظری اطلاعات و قیمت، QJE برای مطالعهٔ میدانی بخش‌بندی قیمت در خرده‌فروشی برق، و HBR به‌عنوان راهنمای حرفه‌ای ارزش‌بنیاد استفاده می‌کند. ادعاهای بازار سپهر ساختگی‌اند و هیچ منبعی قیمت بهینهٔ آن را تعیین نمی‌کند. مرحلهٔ دوم قیمت‌گذاری با آزمایش پژوهشی 2024 دربارهٔ گذار به قیمت متغیر، مطالعهٔ 2024 قیمت شخصی‌سازی‌شده، پژوهش بسته‌بندی پویا و راهنمای عملیاتی Stripe مرور شد. Stripe ذی‌نفع تجاری است؛ شواهد انصاف به سناریو محدود است. مرحلهٔ سوم از فصل سنجه‌های OpenStax، راهنمای AMA برای LTV و پیش‌چاپ قیمت‌گذاری switchback با تقاضای آینده‌نگر استفاده می‌کند. پیش‌چاپ داوری‌شده فرض نشده و فرمول‌های LTV/CAC باید با دادهٔ cohort واقعی بازبینی شوند.",
   "sources": [
     {
       "id": "OPENSTAX-MICRO-ELASTICITY",
@@ -66,6 +66,34 @@
       "url": "https://www.sciencedirect.com/science/article/pii/S0969698917302928",
       "review_depth": "peer_reviewed_experimental_research_reviewed",
       "scope": "سه مطالعه دربارهٔ اثر بسته‌بندی پویا بر انصاف ادراک‌شده؛ قدیمی و سناریومحور است و نتیجهٔ آن نسخهٔ عمومی بسته‌بندی نیست."
+    },
+    {
+      "id": "OPENSTAX-MARKETING-METRICS",
+      "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "review_depth": "open_educational_textbook_reviewed",
+      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+    },
+    {
+      "id": "AMA-LTV-CALCULATOR",
+      "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
+      "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
+      "review_depth": "professional_association_guide_reviewed",
+      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+    },
+    {
+      "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
+      "title": "Switchback Price Experiments with Forward-Looking Demand",
+      "url": "https://arxiv.org/abs/2410.14904",
+      "review_depth": "working_paper_preprint_theory_reviewed",
+      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+    },
+    {
+      "id": "OPENSTAX-ONLINE-METRICS",
+      "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
+      "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
+      "review_depth": "open_educational_textbook_reviewed",
+      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
     }
   ],
   "stage_reviews": [
@@ -92,10 +120,21 @@
         "OPENSTAX-MICRO-ELASTICITY"
       ],
       "limitations": "راهنمای Stripe برای اصول حسابداری/صورتحساب است نه مدرک علّی کاهش ریزش؛ پژوهش‌های انصاف محدود به زمینهٔ آزمایش‌اند."
+    },
+    {
+      "stage_id": "E03-ST03",
+      "status": "draft_complete_pending_review",
+      "source_ids": [
+        "OPENSTAX-MARKETING-METRICS",
+        "AMA-LTV-CALCULATOR",
+        "SWITCHBACK-PRICING-EXPERIMENTS-2024",
+        "OPENSTAX-ONLINE-METRICS"
+      ],
+      "limitations": "CAC و LTV به تعریف دامنه و فرض‌های حفظ/حاشیه وابسته‌اند؛ پیش‌چاپ switchback مدل نظری است و نه راهنمای بی‌قید اجرا."
     }
   ],
   "open_questions": [
-    "برای نرخ تمدید و تجربهٔ لغو در محصول آموزشی، دادهٔ واقعی و cohort لازم است.",
-    "قواعد تخفیف و تمدید باید از نظر انصاف و شرایط بازار بازبینی شوند."
+    "تعریف مخرج CAC و cohort در محصول واقعی قفل شود.",
+    "برای قیمت‌گذاری، طراحی آزمایش باید با واحدهای تحلیل و اثر سرایت مرور آماری شود."
   ]
 }

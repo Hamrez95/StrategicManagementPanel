@@ -1,0 +1,297 @@
+{
+  "id": "E03-ST03-L03",
+  "version": "1-draft",
+  "title": "LTV و حساسیت به حفظ",
+  "content_status": "draft",
+  "objective": "ارزش طول عمر مشتری را با حاشیه و منحنی حفظ برآورد کند، حساسیت فرض‌ها را بسنجد و از تبدیل تخمین به وعدهٔ مالی دوری کند.",
+  "learning_cards": [
+    {
+      "id": "E03-ST03-L03-CARD01",
+      "title": "LTV تخمین آینده است",
+      "text": "ارزش طول عمر (LTV/CLV) ارزش اقتصادی مورد انتظار از رابطه با مشتری است. چون آینده را پیش‌بینی می‌کند، عدد قطعی نیست. تعریف درآمدی یا سودی آن باید روشن باشد؛ در تصمیم جذب، حاشیه معمولاً از فروش ناخالص مفیدتر است."
+    },
+    {
+      "id": "E03-ST03-L03-CARD02",
+      "title": "فرمول سادهٔ دوره‌ای",
+      "text": "برای اشتراک با حاشیهٔ ماهانهٔ m و نرخ ریزش ماهانهٔ c، تقریب ساده LTV ≈ m/c است، تحت فرض حاشیهٔ ثابت و ریزش پایدار. این فرمول هزینهٔ سرمایه، cohort، تمدید سالانه و تفاوت مشتریان را ساده می‌کند."
+    },
+    {
+      "id": "E03-ST03-L03-CARD03",
+      "title": "حفظ بر ارزش بسیار اثر دارد",
+      "text": "وقتی حاشیهٔ هر دوره مثبت است، ماندگاری بیشتر می‌تواند LTV را بالا ببرد؛ اما نگهداشت هزینه دارد و همهٔ مشتریان تمدید نمی‌کنند. فرض retention را از منحنی cohort واقعی بگیرید، نه آرزوی تیم."
+    },
+    {
+      "id": "E03-ST03-L03-CARD04",
+      "title": "منحنی cohort",
+      "text": "مشتریانی را که در یک بازه وارد شده‌اند کنار هم دنبال کنید: چه سهمی پس از هر ماه فعال یا پرداخت‌کننده مانده؟ cohortهای مختلف ممکن است فصل، قیمت یا کانال متفاوت داشته باشند. میانگین کل تفاوت را پنهان می‌کند."
+    },
+    {
+      "id": "E03-ST03-L03-CARD05",
+      "title": "تنزیل و ارزش زمانی پول",
+      "text": "در افق بلند، مبلغ آینده با امروز برابر نیست. مدل دقیق‌تر حاشیه‌های آتی را با نرخ تنزیل و احتمال بقا به ارزش فعلی تبدیل می‌کند. برای تمرین، فرض‌ها را فهرست کنید؛ سادگی فرمول مجوز قطعیت نیست."
+    },
+    {
+      "id": "E03-ST03-L03-CARD06",
+      "title": "تحلیل حساسیت",
+      "text": "LTV را با چند نرخ حفظ و حاشیه محاسبه کنید. اگر تصمیم در تغییر کوچک فرض ریزش عوض می‌شود، نتیجه شکننده است و باید دادهٔ بیشتر یا آزمایش بهبود حفظ را در اولویت گذاشت."
+    },
+    {
+      "id": "E03-ST03-L03-CARD07",
+      "title": "LTV/CAC و زمان بازگشت",
+      "text": "نسبت LTV به CAC بدون تعریف هم‌مبنا و دوره، معنا ندارد. دورهٔ بازگشت نشان می‌دهد چه وقت حاشیهٔ تجمعی هزینهٔ جذب را جبران می‌کند؛ برای نقدینگی و رشد سریع مهم است."
+    },
+    {
+      "id": "E03-ST03-L03-CARD08",
+      "title": "مثال سپهر",
+      "text": "حاشیهٔ ماهانهٔ مشتری ۴۰۰ هزار و ریزش ماهانه ۱۰٪ است؛ تقریب خام LTV=۴ میلیون تومان. اگر حاشیهٔ واقعی ۳۰۰ هزار یا ریزش ۱۵٪ شود، عدد ۲ میلیون می‌شود. این حساسیت نشان می‌دهد تصمیم قیمت نباید یک برآورد را حقیقت فرض کند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E03-ST03-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "LTV چه نوع سنجه‌ای است؟",
+      "remediation_card_id": "E03-ST03-L03-CARD01",
+      "variant": "A",
+      "id": "E03-ST03-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "تخمین آینده بر پایهٔ فرض‌های درآمد/حاشیه و ماندگاری",
+          "feedback": "درست: LTV پیش‌بینی است و به فرض‌ها وابسته."
+        },
+        {
+          "id": "b",
+          "text": "درآمد قطعی حسابرسی‌شدهٔ آینده",
+          "feedback": "بازبینی: LTV پیش‌بینی است و به فرض‌ها وابسته."
+        },
+        {
+          "id": "c",
+          "text": "فقط تعداد مشتریان روز اول",
+          "feedback": "بازبینی: LTV پیش‌بینی است و به فرض‌ها وابسته."
+        }
+      ],
+      "equivalence_group": "E03-ST03-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "LTV پیش‌بینی است و به فرض‌ها وابسته."
+    },
+    {
+      "objective_id": "E03-ST03-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "در تقریب m/c، c چه چیزی است؟",
+      "remediation_card_id": "E03-ST03-L03-CARD02",
+      "variant": "A",
+      "id": "E03-ST03-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "هزینهٔ تبلیغات",
+          "feedback": "بازبینی: تقریب به حاشیهٔ دوره‌ای و ریزش پایدار متکی است."
+        },
+        {
+          "id": "b",
+          "text": "تعداد کل ثبت‌نام‌ها",
+          "feedback": "بازبینی: تقریب به حاشیهٔ دوره‌ای و ریزش پایدار متکی است."
+        },
+        {
+          "id": "c",
+          "text": "نرخ ریزش دوره‌ای با تعریف و افق مشخص",
+          "feedback": "درست: تقریب به حاشیهٔ دوره‌ای و ریزش پایدار متکی است."
+        }
+      ],
+      "equivalence_group": "E03-ST03-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "تقریب به حاشیهٔ دوره‌ای و ریزش پایدار متکی است."
+    },
+    {
+      "objective_id": "E03-ST03-L03-OBJ03",
+      "type": "single_choice",
+      "prompt": "تحلیل حساسیت چه کمکی می‌کند؟",
+      "remediation_card_id": "E03-ST03-L03-CARD03",
+      "variant": "A",
+      "id": "E03-ST03-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "نیاز به منحنی cohort را حذف می‌کند",
+          "feedback": "بازبینی: سناریوها وابستگی برآورد به فرض‌ها را آشکار می‌کنند."
+        },
+        {
+          "id": "b",
+          "text": "نشان می‌دهد تصمیم به کدام فرض‌ها شکننده است",
+          "feedback": "درست: سناریوها وابستگی برآورد به فرض‌ها را آشکار می‌کنند."
+        },
+        {
+          "id": "c",
+          "text": "عدد آینده را تضمین می‌کند",
+          "feedback": "بازبینی: سناریوها وابستگی برآورد به فرض‌ها را آشکار می‌کنند."
+        }
+      ],
+      "equivalence_group": "E03-ST03-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "سناریوها وابستگی برآورد به فرض‌ها را آشکار می‌کنند."
+    },
+    {
+      "objective_id": "E03-ST03-L03-OBJ04",
+      "type": "single_choice",
+      "prompt": "اگر LTV/CAC خوب ولی بازگشت هزینه طولانی باشد چه نکته‌ای مهم است؟",
+      "remediation_card_id": "E03-ST03-L03-CARD04",
+      "variant": "A",
+      "id": "E03-ST03-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "نقدینگی و زمان تأمین سرمایهٔ رشد ممکن است محدودکننده شود",
+          "feedback": "درست: سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+        },
+        {
+          "id": "b",
+          "text": "نسبت به تنهایی کافی است",
+          "feedback": "بازبینی: سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ سرمایه وجود ندارد",
+          "feedback": "بازبینی: سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+        }
+      ],
+      "equivalence_group": "E03-ST03-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "OPENSTAX-MARKETING-METRICS",
+      "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "review_depth": "open_educational_textbook_reviewed",
+      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+    },
+    {
+      "id": "AMA-LTV-CALCULATOR",
+      "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
+      "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
+      "review_depth": "professional_association_guide_reviewed",
+      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+    },
+    {
+      "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
+      "title": "Switchback Price Experiments with Forward-Looking Demand",
+      "url": "https://arxiv.org/abs/2410.14904",
+      "review_depth": "working_paper_preprint_theory_reviewed",
+      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+    },
+    {
+      "id": "OPENSTAX-ONLINE-METRICS",
+      "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
+      "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
+      "review_depth": "open_educational_textbook_reviewed",
+      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+    }
+  ],
+  "practice_activity": {
+    "type": "pricing-experiment-economics-metrics",
+    "prompt": "برای جذب دانش‌پذیر سپهر «LTV و حساسیت به حفظ» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
+    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E03-ST01-L02",
+    "E03-ST02-L03"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/e03/lessons/E03-ST03-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "OPENSTAX-MARKETING-METRICS",
+    "AMA-LTV-CALCULATOR",
+    "SWITCHBACK-PRICING-EXPERIMENTS-2024",
+    "OPENSTAX-ONLINE-METRICS"
+  ],
+  "source_scope": "OpenStax متن آموزشی آزاد، AMA راهنمای حرفه‌ای و پیش‌چاپ switchback منبع نظری‌اند. فرمول‌ها تخمین هستند؛ مثال سپهر ساختگی است و از این داده‌ها تصمیم مالی واقعی نتیجه نمی‌شود.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-LEARNING",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_example; no firm-specific claims"
+  },
+  "media_plan": {
+    "type": "ltv-sensitivity-cohort-chart",
+    "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "طراحی سنجش",
+      "محاسبه",
+      "تفسیر فرض‌ها",
+      "تصمیم رشد"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 22,
+    "practice": 20
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+  "selected_source_refs": [
+    {
+      "source_id": "OPENSTAX-MARKETING-METRICS",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "locator": "marketing metrics, CAC and forward-looking CLV; cohort retention and margin; experimental design for price changes",
+      "review_depth": "open_educational_textbook_reviewed",
+      "supports_scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+      "gap": "فرمول‌های آموزشی و پیش‌چاپ برای محاسبهٔ واقعی سپهر کافی نیستند؛ دادهٔ cohort، هزینهٔ کامل، مقایسهٔ مناسب و بازبینی مالی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "AMA-LTV-CALCULATOR",
+      "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
+      "locator": "marketing metrics, CAC and forward-looking CLV; cohort retention and margin; experimental design for price changes",
+      "review_depth": "professional_association_guide_reviewed",
+      "supports_scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+      "gap": "فرمول‌های آموزشی و پیش‌چاپ برای محاسبهٔ واقعی سپهر کافی نیستند؛ دادهٔ cohort، هزینهٔ کامل، مقایسهٔ مناسب و بازبینی مالی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
+      "url": "https://arxiv.org/abs/2410.14904",
+      "locator": "marketing metrics, CAC and forward-looking CLV; cohort retention and margin; experimental design for price changes",
+      "review_depth": "working_paper_preprint_theory_reviewed",
+      "supports_scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+      "gap": "فرمول‌های آموزشی و پیش‌چاپ برای محاسبهٔ واقعی سپهر کافی نیستند؛ دادهٔ cohort، هزینهٔ کامل، مقایسهٔ مناسب و بازبینی مالی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OPENSTAX-ONLINE-METRICS",
+      "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
+      "locator": "marketing metrics, CAC and forward-looking CLV; cohort retention and margin; experimental design for price changes",
+      "review_depth": "open_educational_textbook_reviewed",
+      "supports_scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+      "gap": "فرمول‌های آموزشی و پیش‌چاپ برای محاسبهٔ واقعی سپهر کافی نیستند؛ دادهٔ cohort، هزینهٔ کامل، مقایسهٔ مناسب و بازبینی مالی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}
