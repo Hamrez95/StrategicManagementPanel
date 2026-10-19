@@ -1,0 +1,266 @@
+{
+  "id": "S01-C4-ST01-L04",
+  "version": "1-draft",
+  "title": "نقد ارزیابی گزینه‌ها با AI",
+  "content_status": "draft",
+  "objective": "خروجی AI را از نظر لنگراندازی، سوگیری، دقت کاذب و منبع‌پذیری نقد کند.",
+  "learning_cards": [
+    {
+      "id": "S01-C4-ST01-L04-CARD01",
+      "type": "explanation",
+      "title": "AI در تحلیل گزینه",
+      "text": "مدل زبانی می‌تواند گزینه‌ها، محرک‌ها و اعتراض‌ها را جمع کند؛ ممکن است دادهٔ نادرست، وابستگی پنهان یا توازن کاذب بسازد. نقش مدل را «پیشنهاددهنده» تعریف کنید و هر ادعای مهم را به منبع اولیه بسپارید."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD02",
+      "type": "explanation",
+      "title": "لنگراندازی",
+      "text": "اگر مدیر اول از AI یک سناریو می‌گیرد، ممکن است پیشنهادهای بعدی را حول همان قاب بچیند. ابتدا افراد مستقل فرض‌های خود را بنویسند؛ بعد خروجی AI را مقایسه کنید تا دامنهٔ تفکر گسترش یابد، نه اینکه مدل دستور جلسه شود."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD03",
+      "type": "explanation",
+      "title": "سوگیری تأیید",
+      "text": "کاربر ممکن است از مدل بخواهد ایدهٔ دلخواه را پشتیبانی کند. برای مقابله، دستور رد فرض، شواهد خلاف، گزینهٔ جایگزین و پیامد شکست را بخواهید و بعد با دادهٔ مستقل کنترل کنید."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD04",
+      "type": "explanation",
+      "title": "دقت کاذب",
+      "text": "احتمال، هزینه یا زمان‌بندی تولیدشده را بدون منبع و مدل کمی قبول نکنید. عددی که به اعشار می‌رسد الزاماً دقیق نیست؛ بازه، حساسیت و منبع را کنار آن نگه دارید."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD05",
+      "type": "explanation",
+      "title": "مقایسهٔ گزینه‌ها",
+      "text": "معیارها باید پیشاپیش متناسب با تصمیم باشند: ارزش مشتری، سرمایه، ریسک، برگشت‌پذیری و توان اجرا. مدل می‌تواند مقایسه را قالب‌بندی کند، اما وزن معیارها را باید تصمیم‌گیر با دلیل تعیین کند."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD06",
+      "type": "explanation",
+      "title": "راستی‌آزمایی منابع",
+      "text": "برای هر گزاره، پیوند، تاریخ، روش و واحد مطالعه را بررسی کنید. منبعی که وجود ندارد یا دربارهٔ جمعیت دیگری است، با بازنویسی روان معتبر نمی‌شود؛ مدل پاسخ‌های محتمل را به جای منبع واقعی می‌سازد."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD07",
+      "type": "explanation",
+      "title": "حلقهٔ انسانی",
+      "text": "برای تصمیم پراثر، تحلیل‌گر مسئول، صاحب کسب‌وکار، مالی/ریسک و دیدگاه مخالف را وارد کنید. تصمیم‌گیر نهایی باید بداند کدام بخش تحلیل ماشینی است و کدام قضاوت انسانی."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD08",
+      "type": "explanation",
+      "title": "ثبت بازبینی",
+      "text": "ورودی، منبع‌ها، نسخهٔ مدل، خروجی منتخب و اصلاح‌های انسانی را ثبت کنید تا بتوان فهمید پیشنهاد چرا تغییر کرد. اطلاعات محرمانه را طبق دسترسی و قرارداد وارد کنید؛ استفادهٔ امن بخشی از حاکمیت است."
+    },
+    {
+      "id": "S01-C4-ST01-L04-CARD09",
+      "type": "explanation",
+      "title": "معیار کیفیت تحلیل",
+      "text": "تحلیل خوب ادعای محدود و قابل پیگیری دارد، فرض نامعلوم را پنهان نمی‌کند، بدیل را جدی می‌گیرد و به اقدام مشروط می‌رسد. متن طولانی یا نمودار زیبا جانشین دلیل، داده و مسئولیت نیست."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S01-C4-ST01-L04-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل زبانی در سناریو چه نقشی دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "پیشنهاد گزینه و محرک، نه تصمیم‌گیر نهایی",
+          "feedback": "درست: مسئولیت تصمیم با انسان می‌ماند."
+        },
+        {
+          "id": "b",
+          "text": "تعیین قطعی احتمال",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. مسئولیت تصمیم با انسان می‌ماند."
+        },
+        {
+          "id": "c",
+          "text": "جایگزینی مسئول",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. مسئولیت تصمیم با انسان می‌ماند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مسئولیت تصمیم با انسان می‌ماند.",
+      "objective_id": "S01-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S01-C4-ST01-L04-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C4-ST01-L04-CARD01"
+    },
+    {
+      "id": "S01-C4-ST01-L04-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چگونه لنگراندازی AI را کم کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فرض مستقل بنویسیم و بعد خروجی را بسنجیم",
+          "feedback": "درست: مقایسهٔ مستقل دامنه را گسترش می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "فقط اولین جواب را بگیریم",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. مقایسهٔ مستقل دامنه را گسترش می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "مدل را برای تأیید ایده بخواهیم",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. مقایسهٔ مستقل دامنه را گسترش می‌دهد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مقایسهٔ مستقل دامنه را گسترش می‌دهد.",
+      "objective_id": "S01-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S01-C4-ST01-L04-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C4-ST01-L04-CARD02"
+    },
+    {
+      "id": "S01-C4-ST01-L04-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا عدد اعشاری مدل را باید بررسی کرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دقت ظاهری می‌تواند بی‌منبع باشد",
+          "feedback": "درست: منبع و بازهٔ عدم‌قطعیت را کنترل کنید."
+        },
+        {
+          "id": "b",
+          "text": "اعشار همیشه غلط است",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. منبع و بازهٔ عدم‌قطعیت را کنترل کنید."
+        },
+        {
+          "id": "c",
+          "text": "عدد هیچ ارزشی ندارد",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. منبع و بازهٔ عدم‌قطعیت را کنترل کنید."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "منبع و بازهٔ عدم‌قطعیت را کنترل کنید.",
+      "objective_id": "S01-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S01-C4-ST01-L04-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C4-ST01-L04-CARD04"
+    },
+    {
+      "id": "S01-C4-ST01-L04-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای گزارهٔ AI چه باید کرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "پیوند منبع و تاریخ و روش را بررسی کرد",
+          "feedback": "درست: محتوای روان جای شاهد را نمی‌گیرد."
+        },
+        {
+          "id": "b",
+          "text": "به نثر روان اعتماد کرد",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. محتوای روان جای شاهد را نمی‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "منبع لازم نیست",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. محتوای روان جای شاهد را نمی‌گیرد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "محتوای روان جای شاهد را نمی‌گیرد.",
+      "objective_id": "S01-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S01-C4-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C4-ST01-L04-CARD06"
+    },
+    {
+      "id": "S01-C4-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تحلیل خوب چه شکلی است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "قابل پیگیری و مشروط و دارای مسئول",
+          "feedback": "درست: دلیل و اقدام مهم‌تر از حجم خروجی‌اند."
+        },
+        {
+          "id": "b",
+          "text": "طولانی و پرنمودار",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. دلیل و اقدام مهم‌تر از حجم خروجی‌اند."
+        },
+        {
+          "id": "c",
+          "text": "بدون محدودیت",
+          "feedback": "فرض، سناریو و پیش‌بینی را از هم جدا کن. دلیل و اقدام مهم‌تر از حجم خروجی‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دلیل و اقدام مهم‌تر از حجم خروجی‌اند.",
+      "objective_id": "S01-C4-ST01-L04-OBJ1",
+      "equivalence_group": "S01-C4-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S01-C4-ST01-L04-CARD09"
+    }
+  ],
+  "source_links": [
+    {
+      "id": "oxford-scenarios",
+      "title": "Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling",
+      "url": "https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665",
+      "scope": "سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده."
+    },
+    {
+      "id": "oxford-ospa",
+      "title": "Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach",
+      "url": "https://academic.oup.com/book/9616",
+      "scope": "سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه."
+    },
+    {
+      "id": "hbr-uncertainty",
+      "title": "HBR (2025): Make Better Strategic Decisions Amid Uncertainty",
+      "url": "https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty",
+      "scope": "سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع."
+    },
+    {
+      "id": "imf-ai-scenario",
+      "title": "IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise",
+      "url": "https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924",
+      "scope": "تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست."
+    },
+    {
+      "id": "wef-risk-2026",
+      "title": "World Economic Forum: Global Risks Report 2026",
+      "url": "https://www.weforum.org/publications/global-risks-report-2026/in-full/global-risks-report-2026-chapter-2/",
+      "scope": "دیدگاه کارشناسان/مدیران دربارهٔ ریسک‌های جهانی و AI؛ پیمایش ادراک ریسک است."
+    },
+    {
+      "id": "oxford-handbook",
+      "title": "Oxford Saïd: The Strategist’s Handbook",
+      "url": "https://academic.oup.com/book/46836",
+      "scope": "چارچوب فرایند، ابزار و تصمیم‌گیری در استراتژی؛ دسترسی به متن ممکن است محدود باشد."
+    }
+  ],
+  "practice_activity": {
+    "type": "short_answer",
+    "prompt": "پاسخ AI را برای سه فرض بی‌شاهد، عدد بی‌منبع و گزینهٔ جاافتاده ارزیابی و اصلاح کنید.",
+    "unit": "تحول، اجرا و تصمیم در عدم‌قطعیت",
+    "answer": null,
+    "absolute_tolerance": 0,
+    "solution": "پاسخ خوب مجهول را از واقعیت جدا، فرض حساس و منبع را آشکار می‌کند و به گزینه، ماشه و مسئول می‌رسد؛ سناریو پیش‌بینی قطعی نیست.",
+    "rubric": [
+      "ادعا و منبع جدا شده‌اند",
+      "سوگیری و گزینهٔ غایب مطرح است",
+      "بازبینی انسانی و تصمیم مشروط دارد"
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false
+}
