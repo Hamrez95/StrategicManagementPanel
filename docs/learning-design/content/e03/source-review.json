@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
   "course_id": "E03",
-  "status": "targeted_source_review_for_stage_1; expert_review_pending",
-  "source_use_note": "مرحلهٔ اول از OpenStax برای مبانی کشش و بازاریابی، AEJ:M 2024 برای مدل نظری اطلاعات و قیمت، QJE برای مطالعهٔ میدانی بخش‌بندی قیمت در خرده‌فروشی برق، و HBR به‌عنوان راهنمای حرفه‌ای ارزش‌بنیاد استفاده می‌کند. ادعاهای بازار سپهر ساختگی‌اند و هیچ منبعی قیمت بهینهٔ آن را تعیین نمی‌کند.",
+  "status": "targeted_source_review_for_stages_1_2; expert_review_pending",
+  "source_use_note": "مرحلهٔ اول از OpenStax برای مبانی کشش و بازاریابی، AEJ:M 2024 برای مدل نظری اطلاعات و قیمت، QJE برای مطالعهٔ میدانی بخش‌بندی قیمت در خرده‌فروشی برق، و HBR به‌عنوان راهنمای حرفه‌ای ارزش‌بنیاد استفاده می‌کند. ادعاهای بازار سپهر ساختگی‌اند و هیچ منبعی قیمت بهینهٔ آن را تعیین نمی‌کند. مرحلهٔ دوم قیمت‌گذاری با آزمایش پژوهشی 2024 دربارهٔ گذار به قیمت متغیر، مطالعهٔ 2024 قیمت شخصی‌سازی‌شده، پژوهش بسته‌بندی پویا و راهنمای عملیاتی Stripe مرور شد. Stripe ذی‌نفع تجاری است؛ شواهد انصاف به سناریو محدود است.",
   "sources": [
     {
       "id": "OPENSTAX-MICRO-ELASTICITY",
@@ -38,6 +38,34 @@
       "url": "https://hbr.org/2016/08/a-quick-guide-to-value-based-pricing",
       "review_depth": "practitioner_article_reviewed",
       "scope": "راهنمای مدیریتی برای نگاه به ارزش مشتری در قیمت‌گذاری؛ منبع حرفه‌ای است و جای تخمین اقتصادی یا آزمایش را نمی‌گیرد."
+    },
+    {
+      "id": "DYNAMIC-PRICE-FAIRNESS-2024",
+      "title": "The effects of price framing and magnitude of price differences on perceived fairness when switching from static to variable pricing",
+      "url": "https://doi.org/10.1016/j.jretconser.2024.103952",
+      "review_depth": "peer_reviewed_experimental_article_reviewed",
+      "scope": "بررسی ادراک انصاف در سناریوهای تغییر از قیمت ثابت به متغیر؛ نتیجه به زمینه و طراحی مطالعه محدود است."
+    },
+    {
+      "id": "PERSONALIZED-PRICING-FAIRNESS-2024",
+      "title": "All is (not) fair in personalized pricing: antecedents and outcomes of consumer fairness perceptions",
+      "url": "https://doi.org/10.1057/s41272-024-00509-2",
+      "review_depth": "peer_reviewed_research_article_reviewed",
+      "scope": "بررسی عوامل و پیامدهای ادراک انصاف در قیمت شخصی‌سازی‌شده؛ دادهٔ مطالعه محدودیت تعمیم و دسترسی دارد."
+    },
+    {
+      "id": "STRIPE-SUBSCRIPTION-BILLING",
+      "title": "Stripe, Subscription billing: Everything businesses need to know",
+      "url": "https://stripe.com/resources/more/subscription-billing-101",
+      "review_depth": "practitioner_guide_reviewed",
+      "scope": "اصول عملی صورتحساب و عملیات اشتراک؛ منبع فروشندهٔ خدمات پرداخت است و شواهد مستقل دربارهٔ افزایش نگهداشت محسوب نمی‌شود."
+    },
+    {
+      "id": "DYNAMIC-BUNDLING-FAIRNESS",
+      "title": "The impact of dynamic bundling on price fairness perceptions",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0969698917302928",
+      "review_depth": "peer_reviewed_experimental_research_reviewed",
+      "scope": "سه مطالعه دربارهٔ اثر بسته‌بندی پویا بر انصاف ادراک‌شده؛ قدیمی و سناریومحور است و نتیجهٔ آن نسخهٔ عمومی بسته‌بندی نیست."
     }
   ],
   "stage_reviews": [
@@ -52,11 +80,22 @@
         "HBR-VALUE-BASED-PRICING"
       ],
       "limitations": "OpenStax باز است اما ارجاع فصل بازاریابی باید دقیق شود؛ مطالعهٔ میدانی بازار برق به آموزش آنلاین تعمیم قطعی ندارد؛ روش ارزش‌بنیاد یک چارچوب حرفه‌ای است."
+    },
+    {
+      "stage_id": "E03-ST02",
+      "status": "draft_complete_pending_review",
+      "source_ids": [
+        "DYNAMIC-PRICE-FAIRNESS-2024",
+        "PERSONALIZED-PRICING-FAIRNESS-2024",
+        "STRIPE-SUBSCRIPTION-BILLING",
+        "DYNAMIC-BUNDLING-FAIRNESS",
+        "OPENSTAX-MICRO-ELASTICITY"
+      ],
+      "limitations": "راهنمای Stripe برای اصول حسابداری/صورتحساب است نه مدرک علّی کاهش ریزش؛ پژوهش‌های انصاف محدود به زمینهٔ آزمایش‌اند."
     }
   ],
   "open_questions": [
-    "شمارهٔ دقیق فصل‌های OpenStax Marketing دربارهٔ segmentation در بازبینی متخصص ثبت شود.",
-    "قیمت و WTP با آزمایش محصول و بخش‌های واقعی سنجیده شود؛ دادهٔ نظرسنجی به‌تنهایی کافی نیست.",
-    "بررسی حقوقی و انصاف برای قواعد تخفیف/بخش‌بندی در بازار هدف تکمیل شود."
+    "برای نرخ تمدید و تجربهٔ لغو در محصول آموزشی، دادهٔ واقعی و cohort لازم است.",
+    "قواعد تخفیف و تمدید باید از نظر انصاف و شرایط بازار بازبینی شوند."
   ]
 }
