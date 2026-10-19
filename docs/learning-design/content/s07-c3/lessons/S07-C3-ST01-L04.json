@@ -1,0 +1,277 @@
+{
+  "id": "S07-C3-ST01-L04",
+  "version": "1-draft",
+  "title": "طراحی مسیر اصلاح خطا",
+  "content_status": "draft",
+  "objective": "خطای AI را به‌صورت رخداد کاری طبقه‌بندی کند و مسیر توقف، اصلاح، اطلاع‌رسانی، بازیابی و یادگیری از خطا را طراحی کند.",
+  "learning_cards": [
+    {
+      "title": "شکست فقط مدل بد نیست",
+      "id": "S07-C3-ST01-L04-CARD01",
+      "text": "خطا ممکن است از ورودی نامناسب، دادهٔ قدیمی، برداشت نادرست کاربر، ادغام ناقص، قطعی سرویس یا تصمیم غلط در طراحی کار بیاید. برای تشخیص علت، مسیر کامل از ورودی تا پیامد را بررسی کنید؛ سرزنش فوری مدل یا کارمند یادگیری را متوقف می‌کند."
+    },
+    {
+      "title": "خطا را بر اساس پیامد دسته‌بندی کن",
+      "id": "S07-C3-ST01-L04-CARD02",
+      "text": "اشتباه قابل اصلاح در پیش‌نویس با افشای اطلاعات یا اقدام مالی نادرست هم‌رده نیست. شدت، دامنه، تکرار، گروه‌های متأثر و برگشت‌پذیری را ثبت کنید. این دسته‌بندی تعیین می‌کند هشدار، توقف خودکار یا گزارش فوری لازم است."
+    },
+    {
+      "title": "Graceful failure یعنی کار متوقف نشود",
+      "id": "S07-C3-ST01-L04-CARD03",
+      "text": "شکست امن به این معناست که سامانه محدودیت را اعلام کند و کاربر را به مسیر معتبر هدایت کند؛ مثلاً ارجاع به کارشناس یا استفاده از رویهٔ دستی. ادعای اطمینان ساختگی یا نمایش خروجی نامطمئن، شکست را از دید کاربر پنهان می‌کند."
+    },
+    {
+      "title": "دکمهٔ توقف باید به مالک وصل باشد",
+      "id": "S07-C3-ST01-L04-CARD04",
+      "text": "مشخص کنید چه کسی می‌تواند قابلیت را برای یک مورد، یک گروه یا همهٔ کاربران متوقف کند؛ توقف چگونه اطلاع داده می‌شود و چه کسی مسیر جایگزین را فعال می‌کند. کلید توقفی که در عمل کسی اختیار یا آموزش استفاده از آن را ندارد، کنترل عملیاتی نیست."
+    },
+    {
+      "title": "اصلاح را به حلقهٔ کوتاه تبدیل کن",
+      "id": "S07-C3-ST01-L04-CARD05",
+      "text": "ثبت مورد، مهار پیامد، اصلاح خروجی یا داده، تماس با فرد متأثر، تحلیل علت و اقدام پیشگیرانه را به نقش و زمان مشخص وصل کنید. اگر نتیجهٔ اصلاح به طراحی یا آموزش بازنمی‌گردد، همان خطا در شکل دیگری تکرار می‌شود."
+    },
+    {
+      "title": "به کاربر مسیر بازخورد روشن بده",
+      "id": "S07-C3-ST01-L04-CARD06",
+      "text": "کاربر باید بتواند خروجی را اصلاح کند، گزارش دهد یا دلیل تصمیم را ببیند. فرم بازخورد بدون پاسخ یا تغییر قابل مشاهده اعتماد را کم می‌کند. در راهنمای Microsoft و Google، پشتیبانی هنگام خطا و امکان بازگشت کنترل از اصول طراحی تعامل است."
+    },
+    {
+      "title": "رخداد را بدون اغراق گزارش کن",
+      "id": "S07-C3-ST01-L04-CARD07",
+      "text": "گزارش باید بگوید چه رخ داد، چه دامنه‌ای درگیر بود، چه چیزی هنوز معلوم نیست و چه کاری انجام شده است. از اعلام علت قطعی پیش از بررسی یا پنهان‌کردن محدودیت خودداری کنید. یک مشاهدهٔ اولیه هنوز علت ریشه‌ای تأییدشده نیست."
+    },
+    {
+      "title": "پس از تغییر دوباره ارزیابی کن",
+      "id": "S07-C3-ST01-L04-CARD08",
+      "text": "اصلاح prompt، مدل، داده یا رابط می‌تواند خطاهای قبلی را کم و خطای دیگری را زیاد کند. آزمون بازگشت، نمونه‌های مرزی و پایش پس از انتشار را در تغییر ثبت کنید. نسخه، زمان، مالک و نتیجه را نگه دارید تا بتوان فهمید کدام اصلاح مؤثر بوده است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C3-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "در طراحی مسیر خطا چه چیزی باید از ابتدا مشخص باشد؟",
+      "remediation_card_id": "S07-C3-ST01-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C3-ST01-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "مالک مهار و مسیر جایگزین",
+          "feedback": "درست: پاسخ به رخداد به نقش، مهار و ادامهٔ امن کار نیاز دارد."
+        },
+        {
+          "id": "b",
+          "text": "فقط نام سازندهٔ مدل",
+          "feedback": "بازبینی: پاسخ به رخداد به نقش، مهار و ادامهٔ امن کار نیاز دارد."
+        },
+        {
+          "id": "c",
+          "text": "تعداد توکن مصرفی",
+          "feedback": "بازبینی: پاسخ به رخداد به نقش، مهار و ادامهٔ امن کار نیاز دارد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "پاسخ به رخداد به نقش، مهار و ادامهٔ امن کار نیاز دارد."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "شکست امن چه می‌کند؟",
+      "remediation_card_id": "S07-C3-ST01-L04-CARD02",
+      "variant": "A",
+      "id": "S07-C3-ST01-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "محدودیت را پنهان می‌کند",
+          "feedback": "بازبینی: شکست امن از ادامهٔ آسیب‌زا جلوگیری می‌کند و راه بعدی را نشان می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "کاربر را با پیام روشن به مسیر معتبر هدایت می‌کند",
+          "feedback": "درست: شکست امن از ادامهٔ آسیب‌زا جلوگیری می‌کند و راه بعدی را نشان می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "خروجی را همیشه قطعی نشان می‌دهد",
+          "feedback": "بازبینی: شکست امن از ادامهٔ آسیب‌زا جلوگیری می‌کند و راه بعدی را نشان می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "شکست امن از ادامهٔ آسیب‌زا جلوگیری می‌کند و راه بعدی را نشان می‌دهد."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای یافتن علت رخداد چه رویکردی مناسب‌تر است؟",
+      "remediation_card_id": "S07-C3-ST01-L04-CARD03",
+      "variant": "A",
+      "id": "S07-C3-ST01-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "بررسی کل زنجیرهٔ داده، رابط، کار و پیامد",
+          "feedback": "درست: علت می‌تواند در هر بخش از سیستم socio-technical باشد."
+        },
+        {
+          "id": "b",
+          "text": "سرزنش خودکار کاربر",
+          "feedback": "بازبینی: علت می‌تواند در هر بخش از سیستم socio-technical باشد."
+        },
+        {
+          "id": "c",
+          "text": "تغییر فوری مدل بدون ثبت",
+          "feedback": "بازبینی: علت می‌تواند در هر بخش از سیستم socio-technical باشد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "علت می‌تواند در هر بخش از سیستم socio-technical باشد."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "پس از اصلاح مدل یا فرایند چه کاری لازم است؟",
+      "remediation_card_id": "S07-C3-ST01-L04-CARD04",
+      "variant": "A",
+      "id": "S07-C3-ST01-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "توقف پایش چون خطا رفع شده",
+          "feedback": "بازبینی: هر تغییر می‌تواند الگوی خطا را جابه‌جا کند."
+        },
+        {
+          "id": "b",
+          "text": "آزمون بازگشت و پایش نسخهٔ تغییر‌یافته",
+          "feedback": "درست: هر تغییر می‌تواند الگوی خطا را جابه‌جا کند."
+        },
+        {
+          "id": "c",
+          "text": "حذف گزارش رخداد قبلی",
+          "feedback": "بازبینی: هر تغییر می‌تواند الگوی خطا را جابه‌جا کند."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "هر تغییر می‌تواند الگوی خطا را جابه‌جا کند."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "MICROSOFT-HAX-CHI-2019",
+      "title": "Amershi et al., Guidelines for Human-AI Interaction (CHI 2019)",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "review_depth": "primary_research_paper_reviewed",
+      "scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه."
+    },
+    {
+      "id": "GOOGLE-PAIR-GUIDEBOOK",
+      "title": "Google PAIR, People + AI Guidebook v2",
+      "url": "https://pair.withgoogle.com/guidebook-v2/",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Playbook and Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی."
+    }
+  ],
+  "practice_activity": {
+    "type": "workflow-redesign",
+    "prompt": "در سناریوی ساختگی سپهر، «طراحی مسیر اصلاح خطا» را برای فرایند رسیدگی به درخواست مشتری طراحی کنید؛ فرض‌ها، صاحب تصمیم، معیار سنجش و مسیر استثنا را بنویسید.",
+    "expected_output": "نقشهٔ پاسخ به خطا شامل نشانه، مالک، مهار، اصلاح و بازگشت به کار"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C1-ST01-L01"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c3/lessons/S07-C3-ST01-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "MICROSOFT-HAX-CHI-2019",
+    "GOOGLE-PAIR-GUIDEBOOK",
+    "NIST-AIRMF-PLAYBOOK"
+  ],
+  "source_scope": "منابع راهنمای طراحی و مدیریت ریسک‌اند؛ مثال سپهر ساختگی است و توصیه‌ها جای بررسی حقوقی، امنیتی یا آزمون زمینه‌ای را نمی‌گیرند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "workflow-boundary-and-exception-map",
+    "purpose": "نمایش مسیر عادی، نقطهٔ اختیار و مسیر خطا",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف مفهوم",
+      "تشخیص خطای رایج",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "نقشهٔ پاسخ به خطا شامل نشانه، مالک، مهار، اصلاح و بازگشت به کار",
+  "selected_source_refs": [
+    {
+      "source_id": "MICROSOFT-HAX-CHI-2019",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "primary_research_paper_reviewed",
+      "supports_scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-PAIR-GUIDEBOOK",
+      "url": "https://pair.withgoogle.com/guidebook-v2/",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "supports_scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

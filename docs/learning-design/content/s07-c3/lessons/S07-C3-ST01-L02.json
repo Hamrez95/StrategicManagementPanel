@@ -1,0 +1,277 @@
+{
+  "id": "S07-C3-ST01-L02",
+  "version": "1-draft",
+  "title": "تفویض کار در برابر تفویض تصمیم",
+  "content_status": "draft",
+  "objective": "میان سپردن یک گام اجرایی و سپردن اختیار تصمیم فرق بگذارد و حدود اختیار AI را بر اساس پیامد، برگشت‌پذیری و کیفیت شاهد تعیین کند.",
+  "learning_cards": [
+    {
+      "title": "انجام کار با اختیار تصمیم یکی نیست",
+      "id": "S07-C3-ST01-L02-CARD01",
+      "text": "ممکن است AI پیش‌نویس پاسخ را بنویسد، اما کارمند انتخاب کند آیا ارسال شود. در حالت دیگر سیستم خودش پاسخ را ارسال می‌کند. اولی تفویض تولید محتواست؛ دومی تفویض تصمیم و اقدام. این دو از نظر مسئولیت و پیامد یکسان نیستند."
+    },
+    {
+      "title": "سطح اختیار را صریح تعریف کن",
+      "id": "S07-C3-ST01-L02-CARD02",
+      "text": "برای هر گام مشخص کنید AI فقط مشاهده می‌کند، پیشنهاد می‌دهد، پیش‌نویس می‌سازد، با تأیید اقدام می‌کند یا مستقل اقدام می‌کند. برچسب مبهم «کمک‌یار» معلوم نمی‌کند چه کسی می‌تواند پرداخت را انجام دهد، داده‌ای را تغییر دهد یا تعهدی به مشتری بدهد."
+    },
+    {
+      "title": "پیامد خطا، اختیار را محدود می‌کند",
+      "id": "S07-C3-ST01-L02-CARD03",
+      "text": "در مرتب‌سازی داخلی کم‌اثر و برگشت‌پذیر می‌توان اختیار بیشتری آزمود. در رد اعتبار، توقف خدمت یا پیام حقوقی، خطا ممکن است اثر سنگین یا جبران‌ناپذیر داشته باشد. اختیار خودکار را با شدت و احتمال آسیب، نه صرفاً دقت متوسط، متناسب کنید."
+    },
+    {
+      "title": "برگشت‌پذیری یک کنترل مدیریتی است",
+      "id": "S07-C3-ST01-L02-CARD04",
+      "text": "قابلیت لغو، تاریخچهٔ تغییر و امکان اصلاح، هزینهٔ اشتباه را کم می‌کند؛ اما همهٔ پیامدها قابل برگشت نیستند. ارسال اطلاعات حساس یا رد فرصت مشتری را نمی‌توان با یک دکمه به حالت قبل برگرداند. پیش از تفویض، مسیر جبران را آزمایش کنید."
+    },
+    {
+      "title": "پیشنهاد باید دامنه و دلیل داشته باشد",
+      "id": "S07-C3-ST01-L02-CARD05",
+      "text": "وقتی سیستم توصیه می‌دهد، کاربر باید بداند توصیه دربارهٔ کدام پرونده و چه چیزی خارج از دامنه است. عدد اطمینان خام الزاماً احتمال درست‌بودن در محیط واقعی نیست. نمایش محدودیت و شاهد مناسب‌تر از یک درصد بدون توضیح است."
+    },
+    {
+      "title": "مالک تصمیم را نام ببر",
+      "id": "S07-C3-ST01-L02-CARD06",
+      "text": "اگر مدیر، کارمند و فروشنده هر کدام تصور می‌کنند دیگری مسئول است، پاسخ‌گویی فرو می‌ریزد. برای اقدام نهایی یک نقش مشخص مسئول بگذارید؛ سازندهٔ سیستم، مالک فرایند، تأییدکننده و پاسخ‌گوی نتیجه را جدا ثبت کنید."
+    },
+    {
+      "title": "تفویض را مرحله‌ای افزایش بده",
+      "id": "S07-C3-ST01-L02-CARD07",
+      "text": "از پیشنهاد بدون اجرا شروع کنید؛ کیفیت و میزان استفاده را بسنجید؛ سپس در دامنهٔ کم‌ریسک و قابل بازگشت، اقدام با تأیید را بررسی کنید. عبور به اقدام مستقل باید شرط کیفیت، پایش، توقف و مسئولیت داشته باشد. موفقیت دمو مجوز گسترش اختیار نیست."
+    },
+    {
+      "title": "اصل مدیریتی: اختیار با شواهد رشد کند",
+      "id": "S07-C3-ST01-L02-CARD08",
+      "text": "در سیاست‌گذاری داخلی بنویسید «سامانه حق انجام چه کاری را در چه دامنه‌ای دارد؟» و «چه کسی در کدام شرایط آن را متوقف می‌کند؟». NIST بر مستندسازی نقش‌ها و نظارت انسانی تأکید دارد؛ این چارچوب جای قانون و داوری حرفه‌ای محلی را نمی‌گیرد."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C3-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "تفاوت اصلی تولید پیش‌نویس با اجرای خودکار چیست؟",
+      "remediation_card_id": "S07-C3-ST01-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C3-ST01-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "تولید پیش‌نویس تصمیم نهایی را به انسان می‌گذارد",
+          "feedback": "درست: تولید خروجی با اختیار اقدام نهایی یک سطح نیست."
+        },
+        {
+          "id": "b",
+          "text": "هر دو به معنی اقدام مستقل‌اند",
+          "feedback": "بازبینی: تولید خروجی با اختیار اقدام نهایی یک سطح نیست."
+        },
+        {
+          "id": "c",
+          "text": "اجرای خودکار نیاز به مالک ندارد",
+          "feedback": "بازبینی: تولید خروجی با اختیار اقدام نهایی یک سطح نیست."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تولید خروجی با اختیار اقدام نهایی یک سطح نیست."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای اقدام پرپیامد و سخت‌برگشت چه رویکردی مناسب‌تر است؟",
+      "remediation_card_id": "S07-C3-ST01-L02-CARD02",
+      "variant": "A",
+      "id": "S07-C3-ST01-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "اختیار کامل با تکیه بر دقت متوسط",
+          "feedback": "بازبینی: شدت پیامد و برگشت‌پذیری باید در حد اختیار اثر بگذارند."
+        },
+        {
+          "id": "b",
+          "text": "دامنه محدود، تأیید روشن و مسیر توقف",
+          "feedback": "درست: شدت پیامد و برگشت‌پذیری باید در حد اختیار اثر بگذارند."
+        },
+        {
+          "id": "c",
+          "text": "حذف ثبت تصمیم",
+          "feedback": "بازبینی: شدت پیامد و برگشت‌پذیری باید در حد اختیار اثر بگذارند."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "شدت پیامد و برگشت‌پذیری باید در حد اختیار اثر بگذارند."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "کدام مورد پاسخ‌گویی را روشن می‌کند؟",
+      "remediation_card_id": "S07-C3-ST01-L02-CARD03",
+      "variant": "A",
+      "id": "S07-C3-ST01-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "برچسب «هوشمند» در رابط",
+          "feedback": "بازبینی: مالکیت باید به نقش مشخص وصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "تعیین نقش مالک اقدام و نتیجه",
+          "feedback": "درست: مالکیت باید به نقش مشخص وصل باشد."
+        },
+        {
+          "id": "c",
+          "text": "افزایش طول پرامپت",
+          "feedback": "بازبینی: مالکیت باید به نقش مشخص وصل باشد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "مالکیت باید به نقش مشخص وصل باشد."
+    },
+    {
+      "objective_id": "S07-C3-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه چیزی برای افزایش سطح تفویض لازم است؟",
+      "remediation_card_id": "S07-C3-ST01-L02-CARD04",
+      "variant": "A",
+      "id": "S07-C3-ST01-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "موفقیت دمو",
+          "feedback": "بازبینی: گسترش اختیار باید تدریجی و مشروط به شواهد عملی باشد."
+        },
+        {
+          "id": "b",
+          "text": "شواهد عملکرد، کنترل و شرط توقف",
+          "feedback": "درست: گسترش اختیار باید تدریجی و مشروط به شواهد عملی باشد."
+        },
+        {
+          "id": "c",
+          "text": "نام تجاری معتبر",
+          "feedback": "بازبینی: گسترش اختیار باید تدریجی و مشروط به شواهد عملی باشد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST01-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "گسترش اختیار باید تدریجی و مشروط به شواهد عملی باشد."
+    }
+  ],
+  "source_links": [
+    {
+      "id": "MICROSOFT-HAX-CHI-2019",
+      "title": "Amershi et al., Guidelines for Human-AI Interaction (CHI 2019)",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "review_depth": "primary_research_paper_reviewed",
+      "scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه."
+    },
+    {
+      "id": "GOOGLE-PAIR-GUIDEBOOK",
+      "title": "Google PAIR, People + AI Guidebook v2",
+      "url": "https://pair.withgoogle.com/guidebook-v2/",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر."
+    },
+    {
+      "id": "NIST-AIRMF-PLAYBOOK",
+      "title": "NIST AI RMF Playbook and Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی."
+    }
+  ],
+  "practice_activity": {
+    "type": "workflow-redesign",
+    "prompt": "در سناریوی ساختگی سپهر، «تفویض کار در برابر تفویض تصمیم» را برای فرایند رسیدگی به درخواست مشتری طراحی کنید؛ فرض‌ها، صاحب تصمیم، معیار سنجش و مسیر استثنا را بنویسید.",
+    "expected_output": "جدول تفویض شامل کار، تصمیم، اختیار، تأیید و مالک پیامد"
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C1-ST01-L01"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c3/lessons/S07-C3-ST01-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "MICROSOFT-HAX-CHI-2019",
+    "GOOGLE-PAIR-GUIDEBOOK",
+    "NIST-AIRMF-PLAYBOOK"
+  ],
+  "source_scope": "منابع راهنمای طراحی و مدیریت ریسک‌اند؛ مثال سپهر ساختگی است و توصیه‌ها جای بررسی حقوقی، امنیتی یا آزمون زمینه‌ای را نمی‌گیرند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "workflow-boundary-and-exception-map",
+    "purpose": "نمایش مسیر عادی، نقطهٔ اختیار و مسیر خطا",
+    "production_status": "planned_not_created"
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف مفهوم",
+      "تشخیص خطای رایج",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "جدول تفویض شامل کار، تصمیم، اختیار، تأیید و مالک پیامد",
+  "selected_source_refs": [
+    {
+      "source_id": "MICROSOFT-HAX-CHI-2019",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "primary_research_paper_reviewed",
+      "supports_scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-PAIR-GUIDEBOOK",
+      "url": "https://pair.withgoogle.com/guidebook-v2/",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "supports_scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "راهنما/بخش مرتبط با تعامل انسان و AI، کنترل، نظارت یا خطا",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی.",
+      "gap": "راهنمای طراحی، شاهد اثر علّی یا تضمین موفقیت در سازمان خاص نیست.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}
