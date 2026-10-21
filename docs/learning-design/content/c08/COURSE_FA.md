@@ -133,7 +133,7 @@
 
 #### واژگان
 
-میانگین، میانه، چارک، صدک، دامنه، IQR و توزیع کج.
+Mean (میانگین): مجموع مقدارها تقسیم بر تعدادشون؛ مقدار خیلی بزرگ یا کوچک می‌تونه اون رو جابه‌جا کنه. Median (میانه): مقدار وسط داده‌های مرتب‌شده؛ اگر تعداد داده‌ها زوج باشه، میانگین دو مقدار وسط رو می‌گیریم. Quartile (چارک) و Percentile (صدک): جایگاه داده رو در توزیع مرتب‌شده نشون می‌دن؛ روش محاسبه باید در مقایسه‌ها ثابت باشه. Range (دامنه): فاصلهٔ بزرگ‌ترین و کوچک‌ترین مقداره و به دادهٔ پرت حساسه. Interquartile range یا IQR (دامنهٔ بین‌چارکی): فاصلهٔ چارک سوم و اوله و پراکندگی نیمهٔ میانی داده رو خلاصه می‌کنه. Skewness (چولگی): نامتقارن‌بودن توزیعه؛ دُم بلند سمت راست یا چپ رو با محل تمرکز بیشتر داده‌ها اشتباه نگیر.
 
 #### مقایسه
 
@@ -201,6 +201,7 @@ IQR چیه؟
 
 - منبع [OpenStax Business Statistics 2.3: Center](https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data)؛ میانگین و میانه.
 - منبع [OpenStax Business Statistics 2.7: Spread](https://openstax.org/books/introductory-business-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data)؛ پراکندگی و IQR.
+- منبع [OpenStax Introductory Statistics 2e, 2.4 Box Plots](https://openstax.org/books/introductory-statistics-2e/pages/2-4-box-plots)؛ چارک‌ها و دامنهٔ بین‌چارکی؛ متن واژه‌نامه تألیفی و مستقل از مثال‌های کتابه.
 
 ### درس‌نامهٔ `C08-ST01-L03`؛ نمودار درست و نمونهٔ گمراه‌کننده
 

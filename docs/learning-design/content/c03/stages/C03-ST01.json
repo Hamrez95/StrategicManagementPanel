@@ -1167,9 +1167,9 @@
     "questions": [
       {
         "id": "C03-ST01-CHECK-Q01",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "۱۱۰۰ سال بعد با نرخ۱۰٪، PV؟",
+        "prompt": "ارزش فعلی دریافت ۱٬۱۰۰ واحد پول در پایان یک سال، با نرخ مؤثر سالانهٔ ۱۰٪ چقدره؟",
         "options": [
           {
             "id": "a",
@@ -1192,19 +1192,20 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q01-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L01-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L01"
         ],
         "assessment_role": "lesson_coverage",
-        "remediation_lesson_id": "C03-ST01-L01"
+        "remediation_lesson_id": "C03-ST01-L01",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C03-ST01-CHECK-Q02",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "نرخ ماهانه برای جریان سالانه؟",
+        "prompt": "اگر جریان‌های نقدی سالانه باشن، نرخ مؤثر ماهانه رو چطور برای تنزیل آماده می‌کنیم؟",
         "options": [
           {
             "id": "b",
@@ -1227,19 +1228,20 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q02-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L01-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L02"
         ],
         "assessment_role": "lesson_coverage",
-        "remediation_lesson_id": "C03-ST01-L02"
+        "remediation_lesson_id": "C03-ST01-L01",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C03-ST01-CHECK-Q03",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "ارزش فعلی خالص منفی تحت فرض‌ها چه می‌گه؟",
+        "prompt": "منفی‌بودن ارزش فعلی خالص یک پروژه، با نرخ تنزیل و فرض‌های اعلام‌شده، چه چیزی رو نشون می‌ده؟",
         "options": [
           {
             "id": "c",
@@ -1262,19 +1264,20 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q03-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L02-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L03"
         ],
         "assessment_role": "lesson_coverage",
-        "remediation_lesson_id": "C03-ST01-L03"
+        "remediation_lesson_id": "C03-ST01-L02",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C03-ST01-CHECK-Q04",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "نرخ واقعی دقیق از اسمی۱۰٪ و تورم۴٪؟",
+        "prompt": "اگر نرخ اسمی سالانه ۱۰٪ و تورم سالانه ۴٪ باشه، نرخ واقعی با رابطهٔ دقیق فیشر و گردکردن به دو رقم اعشار چقدره؟",
         "options": [
           {
             "id": "a",
@@ -1297,19 +1300,20 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q04-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L03-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L04"
         ],
         "assessment_role": "lesson_coverage",
-        "remediation_lesson_id": "C03-ST01-L04"
+        "remediation_lesson_id": "C03-ST01-L03",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C03-ST01-CHECK-Q05",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "جریان ارزی در مدل داخلی چه لازم داره؟",
+        "prompt": "برای تبدیل جریان نقدی ارزی به ارزِ مدل، چه چیزی باید مشخص باشه؟",
         "options": [
           {
             "id": "b",
@@ -1332,7 +1336,7 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q05-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L04-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L01",
@@ -1341,13 +1345,14 @@
           "C03-ST01-L04"
         ],
         "assessment_role": "transfer",
-        "remediation_lesson_id": "C03-ST01-L04"
+        "remediation_lesson_id": "C03-ST01-L04",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C03-ST01-CHECK-Q06",
-        "version": 1,
+        "version": 2,
         "type": "single_choice",
-        "prompt": "اگر NPV با تغییر کوچک نرخ علامت عوض می‌کنه، چه گزارش کنیم؟",
+        "prompt": "اگر تغییر کوچکی در نرخ تنزیل علامت NPV رو عوض کنه، چه نکته‌ای رو باید در گزارش تصمیم نشون بدیم؟",
         "options": [
           {
             "id": "c",
@@ -1370,7 +1375,7 @@
         "objective_id": "C03-ST01-CHECK-OBJ1",
         "equivalence_group": "C03-ST01-CHECK-Q06-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C03-ST01-CHECK-CARD03",
+        "remediation_card_id": "C03-ST01-L02-CARD02",
         "hint_used_may_not_count_as_independent": true,
         "coverage_lesson_ids": [
           "C03-ST01-L01",
@@ -1379,7 +1384,8 @@
           "C03-ST01-L04"
         ],
         "assessment_role": "transfer",
-        "remediation_lesson_id": "C03-ST01-L04"
+        "remediation_lesson_id": "C03-ST01-L02",
+        "remediation_scope": "lesson_review"
       }
     ],
     "unlocks_next_stage": false

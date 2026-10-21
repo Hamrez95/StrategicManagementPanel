@@ -36,16 +36,16 @@
 | `AUTHOR-S05-C4` | ریسک، تاب‌آوری و عملیات پایدار | ۱۲ | done | بانک پایانی موجود | pending_review |
 | `AUTHOR-S06-C1` | مسئله، کشف مشتری و فرصت | ۱۲ | done | بانک پایانی موجود | pending_review |
 | `AUTHOR-S06-C2` | مدل کسب‌وکار و آزمایش فرضیه | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S06-C3` | منابع، تیم و تأمین مالی | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S06-C4` | رشد، نوآوری باز و مقیاس‌پذیری | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S07-C1` | داده، یادگیری ماشین و AI مولد | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S07-C2` | انتخاب مسئله و سنجش ارزش | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S07-C3` | طراحی گردش کار انسان و AI | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-S07-C4` | استقرار، ارزیابی، ایمنی و حکمرانی | ۱۲ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-E01` | مذاکرهٔ پیشرفته | ۱۶ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-E02` | تحول دیجیتال و هوش مصنوعی برای مدیران | ۱۶ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-E03` | قیمت‌گذاری و رشد | ۱۶ | done | بانک پایانی موجود | pending_review |
-| `AUTHOR-E04` | ادغام، تملک و اتحادهای راهبردی | ۱۶ | done | بانک پایانی موجود | pending_review |
+| `AUTHOR-S06-C3` | منابع، تیم و تأمین مالی | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-S06-C4` | رشد، نوآوری باز و مقیاس‌پذیری | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-S07-C1` | داده، یادگیری ماشین و AI مولد | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-S07-C2` | انتخاب مسئله و سنجش ارزش | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-S07-C3` | طراحی گردش کار انسان و AI | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-S07-C4` | استقرار، ارزیابی، ایمنی و حکمرانی | ۱۲ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-E01` | مذاکرهٔ پیشرفته | ۱۶ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-E02` | تحول دیجیتال و هوش مصنوعی برای مدیران | ۱۶ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-E03` | قیمت‌گذاری و رشد | ۱۶ | done | مرور با سؤال‌های قبلی | pending_review |
+| `AUTHOR-E04` | ادغام، تملک و اتحادهای راهبردی | ۱۶ | done | مرور با سؤال‌های قبلی | pending_review |
 | `AUTHOR-E05` | پایداری، حکمرانی و استراتژی غیربازاری | ۱۶ | done | بانک پایانی موجود | pending_review |
 | `AUTHOR-P00` | آماده‌سازی اختیاری | ۸ | done | در طرح لازم نیست | pending_review |
 

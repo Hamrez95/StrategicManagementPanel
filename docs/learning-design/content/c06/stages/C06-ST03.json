@@ -827,7 +827,7 @@
           "id": "C06-ST03-L04-CARD07",
           "type": "key_terms",
           "title": "واژگان",
-          "text": "MAE؛ Bias؛ نشت داده؛ مبنای پیش‌بینی؛ هزینهٔ کمبود؛ خطای تصمیم‌محور: هزینه‌ای که انتخاب سفارش از خطای پیش‌بینی می‌سازه."
+          "text": "Mean absolute error یا MAE (میانگین قدرمطلق خطا): بزرگی متوسط خطای پیش‌بینی رو در واحد متغیر نشون می‌ده و علامت خطا رو حذف می‌کنه. Forecast bias (بایاس پیش‌بینی): میانگین خطاهای علامت‌داره؛ قبل از تفسیر علامتش مشخص کن خطا رو «واقعی منهای پیش‌بینی» تعریف کردی یا برعکس. Data leakage (نشت داده): استفاده از اطلاعاتیه که در زمان پیش‌بینی در دسترس نبوده. Baseline forecast (پیش‌بینی مبنا): روش ساده و مشخصی برای مقایسه‌ست. Stockout cost (هزینهٔ کمبود): پیامد کمبود موجودی، مثل فروش ازدست‌رفته یا هزینهٔ تأخیره. Decision-focused evaluation (ارزیابی با توجه به تصمیم): پیش‌بینی رو با هزینه و نتیجهٔ سفارش می‌سنجه؛ خطای عددی کمتر همیشه به تصمیم کم‌هزینه‌تر منجر نمی‌شه."
         },
         {
           "id": "C06-ST03-L04-CARD08",
@@ -1200,7 +1200,9 @@
         "objective_id": "C06-ST03-CHECK-OBJ1",
         "equivalence_group": "C06-ST03-CHECK-Q05-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C06-ST03-L05-CARD04"
+        "remediation_card_id": "C06-ST03-L04-CARD02",
+        "remediation_lesson_id": "C06-ST03-L04",
+        "remediation_scope": "lesson_review"
       },
       {
         "id": "C06-ST03-CHECK-Q06",
@@ -1229,7 +1231,9 @@
         "objective_id": "C06-ST03-CHECK-OBJ1",
         "equivalence_group": "C06-ST03-CHECK-Q06-FAMILY",
         "variant": "A",
-        "remediation_card_id": "C06-ST03-L06-CARD04"
+        "remediation_card_id": "C06-ST03-L04-CARD02",
+        "remediation_lesson_id": "C06-ST03-L04",
+        "remediation_scope": "lesson_review"
       }
     ]
   },
