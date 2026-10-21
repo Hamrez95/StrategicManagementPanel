@@ -44,6 +44,18 @@
       "title": "دفتر فرضیه",
       "id": "S06-C2-ST02-L01-CARD08",
       "text": "برای هر فرض شناسه، نسخه، تاریخ، مالک، شاهد موجود، اطمینان، ریسک، آزمون بعدی و تصمیم ثبت کنید. گفتهٔ مشتری، مشاهده و تفسیر تیم را جدا نگه دارید تا بوم با واقعیت‌های خیالی پر نشود."
+    },
+    {
+      "id": "S06-C2-ST02-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Falsifiable hypothesis — فرضیهٔ ابطال‌پذیر: گزارهٔ با معیار رد روشن؛ «مشتری خوشش می‌آید» معیار رفتاری ندارد. Testable prediction — پیش‌بینی آزمون‌پذیر: نتیجهٔ موردانتظار تحت مداخله/شرط؛ باید زمان و گروه مشخص باشد. Null result — نتیجهٔ خنثی: نبود تفاوت قابل‌تشخیص در طرح؛ به معنی اثبات نبود اثر نیست."
+    },
+    {
+      "id": "S06-C2-ST02-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "فرضیهٔ ابطال‌پذیر پیش‌بینی مشخصی می‌سازد که مشاهده‌ای بتواند آن را رد کند. «مشتری ارزش را دوست دارد» مبهم است؛ «بخش X در ۷ روز اقدام Y را انجام می‌دهد» آزمون‌پذیرتر است. اگر چند فرض در یک گزاره جمع شوند، شکست معلوم نمی‌کند کدام بخش نادرست بود؛ فرض را خرد و نتیجهٔ ممکن را پیش از آزمون تعیین کنید."
     }
   ],
   "questions": [
@@ -199,34 +211,44 @@
       "id": "STRAT-TESTING-BUSINESS-IDEAS",
       "url": "https://www.strategyzer.com/library/testing-business-ideas-book",
       "review_depth": "official_method_resource_reviewed",
-      "scope": "راهنمای رسمی آزمون ایده و سنجش هزینه، زمان و قدرت شواهد آزمایش‌ها."
+      "scope": "راهنمای رسمی آزمون ایده و سنجش هزینه، زمان و قدرت شواهد آزمایش‌ها.",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "Strategyzer Test Card",
       "id": "STRAT-TEST-CARD",
       "url": "https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card",
       "review_depth": "official_method_resource_reviewed",
-      "scope": "قالب ثبت فرضیه، آزمون، معیار و تصمیم."
+      "scope": "قالب ثبت فرضیه، آزمون، معیار و تصمیم.",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "MIT 15.390 New Enterprises: Tips #2 Experiment",
       "id": "MIT-15-390-EXPERIMENT",
       "url": "https://live.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/85d18c5f1ce4ade7415c75be670dd0c0_MIT15_390S13_lec19.pdf",
       "review_depth": "official_lecture_slide_reviewed",
-      "scope": "بیان فرضیه، آزمون با داده و پرهیز از سوگیری بازخورد."
+      "scope": "بیان فرضیه، آزمون با داده و پرهیز از سوگیری بازخورد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "MIT 15.835 Entrepreneurial Marketing: Concept Testing Assignment",
       "id": "MIT-15-835-CONCEPT-TESTING",
       "url": "https://ocw.mit.edu/courses/15-835-entrepreneurial-marketing-spring-2002/resources/assignmenti/",
       "review_depth": "official_graduate_assignment_reviewed",
-      "scope": "نمونهٔ تکلیف تحصیلات تکمیلی برای طراحی برنامهٔ آزمون مفهوم؛ قدیمی و صرفاً الگوی روش."
+      "scope": "نمونهٔ تکلیف تحصیلات تکمیلی برای طراحی برنامهٔ آزمون مفهوم؛ قدیمی و صرفاً الگوی روش.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "experiment-design-and-evidence-log",
     "prompt": "برای فرض پرریسک سپهر، فرضیه، مشتری و واحد تحلیل، روش، معیار و آستانهٔ ازپیش‌ثبت‌شده، بازه و سقف هزینه، خطر اخلاقی، مشاهدهٔ خام و تصمیم بعدی را بنویسید.",
-    "expected_output": "برگهٔ آزمون فرضیه و دفتر شواهد با تفکیک مشاهده، تفسیر و تصمیم"
+    "expected_output": "برگهٔ آزمون فرضیه و دفتر شواهد با تفکیک مشاهده، تفسیر و تصمیم",
+    "rubric": [
+      "فرضیه، متغیر، گروه/روش مشاهده و بازهٔ آزمون روشن‌اند.",
+      "دفتر شواهد، مشاهده را از تفسیر و نتیجه جدا می‌کند.",
+      "سوگیری، هزینه و معیار رد یا اصلاح پیش از اجرا مشخص شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -253,7 +275,14 @@
   "media_plan": {
     "type": "experiment-test-card-and-evidence-log",
     "purpose": "پیوند فرضیه، آزمون، معیار، مشاهده و تصمیم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/lean-experiment-evidence-loop.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «فرضیهٔ ابطال‌پذیر»: آزمایش برای یادگیری است؛ معیار و شرط توقف را پیش از دیدن نتیجه بنویس. فرضیهٔ ابطال‌پذیر، چه کسی، چه رفتاری و چه نتیجه‌ای را در چه شرایطی انتظار داری؟؛ آزمایش کم‌هزینه، کمترین آزمونی را انتخاب کن که ریسک اصلی را روشن کند.؛ معیار و توقف، آستانهٔ موفقیت، زیان قابل‌قبول و شرط توقف را از قبل تعیین کن.؛ دفتر شواهد، دادهٔ خام، نتیجه، محدودیت و تغییر فرض را ثبت کن؛ انتخاب‌گری نکن.",
+        "caption": "نقشه را برای تحلیل «فرضیهٔ ابطال‌پذیر» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

@@ -44,6 +44,10 @@
 
 Management problem مسئلهٔ مدیریتی؛ research question سؤال پژوهش؛ unit of analysis واحد تحلیل؛ descriptive توصیفی؛ diagnostic تشخیصی؛ causal علّی؛ scope دامنه؛ decision criterion معیار تصمیم است. دادهٔ بیشتر جای سؤال روشن را نمی‌گیرد.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Management problem (مسئلهٔ مدیریتی) تصمیمی است که مدیر باید بگیرد؛ research question (پرسش پژوهش) دانشی را می‌پرسد که به آن تصمیم کمک می‌کند. نشانهٔ افت فروش، علت مسئله را به‌تنهایی مشخص نمی‌کند.
+
 #### تمرین و بازخورد
 
 «فروش افت کرده» به‌تنهایی چه چیزی است؟
@@ -99,7 +103,7 @@ Management problem مسئلهٔ مدیریتی؛ research question سؤال پژ
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 - منبع [AAPOR: Disclosure Standards](https://aapor.org/standards-and-ethics/disclosure-standards/)؛ شفافیت دربارهٔ چارچوب نمونه، جذب، متن پرسش‌ها، گزینه‌ها، شیوهٔ اجرا و روش تحلیل.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
-- منبع [Stanford d.school: Design Project Guide](https://dschool.stanford.edu/s/DESIGN-PROJECT-GUIDE-SEPT-2016-V3-3cec.pdf)؛ راهنمای مصاحبهٔ طراحی، پرسش باز و اجتناب از سؤال القایی؛ به‌عنوان ابزار آموزشی کیفی، نه استاندارد پیمایش.
+- منبع [Stanford d.school: Human-Centered Design Project Guide](https://dschool.stanford.edu/tools/design-project-guide)؛ راهنمای کشف فرصت و فهم افراد در فرایند طراحی انسان‌محور؛ ابزار کیفی طراحی است، نه استاندارد پیمایش.
 
 ### درس‌نامهٔ `S03-C1-ST01-L02`؛ مصاحبه و مشاهدهٔ بدون القا
 
@@ -140,6 +144,10 @@ Management problem مسئلهٔ مدیریتی؛ research question سؤال پژ
 #### واژه‌های پرتکرار
 
 Semi-structured interview مصاحبهٔ نیمه‌ساختاریافته؛ open-ended پرسش باز؛ probe پیگیری کاوشگرانه؛ leading question پرسش القایی؛ think-aloud فکر با صدای بلند؛ field note یادداشت میدانی؛ informed consent رضایت آگاهانه است. به تجربهٔ مشخص برسید و پاسخ را در دهان فرد نگذارید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Semi-structured interview (مصاحبهٔ نیمه‌ساختاریافته) پرسش‌های پایهٔ مشترک و پیگیری انعطاف‌پذیر دارد. Leading question (پرسش القایی) پاسخ را جهت می‌دهد؛ روایت رخداد مشخص را از تفسیر پژوهشگر جدا ثبت کن.
 
 #### تمرین و بازخورد
 
@@ -196,7 +204,7 @@ Semi-structured interview مصاحبهٔ نیمه‌ساختاریافته؛ ope
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 - منبع [AAPOR: Disclosure Standards](https://aapor.org/standards-and-ethics/disclosure-standards/)؛ شفافیت دربارهٔ چارچوب نمونه، جذب، متن پرسش‌ها، گزینه‌ها، شیوهٔ اجرا و روش تحلیل.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
-- منبع [Stanford d.school: Design Project Guide](https://dschool.stanford.edu/s/DESIGN-PROJECT-GUIDE-SEPT-2016-V3-3cec.pdf)؛ راهنمای مصاحبهٔ طراحی، پرسش باز و اجتناب از سؤال القایی؛ به‌عنوان ابزار آموزشی کیفی، نه استاندارد پیمایش.
+- منبع [Stanford d.school: Human-Centered Design Project Guide](https://dschool.stanford.edu/tools/design-project-guide)؛ راهنمای کشف فرصت و فهم افراد در فرایند طراحی انسان‌محور؛ ابزار کیفی طراحی است، نه استاندارد پیمایش.
 
 ### درس‌نامهٔ `S03-C1-ST01-L03`؛ نمونه‌گیری و سوگیری پاسخ
 
@@ -237,6 +245,10 @@ Semi-structured interview مصاحبهٔ نیمه‌ساختاریافته؛ ope
 #### واژه‌های پرتکرار
 
 Target population جمعیت هدف؛ sampling frame چارچوب نمونه؛ probability sample نمونهٔ احتمالی؛ nonprobability sample نمونهٔ غیراحتمالی؛ coverage error خطای پوشش؛ nonresponse عدم‌پاسخ؛ selection bias سوگیری انتخاب؛ weighting وزن‌دهی است. «نماینده» را با شواهد طراحی نمونه توجیه کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Sampling frame (چارچوب نمونه‌گیری) فهرستی است که افراد از آن انتخاب می‌شوند. Coverage error و nonresponse bias می‌توانند نمونه را از جامعه دور کنند؛ نمونهٔ بزرگ هم لزوماً نماینده نیست.
 
 #### تمرین و بازخورد
 
@@ -293,7 +305,7 @@ Target population جمعیت هدف؛ sampling frame چارچوب نمونه؛ p
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 - منبع [AAPOR: Disclosure Standards](https://aapor.org/standards-and-ethics/disclosure-standards/)؛ شفافیت دربارهٔ چارچوب نمونه، جذب، متن پرسش‌ها، گزینه‌ها، شیوهٔ اجرا و روش تحلیل.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
-- منبع [Stanford d.school: Design Project Guide](https://dschool.stanford.edu/s/DESIGN-PROJECT-GUIDE-SEPT-2016-V3-3cec.pdf)؛ راهنمای مصاحبهٔ طراحی، پرسش باز و اجتناب از سؤال القایی؛ به‌عنوان ابزار آموزشی کیفی، نه استاندارد پیمایش.
+- منبع [Stanford d.school: Human-Centered Design Project Guide](https://dschool.stanford.edu/tools/design-project-guide)؛ راهنمای کشف فرصت و فهم افراد در فرایند طراحی انسان‌محور؛ ابزار کیفی طراحی است، نه استاندارد پیمایش.
 
 ### درس‌نامهٔ `S03-C1-ST01-L04`؛ کیفیت دادهٔ مشتری
 
@@ -334,6 +346,10 @@ Target population جمعیت هدف؛ sampling frame چارچوب نمونه؛ p
 #### واژه‌های پرتکرار
 
 Measurement error خطای اندازه‌گیری؛ construct اعتبار مفهوم؛ missingness گمشدگی؛ provenance منشأ؛ freshness تازگی؛ deduplication حذف تکرار؛ entity resolution اتصال هویت؛ data quality dimensions ابعاد کیفیت داده‌اند. شاخص رفتاری را بدون اعتبارسنجی به نیت مشتری تبدیل نکنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Measurement error (خطای اندازه‌گیری) تفاوت مقدار ثبت‌شده با سازهٔ موردنظر است. Missingness و پوشش نامتوازن می‌تواند نتیجه را جابه‌جا کند؛ دادهٔ زیاد، اعتبار سازه یا کیفیت نمونه را تضمین نمی‌کند.
 
 #### تمرین و بازخورد
 
@@ -390,7 +406,7 @@ Measurement error خطای اندازه‌گیری؛ construct اعتبار مف
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 - منبع [AAPOR: Disclosure Standards](https://aapor.org/standards-and-ethics/disclosure-standards/)؛ شفافیت دربارهٔ چارچوب نمونه، جذب، متن پرسش‌ها، گزینه‌ها، شیوهٔ اجرا و روش تحلیل.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
-- منبع [Stanford d.school: Design Project Guide](https://dschool.stanford.edu/s/DESIGN-PROJECT-GUIDE-SEPT-2016-V3-3cec.pdf)؛ راهنمای مصاحبهٔ طراحی، پرسش باز و اجتناب از سؤال القایی؛ به‌عنوان ابزار آموزشی کیفی، نه استاندارد پیمایش.
+- منبع [Stanford d.school: Human-Centered Design Project Guide](https://dschool.stanford.edu/tools/design-project-guide)؛ راهنمای کشف فرصت و فهم افراد در فرایند طراحی انسان‌محور؛ ابزار کیفی طراحی است، نه استاندارد پیمایش.
 
 ### مرور مرحله
 
@@ -460,6 +476,10 @@ Measurement error خطای اندازه‌گیری؛ construct اعتبار مف
 
 Segmentation بخش‌بندی؛ segment یا سگمنت گروه مشتری؛ behavioral segmentation بخش‌بندی رفتاری؛ needs-based segmentation بخش‌بندی نیازمحور؛ cluster analysis تحلیل خوشه‌ای؛ actionability قابلیت اقدام؛ segment stability پایداری سگمنت است. خوشهٔ آماری خودبه‌خود راهبرد بازاریابی نیست.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Market segmentation — بخش‌بندی بازار: گروه‌بندی مشتریان بر پایهٔ تفاوت نیاز یا رفتار مؤثر در تصمیم؛ سن/شغل به‌تنهایی راهبرد بخش‌بندی نیست. Need state — وضعیت نیاز: مسئله یا هدفی که مشتری می‌خواهد حل کند؛ پاسخ مصاحبه با نیاز واقعی یکی نیست. Segment attractiveness — جذابیت بخش: ارزش بالقوه همراه با اندازه، دسترسی، رقابت و هزینهٔ خدمت؛ بخش بزرگ لزوماً سودآور نیست.
+
 #### تمرین و بازخورد
 
 بخش‌بندی خوب از چه چیزی شروع می‌شود؟
@@ -513,7 +533,7 @@ Segmentation بخش‌بندی؛ segment یا سگمنت گروه مشتری؛ b
 #### منابع
 
 - منبع [AAPOR Task Force: Responsible AI Integration in Survey Research (2026)](https://aapor.org/announcements/task-force-on-responsible-ai-integration-in-survey-research-report/)؛ راهنمای حرفه‌ای دربارهٔ کاربرد مسئولانهٔ AI در چرخهٔ پژوهش پیمایشی، از جمله شفافیت و پاسخ‌گوی مصنوعی؛ دادهٔ مصنوعی را از پیمایش انسانی متمایز می‌کند.
-- منبع [Nature Human Behaviour (2026): Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ پژوهش تجربی مقایسهٔ پاسخ مدل‌های زبانی و پیمایش انسانی دربارهٔ ترجیحات اقتصادی در ۷۴ کشور؛ یافته‌ها به همین وظیفه و طراحی محدود است.
+- منبع [Nature Human Behaviour (2026): Simulated responses from large language models are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 
@@ -556,6 +576,10 @@ Segmentation بخش‌بندی؛ segment یا سگمنت گروه مشتری؛ b
 #### واژگان پرتکرار
 
 Stated preference ترجیح اظهارشده؛ revealed preference ترجیح آشکارشده از رفتار؛ conjoint تحلیل مشترک؛ choice-based conjoint انتخاب گسسته؛ willingness to pay تمایل به پرداخت؛ price sensitivity حساسیت قیمت؛ substitution جانشینی است. ترجیح فرضی را با تقاضای قطعی یکی نگیرید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Stated preference — ترجیح اظهارشده: انتخابی که پاسخ‌دهنده در پیمایش/سناریو بیان می‌کند؛ خرید واقعی را تضمین نمی‌کند. Discrete choice — انتخاب گسسته: انتخاب یک گزینه از مجموعهٔ معین؛ طراحی مجموعه روی نتیجه اثر دارد. Attribute trade-off — مبادلهٔ ویژگی‌ها: وزن مشتری میان قیمت و ویژگی‌ها؛ ترجیح میان چند ویژگی به معنی آمادگی پرداخت نیست.
 
 #### تمرین و بازخورد
 
@@ -610,7 +634,7 @@ Stated preference ترجیح اظهارشده؛ revealed preference ترجیح �
 #### منابع
 
 - منبع [AAPOR Task Force: Responsible AI Integration in Survey Research (2026)](https://aapor.org/announcements/task-force-on-responsible-ai-integration-in-survey-research-report/)؛ راهنمای حرفه‌ای دربارهٔ کاربرد مسئولانهٔ AI در چرخهٔ پژوهش پیمایشی، از جمله شفافیت و پاسخ‌گوی مصنوعی؛ دادهٔ مصنوعی را از پیمایش انسانی متمایز می‌کند.
-- منبع [Nature Human Behaviour (2026): Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ پژوهش تجربی مقایسهٔ پاسخ مدل‌های زبانی و پیمایش انسانی دربارهٔ ترجیحات اقتصادی در ۷۴ کشور؛ یافته‌ها به همین وظیفه و طراحی محدود است.
+- منبع [Nature Human Behaviour (2026): Simulated responses from large language models are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 
@@ -653,6 +677,10 @@ Stated preference ترجیح اظهارشده؛ revealed preference ترجیح �
 #### واژگان پرتکرار
 
 Mixed methods روش آمیخته؛ exploratory sequential اکتشافی متوالی؛ explanatory sequential توضیحی متوالی؛ triangulation مثلث‌سازی؛ joint display نمایش ادغام‌شده؛ codebook دفترچهٔ کد؛ convergence همگرایی؛ divergence واگرایی است. اختلاف شواهد را حفظ کنید و توضیح دهید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Qualitative research — پژوهش کیفی: مطالعهٔ معنا و سازوکار با مصاحبه/مشاهده؛ برآورد شیوع در کل بازار نیست. Quantitative research — پژوهش کمی: سنجش الگو با متغیر و نمونهٔ تعریف‌شده؛ عدد بزرگ بدون نمونه‌گیری مناسب تعمیم نمی‌یابد. Triangulation — مثلث‌سازی: مقایسهٔ روش‌ها/منابع برای فهم سازگاری؛ توافق منابع سوگیر هم حقیقت قطعی نمی‌سازد.
 
 #### تمرین و بازخورد
 
@@ -707,7 +735,7 @@ Mixed methods روش آمیخته؛ exploratory sequential اکتشافی متو
 #### منابع
 
 - منبع [AAPOR Task Force: Responsible AI Integration in Survey Research (2026)](https://aapor.org/announcements/task-force-on-responsible-ai-integration-in-survey-research-report/)؛ راهنمای حرفه‌ای دربارهٔ کاربرد مسئولانهٔ AI در چرخهٔ پژوهش پیمایشی، از جمله شفافیت و پاسخ‌گوی مصنوعی؛ دادهٔ مصنوعی را از پیمایش انسانی متمایز می‌کند.
-- منبع [Nature Human Behaviour (2026): Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ پژوهش تجربی مقایسهٔ پاسخ مدل‌های زبانی و پیمایش انسانی دربارهٔ ترجیحات اقتصادی در ۷۴ کشور؛ یافته‌ها به همین وظیفه و طراحی محدود است.
+- منبع [Nature Human Behaviour (2026): Simulated responses from large language models are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 
@@ -750,6 +778,10 @@ AAPOR در راهنمای ۲۰۲۶ دربارهٔ استفادهٔ مسئولا�
 #### واژه‌های پرتکرار
 
 Synthetic respondent پاسخ‌گوی مصنوعی؛ AI-generated response پاسخ تولیدشده با AI؛ persona پرسونا؛ prompt sensitivity حساسیت به دستور؛ human validation اعتبارسنجی انسانی؛ simulation شبیه‌سازی؛ automation bias سوگیری اتوماسیون؛ provenance منشأ داده است. خروجی مصنوعی برای اکتشاف است، نه شاهد نظر جمعیت.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Synthetic respondent (پاسخ‌دهندهٔ مصنوعی) متن محتمل تولیدشده با مدل است، نه مشاهدهٔ انسان. از آن برای پیش‌آزمون سؤال یا ساخت فرضیه استفاده کن؛ external validity (اعتبار بیرونی) باید با نمونهٔ واقعی سنجیده شود.
 
 #### تمرین و بازخورد
 
@@ -804,7 +836,7 @@ AI پیش‌آزمون پرسشنامه چه چیزی را می‌تواند پ�
 #### منابع
 
 - منبع [AAPOR Task Force: Responsible AI Integration in Survey Research (2026)](https://aapor.org/announcements/task-force-on-responsible-ai-integration-in-survey-research-report/)؛ راهنمای حرفه‌ای دربارهٔ کاربرد مسئولانهٔ AI در چرخهٔ پژوهش پیمایشی، از جمله شفافیت و پاسخ‌گوی مصنوعی؛ دادهٔ مصنوعی را از پیمایش انسانی متمایز می‌کند.
-- منبع [Nature Human Behaviour (2026): Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ پژوهش تجربی مقایسهٔ پاسخ مدل‌های زبانی و پیمایش انسانی دربارهٔ ترجیحات اقتصادی در ۷۴ کشور؛ یافته‌ها به همین وظیفه و طراحی محدود است.
+- منبع [Nature Human Behaviour (2026): Simulated responses from large language models are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 - منبع [Pew Research Center: Writing Survey Questions](https://www.pewresearch.org/writing-survey-questions/)؛ اثر واژه‌گذاری، ترتیب و پیش‌آزمون پرسش‌های پیمایش و نمونه‌هایی از طراحی آزمایشی.
 - منبع [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)؛ انتخاب روش، طراحی پرسش، کیفیت اجرا، نمونه‌گیری و افشای روش پیمایش.
 
@@ -875,6 +907,10 @@ Value Proposition Canvas کمک می‌کند کارهای مشتری، درده
 #### واژگان پرتکرار
 
 Jobs-to-be-done کارهایی که مشتری می‌خواهد انجام دهد؛ pains دردها؛ gains دستاوردها؛ value map نقشهٔ ارزش؛ pain reliever کاهندهٔ درد؛ evidence شاهد؛ product-market fit تناسب محصول و بازار است. بوم را با دادهٔ مشتری مرتب به‌روزرسانی کنید، نه با حدس تیم.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Value proposition — ارزش پیشنهادی: وعدهٔ منفعت مشخص برای بخش معین؛ فهرست قابلیت محصول کافی نیست. Jobs to be done — کار مورد انتظار مشتری: پیشرفتی که مشتری در موقعیتی خاص می‌خواهد؛ به معنی وظیفهٔ شغلی نیست. Falsifiable hypothesis — فرضیهٔ ابطال‌پذیر: پیش‌بینی دارای پیامدی که بتواند آن را رد کند؛ معیار پسینی نشانهٔ آزمون ضعیف است.
 
 #### تمرین و بازخورد
 
@@ -973,6 +1009,10 @@ Jobs-to-be-done کارهایی که مشتری می‌خواهد انجام ده
 
 Willingness to pay تمایل به پرداخت؛ revealed willingness پرداخت/اقدام آشکار؛ stated preference ترجیح اظهارشده؛ price test آزمون قیمت؛ reservation رزرو؛ conversion تبدیل؛ demand validation اعتبارسنجی تقاضا است. پاسخ فرضی دربارهٔ قیمت را درآمد محقق‌شده نخوانید.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Willingness to pay — تمایل به پرداخت: سقف یا احتمال پرداخت در شرایط مشخص؛ پاسخ پرسشنامه معادل خرید نیست. Van Westendorp — روش حساسیت قیمت ون‌وستندورپ: چهار پرسش ادراکی برای بازهٔ قیمت قابل‌قبول؛ نقطهٔ بهینهٔ تقاضا یا سود را مستقیماً نمی‌دهد. Revealed preference — ترجیح آشکارشده: استنباط از انتخاب واقعی در محدودیت بازار؛ انتخاب متأثر از موجودی و دسترسی است.
+
 #### تمرین و بازخورد
 
 در اکتشاف مسئله، کدام سؤال مفیدتر است؟
@@ -1070,6 +1110,10 @@ Willingness to pay تمایل به پرداخت؛ revealed willingness پردا�
 
 Evidence-to-decision انتقال شواهد به تصمیم؛ alternative explanation توضیح بدیل؛ decision matrix ماتریس تصمیم؛ guardrail شاخص حفاظتی؛ reversible decision تصمیم برگشت‌پذیر؛ implementation fidelity وفاداری اجرا؛ decision log دفتر تصمیم است. تصمیم شفاف، شواهد و فرض را از نظر مدیر جدا می‌کند.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Customer insight — بینش مشتری: تبیین قابل‌استفاده از رفتار/نیاز فراتر از مشاهده؛ نقل‌قول جذاب به‌تنهایی بینش نیست. Decision model — مدل تصمیم: پیوند گزینه، شواهد، معیار و پیامد؛ مدل نمایش بصری بدون قاعدهٔ انتخاب تصمیم‌ساز نیست. Decision relevance — ارتباط با تصمیم: میزان تغییر انتخاب مدیر با دانستهٔ تازه؛ یافتهٔ جالب ممکن است مرتبط نباشد.
+
 #### تمرین و بازخورد
 
 ماتریس شواهد چه چیزی را کنار هم می‌گذارد؟
@@ -1166,6 +1210,10 @@ Observation مشاهدهٔ ثبت‌شده است، interpretation تفسیر پ
 #### واژگان پرتکرار
 
 Observation مشاهده؛ interpretation تفسیر؛ implication پیامد؛ confidence اطمینان؛ sampling error خطای نمونه‌گیری؛ total survey error کل خطاهای پیمایش؛ causal claim ادعای علّی؛ executive summary خلاصهٔ مدیریتی است. عدم‌قطعیت را به اقدام متناسب تبدیل کنید، نه به قطعیت‌نمایی.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Observation — مشاهده: آنچه مستقیماً ثبت/گزارش شده؛ جدا از تفسیر پژوهشگر نگه دارید. Interpretation — تفسیر: توضیح محتمل برای مشاهده؛ یک توضیح رقیب باید بررسی شود. Confidence interval — بازهٔ اطمینان: روشی برای نمایش عدم‌قطعیت نمونه‌گیری تحت مفروضات؛ احتمال بازه برای این پارامتر پس از مشاهده تفسیر کلاسیکش نیست.
 
 #### تمرین و بازخورد
 

@@ -44,6 +44,18 @@
       "id": "E03-ST04-L04-CARD08",
       "title": "یادداشت تصمیم سپهر",
       "text": "تصمیم اشتراک یک‌ساله باید با ارزش و زمان یادگیری، دسترسی نمونه، هزینهٔ پشتیبانی، CAC/LTV محتاطانه، گزینهٔ بورسیه، تمدید شفاف و معیارهای توقف ثبت شود. قیمت نهایی بدون پژوهش مشتری و دادهٔ واقعی یک فرضیه است، نه حقیقت بازار."
+    },
+    {
+      "id": "E03-ST04-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "مبادلهٔ منافع (Trade-off) یعنی تصمیمی یک گروه یا معیار را به بهای گروه/معیار دیگر بهتر می‌کند. تصمیم قیمت مسئولانه باید سود و دسترسی و تجربه و هزینه را آشکار کند. آستانهٔ بازبینی و صاحب تصمیم، تبدیل گزارش الگوریتمی به پاسخ‌گویی مدیریتی را ممکن می‌سازند."
+    },
+    {
+      "id": "E03-ST04-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تصمیم قیمت با موازنهٔ حاشیه، حجم، حفظ مشتری، انصاف، شفافیت و واکنش رقابتی روبه‌روست. این اهداف را به یک عدد مبهم فرو نکاهید؛ شاخص اصلی و guardrail را جدا تعریف کنید. سناریوهای قیمت و واکنش مشتری را همراه عدم قطعیت مقایسه کنید. فرض ثبات رقبا و رفتار مشتری را آشکار کنید. تصمیم آزمایشی باید مدت، گروه، سقف تغییر و شرط توقف داشته باشد. پس از اجرا، نتیجهٔ واقعی و پیامدهای ناخواسته را با خط مبنا مقایسه کنید و شرایطی را که تصمیم دیگر معتبر نیست ثبت کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "بدون مشاهده و آزمایش، برآورد قیمت قطعی نیست."
+    },
+    {
+      "id": "E03-ST04-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "قیمت منصفانه و سودآور گاهی در تعارض‌اند. تصمیم مدیر باید چه چیزی را ثبت کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "منافع ذی‌نفعان، شواهد، مبادله‌ها، guardrail و تاریخ بازبینی",
+          "feedback": "تصمیم مسئولانه trade-off و اثر بر گروه‌های مختلف را آشکار می‌کند و برای بازنگری معیار می‌گذارد."
+        },
+        {
+          "id": "b",
+          "text": "فقط قیمت نهایی",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: تصمیم مسئولانه trade-off و اثر بر گروه‌های مختلف را آشکار می‌کند و برای بازنگری معیار می‌گذارد."
+        },
+        {
+          "id": "c",
+          "text": "فقط رضایت یک گروه",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: تصمیم مسئولانه trade-off و اثر بر گروه‌های مختلف را آشکار می‌کند و برای بازنگری معیار می‌گذارد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تصمیم مسئولانه trade-off و اثر بر گروه‌های مختلف را آشکار می‌کند و برای بازنگری معیار می‌گذارد.",
+      "objective_id": "E03-ST04-L04-OBJ01",
+      "equivalence_group": "E03-ST04-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST04-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,53 @@
       "title": "FTC, Surveillance Pricing Study: Initial Findings",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer",
       "review_depth": "primary_regulator_staff_study_initial_findings_reviewed",
-      "scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست."
+      "scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-ALGORITHMIC-PRICING-G7-2025",
       "title": "OECD, Algorithmic pricing and competition in G7 jurisdictions: Emerging trends and responses",
       "url": "https://www.oecd.org/en/topics/sub-issues/competition-and-digital-economy.html",
       "review_depth": "primary_intergovernmental_policy_synthesis_reviewed",
-      "scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود."
+      "scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-AI-COMPETITION-2025",
       "title": "OECD, Artificial intelligence and competitive dynamics in downstream markets",
       "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-competitive-dynamics-in-downstream-markets_ccf0624a-en/full-report/component-6.html",
       "review_depth": "primary_intergovernmental_report_reviewed",
-      "scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست."
+      "scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "JACR-DEMOGRAPHIC-PRICING-2024",
       "title": "Demographic Pricing in the Digital Age: Fairness Perceptions in Algorithmic versus Human-Based Price Discrimination",
       "url": "https://www.journals.uchicago.edu/doi/10.1086/729440",
       "review_depth": "peer_reviewed_consumer_research_reviewed",
-      "scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است."
+      "scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "FTC-PRICING-RFI-2025",
       "title": "FTC, Surveillance Pricing Update & The Work Ahead",
       "url": "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2025/01/surveillance-pricing-update-work-ahead",
       "review_depth": "primary_regulator_policy_context_reviewed",
-      "scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی."
+      "scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "algorithmic-pricing-fairness-decision",
     "prompt": "برای سپهر «تصمیم قیمت با موازنهٔ منافع» را در قیمت‌گذاری اشتراک بررسی کنید؛ هدف، داده، اثر گروهی و کنترل را مستند کنید.",
-    "expected_output": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی"
+    "expected_output": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی",
+    "rubric": [
+      "اثر الگوریتم قیمت بر مشتری و رقابت با زمینهٔ مشخص سنجیده شده است.",
+      "ادعای اقتصادی از شاهد، فرض و نگرانی سیاستی تفکیک شده است.",
+      "محدودیت، مسئول بازبینی و guardrail انصاف/رقابت برای تصمیم پیشنهاد شده است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -232,7 +286,14 @@
   "media_plan": {
     "type": "pricing-decision-memo",
     "purpose": "نمایش سازوکار ریسک و تصمیم چندمعیاره",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/algorithmic-pricing-guardrails.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «تصمیم قیمت با موازنهٔ منافع»: مدل، داده، هدف و قواعد اجرا همگی می‌توانند نتیجهٔ قیمت را تغییر دهند. هدف و قید، هدف را شفاف کن؛ درآمد را همراه با حاشیه، دسترسی و تجربهٔ مشتری بسنج.؛ ویژگی و داده، منبع، تازگی و مجوز داده را بررسی کن؛ متغیر جانشین می‌تواند تبعیض بسازد.؛ آزمون پیش از اجرا، خطا، تفاوت بین گروه‌ها و واکنش رقبا را در محیط محدود بررسی کن.؛ پایش و پاسخ، تغییر قیمت، شکایت و رفتار غیرعادی را ثبت کن؛ مالک و آستانهٔ توقف داشته باش.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «تصمیم قیمت با موازنهٔ منافع» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

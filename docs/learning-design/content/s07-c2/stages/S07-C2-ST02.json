@@ -59,6 +59,18 @@
           "title": "مثال سپهر",
           "id": "S07-C2-ST02-L01-CARD08",
           "text": "۲۰۰ تیکت با زبان، علت، کانال و نتیجهٔ واقعی انتخاب می‌شود؛ موارد حساس و چندعلتی جدا هستند. مشتری واحد در یک بخش نگه داشته می‌شود تا مدل همان پرونده را در آزمون حفظ نکند."
+        },
+        {
+          "id": "S07-C2-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "مجموعهٔ ارزیابی نماینده باید واحد و زمینهٔ مقصد و نمونه‌های دشوار و کم‌تکرار را بپوشاند. نشت آزمون (Test leakage) نتیجه را خوش‌بینانه می‌کند. مجموعهٔ ارزیابی نیز با تغییر کاربرد فرسوده می‌شود و باید نسخه‌بندی و بازبینی شود."
+        },
+        {
+          "id": "S07-C2-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مجموعهٔ ارزیابی باید نمایندهٔ جریان کاری و نیز شامل موارد دشوار، استثناها و زیرگروه‌های اثرپذیر باشد. نمونه‌های آسان یا نزدیک به مثال‌های توسعه معیار را خوش‌بینانه می‌کنند. هر مورد باید واحد، برچسب، منشأ و علت ورود داشته باشد و دادهٔ آزمون از تنظیم مکرر جدا بماند. نشت اطلاعات و هم‌پوشانی نمونه‌ها را بررسی کنید. اگر مجموعه پس از دیدن خروجی بارها اصلاح شود، دیگر سنجش مستقل نیست و به مخزن توسعه تبدیل می‌شود. موارد تازه و دوره‌ای به ارزیابی کمک می‌کنند، اما باید تغییر توزیع را نیز ثبت کرد."
         }
       ],
       "questions": [
@@ -177,6 +189,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "test set با بازخورد توسعه فرسوده می‌شود."
+        },
+        {
+          "id": "S07-C2-ST02-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مجموعهٔ ارزیابی فقط نمونه‌های ساده و پرتکرار را دارد. چه خطری ایجاد می‌شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "عملکرد برآوردی به موارد دشوار و کم‌تکرار تعمیم نمی‌یابد",
+              "feedback": "مجموعه باید کاربرد مقصد و نمونه‌های دشوار و زیرگروه‌ها را پوشش دهد."
+            },
+            {
+              "id": "b",
+              "text": "مدل حتماً تعمیم بهتری دارد",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: مجموعه باید کاربرد مقصد و نمونه‌های دشوار و زیرگروه‌ها را پوشش دهد."
+            },
+            {
+              "id": "c",
+              "text": "نمونهٔ ساده نمایندهٔ همه است",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: مجموعه باید کاربرد مقصد و نمونه‌های دشوار و زیرگروه‌ها را پوشش دهد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مجموعه باید کاربرد مقصد و نمونه‌های دشوار و زیرگروه‌ها را پوشش دهد.",
+          "objective_id": "S07-C2-ST02-L01-OBJ01",
+          "equivalence_group": "S07-C2-ST02-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C2-ST02-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -185,34 +227,47 @@
           "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
           "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
           "review_depth": "official_initial_public_draft_reviewed",
-          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google ML Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-MONITORING",
           "title": "Google ML Crash Course: Production Monitoring Pipelines",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NBER-GENAI-WORK-2025",
-          "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
-          "url": "https://www.nber.org/papers/w31161",
+          "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+          "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
           "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
-          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله.",
+          "previous_url": "https://www.nber.org/papers/w31161",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
         }
       ],
       "practice_activity": {
         "type": "AI-effect-evaluation-protocol",
         "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
-        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر",
+        "rubric": [
+          "نمونه، گروه، بازه، معیار اصلی و guardrail پیش از آزمون تعیین شده‌اند.",
+          "مقایسه و عدم‌قطعیت با عوامل هم‌زمان و تفاوت زیرگروه‌ها سنجیده می‌شود.",
+          "قاعدهٔ تصمیم، ظرفیت اقدام انسانی و محدودیت تعمیم را گزارش می‌کند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -238,7 +293,14 @@
       "media_plan": {
         "type": "evaluation-sample-metrics-controlled-comparison",
         "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-evaluation-controlled-impact.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مجموعهٔ ارزیابی نماینده»: آزمون باید شبیه شرایط استفاده باشد و زیان‌های مهم را جدا اندازه بگیرد. نمونهٔ نماینده، گروه‌ها، زبان، زمان و استثناهای واقعی را پوشش بده.؛ معیار موفقیت و زیان، معیار اصلی را با هزینهٔ false positive و false negative همراه کن.؛ مقایسهٔ کنترل‌شده، در حد امکان گروه مقایسه و شرایط ثابت بساز؛ مداخله‌ها را ثبت کن.؛ اثر و عدم‌قطعیت، اندازهٔ اثر و بازه را گزارش کن؛ نتیجه را بیرون دامنه تعمیم نده.",
+            "caption": "نقشه را برای تحلیل «مجموعهٔ ارزیابی نماینده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -309,6 +371,27 @@
           "title": "مثال سپهر",
           "id": "S07-C2-ST02-L02-CARD08",
           "text": "شرط اولیهٔ پایلوت: زمان رسیدگی کمتر شود، recall دیرکردهای بحرانی افت نکند، نرخ اصلاح هشدار قابل مدیریت باشد و اختلاف میان مناطق از حد توافق‌شده بیشتر نشود. اگر معیار اصلی رشد کند اما خطای بحرانی بیشتر شود، توقف/بازطراحی فعال می‌شود."
+        },
+        {
+          "id": "S07-C2-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "معیار اصلی (Primary metric) پیامد هدف است؛ معیار زیان (Harm metric) خطای پرپیامد را می‌پاید و guardrail آستانهٔ توقف را تعیین می‌کند. تعریف معیار را پیش از دیدن نتایج ثبت کنید تا جابه‌جایی هدف، شکست را به موفقیت ظاهری تبدیل نکند."
+        },
+        {
+          "id": "S07-C2-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "معیار موفقیت می‌گوید چه بهبودی می‌خواهیم؛ معیار زیان و guardrail مشخص می‌کند کدام پیامد را نباید از حد بگذرانیم. در غربال درخواست، مثبت کاذب ممکن است مشتری مناسب را رد کند و منفی کاذب فرصت را از دست بدهد؛ هزینه‌ها وابسته به کاربردند. آستانهٔ خروجی با نرخ پایه و ظرفیت رسیدگی تغییر می‌کند. معیارها را پیش از دیدن نتیجه تعریف کنید تا پسینی جابه‌جا نشوند. اگر اثر بر زیرگروه‌ها متفاوت باشد، میانگین کل زیان را پنهان می‌کند. آستانه، مالک تصمیم، روش گزارش و شرط توقف را همراه هم ثبت کنید."
+        },
+        {
+          "id": "S07-C2-ST02-L02-QJE-CASE",
+          "type": "real_case",
+          "title": "کیس پژوهشی: میانگین اثر، تفاوت گروه‌ها را پنهان می‌کند",
+          "text": "در مطالعهٔ Brynjolfsson، Li و Raymond، پژوهشگران ورود مرحله‌ای دستیار مولد را میان ۵٬۱۷۲ کارشناس پشتیبانی مشتری در یک شرکت بررسی کردند. دسترسی به دستیار به‌طور میانگین تعداد مسئله‌های حل‌شده در ساعت را ۱۵٪ بالا برد، اما اثر برای همه یکسان نبود: کارکنان کم‌تجربه‌تر و کم‌مهارت‌تر بیشتر سود بردند؛ برای باتجربه‌ترین و ماهرترین کارکنان، افزایش سرعت اندک و افت کیفیت کوچک گزارش شد. پیام این درس آن است که میانگین به‌تنهایی کافی نیست؛ سرعت و کیفیت را به تفکیک گروه‌های ازپیش‌تعریف‌شده بسنج و تغییر معیار را پس از دیدن نتیجه مجاز ندان. مطالعه به یک شرکت و پشتیبانی مشتری محدود است و نتیجه را نمی‌توان مستقیم به همهٔ شغل‌ها تعمیم داد.",
+          "example_kind": "peer_reviewed_field_study",
+          "source_id": "NBER-GENAI-WORK-2025",
+          "source_url": "https://academic.oup.com/qje/article/140/2/889/7990658"
         }
       ],
       "questions": [
@@ -427,6 +510,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "معیارهای زیان بخش تعریف موفقیت‌اند."
+        },
+        {
+          "id": "S07-C2-ST02-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تیم معیار موفقیت را پس از دیدن نتیجه انتخاب می‌کند. چه خطری دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "انتخاب پسینی معیار، نتیجهٔ مطلوب را برجسته و خطا را پنهان می‌کند",
+              "feedback": "معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+            },
+            {
+              "id": "b",
+              "text": "شفافیت ارزیابی را بالا می‌برد",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+            },
+            {
+              "id": "c",
+              "text": "مانع تغییر هدف می‌شود",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود.",
+          "objective_id": "S07-C2-ST02-L02-OBJ01",
+          "equivalence_group": "S07-C2-ST02-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C2-ST02-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -435,34 +548,47 @@
           "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
           "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
           "review_depth": "official_initial_public_draft_reviewed",
-          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google ML Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-MONITORING",
           "title": "Google ML Crash Course: Production Monitoring Pipelines",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NBER-GENAI-WORK-2025",
-          "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
-          "url": "https://www.nber.org/papers/w31161",
+          "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+          "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
           "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
-          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله.",
+          "previous_url": "https://www.nber.org/papers/w31161",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
         }
       ],
       "practice_activity": {
         "type": "AI-effect-evaluation-protocol",
         "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
-        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر",
+        "rubric": [
+          "نمونه، گروه، بازه، معیار اصلی و guardrail پیش از آزمون تعیین شده‌اند.",
+          "مقایسه و عدم‌قطعیت با عوامل هم‌زمان و تفاوت زیرگروه‌ها سنجیده می‌شود.",
+          "قاعدهٔ تصمیم، ظرفیت اقدام انسانی و محدودیت تعمیم را گزارش می‌کند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -488,7 +614,14 @@
       "media_plan": {
         "type": "evaluation-sample-metrics-controlled-comparison",
         "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-evaluation-controlled-impact.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «معیار موفقیت و معیار زیان»: آزمون باید شبیه شرایط استفاده باشد و زیان‌های مهم را جدا اندازه بگیرد. نمونهٔ نماینده، گروه‌ها، زبان، زمان و استثناهای واقعی را پوشش بده.؛ معیار موفقیت و زیان، معیار اصلی را با هزینهٔ false positive و false negative همراه کن.؛ مقایسهٔ کنترل‌شده، در حد امکان گروه مقایسه و شرایط ثابت بساز؛ مداخله‌ها را ثبت کن.؛ اثر و عدم‌قطعیت، اندازهٔ اثر و بازه را گزارش کن؛ نتیجه را بیرون دامنه تعمیم نده.",
+            "caption": "نقشه را برای تحلیل «معیار موفقیت و معیار زیان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -559,6 +692,18 @@
           "title": "مثال سپهر",
           "id": "S07-C2-ST02-L03-CARD08",
           "text": "دو تیم پشتیبانی با حجم و تجربهٔ مشابه وارد rollout مرحله‌ای می‌شوند؛ نیمی در شروع AI را می‌گیرند و نیمی پس از چهار هفته. تغییر فصل، ترکیب کار و استفادهٔ واقعی ثبت می‌شود و تصمیم به افزایش نرخ حل به تنهایی متکی نیست."
+        },
+        {
+          "id": "S07-C2-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "آزمایش کنترل‌شده (Controlled experiment) تخصیص مقایسه را طراحی می‌کند. واحد تخصیص ممکن است کاربر یا تیم باشد؛ آلودگی گروه و روند هم‌زمان تفسیر را عوض می‌کنند. Rollout مرحله‌ای دامنهٔ اثر را محدود می‌کند اما به خط مبنا و ثبت تغییرها نیاز دارد."
+        },
+        {
+          "id": "S07-C2-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مقایسهٔ کنترل‌شده کمک می‌کند اثر کاربرد از روند عمومی جدا شود. باید واحد تخصیص، دوره، حجم نمونه، خط مبنا و شاخص از پیش روشن باشند. اگر کاربران دو گروه خروجی یکدیگر را می‌بینند یا فرایندها سرریز دارند، گروه کنترل آلوده می‌شود. rollout مرحله‌ای امکان یادگیری و توقف محدود را می‌دهد، اما تغییرات هم‌زمان و انتخاب محل پایلوت تفسیر را دشوار می‌کنند. تخصیص تصادفی همیشه عملی یا مناسب نیست؛ در هر طرح محدودیت را گزارش کنید. بدون گروه مقایسه یا استدلال روشن، مشاهدهٔ قبل و بعد اثبات نمی‌کند AI علت تغییر بوده است."
         }
       ],
       "questions": [
@@ -677,6 +822,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "شدت و پیامد اثر جداگانه سنجیده می‌شود."
+        },
+        {
+          "id": "S07-C2-ST02-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تیم‌ها هم‌زمان با پایلوت، روش پاسخ‌گویی را نیز تغییر می‌دهند. تحلیل اثر چه مشکلی دارد؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نمی‌توان اثر AI را از تغییرهای هم‌زمان جدا کرد؛ طرح تخصیص و rollout باید کنترل شود",
+              "feedback": "مداخله‌های هم‌زمان و آلودگی گروه‌ها تفسیر علّی را دشوار می‌کنند."
+            },
+            {
+              "id": "b",
+              "text": "مقایسه را قطعی‌تر می‌کند",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: مداخله‌های هم‌زمان و آلودگی گروه‌ها تفسیر علّی را دشوار می‌کنند."
+            },
+            {
+              "id": "c",
+              "text": "خط مبنا را بی‌نیاز می‌کند",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: مداخله‌های هم‌زمان و آلودگی گروه‌ها تفسیر علّی را دشوار می‌کنند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مداخله‌های هم‌زمان و آلودگی گروه‌ها تفسیر علّی را دشوار می‌کنند.",
+          "objective_id": "S07-C2-ST02-L03-OBJ01",
+          "equivalence_group": "S07-C2-ST02-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C2-ST02-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -685,34 +860,47 @@
           "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
           "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
           "review_depth": "official_initial_public_draft_reviewed",
-          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google ML Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-MONITORING",
           "title": "Google ML Crash Course: Production Monitoring Pipelines",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NBER-GENAI-WORK-2025",
-          "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
-          "url": "https://www.nber.org/papers/w31161",
+          "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+          "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
           "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
-          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله.",
+          "previous_url": "https://www.nber.org/papers/w31161",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
         }
       ],
       "practice_activity": {
         "type": "AI-effect-evaluation-protocol",
         "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
-        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر",
+        "rubric": [
+          "نمونه، گروه، بازه، معیار اصلی و guardrail پیش از آزمون تعیین شده‌اند.",
+          "مقایسه و عدم‌قطعیت با عوامل هم‌زمان و تفاوت زیرگروه‌ها سنجیده می‌شود.",
+          "قاعدهٔ تصمیم، ظرفیت اقدام انسانی و محدودیت تعمیم را گزارش می‌کند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -738,7 +926,14 @@
       "media_plan": {
         "type": "evaluation-sample-metrics-controlled-comparison",
         "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-evaluation-controlled-impact.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ کنترل‌شده»: آزمون باید شبیه شرایط استفاده باشد و زیان‌های مهم را جدا اندازه بگیرد. نمونهٔ نماینده، گروه‌ها، زبان، زمان و استثناهای واقعی را پوشش بده.؛ معیار موفقیت و زیان، معیار اصلی را با هزینهٔ false positive و false negative همراه کن.؛ مقایسهٔ کنترل‌شده، در حد امکان گروه مقایسه و شرایط ثابت بساز؛ مداخله‌ها را ثبت کن.؛ اثر و عدم‌قطعیت، اندازهٔ اثر و بازه را گزارش کن؛ نتیجه را بیرون دامنه تعمیم نده.",
+            "caption": "نقشه را برای تحلیل «مقایسهٔ کنترل‌شده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -809,6 +1004,18 @@
           "title": "مثال سپهر و تصمیم",
           "id": "S07-C2-ST02-L04-CARD08",
           "text": "در گروه کوچک زمان پاسخ بهتر شد اما بازهٔ نوسان بزرگ و نرخ خطای بحرانی نامطمئن است. نتیجه «امیدبخش اما نامعین» است؛ پایلوت بزرگ‌تر با آستانهٔ زیان و نمونهٔ متنوع ادامه می‌یابد، نه rollout کامل."
+        },
+        {
+          "id": "S07-C2-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "اندازهٔ اثر (Effect size) مقدار تغییر برآوردشده است؛ فاصلهٔ اطمینان (Confidence interval) دامنهٔ عدم‌قطعیت نمونه‌گیری را می‌نمایاند. اهمیت آماری با اهمیت عملی یکی نیست. نتیجه را به جمعیت و بازهٔ طرح‌شده محدود کنید."
+        },
+        {
+          "id": "S07-C2-ST02-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "اثر مشاهده‌شده را همراه بازهٔ عدم قطعیت، اندازهٔ نمونه، موارد حذف‌شده و تفاوت زیرگروه‌ها گزارش کنید. نتیجهٔ مثبت کوچک ممکن است از نظر عملی بی‌اهمیت باشد؛ نتیجهٔ نامطمئن نیز به‌معنای نبود اثر قطعی نیست. طرح مطالعه مشخص می‌کند چه نوع ادعایی مجاز است. عوامل هم‌زمان، خودگزینی کاربر و تغییر ترکیب کار می‌توانند توضیح‌های جایگزین باشند. اگر نمونه محدود به یک تیم یا فصل باشد، تعمیم به کل سازمان فرضی است. مدیر باید اثر، کیفیت شواهد و ریسک را جداگانه ببیند و در صورت نیاز آزمایش بعدی را طراحی کند."
         }
       ],
       "questions": [
@@ -927,6 +1134,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "شدت تعهد باید با شواهد متناسب باشد."
+        },
+        {
+          "id": "S07-C2-ST02-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "پایلوت کوچک بهبود ۳٪ نشان می‌دهد اما دامنهٔ عدم‌قطعیت وسیع است. گزارش درست چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "اندازهٔ اثر را همراه دامنه و محدودیت نمونه و توضیح عوامل جایگزین گزارش کنیم",
+              "feedback": "نتیجهٔ کوچک و نامطمئن نباید فراتر از طرح و نمونه ادعا شود."
+            },
+            {
+              "id": "b",
+              "text": "۳٪ را نتیجهٔ قطعی کل سازمان اعلام کنیم",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: نتیجهٔ کوچک و نامطمئن نباید فراتر از طرح و نمونه ادعا شود."
+            },
+            {
+              "id": "c",
+              "text": "عدم‌قطعیت را حذف کنیم",
+              "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: نتیجهٔ کوچک و نامطمئن نباید فراتر از طرح و نمونه ادعا شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "نتیجهٔ کوچک و نامطمئن نباید فراتر از طرح و نمونه ادعا شود.",
+          "objective_id": "S07-C2-ST02-L04-OBJ01",
+          "equivalence_group": "S07-C2-ST02-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C2-ST02-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -935,34 +1172,47 @@
           "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
           "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
           "review_depth": "official_initial_public_draft_reviewed",
-          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده."
+          "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google ML Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set."
+          "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-MONITORING",
           "title": "Google ML Crash Course: Production Monitoring Pipelines",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده."
+          "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NBER-GENAI-WORK-2025",
-          "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
-          "url": "https://www.nber.org/papers/w31161",
+          "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+          "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
           "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
-          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله."
+          "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله.",
+          "previous_url": "https://www.nber.org/papers/w31161",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
         }
       ],
       "practice_activity": {
         "type": "AI-effect-evaluation-protocol",
         "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
-        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر"
+        "expected_output": "پروتکل ارزیابی و قالب گزارش اثر",
+        "rubric": [
+          "نمونه، گروه، بازه، معیار اصلی و guardrail پیش از آزمون تعیین شده‌اند.",
+          "مقایسه و عدم‌قطعیت با عوامل هم‌زمان و تفاوت زیرگروه‌ها سنجیده می‌شود.",
+          "قاعدهٔ تصمیم، ظرفیت اقدام انسانی و محدودیت تعمیم را گزارش می‌کند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -988,7 +1238,14 @@
       "media_plan": {
         "type": "evaluation-sample-metrics-controlled-comparison",
         "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-evaluation-controlled-impact.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «تفسیر اثر با عدم قطعیت»: آزمون باید شبیه شرایط استفاده باشد و زیان‌های مهم را جدا اندازه بگیرد. نمونهٔ نماینده، گروه‌ها، زبان، زمان و استثناهای واقعی را پوشش بده.؛ معیار موفقیت و زیان، معیار اصلی را با هزینهٔ false positive و false negative همراه کن.؛ مقایسهٔ کنترل‌شده، در حد امکان گروه مقایسه و شرایط ثابت بساز؛ مداخله‌ها را ثبت کن.؛ اثر و عدم‌قطعیت، اندازهٔ اثر و بازه را گزارش کن؛ نتیجه را بیرون دامنه تعمیم نده.",
+            "caption": "نقشه را برای تحلیل «تفسیر اثر با عدم قطعیت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,

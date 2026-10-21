@@ -44,6 +44,18 @@
       "id": "E03-ST04-L01-CARD08",
       "title": "سناریوی سپهر",
       "text": "اگر چند مؤسسه از یک ابزار برای قیمت دوره‌ها استفاده می‌کنند، تصمیم نباید با تبادل برنامهٔ قیمت آینده بین رقبا هماهنگ شود. سپهر سیاست داخلی مستقل، دادهٔ مجاز و ثبت منبع تصمیم خود را نگه می‌دارد و رفتار موازی را خودکار دلیل تبانی یا بی‌خطری نمی‌داند."
+    },
+    {
+      "id": "E03-ST04-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "قیمت‌گذاری الگوریتمی (Algorithmic pricing) با داده یا قواعد خودکار پیشنهاد قیمت می‌دهد؛ این امر به‌تنهایی هماهنگی رقابتی یا بهینه‌بودن را تضمین نمی‌کند. پایش الگو (Monitoring) تغییرهای غیرعادی و اثر ظرفیت را می‌بیند. سیاست انسانی باید هدف، حد مجاز و مسیر توقف را تعیین کند."
+    },
+    {
+      "id": "E03-ST04-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "قیمت‌گذاری الگوریتمی می‌تواند دادهٔ رقبا و تقاضا را سریع واکنش دهد، اما هماهنگی ناخواسته، تبعیض یا نوسان قیمت نیز ممکن است رخ دهد. رفتار الگوریتم به هدف، داده و واکنش متقابل بازار وابسته است. پایش فقط عملکرد مدل خود کافی نیست؛ الگوی قیمت در بازار و پیامد مشتری را نیز بررسی کنید. فرض رقابت کامل یا استقلال الگوریتم‌ها ممکن است درست نباشد. سقف و محدودیت رفتار، ثبت نسخه و بازبینی تغییرات را تعریف کنید. کاربرد در بازار حساس نیازمند بررسی حقوقی و سیاستی متناسب است."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "کنترل طراحی و پاسخ‌گویی امکان نظارت می‌دهد."
+    },
+    {
+      "id": "E03-ST04-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دو رقیب از الگوریتم برای به‌روزرسانی قیمت استفاده می‌کنند. کدام فرض را باید کنار گذاشت؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اینکه الگوریتم خودبه‌خود رقابت را منصفانه یا قیمت را بهینه می‌کند",
+          "feedback": "خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        },
+        {
+          "id": "b",
+          "text": "نیاز به پایش الگو و سیاست تصمیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        },
+        {
+          "id": "c",
+          "text": "تأثیر ظرفیت و تقاضا",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است.",
+      "objective_id": "E03-ST04-L01-OBJ01",
+      "equivalence_group": "E03-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST04-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,53 @@
       "title": "FTC, Surveillance Pricing Study: Initial Findings",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer",
       "review_depth": "primary_regulator_staff_study_initial_findings_reviewed",
-      "scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست."
+      "scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-ALGORITHMIC-PRICING-G7-2025",
       "title": "OECD, Algorithmic pricing and competition in G7 jurisdictions: Emerging trends and responses",
       "url": "https://www.oecd.org/en/topics/sub-issues/competition-and-digital-economy.html",
       "review_depth": "primary_intergovernmental_policy_synthesis_reviewed",
-      "scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود."
+      "scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-AI-COMPETITION-2025",
       "title": "OECD, Artificial intelligence and competitive dynamics in downstream markets",
       "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-competitive-dynamics-in-downstream-markets_ccf0624a-en/full-report/component-6.html",
       "review_depth": "primary_intergovernmental_report_reviewed",
-      "scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست."
+      "scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "JACR-DEMOGRAPHIC-PRICING-2024",
       "title": "Demographic Pricing in the Digital Age: Fairness Perceptions in Algorithmic versus Human-Based Price Discrimination",
       "url": "https://www.journals.uchicago.edu/doi/10.1086/729440",
       "review_depth": "peer_reviewed_consumer_research_reviewed",
-      "scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است."
+      "scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "FTC-PRICING-RFI-2025",
       "title": "FTC, Surveillance Pricing Update & The Work Ahead",
       "url": "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2025/01/surveillance-pricing-update-work-ahead",
       "review_depth": "primary_regulator_policy_context_reviewed",
-      "scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی."
+      "scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "algorithmic-pricing-fairness-decision",
     "prompt": "برای سپهر «رقابت الگوریتمی» را در قیمت‌گذاری اشتراک بررسی کنید؛ هدف، داده، اثر گروهی و کنترل را مستند کنید.",
-    "expected_output": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی"
+    "expected_output": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی",
+    "rubric": [
+      "اثر الگوریتم قیمت بر مشتری و رقابت با زمینهٔ مشخص سنجیده شده است.",
+      "ادعای اقتصادی از شاهد، فرض و نگرانی سیاستی تفکیک شده است.",
+      "محدودیت، مسئول بازبینی و guardrail انصاف/رقابت برای تصمیم پیشنهاد شده است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -232,7 +286,14 @@
   "media_plan": {
     "type": "algorithmic-competition-mechanism-map",
     "purpose": "نمایش سازوکار ریسک و تصمیم چندمعیاره",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/algorithmic-pricing-guardrails.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «رقابت الگوریتمی»: مدل، داده، هدف و قواعد اجرا همگی می‌توانند نتیجهٔ قیمت را تغییر دهند. هدف و قید، هدف را شفاف کن؛ درآمد را همراه با حاشیه، دسترسی و تجربهٔ مشتری بسنج.؛ ویژگی و داده، منبع، تازگی و مجوز داده را بررسی کن؛ متغیر جانشین می‌تواند تبعیض بسازد.؛ آزمون پیش از اجرا، خطا، تفاوت بین گروه‌ها و واکنش رقبا را در محیط محدود بررسی کن.؛ پایش و پاسخ، تغییر قیمت، شکایت و رفتار غیرعادی را ثبت کن؛ مالک و آستانهٔ توقف داشته باش.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «رقابت الگوریتمی» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

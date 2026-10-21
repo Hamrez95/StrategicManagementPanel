@@ -84,6 +84,20 @@
               "text": "زمان ارزش‌آفرین کارِ نزدیک‌کنندهٔ خروجی به خواستهٔ مشتری است. هر کار لازم و قانونی الزاماً حذف‌پذیر نیست؛ ارزش، اتلاف و کنترل الزامی را جدا کنید. در نگاشت خدمت، کاربرگ می‌تواند یک پروندهٔ نمونه را از نقطهٔ تماس تا نتیجه دنبال کند. برای هر انتقال بنویسید چه اطلاعاتی کم است و چه کسی حق تصمیم دارد؛ همین دو پرسش اغلب حلقهٔ انتظار را پیدا می‌کنند.",
               "id": "S05-C1-ST01-L01-CARD09",
               "title": "نکتهٔ 9"
+            },
+            {
+              "id": "S05-C1-ST01-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Value stream map — نقشهٔ جریان ارزش: نمایش جریان ماده/اطلاعات و زمان ارزش‌افزا/انتظار؛ مرز فرایند و دادهٔ مشاهده‌شده باید روشن باشد. Lead time — زمان عبور: فاصلهٔ ورود تا تکمیل در تعریف فرایند؛ با زمان کار مستقیم یکی نیست. Value-added activity — فعالیت ارزش‌افزا: کاری که مشتری برایش ارزش می‌بیند و درست‌بار اول انجام می‌شود؛ قضاوت نیازمند دید مشتری است."
+            },
+            {
+              "id": "S05-C1-ST01-L01-CASE-TOYOTA",
+              "type": "real_case",
+              "title": "کیس تاریخی: شکل‌گیری و گسترش TPS",
+              "text": "بر اساس تاریخ‌نگاری رسمی تویوتا، پایه‌های سامانهٔ تولید در اواخر دههٔ ۱۹۴۰ و اوایل دههٔ ۱۹۵۰ با آزمون و خطا شکل گرفت؛ گسترش به کارخانهٔ هونشا در اواخر دههٔ ۱۹۵۰ و اجرای کارخانه‌ای از ۱۹۶۰ آغاز شد. تویوتا دو ستون را Just-in-Time و jidoka معرفی می‌کند و فعالیت‌های بهبود سازمانی را از ۱۹۸۲ گزارش می‌کند. این منبع، روایت رسمی شرکت از تاریخ خودش است؛ به‌تنهایی اثر علّی هر جزء بر عملکرد یا قابلیت انتقال همان روش به هر سازمان را ثابت نمی‌کند.",
+              "example_kind": "documented_company_history",
+              "source_url": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/production/system/change.html"
             }
           ],
           "questions": [
@@ -239,14 +253,26 @@
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "روش نقشه‌برداری جریان کار و اطلاعات، وضعیت جاری و آینده؛ برای خدمت تطبیق لازم است.",
               "id": "lei-value-stream-map",
-              "title": "Lean Enterprise Institute: Value-Stream Mapping / Learning to See"
+              "title": "Lean Enterprise Institute: Value-Stream Mapping / Learning to See",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "url": "https://www.lean.org/lexicon-terms/cycle-time/",
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
               "id": "lei-cycle-time",
-              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
+            },
+            {
+              "id": "TOYOTA-TPS-HISTORY",
+              "title": "Toyota 75-Year History: Toyota Production System",
+              "url": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/production/system/change.html",
+              "scope": "روایت رسمی شرکت از شکل‌گیری TPS، زمان‌بندی گسترش آن و دو مفهوم JIT و jidoka؛ شاهد مستقل اثر علّی نیست.",
+              "accessed_on": "2026-10-20",
+              "source_kind": "primary_company_history"
             }
           ],
           "practice_activity": {
@@ -275,7 +301,8 @@
           "source_refs": [
             "M06",
             "M13",
-            "R15"
+            "R15",
+            "TOYOTA-TPS-HISTORY"
           ],
           "source_scope": "inherits_topic_candidates_not_claim_level",
           "example_plan": {
@@ -291,7 +318,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/value-flow-capacity-time.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «نقشهٔ جریان ارزش»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+                "caption": "نقشه را برای تحلیل «نقشهٔ جریان ارزش» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -333,7 +367,26 @@
               "type": "explanation",
               "text": "برای یک گام ساده، ظرفیت نظری برابر زمان مفید تقسیم بر زمان چرخهٔ هر واحد است. ۴۲۰ دقیقهٔ مفید با چرخهٔ ۲ دقیقه، ۲۱۰ واحد ظرفیت نظری می‌دهد.",
               "id": "S05-C1-ST01-L02-CARD02",
-              "title": "نکتهٔ 2"
+              "title": "نکتهٔ 2",
+              "table": {
+                "columns": [
+                  "محاسبه",
+                  "نتیجه",
+                  "محدودیت تفسیر"
+                ],
+                "rows": [
+                  [
+                    "۴۲۰ دقیقهٔ مفید ÷ ۲ دقیقه برای هر واحد",
+                    "۲۱۰ واحد ظرفیت نظری",
+                    "توقف و تنوع کار و دوباره‌کاری، خروجی واقعی را تغییر می‌دهد"
+                  ],
+                  [
+                    "ظرفیت گام‌های زنجیره",
+                    "کمترین ظرفیت گام‌ها",
+                    "با یکسان‌بودن واحد و بازه، گام محدودکننده گلوگاه است"
+                  ]
+                ]
+              }
             },
             {
               "type": "explanation",
@@ -376,6 +429,12 @@
               "text": "ظرفیت بافر زمانی یا منابعی است که برای نوسان نگه می‌داریم. آن را آگاهانه طراحی کنید تا از انسداد جلوگیری شود، نه اینکه صف پنهان دائمی بسازیم. مثال ظرفیت فرض می‌کند چرخه یکنواخت و زمان مفید پیوسته است. برای تصمیم واقعی، توقف، استراحت، تغییر نوع کار و بازده درست‌باراول را اضافه کنید. ظرفیت نظری سقف ساده‌شده است و تعهد خروجی نیست. اگر زمان چرخهٔ هر مرحله متفاوت است، ظرفیت ایستگاه‌ها را با زمان مفید و ترکیب کار بسنجید. یک مرحلهٔ کوتاه‌تر ممکن است به‌دلیل تنظیم یا کمبود ورودی، خروج واقعی کمی داشته باشد.",
               "id": "S05-C1-ST01-L02-CARD09",
               "title": "نکتهٔ 9"
+            },
+            {
+              "id": "S05-C1-ST01-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Process capacity — ظرفیت فرایند: بیشترین خروجی پایدار در زمان و ترکیب تعریف‌شده؛ ظرفیت نظری خرابی/تغییر محصول را نادیده می‌گیرد. Bottleneck — گلوگاه: محدودیتی که خروجی کل را در وضعیت جاری کنترل می‌کند؛ گلوگاه می‌تواند با تغییر برنامه جابه‌جا شود. Utilization — نرخ بهره‌برداری: خروجی/زمان استفاده نسبت به ظرفیت تعریف‌شده؛ نزدیک ۱۰۰٪شدن می‌تواند صف را شدیداً بالا ببرد."
             }
           ],
           "questions": [
@@ -531,14 +590,26 @@
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "زمان در دسترس تقسیم بر تقاضا برای هم‌ترازی نرخ کار با مشتری.",
               "id": "lei-takt-time",
-              "title": "Lean Enterprise Institute Lexicon: Takt Time"
+              "title": "Lean Enterprise Institute Lexicon: Takt Time",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "url": "https://www.lean.org/lexicon-terms/cycle-time/",
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
               "id": "lei-cycle-time",
-              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
+            },
+            {
+              "title": "MIT Sloan OCW: Operations Management",
+              "url": "https://ocw.mit.edu/courses/15-760a-operations-management-spring-2002/",
+              "scope": "چارچوب درسی مدیریت عملیات؛ برای زمینهٔ تحلیل فرایند، ظرفیت و جریان کار",
+              "id": "MIT-OCW-OPS-2002",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -581,9 +652,22 @@
             "real_case_status": "choose_and_verify_during_authoring"
           },
           "media_plan": {
-            "type": "authored_diagram_or_worked_table",
-            "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "type": "authored_diagram",
+            "purpose": "نمایش نرخ ظرفیت زنجیره، گلوگاه و محاسبهٔ ظرفیت نظری",
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/value-flow-capacity-time.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «ظرفیت و گلوگاه»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+                "caption": "نقشه را برای تحلیل «ظرفیت و گلوگاه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              },
+              {
+                "asset_ref": "content/media/capacity-bottleneck-flow.svg",
+                "alt_text": "سه مرحلهٔ نمادین با ظرفیت C1 و C2 و C3؛ ظرفیت خروجی کل کمترین آن‌هاست. مثال یک ایستگاه: ۴۲۰ دقیقهٔ مفید تقسیم بر چرخهٔ دو دقیقه برابر ۲۱۰ واحد نظری.",
+                "caption": "گلوگاه را پیدا کن و محدودیت ظرفیت نظری را از خروجی واقعی جدا نگه دار.",
+                "source_url": "https://ocw.mit.edu/courses/15-760a-operations-management-spring-2002/"
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -668,6 +752,12 @@
               "text": "زمان جریان از ورود کار به سیستم تا خروج است؛ زمان پردازش فقط لحظه‌های کار فعال را می‌شمارد. تفاوت این دو بخش بزرگی از انتظار پنهان را نشان می‌دهد. نرخ خروج را در همان واحد زمانی WIP و زمان بسنجید. اگر نرخ ساعتی را با WIP روزانه یا میانگین چند دورهٔ متفاوت ترکیب کنید، حاصل از نظر واحد معنی ندارد. ثبات را با روند ورود و خروج بسنجید. این قانون میانگین را پیوند می‌دهد و دربارهٔ تک‌پرونده زمان تحویل دقیق نمی‌دهد. برای پروندهٔ خاص، تفاوت نوع کار و اولویت و تغییر ظرفیت را جداگانه بررسی کنید.",
               "id": "S05-C1-ST01-L03-CARD09",
               "title": "نکتهٔ 9"
+            },
+            {
+              "id": "S05-C1-ST01-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Queue — صف: کار منتظر خدمت در فرایند؛ افزایش کار در جریان زمان انتظار و سرمایه را بالا می‌برد. Work in process — کار در جریان: کار آغازشده اما تکمیل‌نشده؛ موجودی زیاد الزاماً تولید بیشتر نیست. Little law — قانون لیتل: میانگین کار در جریان برابر نرخ عبور در زمان چرخه در حالت پایدار؛ فرض حالت پایدار و واحد یکسان لازم است."
             }
           ],
           "questions": [
@@ -823,14 +913,18 @@
               "review_depth": "peer_reviewed_foundational_article_reviewed",
               "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
               "id": "little-1961",
-              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "url": "https://www.lean.org/lexicon-terms/cycle-time/",
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
               "id": "lei-cycle-time",
-              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -875,7 +969,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/value-flow-capacity-time.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «صف و کار در جریان»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+                "caption": "نقشه را برای تحلیل «صف و کار در جریان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -960,6 +1061,12 @@
               "text": "پایایی داده یعنی اندازه‌گیری در شرایط مشابه قابل تکرار باشد. اگر دو سامانه رویدادهای متفاوتی را مبنا می‌گیرند، اول تعریف و ثبت را هماهنگ کنید. یک تعریف شاخص باید رویداد سامانه، منطقهٔ زمانی، پرونده‌های لغوشده و کارهای باز را روشن کند. پاک‌کردن موارد دشوار از نمونه شاید عدد را بهتر کند اما نمایندگی عملکرد را کاهش می‌دهد. وقتی صدک بالا بدتر می‌شود اما میانگین ثابت است، ممکن است فقط گروه کوچکی آسیب دیده باشد. ترکیب پرونده و مسیرهای استثنا را با حفظ حریم خصوصی تحلیل کنید و اقدام را به علت مشاهده‌شده وصل کنید.",
               "id": "S05-C1-ST01-L04-CARD09",
               "title": "نکتهٔ 9"
+            },
+            {
+              "id": "S05-C1-ST01-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Cycle time — زمان چرخه: زمان انجام یک واحد/گام طبق مرز مشخص؛ با زمان عبور کل اشتباه نشود. Takt time — زمان تکت: زمان در دسترس تقسیم بر تقاضای مشتری در دوره؛ ظرفیت نامی را تضمین نمی‌کند. Process time — زمان پردازش: زمان کار فعال روی واحد؛ انتظار و بازکاری باید جداگانه ثبت شوند."
             }
           ],
           "questions": [
@@ -1115,14 +1222,18 @@
               "review_depth": "peer_reviewed_foundational_article_reviewed",
               "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
               "id": "little-1961",
-              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+              "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "url": "https://www.lean.org/lexicon-terms/cycle-time/",
               "review_depth": "professional_practice_reference_reviewed",
               "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
               "id": "lei-cycle-time",
-              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+              "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -1167,7 +1278,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/value-flow-capacity-time.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «اندازه‌گیری زمان واقعی»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+                "caption": "نقشه را برای تحلیل «اندازه‌گیری زمان واقعی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -1481,6 +1599,12 @@
               "id": "S05-C1-ST02-L01-CARD09",
               "title": "نکتهٔ 9",
               "type": "explanation"
+            },
+            {
+              "id": "S05-C1-ST02-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Defect — نقص: خروجی ناسازگار با نیاز/مشخصهٔ تعریف‌شده؛ بدون معیار پذیرش قابل‌شمارش نیست. First-pass yield — بازده بار اول: سهم واحدهای سالم بدون بازکاری؛ حذف موارد برگشتی معیار را مصنوعی بهتر می‌کند. Cost of quality — هزینهٔ کیفیت: هزینهٔ پیشگیری، ارزیابی و شکست؛ فقط هزینهٔ دوباره‌کاری نیست."
             }
           ],
           "questions": [
@@ -1636,14 +1760,18 @@
               "review_depth": "professional_quality_reference_reviewed",
               "id": "asq-cost-quality",
               "title": "ASQ: Cost of Quality",
-              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد."
+              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد.",
+              "accessed_on": "2026-10-21",
+              "checked_on": "2026-10-21"
             },
             {
               "url": "https://www.ihi.org/library/model-for-improvement",
               "review_depth": "professional_improvement_framework_reviewed",
               "id": "ihi-model-improvement",
               "title": "Institute for Healthcare Improvement: Model for Improvement",
-              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود."
+              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -1688,7 +1816,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/quality-cause-pdsa-cost.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «تعریف نقص و کیفیت»: تعریف نقص را به نیاز مشتری وصل کن و تغییر را در چرخه‌ای کوچک بیازما. تعریف نقص، واحد، معیار پذیرش و اثر بر مشتری را روشن کن.؛ علت‌یابی، علت‌های ممکن را فرضیه بنویس؛ هم‌بستگی را علت قطعی نخوان.؛ آزمون PDSA، تغییر محدود را برنامه‌ریزی و اجرا کن، یاد بگیر و استاندارد را بازنگری کن.؛ هزینه و اندازه‌گیری، پیشگیری، ارزیابی و شکست را جدا کن؛ خطای سنجه را ثبت کن.",
+                "caption": "نقشه را برای تحلیل «تعریف نقص و کیفیت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -1773,6 +1908,12 @@
               "id": "S05-C1-ST02-L02-CARD09",
               "title": "نکتهٔ 9",
               "type": "explanation"
+            },
+            {
+              "id": "S05-C1-ST02-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Root-cause analysis — تحلیل علت ریشه‌ای: بررسی سازوکارهای زمینه‌ساز نقص؛ هم‌زمانی با علت یکی نیست. Rework — بازکاری: اصلاح خروجی برای رسیدن به معیار؛ نباید به‌عنوان تولید تازه شمرده شود. Pareto chart — نمودار پارتو: مرتب‌سازی فراوانی/اثر برای تمرکز؛ شکل نمودار علت را ثابت نمی‌کند."
             }
           ],
           "questions": [
@@ -1928,14 +2069,18 @@
               "review_depth": "professional_quality_reference_reviewed",
               "id": "asq-cost-quality",
               "title": "ASQ: Cost of Quality",
-              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد."
+              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد.",
+              "accessed_on": "2026-10-21",
+              "checked_on": "2026-10-21"
             },
             {
               "url": "https://www.ihi.org/library/model-for-improvement",
               "review_depth": "professional_improvement_framework_reviewed",
               "id": "ihi-model-improvement",
               "title": "Institute for Healthcare Improvement: Model for Improvement",
-              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود."
+              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -1980,7 +2125,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/quality-cause-pdsa-cost.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «علت‌یابی و بازکاری»: تعریف نقص را به نیاز مشتری وصل کن و تغییر را در چرخه‌ای کوچک بیازما. تعریف نقص، واحد، معیار پذیرش و اثر بر مشتری را روشن کن.؛ علت‌یابی، علت‌های ممکن را فرضیه بنویس؛ هم‌بستگی را علت قطعی نخوان.؛ آزمون PDSA، تغییر محدود را برنامه‌ریزی و اجرا کن، یاد بگیر و استاندارد را بازنگری کن.؛ هزینه و اندازه‌گیری، پیشگیری، ارزیابی و شکست را جدا کن؛ خطای سنجه را ثبت کن.",
+                "caption": "نقشه را برای تحلیل «علت‌یابی و بازکاری» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2065,6 +2217,12 @@
               "id": "S05-C1-ST02-L03-CARD09",
               "title": "نکتهٔ 9",
               "type": "explanation"
+            },
+            {
+              "id": "S05-C1-ST02-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Standard work — کار استاندارد: بهترین روش شناخته‌شدهٔ ایمن و تکرارپذیر در وضعیت فعلی؛ استاندارد مانع بهبود نیست. Kaizen — بهبود مستمر: تغییرهای کوچکِ مبتنی بر مشاهده و پیگیری؛ هر تغییر کوچک الزاماً بهبود نیست. PDSA — چرخهٔ برنامه-اجرا-مطالعه-اقدام: آزمون یادگیری در مقیاس مناسب؛ با اجرای کامل بدون سنجش فرق دارد."
             }
           ],
           "questions": [
@@ -2220,14 +2378,18 @@
               "review_depth": "professional_improvement_framework_reviewed",
               "id": "ihi-pdsa-testing",
               "title": "IHI: Testing Changes with PDSA Cycles",
-              "scope": "روش آزمون تغییر در محیط واقعی و استفاده از یادگیری؛ پایلوت کوچک اثبات قطعی اثر بیرونی نیست."
+              "scope": "روش آزمون تغییر در محیط واقعی و استفاده از یادگیری؛ پایلوت کوچک اثبات قطعی اثر بیرونی نیست.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "url": "https://www.lean.org/lexicon-terms/standardized-work/",
               "review_depth": "professional_practice_reference_reviewed",
               "id": "lei-standard-work",
               "title": "Lean Enterprise Institute: Standardized Work",
-              "scope": "استانداردسازی به‌عنوان مبنای اجرای قابل مشاهده و بهبود کایزن؛ استاندارد باید با کار و استثناها بازنگری شود."
+              "scope": "استانداردسازی به‌عنوان مبنای اجرای قابل مشاهده و بهبود کایزن؛ استاندارد باید با کار و استثناها بازنگری شود.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -2272,7 +2434,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/quality-cause-pdsa-cost.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «استاندارد کار و آزمایش بهبود»: تعریف نقص را به نیاز مشتری وصل کن و تغییر را در چرخه‌ای کوچک بیازما. تعریف نقص، واحد، معیار پذیرش و اثر بر مشتری را روشن کن.؛ علت‌یابی، علت‌های ممکن را فرضیه بنویس؛ هم‌بستگی را علت قطعی نخوان.؛ آزمون PDSA، تغییر محدود را برنامه‌ریزی و اجرا کن، یاد بگیر و استاندارد را بازنگری کن.؛ هزینه و اندازه‌گیری، پیشگیری، ارزیابی و شکست را جدا کن؛ خطای سنجه را ثبت کن.",
+                "caption": "نقشه را برای تحلیل «استاندارد کار و آزمایش بهبود» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2357,6 +2526,12 @@
               "id": "S05-C1-ST02-L04-CARD09",
               "title": "نکتهٔ 9",
               "type": "explanation"
+            },
+            {
+              "id": "S05-C1-ST02-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Measurement system analysis — تحلیل سامانهٔ اندازه‌گیری: سنجش دقت/پایایی ابزار و ارزیاب؛ دادهٔ پرحجم خطای ابزار را رفع نمی‌کند. Gauge repeatability — تکرارپذیری ابزار: نوسان اندازه‌گیری با همان ابزار/شرایط؛ با اختلاف بین ارزیابان یکی نیست. Cost of poor quality — هزینهٔ کیفیت نامطلوب: پیامد نقص داخلی/بیرونی؛ تخمین باید دامنه و هزینه‌های پنهان را بیان کند."
             }
           ],
           "questions": [
@@ -2512,14 +2687,18 @@
               "review_depth": "professional_quality_reference_reviewed",
               "id": "asq-cost-quality",
               "title": "ASQ: Cost of Quality",
-              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد."
+              "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد.",
+              "accessed_on": "2026-10-21",
+              "checked_on": "2026-10-21"
             },
             {
               "url": "https://www.ihi.org/library/model-for-improvement",
               "review_depth": "professional_improvement_framework_reviewed",
               "id": "ihi-model-improvement",
               "title": "Institute for Healthcare Improvement: Model for Improvement",
-              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود."
+              "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -2564,7 +2743,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/quality-cause-pdsa-cost.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «هزینهٔ کیفیت و خطای اندازه‌گیری»: تعریف نقص را به نیاز مشتری وصل کن و تغییر را در چرخه‌ای کوچک بیازما. تعریف نقص، واحد، معیار پذیرش و اثر بر مشتری را روشن کن.؛ علت‌یابی، علت‌های ممکن را فرضیه بنویس؛ هم‌بستگی را علت قطعی نخوان.؛ آزمون PDSA، تغییر محدود را برنامه‌ریزی و اجرا کن، یاد بگیر و استاندارد را بازنگری کن.؛ هزینه و اندازه‌گیری، پیشگیری، ارزیابی و شکست را جدا کن؛ خطای سنجه را ثبت کن.",
+                "caption": "نقشه را برای تحلیل «هزینهٔ کیفیت و خطای اندازه‌گیری» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2878,6 +3064,12 @@
               "title": "نکتهٔ 9",
               "type": "explanation",
               "text": "ماتریس گزینه‌ها معیار، وزن، شاهد و ابهام را ثبت می‌کند. وزن‌ها قضاوت مدیریتی‌اند؛ حساسیت نتیجه به تغییر وزن را نیز نشان دهید و تصمیم را قطعی‌نمایی نکنید. اگر دو گزینه رتبهٔ مشابه گرفتند، نقطهٔ حساس تصمیم را بیازمایید: آیا تغییر وزن هزینه یا ریسک انتخاب را عوض می‌کند؟ گزینهٔ مقاوم‌تر در چند سناریو ممکن است از برندهٔ یک برآورد خاص مناسب‌تر باشد."
+            },
+            {
+              "id": "S05-C1-ST03-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Process selection — انتخاب فرایند: تطبیق فناوری/جریان با حجم، تنوع و نیاز پاسخ‌گویی؛ یک روش همیشه بهترین نیست. Fixed cost — هزینهٔ ثابت: هزینه‌ای که در دامنهٔ ظرفیت کوتاه‌مدت با حجم تغییر نمی‌کند؛ در بلندمدت ممکن است قابل‌تنظیم باشد. Flexibility — انعطاف‌پذیری: توان تغییر حجم/ترکیب با هزینه و زمان مشخص؛ ظرفیت بلااستفاده مساوی انعطاف نیست."
             }
           ],
           "questions": [
@@ -3029,18 +3221,20 @@
           ],
           "source_links": [
             {
-              "id": null,
-              "title": null,
-              "scope": null,
-              "review_depth": null,
-              "url": null
+              "id": "M06",
+              "title": "MIT OpenCourseWare, Introduction to Operations Management: Syllabus",
+              "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/syllabus/",
+              "accessed_on": "2026-10-20",
+              "scope": "سرفصل رسمی دربارهٔ طراحی فرایند، ظرفیت، موجودی و زنجیرهٔ تأمین؛ هم‌ترازی برنامه را نشان می‌دهد و متن درس‌نامه از آن کپی نشده است.",
+              "review_depth": "official_syllabus_reviewed"
             },
             {
-              "id": null,
-              "title": null,
-              "scope": null,
-              "review_depth": null,
-              "url": null
+              "id": "M13",
+              "title": "MIT OpenCourseWare, Operations Strategy: Syllabus",
+              "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
+              "accessed_on": "2026-10-20",
+              "scope": "سرفصل رسمی برای پیوند راهبرد عملیات با انتخاب و طراحی فرایند؛ محتوای تألیفی درس عین محتوای درس دانشگاهی نیست.",
+              "review_depth": "official_syllabus_reviewed"
             }
           ],
           "practice_activity": {
@@ -3068,10 +3262,8 @@
           "node_type": "lesson",
           "source_refs": [
             "M06",
-            "M13",
-            "R15"
+            "M13"
           ],
-          "source_scope": "inherits_topic_candidates_not_claim_level",
           "example_plan": {
             "fictional_scenario": "SEPEHR-SERVICES",
             "real_case_candidates": [
@@ -3085,7 +3277,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/process-automation-exception-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ گزینه‌های فرایند»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+                "caption": "نقشه را برای تحلیل «مقایسهٔ گزینه‌های فرایند» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -3108,7 +3307,8 @@
           "direct_entry_allowed": true,
           "free_sample": false,
           "legacy_lesson_ids": [],
-          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+          "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+          "source_scope": "منابع MIT، هم‌ترازی موضوعی درس را پشتیبانی می‌کنند؛ مقالهٔ نامزد ScienceDirect با شناسهٔ R15 در مرور زنده قابل بازیابی نبود و برای ادعای آموزشی استفاده نشده است."
         },
         {
           "id": "S05-C1-ST03-L02",
@@ -3170,6 +3370,12 @@
               "title": "نکتهٔ 9",
               "type": "explanation",
               "text": "اصطلاح «automation bias» گرایش به پذیرش پیشنهاد خودکار حتی هنگام وجود شاهد مخالف است؛ طراحی نمایش اعتماد، توضیح و اختیار توقف بر رفتار کاربر اثر می‌گذارد. قابلیت دسترسی سامانه و مسیر خطای آن را در آموزش کاربر تمرین کنید. کاربران باید بدانند خروجی چه زمانی خارج از دامنه است و چگونه کار را بی‌داده‌زدایی یا پنهان‌کردن خطا به متخصص منتقل کنند."
+            },
+            {
+              "id": "S05-C1-ST03-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Automation — خودکارسازی: اجرای وظیفه به‌وسیلهٔ سامانه؛ استثنا و بازیابی خطا بخش طراحی است. Exception handling — مدیریت استثنا: مسیر برخورد با ورودی/وضعیت خارج از قاعده؛ ارجاع انسانی بدون مالکیت روشن انباشت صف می‌کند. Straight-through processing — پردازش بی‌وقفه: تکمیل خودکار بدون مداخلهٔ دستی در دامنهٔ معتبر؛ نرخ بالا می‌تواند خطای پنهان ایجاد کند."
             }
           ],
           "questions": [
@@ -3325,14 +3531,18 @@
               "title": "NIST AI RMF Appendix C: Human-AI Interaction",
               "scope": "راهنمای نقش انسان و تعامل با AI در محیط عملیاتی؛ تفسیر باید با کاربرد خاص انجام شود.",
               "review_depth": "official_framework_guidance_reviewed",
-              "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/"
+              "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
-              "id": "nist-ai-rmf-core",
+              "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI RMF Core",
               "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
               "review_depth": "official_framework_reviewed",
-              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -3377,7 +3587,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/process-automation-exception-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «اتوماسیون و استثناها»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+                "caption": "نقشه را برای تحلیل «اتوماسیون و استثناها» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -3462,6 +3679,12 @@
               "title": "نکتهٔ 9",
               "type": "explanation",
               "text": "نظارت چرخه‌ای است: نشانه را کشف کنید، زمینه را بررسی کنید، اقدام اصلاحی بگذارید و اثربخشی را بعداً بسنجید. لاگ‌برداری باید به هدف و حریم خصوصی متناسب باشد. شاخص‌ها باید امکان تفسیر عملی داشته باشند: هشدار را به پروندهٔ نمونه، نسخهٔ ابزار و نتیجهٔ انسانی وصل کنید. هم‌زمان مراقب باشید ثبت بیش از حد دادهٔ فردی برای پایش ضرورت نداشته باشد."
+            },
+            {
+              "id": "S05-C1-ST03-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Operational AI — هوش مصنوعی عملیاتی: کاربرد مدل در تصمیم/گردش کار عملیات؛ دقت مدل به‌تنهایی عملکرد فرایند نیست. Human override — مداخلهٔ انسانی: اختیار رد/تغییر خروجی در شرایط تعریف‌شده؛ باید آستانه و ثبت دلیل داشته باشد. False negative cost — هزینهٔ منفی کاذب: زیان از شناسایی‌نکردن رخداد واقعی؛ باید در آستانهٔ هشدار منظور شود."
             }
           ],
           "questions": [
@@ -3617,14 +3840,18 @@
               "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
               "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
               "review_depth": "official_research_report_reviewed",
-              "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+              "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
-              "id": "nist-ai-rmf-core",
+              "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI RMF Core",
               "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
               "review_depth": "official_framework_reviewed",
-              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -3669,7 +3896,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/process-automation-exception-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «نظارت بر AI در عملیات»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+                "caption": "نقشه را برای تحلیل «نظارت بر AI در عملیات» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -3754,6 +3988,12 @@
               "title": "نکتهٔ 9",
               "type": "explanation",
               "text": "برگهٔ نهایی باید مالک، زمان اجرا، فرض، سنجهٔ نتیجه و توازن، کیفیت داده، شرط توقف و برنامهٔ تثبیت را داشته باشد. این اجزا تصمیم را برای مدیر بعدی قابل فهم می‌کنند. اگر نوع تقاضا یا گروه کاربران تغییر کرد، خط مبنا را به‌روز و مقایسه را بازطراحی کنید. فرایند تصمیم باید مشخص کند چه کسی کیفیت شواهد را می‌پذیرد و چه زمانی آزمایش وارد مرحلهٔ بعد می‌شود."
+            },
+            {
+              "id": "S05-C1-ST03-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Before-after evaluation — ارزیابی پیش و پس: مقایسهٔ شاخص قبل/بعد تغییر؛ فصل، ترکیب و روند هم‌زمان می‌تواند علت بدیل باشد. Control chart — نمودار کنترل: نمایش نوسان فرایند در زمان با حدود آماری؛ حد کنترل با مشخصهٔ پذیرش یکی نیست. Process capability — قابلیت فرایند: توان فرایند نسبت به حدود مشخصات در شرایط پایدار؛ شاخص بدون توزیع/پایداری معتبر نیست."
             }
           ],
           "questions": [
@@ -3909,14 +4149,18 @@
               "title": "IHI: Testing Changes with PDSA Cycles",
               "scope": "آزمون تغییر در محیط واقعی با چرخهٔ یادگیری؛ اثر محلی باید پیش از تعمیم بررسی شود.",
               "review_depth": "professional_improvement_framework_reviewed",
-              "url": "https://www.ihi.org/library/model-for-improvement/testing-changes"
+              "url": "https://www.ihi.org/library/model-for-improvement/testing-changes",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "nist-monitoring-2026",
               "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
               "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
               "review_depth": "official_research_report_reviewed",
-              "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+              "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
@@ -3961,7 +4205,14 @@
           "media_plan": {
             "type": "authored_diagram_or_worked_table",
             "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/process-automation-exception-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «طرح بهبود با معیار پیش و پس»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+                "caption": "نقشه را برای تحلیل «طرح بهبود با معیار پیش و پس» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,

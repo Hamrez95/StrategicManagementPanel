@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST01-L03-CARD08",
       "text": "برای احتمال دیرکرد، recall سفارش‌های واقعاً دیررس کنار precision هشدارها و بار بررسی روزانه گزارش می‌شود؛ مقایسه با قاعدهٔ «تأمین‌کنندهٔ دیرکرددار قبلی» انجام می‌شود و آزمون روی دورهٔ زمانی بعدی می‌ماند."
+    },
+    {
+      "id": "S07-C1-ST01-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "دادهٔ آموزش (Training set) برای برازش، اعتبارسنجی برای انتخاب تنظیم و آزمون (Test set) برای ارزیابی نهایی به کار می‌رود. تعمیم (Generalization) عملکرد روی دادهٔ تازه است. جداسازی مجموعه‌ها باید با زمان و واحد واقعی تصمیم سازگار باشد."
+    },
+    {
+      "id": "S07-C1-ST01-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مدل با دادهٔ آموزش پارامتر می‌آموزد، اعتبارسنجی برای انتخاب و تنظیم روش به کار می‌رود و آزمون برآورد نهایی روی دادهٔ کنارگذاشته‌شده می‌دهد. استفادهٔ مکرر از آزمون برای انتخاب مدل، آن را عملاً به دادهٔ توسعه تبدیل می‌کند و ارزیابی خوش‌بینانه می‌شود. تقسیم تصادفی برای رخدادهای زمانی یا دادهٔ تکراری ممکن است اطلاعات آینده یا هم‌پوشان را نشت دهد. معیار باید پیامد کاربرد را بازتاب دهد؛ دقت کل در دادهٔ نامتوازن می‌تواند گمراه کند. اگر زمان یا زیرگروه محیط واقعی فرق کند، طرح ارزیابی نیز باید همان تفاوت را منعکس کند."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "precision و recall و ماتریس خطا ابعاد مهم دیگری دارند."
+    },
+    {
+      "id": "S07-C1-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل روی دادهٔ آموزش عملکرد عالی دارد ولی روی نمونهٔ مستقل افت می‌کند. چه تفسیر محتملی است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تعمیم ضعیف یا بیش‌برازش؛ روش ارزیابی و دادهٔ آزمون را بررسی کنیم",
+          "feedback": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+        },
+        {
+          "id": "b",
+          "text": "مدل حتماً بهتر شده است",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+        },
+        {
+          "id": "c",
+          "text": "دادهٔ مستقل را حذف کنیم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد.",
+      "objective_id": "S07-C1-ST01-L03-OBJ01",
+      "equivalence_group": "S07-C1-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST01-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google Machine Learning Crash Course: Data Characteristics",
       "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-DATA-SPLIT",
       "title": "Google Machine Learning Crash Course: Dividing Datasets",
       "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTION-MONITORING",
       "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش داده و برچسب و خطا در استقرار."
+      "scope": "پایش داده و برچسب و خطا در استقرار.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI Risk Management Framework Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "managerial-ml-data-card",
     "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+    "rubric": [
+      "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+      "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+      "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "data-unit-feature-label-evaluation-diagram",
     "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/data-task-model-validation-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «آموزش و ارزیابی مدل»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+        "caption": "نقشه را برای تحلیل «آموزش و ارزیابی مدل» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

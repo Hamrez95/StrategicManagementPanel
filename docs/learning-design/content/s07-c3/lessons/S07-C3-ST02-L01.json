@@ -44,6 +44,18 @@
       "title": "واحد ارزیابی، وظیفهٔ کامل است",
       "id": "S07-C3-ST02-L01-CARD08",
       "text": "یک پاسخ روان لزوماً کار موفق نیست. بسنجید آیا هدف کامل شد، داده درست بود، اقدام مجاز انجام شد، ارجاع لازم رخ داد و هزینه/زمان قابل‌قبول ماند. تعریف موفقیت را پیش از پایلوت بنویسید و موارد توقف را کنار آن قرار دهید."
+    },
+    {
+      "id": "S07-C3-ST02-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "دستیار (Assistant) معمولاً پیشنهاد یا پاسخ می‌دهد؛ عامل (Agent) هدف را دنبال می‌کند و می‌تواند ابزار به کار گیرد و حلقهٔ اقدام را پیش ببرد. مرز واقعی را از دسترسی و اختیار و اثر بیرونی بسنجید، نه نام محصول."
+    },
+    {
+      "id": "S07-C3-ST02-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "دستیار معمولاً به درخواست پاسخ می‌دهد و انسان اقدام را انتخاب می‌کند؛ عامل می‌تواند هدفی بگیرد، ابزار فراخوانی کند و چند گام اجرایی انجام دهد. این تفاوت در چرخهٔ اقدام، اختیار و سطح پیامد است، نه صرف نام محصول. هرچه عامل خودمختارتر باشد، نیاز به محدودیت دامنه، ثبت رخداد و امکان توقف بیشتر می‌شود. تعریف «موفقیت» هدفی که به عامل داده می‌شود را شکل می‌دهد و می‌تواند نتیجهٔ ناخواسته بسازد. قبل از استفاده، نقش کاربر، ابزار، تأییدهای لازم و نقطهٔ بازگشت را روی یک کار کم‌خطر آزمایش کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "b",
       "explanation": "کیفیت باید در کل زنجیرهٔ وظیفه و اقدام سنجیده شود."
+    },
+    {
+      "id": "S07-C3-ST02-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "سامانه فقط پاسخ می‌دهد و ابزار یا اقدام بیرونی ندارد. چه چیزی آن را از عامل دارای اختیار اجرایی جدا می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "عامل هدف و حلقهٔ اقدام دارد؛ سطح دسترسی و نظارت و پیامد هم باید سنجیده شود",
+          "feedback": "دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+        },
+        {
+          "id": "b",
+          "text": "ظاهر گفت‌وگویی",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+        },
+        {
+          "id": "c",
+          "text": "سرعت تولید متن",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول.",
+      "objective_id": "S07-C3-ST02-L01-OBJ01",
+      "equivalence_group": "S07-C3-ST02-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C3-ST02-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
       "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
       "review_depth": "official_business_guide_reviewed",
-      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENAI-AGENTS-SDK-HANDOFFS",
       "title": "OpenAI Agents SDK: Handoffs",
       "url": "https://openai.github.io/openai-agents-python/handoffs/",
       "review_depth": "official_product_documentation_reviewed",
-      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
       "title": "Google PAIR: Feedback + Control",
       "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
       "review_depth": "official_practitioner_guide_reviewed",
-      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern and Map",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "agent-authorization-and-trace-map",
     "prompt": "در سناریوی سپهر، برای «عامل با دستیار چه فرقی دارد؟» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-    "expected_output": "جدول تعیین سطح خودمختاری و مسیر تأیید برای سه کار سپهر"
+    "expected_output": "جدول تعیین سطح خودمختاری و مسیر تأیید برای سه کار سپهر",
+    "rubric": [
+      "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+      "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+      "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -212,7 +264,7 @@
     "OPENAI-AGENTS-BUSINESS-GUIDE",
     "OPENAI-AGENTS-SDK-HANDOFFS",
     "GOOGLE-PAIR-FEEDBACK-CONTROL",
-    "NIST-AIRMF-PLAYBOOK"
+    "NIST-AI-RMF-CORE"
   ],
   "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
   "example_plan": {
@@ -223,7 +275,14 @@
   "media_plan": {
     "type": "agent-tool-permission-and-trace-map",
     "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «عامل با دستیار چه فرقی دارد؟»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+        "caption": "نقشه را برای تحلیل «عامل با دستیار چه فرقی دارد؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

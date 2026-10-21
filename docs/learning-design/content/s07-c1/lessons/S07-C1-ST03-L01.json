@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST03-L01-CARD08",
       "text": "اگر فقط چند تأمین‌کننده و قواعد موعد روشن‌اند، قاعدهٔ امتیازدهی ممکن است کافی باشد. وقتی سفارش‌ها، مناطق و الگوها زیاد شوند، مدل پیش‌بینی را با همان خط مبنا مقایسه می‌کنند و تنها در صورت منفعت و کنترل مناسب توسعه می‌دهند."
+    },
+    {
+      "id": "S07-C1-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "قاعدهٔ مبنا (Baseline rule) معیار سادهٔ مقایسه است؛ پیچیدگی مدل باید ارزش افزوده بسازد. بیش‌برازش (Overfitting) یادگیری جزئیات آموزش به بهای عملکرد تازه است. اگر قاعده با هزینه و ریسک کمتر جواب مشابه دهد، پیچیدگی مدل باید توجیه شود."
+    },
+    {
+      "id": "S07-C1-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "خط مبنای ساده مشخص می‌کند آیا مدل واقعاً ارزش افزوده دارد: قاعدهٔ ثابت، فرایند فعلی یا تصمیم انسانی می‌تواند نقطهٔ مقایسه باشد. خط مبنا باید روی همان نمونه، زمان، هزینه و تعریف نتیجه سنجیده شود. مسئلهٔ تکرارشونده با دادهٔ قابل اتکا ممکن است مدل را توجیه کند؛ یک مسئلهٔ نادر یا پیامد پرخطر شاید قاعدهٔ شفاف‌تر بخواهد. پیچیدگی، هزینهٔ پایش و امکان توضیح نیز هزینه‌اند. اگر خط مبنا ضعیف انتخاب شود، ارزش مدل بزرگ‌نمایی می‌شود. پیش از ساخت، تصمیم و معیار بهبود را تعیین کنید و بعد با شواهد مقایسه کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "شدت حاکمیت باید با پیامد خطا متناسب باشد."
+    },
+    {
+      "id": "S07-C1-ST03-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "یک قاعدهٔ آستانه‌ای ساده تقریباً همان ارزش مدل پیچیده را با هزینهٔ کمتر می‌دهد. انتخاب مناسب چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "قاعده را خط مبنا بگیریم و منفعت افزودهٔ مدل را با هزینه و ریسک مقایسه کنیم",
+          "feedback": "پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+        },
+        {
+          "id": "b",
+          "text": "مدل پیچیده را به‌خاطر جدیدبودن انتخاب کنیم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+        },
+        {
+          "id": "c",
+          "text": "خط مبنا را گزارش نکنیم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد.",
+      "objective_id": "S07-C1-ST03-L01-OBJ01",
+      "equivalence_group": "S07-C1-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST03-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google ML Crash Course: Production Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-TEVV-ATHLON-2026",
       "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
       "review_depth": "official_framework_initial_public_draft_reviewed",
-      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-RMF-MEASURE",
       "title": "NIST AI RMF Core: Measure",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "AI-solution-selection-memo",
     "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+    "rubric": [
+      "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+      "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+      "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "solution-selection-and-TEVV-scorecard",
     "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «قاعدهٔ ساده یا مدل؟»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+        "caption": "نقشه را برای تحلیل «قاعدهٔ ساده یا مدل؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

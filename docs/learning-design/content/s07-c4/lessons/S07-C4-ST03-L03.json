@@ -44,6 +44,18 @@
       "title": "مدیریت تغییر پس از انتشار ادامه دارد",
       "id": "S07-C4-ST03-L03-CARD08",
       "text": "در rollout، شاخص‌های کیفیت، drift، هزینه و شکایت را دنبال کنید. تغییر را می‌توان ادامه داد، مکث کرد، محدود کرد یا برگرداند. threshold و زمان مشاهده باید بر اساس کاربرد تعیین شود، نه فقط تقویم انتشار."
+    },
+    {
+      "id": "S07-C4-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "مدیریت تغییر (Change management) نسخهٔ prompt و مدل و داده و pipeline را ثبت و ارزیابی می‌کند. انتشار کنترل‌شده یک تغییر را قابل ردیابی می‌کند؛ تغییر هم‌زمان چند جزء علت افت را نامعلوم می‌گذارد. ماشهٔ بازگشت را پیشاپیش تعیین کنید."
+    },
+    {
+      "id": "S07-C4-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تغییر نسخه می‌تواند در prompt، مدل، منبع بازیابی، داده یا pipeline رخ دهد و هرکدام کیفیت و ریسک را تغییر دهد. ثبت شناسهٔ نسخه و پیکربندی امکان بازتولید و مقایسه می‌دهد. تغییرات کوچک نیز ممکن است اثر ترکیبی بسازند، پس انتشار را کنترل‌شده و مرحله‌ای کنید. معیار پذیرش و سناریوی بازگشت را پیش از تغییر مشخص کنید. اگر مجموعه ارزیابی ثابت نماند، مقایسهٔ نسخه‌ها بی‌اعتبار می‌شود. تصمیم انتشار، مسئول تأیید، دامنهٔ rollout و نتیجهٔ پایش را در ردپای تغییر ثبت کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "سازگاری داده و سرویس باید پیشاپیش تمرین شود."
+    },
+    {
+      "id": "S07-C4-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تغییر prompt و مدل و داده هم‌زمان منتشر شده و کیفیت افت کرده است. مشکل فرایند چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تغییرها قابل انتساب نیستند؛ نسخه‌ها را جدا و کنترل‌شده ارزیابی کنیم",
+          "feedback": "تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "نسخه‌بندی نیاز نیست",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "بازگشت را تا پایان فصل عقب بیندازیم",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند.",
+      "objective_id": "S07-C4-ST03-L03-OBJ01",
+      "equivalence_group": "S07-C4-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C4-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google ML Crash Course: Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است."
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "logging، monitoring، alerting، deployment strategy و rollback."
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Measure and Manage",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه."
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند."
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "AI-monitoring-and-management-report",
     "prompt": "برای کاربرد سپهر، «مقایسهٔ نسخه و کنترل تغییر» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
-    "expected_output": "فرم کنترل تغییر و گزارش مقایسهٔ نسخهٔ قبل/بعد"
+    "expected_output": "فرم کنترل تغییر و گزارش مقایسهٔ نسخهٔ قبل/بعد",
+    "rubric": [
+      "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+      "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+      "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -212,7 +264,7 @@
   "source_refs": [
     "GOOGLE-ML-MONITORING",
     "GOOGLE-ML-PRODUCTIONIZATION",
-    "NIST-AIRMF-PLAYBOOK",
+    "NIST-AI-RMF-CORE",
     "NIST-GENAI-PROFILE"
   ],
   "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
@@ -224,7 +276,14 @@
   "media_plan": {
     "type": "AI-monitoring-dashboard-and-decision-brief",
     "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ نسخه و کنترل تغییر»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+        "caption": "نقشه را برای تحلیل «مقایسهٔ نسخه و کنترل تغییر» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

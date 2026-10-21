@@ -16,6 +16,10 @@
 
 اگر ۱۰۰۰ کاربر ببینند و ۱۰۰ نفر خرید کنند، نرخ تبدیل ۱۰٪ است؛ اما اگر فقط افراد واجدشرایط را مخرج بگیریم، پاسخ فرق می‌کند. تعداد مطلق برای ظرفیت و نرخ برای مقایسه کاربرد دارد؛ هر دو را گزارش کنید.
 
+| رویداد شمارش‌شده | مخرج | محاسبهٔ نرخ تبدیل |
+|---|---|---|
+| ۱۰۰ خرید | ۱٬۰۰۰ بازدید | ۱۰۰ ÷ ۱٬۰۰۰ = ۱۰٪ |
+
 #### گروه هم‌دوره یا cohort
 
 کاربرانی که در زمان یا شرایط مشابه وارد شده‌اند cohort می‌سازند. حفظ هفتهٔ چهارم را برای cohortهای ماه‌های مختلف مقایسه کنید و کانال، کمپین، قیمت یا نسخهٔ محصول را کنارشان ثبت کنید. تفاوت cohort الزاماً اثر کانال نیست؛ ترکیب ورودی می‌تواند فرق داشته باشد.
@@ -43,6 +47,10 @@
 #### واژگان پرتکرار
 
 Funnel قیف؛ conversion نرخ تبدیل؛ cohort گروه هم‌دوره؛ retention حفظ؛ churn ریزش؛ activation فعال‌سازی؛ denominator مخرج؛ censored cohort گروه با زمان مشاهدهٔ ناقص است. نرخ را بدون تعریف رویداد و جامعه مقایسه نکنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Acquisition funnel — قیف جذب: نرخ عبور میان مراحل تعریف‌شده؛ مخرج و پنجره هر مرحله باید یکسان/قابل‌توضیح باشد. Cohort — گروه هم‌دوره: کاربران با زمان/ویژگی آغاز مشترک برای مقایسهٔ هم‌سن؛ cohortها با ترکیب متفاوت قابل‌قیاس خام نیستند. Retention — حفظ مشتری: بازگشت/فعال‌بودن در پنجرهٔ تعریف‌شده؛ فعالیت یک‌باره معادل ماندگاری نیست.
 
 #### تمرین و بازخورد
 
@@ -98,8 +106,9 @@ cohort تازه چرا با cohort بالغ مستقیم مقایسه نمی‌�
 
 - منبع [MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics](https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/)؛ مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.
 - منبع [MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition](https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/)؛ تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.
-- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.
+- منبع [Reforge (2018): Growth Loops are the New Funnels](https://www.reforge.com/blog/growth-loops)؛ دیدگاه اجرایی و نقد محدودیت قیف خطی؛ برای مقایسه با رشد چرخه‌ای، نه به‌عنوان قانون قطعی
 
 ### درس‌نامهٔ `S03-C4-ST01-L02`؛ تعریف CAC با هزینهٔ روشن
 
@@ -140,6 +149,10 @@ CAC ترکیبی همهٔ هزینه‌ها و مشتریان تازه را جم
 #### واژگان پرتکرار
 
 CAC/COCA هزینهٔ جذب مشتری؛ blended CAC هزینهٔ ترکیبی؛ channel CAC هزینهٔ کانالی؛ attribution انتساب؛ conversion lag تأخیر تبدیل؛ fully loaded cost هزینهٔ کامل؛ acquisition window پنجرهٔ جذب است. عدد CAC بدون دامنه و مخرج قابل‌تفسیر نیست.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Customer acquisition cost — هزینهٔ جذب مشتری: هزینهٔ تعریف‌شدهٔ جذب تقسیم بر مشتری جدید در دوره؛ انتساب و هزینه‌های حذف‌شده نتیجه را تغییر می‌دهند. CAC payback — دورهٔ بازپرداخت CAC: زمانی تا پوشش هزینهٔ جذب از حاشیهٔ مشارکت؛ درآمد ناخالص نباید جای حاشیه بنشیند. Fully loaded cost — هزینهٔ کامل‌شده: هزینهٔ مستقیم و سربار قابل‌تخصیص با قاعدهٔ روشن؛ تخصیص قراردادی را افشا کنید.
 
 #### تمرین و بازخورد
 
@@ -195,8 +208,8 @@ CAC پایین چه چیزی را به تنهایی ثابت نمی‌کند؟
 
 - منبع [MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics](https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/)؛ مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.
 - منبع [MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition](https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/)؛ تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.
-- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.
 
 ### درس‌نامهٔ `S03-C4-ST01-L03`؛ ارزش مشتری و حاشیهٔ سود
 
@@ -237,6 +250,10 @@ LTV می‌تواند از جذب مشتری متناسب‌تر، فعال‌س
 #### واژگان پرتکرار
 
 LTV/CLV ارزش طول عمر مشتری؛ contribution margin حاشیهٔ مشارکت؛ payback period دورهٔ بازپرداخت CAC؛ retention حفظ؛ discount rate نرخ تنزیل؛ survival analysis تحلیل بقا؛ cohort quality کیفیت گروه؛ gross margin حاشیهٔ ناخالص است. LTV را به درآمد فروش برابر نگیرید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Customer lifetime value — ارزش طول عمر مشتری: ارزش فعلی/تجمعی حاشیهٔ موردانتظار در رابطه؛ برآوردش به حفظ و افق حساس است. Contribution margin — حاشیهٔ مشارکت: درآمد پس از هزینهٔ متغیر خدمت؛ درآمد به‌تنهایی CLV را بیش‌برآورد می‌کند. Discount rate — نرخ تنزیل: نرخ تبدیل جریان آتی به ارزش امروز؛ انتخاب آن فرض مالی است، نه پارامتر خنثی.
 
 #### تمرین و بازخورد
 
@@ -292,8 +309,8 @@ LTV را با چه چیزی محاسبه می‌کنیم؟
 
 - منبع [MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics](https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/)؛ مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.
 - منبع [MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition](https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/)؛ تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.
-- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.
 
 ### درس‌نامهٔ `S03-C4-ST01-L04`؛ سهم رشد سالم و رشد پرهزینه
 
@@ -334,6 +351,10 @@ LTV را با چه چیزی محاسبه می‌کنیم؟
 #### واژگان پرتکرار
 
 Profitable growth رشد سودآور؛ payback بازپرداخت؛ working capital سرمایهٔ در گردش؛ contribution margin حاشیهٔ مشارکت؛ cohort mix ترکیب cohort؛ burn مصرف نقد؛ runway مدت دوام منابع؛ incrementality اثر افزایشی است. رشد را با کیفیت و جریان نقد بسنجید، نه با حجم تنها.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Growth quality — کیفیت رشد: سنجش رشد با حاشیه، ماندگاری، نقد و هزینهٔ خدمت؛ نرخ رشد تنها تصویر کامل نیست. Working capital — سرمایهٔ در گردش: منابع لازم برای چرخهٔ عملیات؛ رشد سریع می‌تواند پیش از وصول نقد مصرف‌کننده شود. Cohort payback — بازپرداخت گروهی: زمان پوشش هزینه برای cohort مشخص؛ میانگین کل تفاوت مشتریان را پنهان می‌کند.
 
 #### تمرین و بازخورد
 
@@ -389,8 +410,8 @@ Profitable growth رشد سودآور؛ payback بازپرداخت؛ working cap
 
 - منبع [MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics](https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/)؛ مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.
 - منبع [MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition](https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/)؛ تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.
-- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: Customer Acquisition Cost Calculator](https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/)؛ ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.
 
 ### مرور مرحله
 
@@ -460,6 +481,10 @@ LTV باید بر چه پایه‌ای باشد؟
 
 Growth hypothesis فرضیهٔ رشد؛ treatment مداخله؛ primary metric شاخص اصلی؛ guardrail شاخص حفاظتی؛ mechanism سازوکار؛ contamination آلودگی؛ exploratory اکتشافی؛ confirmatory تأییدی؛ pre-registration پیش‌ثبت است. «نسخهٔ جدید بهتر است» فرضیهٔ آزمون‌پذیر نیست.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Growth hypothesis — فرضیهٔ رشد: ادعای آزمون‌پذیر دربارهٔ مداخله و سازوکار رشد؛ «این کار فروش را بالا می‌برد» سازوکار کافی ندارد. Primary metric — شاخص اصلی: نتیجهٔ اصلی که آزمون برای آن طراحی شده؛ انتخاب پس از مشاهده خطر گزینش نتیجه دارد. Exploratory analysis — تحلیل اکتشافی: جست‌وجوی الگو برای ساخت فرضیه؛ بدون آزمون مستقل شاهد تأییدی نیست.
+
 #### تمرین و بازخورد
 
 فرضیهٔ رشد چه اجزایی دارد؟
@@ -512,10 +537,10 @@ Growth hypothesis فرضیهٔ رشد؛ treatment مداخله؛ primary metric 
 
 #### منابع
 
-- منبع [MIT: Measuring the Effects of Online Advertising Using Natural and Field Experiments](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پژوهش دربارهٔ آزمایش‌های میدانی تبلیغات آنلاین و چالش انتساب؛ نتایج مطالعه به کمپین‌ها و جمعیت مشخص محدود است.
-- منبع [MIT Press HDSR (2026): Toward Causal Field Evaluations of AI Systems](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی دربارهٔ ارزیابی میدانی علّی سامانه‌های AI در زمینهٔ استقرار؛ پیشنهاد روش است، نه نتیجهٔ عملکرد برای هر کاربرد.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ رشد، آزمایش تصادفی، A/B testing و استنباط علّی در بازاریابی.
-- منبع [American Marketing Association: Predicted Ghost Ads and Incrementality](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ روش ghost ads و پژوهش Journal of Marketing Research برای سنجش اثر افزایشی؛ روش نیازمند مفروضات و اجرای مناسب است.
+- منبع [Measuring the effects of online advertising on human behavior using natural and field experiments (MIT PhD thesis, 2010)](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پنج پژوهش دربارهٔ اثر تبلیغات نمایشی و جست‌وجویی بر کلیک، ثبت‌نام و خرید؛ شامل آزمایش‌های میدانی با میلیون‌ها مشاهده. نتیجه‌ها به محیط‌های آزمایش‌شده و تبلیغات Yahoo/خرده‌فروش خاص محدودند.
+- منبع [Harvard Data Science Review: Toward Causal Field Evaluations of AI Systems (2026)](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی منتشرشده در مه ۲۰۲۶ استدلال می‌کند ارزیابی علّی در محیط واقعی برای تصمیم استقرار AI اهمیت دارد؛ پیشنهاد روش است و جایگزین طراحی/نتیجهٔ مطالعهٔ واقعی نیست.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: How Predicted Ghost Ads Provide Precise Incrementality Insights (2019)](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ حرفه‌ای روش و مقالهٔ Johnson، Lewis و Nubbemeyer (2017) دربارهٔ آزمایش ghost ads؛ ادعاهای اثر و برتری روش را باید به مقالهٔ اصلی و زمینهٔ کمپین محدود کرد.
 
 ### درس‌نامهٔ `S03-C4-ST02-L02`؛ گروه کنترل و واحد تخصیص
 
@@ -556,6 +581,10 @@ Growth hypothesis فرضیهٔ رشد؛ treatment مداخله؛ primary metric 
 #### واژگان پرتکرار
 
 Unit of randomization واحد تخصیص؛ treatment/control مداخله/کنترل؛ spillover سرریز؛ interference تداخل؛ power توان آماری؛ minimum detectable effect حداقل اثر قابل‌تشخیص؛ intention-to-treat تحلیل بر اساس تخصیص؛ noncompliance عدم‌انطباق است. واحد را با واحد اثر و شبکهٔ استفاده هماهنگ کنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Randomization unit — واحد تصادفی‌سازی: مشتری، حساب، فروشگاه یا زمان که تخصیص در آن انجام می‌شود؛ با واحد تحلیل ممکن است متفاوت باشد. Spillover — سرریز اثر: اثر مداخلهٔ گروهی بر گروه کنترل؛ جداسازی گروه‌ها را مخدوش می‌کند. Noncompliance — عدم‌انطباق: دریافت/استفادهٔ متفاوت از تخصیص؛ تحلیل بر مبنای مصرف‌کنندگان می‌تواند سوگیر شود.
 
 #### تمرین و بازخورد
 
@@ -609,10 +638,10 @@ Unit of randomization واحد تخصیص؛ treatment/control مداخله/کن�
 
 #### منابع
 
-- منبع [MIT: Measuring the Effects of Online Advertising Using Natural and Field Experiments](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پژوهش دربارهٔ آزمایش‌های میدانی تبلیغات آنلاین و چالش انتساب؛ نتایج مطالعه به کمپین‌ها و جمعیت مشخص محدود است.
-- منبع [MIT Press HDSR (2026): Toward Causal Field Evaluations of AI Systems](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی دربارهٔ ارزیابی میدانی علّی سامانه‌های AI در زمینهٔ استقرار؛ پیشنهاد روش است، نه نتیجهٔ عملکرد برای هر کاربرد.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ رشد، آزمایش تصادفی، A/B testing و استنباط علّی در بازاریابی.
-- منبع [American Marketing Association: Predicted Ghost Ads and Incrementality](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ روش ghost ads و پژوهش Journal of Marketing Research برای سنجش اثر افزایشی؛ روش نیازمند مفروضات و اجرای مناسب است.
+- منبع [Measuring the effects of online advertising on human behavior using natural and field experiments (MIT PhD thesis, 2010)](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پنج پژوهش دربارهٔ اثر تبلیغات نمایشی و جست‌وجویی بر کلیک، ثبت‌نام و خرید؛ شامل آزمایش‌های میدانی با میلیون‌ها مشاهده. نتیجه‌ها به محیط‌های آزمایش‌شده و تبلیغات Yahoo/خرده‌فروش خاص محدودند.
+- منبع [Harvard Data Science Review: Toward Causal Field Evaluations of AI Systems (2026)](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی منتشرشده در مه ۲۰۲۶ استدلال می‌کند ارزیابی علّی در محیط واقعی برای تصمیم استقرار AI اهمیت دارد؛ پیشنهاد روش است و جایگزین طراحی/نتیجهٔ مطالعهٔ واقعی نیست.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: How Predicted Ghost Ads Provide Precise Incrementality Insights (2019)](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ حرفه‌ای روش و مقالهٔ Johnson، Lewis و Nubbemeyer (2017) دربارهٔ آزمایش ghost ads؛ ادعاهای اثر و برتری روش را باید به مقالهٔ اصلی و زمینهٔ کمپین محدود کرد.
 
 ### درس‌نامهٔ `S03-C4-ST02-L03`؛ انتساب کانال و خطای تفسیر
 
@@ -653,6 +682,10 @@ ROAS درآمد منتسب به هزینه را می‌سنجد. بازده اف
 #### واژگان پرتکرار
 
 Attribution انتساب؛ last-click آخرین کلیک؛ incrementality افزایشی‌بودن؛ selection bias سوگیری انتخاب؛ ghost ads تبلیغ سایه/آزمایشی؛ MMM مدل آمیختهٔ بازاریابی؛ attribution window پنجرهٔ انتساب؛ cannibalization جابه‌جایی فروش ارگانیک است. اعتبار انتساب به معنی اثر علّی نیست.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Attribution model — مدل انتساب: قاعدهٔ تقسیم اعتبار تبدیل میان تماس‌ها؛ اعتبار حسابداری‌شده اثر افزایشی نیست. Last-click attribution — انتساب آخرین کلیک: نسبت‌دادن تبدیل به تماس آخر؛ تماس‌های قبلی و علت انتخاب را نادیده می‌گیرد. Incrementality test — آزمون افزایشی‌بودن: طراحی برای سنجش نتیجهٔ اضافه در برابر عدم‌مداخله؛ هزینه و سرریز باید کنترل شود.
 
 #### تمرین و بازخورد
 
@@ -706,10 +739,10 @@ MMM چه نوع داده‌ای معمولاً تحلیل می‌کند؟
 
 #### منابع
 
-- منبع [MIT: Measuring the Effects of Online Advertising Using Natural and Field Experiments](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پژوهش دربارهٔ آزمایش‌های میدانی تبلیغات آنلاین و چالش انتساب؛ نتایج مطالعه به کمپین‌ها و جمعیت مشخص محدود است.
-- منبع [MIT Press HDSR (2026): Toward Causal Field Evaluations of AI Systems](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی دربارهٔ ارزیابی میدانی علّی سامانه‌های AI در زمینهٔ استقرار؛ پیشنهاد روش است، نه نتیجهٔ عملکرد برای هر کاربرد.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ رشد، آزمایش تصادفی، A/B testing و استنباط علّی در بازاریابی.
-- منبع [American Marketing Association: Predicted Ghost Ads and Incrementality](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ روش ghost ads و پژوهش Journal of Marketing Research برای سنجش اثر افزایشی؛ روش نیازمند مفروضات و اجرای مناسب است.
+- منبع [Measuring the effects of online advertising on human behavior using natural and field experiments (MIT PhD thesis, 2010)](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پنج پژوهش دربارهٔ اثر تبلیغات نمایشی و جست‌وجویی بر کلیک، ثبت‌نام و خرید؛ شامل آزمایش‌های میدانی با میلیون‌ها مشاهده. نتیجه‌ها به محیط‌های آزمایش‌شده و تبلیغات Yahoo/خرده‌فروش خاص محدودند.
+- منبع [Harvard Data Science Review: Toward Causal Field Evaluations of AI Systems (2026)](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی منتشرشده در مه ۲۰۲۶ استدلال می‌کند ارزیابی علّی در محیط واقعی برای تصمیم استقرار AI اهمیت دارد؛ پیشنهاد روش است و جایگزین طراحی/نتیجهٔ مطالعهٔ واقعی نیست.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: How Predicted Ghost Ads Provide Precise Incrementality Insights (2019)](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ حرفه‌ای روش و مقالهٔ Johnson، Lewis و Nubbemeyer (2017) دربارهٔ آزمایش ghost ads؛ ادعاهای اثر و برتری روش را باید به مقالهٔ اصلی و زمینهٔ کمپین محدود کرد.
 
 ### درس‌نامهٔ `S03-C4-ST02-L04`؛ سنجش اثر کمپین AI
 
@@ -750,6 +783,10 @@ MMM چه نوع داده‌ای معمولاً تحلیل می‌کند؟
 #### واژگان پرتکرار
 
 AI-optimized campaign کمپین بهینه‌شده با AI؛ holdout گروه نگه‌داشته‌شده؛ uplift افزایش افزایشی؛ targeting هدف‌گیری؛ creative خلاقه؛ model version نسخهٔ مدل؛ human review بازبینی انسانی؛ incrementality test آزمون افزایشی است. پیش‌بینی خرید را اثر تبلیغ تلقی نکنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Campaign lift — افزایش ناشی از کمپین: تفاوت پیامد با برآورد حالت بدون کمپین؛ نسبت‌دادن فروش پس از کمپین کافی نیست. Holdout — نگهداشت گروه کنترل: عدم نمایش کمپین به گروه مقایسه؛ تخصیص و سرریز باید مستند شوند. Privacy-preserving measurement — سنجش حافظ حریم خصوصی: سنجش با کاهش دادهٔ قابل‌شناسایی؛ دقت/دامنهٔ برآورد و محدودیت را گزارش کنید.
 
 #### تمرین و بازخورد
 
@@ -803,10 +840,10 @@ AI-optimized campaign کمپین بهینه‌شده با AI؛ holdout گروه 
 
 #### منابع
 
-- منبع [MIT: Measuring the Effects of Online Advertising Using Natural and Field Experiments](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پژوهش دربارهٔ آزمایش‌های میدانی تبلیغات آنلاین و چالش انتساب؛ نتایج مطالعه به کمپین‌ها و جمعیت مشخص محدود است.
-- منبع [MIT Press HDSR (2026): Toward Causal Field Evaluations of AI Systems](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی دربارهٔ ارزیابی میدانی علّی سامانه‌های AI در زمینهٔ استقرار؛ پیشنهاد روش است، نه نتیجهٔ عملکرد برای هر کاربرد.
-- منبع [MIT Sloan: Digital Marketing Analytics and Experimentation Course Description](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح آموزشی دربارهٔ رشد، آزمایش تصادفی، A/B testing و استنباط علّی در بازاریابی.
-- منبع [American Marketing Association: Predicted Ghost Ads and Incrementality](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ روش ghost ads و پژوهش Journal of Marketing Research برای سنجش اثر افزایشی؛ روش نیازمند مفروضات و اجرای مناسب است.
+- منبع [Measuring the effects of online advertising on human behavior using natural and field experiments (MIT PhD thesis, 2010)](https://dspace.mit.edu/entities/publication/e13fe16a-ad87-465b-bd40-886c2bd33beb)؛ پنج پژوهش دربارهٔ اثر تبلیغات نمایشی و جست‌وجویی بر کلیک، ثبت‌نام و خرید؛ شامل آزمایش‌های میدانی با میلیون‌ها مشاهده. نتیجه‌ها به محیط‌های آزمایش‌شده و تبلیغات Yahoo/خرده‌فروش خاص محدودند.
+- منبع [Harvard Data Science Review: Toward Causal Field Evaluations of AI Systems (2026)](https://hdsr.mitpress.mit.edu/pub/ak16gxi2/release/2)؛ مقالهٔ روش‌شناختی منتشرشده در مه ۲۰۲۶ استدلال می‌کند ارزیابی علّی در محیط واقعی برای تصمیم استقرار AI اهمیت دارد؛ پیشنهاد روش است و جایگزین طراحی/نتیجهٔ مطالعهٔ واقعی نیست.
+- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.
+- منبع [American Marketing Association: How Predicted Ghost Ads Provide Precise Incrementality Insights (2019)](https://www.ama.org/2019/01/02/predicted-ghost-ads-an-accurate-and-cost-effective-method-for-measuring-incrementality/)؛ خلاصهٔ حرفه‌ای روش و مقالهٔ Johnson، Lewis و Nubbemeyer (2017) دربارهٔ آزمایش ghost ads؛ ادعاهای اثر و برتری روش را باید به مقالهٔ اصلی و زمینهٔ کمپین محدود کرد.
 
 ### مرور مرحله
 
@@ -876,6 +913,10 @@ last-click چه چیزی را اثبات نمی‌کند؟
 
 برای هر ایده ثبت کنید: مسئله و گروه، تصمیم مورد انتظار، اثر بالقوه، شواهد و عدم‌قطعیت، هزینه و زمان، سنجهٔ اصلی و حفاظ، ریسک و شرط توقف. سپس ظرفیت دوره را مشخص کنید و بگویید چه ایده‌ای به تعویق می‌افتد. این برگه مبنای بازبینی هفتگی است، نه قرارداد تغییرناپذیر.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Experiment portfolio — سبد آزمایش: مجموعهٔ آزمون‌ها با عدم‌قطعیت و یادگیری متفاوت؛ تعداد تست معیار ارزش نیست. Expected value of information — ارزش موردانتظار اطلاعات: بهبود تصمیم ناشی از دانستن بیشتر منهای هزینهٔ کسب اطلاعات؛ برآوردش فرض‌محور است. Opportunity cost — هزینهٔ فرصت: بهترین کار کنارگذاشته‌شده برای انجام آزمایش؛ هزینه فقط بودجه نیست.
+
 #### تمرین و بازخورد
 
 کدام آزمایش باید جلوتر بیاید؟
@@ -928,9 +969,9 @@ ICE/RICE چه نقشی دارند؟
 
 #### منابع
 
-- منبع [American Marketing Association: Customer Lifetime Value Guide and Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی برای ارزش طول عمر مبتنی بر حاشیه، منحنی حفظ cohort و دورهٔ بازپرداخت؛ مفروضات و کیفیت داده باید آشکار بماند.
-- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی پژوهش‌محور دربارهٔ کیفیت cohort، ارزش مشتری و پیوند آزمایش با سنجش ارزش؛ برای چارچوب‌سازی استفاده شده نه به‌عنوان نسخهٔ مالی واحد.
-- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics and Growth Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل بازاریابی، سنجه‌ها، حفظ مشتری، آزمایش و تصمیم‌های رشد.
+- منبع [American Marketing Association: Customer Lifetime Value Guide & Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی LTV بر پایهٔ درآمد، حاشیه، دفعات خرید و حفظ cohort؛ ابزار کامل نیازمند عضویت است و محاسبه فقط با مفروضات آشکار و دادهٔ مناسب قابل استفاده است.
+- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value (2026)](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی ۲۰۲۶ از McCarthy، Skiera و Fader دربارهٔ پیوند CLV و customer equity با ارزش بنگاه؛ تحلیل customer-based را مکمل DCF می‌داند، نه جایگزین آن.
+- منبع [MIT Sloan OCW 15.810: Marketing Management — Fall 2015 Course Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ درگاه بارگیری بستهٔ مواد درس ۱۵.۸۱۰ در پاییز ۲۰۱۵؛ صفحه فهرست مستقیم سرفصل ندارد و برای اولویت‌های رشد به‌تنهایی شاهد نیست.
 
 ### درس‌نامهٔ `S03-C4-ST03-L02`؛ مقیاس‌دادن و افت بازده
 
@@ -971,6 +1012,10 @@ ICE/RICE چه نقشی دارند؟
 #### تصمیم مرحله‌ای با بازبینی
 
 هر پله را با سه گزینهٔ ازپیش‌تعریف‌شده ببندید: افزایش محدود، تثبیت برای جمع‌آوری داده، یا توقف و یادگیری. علت تصمیم و دادهٔ مخالف را ثبت کنید. وقتی فرض یا بازار عوض شد، مدل را به‌روز کنید؛ پایبندی به برنامهٔ قدیمی هدف نیست، یادگیری منضبط هدف است.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Marginal return — بازده حاشیه‌ای: منفعت افزوده از واحد هزینه/بودجهٔ بعدی؛ میانگین بازده گذشته نشانگر اشباع نیست. Diminishing returns — بازده نزولی: افت بازده افزوده با افزایش سرمایه‌گذاری در شرایط مشخص؛ ممکن است با نوآوری کانال عوض شود. Saturation — اشباع: محدودیت موجودی مخاطب/ظرفیت که رشد افزوده را کم می‌کند؛ افت یک دوره اثبات اشباع قطعی نیست.
 
 #### تمرین و بازخورد
 
@@ -1024,9 +1069,9 @@ ICE/RICE چه نقشی دارند؟
 
 #### منابع
 
-- منبع [American Marketing Association: Customer Lifetime Value Guide and Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی برای ارزش طول عمر مبتنی بر حاشیه، منحنی حفظ cohort و دورهٔ بازپرداخت؛ مفروضات و کیفیت داده باید آشکار بماند.
-- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی پژوهش‌محور دربارهٔ کیفیت cohort، ارزش مشتری و پیوند آزمایش با سنجش ارزش؛ برای چارچوب‌سازی استفاده شده نه به‌عنوان نسخهٔ مالی واحد.
-- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics and Growth Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل بازاریابی، سنجه‌ها، حفظ مشتری، آزمایش و تصمیم‌های رشد.
+- منبع [American Marketing Association: Customer Lifetime Value Guide & Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی LTV بر پایهٔ درآمد، حاشیه، دفعات خرید و حفظ cohort؛ ابزار کامل نیازمند عضویت است و محاسبه فقط با مفروضات آشکار و دادهٔ مناسب قابل استفاده است.
+- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value (2026)](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی ۲۰۲۶ از McCarthy، Skiera و Fader دربارهٔ پیوند CLV و customer equity با ارزش بنگاه؛ تحلیل customer-based را مکمل DCF می‌داند، نه جایگزین آن.
+- منبع [MIT Sloan OCW 15.810: Marketing Management — Fall 2015 Course Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ درگاه بارگیری بستهٔ مواد درس ۱۵.۸۱۰ در پاییز ۲۰۱۵؛ صفحه فهرست مستقیم سرفصل ندارد و برای اولویت‌های رشد به‌تنهایی شاهد نیست.
 
 ### درس‌نامهٔ `S03-C4-ST03-L03`؛ حفظ کیفیت مشتری و cohort
 
@@ -1067,6 +1112,10 @@ cohort گروهی است که زمان یا ویژگی شروع مشترک دا�
 #### داشبورد سلامت cohort
 
 برای هر cohort زمان جذب، منبع، تعداد اولیه، فعال‌سازی، حفظ دوره‌ای، خرید تکراری، حاشیهٔ تجمعی و payback را نمایش دهید. کنار عدد تعریف و پنجره را بگذارید. نمودار باید به تصمیم وصل باشد: کدام کانال توسعه یابد، کدام پیام عوض شود یا کدام داده هنوز برای تصمیم کافی نیست؟
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Cohort retention — حفظ cohort: سنجش بازگشت گروه هم‌دوره در سن مشابه؛ مقایسهٔ cohort با سن متفاوت خطاست. Survival analysis — تحلیل بقا: مدل‌کردن زمان تا ریزش با دادهٔ سانسورشده؛ فرض‌های بقا باید وارسی شوند. Predicted CLV — ارزش پیش‌بینی‌شدهٔ طول عمر: برآورد آتی مدل؛ با حاشیهٔ واقعی تحقق‌یافته یکی نیست.
 
 #### تمرین و بازخورد
 
@@ -1120,9 +1169,9 @@ cohort تازه با پنجره تمدید ناتمام را چگونه گزار
 
 #### منابع
 
-- منبع [American Marketing Association: Customer Lifetime Value Guide and Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی برای ارزش طول عمر مبتنی بر حاشیه، منحنی حفظ cohort و دورهٔ بازپرداخت؛ مفروضات و کیفیت داده باید آشکار بماند.
-- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی پژوهش‌محور دربارهٔ کیفیت cohort، ارزش مشتری و پیوند آزمایش با سنجش ارزش؛ برای چارچوب‌سازی استفاده شده نه به‌عنوان نسخهٔ مالی واحد.
-- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics and Growth Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل بازاریابی، سنجه‌ها، حفظ مشتری، آزمایش و تصمیم‌های رشد.
+- منبع [American Marketing Association: Customer Lifetime Value Guide & Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی LTV بر پایهٔ درآمد، حاشیه، دفعات خرید و حفظ cohort؛ ابزار کامل نیازمند عضویت است و محاسبه فقط با مفروضات آشکار و دادهٔ مناسب قابل استفاده است.
+- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value (2026)](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی ۲۰۲۶ از McCarthy، Skiera و Fader دربارهٔ پیوند CLV و customer equity با ارزش بنگاه؛ تحلیل customer-based را مکمل DCF می‌داند، نه جایگزین آن.
+- منبع [MIT Sloan OCW 15.810: Marketing Management — Fall 2015 Course Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ درگاه بارگیری بستهٔ مواد درس ۱۵.۸۱۰ در پاییز ۲۰۱۵؛ صفحه فهرست مستقیم سرفصل ندارد و برای اولویت‌های رشد به‌تنهایی شاهد نیست.
 
 ### درس‌نامهٔ `S03-C4-ST03-L04`؛ برنامهٔ رشد و شرط توقف
 
@@ -1163,6 +1212,10 @@ AI می‌تواند پیشنهاد، خلاقه، بخش‌بندی یا تخص
 #### پس از آزمایش چه می‌ماند
 
 حتی نتیجهٔ منفی دارایی یادگیری است اگر سؤال، روش، دامنه، کیفیت اجرا و محدودیت ثبت شود. نتیجه را به جمعیت و زمان مطالعه محدود کنید؛ تعمیم خودکار به بازار، کانال یا مدل دیگر نکنید. یافته را وارد نقشهٔ فرضیه‌ها کنید و مالک بازبینی بعدی را تعیین کنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Growth plan — برنامهٔ رشد: مجموعهٔ مداخلات، منابع و شاخص‌ها برای افق مشخص؛ هدف رشد بدون محدودیت سود/ریسک طرح نیست. Decision threshold — آستانهٔ تصمیم: حد ازپیش‌تعریف‌شده برای توسعه/توقف؛ باید با خطای تصمیم و هزینه سازگار باشد. Stop condition — شرط توقف: رویداد/شاخصی که آزمایش یا سرمایه‌گذاری را متوقف می‌کند؛ لازم است مالک و مسیر جایگزین داشته باشد.
 
 #### تمرین و بازخورد
 
@@ -1216,9 +1269,9 @@ AI می‌تواند پیشنهاد، خلاقه، بخش‌بندی یا تخص
 
 #### منابع
 
-- منبع [American Marketing Association: Customer Lifetime Value Guide and Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی برای ارزش طول عمر مبتنی بر حاشیه، منحنی حفظ cohort و دورهٔ بازپرداخت؛ مفروضات و کیفیت داده باید آشکار بماند.
-- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی پژوهش‌محور دربارهٔ کیفیت cohort، ارزش مشتری و پیوند آزمایش با سنجش ارزش؛ برای چارچوب‌سازی استفاده شده نه به‌عنوان نسخهٔ مالی واحد.
-- منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics and Growth Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل بازاریابی، سنجه‌ها، حفظ مشتری، آزمایش و تصمیم‌های رشد.
+- منبع [American Marketing Association: Customer Lifetime Value Guide & Calculator](https://www.ama.org/toolkits/ama-lifetime-value-calculator/)؛ راهنمای عملی LTV بر پایهٔ درآمد، حاشیه، دفعات خرید و حفظ cohort؛ ابزار کامل نیازمند عضویت است و محاسبه فقط با مفروضات آشکار و دادهٔ مناسب قابل استفاده است.
+- منبع [American Marketing Association: Linking the Value of Customers to Enterprise Value (2026)](https://www.ama.org/marketing-news/linking-the-value-of-customers-to-enterprise-value/)؛ مقالهٔ کاربردی ۲۰۲۶ از McCarthy، Skiera و Fader دربارهٔ پیوند CLV و customer equity با ارزش بنگاه؛ تحلیل customer-based را مکمل DCF می‌داند، نه جایگزین آن.
+- منبع [MIT Sloan OCW 15.810: Marketing Management — Fall 2015 Course Materials](https://www.ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/download/)؛ درگاه بارگیری بستهٔ مواد درس ۱۵.۸۱۰ در پاییز ۲۰۱۵؛ صفحه فهرست مستقیم سرفصل ندارد و برای اولویت‌های رشد به‌تنهایی شاهد نیست.
 
 ### مرور مرحله
 

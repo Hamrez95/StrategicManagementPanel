@@ -49,6 +49,18 @@
       "title": "آزمون و ثبت شواهد",
       "id": "S05-C4-ST01-L04-CARD09",
       "text": "یک تمرین رومیزی یا آزمون واقعی زمان کشف، تصمیم، فعال‌سازی و بازگشت را ثبت می‌کند. برنامه را پس از تغییر زیرساخت یا فروشنده به‌روزرسانی کنید؛ داشتن سندِ هرگز آزمون‌نشده، آمادگی اثبات‌شده نیست."
+    },
+    {
+      "id": "S05-C4-ST01-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Recovery time objective — هدف زمان بازیابی: بیشینهٔ زمان قابل‌قبول توقف برای خدمت؛ مقدار باید با نیاز کسب‌وکار توافق شود. Recovery point objective — هدف نقطهٔ بازیابی: میزان قابل‌قبول از دست‌رفتن داده بر حسب زمان؛ با زمان راه‌اندازی یکی نیست. Alternate capacity — ظرفیت جایگزین: منبع قابل‌استفاده هنگام اختلال؛ ظرفیت اسمی قراردادی بدون آزمون در دسترس نیست."
+    },
+    {
+      "id": "S05-C4-ST01-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "زمان بازیابی نشان می‌دهد فرایند پس از اختلال چه مدت برای بازگشت به سطح خدمت نیاز دارد؛ ظرفیت جایگزین نشان می‌دهد در این فاصله چه میزان کار را می‌توان منتقل کرد. هر دو باید برای سناریوی مشخص و سطح خدمت تعریف شوند. ظرفیت اعلامی ممکن است قبلاً به مشتری دیگری تعهد شده باشد یا به تأیید کیفی نیاز داشته باشد. فرض دسترسی فوری به جایگزین را با قرارداد، آزمون و زمان راه‌اندازی بررسی کنید. اگر زمان بازیابی از تحمل کسب‌وکار بیشتر است، موجودی محافظ، طراحی جایگزین یا بازنگری خدمت لازم می‌شود. شاخص‌ها را در تمرین عملی اعتبارسنجی کنید، نه فقط در فایل برنامه."
     }
   ],
   "questions": [
@@ -202,36 +214,52 @@
     {
       "title": "OECD Supply Chain Resilience Review (2025)",
       "id": "OECD-SCRR-2025",
-      "url": "https://www.oecd.org/en/publications/2025/06/oecd-supply-chain-resilience-review_9930d256.html",
+      "url": "https://www.oecd.org/en/publications/oecd-supply-chain-resilience-review_94e3a8ea-en.html",
       "review_depth": "official_report_reviewed",
-      "scope": "شواهد و توصیه‌های سیاستی دربارهٔ تاب‌آوری و وابستگی زنجیره؛ تمرکز کلان، نه نسخهٔ آماده برای یک شرکت."
+      "scope": "شواهد و توصیه‌های سیاستی دربارهٔ تاب‌آوری و وابستگی زنجیره؛ تمرکز کلان، نه نسخهٔ آماده برای یک شرکت.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "previous_url": "https://www.oecd.org/en/publications/2025/06/oecd-supply-chain-resilience-review_9930d256.html"
     },
     {
       "title": "NIST SP 1326: Cybersecurity Supply Chain Risk Management Due Diligence Assessment Quick-Start Guide (2026)",
       "id": "NIST-SP1326-2026",
-      "url": "https://csrc.nist.gov/pubs/sp/1326/final",
+      "url": "https://www.nist.gov/publications/nist-cybersecurity-supply-chain-management-due-diligence-assessment-quick-start-guide",
       "review_depth": "official_guide_reviewed",
-      "scope": "راهنمای بررسی منشأ، تاب‌آوری، امنیت پایه و لایه‌های زنجیرهٔ فناوری؛ چارچوب امنیتی است و جایگزین ارزیابی همهٔ ریسک‌های عملیات نیست."
+      "scope": "راهنمای بررسی منشأ، تاب‌آوری، امنیت پایه و لایه‌های زنجیرهٔ فناوری؛ چارچوب امنیتی است و جایگزین ارزیابی همهٔ ریسک‌های عملیات نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "previous_url": "https://csrc.nist.gov/pubs/sp/1326/final"
     },
     {
       "title": "Toyota Production System",
       "id": "K03",
       "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/",
       "review_depth": "official_company_description_reviewed",
-      "scope": "شرح رسمی JIT، jidoka، آشکارسازی ناهنجاری و بهبود مستمر از دید Toyota؛ روایت شرکت است و ارزیابی مستقل پیامدهای کاربردی نیست."
+      "scope": "شرح رسمی JIT، jidoka، آشکارسازی ناهنجاری و بهبود مستمر از دید Toyota؛ روایت شرکت است و ارزیابی مستقل پیامدهای کاربردی نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "MIT OCW, Operations Strategy",
       "id": "M13",
       "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
       "review_depth": "official_syllabus_reviewed",
-      "scope": "چارچوب تصمیم‌های راهبردی عملیات، منبع آموزشی دانشگاهی قدیمی‌تر اما بنیادی."
+      "scope": "چارچوب تصمیم‌های راهبردی عملیات، منبع آموزشی دانشگاهی قدیمی‌تر اما بنیادی.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "risk-register",
     "prompt": "برای سپهر یک ردیف ثبت ریسک بسازید: وابستگی، علت، رخداد، پیامد چندبعدی، سطح اطمینان، کنترل جاری، مالک و تریگر بازبینی را بنویسید.",
-    "expected_output": "ثبت ریسک و سناریوی قابل مرور"
+    "expected_output": "ثبت ریسک و سناریوی قابل مرور",
+    "rubric": [
+      "وابستگی‌های حیاتی و سناریوی اختلال با دامنه و پیامد روشن شده‌اند.",
+      "احتمال/شدت یا اولویت با شاهد و عدم‌قطعیت گزارش شده است.",
+      "کنترل پیشگیرانه، مالک ریسک، trigger و اقدام پاسخ مشخص‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -257,7 +285,14 @@
   "media_plan": {
     "type": "authored_dependency_map_or_scenario_table",
     "purpose": "نمایش وابستگی، دامنهٔ اثر و مسیر بازیابی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/supply-dependency-risk-recovery-map.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «زمان بازیابی و ظرفیت جایگزین»: ریسک یک گره را از مسیر اثر تا خدمت حیاتی و ظرفیت جایگزین دنبال کن. وابستگی بحرانی، تأمین‌کننده، فناوری، مکان یا نفر یگانه را به فرایند وابسته وصل کن.؛ پیامد و عدم‌قطعیت، خدمت متاثر، مدت اختلال و گروه در معرض اثر را مشخص کن.؛ هشدار و سناریو، تریگر قابل‌مشاهده و سناریوی تمرین را تعریف کن؛ احتمال را دقیق‌نمایی نکن.؛ گزینهٔ بازیابی، منبع جایگزین، موجودی، تغییر مسیر و زمان بازیابی را با ظرفیت واقعی بسنج.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «زمان بازیابی و ظرفیت جایگزین» استفاده کن؛ فرض یا سناریوی آموزشی را دادهٔ واقعی تلقی نکن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

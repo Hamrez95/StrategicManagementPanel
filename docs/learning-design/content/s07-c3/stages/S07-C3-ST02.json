@@ -61,6 +61,18 @@
           "title": "واحد ارزیابی، وظیفهٔ کامل است",
           "id": "S07-C3-ST02-L01-CARD08",
           "text": "یک پاسخ روان لزوماً کار موفق نیست. بسنجید آیا هدف کامل شد، داده درست بود، اقدام مجاز انجام شد، ارجاع لازم رخ داد و هزینه/زمان قابل‌قبول ماند. تعریف موفقیت را پیش از پایلوت بنویسید و موارد توقف را کنار آن قرار دهید."
+        },
+        {
+          "id": "S07-C3-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "دستیار (Assistant) معمولاً پیشنهاد یا پاسخ می‌دهد؛ عامل (Agent) هدف را دنبال می‌کند و می‌تواند ابزار به کار گیرد و حلقهٔ اقدام را پیش ببرد. مرز واقعی را از دسترسی و اختیار و اثر بیرونی بسنجید، نه نام محصول."
+        },
+        {
+          "id": "S07-C3-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "دستیار معمولاً به درخواست پاسخ می‌دهد و انسان اقدام را انتخاب می‌کند؛ عامل می‌تواند هدفی بگیرد، ابزار فراخوانی کند و چند گام اجرایی انجام دهد. این تفاوت در چرخهٔ اقدام، اختیار و سطح پیامد است، نه صرف نام محصول. هرچه عامل خودمختارتر باشد، نیاز به محدودیت دامنه، ثبت رخداد و امکان توقف بیشتر می‌شود. تعریف «موفقیت» هدفی که به عامل داده می‌شود را شکل می‌دهد و می‌تواند نتیجهٔ ناخواسته بسازد. قبل از استفاده، نقش کاربر، ابزار، تأییدهای لازم و نقطهٔ بازگشت را روی یک کار کم‌خطر آزمایش کنید."
         }
       ],
       "questions": [
@@ -179,6 +191,36 @@
           "version": 1,
           "correct_option_id": "b",
           "explanation": "کیفیت باید در کل زنجیرهٔ وظیفه و اقدام سنجیده شود."
+        },
+        {
+          "id": "S07-C3-ST02-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "سامانه فقط پاسخ می‌دهد و ابزار یا اقدام بیرونی ندارد. چه چیزی آن را از عامل دارای اختیار اجرایی جدا می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "عامل هدف و حلقهٔ اقدام دارد؛ سطح دسترسی و نظارت و پیامد هم باید سنجیده شود",
+              "feedback": "دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+            },
+            {
+              "id": "b",
+              "text": "ظاهر گفت‌وگویی",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+            },
+            {
+              "id": "c",
+              "text": "سرعت تولید متن",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "دستیار و عامل را با ابزار، حلقهٔ اقدام و اختیار عملی مقایسه می‌کنیم، نه نام محصول.",
+          "objective_id": "S07-C3-ST02-L01-OBJ01",
+          "equivalence_group": "S07-C3-ST02-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C3-ST02-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -187,34 +229,44 @@
           "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
           "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
           "review_depth": "official_business_guide_reviewed",
-          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENAI-AGENTS-SDK-HANDOFFS",
           "title": "OpenAI Agents SDK: Handoffs",
           "url": "https://openai.github.io/openai-agents-python/handoffs/",
           "review_depth": "official_product_documentation_reviewed",
-          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
           "title": "Google PAIR: Feedback + Control",
           "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
           "review_depth": "official_practitioner_guide_reviewed",
-          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "NIST-AIRMF-PLAYBOOK",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core: Govern and Map",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "agent-authorization-and-trace-map",
         "prompt": "در سناریوی سپهر، برای «عامل با دستیار چه فرقی دارد؟» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-        "expected_output": "جدول تعیین سطح خودمختاری و مسیر تأیید برای سه کار سپهر"
+        "expected_output": "جدول تعیین سطح خودمختاری و مسیر تأیید برای سه کار سپهر",
+        "rubric": [
+          "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+          "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+          "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -229,7 +281,7 @@
         "OPENAI-AGENTS-BUSINESS-GUIDE",
         "OPENAI-AGENTS-SDK-HANDOFFS",
         "GOOGLE-PAIR-FEEDBACK-CONTROL",
-        "NIST-AIRMF-PLAYBOOK"
+        "NIST-AI-RMF-CORE"
       ],
       "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
       "example_plan": {
@@ -240,7 +292,14 @@
       "media_plan": {
         "type": "agent-tool-permission-and-trace-map",
         "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «عامل با دستیار چه فرقی دارد؟»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+            "caption": "نقشه را برای تحلیل «عامل با دستیار چه فرقی دارد؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -357,6 +416,18 @@
           "title": "حافظه و ابزار را با چرخهٔ عمر اداره کن",
           "id": "S07-C3-ST02-L02-CARD08",
           "text": "ثبت دسترسی و حذف، بررسی دوره‌ای مجوز، نسخه‌بندی ابزار و آزمون پس از تغییر را در فرایند بگذارید. مدیر محصول باید بداند چه داده‌ای چرا وارد سامانه می‌شود و در رخداد چه کسی دسترسی را محدود می‌کند؛ جزئیات حقوقی را با متخصص حوزه تطبیق دهید."
+        },
+        {
+          "id": "S07-C3-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "حداقل دسترسی (Least privilege) مجوز هر ابزار را به وظیفه محدود می‌کند. حافظهٔ کاری موقت و حافظهٔ پایدار از نظر نگهداری و حریم داده فرق دارند. مجوزها و مدت ماندگاری باید جدا تعریف شوند تا زمینهٔ قدیمی به اقدام تازه نشت نکند."
+        },
+        {
+          "id": "S07-C3-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "ابزار عامل توانایی خواندن یا تغییر سامانه را فراهم می‌کند؛ حافظه ممکن است اطلاعات را بین مراحل نگه دارد. هر اتصال خطر دسترسی و اقدام دارد، بنابراین اصل حداقل دسترسی باید به هر ابزار و نقش اعمال شود. دادهٔ حافظه می‌تواند کهنه، حساس یا متعلق به کاربر دیگر شود؛ ماندگاری، پاک‌سازی و جداسازی زمینه را تعریف کنید. اگر ابزار بتواند پرداخت یا ارسال پیام انجام دهد، محیط آزمایشی و محدودیت مقصد لازم است. هدف عامل مجوز تازه ایجاد نمی‌کند و نباید کنترل‌های دسترسی سامانهٔ اصلی دور زده شوند."
         }
       ],
       "questions": [
@@ -475,6 +546,36 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+        },
+        {
+          "id": "S07-C3-ST02-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "عامل از حافظهٔ بلندمدت و ابزار مالی استفاده می‌کند. اصل طراحی مناسب چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "دادهٔ حافظه، ماندگاری و حداقل مجوز هر ابزار را جدا تعریف کنیم",
+              "feedback": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+            },
+            {
+              "id": "b",
+              "text": "همهٔ ابزارها را آزادانه در دسترس بگذاریم",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+            },
+            {
+              "id": "c",
+              "text": "حافظه را بدون کنترل نگه داریم",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود.",
+          "objective_id": "S07-C3-ST02-L02-OBJ01",
+          "equivalence_group": "S07-C3-ST02-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C3-ST02-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -483,34 +584,44 @@
           "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
           "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
           "review_depth": "official_business_guide_reviewed",
-          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENAI-AGENTS-SDK-HANDOFFS",
           "title": "OpenAI Agents SDK: Handoffs",
           "url": "https://openai.github.io/openai-agents-python/handoffs/",
           "review_depth": "official_product_documentation_reviewed",
-          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
           "title": "Google PAIR: Feedback + Control",
           "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
           "review_depth": "official_practitioner_guide_reviewed",
-          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "NIST-AIRMF-PLAYBOOK",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core: Govern and Map",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "agent-authorization-and-trace-map",
         "prompt": "در سناریوی سپهر، برای «ابزار، حافظه و حدود اختیار» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-        "expected_output": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل"
+        "expected_output": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل",
+        "rubric": [
+          "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+          "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+          "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -525,7 +636,7 @@
         "OPENAI-AGENTS-BUSINESS-GUIDE",
         "OPENAI-AGENTS-SDK-HANDOFFS",
         "GOOGLE-PAIR-FEEDBACK-CONTROL",
-        "NIST-AIRMF-PLAYBOOK"
+        "NIST-AI-RMF-CORE"
       ],
       "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
       "example_plan": {
@@ -536,7 +647,14 @@
       "media_plan": {
         "type": "agent-tool-permission-and-trace-map",
         "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «ابزار، حافظه و حدود اختیار»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+            "caption": "نقشه را برای تحلیل «ابزار، حافظه و حدود اختیار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -653,6 +771,18 @@
           "title": "PAIR: کنترل با نیاز و زمینه متناسب است",
           "id": "S07-C3-ST02-L03-CARD08",
           "text": "راهنمای PAIR می‌گوید توازن خودکارسازی و کنترل به زمینهٔ کاربر و پیامد وابسته است. امکان ویرایش، رد، خاموش‌کردن و بازگشت کنترل را برای کاربران مربوط پیش‌بینی کنید؛ در حوزه‌های حساس، سطح نظارت را بالاتر ببرید و اثر را اندازه بگیرید."
+        },
+        {
+          "id": "S07-C3-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "دروازهٔ تایید (Approval gate) اقدام پرپیامد را پیش از اثر بیرونی متوقف می‌کند تا صاحب اختیار بررسی کند. آستانهٔ ریسک باید بر اساس پیامد و برگشت‌پذیری تعریف شود؛ ثبت پس از اقدام، جای تایید پیشینی را نمی‌گیرد."
+        },
+        {
+          "id": "S07-C3-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "تأیید انسانی را بر اساس پیامد، برگشت‌پذیری و سطح اختیار تنظیم کنید. جستجوی داخلی شاید خودکار انجام شود، اما تغییر رکورد مشتری یا تعهد مالی به سطح کنترل بالاتری نیاز دارد. تأیید باید پیش از اقدام حساس و همراه با نمایش زمینه، پارامتر و پیامد احتمالی باشد. تأیید انبوه یا مبهم ارزش کنترل را از بین می‌برد. اگر سامانه نتواند دلیل اقدام یا دادهٔ ورودی را نشان دهد، تأییدکننده امکان قضاوت ندارد. سیاست توقف و مالک پاسخ‌گو را از پیش تعیین کنید و سناریوهای خطا را تمرین دهید."
         }
       ],
       "questions": [
@@ -771,6 +901,36 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "تمرین، شکاف میان سند و عملیات را آشکار می‌کند."
+        },
+        {
+          "id": "S07-C3-ST02-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "عامل می‌خواهد وجهی غیرقابل‌برگشت انتقال دهد. نقطهٔ تأیید چگونه تعیین شود؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "پیش از اقدام، تأیید انسانی صاحب‌اختیار بر اساس آستانه و ریسک الزام شود",
+              "feedback": "اقدام حساس و برگشت‌ناپذیر نیازمند کنترل پیش از اجرا و صاحب تصمیم روشن است."
+            },
+            {
+              "id": "b",
+              "text": "پس از انتقال لاگ بررسی شود",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: اقدام حساس و برگشت‌ناپذیر نیازمند کنترل پیش از اجرا و صاحب تصمیم روشن است."
+            },
+            {
+              "id": "c",
+              "text": "سطح اختیار را فقط با سرعت بهینه کنیم",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: اقدام حساس و برگشت‌ناپذیر نیازمند کنترل پیش از اجرا و صاحب تصمیم روشن است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "اقدام حساس و برگشت‌ناپذیر نیازمند کنترل پیش از اجرا و صاحب تصمیم روشن است.",
+          "objective_id": "S07-C3-ST02-L03-OBJ01",
+          "equivalence_group": "S07-C3-ST02-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C3-ST02-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -779,34 +939,44 @@
           "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
           "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
           "review_depth": "official_business_guide_reviewed",
-          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENAI-AGENTS-SDK-HANDOFFS",
           "title": "OpenAI Agents SDK: Handoffs",
           "url": "https://openai.github.io/openai-agents-python/handoffs/",
           "review_depth": "official_product_documentation_reviewed",
-          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
           "title": "Google PAIR: Feedback + Control",
           "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
           "review_depth": "official_practitioner_guide_reviewed",
-          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "NIST-AIRMF-PLAYBOOK",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core: Govern and Map",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "agent-authorization-and-trace-map",
         "prompt": "در سناریوی سپهر، برای «تأیید اقدام حساس» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-        "expected_output": "ماتریس اقدام حساس و سازوکار تأیید یا بازگشت"
+        "expected_output": "ماتریس اقدام حساس و سازوکار تأیید یا بازگشت",
+        "rubric": [
+          "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+          "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+          "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -821,7 +991,7 @@
         "OPENAI-AGENTS-BUSINESS-GUIDE",
         "OPENAI-AGENTS-SDK-HANDOFFS",
         "GOOGLE-PAIR-FEEDBACK-CONTROL",
-        "NIST-AIRMF-PLAYBOOK"
+        "NIST-AI-RMF-CORE"
       ],
       "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
       "example_plan": {
@@ -832,7 +1002,14 @@
       "media_plan": {
         "type": "agent-tool-permission-and-trace-map",
         "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «تأیید اقدام حساس»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+            "caption": "نقشه را برای تحلیل «تأیید اقدام حساس» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -949,6 +1126,18 @@
           "title": "ثبت رخداد را به یادگیری وصل کن",
           "id": "S07-C3-ST02-L04-CARD08",
           "text": "به‌طور دوره‌ای نمونه‌های موفق، ارجاع، override و رخداد را مرور کنید. اگر خطا تکرار می‌شود، علت را در داده، ابزار، هدف، آموزش، طراحی اختیار یا ظرفیت بازبین جست‌وجو کنید. تغییر را نسخه‌بندی و پس از آن دوباره ارزیابی کنید؛ trace به‌تنهایی مشکل را حل نمی‌کند."
+        },
+        {
+          "id": "S07-C3-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "منشأ (Provenance) نشان می‌دهد داده و سند از کجا آمده؛ ردپای حسابرسی (Audit trail) زمان و نسخه و نقش و اقدام را ثبت می‌کند. لاگ باید برای بررسی کافی و دسترسی‌اش محدود باشد؛ خلاصهٔ نهایی منشأ تصمیم را جایگزین نمی‌کند."
+        },
+        {
+          "id": "S07-C3-ST02-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "ردگیری تصمیم باید نشان دهد چه کسی یا عاملی، با کدام نسخه، زمینه، ورودی و ابزار، چه اقدامی را پیشنهاد یا انجام داد. ثبت بیش از حد می‌تواند دادهٔ حساس جمع کند، پس هدف، دسترسی و دورهٔ نگهداری را محدود کنید. شناسهٔ رویداد و زمان‌های قابل اتکا پیوند بررسی را ممکن می‌کنند. خروجی نهایی به‌تنهایی علت خطا را نشان نمی‌دهد؛ مراحل میانی و تأییدها نیز لازم‌اند. اگر داده‌ها قابل تغییر یا پاک‌کردن بی‌ردپا باشند، ممیزی ضعیف می‌شود. طراحی ثبت باید هم قابلیت تحقیق و هم حفاظت از حریم خصوصی را تأمین کند."
         }
       ],
       "questions": [
@@ -1067,6 +1256,36 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "ردیابی زمانی ارزش دارد که به اقدام اصلاحی و ارزیابی پیوند بخورد."
+        },
+        {
+          "id": "S07-C3-ST02-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "در بازبینی اختلاف، تیم نمی‌داند کدام نسخهٔ ابزار و داده باعث اقدام شده است. چه چیزی کم است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ثبت منشأ ورودی و خروجی و نسخه و زمان و نقش‌های مسئول",
+              "feedback": "ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+            },
+            {
+              "id": "b",
+              "text": "فقط خلاصهٔ نهایی تصمیم",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+            },
+            {
+              "id": "c",
+              "text": "فقط نام پروژه",
+              "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد.",
+          "objective_id": "S07-C3-ST02-L04-OBJ01",
+          "equivalence_group": "S07-C3-ST02-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C3-ST02-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -1075,34 +1294,44 @@
           "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
           "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
           "review_depth": "official_business_guide_reviewed",
-          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+          "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENAI-AGENTS-SDK-HANDOFFS",
           "title": "OpenAI Agents SDK: Handoffs",
           "url": "https://openai.github.io/openai-agents-python/handoffs/",
           "review_depth": "official_product_documentation_reviewed",
-          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+          "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
           "title": "Google PAIR: Feedback + Control",
           "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
           "review_depth": "official_practitioner_guide_reviewed",
-          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+          "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "NIST-AIRMF-PLAYBOOK",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core: Govern and Map",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+          "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "agent-authorization-and-trace-map",
         "prompt": "در سناریوی سپهر، برای «ثبت منشأ و ردگیری تصمیم» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-        "expected_output": "نمونهٔ رد رخداد از درخواست تا نتیجه و مالک هر گام"
+        "expected_output": "نمونهٔ رد رخداد از درخواست تا نتیجه و مالک هر گام",
+        "rubric": [
+          "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+          "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+          "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -1117,7 +1346,7 @@
         "OPENAI-AGENTS-BUSINESS-GUIDE",
         "OPENAI-AGENTS-SDK-HANDOFFS",
         "GOOGLE-PAIR-FEEDBACK-CONTROL",
-        "NIST-AIRMF-PLAYBOOK"
+        "NIST-AI-RMF-CORE"
       ],
       "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
       "example_plan": {
@@ -1128,7 +1357,14 @@
       "media_plan": {
         "type": "agent-tool-permission-and-trace-map",
         "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «ثبت منشأ و ردگیری تصمیم»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+            "caption": "نقشه را برای تحلیل «ثبت منشأ و ردگیری تصمیم» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,

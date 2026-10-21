@@ -58,6 +58,18 @@
       "type": "summary",
       "title": "پیش از اجرا تصمیم بگیر",
       "text": "طراحی را قبل از مشاهدهٔ نتیجه ثبت کن. این کار جلوی تغییر معیار، توقف به‌موقعِ دلخواه و داستان‌سازی پس از آزمون را می‌گیرد."
+    },
+    {
+      "id": "C08-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Treatment — مداخله: تغییری که اثرش سنجیده می‌شود؛ باید تعریف اجرایی روشن داشته باشد. Control group — گروه کنترل: گروه مقایسه برای برآورد وضعیت بدون مداخله؛ اگر تخصیص یا زمینه متفاوت باشد مقایسه سوگیر می‌شود. Random assignment — تخصیص تصادفی: تعیین تصادفی دریافت مداخله؛ با نمونه‌گیری تصادفی یکی نیست."
+    },
+    {
+      "id": "C08-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "آزمایش معتبر ابتدا مداخله، واحد تخصیص، پیامد و پنجره را تعریف می‌کند؛ تخصیص تصادفی به‌طور میانگین تفاوت‌های پیشین را متوازن می‌کند. اگر واحدها با هم سرریز داشته باشند یا تخصیص رعایت نشود، گروه کنترل دیگر وضعیت بدون مداخله را خوب نشان نمی‌دهد. شاخص اصلی را پیشاپیش تعیین و شاخص حفاظتی را نیز پایش کنید؛ تغییر معیار پس از دیدن نتیجه احتمال انتخاب اتفاقی را بالا می‌برد."
     }
   ],
   "questions": [
@@ -207,18 +219,24 @@
       "remediation_card_id": "C08-ST03-L02-CARD05"
     }
   ],
+  "source_refs": [
+    "whatif",
+    "exp"
+  ],
   "source_links": [
     {
       "id": "whatif",
       "title": "Hernán & Robins, Causal Inference: What If",
-      "url": "https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/04/hernanrobins_WhatIf_26apr24.pdf",
-      "scope": "پیامدهای بالقوه، اثر علّی، مخدوش‌گری و طراحی/تفسیر مطالعه."
+      "url": "https://miguelhernan.org/whatifbook",
+      "scope": "پیامدهای بالقوه، اثر علّی، مخدوش‌گری و طراحی/تفسیر مطالعه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "exp",
       "title": "Microsoft ExP Platform: Sample Ratio Mismatch",
       "url": "https://exp-platform.com/Documents/2019_KDDFabijanGupchupFuptaOmhoverVermeerDmitriev.pdf",
-      "scope": "خطای نسبت نمونه و هشدارهای داده/اجرای آزمایش آنلاین."
+      "scope": "خطای نسبت نمونه و هشدارهای داده/اجرای آزمایش آنلاین.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

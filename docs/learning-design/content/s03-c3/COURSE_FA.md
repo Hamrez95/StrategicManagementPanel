@@ -44,6 +44,10 @@ Aha moment لحظه‌ای است که کاربر ارزش اصلی پیشنها
 
 User کاربر؛ buyer خریدار؛ decision maker تصمیم‌گیرنده؛ payer پرداخت‌کننده؛ activation فعال‌سازی؛ aha moment لحظهٔ کشف ارزش؛ time-to-value زمان رسیدن به ارزش؛ onboarding ورود و راه‌اندازی است. ثبت‌نام موفق را با دریافت ارزش اشتباه نگیرید.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+User, buyer, approver, payer (کاربر، خریدار، تأییدکننده و پرداخت‌کننده) نقش‌های متفاوت در تصمیم خریدند. Job to be done (کاری که مشتری می‌خواهد انجام دهد) زمینه و نتیجه را روشن می‌کند؛ نقش یا انگیزهٔ یک نفر را به همه تعمیم نده.
+
 #### تمرین و بازخورد
 
 در فروش B2B چرا «مشتری» را به نقش‌ها می‌شکنیم؟
@@ -97,7 +101,7 @@ Time-to-value چه چیزی را دنبال می‌کند؟
 #### منابع
 
 - منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ مواد تحصیلات تکمیلی دربارهٔ تحلیل بازاریابی، منافع مشتری، تصمیم کانال و کاربرد موارد؛ از ۲۰۱۵ و چارچوبی آموزشی.
-- منبع [MIT Sloan: Digital Marketing and Social Media Analytics (Course Description)](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح درس دربارهٔ تحلیل بازاریابی دیجیتال، چندکاناله، آزمایش تصادفی، A/B testing و استنباط علّی؛ صفحهٔ برنامه، نه محتوای کامل درس.
+- منبع [MIT Sloan Executive Education: Digital Marketing and Social Media Analytics — Sample Schedule](https://executive.mit.edu/on/demandware.static/-/Sites-master-catalog-msee/default/dw4e1ef4a3/sampleSchedules/dms-lo-sampleschedule.pdf)؛ برنامهٔ نمونهٔ آموزش اجرایی دربارهٔ تبلیغات دیجیتال، تحلیل اجتماعی، CRM، آزمایش و تجارت موبایل؛ برنامهٔ نمونه است و زمان‌بندی آن ممکن است تغییر کند، متن کامل درس نیست.
 - منبع [Nielsen Norman Group: How to Conduct Research for Customer Journey Mapping](https://www.nngroup.com/articles/research-journey-mapping/)؛ روش تحقیق برای نقشهٔ سفر مشتری، شامل مشاهدهٔ مستقیم و تکمیل شواهد کیفی با دادهٔ کمی؛ منبع تخصصی UX، نه دانشگاه.
 - منبع [MIT Sloan OCW 15.810: Marketing Management Syllabus](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/pages/syllabus/)؛ چارچوب آموزشی تحصیلات تکمیلی دربارهٔ منافع مشتری، تحلیل و اقدام یادگیری.
 
@@ -140,6 +144,10 @@ Time-to-value چه چیزی را دنبال می‌کند؟
 #### واژه‌های پرتکرار
 
 Customer journey سفر مشتری؛ touchpoint نقطهٔ تماس؛ funnel قیف؛ drop-off رهاکردن مرحله؛ friction اصطکاک؛ service blueprint نقشهٔ پشت‌صحنهٔ خدمت؛ handoff انتقال نقش؛ evidence-backed map نقشهٔ مبتنی بر شاهد است. نقشهٔ زیبا بدون منبع شواهد فرضیه است.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Customer journey (سفر مشتری) توالی تماس‌ها از نیاز تا استفاده و پشتیبانی را نشان می‌دهد. Touchpoint (نقطهٔ تماس) یا friction (اصطکاک) باید با رفتار و شاهد واقعی اولویت بگیرد؛ نقشهٔ فرضی تجربهٔ مشاهده‌شده نیست.
 
 #### تمرین و بازخورد
 
@@ -194,7 +202,7 @@ Customer journey سفر مشتری؛ touchpoint نقطهٔ تماس؛ funnel ق�
 #### منابع
 
 - منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ مواد تحصیلات تکمیلی دربارهٔ تحلیل بازاریابی، منافع مشتری، تصمیم کانال و کاربرد موارد؛ از ۲۰۱۵ و چارچوبی آموزشی.
-- منبع [MIT Sloan: Digital Marketing and Social Media Analytics (Course Description)](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح درس دربارهٔ تحلیل بازاریابی دیجیتال، چندکاناله، آزمایش تصادفی، A/B testing و استنباط علّی؛ صفحهٔ برنامه، نه محتوای کامل درس.
+- منبع [MIT Sloan Executive Education: Digital Marketing and Social Media Analytics — Sample Schedule](https://executive.mit.edu/on/demandware.static/-/Sites-master-catalog-msee/default/dw4e1ef4a3/sampleSchedules/dms-lo-sampleschedule.pdf)؛ برنامهٔ نمونهٔ آموزش اجرایی دربارهٔ تبلیغات دیجیتال، تحلیل اجتماعی، CRM، آزمایش و تجارت موبایل؛ برنامهٔ نمونه است و زمان‌بندی آن ممکن است تغییر کند، متن کامل درس نیست.
 - منبع [Nielsen Norman Group: How to Conduct Research for Customer Journey Mapping](https://www.nngroup.com/articles/research-journey-mapping/)؛ روش تحقیق برای نقشهٔ سفر مشتری، شامل مشاهدهٔ مستقیم و تکمیل شواهد کیفی با دادهٔ کمی؛ منبع تخصصی UX، نه دانشگاه.
 - منبع [MIT Sloan OCW 15.810: Marketing Management Syllabus](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/pages/syllabus/)؛ چارچوب آموزشی تحصیلات تکمیلی دربارهٔ منافع مشتری، تحلیل و اقدام یادگیری.
 
@@ -237,6 +245,10 @@ Customer journey سفر مشتری؛ touchpoint نقطهٔ تماس؛ funnel ق�
 #### واژگان پرتکرار
 
 Activation فعال‌سازی؛ activation event رویداد فعال‌سازی؛ time-to-value زمان تا ارزش؛ cohort cohort/گروه هم‌زمان شروع؛ onboarding راه‌اندازی؛ retention نگهداشت؛ guardrail شاخص حفاظتی؛ event definition تعریف رویداد است. رویداد ثبت‌شده را با ارزش تحقق‌یافته اعتبارسنجی کنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Activation — فعال‌سازی: تحقق رفتار آغازینی که نشان می‌دهد مشتری ارزش اولیه را تجربه کرده؛ ثبت‌نام به‌تنهایی فعال‌سازی نیست. Time to value — زمان رسیدن به ارزش: فاصلهٔ شروع تا دریافت منفعت تعریف‌شده؛ باید از دید مشتری و واحد زمان سنجیده شود. Onboarding friction — اصطکاک شروع: مانع فرایندی/اطلاعاتی در شروع؛ حذف هر مرحله ممکن است کیفیت یا امنیت را کم کند.
 
 #### تمرین و بازخورد
 
@@ -291,7 +303,7 @@ Activation فعال‌سازی؛ activation event رویداد فعال‌ساز
 #### منابع
 
 - منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ مواد تحصیلات تکمیلی دربارهٔ تحلیل بازاریابی، منافع مشتری، تصمیم کانال و کاربرد موارد؛ از ۲۰۱۵ و چارچوبی آموزشی.
-- منبع [MIT Sloan: Digital Marketing and Social Media Analytics (Course Description)](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح درس دربارهٔ تحلیل بازاریابی دیجیتال، چندکاناله، آزمایش تصادفی، A/B testing و استنباط علّی؛ صفحهٔ برنامه، نه محتوای کامل درس.
+- منبع [MIT Sloan Executive Education: Digital Marketing and Social Media Analytics — Sample Schedule](https://executive.mit.edu/on/demandware.static/-/Sites-master-catalog-msee/default/dw4e1ef4a3/sampleSchedules/dms-lo-sampleschedule.pdf)؛ برنامهٔ نمونهٔ آموزش اجرایی دربارهٔ تبلیغات دیجیتال، تحلیل اجتماعی، CRM، آزمایش و تجارت موبایل؛ برنامهٔ نمونه است و زمان‌بندی آن ممکن است تغییر کند، متن کامل درس نیست.
 - منبع [Nielsen Norman Group: How to Conduct Research for Customer Journey Mapping](https://www.nngroup.com/articles/research-journey-mapping/)؛ روش تحقیق برای نقشهٔ سفر مشتری، شامل مشاهدهٔ مستقیم و تکمیل شواهد کیفی با دادهٔ کمی؛ منبع تخصصی UX، نه دانشگاه.
 - منبع [MIT Sloan OCW 15.810: Marketing Management Syllabus](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/pages/syllabus/)؛ چارچوب آموزشی تحصیلات تکمیلی دربارهٔ منافع مشتری، تحلیل و اقدام یادگیری.
 
@@ -334,6 +346,10 @@ Activation فعال‌سازی؛ activation event رویداد فعال‌ساز
 #### واژگان پرتکرار
 
 Product metric معیار محصول؛ north-star metric معیار راهنمای اصلی؛ denominator مخرج؛ leading indicator شاخص پیشرو؛ lagging outcome نتیجهٔ پسرو؛ guardrail حفاظ؛ instrumentation ثبت رخداد؛ metric gaming بازی‌دادن معیار است. معیار بدون مالک و اقدام فقط تزئین داشبورد است.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Product metric — معیار محصول: سنجهٔ رفتار/نتیجهٔ کاربر با واحد و بازه؛ تعداد کلیک بدون پیوند به ارزش تصمیمی نیست. Denominator — مخرج: جمعیتی که نرخ به آن تقسیم می‌شود؛ تغییر مخرج روند را عوض می‌کند. Guardrail — شاخص حفاظتی: سنجهٔ جلوگیری از بهبود یک شاخص به بهای آسیب دیگر؛ حد آن باید پیشاپیش تعریف شود.
 
 #### تمرین و بازخورد
 
@@ -388,7 +404,7 @@ Product metric معیار محصول؛ north-star metric معیار راهنما
 #### منابع
 
 - منبع [MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/)؛ مواد تحصیلات تکمیلی دربارهٔ تحلیل بازاریابی، منافع مشتری، تصمیم کانال و کاربرد موارد؛ از ۲۰۱۵ و چارچوبی آموزشی.
-- منبع [MIT Sloan: Digital Marketing and Social Media Analytics (Course Description)](https://mitsloan.mit.edu/business-analytics-certificate)؛ شرح درس دربارهٔ تحلیل بازاریابی دیجیتال، چندکاناله، آزمایش تصادفی، A/B testing و استنباط علّی؛ صفحهٔ برنامه، نه محتوای کامل درس.
+- منبع [MIT Sloan Executive Education: Digital Marketing and Social Media Analytics — Sample Schedule](https://executive.mit.edu/on/demandware.static/-/Sites-master-catalog-msee/default/dw4e1ef4a3/sampleSchedules/dms-lo-sampleschedule.pdf)؛ برنامهٔ نمونهٔ آموزش اجرایی دربارهٔ تبلیغات دیجیتال، تحلیل اجتماعی، CRM، آزمایش و تجارت موبایل؛ برنامهٔ نمونه است و زمان‌بندی آن ممکن است تغییر کند، متن کامل درس نیست.
 - منبع [Nielsen Norman Group: How to Conduct Research for Customer Journey Mapping](https://www.nngroup.com/articles/research-journey-mapping/)؛ روش تحقیق برای نقشهٔ سفر مشتری، شامل مشاهدهٔ مستقیم و تکمیل شواهد کیفی با دادهٔ کمی؛ منبع تخصصی UX، نه دانشگاه.
 - منبع [MIT Sloan OCW 15.810: Marketing Management Syllabus](https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/pages/syllabus/)؛ چارچوب آموزشی تحصیلات تکمیلی دربارهٔ منافع مشتری، تحلیل و اقدام یادگیری.
 
@@ -460,6 +476,10 @@ ROAS فروش نسبت‌داده‌شده به هزینهٔ تبلیغ را ن�
 
 GMV ارزش ناخالص معامله؛ net revenue درآمد خالص؛ contribution margin حاشیهٔ مشارکت؛ CAC هزینهٔ جذب مشتری؛ ROAS بازده هزینهٔ تبلیغ؛ last-mile آخرین مایل؛ return rate نرخ مرجوعی؛ cohort گروه هم‌زمان جذب است. فروش ناخالص را با سود سفارش اشتباه نگیرید.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Unit economics — اقتصاد واحد: درآمد و هزینهٔ مرتبط با واحد سفارش/مشتری؛ مرز هزینه و واحد باید ثابت باشد. Contribution margin — حاشیهٔ مشارکت: درآمد پس از هزینهٔ متغیر قابل‌انتساب؛ هزینهٔ جذب و سربار ممکن است خارج بماند. Return rate — نرخ مرجوعی: سهم سفارش/واحد برگشتی با تعریف و پنجرهٔ مشخص؛ افزایش فروش ناخالص را باید پس از مرجوعی خواند.
+
 #### تمرین و بازخورد
 
 GMV چه چیزی را الزاماً نشان نمی‌دهد؟
@@ -513,7 +533,7 @@ CAC را چرا با cohort دنبال می‌کنیم؟
 #### منابع
 
 - منبع [MIT Sloan OCW 15.387: Lecture 7—Channel Conflict (Formprint)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/resources/mit15_387s15_lecture7/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل تعارض فروش مستقیم و شریک و مشوق‌های کانال؛ مورد Formprint وابسته به زمینهٔ مطالعه است.
-- منبع [MIT OCW: Entrepreneurial Sales (15.387 Spring 2015)](https://learn.mit.edu/c/topic/humanities?resource=4179&resource_title=managing-innovation-and-entrepreneurship)؛ شرح دورهٔ فروش سازمانی، کانال مستقیم و غیرمستقیم، ساخت نیروی فروش و حل تعارض کانال.
+- منبع [MIT OpenCourseWare: Entrepreneurial Sales (15.387, Spring 2015)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/)؛ صفحهٔ رسمی درس تحصیلات تکمیلی MIT دربارهٔ فروش فنی، نیروی فروش، قلمروها، مشوق‌ها و تعارض کانال؛ مربوط به بهار ۲۰۱۵ است.
 - منبع [NRF: 2025 Retail Returns Landscape](https://cdn.nrf.com/research/2025-retail-returns-landscape)؛ برآورد و پیمایش مصرف‌کننده و خرده‌فروش برای بازار ایالات متحده در ۲۰۲۵ دربارهٔ مرجوعی؛ اعداد به روش و بازار گزارش محدودند.
 - منبع [MIT Sloan OCW: Financial and Managerial Accounting—Accounting for Inventory](https://ocw.mit.edu/courses/15-514-financial-and-managerial-accounting-summer-2003/a206798950af086d108d23ab563c1cf4_lec6notes.pdf)؛ یادداشت مقدماتی حسابداری دربارهٔ موجودی؛ برای مفهوم هزینه و گردش موجودی، نه راهنمای عملیاتی لجستیک روز.
 
@@ -556,6 +576,10 @@ CAC را چرا با cohort دنبال می‌کنیم؟
 #### واژگان پرتکرار
 
 Inventory accuracy دقت موجودی؛ fill rate نرخ تأمین کامل؛ on-time delivery تحویل به‌موقع؛ last-mile آخرین مایل؛ reverse logistics لجستیک معکوس؛ return authorization مجوز مرجوعی؛ refund latency تأخیر بازپرداخت؛ SLA توافق سطح خدمت است. سرعت را بدون دقت و هزینه بهینه نکنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Fill rate — نرخ تکمیل سفارش: سهم تقاضای تحویل‌شده از مقدار خواسته‌شده طبق تعریف؛ موجودی موقت و جانشین‌سازی بر آن اثر دارند. On-time delivery — تحویل به‌موقع: تحقق موعد قراردادی/وعده‌داده‌شده؛ تعریف پنجره و نقطهٔ تحویل لازم است. Reverse logistics — لجستیک معکوس: جریان برگشت، بازرسی و بازپرداخت/بازفروش؛ هزینهٔ آن فراتر از هزینهٔ ارسال است.
 
 #### تمرین و بازخورد
 
@@ -610,7 +634,7 @@ Inventory accuracy دقت موجودی؛ fill rate نرخ تأمین کامل؛ 
 #### منابع
 
 - منبع [MIT Sloan OCW 15.387: Lecture 7—Channel Conflict (Formprint)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/resources/mit15_387s15_lecture7/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل تعارض فروش مستقیم و شریک و مشوق‌های کانال؛ مورد Formprint وابسته به زمینهٔ مطالعه است.
-- منبع [MIT OCW: Entrepreneurial Sales (15.387 Spring 2015)](https://learn.mit.edu/c/topic/humanities?resource=4179&resource_title=managing-innovation-and-entrepreneurship)؛ شرح دورهٔ فروش سازمانی، کانال مستقیم و غیرمستقیم، ساخت نیروی فروش و حل تعارض کانال.
+- منبع [MIT OpenCourseWare: Entrepreneurial Sales (15.387, Spring 2015)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/)؛ صفحهٔ رسمی درس تحصیلات تکمیلی MIT دربارهٔ فروش فنی، نیروی فروش، قلمروها، مشوق‌ها و تعارض کانال؛ مربوط به بهار ۲۰۱۵ است.
 - منبع [NRF: 2025 Retail Returns Landscape](https://cdn.nrf.com/research/2025-retail-returns-landscape)؛ برآورد و پیمایش مصرف‌کننده و خرده‌فروش برای بازار ایالات متحده در ۲۰۲۵ دربارهٔ مرجوعی؛ اعداد به روش و بازار گزارش محدودند.
 - منبع [MIT Sloan OCW: Financial and Managerial Accounting—Accounting for Inventory](https://ocw.mit.edu/courses/15-514-financial-and-managerial-accounting-summer-2003/a206798950af086d108d23ab563c1cf4_lec6notes.pdf)؛ یادداشت مقدماتی حسابداری دربارهٔ موجودی؛ برای مفهوم هزینه و گردش موجودی، نه راهنمای عملیاتی لجستیک روز.
 
@@ -653,6 +677,10 @@ Inventory accuracy دقت موجودی؛ fill rate نرخ تأمین کامل؛ 
 #### واژگان پرتکرار
 
 Marketplace بازارگاه؛ DTC/direct-to-consumer فروش مستقیم؛ channel economics اقتصاد کانال؛ commission کمیسیون؛ customer data access دسترسی به دادهٔ مشتری؛ channel dependency وابستگی کانال؛ omnichannel چندکانالهٔ پیوسته؛ disintermediation حذف واسطه است. درآمد کانال را پس از هزینه و وابستگی بسنجید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Marketplace — بازارگاه: میانجی تعامل خریدار و فروشنده؛ میزان کنترل موجودی و تجربه به مدل عملیاتی وابسته است. Direct-to-consumer — فروش مستقیم به مشتری: فروش بدون واسطهٔ خرده‌فروشی اصلی؛ سازمان مسئول جذب، تحویل و خدمت هم می‌شود. Omnichannel — چندکانالهٔ یکپارچه: تجربهٔ پیوسته بین کانال‌ها؛ حضور در چند کانال به‌تنهایی یکپارچگی نیست.
 
 #### تمرین و بازخورد
 
@@ -707,7 +735,7 @@ Marketplace بازارگاه؛ DTC/direct-to-consumer فروش مستقیم؛ ch
 #### منابع
 
 - منبع [MIT Sloan OCW 15.387: Lecture 7—Channel Conflict (Formprint)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/resources/mit15_387s15_lecture7/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل تعارض فروش مستقیم و شریک و مشوق‌های کانال؛ مورد Formprint وابسته به زمینهٔ مطالعه است.
-- منبع [MIT OCW: Entrepreneurial Sales (15.387 Spring 2015)](https://learn.mit.edu/c/topic/humanities?resource=4179&resource_title=managing-innovation-and-entrepreneurship)؛ شرح دورهٔ فروش سازمانی، کانال مستقیم و غیرمستقیم، ساخت نیروی فروش و حل تعارض کانال.
+- منبع [MIT OpenCourseWare: Entrepreneurial Sales (15.387, Spring 2015)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/)؛ صفحهٔ رسمی درس تحصیلات تکمیلی MIT دربارهٔ فروش فنی، نیروی فروش، قلمروها، مشوق‌ها و تعارض کانال؛ مربوط به بهار ۲۰۱۵ است.
 - منبع [NRF: 2025 Retail Returns Landscape](https://cdn.nrf.com/research/2025-retail-returns-landscape)؛ برآورد و پیمایش مصرف‌کننده و خرده‌فروش برای بازار ایالات متحده در ۲۰۲۵ دربارهٔ مرجوعی؛ اعداد به روش و بازار گزارش محدودند.
 - منبع [MIT Sloan OCW: Financial and Managerial Accounting—Accounting for Inventory](https://ocw.mit.edu/courses/15-514-financial-and-managerial-accounting-summer-2003/a206798950af086d108d23ab563c1cf4_lec6notes.pdf)؛ یادداشت مقدماتی حسابداری دربارهٔ موجودی؛ برای مفهوم هزینه و گردش موجودی، نه راهنمای عملیاتی لجستیک روز.
 
@@ -750,6 +778,10 @@ Marketplace بازارگاه؛ DTC/direct-to-consumer فروش مستقیم؛ ch
 #### واژگان پرتکرار
 
 Channel conflict تعارض کانال؛ account ownership مالکیت حساب؛ lead routing مسیردهی سرنخ؛ territory قلمرو؛ channel incentive مشوق کانال؛ escalation تصعید اختلاف؛ partner governance حکمرانی شریک؛ last-touch attribution انتساب آخرین تماس است. تعارض را با ساختار و مشوق تحلیل کنید، نه فقط شخصیت افراد.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Channel conflict — تعارض کانال: رقابت یا اصطکاک بر سر قیمت، مشتری یا اعتبار فروش؛ مسئله فقط فروش ازدست‌رفته نیست. Customer ownership — مالکیت رابطهٔ مشتری: اختیار و مسئولیت داده/خدمت در کانال؛ به معنی مالکیت شخص مشتری نیست. Channel attribution — انتساب کانال: قاعدهٔ نسبت‌دادن نتیجه به کانال‌ها؛ آخرین تماس لزوماً علت فروش نیست.
 
 #### تمرین و بازخورد
 
@@ -804,7 +836,7 @@ Channel conflict تعارض کانال؛ account ownership مالکیت حساب
 #### منابع
 
 - منبع [MIT Sloan OCW 15.387: Lecture 7—Channel Conflict (Formprint)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/resources/mit15_387s15_lecture7/)؛ مواد آموزشی تحصیلات تکمیلی برای تحلیل تعارض فروش مستقیم و شریک و مشوق‌های کانال؛ مورد Formprint وابسته به زمینهٔ مطالعه است.
-- منبع [MIT OCW: Entrepreneurial Sales (15.387 Spring 2015)](https://learn.mit.edu/c/topic/humanities?resource=4179&resource_title=managing-innovation-and-entrepreneurship)؛ شرح دورهٔ فروش سازمانی، کانال مستقیم و غیرمستقیم، ساخت نیروی فروش و حل تعارض کانال.
+- منبع [MIT OpenCourseWare: Entrepreneurial Sales (15.387, Spring 2015)](https://ocw.mit.edu/courses/15-387-entrepreneurial-sales-spring-2015/)؛ صفحهٔ رسمی درس تحصیلات تکمیلی MIT دربارهٔ فروش فنی، نیروی فروش، قلمروها، مشوق‌ها و تعارض کانال؛ مربوط به بهار ۲۰۱۵ است.
 - منبع [NRF: 2025 Retail Returns Landscape](https://cdn.nrf.com/research/2025-retail-returns-landscape)؛ برآورد و پیمایش مصرف‌کننده و خرده‌فروش برای بازار ایالات متحده در ۲۰۲۵ دربارهٔ مرجوعی؛ اعداد به روش و بازار گزارش محدودند.
 - منبع [MIT Sloan OCW: Financial and Managerial Accounting—Accounting for Inventory](https://ocw.mit.edu/courses/15-514-financial-and-managerial-accounting-summer-2003/a206798950af086d108d23ab563c1cf4_lec6notes.pdf)؛ یادداشت مقدماتی حسابداری دربارهٔ موجودی؛ برای مفهوم هزینه و گردش موجودی، نه راهنمای عملیاتی لجستیک روز.
 
@@ -876,6 +908,10 @@ Service blueprint اقدام مشتری، نقطهٔ تماس، کار کارک�
 
 Omnichannel تجربهٔ چندکانالهٔ پیوسته؛ multichannel چندکاناله؛ service blueprint نقشهٔ خدمت؛ handoff انتقال؛ first contact resolution حل در تماس نخست؛ identity resolution اتصال هویت؛ channel orchestration هماهنگی کانال‌ها است. «همه‌جا بودن» با «یکپارچه بودن» یکی نیست.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Omnichannel service — خدمت چندکانالهٔ یکپارچه: تداوم اطلاعات و کار مشتری میان کانال‌ها؛ همهٔ کانال‌ها الزاماً تجربهٔ یکسان ندارند. Handoff — تحویل بین کانال‌ها: انتقال زمینه و مسئولیت بدون تکرار کار مشتری؛ موفقیتش با دادهٔ عملیاتی سنجیده می‌شود. Channel optimization — بهینه‌سازی کانال: بهبود نتیجهٔ هر مسیر؛ بهبود محلی ممکن است تجربهٔ کل را بدتر کند.
+
 #### تمرین و بازخورد
 
 داشتن اپ و فروشگاه چه چیزی را ثابت نمی‌کند؟
@@ -928,10 +964,10 @@ Service blueprint چه چیزی را کنار هم می‌آورد؟
 
 #### منابع
 
-- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.
-- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.
-- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.
-- منبع [MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.
+- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.
+- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.
+- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.
+- منبع [MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.
 - منبع [MIT Sloan Executive Education: Breakthrough Customer Experience Strategy](https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html)؛ شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.
 
 ### درس‌نامهٔ `S03-C3-ST03-L02`؛ توصیه‌گر و محتوای مولد
@@ -973,6 +1009,10 @@ Service blueprint چه چیزی را کنار هم می‌آورد؟
 #### واژگان پرتکرار
 
 Recommender system سامانهٔ توصیه‌گر؛ ranking رتبه‌بندی؛ CTR نرخ کلیک؛ exposure نمایش؛ popularity bias سوگیری محبوبیت؛ exploration کاوش؛ generated content محتوای مولد؛ human escalation ارجاع انسانی است. کلیک بالاتر به‌تنهایی تجربهٔ بهتر را ثابت نمی‌کند.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Recommender system — سامانهٔ توصیه‌گر: رتبه‌بندی/پیشنهاد گزینه بر اساس داده و هدف؛ ارتباط بیشتر لزوماً منفعت مشتری نیست. Generative content — محتوای مولد: متن/تصویر ساخته‌شده توسط مدل؛ اصالت و دقت را باید کنترل کرد. Provenance — منشأ محتوا: امکان ردیابی منبع/نسخه/تولید؛ برچسب AI به‌تنهایی صحت محتوا را ثابت نمی‌کند.
 
 #### تمرین و بازخورد
 
@@ -1026,10 +1066,10 @@ CTR بالاتر چه چیزی را خودکار ثابت نمی‌کند؟
 
 #### منابع
 
-- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.
-- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.
-- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.
-- منبع [MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.
+- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.
+- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.
+- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.
+- منبع [MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.
 - منبع [MIT Sloan Executive Education: Breakthrough Customer Experience Strategy](https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html)؛ شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.
 
 ### درس‌نامهٔ `S03-C3-ST03-L03`؛ حریم خصوصی و اعتماد مشتری
@@ -1071,6 +1111,10 @@ CTR بالاتر چه چیزی را خودکار ثابت نمی‌کند؟
 #### واژگان پرتکرار
 
 Purpose limitation محدودیت هدف؛ data minimization کمینه‌سازی؛ consent رضایت؛ inferred data دادهٔ استنباط‌شده؛ retention نگهداری؛ role-based access دسترسی نقش‌محور؛ data subject control اختیار صاحب داده؛ re-identification بازشناسایی است. دادهٔ مستعار را ناشناس کامل فرض نکنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Purpose limitation — محدودیت هدف: استفاده از داده فقط برای هدف مشخص و اعلام‌شده؛ رضایت کلی ممکن است کافی نباشد. Data minimization — کمینه‌سازی داده: دریافت دادهٔ لازم و متناسب؛ دادهٔ کمتر بدون طراحی درست تضمین حریم نیست. Privacy control — کنترل حریم خصوصی: امکان روشن برای مشاهده/اصلاح/حذف یا انتخاب؛ کنترل باید در عمل قابل‌استفاده باشد.
 
 #### تمرین و بازخورد
 
@@ -1124,10 +1168,10 @@ Purpose limitation محدودیت هدف؛ data minimization کمینه‌ساز
 
 #### منابع
 
-- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.
-- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.
-- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.
-- منبع [MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.
+- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.
+- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.
+- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.
+- منبع [MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.
 - منبع [MIT Sloan Executive Education: Breakthrough Customer Experience Strategy](https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html)؛ شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.
 
 ### درس‌نامهٔ `S03-C3-ST03-L04`؛ ارزیابی اثر واقعی تجربه بر فروش
@@ -1169,6 +1213,10 @@ Purpose limitation محدودیت هدف؛ data minimization کمینه‌ساز
 #### واژگان پرتکرار
 
 A/B test آزمون A/B؛ treatment مداخله؛ randomization تصادفی‌سازی؛ exposure مواجهه؛ contamination آلودگی؛ incremental lift افزایش افزایشی؛ statistical power توان آماری؛ guardrail حفاظ؛ heterogeneous treatment effect ناهمگنی اثر است. افزایش فروش را فقط با مقایسهٔ معتبر به تجربه نسبت دهید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Incremental effect — اثر افزایشی: تفاوتی که مداخله در قیاس با حالت بدون آن ایجاد می‌کند؛ رشد هم‌زمان الزاماً اثر تغییر تجربه نیست. Holdout group — گروه نگه‌داشته‌شده: گروهی که مداخله دریافت نمی‌کند برای مقایسه؛ انتخاب غیرتصادفی ممکن است سوگیری دهد. Net revenue retention — نگهداشت خالص درآمد: تغییر درآمد گروه مشتریان موجود با ارتقا/کاهش/ریزش طبق تعریف؛ تعداد مشتری را نشان نمی‌دهد.
 
 #### تمرین و بازخورد
 
@@ -1222,10 +1270,10 @@ A/B آزمون چه چیزی را تخمین می‌زند؟
 
 #### منابع
 
-- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.
-- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.
-- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.
-- منبع [MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.
+- منبع [NIST AI Risk Management Framework (AI RMF)](https://www.nist.gov/itl/ai-risk-management-framework)؛ چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.
+- منبع [NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.
+- منبع [MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends](https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends)؛ خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.
+- منبع [MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation](https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/)؛ صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.
 - منبع [MIT Sloan Executive Education: Breakthrough Customer Experience Strategy](https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html)؛ شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.
 
 ### مرور مرحله

@@ -44,6 +44,18 @@
       "title": "چارچوب انتخاب",
       "id": "S06-C3-ST02-L01-CARD08",
       "text": "برای هر گزینه مبلغ خالص، زمان دسترسی، شروط، هزینهٔ نقدی، اثر مالکیت/کنترل، ریسک بازپرداخت و نقطهٔ عطف ممکن را بنویسید. این مقایسهٔ آموزشی است؛ ابزارها و قوانین تأمین مالی در کشورها فرق می‌کنند."
+    },
+    {
+      "id": "S06-C3-ST02-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Bootstrapping — تأمین شخصی/درآمدی: تأمین شرکت بدون سرمایهٔ سهامی بیرونی؛ کنترل بیشتر با محدودیت سرعت می‌آید. Angel/VC financing — سرمایهٔ فرشته/سرمایه‌گذاری خطرپذیر: سرمایه در برابر قرارداد/سهام و رشد؛ تناسب افق و مالکیت باید سنجیده شود. Runway — مدت بقای نقدی: زمان تا اتمام نقد در نرخ مصرف فرضی؛ افزایش درآمد/هزینه، افق را تغییر می‌دهد."
+    },
+    {
+      "id": "S06-C3-ST02-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "سرمایهٔ شخصی، درآمد و سرمایه‌گذار سه زمان‌بندی و سطح کنترل متفاوت دارند. سهام بیرونی زمان رشد را می‌خرد اما مالکیت و انتظارات بازده را تغییر می‌دهد؛ bootstrap وابستگی را کم می‌کند اما سرعت یا توان آزمون را محدود می‌سازد. اگر نقطهٔ عطف با نقد مشتری قابل‌تأمین است، سرمایهٔ بیرونی شاید زود باشد؛ نیاز نقد و هم‌راستایی افق را مقایسه کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "b",
       "explanation": "مدل و افق رشد باید با منبع سرمایه سازگار باشند."
+    },
+    {
+      "id": "S06-C3-ST02-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کسب‌وکار در مرحلهٔ کم‌درآمد میان سرمایه‌گذار و درآمد مشتری مردد است. مقایسهٔ درست چه می‌بیند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مرحله، نقد، کنترل، ریسک، زمان و منابع لازم برای milestone",
+          "feedback": "منبع مالی با کنترل و ریسک و زمان و مرحله مبادله دارد؛ مبلغ تنها معیار نیست."
+        },
+        {
+          "id": "b",
+          "text": "فقط مقدار سرمایه",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: منبع مالی با کنترل و ریسک و زمان و مرحله مبادله دارد؛ مبلغ تنها معیار نیست."
+        },
+        {
+          "id": "c",
+          "text": "سرمایه‌گذار را همیشه ارزان‌ترین منبع بدانیم",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: منبع مالی با کنترل و ریسک و زمان و مرحله مبادله دارد؛ مبلغ تنها معیار نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "منبع مالی با کنترل و ریسک و زمان و مرحله مبادله دارد؛ مبلغ تنها معیار نیست.",
+      "objective_id": "S06-C3-ST02-L01-OBJ01",
+      "equivalence_group": "S06-C3-ST02-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C3-ST02-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,48 +212,60 @@
       "title": "OpenStax Principles of Finance 2e: Capital Structure Choices",
       "url": "https://openstax.org/books/principles-finance-2e/pages/17-4-capital-structure-choices",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "مفاهیم پایهٔ بدهی، سهام و ساختار سرمایه؛ نمونه‌ها لزوماً شرکت نوپا نیستند."
+      "scope": "مفاهیم پایهٔ بدهی، سهام و ساختار سرمایه؛ نمونه‌ها لزوماً شرکت نوپا نیستند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-FINANCE-CASHFLOW-5.5",
       "title": "OpenStax Principles of Finance: Statement of Cash Flows",
       "url": "https://openstax.org/books/principles-finance/pages/5-5-the-statement-of-cash-flows",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "تفکیک جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی."
+      "scope": "تفکیک جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-WORKING-CAPITAL",
       "title": "OpenStax Principles of Finance: Working Capital",
       "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "چرخه نقد، سرمایه در گردش و نیازهای کوتاه‌مدت."
+      "scope": "چرخه نقد، سرمایه در گردش و نیازهای کوتاه‌مدت.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "DAMODARAN-CASH-BURN",
       "title": "Aswath Damodaran: Cash Burn and Runway",
       "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/blog/CashBurn.pdf",
       "review_depth": "official_faculty_teaching_material_reviewed",
-      "scope": "تعریف سادهٔ burn و runway؛ پیش‌بینی نیازمند سناریوهای شرکت است."
+      "scope": "تعریف سادهٔ burn و runway؛ پیش‌بینی نیازمند سناریوهای شرکت است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NVCA-MODEL-DOCS",
       "title": "NVCA Model Legal Documents",
       "url": "https://nvca.org/model-legal-documents/",
       "review_depth": "industry_model_document_reviewed",
-      "scope": "نمونه اسناد سرمایه‌گذاری خطرپذیر آمریکا؛ اسناد نقطهٔ شروع‌اند و مشاورهٔ حقوقی نیستند."
+      "scope": "نمونه اسناد سرمایه‌گذاری خطرپذیر آمریکا؛ اسناد نقطهٔ شروع‌اند و مشاورهٔ حقوقی نیستند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "SEC-PRIVATE-OFFERINGS",
-      "title": "SEC: Private Placements under Regulation D",
-      "url": "https://www.sec.gov/resources-small-businesses/exempt-offerings/private-placements",
+      "title": "SEC: Exempt Offerings (includes Rule 506 private placements)",
+      "url": "https://www.sec.gov/resources-small-businesses/exempt-offerings",
       "review_depth": "official_regulator_guidance_reviewed",
-      "scope": "اطلاعات آمریکا دربارهٔ عرضهٔ خصوصی؛ قانون‌محور و قابل تعمیم جهانی نیست."
+      "scope": "اطلاعات آمریکا دربارهٔ عرضهٔ خصوصی؛ قانون‌محور و قابل تعمیم جهانی نیست.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "startup-financing-decision",
     "prompt": "برای سپهر، نیاز مالی یک milestone را برآورد کنید؛ دو منبع تأمین مالی را از نظر زمان، هزینهٔ نقدی، کنترل، ریسک و runway مقایسه کنید. در صورت ارائه به سرمایه‌گذار، واقعیت و فرض را جدا و مبلغ و شاهد بعدی را مشخص کنید.",
-    "expected_output": "سناریوی نقدینگی و یادداشت تصمیم تأمین مالی"
+    "expected_output": "سناریوی نقدینگی و یادداشت تصمیم تأمین مالی",
+    "rubric": [
+      "Runway، burn و جریان نقد با دوره و سناریوی روشن محاسبه شده‌اند.",
+      "گزینه‌های درآمد، سرمایهٔ شخصی و سرمایه‌گذار با کنترل و تعهد مقایسه شده‌اند.",
+      "تصمیم، فرض‌های حساس، نقطهٔ بازنگری و پیامد کمبود نقد را بیان می‌کند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -237,7 +291,14 @@
   "media_plan": {
     "type": "cash-runway-and-dilution-worked-table",
     "purpose": "محاسبهٔ runway و اثر نمونهٔ سادهٔ سرمایهٔ جدید",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-runway-financing-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «سرمایهٔ شخصی، درآمد یا سرمایه‌گذار»: سرمایهٔ لازم را به زمان بقا و نقطهٔ عطف وصل کن؛ درصد سهام تنها هزینه نیست. منبع پول، درآمد، سرمایهٔ شخصی، بدهی یا سرمایه‌گذار را با شرط و ریسک بسنج.؛ نرخ سوخت و runway، نقد قابل‌استفاده را بر مصرف خالص دوره تقسیم کن؛ سناریو بساز.؛ رقیق‌شدن، درصد مالکیت قبل و بعد از سرمایه‌گذاری را با فرض تبدیل و اختیار محاسبه کن.؛ ارائهٔ شواهد، بازار، استفاده، اقتصاد واحد و ریسک را با دادهٔ قابل‌ردیابی نشان بده.",
+        "caption": "نقشه را برای تحلیل «سرمایهٔ شخصی، درآمد یا سرمایه‌گذار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

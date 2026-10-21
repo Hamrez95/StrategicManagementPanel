@@ -58,6 +58,18 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "اصطلاح «تقسیم کار انسان و AI» به این پرسش پاسخ می‌دهد که هر طرف کدام وظیفه را بهتر انجام می‌دهد و مسئولیت نهایی کجا می‌ماند؛ خودکارسازی کامل همیشه کاراتر یا عادلانه‌تر نیست."
+    },
+    {
+      "id": "S04-C4-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Human-AI decision boundary — مرز تصمیم انسان و AI: تفکیک توصیه، اختیار و تأیید بر پایهٔ پیامد خطا؛ انسان مسئول بدون اطلاعات/اختیار کنترل نیست. Human oversight — نظارت انسانی: توان نظارت، مداخله و توقف در عمل؛ حضور ظاهری کافی نیست. Automation bias — سوگیری اتوماسیون: اتکای بیش‌ازحد به سامانه؛ کنترل باید امکان مخالفت مؤثر بدهد."
+    },
+    {
+      "id": "S04-C4-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مرز اختیار انسان و ابزار باید با پیامد خطا، برگشت‌پذیری و کیفیت شاهد تناسب داشته باشد. ابزار می‌تواند پیشنهاد یا پیش‌نویس بدهد، اما تصمیم دربارهٔ فرد یا تخصیص فرصت نیازمند مسئولیت روشن و حق اعتراض است. وجود انسان در حلقه کافی نیست اگر زمان، اطلاعات یا اختیار ردکردن ندارد. حجم هشدار را با ظرفیت نظارت بسنجید. اگر کار کم‌خطر و تکراری است، خودکارسازی محدود ممکن است مناسب باشد؛ برای تصمیم پراثر کنترل چندمرحله‌ای لازم است. اختیارات مجاز و نقطهٔ توقف را مکتوب کنید."
     }
   ],
   "questions": [
@@ -209,18 +221,23 @@
   ],
   "source_links": [
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "review_depth": "official_framework_reviewed",
       "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
       "title": "NIST AI Risk Management Framework Core",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "nature-ai-delegation-2025",
       "review_depth": "peer_reviewed_experimental_article_reviewed",
       "scope": "شواهد آزمایشی خاص دربارهٔ واگذاری و فاصله‌گیری از مسئولیت اخلاقی؛ به موقعیت‌های دیگر بدون آزمون تعمیم داده نشود.",
       "title": "Delegation to artificial intelligence can increase dishonest behaviour (Nature, 2025)",
-      "url": "https://www.nature.com/articles/s41586-025-09505-x"
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12488497/",
+      "previous_url": "https://www.nature.com/articles/s41586-025-09505-x",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "متن کامل مقالهٔ Nature در PubMed Central باز شد و مجوز CC BY 4.0 دارد. نتیجه‌ها از ۱۳ آزمایش در چهار مطالعه و موقعیت‌های مشخص واگذاری به دست آمده‌اند؛ تعمیم مدیریتی باید محتاطانه باشد."
     }
   ],
   "practice_activity": {
@@ -267,9 +284,22 @@
     "real_case_status": "choose_and_verify_during_authoring"
   },
   "media_plan": {
-    "type": "authored_diagram_or_worked_table",
-    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "type": "authored_diagram",
+    "purpose": "نمودار مفهومی تألیفی برای روشن‌کردن چارچوب تصمیم درس؛ اعداد و نمونه‌ها ادعای تجربی نیستند",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-team-work-learning-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «مرز اختیار انسان و ابزار»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+        "caption": "نقشه را برای تحلیل «مرز اختیار انسان و ابزار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      },
+      {
+        "asset_ref": "content/media/human-tool-authority-ladder.svg",
+        "alt_text": "چهار سطح اختیار از نمایش اطلاعات و پیشنهاد تا اقدام محدود و تصمیم پراثر را با کنترل متناسب نشان می‌دهد.",
+        "caption": "کنترل و تأیید را با پیامد خطا و برگشت‌پذیری تنظیم کنید.",
+        "source_url": "https://airc.nist.gov/airmf-resources/playbook/measure/"
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST03-L03-CARD08",
       "text": "۵۰ سفارش با نمونهٔ دشوار انتخاب می‌شود؛ دو کارشناس مستقل و مدل هر کدام دیرکرد را برچسب می‌زنند. داور سوم اختلاف را حل می‌کند؛ زمان، recall موارد دیررس، هشدار بی‌مورد و تفاوت تأمین‌کنندگان گزارش می‌شود."
+    },
+    {
+      "id": "S07-C1-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "ارزیابی مقایسه‌ای (Comparative evaluation) انسان و مدل را روی وظیفه و نمونه و معیار مشترک می‌سنجد. توافق ارزیابان کیفیت مرجع را نشان می‌دهد؛ خطای تفکیکی گروه‌ها میانگین را کامل می‌کند. سرعت بیشتر به‌تنهایی خروجی بهتر یا منصفانه‌تر نیست."
+    },
+    {
+      "id": "S07-C1-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مقایسهٔ انسان و ابزار باید وظیفه، پیچیدگی، اطلاعات ورودی و معیار کیفیت یکسان داشته باشد. انتخاب نمونهٔ آسان برای مدل یا زمان نامحدود برای انسان مقایسه را منحرف می‌کند. کیفیت را با داوری چندگانه یا معیار معتبر، زمان، نرخ خطای مهم و پیامد برای کاربر بسنجید؛ صرف سرعت کافی نیست. در همکاری انسان و مدل، تقسیم کار و نحوهٔ پذیرش پیشنهاد نیز بخشی از مداخله است. اگر انسان به پاسخ مدل بیش از حد اعتماد کند، ترکیب ممکن است از هر دو بدتر شود. طرح آزمون و محدودیت‌های نمونه را پیشاپیش ثبت کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "باید کیفیت، زمان و هزینه را با هم بسنجیم."
+    },
+    {
+      "id": "S07-C1-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزیابان انسانی کندترند اما در خطای یک گروه حساسیت بیشتری دارند. مقایسهٔ انسان و مدل چه می‌خواهد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نمونه و معیار یکسان، کیفیت و زمان و خطا و پیامد برای گروه‌ها",
+          "feedback": "مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+        },
+        {
+          "id": "b",
+          "text": "فقط میانگین سرعت",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+        },
+        {
+          "id": "c",
+          "text": "بهترین خروجی مدل را با میانگین انسانی مقایسه کنیم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد.",
+      "objective_id": "S07-C1-ST03-L03-OBJ01",
+      "equivalence_group": "S07-C1-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google ML Crash Course: Production Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-TEVV-ATHLON-2026",
       "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
       "review_depth": "official_framework_initial_public_draft_reviewed",
-      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-RMF-MEASURE",
       "title": "NIST AI RMF Core: Measure",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "AI-solution-selection-memo",
     "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+    "rubric": [
+      "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+      "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+      "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "solution-selection-and-TEVV-scorecard",
     "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ خروجی انسان و ابزار»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+        "caption": "نقشه را برای تحلیل «مقایسهٔ خروجی انسان و ابزار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -75,6 +75,12 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "ماتریس گزینه‌ها معیار، وزن، شاهد و ابهام را ثبت می‌کند. وزن‌ها قضاوت مدیریتی‌اند؛ حساسیت نتیجه به تغییر وزن را نیز نشان دهید و تصمیم را قطعی‌نمایی نکنید. اگر دو گزینه رتبهٔ مشابه گرفتند، نقطهٔ حساس تصمیم را بیازمایید: آیا تغییر وزن هزینه یا ریسک انتخاب را عوض می‌کند؟ گزینهٔ مقاوم‌تر در چند سناریو ممکن است از برندهٔ یک برآورد خاص مناسب‌تر باشد."
+        },
+        {
+          "id": "S05-C1-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Process selection — انتخاب فرایند: تطبیق فناوری/جریان با حجم، تنوع و نیاز پاسخ‌گویی؛ یک روش همیشه بهترین نیست. Fixed cost — هزینهٔ ثابت: هزینه‌ای که در دامنهٔ ظرفیت کوتاه‌مدت با حجم تغییر نمی‌کند؛ در بلندمدت ممکن است قابل‌تنظیم باشد. Flexibility — انعطاف‌پذیری: توان تغییر حجم/ترکیب با هزینه و زمان مشخص؛ ظرفیت بلااستفاده مساوی انعطاف نیست."
         }
       ],
       "questions": [
@@ -226,18 +232,20 @@
       ],
       "source_links": [
         {
-          "id": null,
-          "title": null,
-          "scope": null,
-          "review_depth": null,
-          "url": null
+          "id": "M06",
+          "title": "MIT OpenCourseWare, Introduction to Operations Management: Syllabus",
+          "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/syllabus/",
+          "accessed_on": "2026-10-20",
+          "scope": "سرفصل رسمی دربارهٔ طراحی فرایند، ظرفیت، موجودی و زنجیرهٔ تأمین؛ هم‌ترازی برنامه را نشان می‌دهد و متن درس‌نامه از آن کپی نشده است.",
+          "review_depth": "official_syllabus_reviewed"
         },
         {
-          "id": null,
-          "title": null,
-          "scope": null,
-          "review_depth": null,
-          "url": null
+          "id": "M13",
+          "title": "MIT OpenCourseWare, Operations Strategy: Syllabus",
+          "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
+          "accessed_on": "2026-10-20",
+          "scope": "سرفصل رسمی برای پیوند راهبرد عملیات با انتخاب و طراحی فرایند؛ محتوای تألیفی درس عین محتوای درس دانشگاهی نیست.",
+          "review_depth": "official_syllabus_reviewed"
         }
       ],
       "practice_activity": {
@@ -265,10 +273,8 @@
       "node_type": "lesson",
       "source_refs": [
         "M06",
-        "M13",
-        "R15"
+        "M13"
       ],
-      "source_scope": "inherits_topic_candidates_not_claim_level",
       "example_plan": {
         "fictional_scenario": "SEPEHR-SERVICES",
         "real_case_candidates": [
@@ -282,7 +288,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/process-automation-exception-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ گزینه‌های فرایند»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+            "caption": "نقشه را برای تحلیل «مقایسهٔ گزینه‌های فرایند» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -305,7 +318,8 @@
       "direct_entry_allowed": true,
       "free_sample": false,
       "legacy_lesson_ids": [],
-      "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+      "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+      "source_scope": "منابع MIT، هم‌ترازی موضوعی درس را پشتیبانی می‌کنند؛ مقالهٔ نامزد ScienceDirect با شناسهٔ R15 در مرور زنده قابل بازیابی نبود و برای ادعای آموزشی استفاده نشده است."
     },
     {
       "id": "S05-C1-ST03-L02",
@@ -367,6 +381,12 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "اصطلاح «automation bias» گرایش به پذیرش پیشنهاد خودکار حتی هنگام وجود شاهد مخالف است؛ طراحی نمایش اعتماد، توضیح و اختیار توقف بر رفتار کاربر اثر می‌گذارد. قابلیت دسترسی سامانه و مسیر خطای آن را در آموزش کاربر تمرین کنید. کاربران باید بدانند خروجی چه زمانی خارج از دامنه است و چگونه کار را بی‌داده‌زدایی یا پنهان‌کردن خطا به متخصص منتقل کنند."
+        },
+        {
+          "id": "S05-C1-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Automation — خودکارسازی: اجرای وظیفه به‌وسیلهٔ سامانه؛ استثنا و بازیابی خطا بخش طراحی است. Exception handling — مدیریت استثنا: مسیر برخورد با ورودی/وضعیت خارج از قاعده؛ ارجاع انسانی بدون مالکیت روشن انباشت صف می‌کند. Straight-through processing — پردازش بی‌وقفه: تکمیل خودکار بدون مداخلهٔ دستی در دامنهٔ معتبر؛ نرخ بالا می‌تواند خطای پنهان ایجاد کند."
         }
       ],
       "questions": [
@@ -522,14 +542,18 @@
           "title": "NIST AI RMF Appendix C: Human-AI Interaction",
           "scope": "راهنمای نقش انسان و تعامل با AI در محیط عملیاتی؛ تفسیر باید با کاربرد خاص انجام شود.",
           "review_depth": "official_framework_guidance_reviewed",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core",
           "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
           "review_depth": "official_framework_reviewed",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -574,7 +598,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/process-automation-exception-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «اتوماسیون و استثناها»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+            "caption": "نقشه را برای تحلیل «اتوماسیون و استثناها» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -659,6 +690,12 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "نظارت چرخه‌ای است: نشانه را کشف کنید، زمینه را بررسی کنید، اقدام اصلاحی بگذارید و اثربخشی را بعداً بسنجید. لاگ‌برداری باید به هدف و حریم خصوصی متناسب باشد. شاخص‌ها باید امکان تفسیر عملی داشته باشند: هشدار را به پروندهٔ نمونه، نسخهٔ ابزار و نتیجهٔ انسانی وصل کنید. هم‌زمان مراقب باشید ثبت بیش از حد دادهٔ فردی برای پایش ضرورت نداشته باشد."
+        },
+        {
+          "id": "S05-C1-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Operational AI — هوش مصنوعی عملیاتی: کاربرد مدل در تصمیم/گردش کار عملیات؛ دقت مدل به‌تنهایی عملکرد فرایند نیست. Human override — مداخلهٔ انسانی: اختیار رد/تغییر خروجی در شرایط تعریف‌شده؛ باید آستانه و ثبت دلیل داشته باشد. False negative cost — هزینهٔ منفی کاذب: زیان از شناسایی‌نکردن رخداد واقعی؛ باید در آستانهٔ هشدار منظور شود."
         }
       ],
       "questions": [
@@ -814,14 +851,18 @@
           "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
           "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
           "review_depth": "official_research_report_reviewed",
-          "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+          "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI RMF Core",
           "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
           "review_depth": "official_framework_reviewed",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -866,7 +907,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/process-automation-exception-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «نظارت بر AI در عملیات»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+            "caption": "نقشه را برای تحلیل «نظارت بر AI در عملیات» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -951,6 +999,12 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "برگهٔ نهایی باید مالک، زمان اجرا، فرض، سنجهٔ نتیجه و توازن، کیفیت داده، شرط توقف و برنامهٔ تثبیت را داشته باشد. این اجزا تصمیم را برای مدیر بعدی قابل فهم می‌کنند. اگر نوع تقاضا یا گروه کاربران تغییر کرد، خط مبنا را به‌روز و مقایسه را بازطراحی کنید. فرایند تصمیم باید مشخص کند چه کسی کیفیت شواهد را می‌پذیرد و چه زمانی آزمایش وارد مرحلهٔ بعد می‌شود."
+        },
+        {
+          "id": "S05-C1-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Before-after evaluation — ارزیابی پیش و پس: مقایسهٔ شاخص قبل/بعد تغییر؛ فصل، ترکیب و روند هم‌زمان می‌تواند علت بدیل باشد. Control chart — نمودار کنترل: نمایش نوسان فرایند در زمان با حدود آماری؛ حد کنترل با مشخصهٔ پذیرش یکی نیست. Process capability — قابلیت فرایند: توان فرایند نسبت به حدود مشخصات در شرایط پایدار؛ شاخص بدون توزیع/پایداری معتبر نیست."
         }
       ],
       "questions": [
@@ -1106,14 +1160,18 @@
           "title": "IHI: Testing Changes with PDSA Cycles",
           "scope": "آزمون تغییر در محیط واقعی با چرخهٔ یادگیری؛ اثر محلی باید پیش از تعمیم بررسی شود.",
           "review_depth": "professional_improvement_framework_reviewed",
-          "url": "https://www.ihi.org/library/model-for-improvement/testing-changes"
+          "url": "https://www.ihi.org/library/model-for-improvement/testing-changes",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-monitoring-2026",
           "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
           "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
           "review_depth": "official_research_report_reviewed",
-          "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+          "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -1158,7 +1216,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/process-automation-exception-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «طرح بهبود با معیار پیش و پس»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+            "caption": "نقشه را برای تحلیل «طرح بهبود با معیار پیش و پس» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

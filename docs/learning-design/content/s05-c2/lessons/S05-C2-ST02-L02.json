@@ -58,6 +58,12 @@
       "text": "اصطلاح «مقدار اقتصادی» تابع مدل است و تضمین سود نیست. حساسیت به D، S و H را نشان دهید؛ اگر ورودی‌ها دقیق نیستند، خروجی هم تقریبی است. جواب فرمول ممکن است با MOQ یا ظرفیت بسته سازگار نباشد. مقادیر اجرایی اطراف EOQ را با کل هزینه و قید تأمین مقایسه کنید؛ گردکردن همیشه به سمت بالا بهترین انتخاب نیست.",
       "type": "explanation",
       "title": "نکتهٔ 9"
+    },
+    {
+      "id": "S05-C2-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Economic order quantity — مقدار سفارش اقتصادی: مقدار بهینه در مدل هزینهٔ سفارش و نگهداری؛ تقاضای ثابت، تحویل و نبود تخفیف از فرض‌های آن است. Reorder point — نقطهٔ سفارش مجدد: سطح موجودی برای آغاز سفارش با زمان تأمین؛ در تقاضای متغیر ذخیرهٔ اطمینان لازم می‌شود. Cycle stock — موجودی چرخه‌ای: موجودی ناشی از اندازهٔ دستهٔ سفارش؛ با ذخیرهٔ اطمینان یکی نیست."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "id": "mit-inventory-eoq",
       "review_depth": "university_course_material_reviewed",
       "scope": "یادداشت درسی دربارهٔ موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان؛ زمینهٔ مدل و فرض‌های آموزشی حفظ شوند.",
-      "title": "MIT OCW Logistics Systems: Inventory Management"
+      "title": "MIT OCW Logistics Systems: Inventory Management",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
     },
     {
       "url": "https://academic.oup.com/imaman/article/36/4/649/8251395",
       "id": "oxford-eoq-stochastic-2025",
       "review_depth": "peer_reviewed_article_reviewed",
       "scope": "پژوهش دربارهٔ EOQ اکتشافی همراه ذخیرهٔ اطمینان در موجودی تصادفی؛ نتایج نظری و شرایط مدل محدودکننده‌اند.",
-      "title": "Simple Economic Order Quantity heuristics for stochastic inventory control (Oxford Academic, 2025)"
+      "title": "Simple Economic Order Quantity heuristics for stochastic inventory control (Oxford Academic, 2025)",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/inventory-cost-ordering-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «سفارش اقتصادی و پیش‌فرض‌ها»: موجودی را با هزینهٔ سفارش، نگهداری، کمبود و نوسان تقاضا تصمیم‌گیری کن. هزینه‌ها، هزینهٔ سفارش و نگهداری را از جریمهٔ کمبود و قیمت خرید جدا کن.؛ EOQ و فرض‌ها، Q*=√(2DS/H) در مدل سادهٔ قطعی است؛ فرض تقاضا و هزینهٔ ثابت را اعلام کن.؛ نقطهٔ سفارش، تقاضای زمان تحویل و ذخیرهٔ اطمینان را با سطح خدمت هدف مرتبط کن.؛ کالای فصلی، هزینهٔ کمبود و مازاد را مقایسه کن؛ پیش‌بینی را با سناریو به‌روز کن.",
+        "caption": "نقشه را برای تحلیل «سفارش اقتصادی و پیش‌فرض‌ها» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

@@ -61,6 +61,18 @@
           "id": "E03-ST03-L01-CARD08",
           "title": "تصمیم پس از آزمون",
           "text": "نتیجه باید با اندازهٔ اثر، عدم‌قطعیت، محدودهٔ نمونه و هزینه‌های جانبی گزارش شود. اگر اثر مبهم است، آزمایش را بازطراحی یا تصمیم محافظه‌کارانه بگیرید؛ یک p-value یا درصد رشد به‌تنهایی تصمیم نیست."
+        },
+        {
+          "id": "E03-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "آزمایش کنترل‌شده (Controlled experiment) مداخله را با گروه/دورهٔ مقایسه می‌سنجد. تصادفی‌سازی (Randomization) عوامل مشاهده‌نشده را به‌طور متوسط متوازن می‌کند، اما آلودگی گروه یا حجم ناکافی همچنان مسئله است. پیش از آزمایش، معیار اصلی و guardrail را تعیین کنید."
+        },
+        {
+          "id": "E03-ST03-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "آزمایش قیمت به گروه مقایسه، تخصیص مناسب، مدت کافی و شاخص از پیش تعیین‌شده نیاز دارد. تغییرات هم‌زمان در محصول یا تبلیغ تفسیر را دشوار می‌کند. تخصیص باید از نشت قیمت میان گروه‌ها جلوگیری کند و اثر بر اعتماد مشتری را پایش کند. درآمد کوتاه‌مدت ممکن است حفظ و ارزش بلندمدت را نادیده بگیرد. حجم نمونه و حساسیت زیرگروه‌ها را بسنجید. اگر آزمایش تصادفی اخلاقی یا عملی نیست، روش جایگزین را با فرض‌هایش گزارش کنید؛ نتیجهٔ آزمایش فقط برای دامنهٔ مشابه تعمیم‌پذیر است."
         }
       ],
       "questions": [
@@ -179,42 +191,84 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "زمان و رفتار آینده‌نگر می‌تواند اثر قیمت را مخلوط کند."
+        },
+        {
+          "id": "E03-ST03-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای آزمون قیمت جدید، چرا گروه کنترل مهم است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تا روندهای هم‌زمان را از اثر احتمالی تغییر قیمت جدا کنیم",
+              "feedback": "مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+            },
+            {
+              "id": "b",
+              "text": "برای اطمینان از افزایش فروش در هر گروه",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+            },
+            {
+              "id": "c",
+              "text": "تا فقط مشتریان وفادار قیمت تازه را ببینند",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود.",
+          "objective_id": "E03-ST03-L01-OBJ01",
+          "equivalence_group": "E03-ST03-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E03-ST03-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
         {
           "id": "OPENSTAX-MARKETING-METRICS",
           "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+          "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "AMA-LTV-CALCULATOR",
           "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
           "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
           "review_depth": "professional_association_guide_reviewed",
-          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
           "title": "Switchback Price Experiments with Forward-Looking Demand",
           "url": "https://arxiv.org/abs/2410.14904",
           "review_depth": "working_paper_preprint_theory_reviewed",
-          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENSTAX-ONLINE-METRICS",
           "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
           "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "pricing-experiment-economics-metrics",
         "prompt": "برای جذب دانش‌پذیر سپهر «آزمایش قیمت و گروه کنترل» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+        "rubric": [
+          "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+          "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+          "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -241,7 +295,14 @@
       "media_plan": {
         "type": "price-test-design",
         "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+            "alt_text": "نمودار آموزشی مشترک مرحله برای «آزمایش قیمت و گروه کنترل»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+            "caption": "از نمودار مرحله برای پاسخ به هدف «آزمایش قیمت و گروه کنترل» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -358,6 +419,18 @@
           "id": "E03-ST03-L02-CARD08",
           "title": "محاسبهٔ سپهر",
           "text": "سپهر ۱۲۰ میلیون هزینهٔ فروش و تبلیغ می‌کند و ۸۰ خریدار تازه دارد: CAC گزارش‌شده ۱٫۵ میلیون است. اگر بخشی از خریدها ارگانیک باشد یا فروشندگان موجود هم در هزینه منظور شده باشند، CAC افزایشی و کانالی متفاوت می‌شود؛ روش را همراه عدد ثبت کنید."
+        },
+        {
+          "id": "E03-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "هزینهٔ جذب مشتری (CAC) هزینهٔ بازاریابی و فروش تقسیم بر مشتریان جدیدِ منتسب در دامنهٔ مشخص است. Attribution روش نسبت‌دادن نتیجه به کانال است و قرارداد یگانهٔ طبیعی ندارد. دوره، هزینه‌های داخل مخرج و تعریف مشتری باید ثابت باشند تا مقایسه معتبر شود."
+        },
+        {
+          "id": "E03-ST03-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "هزینهٔ جذب مشتری باید شامل هزینهٔ رسانه، فروش، تخفیف، نیروی انسانی و سهم هزینهٔ زیرساخت جذب باشد. تعریف مشتری جدید، پنجرهٔ انتساب و کانال باید ثابت باشد تا مقایسه معتبر شود. انتساب آخرین کلیک ممکن است نقش کانال‌های پیشین را نادیده بگیرد. هزینهٔ میانگین کانال تفاوت کیفیت و حفظ مشتری را پنهان می‌کند. اگر جذب ارزان به مشتری کم‌ماندگار منجر شود، معیار بهینه نیست. CAC را در cohort و کنار حاشیه و حفظ تحلیل کنید و دامنهٔ عدم‌قطعیت انتساب را ثبت کنید."
         }
       ],
       "questions": [
@@ -476,42 +549,84 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "مقایسه باید اقتصاد واحد و بازگشت سرمایه را ببیند."
+        },
+        {
+          "id": "E03-ST03-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "هزینهٔ جذب مشتری در دو گزارش متفاوت است. نخست کدام تعریف را یکسان می‌کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "دوره، مشتری جدید، هزینه‌های داخل مخرج و کانال منتسب",
+              "feedback": "CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+            },
+            {
+              "id": "b",
+              "text": "فقط رنگ نمودار",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+            },
+            {
+              "id": "c",
+              "text": "مبلغ فروش کل بدون تعداد مشتری",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست.",
+          "objective_id": "E03-ST03-L02-OBJ01",
+          "equivalence_group": "E03-ST03-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E03-ST03-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
         {
           "id": "OPENSTAX-MARKETING-METRICS",
           "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+          "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "AMA-LTV-CALCULATOR",
           "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
           "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
           "review_depth": "professional_association_guide_reviewed",
-          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
           "title": "Switchback Price Experiments with Forward-Looking Demand",
           "url": "https://arxiv.org/abs/2410.14904",
           "review_depth": "working_paper_preprint_theory_reviewed",
-          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENSTAX-ONLINE-METRICS",
           "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
           "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "pricing-experiment-economics-metrics",
         "prompt": "برای جذب دانش‌پذیر سپهر «هزینهٔ جذب با تعریف روشن» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+        "rubric": [
+          "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+          "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+          "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -538,7 +653,14 @@
       "media_plan": {
         "type": "cac-channel-cost-table",
         "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+            "alt_text": "نمودار آموزشی مشترک مرحله برای «هزینهٔ جذب با تعریف روشن»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+            "caption": "از نمودار مرحله برای پاسخ به هدف «هزینهٔ جذب با تعریف روشن» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -655,6 +777,18 @@
           "id": "E03-ST03-L03-CARD08",
           "title": "مثال سپهر",
           "text": "حاشیهٔ ماهانهٔ مشتری ۴۰۰ هزار و ریزش ماهانه ۱۰٪ است؛ تقریب خام LTV=۴ میلیون تومان. اگر حاشیهٔ واقعی ۳۰۰ هزار یا ریزش ۱۵٪ شود، عدد ۲ میلیون می‌شود. این حساسیت نشان می‌دهد تصمیم قیمت نباید یک برآورد را حقیقت فرض کند."
+        },
+        {
+          "id": "E03-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "ارزش طول عمر مشتری (LTV) برآورد حاشیهٔ مشارکت در طول رابطهٔ مورد انتظار است؛ به حفظ مشتری و تخفیف و هزینهٔ خدمت وابسته است. Payback period زمان بازگشت هزینهٔ جذب است. نسبت LTV/CAC دقت پیش‌بینی را تضمین نمی‌کند و باید با حساسیت نگهداشت و سناریو خوانده شود."
+        },
+        {
+          "id": "E03-ST03-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "ارزش طول عمر مشتری بر جریان‌های آیندهٔ حاشیهٔ مشارکت و احتمال حفظ تکیه دارد؛ افق، نرخ تنزیل، هزینهٔ خدمت و ریزش مفروضات تعیین‌کننده‌اند. برآورد مبتنی بر چند ماه اول ممکن است مشتریان دیرریزش را بیش‌برآورد کند یا اثر تغییر قیمت را نبیند. LTV/CAC با تغییر cohort و کانال فرق می‌کند. حساسیت را نسبت به نرخ حفظ، حاشیه و دوره نشان دهید. اگر دادهٔ تاریخی کوتاه است، برآورد را پیش‌بینی قطعی معرفی نکنید و بازنگری پس از مشاهدهٔ رفتار واقعی تعیین کنید."
         }
       ],
       "questions": [
@@ -773,42 +907,84 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+        },
+        {
+          "id": "E03-ST03-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ارزش طول عمر مشتری با فرض نگهداشت تغییر زیادی می‌کند. تصمیم بهتر چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "فرض‌ها و حساسیت و هزینهٔ خدمت را گزارش کنیم، نه یک عدد قطعی",
+              "feedback": "LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+            },
+            {
+              "id": "b",
+              "text": "فقط سناریوی خوش‌بینانه را نشان دهیم",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+            },
+            {
+              "id": "c",
+              "text": "نگهداشت را ثابت و بدون شاهد فرض کنیم",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند.",
+          "objective_id": "E03-ST03-L03-OBJ01",
+          "equivalence_group": "E03-ST03-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E03-ST03-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
         {
           "id": "OPENSTAX-MARKETING-METRICS",
           "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+          "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "AMA-LTV-CALCULATOR",
           "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
           "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
           "review_depth": "professional_association_guide_reviewed",
-          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
           "title": "Switchback Price Experiments with Forward-Looking Demand",
           "url": "https://arxiv.org/abs/2410.14904",
           "review_depth": "working_paper_preprint_theory_reviewed",
-          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENSTAX-ONLINE-METRICS",
           "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
           "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "pricing-experiment-economics-metrics",
         "prompt": "برای جذب دانش‌پذیر سپهر «LTV و حساسیت به حفظ» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+        "rubric": [
+          "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+          "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+          "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -835,7 +1011,14 @@
       "media_plan": {
         "type": "ltv-sensitivity-cohort-chart",
         "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+            "alt_text": "نمودار آموزشی مشترک مرحله برای «LTV و حساسیت به حفظ»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+            "caption": "از نمودار مرحله برای پاسخ به هدف «LTV و حساسیت به حفظ» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -952,6 +1135,18 @@
           "id": "E03-ST03-L04-CARD08",
           "title": "داشبورد تصمیم سپهر",
           "text": "برای هر cohort، ورودی، خرید، فعال‌شدن، تکمیل مسیر، دستاورد آموزشی، بازپرداخت و تمدید را گزارش کنید. تعریف و مالک هر سنجه، منبع داده و تصمیمی که با آن گرفته می‌شود را همراه داشبورد بنویسید."
+        },
+        {
+          "id": "E03-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "شاخص پیشرو (Leading metric) نشانهٔ زودهنگام رفتار است؛ شاخص پیامدی نتیجهٔ دیرتر مانند حاشیه یا نگهداشت را نشان می‌دهد. Guardrail جلوی بهبود یک شاخص به بهای آسیب کیفیت یا انصاف را می‌گیرد. ثبت‌نام و رشد درآمد به‌تنهایی رشد سالم و سودآور را ثابت نمی‌کنند."
+        },
+        {
+          "id": "E03-ST03-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "رشد سالم یعنی توسعه‌ای که ارزش مشتری و اقتصاد خدمت را پایدار می‌کند، نه فقط افزایش ثبت‌نام یا درآمد ناخالص. ترکیبی از جذب، حفظ، حاشیه، بازگشت، کیفیت و اثر بر تجربه لازم است. شاخص واحد می‌تواند رفتار بازی‌دادن ایجاد کند؛ مثلاً فشار برای تمدید کوتاه‌مدت ریزش بعدی را پنهان کند. معیار را متناسب با مدل درآمد و مرحلهٔ محصول انتخاب کنید. اگر تعریف مشتری فعال عوض شود، روند ظاهری نیز تغییر می‌کند. داشبورد باید cohort، خط مبنا و guardrail را همراه هدف رشد نشان دهد."
         }
       ],
       "questions": [
@@ -1070,42 +1265,84 @@
           "version": 1,
           "correct_option_id": "a",
           "explanation": "تعریف پیامد باید با هدف محصول مرتبط باشد."
+        },
+        {
+          "id": "E03-ST03-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "ثبت‌نام بالا می‌رود اما بازگشت مشتری و حاشیه افت می‌کند. معیار رشد سالم باید چه کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "رشد را با کیفیت مشتری، نگهداشت و اقتصاد واحد متوازن کند",
+              "feedback": "شاخص رشد باید خروجی را همراه guardrailهای ارزش و هزینه تفسیر کند."
+            },
+            {
+              "id": "b",
+              "text": "ثبت‌نام را تنها هدف قرار دهد",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: شاخص رشد باید خروجی را همراه guardrailهای ارزش و هزینه تفسیر کند."
+            },
+            {
+              "id": "c",
+              "text": "هزینهٔ جذب را نادیده بگیرد",
+              "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: شاخص رشد باید خروجی را همراه guardrailهای ارزش و هزینه تفسیر کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "شاخص رشد باید خروجی را همراه guardrailهای ارزش و هزینه تفسیر کند.",
+          "objective_id": "E03-ST03-L04-OBJ01",
+          "equivalence_group": "E03-ST03-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E03-ST03-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
         {
           "id": "OPENSTAX-MARKETING-METRICS",
           "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+          "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+          "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "AMA-LTV-CALCULATOR",
           "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
           "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
           "review_depth": "professional_association_guide_reviewed",
-          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+          "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
           "title": "Switchback Price Experiments with Forward-Looking Demand",
           "url": "https://arxiv.org/abs/2410.14904",
           "review_depth": "working_paper_preprint_theory_reviewed",
-          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+          "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "OPENSTAX-ONLINE-METRICS",
           "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
           "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
           "review_depth": "open_educational_textbook_reviewed",
-          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+          "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "pricing-experiment-economics-metrics",
         "prompt": "برای جذب دانش‌پذیر سپهر «انتخاب معیار رشد سالم» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+        "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+        "rubric": [
+          "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+          "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+          "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -1132,7 +1369,14 @@
       "media_plan": {
         "type": "growth-metric-tree",
         "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+            "alt_text": "نمودار آموزشی مشترک مرحله برای «انتخاب معیار رشد سالم»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+            "caption": "از نمودار مرحله برای پاسخ به هدف «انتخاب معیار رشد سالم» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,

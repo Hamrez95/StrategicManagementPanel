@@ -44,6 +44,18 @@
       "id": "E03-ST03-L02-CARD08",
       "title": "محاسبهٔ سپهر",
       "text": "سپهر ۱۲۰ میلیون هزینهٔ فروش و تبلیغ می‌کند و ۸۰ خریدار تازه دارد: CAC گزارش‌شده ۱٫۵ میلیون است. اگر بخشی از خریدها ارگانیک باشد یا فروشندگان موجود هم در هزینه منظور شده باشند، CAC افزایشی و کانالی متفاوت می‌شود؛ روش را همراه عدد ثبت کنید."
+    },
+    {
+      "id": "E03-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "هزینهٔ جذب مشتری (CAC) هزینهٔ بازاریابی و فروش تقسیم بر مشتریان جدیدِ منتسب در دامنهٔ مشخص است. Attribution روش نسبت‌دادن نتیجه به کانال است و قرارداد یگانهٔ طبیعی ندارد. دوره، هزینه‌های داخل مخرج و تعریف مشتری باید ثابت باشند تا مقایسه معتبر شود."
+    },
+    {
+      "id": "E03-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "هزینهٔ جذب مشتری باید شامل هزینهٔ رسانه، فروش، تخفیف، نیروی انسانی و سهم هزینهٔ زیرساخت جذب باشد. تعریف مشتری جدید، پنجرهٔ انتساب و کانال باید ثابت باشد تا مقایسه معتبر شود. انتساب آخرین کلیک ممکن است نقش کانال‌های پیشین را نادیده بگیرد. هزینهٔ میانگین کانال تفاوت کیفیت و حفظ مشتری را پنهان می‌کند. اگر جذب ارزان به مشتری کم‌ماندگار منجر شود، معیار بهینه نیست. CAC را در cohort و کنار حاشیه و حفظ تحلیل کنید و دامنهٔ عدم‌قطعیت انتساب را ثبت کنید."
     }
   ],
   "questions": [
@@ -162,42 +174,84 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "مقایسه باید اقتصاد واحد و بازگشت سرمایه را ببیند."
+    },
+    {
+      "id": "E03-ST03-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "هزینهٔ جذب مشتری در دو گزارش متفاوت است. نخست کدام تعریف را یکسان می‌کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دوره، مشتری جدید، هزینه‌های داخل مخرج و کانال منتسب",
+          "feedback": "CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+        },
+        {
+          "id": "b",
+          "text": "فقط رنگ نمودار",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+        },
+        {
+          "id": "c",
+          "text": "مبلغ فروش کل بدون تعداد مشتری",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "CAC به دامنهٔ هزینه و تعریف مشتری و attribution وابسته است؛ بدون قرارداد سنجش مقایسه بی‌معناست.",
+      "objective_id": "E03-ST03-L02-OBJ01",
+      "equivalence_group": "E03-ST03-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST03-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "OPENSTAX-MARKETING-METRICS",
       "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+      "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "AMA-LTV-CALCULATOR",
       "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
       "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
       "review_depth": "professional_association_guide_reviewed",
-      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
       "title": "Switchback Price Experiments with Forward-Looking Demand",
       "url": "https://arxiv.org/abs/2410.14904",
       "review_depth": "working_paper_preprint_theory_reviewed",
-      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ONLINE-METRICS",
       "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
       "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "pricing-experiment-economics-metrics",
     "prompt": "برای جذب دانش‌پذیر سپهر «هزینهٔ جذب با تعریف روشن» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+    "rubric": [
+      "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+      "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+      "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -224,7 +278,14 @@
   "media_plan": {
     "type": "cac-channel-cost-table",
     "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+        "alt_text": "نمودار آموزشی مشترک مرحله برای «هزینهٔ جذب با تعریف روشن»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+        "caption": "از نمودار مرحله برای پاسخ به هدف «هزینهٔ جذب با تعریف روشن» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST02-L03-CARD08",
       "text": "مدل می‌گوید مقاله‌ای ثابت کرده هشدار AI دیرکرد را ۴۰٪ کاهش داده و DOI می‌سازد. مدیر عنوان و DOI را در پایگاه ناشر/مقاله جست‌وجو می‌کند؛ تا یافتن سند، عدد در گزارش «تأییدنشده» می‌ماند."
+    },
+    {
+      "id": "S07-C1-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "توهم (Hallucination) خروجی نادرست یا بی‌پشتوانه‌ای است که ممکن است مطمئن به نظر برسد. منبع‌سازی نادرست یعنی ارجاع یا نقل‌قولی که سند اصلی پشتیبانش نیست. منبع را باز کنید و هر ادعا را مستقل تطبیق دهید."
+    },
+    {
+      "id": "S07-C1-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مدل ممکن است پاسخ نادرست را با قطعیت زبانی بیان کند یا منبعی را بسازد که وجود ندارد؛ اصطلاح‌های confabulation و hallucination برای این دسته خطاها به کار می‌روند. ارزیابی باید ادعا را به سند قابل دسترسی وصل کند و تاریخ، نسخه و محل پشتیبان آن را ثبت کند. نقل‌قول دقیق را با متن اصلی بسنجید. در تصمیم‌های پراثر، بازبینی متخصص و مسیر ارجاع ضروری است. اگر پاسخ بدون شاهد منتشر شود، ظاهر مطمئن ریسک را کم نمی‌کند. نرخ خطا را بر اساس نوع ادعا و شدت پیامد اندازه بگیرید، نه فقط رضایت از روانی پاسخ."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "شدت کنترل باید با پیامد خطا متناسب باشد."
+    },
+    {
+      "id": "S07-C1-ST02-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل منبع مقاله‌ای را ذکر می‌کند که پیدا نمی‌شود. چه اقدامی درست‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارجاع را در منبع اصلی جست‌وجو و ادعا را جداگانه تأیید کنیم",
+          "feedback": "ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+        },
+        {
+          "id": "b",
+          "text": "به‌دلیل قالب دقیق ارجاع آن را بپذیریم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+        },
+        {
+          "id": "c",
+          "text": "از مدل بخواهیم شماره صفحه بسازد",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود.",
+      "objective_id": "S07-C1-ST02-L03-OBJ01",
+      "equivalence_group": "S07-C1-ST02-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST02-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google Machine Learning Crash Course: Introduction to LLMs",
       "url": "https://developers.google.com/machine-learning/crash-course/llm",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
       "title": "Google Cloud Generative AI Glossary: RAG",
       "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-VERTEX-RAG-APIS",
       "title": "Google Cloud: APIs for Building Search and RAG Experiences",
       "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "llm-use-and-rag-review",
     "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+    "rubric": [
+      "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+      "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+      "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "llm-context-rag-trust-boundary-flow",
     "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «خطا، عدم قطعیت و منبع‌سازی نادرست»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+        "caption": "نقشه را برای تحلیل «خطا، عدم قطعیت و منبع‌سازی نادرست» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -63,6 +63,18 @@
           "title": "صورت مسئلهٔ آزمون‌پذیر",
           "id": "S06-C1-ST01-L01-CARD09",
           "text": "یک جمله بنویسید: کدام گروه در چه موقعیتی چه مانعی دارد، اکنون چگونه جبران می‌کند و پیامد چیست؟ سپس شاهدها و چیزهایی را که هنوز نمی‌دانید جدا کنید؛ صورت مسئله را پس از هر مشاهده به‌روزرسانی کنید."
+        },
+        {
+          "id": "S06-C1-ST01-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Problem discovery — کشف مسئله: مشاهدهٔ تکرارشوندهٔ مانع در زمینهٔ واقعی؛ ایدهٔ راه‌حل پیش از تعریف مسئله ممکن است سوگیری ایجاد کند. Evidence — شاهد: داده/رخداد قابل‌ردیابی که ادعا را پشتیبانی می‌کند؛ حکایت منفرد شیوع مسئله را نشان نمی‌دهد. Problem framing — صورت‌بندی مسئله: تعیین کاربر، موقعیت، پیامد و دامنه؛ صورت‌بندی باید قابل‌بازنگری باشد."
+        },
+        {
+          "id": "S06-C1-ST01-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "کشف مسئله از مشاهدهٔ موقعیت و رفتار شروع می‌شود، چون مشتریان اغلب علت مشکل را با راه‌حل مطلوب یکی می‌گیرند. رخداد اخیر، تکرار و پیامد را ثبت کنید؛ روایت یک نفر اندازهٔ بازار را نشان نمی‌دهد. اگر مسئله فقط در یک مشتری یا فصل خاص دیده شود، دامنهٔ فرضیه را محدود کنید، نه اینکه آن را نیاز عمومی بنامید."
         }
       ],
       "questions": [
@@ -216,29 +228,42 @@
         {
           "title": "MIT OCW, Research Resources and Primary Customer Research",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
           "id": "OPENSTAX-ENT-5-1",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "customer-discovery-workbook",
         "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+        "rubric": [
+          "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+          "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+          "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -265,7 +290,14 @@
       "media_plan": {
         "type": "authored_interview-map_or_assumption-table",
         "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مشاهدهٔ مسئلهٔ واقعی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+            "caption": "نقشه را برای تحلیل «مشاهدهٔ مسئلهٔ واقعی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -342,6 +374,18 @@
           "title": "پروفایل کاربردی",
           "id": "S06-C1-ST01-L02-CARD09",
           "text": "پروفایل مشتری هدف شامل نقش، موقعیت وقوع کار، محرک، روش فعلی، نتیجهٔ مطلوب، مانع تغییر، فرایند تصمیم و شیوهٔ دسترسی است. پروفایل را از نمونهٔ واقعی بسازید و بخش حدسی آن را با برچسب فرض مشخص کنید."
+        },
+        {
+          "id": "S06-C1-ST01-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Jobs to be done — کار مورد انتظار مشتری: پیشرفتی که شخص در موقعیت معین می‌خواهد؛ خود محصول کار نیست. Job context — زمینهٔ کار: شرایط، محدودیت و محرک انتخاب؛ سن یا شغل به‌تنهایی انگیزه را نشان نمی‌دهد. Substitute — جایگزین: راه فعلی مشتری برای انجام کار؛ رقیب فقط محصول مشابه نیست."
+        },
+        {
+          "id": "S06-C1-ST01-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "کار مورد انتظار، پیشرفتی است که مشتری در زمینه‌ای معین می‌خواهد؛ محصول فعلی فقط یکی از راه‌های رسیدن به آن است. محرک، مانع و نتیجهٔ مطلوب را از مشتری و موقعیت بپرسید. اگر زمینه مثل فوریت یا ریسک خرید عوض شود، جایگزین و معیار ارزش هم تغییر می‌کند؛ پس بخش‌بندی را با نیاز و رفتار پیوند دهید، نه فقط ویژگی ظاهری."
         }
       ],
       "questions": [
@@ -497,27 +541,40 @@
           "id": "M11",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
           "review_depth": "official_syllabus_reviewed",
-          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "MIT OCW, Research Resources and Primary Customer Research",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
           "id": "OPENSTAX-ENT-5-1",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "customer-discovery-workbook",
         "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+        "rubric": [
+          "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+          "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+          "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -544,7 +601,14 @@
       "media_plan": {
         "type": "authored_interview-map_or_assumption-table",
         "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مشتری و کار مورد انتظار»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+            "caption": "نقشه را برای تحلیل «مشتری و کار مورد انتظار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -621,6 +685,18 @@
           "title": "جدول راه‌حل فعلی",
           "id": "S06-C1-ST01-L03-CARD09",
           "text": "جدول شامل گروه مشتری، روش فعلی، هزینهٔ زمانی و پولی، ریسک خطا، محرک تغییر، هزینهٔ مهاجرت و شاهد پرداخت است. این جدول مبنای سنجش ارزش پیشنهادی و آزمون قیمت در مرحلهٔ بعد می‌شود."
+        },
+        {
+          "id": "S06-C1-ST01-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Current workaround — راه‌حل موقت کنونی: روش پرهزینه/ناقص مشتری برای رفع نیاز؛ استفادهٔ فعلی به‌تنهایی تمایل پرداخت را ثابت نمی‌کند. Switching cost — هزینهٔ تغییر: زمان، پول و ریسک انتقال از روش فعلی؛ هزینهٔ روانی/فرایندی هم مهم است. Cost of inaction — هزینهٔ بی‌عملی: پیامد ادامهٔ وضعیت موجود؛ باید برای مشتری و دورهٔ روشن سنجیده شود."
+        },
+        {
+          "id": "S06-C1-ST01-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "راه‌حل فعلی حتی اگر دستی و ناکارآمد باشد معیار مقایسهٔ مشتری است. زمان، هزینه، خطا و هزینهٔ بی‌عملی را با واحد و دوره بسنجید؛ شکایت شفاهی، زیان اقتصادی را خودکار ثابت نمی‌کند. اگر مشتری به‌خاطر مقررات یا قرارداد امکان تغییر نداشته باشد، شدت درد لزوماً به پرداخت سریع تبدیل نمی‌شود؛ هزینهٔ تغییر و اختیار خرید را هم وارد ارزیابی کنید."
         }
       ],
       "questions": [
@@ -776,34 +852,48 @@
           "id": "M11",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
           "review_depth": "official_syllabus_reviewed",
-          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
           "id": "OPENSTAX-ENT-5-1",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Stanford HCI, Early Customer Research / Customer Interviews",
           "id": "STANFORD-CUST-INTERVIEWS",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
           "review_depth": "university_course_reading_reviewed",
-          "scope": "راهنمای مصاحبهٔ کشف مشتری؛ خوداظهاری و قیمت‌پژوهی محدودیت دارد و مصاحبه جای آزمون خرید را نمی‌گیرد."
+          "scope": "راهنمای مصاحبهٔ کشف مشتری؛ خوداظهاری و قیمت‌پژوهی محدودیت دارد و مصاحبه جای آزمون خرید را نمی‌گیرد.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "customer-discovery-workbook",
         "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+        "rubric": [
+          "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+          "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+          "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -830,7 +920,14 @@
       "media_plan": {
         "type": "authored_interview-map_or_assumption-table",
         "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «هزینهٔ راه‌حل فعلی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+            "caption": "نقشه را برای تحلیل «هزینهٔ راه‌حل فعلی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -907,6 +1004,18 @@
           "title": "مثال سپهر: فرضیهٔ مرحلهٔ اول",
           "id": "S06-C1-ST01-L04-CARD09",
           "text": "فرضیه: «در شرکت‌های خدماتی با بیش از چند صد سفارش ماهانه، کارشناسان خرید به‌دلیل پراکندگی ایمیل‌ها تأخیر سفارش را دیر می‌بینند؛ اگر وضعیت سفارش‌ها در یک نمای مشترک دیده شود، زمان کشف کمبود کاهش می‌یابد.» گام اول مشاهدهٔ آخرین مورد و بررسی دادهٔ تأخیر است، نه ساخت داشبورد."
+        },
+        {
+          "id": "S06-C1-ST01-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Opportunity hypothesis — فرضیهٔ فرصت: ادعای قابل‌آزمون دربارهٔ مشتری، نیاز و ارزش؛ جذابیت سرمایه‌گذار شاهد تقاضا نیست. Desirability — مطلوبیت: میزان خواست مشتری برای راه‌حل؛ نظر مثبت با رفتار خرید متفاوت است. Falsifiability — ابطال‌پذیری: امکان تعریف شاهدی که فرض را رد کند؛ فرض همیشه درست، تصمیم‌ساز نیست."
+        },
+        {
+          "id": "S06-C1-ST01-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "فرضیهٔ فرصت باید مشتری، مسئله و پیامد قابل‌مشاهده را به پیش‌بینی‌ای وصل کند که می‌تواند شکست بخورد. اگر معیار صرفاً «علاقه نشان داد» باشد، تعریف و تمجید احتمالاً نتیجه را تأیید می‌کند. پیش از آزمون، آستانهٔ موفقیت و دادهٔ ردکننده را تعیین کنید؛ با تغییر گروه یا پیشنهاد، فرض قبلی به‌طور خودکار معتبر نمی‌ماند."
         }
       ],
       "questions": [
@@ -1062,27 +1171,39 @@
           "id": "M11",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
           "review_depth": "official_syllabus_reviewed",
-          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+          "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
           "id": "OPENSTAX-ENT-5-1",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+          "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+          "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "customer-discovery-workbook",
         "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+        "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+        "rubric": [
+          "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+          "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+          "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -1109,7 +1230,14 @@
       "media_plan": {
         "type": "authored_interview-map_or_assumption-table",
         "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «فرضیهٔ فرصت قابل بررسی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+            "caption": "نقشه را برای تحلیل «فرضیهٔ فرصت قابل بررسی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

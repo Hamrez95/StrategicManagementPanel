@@ -34,7 +34,7 @@
       "id": "C06-ST01-L04-CARD05",
       "type": "explanation",
       "title": "AI در کمک به کار خدماتی",
-      "text": "یک پیش‌چاپ آزمایش میدانی ۲۰۲۶ در خدمات پس از فروش Taobao، دسترسی به دستیار مولد برای پیشنهاد تشخیص/راه‌حل را بررسی می‌کند. چکیده گزارش می‌دهد سرعت متوسط بهتر شد و کیفیت ادراکی تغییر کرد، اما نرخ بازگشت مجدد مشتری تغییر معنادار نداشت؛ اثر برای عاملان متفاوت بود. این مطالعه هنوز پیش‌چاپ است و به شرکت، وظیفه و نمونهٔ خودش محدود است."
+      "text": "پیش‌چاپ آزمایش میدانی ۲۰۲۶ در خدمات پس از فروش Taobao، دستیار مولدِ پیشنهاددهندهٔ تشخیص و راه‌حل را ارزیابی کرد. در میانگین، سرعت خدمت و امتیاز ذهنی مشتری بهتر شد، اما بازگشت مجدد مشتری (سنجهٔ عینی کیفیت) تغییر معناداری نداشت. اثرها یکسان نبود: عاملان با عملکرد پایهٔ پایین‌تر بیشتر سود بردند، در حالی که در عاملان برتر کیفیت ذهنی و عینی افت کرد؛ نویسندگان این الگو را با اختلال در گردش‌کار و چندوظیفگی سازگار می‌دانند. این پیش‌چاپ هنوز داوری نهایی نشده و نتیجه به یک شرکت، نوع خدمت و سنجه‌های همان آزمایش محدود است؛ پس «AI سرعت را بالا برد» را با «کیفیت برای همه بهتر شد» یکی نگیریم."
     },
     {
       "id": "C06-ST01-L04-CARD06",
@@ -247,30 +247,41 @@
       "remediation_card_id": "C06-ST01-L04-CARD07"
     }
   ],
+  "source_refs": [
+    "mit-ops-15761",
+    "mit-little-law",
+    "ai-service-arxiv-2026",
+    "service-variability-2025"
+  ],
   "source_links": [
     {
       "id": "mit-ops-15761",
       "title": "MIT Sloan 15.761 Introduction to Operations Management: Cases and Readings",
       "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/cases-and-readings/",
-      "scope": "برنامه و منابع آموزشی MIT شامل تحلیل ظرفیت، صف و بازطراحی فرایند؛ منبع آموزشی، نه مطالعهٔ تجربی جدید."
+      "scope": "برنامه و منابع آموزشی MIT شامل تحلیل ظرفیت، صف و بازطراحی فرایند؛ منبع آموزشی، نه مطالعهٔ تجربی جدید.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "mit-little-law",
       "title": "MIT Operations Management lecture: Little’s Law",
       "url": "https://live.ocw.mit.edu/courses/15-760a-operations-management-spring-2002/e6c66bef8fc37c9f4928ea8f816895ab_lecture8_feb22.pdf",
-      "scope": "اسلاید درسی MIT دربارهٔ قانون لیتل و رابطهٔ طول صف، نرخ ورود و زمان انتظار."
+      "scope": "اسلاید درسی MIT دربارهٔ قانون لیتل و رابطهٔ طول صف، نرخ ورود و زمان انتظار.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "ai-service-arxiv-2026",
       "title": "Ni et al. (2026), Generative AI in Action: Field Experimental Evidence from Alibaba’s Customer Service Operations (preprint)",
       "url": "https://arxiv.org/abs/2603.29888",
-      "scope": "پیش‌چاپ آزمایش میدانی تصادفی در خدمات پس از فروش Taobao؛ هنوز نسخهٔ در حال بازبینی است، به یک شرکت/فرایند محدود است و نباید هم‌ارز مقالهٔ داوری‌شده یا قانون عمومی تلقی شود."
+      "scope": "پیش‌چاپ آزمایش میدانی تصادفی در خدمات پس از فروش Taobao؛ هنوز نسخهٔ در حال بازبینی است، به یک شرکت/فرایند محدود است و نباید هم‌ارز مقالهٔ داوری‌شده یا قانون عمومی تلقی شود.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "service-variability-2025",
       "title": "Torres Junior et al. (2025), Perceived Variability and Process Performance: Evidence from Service Professionals",
-      "url": "https://doi.org/10.18046/j.estger.2025.174.6790",
-      "scope": "آزمایش سناریومحور با ۲۲۹ متخصص عملیات خدمات در برزیل و پرتغال دربارهٔ ادراک تغییرپذیری و شاخص فرایند؛ اندازه‌گیری ادراک با عملکرد واقعی یکی نیست."
+      "url": "https://www.icesi.edu.co/revistas/index.php/estudios_gerenciales/en/article/view/6790",
+      "scope": "آزمایش سناریومحور با ۲۲۹ متخصص عملیات خدمات در برزیل و پرتغال دربارهٔ ادراک تغییرپذیری و شاخص فرایند؛ اندازه‌گیری ادراک با عملکرد واقعی یکی نیست.",
+      "doi": "10.18046/j.estger.2025.174.6790",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {

@@ -75,6 +75,18 @@
           "text": "اصطلاح look-ahead bias به اطلاعات آینده نسبت به تصمیم اشاره دارد. بک‌تست تمیز باید بپرسد: اگر واقعاً آن روز بودیم، این داده و برچسب را در اختیار داشتیم؟",
           "id": "S02-C4-ST02-L01-CARD09",
           "type": "explanation"
+        },
+        {
+          "id": "S02-C4-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Look-ahead bias — سوگیری نگاه به آینده: استفادهٔ ناخواسته از اطلاعاتی که هنگام پیش‌بینی در دسترس نبوده؛ اعتبار نتیجه را به‌طور مصنوعی بالا می‌برد. Temporal leakage — نشت زمانی: عبور اطلاعات آینده به دادهٔ آموزش/ویژگی‌ها؛ حتی در تقسیم تصادفی پنهان می‌ماند. Point-in-time data — دادهٔ در دسترس در زمان تصمیم: نسخهٔ اطلاعاتی که واقعاً در همان تاریخ موجود بوده؛ نسخهٔ اصلاح‌شدهٔ بعدی جایگزین مناسبی نیست."
+        },
+        {
+          "id": "S02-C4-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "نشت داده در پیش‌بینی مالی وقتی رخ می‌دهد که ویژگی یا برچسب از اطلاعات آینده ساخته شود، یا دادهٔ اصلاح‌شدهٔ بعدی به گذشته نسبت داده شود. تقسیم تصادفی ممکن است چرخه‌های بازار و رخدادهای تکراری را میان آموزش و آزمون پخش کند و عملکرد را بیش‌برآورد کند. زمان دسترسی واقعی هر متغیر را ثبت کنید و ارزیابی را به‌صورت زمانی انجام دهید. فرض ثبات توزیع مالی را با شوک‌ها و رژیم‌های متفاوت بسنجید. آزمون تاریخی خوب تضمین عملکرد آینده نیست؛ تصمیم سرمایه‌گذاری باید دامنهٔ عدم قطعیت را ببیند."
         }
       ],
       "questions": [
@@ -226,18 +238,19 @@
       ],
       "source_links": [
         {
-          "title": "Look-ahead bias in financial analysis (2025)",
+          "title": "AI’s Predictable Memory in Financial Analysis (Economics Letters, 2025)",
           "url": "https://www.sciencedirect.com/science/article/pii/S0165176525004392",
           "id": "lookahead-financial-2025",
           "review_depth": "peer_reviewed_article_reviewed",
-          "scope": "پژوهش روش‌شناختی دربارهٔ look-ahead bias در پیش‌بینی مالی با مدل‌های ازپیش‌آموزش‌دیده؛ نتایج به طراحی مقاله محدود است."
+          "scope": "مقالهٔ 2025 دربارهٔ سنجش look-ahead bias در پیش‌بینی مالی با LLM؛ صفحهٔ ناشر در این ممیزی 403 داد، فراداده از نمایه دیده شد ولی دسترسی مستقیم تأیید نشده است."
         },
         {
           "title": "NIST AI RMF Playbook: Measure",
           "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
           "id": "nist-tevv-measure",
           "review_depth": "official_framework_guidance_reviewed",
-          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص."
+          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -278,9 +291,17 @@
         "real_case_status": "choose_and_verify_during_authoring"
       },
       "media_plan": {
-        "type": "authored_diagram_or_worked_table",
-        "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/financial-time-split-leak.svg",
+            "alt_text": "مقایسهٔ تقسیم تصادفی که ممکن است اطلاعات آینده را وارد آزمون کند با تقسیم زمانی و ساخت ویژگی فقط از دادهٔ در دسترس در لحظهٔ پیش‌بینی.",
+            "caption": "طرح شماتیک آموزشی؛ ارزیابی زمانی را با افق تصمیم مالی هماهنگ کنید.",
+            "source_url": "https://www.sciencedirect.com/science/article/pii/S0165176525004392"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -366,6 +387,18 @@
           "text": "drift به تغییر در زمان اشاره می‌کند و bias انواع نظام‌مند خطا را دربرمی‌گیرد. یک نمودار واحد علت را شناسایی نمی‌کند؛ از شواهد چندگانه و آزمون بازنگری استفاده کنید.",
           "id": "S02-C4-ST02-L02-CARD09",
           "type": "explanation"
+        },
+        {
+          "id": "S02-C4-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Concept drift — رانش مفهوم: تغییر رابطهٔ ویژگی‌ها با پیامد در بازار؛ با تغییر ترکیب داده یکسان نیست. Data drift — رانش داده: تغییر توزیع ورودی‌ها نسبت به خط مبنا؛ لزوماً افت عملکرد را ثابت نمی‌کند. Monitoring threshold — آستانهٔ پایش: حدی از پیش‌تعریف‌شده برای بررسی یا اقدام؛ باید با هزینهٔ خطا و نرخ هشدار کاذب تنظیم شود."
+        },
+        {
+          "id": "S02-C4-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "سوگیری می‌تواند از نمونهٔ انتخابی، شاخص جانشین، بازماندگی دارایی‌ها یا تغییر رژیم بازار ناشی شود. مدل روی دورهٔ آرام ممکن است در تورم، شوک نقدینگی یا تغییر سیاست افت کند. ارزیابی را بر حسب دوره، دارایی و گروه ذی‌نفع تفکیک کنید. بازده گذشته ضمانت آینده نیست و متغیر همبسته الزاماً علت نیست. فرض تداوم روابط را صریح کنید و سناریوی تنش و پایش drift بسازید. اگر شواهد کافی برای تعمیم نیست، دامنهٔ استفاده یا اندازهٔ موقعیت را محدود کنید."
         }
       ],
       "questions": [
@@ -521,14 +554,16 @@
           "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
           "id": "nist-tevv-measure",
           "review_depth": "official_framework_guidance_reviewed",
-          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص."
+          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص.",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Financial stability implications of artificial intelligence: Executive Summary (2025)",
           "url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary",
           "id": "bis-financial-ai-2025",
           "review_depth": "official_institution_summary_reviewed",
-          "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است."
+          "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -569,9 +604,17 @@
         "real_case_status": "choose_and_verify_during_authoring"
       },
       "media_plan": {
-        "type": "authored_diagram_or_worked_table",
-        "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/financial-regime-shift.svg",
+            "alt_text": "نمودار مفهومی افزایش خطای مدل پس از تغییر رژیم بازار و حلقهٔ پایش، تشخیص، محدودسازی یا بازکالیبراسیون و ارزیابی دوباره.",
+            "caption": "نمایش مفهومی و بدون دادهٔ تجربی از ریسک تغییر شرایط بازار.",
+            "source_url": "https://airc.nist.gov/airmf-resources/playbook/measure/"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -657,6 +700,18 @@
           "text": "ریسک مدل یعنی عدم‌قطعیت ناشی از خطا، فرض یا کاربرد نامناسب مدل. امنیت سایبری، حریم خصوصی و ریسک مدل هم‌پوشانی دارند اما یک مفهوم واحد نیستند.",
           "id": "S02-C4-ST02-L03-CARD09",
           "type": "explanation"
+        },
+        {
+          "id": "S02-C4-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Least privilege — حداقل دسترسی: اعطای کمترین مجوز لازم برای نقش و زمان؛ مجوز دائمی گسترده ریسک را بالا می‌برد. Data lineage — تبار داده: ردگیری منشأ، تبدیل و مصرف داده؛ وجود ثبت مسیر دقت داده را تضمین نمی‌کند. Model risk management — مدیریت ریسک مدل: شناسایی، اعتبارسنجی، پایش و کنترل کاربرد مدل؛ رتبهٔ مدل جای پاسخ‌گویی کسب‌وکار را نمی‌گیرد."
+        },
+        {
+          "id": "S02-C4-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "امنیت و اعتماد در کاربرد مالی AI به محرمانگی داده، کنترل دسترسی، صحت خروجی، ثبت و تداوم خدمت وابسته است. اتصال مدل به تراکنش یا اطلاعات حساس پیامد نفوذ را بالا می‌برد. داده را کمینه کنید، ابزار را محدود کنید و اقدام مالی را با تأیید و سقف کنترل کنید. فرض بی‌خطر بودن خروجی یا سرویس بیرونی را نپذیرید؛ مسیر جایگزین و پاسخ رخداد را طراحی کنید. مالک امنیت و مالک ریسک مالی باید روشن باشند. کنترل‌ها را با تغییر مدل و دسترسی دوباره ارزیابی کنید."
         }
       ],
       "questions": [
@@ -812,14 +867,16 @@
           "url": "https://www.bis.org/project/noor",
           "id": "bis-project-noor-2025",
           "review_depth": "official_institution_project_reviewed",
-          "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست."
+          "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست.",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Financial stability implications of artificial intelligence: Executive Summary (2025)",
           "url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary",
           "id": "bis-financial-ai-2025",
           "review_depth": "official_institution_summary_reviewed",
-          "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است."
+          "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -860,9 +917,17 @@
         "real_case_status": "choose_and_verify_during_authoring"
       },
       "media_plan": {
-        "type": "authored_diagram_or_worked_table",
-        "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/financial-ai-controls-layers.svg",
+            "alt_text": "پنج لایهٔ کنترل کاربرد مالی AI: داده و دسترسی، ارزیابی خروجی، تأیید اقدام، ثبت و بررسی، توقف و بازگشت.",
+            "caption": "کنترل‌ها را با حساسیت کاربرد و سطح اختیار سامانه متناسب کنید.",
+            "source_url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -948,6 +1013,12 @@
           "text": "اعتبارسنجی فقط تأیید مدل پیش از اجرا نیست. در چرخهٔ عمر، تغییر داده و محیط می‌تواند فرض اولیه را باطل کند و نیاز به آزمون تازه ایجاد کند. برای پروندهٔ استقرار، مالک عملیاتی، معیار پایش، مسیر پاسخ حادثه، برنامهٔ جایگزین و تاریخ بازاعتبارسنجی را ثبت کنید. اگر این‌ها معلوم نیست، ابزار هنوز برای تصمیم خودکار آماده نیست و باید دامنهٔ استفاده محدود بماند.",
           "id": "S02-C4-ST02-L04-CARD09",
           "type": "explanation"
+        },
+        {
+          "id": "S02-C4-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Pilot — پایلوت: اجرای محدود برای آزمون کاربرد و کنترل در شرایط واقعی‌تر؛ موفقیت محدود مجوز تعمیم خودکار نیست. External validity — روایی بیرونی: قابلیت انتقال شواهد به کاربران، زمان یا محیط دیگر؛ نمونهٔ بزرگ به‌تنهایی آن را تضمین نمی‌کند. Rollback criterion — معیار بازگشت: شرط مشخص توقف/بازگشت به روش امن قبلی؛ باید مالک و زمان واکنش داشته باشد."
         }
       ],
       "questions": [
@@ -1103,14 +1174,16 @@
           "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
           "id": "nist-tevv-measure",
           "review_depth": "official_framework_guidance_reviewed",
-          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص."
+          "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص.",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "BIS Project Noor (2025)",
           "url": "https://www.bis.org/project/noor",
           "id": "bis-project-noor-2025",
           "review_depth": "official_institution_project_reviewed",
-          "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست."
+          "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -1153,7 +1226,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/financial-prototype-to-production.svg",
+            "alt_text": "نمودار تفاوت نمونهٔ آزمایشی و خدمت واقعی: عملکرد در محیط آزمایش، کیفیت خدمت عملیاتی را به‌تنهایی ثابت نمی‌کند. دامنهٔ نمونه، داده، کاربر و زمان آزمایش ممکن است با محیط واقعی فرق داشته باشد.؛ آمادگی عملیاتی، دسترسی، امنیت، وابستگی سامانه و مالک پشتیبانی را کنترل کن.؛ معیار خروج، کیفیت، خطا، هزینه و حداقل نمونهٔ لازم را پیشاپیش تعیین کن.؛ عرضهٔ محدود، پایش، تأیید انسان و مسیر بازگشت را در rollout مرحله‌ای آماده کن.",
+            "caption": "پیش از عرضه، معیار خروج و مسیر توقف را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

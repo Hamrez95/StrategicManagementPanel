@@ -44,6 +44,18 @@
       "id": "E03-ST03-L03-CARD08",
       "title": "مثال سپهر",
       "text": "حاشیهٔ ماهانهٔ مشتری ۴۰۰ هزار و ریزش ماهانه ۱۰٪ است؛ تقریب خام LTV=۴ میلیون تومان. اگر حاشیهٔ واقعی ۳۰۰ هزار یا ریزش ۱۵٪ شود، عدد ۲ میلیون می‌شود. این حساسیت نشان می‌دهد تصمیم قیمت نباید یک برآورد را حقیقت فرض کند."
+    },
+    {
+      "id": "E03-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "ارزش طول عمر مشتری (LTV) برآورد حاشیهٔ مشارکت در طول رابطهٔ مورد انتظار است؛ به حفظ مشتری و تخفیف و هزینهٔ خدمت وابسته است. Payback period زمان بازگشت هزینهٔ جذب است. نسبت LTV/CAC دقت پیش‌بینی را تضمین نمی‌کند و باید با حساسیت نگهداشت و سناریو خوانده شود."
+    },
+    {
+      "id": "E03-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ارزش طول عمر مشتری بر جریان‌های آیندهٔ حاشیهٔ مشارکت و احتمال حفظ تکیه دارد؛ افق، نرخ تنزیل، هزینهٔ خدمت و ریزش مفروضات تعیین‌کننده‌اند. برآورد مبتنی بر چند ماه اول ممکن است مشتریان دیرریزش را بیش‌برآورد کند یا اثر تغییر قیمت را نبیند. LTV/CAC با تغییر cohort و کانال فرق می‌کند. حساسیت را نسبت به نرخ حفظ، حاشیه و دوره نشان دهید. اگر دادهٔ تاریخی کوتاه است، برآورد را پیش‌بینی قطعی معرفی نکنید و بازنگری پس از مشاهدهٔ رفتار واقعی تعیین کنید."
     }
   ],
   "questions": [
@@ -162,42 +174,84 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "سودآوری نظری با توان مالی برای تأمین رشد یکی نیست."
+    },
+    {
+      "id": "E03-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش طول عمر مشتری با فرض نگهداشت تغییر زیادی می‌کند. تصمیم بهتر چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فرض‌ها و حساسیت و هزینهٔ خدمت را گزارش کنیم، نه یک عدد قطعی",
+          "feedback": "LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+        },
+        {
+          "id": "b",
+          "text": "فقط سناریوی خوش‌بینانه را نشان دهیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+        },
+        {
+          "id": "c",
+          "text": "نگهداشت را ثابت و بدون شاهد فرض کنیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "LTV پیش‌بینی وابسته به حاشیه و ماندگاری و هزینه است؛ تحلیل حساسیت دامنهٔ ریسک را می‌نمایاند.",
+      "objective_id": "E03-ST03-L03-OBJ01",
+      "equivalence_group": "E03-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "OPENSTAX-MARKETING-METRICS",
       "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+      "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "AMA-LTV-CALCULATOR",
       "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
       "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
       "review_depth": "professional_association_guide_reviewed",
-      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
       "title": "Switchback Price Experiments with Forward-Looking Demand",
       "url": "https://arxiv.org/abs/2410.14904",
       "review_depth": "working_paper_preprint_theory_reviewed",
-      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ONLINE-METRICS",
       "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
       "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "pricing-experiment-economics-metrics",
     "prompt": "برای جذب دانش‌پذیر سپهر «LTV و حساسیت به حفظ» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+    "rubric": [
+      "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+      "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+      "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -224,7 +278,14 @@
   "media_plan": {
     "type": "ltv-sensitivity-cohort-chart",
     "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+        "alt_text": "نمودار آموزشی مشترک مرحله برای «LTV و حساسیت به حفظ»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+        "caption": "از نمودار مرحله برای پاسخ به هدف «LTV و حساسیت به حفظ» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

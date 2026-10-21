@@ -72,6 +72,18 @@
               "title": "صورت مسئلهٔ آزمون‌پذیر",
               "id": "S06-C1-ST01-L01-CARD09",
               "text": "یک جمله بنویسید: کدام گروه در چه موقعیتی چه مانعی دارد، اکنون چگونه جبران می‌کند و پیامد چیست؟ سپس شاهدها و چیزهایی را که هنوز نمی‌دانید جدا کنید؛ صورت مسئله را پس از هر مشاهده به‌روزرسانی کنید."
+            },
+            {
+              "id": "S06-C1-ST01-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Problem discovery — کشف مسئله: مشاهدهٔ تکرارشوندهٔ مانع در زمینهٔ واقعی؛ ایدهٔ راه‌حل پیش از تعریف مسئله ممکن است سوگیری ایجاد کند. Evidence — شاهد: داده/رخداد قابل‌ردیابی که ادعا را پشتیبانی می‌کند؛ حکایت منفرد شیوع مسئله را نشان نمی‌دهد. Problem framing — صورت‌بندی مسئله: تعیین کاربر، موقعیت، پیامد و دامنه؛ صورت‌بندی باید قابل‌بازنگری باشد."
+            },
+            {
+              "id": "S06-C1-ST01-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "کشف مسئله از مشاهدهٔ موقعیت و رفتار شروع می‌شود، چون مشتریان اغلب علت مشکل را با راه‌حل مطلوب یکی می‌گیرند. رخداد اخیر، تکرار و پیامد را ثبت کنید؛ روایت یک نفر اندازهٔ بازار را نشان نمی‌دهد. اگر مسئله فقط در یک مشتری یا فصل خاص دیده شود، دامنهٔ فرضیه را محدود کنید، نه اینکه آن را نیاز عمومی بنامید."
             }
           ],
           "questions": [
@@ -225,29 +237,42 @@
             {
               "title": "MIT OCW, Research Resources and Primary Customer Research",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
               "id": "OPENSTAX-ENT-5-1",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "customer-discovery-workbook",
             "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+            "rubric": [
+              "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+              "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+              "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -274,7 +299,14 @@
           "media_plan": {
             "type": "authored_interview-map_or_assumption-table",
             "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مشاهدهٔ مسئلهٔ واقعی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+                "caption": "نقشه را برای تحلیل «مشاهدهٔ مسئلهٔ واقعی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -351,6 +383,18 @@
               "title": "پروفایل کاربردی",
               "id": "S06-C1-ST01-L02-CARD09",
               "text": "پروفایل مشتری هدف شامل نقش، موقعیت وقوع کار، محرک، روش فعلی، نتیجهٔ مطلوب، مانع تغییر، فرایند تصمیم و شیوهٔ دسترسی است. پروفایل را از نمونهٔ واقعی بسازید و بخش حدسی آن را با برچسب فرض مشخص کنید."
+            },
+            {
+              "id": "S06-C1-ST01-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Jobs to be done — کار مورد انتظار مشتری: پیشرفتی که شخص در موقعیت معین می‌خواهد؛ خود محصول کار نیست. Job context — زمینهٔ کار: شرایط، محدودیت و محرک انتخاب؛ سن یا شغل به‌تنهایی انگیزه را نشان نمی‌دهد. Substitute — جایگزین: راه فعلی مشتری برای انجام کار؛ رقیب فقط محصول مشابه نیست."
+            },
+            {
+              "id": "S06-C1-ST01-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "کار مورد انتظار، پیشرفتی است که مشتری در زمینه‌ای معین می‌خواهد؛ محصول فعلی فقط یکی از راه‌های رسیدن به آن است. محرک، مانع و نتیجهٔ مطلوب را از مشتری و موقعیت بپرسید. اگر زمینه مثل فوریت یا ریسک خرید عوض شود، جایگزین و معیار ارزش هم تغییر می‌کند؛ پس بخش‌بندی را با نیاز و رفتار پیوند دهید، نه فقط ویژگی ظاهری."
             }
           ],
           "questions": [
@@ -506,27 +550,40 @@
               "id": "M11",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
               "review_depth": "official_syllabus_reviewed",
-              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "MIT OCW, Research Resources and Primary Customer Research",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه با مشتری؛ بعضی فایل‌ها از دورهٔ ۲۰۱۳ هستند.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
               "id": "OPENSTAX-ENT-5-1",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "customer-discovery-workbook",
             "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+            "rubric": [
+              "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+              "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+              "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -553,7 +610,14 @@
           "media_plan": {
             "type": "authored_interview-map_or_assumption-table",
             "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مشتری و کار مورد انتظار»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+                "caption": "نقشه را برای تحلیل «مشتری و کار مورد انتظار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -630,6 +694,18 @@
               "title": "جدول راه‌حل فعلی",
               "id": "S06-C1-ST01-L03-CARD09",
               "text": "جدول شامل گروه مشتری، روش فعلی، هزینهٔ زمانی و پولی، ریسک خطا، محرک تغییر، هزینهٔ مهاجرت و شاهد پرداخت است. این جدول مبنای سنجش ارزش پیشنهادی و آزمون قیمت در مرحلهٔ بعد می‌شود."
+            },
+            {
+              "id": "S06-C1-ST01-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Current workaround — راه‌حل موقت کنونی: روش پرهزینه/ناقص مشتری برای رفع نیاز؛ استفادهٔ فعلی به‌تنهایی تمایل پرداخت را ثابت نمی‌کند. Switching cost — هزینهٔ تغییر: زمان، پول و ریسک انتقال از روش فعلی؛ هزینهٔ روانی/فرایندی هم مهم است. Cost of inaction — هزینهٔ بی‌عملی: پیامد ادامهٔ وضعیت موجود؛ باید برای مشتری و دورهٔ روشن سنجیده شود."
+            },
+            {
+              "id": "S06-C1-ST01-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "راه‌حل فعلی حتی اگر دستی و ناکارآمد باشد معیار مقایسهٔ مشتری است. زمان، هزینه، خطا و هزینهٔ بی‌عملی را با واحد و دوره بسنجید؛ شکایت شفاهی، زیان اقتصادی را خودکار ثابت نمی‌کند. اگر مشتری به‌خاطر مقررات یا قرارداد امکان تغییر نداشته باشد، شدت درد لزوماً به پرداخت سریع تبدیل نمی‌شود؛ هزینهٔ تغییر و اختیار خرید را هم وارد ارزیابی کنید."
             }
           ],
           "questions": [
@@ -785,34 +861,48 @@
               "id": "M11",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
               "review_depth": "official_syllabus_reviewed",
-              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
               "id": "OPENSTAX-ENT-5-1",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "Stanford HCI, Early Customer Research / Customer Interviews",
               "id": "STANFORD-CUST-INTERVIEWS",
               "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
               "review_depth": "university_course_reading_reviewed",
-              "scope": "راهنمای مصاحبهٔ کشف مشتری؛ خوداظهاری و قیمت‌پژوهی محدودیت دارد و مصاحبه جای آزمون خرید را نمی‌گیرد."
+              "scope": "راهنمای مصاحبهٔ کشف مشتری؛ خوداظهاری و قیمت‌پژوهی محدودیت دارد و مصاحبه جای آزمون خرید را نمی‌گیرد.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "customer-discovery-workbook",
             "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+            "rubric": [
+              "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+              "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+              "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -839,7 +929,14 @@
           "media_plan": {
             "type": "authored_interview-map_or_assumption-table",
             "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «هزینهٔ راه‌حل فعلی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+                "caption": "نقشه را برای تحلیل «هزینهٔ راه‌حل فعلی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -916,6 +1013,18 @@
               "title": "مثال سپهر: فرضیهٔ مرحلهٔ اول",
               "id": "S06-C1-ST01-L04-CARD09",
               "text": "فرضیه: «در شرکت‌های خدماتی با بیش از چند صد سفارش ماهانه، کارشناسان خرید به‌دلیل پراکندگی ایمیل‌ها تأخیر سفارش را دیر می‌بینند؛ اگر وضعیت سفارش‌ها در یک نمای مشترک دیده شود، زمان کشف کمبود کاهش می‌یابد.» گام اول مشاهدهٔ آخرین مورد و بررسی دادهٔ تأخیر است، نه ساخت داشبورد."
+            },
+            {
+              "id": "S06-C1-ST01-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Opportunity hypothesis — فرضیهٔ فرصت: ادعای قابل‌آزمون دربارهٔ مشتری، نیاز و ارزش؛ جذابیت سرمایه‌گذار شاهد تقاضا نیست. Desirability — مطلوبیت: میزان خواست مشتری برای راه‌حل؛ نظر مثبت با رفتار خرید متفاوت است. Falsifiability — ابطال‌پذیری: امکان تعریف شاهدی که فرض را رد کند؛ فرض همیشه درست، تصمیم‌ساز نیست."
+            },
+            {
+              "id": "S06-C1-ST01-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "فرضیهٔ فرصت باید مشتری، مسئله و پیامد قابل‌مشاهده را به پیش‌بینی‌ای وصل کند که می‌تواند شکست بخورد. اگر معیار صرفاً «علاقه نشان داد» باشد، تعریف و تمجید احتمالاً نتیجه را تأیید می‌کند. پیش از آزمون، آستانهٔ موفقیت و دادهٔ ردکننده را تعیین کنید؛ با تغییر گروه یا پیشنهاد، فرض قبلی به‌طور خودکار معتبر نمی‌ماند."
             }
           ],
           "questions": [
@@ -1071,27 +1180,39 @@
               "id": "M11",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/syllabus/",
               "review_depth": "official_syllabus_reviewed",
-              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی."
+              "scope": "برنامه و مواد آموزشی دربارهٔ مشتری هدف، بازار، مدل کسب‌وکار و آزمون فرض‌های کلیدی؛ نمونهٔ برنامهٔ درسی دانشگاهی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.1 Entrepreneurial Opportunity",
               "id": "OPENSTAX-ENT-5-1",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-1-entrepreneurial-opportunity",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد."
+              "scope": "تعریف فرصت به‌عنوان تقاضای قابل تشخیص همراه امکان ارضای آن و ریشه‌های مسئله‌محور فرصت؛ منبع آموزشی آزاد.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, 5.2 Researching Potential Business Opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است."
+              "scope": "غربال فرصت، پژوهش اولیه و ثانویه و بررسی امکان‌پذیری؛ راهنمای آموزشی مقدماتی است.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "customer-discovery-workbook",
             "prompt": "برای سپهر مسئله، نقش مشتری، کار مورد انتظار، روش فعلی، هزینه و شاهد را در برگهٔ یک‌صفحه‌ای ثبت کنید؛ پرسش بعدی را بدون پیشنهاد محصول طراحی کنید.",
-            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر"
+            "expected_output": "دفترچهٔ مشاهده و فرضیهٔ فرصت آزمون‌پذیر",
+            "rubric": [
+              "کار مشتری، نقش، زمینه و پیامد مسئلهٔ مشاهده‌شده روشن است.",
+              "مشاهده، گفته، تفسیر و فرضیه از هم جدا ثبت شده‌اند.",
+              "پرسش یا آزمون بعدی می‌تواند فرض را تقویت یا تضعیف کند و معیارش مشخص است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1118,7 +1239,14 @@
           "media_plan": {
             "type": "authored_interview-map_or_assumption-table",
             "purpose": "نمایش زمینهٔ مسئله، نقش مشتری و مسیر آزمون فرضیه",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/problem-customer-opportunity-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «فرضیهٔ فرصت قابل بررسی»: پیش از ساخت راه‌حل، مسئله و رفتار مشتری را از حدس جدا کن. مشاهدهٔ واقعی، موقعیت، رفتار و شاهد را ثبت کن؛ تفسیر را از مشاهده جدا نگه دار.؛ مشتری و کار، کار مورد انتظار و شرایط استفاده را تعریف کن؛ کاربر و خریدار ممکن است فرق کنند.؛ هزینهٔ وضع موجود، زمان، پول، ریسک یا راه‌حل جایگزین فعلی را بپرس و اندازه بگیر.؛ فرضیهٔ فرصت، مشتری، مسئله، پیامد و شاهد ابطال‌کننده را در یک جمله بنویس.",
+                "caption": "نقشه را برای تحلیل «فرضیهٔ فرصت قابل بررسی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -1406,6 +1534,18 @@
               "title": "مثال سپهر",
               "id": "S06-C1-ST02-L01-CARD09",
               "text": "سپهر به‌جای پرسیدن «اگر داشبورد تأخیر داشته باشیم از آن استفاده می‌کنید؟» می‌پرسد «آخرین سفارش دیررس را چطور فهمیدید؟» پاسخ می‌دهد مدیر از مشتری مطلع شد؛ این شاهد دربارهٔ هشدار و مالک اطلاعات می‌دهد، اما هنوز تقاضا برای داشبورد را اثبات نمی‌کند."
+            },
+            {
+              "id": "S06-C1-ST02-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Customer interview — مصاحبهٔ مشتری: گفت‌وگوی اکتشافی دربارهٔ تجربه و رفتار؛ پرسیدن «می‌خری؟» شواهد خرید نمی‌سازد. Leading question — پرسش القایی: پرسشی که پاسخ مطلوب را القا می‌کند؛ تأیید مصاحبه‌شونده ممکن است اثر پرسشگر باشد. Critical incident — رخداد بحرانی: نمونهٔ واقعی اخیر از مسئله/تصمیم؛ خاطرهٔ کلی جزییات رفتاری ندارد."
+            },
+            {
+              "id": "S06-C1-ST02-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مصاحبهٔ اکتشافی با رخداد و تصمیم گذشته شروع می‌شود تا رفتار واقعی از نظر فرضی جدا شود. پرسش القایی یا ارائهٔ راه‌حل، پاسخ اجتماعی مطلوب می‌سازد. اگر سؤال دربارهٔ خرید آینده باشد، قطعیت را پایین‌تر بگیرید و تعهد واقعی را بعداً با رفتار سنجید؛ پرسش خوب دادهٔ دقیق‌تر می‌سازد اما نمونهٔ کوچک نمایندهٔ کل بازار نمی‌شود."
             }
           ],
           "questions": [
@@ -1559,22 +1699,33 @@
             {
               "title": "MIT OCW 15.390 New Enterprises: customer research resources",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
               "id": "STANFORD-CUST-INTERVIEWS",
               "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
               "review_depth": "university_course_reading_reviewed",
-              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "interview-and-synthesis",
             "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+            "rubric": [
+              "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+              "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+              "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1600,7 +1751,14 @@
           "media_plan": {
             "type": "authored-interview-script_or-evidence-ladder",
             "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مصاحبه بدون فروش ایده»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+                "caption": "نقشه را برای تحلیل «مصاحبه بدون فروش ایده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -1677,6 +1835,18 @@
               "title": "گزارش صادقانه",
               "id": "S06-C1-ST02-L02-CARD09",
               "text": "نتیجه را با تعداد و نوع شاهد، نه عبارت «اکثریت مشتریان خواهان‌اند» گزارش کنید. نمونهٔ کوچک، انتخاب‌شده و کیفی محدودیت دارد؛ میزان اطمینان را با دامنهٔ داده هم‌خوان نگه دارید."
+            },
+            {
+              "id": "S06-C1-ST02-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Compliment bias — سوگیری تعریف‌وتمجید: تعارف یا حمایت اجتماعی به‌جای تقاضای واقعی؛ تعریف محصول نشانهٔ پرداخت نیست. Social desirability bias — سوگیری مطلوبیت اجتماعی: پاسخ مطابق انتظار اجتماعی؛ پرسش دربارهٔ گذشته و رفتار عینی کمک می‌کند. Purchase intent — قصد خرید: اظهار نیت در شرایط فرضی؛ فاصلهٔ قصد تا رفتار باید سنجیده شود."
+            },
+            {
+              "id": "S06-C1-ST02-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "تعریف دوستانه و قصد خرید به‌تنهایی تقاضا را نشان نمی‌دهند، چون پاسخ کم‌هزینه است و فرد با پول/زمان واقعی روبه‌رو نیست. از مشتری بخواهید نمونهٔ استفاده، هزینه یا راه‌حل فعلی را شرح دهد. اگر قیمت، دسترسی یا فوریت در آزمون واقعی با مصاحبه فرق کند، رفتار خرید تغییر می‌کند؛ ستایش را شاهد مسئله یا پرداخت حساب نکنید."
             }
           ],
           "questions": [
@@ -1830,29 +2000,42 @@
             {
               "title": "MIT OCW 15.390 New Enterprises: customer research resources",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
               "id": "STANFORD-CUST-INTERVIEWS",
               "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
               "review_depth": "university_course_reading_reviewed",
-              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential business opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "interview-and-synthesis",
             "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+            "rubric": [
+              "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+              "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+              "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1878,7 +2061,14 @@
           "media_plan": {
             "type": "authored-interview-script_or-evidence-ladder",
             "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «تفکیک تعریف و تمجید از تقاضا»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+                "caption": "نقشه را برای تحلیل «تفکیک تعریف و تمجید از تقاضا» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -1955,6 +2145,18 @@
               "title": "سطح شاهد را نام‌گذاری کنید",
               "id": "S06-C1-ST02-L03-CARD09",
               "text": "گزارش کشف می‌تواند شواهد را «اظهار»، «رخداد بازگو‌شده»، «دادهٔ رفتاری»، «تعهد زمان/داده» یا «تراکنش پرداخت» برچسب بزند. این تفکیک از تبدیل نظر به پیش‌بینی درآمد جلوگیری می‌کند."
+            },
+            {
+              "id": "S06-C1-ST02-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Revealed preference — ترجیح آشکارشده: استنباط ترجیح از انتخاب واقعی؛ انتخاب محدود به گزینه‌های در دسترس است. Willingness to pay — تمایل به پرداخت: مقدار/احتمال پرداخت در وضعیت معین؛ قیمت پیشنهادی باید قابل‌مقایسه باشد. Behavioral commitment — تعهد رفتاری: اقدام پرهزینه‌تر از اعلام علاقه، مانند پرداخت/زمان؛ هنوز نمایندهٔ کل بازار نیست."
+            },
+            {
+              "id": "S06-C1-ST02-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "رفتار پرهزینه‌تر مانند پرداخت آزمایشی یا صرف زمان، از اظهار علاقه شاهد قوی‌تری است، اما فقط برای همان پیشنهاد، قیمت و گروه. تعریف بازپرداخت، تخفیف و بازهٔ مشاهده بر نرخ اثر می‌گذارد. اگر قیمت یا روش تحویل تغییر کند، تمایل پرداخت قبلی قابل‌انتقال نیست؛ تعداد مشاهده، نرخ تبدیل و ریزش را با مخرج روشن گزارش کنید."
             }
           ],
           "questions": [
@@ -2108,29 +2310,42 @@
             {
               "title": "MIT OCW 15.390 New Enterprises: customer research resources",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
               "id": "STANFORD-CUST-INTERVIEWS",
               "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
               "review_depth": "university_course_reading_reviewed",
-              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential business opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "interview-and-synthesis",
             "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+            "rubric": [
+              "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+              "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+              "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2156,7 +2371,14 @@
           "media_plan": {
             "type": "authored-interview-script_or-evidence-ladder",
             "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «شاهد رفتار و تمایل پرداخت»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+                "caption": "نقشه را برای تحلیل «شاهد رفتار و تمایل پرداخت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2233,6 +2455,18 @@
               "title": "دفترچهٔ چرخهٔ کشف",
               "id": "S06-C1-ST02-L04-CARD09",
               "text": "هر چرخه شامل نسخهٔ فرضیه، بخش، روش نمونه‌گیری، پرسش، شاهد، مورد مخالف، سطح اطمینان، تصمیم و آزمون بعدی است. این دفترچه نشان می‌دهد چرا فرصت انتخاب شد و کدام بخش هنوز ریسک دارد."
+            },
+            {
+              "id": "S06-C1-ST02-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Bayesian updating — به‌روزرسانی بیزی: تغییر باور با شواهد تازه طبق احتمال پیشین و درست‌نمایی؛ عدد دقیق وابسته به مفروضات است. Disconfirming evidence — شاهد ناسازگار: داده‌ای که فرض اولیه را تضعیف می‌کند؛ باید پیش از آزمایش دنبال شود. Hypothesis revision — بازنگری فرضیه: اصلاح دامنه/سازوکار بر اساس نتیجه؛ تغییر پسینی معیار، شکست را پنهان می‌کند."
+            },
+            {
+              "id": "S06-C1-ST02-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "یادگیری یعنی وزن باور با توجه به کیفیت شاهد تغییر کند؛ دادهٔ مستقل و نزدیک به رفتار باید از نظر تشخیص فرض ارزش بیشتری داشته باشد. پاسخ مبهم هم می‌تواند فرض را محدود کند، نه اینکه به تأیید تبدیل شود. اگر معیار موفقیت پس از مشاهدهٔ نتیجه عوض شود، آزمون خودفریبی می‌سازد؛ نسخهٔ فرض، داده و دلیل بازنگری را ثبت کنید."
             }
           ],
           "questions": [
@@ -2386,29 +2620,42 @@
             {
               "title": "MIT OCW 15.390 New Enterprises: customer research resources",
               "id": "M11-CUSTOMER",
-              "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
               "review_depth": "official_course_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+              "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+              "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
               "id": "STANFORD-CUST-INTERVIEWS",
               "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
               "review_depth": "university_course_reading_reviewed",
-              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+              "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential business opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+              "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "interview-and-synthesis",
             "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+            "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+            "rubric": [
+              "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+              "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+              "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2434,7 +2681,14 @@
           "media_plan": {
             "type": "authored-interview-script_or-evidence-ladder",
             "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «بازنگری فرضیه با داده»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+                "caption": "نقشه را برای تحلیل «بازنگری فرضیه با داده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2722,6 +2976,18 @@
               "title": "خروجی اندازهٔ بازار",
               "id": "S06-C1-ST03-L01-CARD09",
               "text": "برگه باید تعریف مشتری، واحد خرید، دامنهٔ جغرافیا، روش بالا به پایین و پایین به بالا، ورودی‌ها، منبع، بازهٔ عدم‌قطعیت و محدودیت دسترسی را نشان دهد. منبع بازار و محاسبه را قابل بازبینی نگه دارید."
+            },
+            {
+              "id": "S06-C1-ST03-L01-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "TAM/SAM/SOM — بازار کل/قابل‌خدمت/قابل‌دستیابی: سه دامنهٔ بازار با فرض متفاوت؛ سهم کوچک از بازار کل پیش‌بینی فروش نیست. Bottom-up sizing — برآورد پایین‌به‌بالا: ساخت بازار از تعداد مشتری، مصرف و قیمت؛ ورودی هر جزء باید شاهد داشته باشد. Serviceable market — بازار قابل‌خدمت: بخشی که محصول و کانال فعلی می‌توانند پوشش دهند؛ مرز جغرافیا و مقررات مهم است."
+            },
+            {
+              "id": "S06-C1-ST03-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "برآورد بازار پایین‌به‌بالا تعداد خریدار قابل‌دسترسی را در مصرف و قیمت قابل‌دفاع ضرب می‌کند؛ هر ورودی می‌تواند عدم‌قطعیت داشته باشد. TAM سقف نظری، SAM بخش قابل‌خدمت و SOM سهم قابل‌دستیابی با ظرفیت/کانال فعلی است. اگر کانال یا توان فروش تغییر کند، SAM/SOM عوض می‌شود؛ سهم درصدی از TAM بدون سازوکار دسترسی پیش‌بینی نیست."
             }
           ],
           "questions": [
@@ -2877,20 +3143,30 @@
               "id": "M11-BEACHHEAD",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/resources/mit15_390s13_lec06/",
               "review_depth": "official_lecture_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار."
+              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت با پژوهش بازار و مشتری."
+              "scope": "غربال فرصت با پژوهش بازار و مشتری.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "opportunity-memo",
             "prompt": "برای سپهر یادداشت انتخاب فرصت یک‌صفحه‌ای بسازید: بخش، مسئله، شاهد، TAM/SAM/SOM با دامنه، توان تیم، ریسک و آزمون بعدی را ثبت کنید.",
-            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف"
+            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف",
+            "rubric": [
+              "جامعه، بخش و مسئله با تعریف قابل بررسی مشخص‌اند.",
+              "اندازه/دسترسی بازار با منبع یا فرض شفاف محاسبه شده است.",
+              "تصمیم مشروط، عدم‌قطعیت، آزمون بعدی و معیار توقف را بیان می‌کند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2916,7 +3192,14 @@
           "media_plan": {
             "type": "authored-market-sizing-sheet_or-decision-memo",
             "purpose": "نمایش اندازهٔ بازار و مسیر تصمیم از فرضیه تا آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/market-sizing-opportunity-memo.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «اندازهٔ مسئله و دسترس‌پذیری بازار»: اندازهٔ نظری را با دسترسی واقعی بازار و توان تیم اشتباه نگیر. اندازهٔ مسئله، از واحد مشتری × فراوانی × ارزش استفاده کن؛ منبع هر فرض را ثبت کن.؛ بازار در دسترس، TAM، SAM و SOM را با دامنه و محدودیت کانال برآورد کن.؛ مزیت آغاز، قابلیت تیم، زمان دسترسی و نیاز به شریک را با شاهد بسنج.؛ AI و یادداشت، AI برای تولید فرضیه کمک می‌کند؛ شاهد تقاضا را مشتری واقعی می‌سازد.",
+                "caption": "نقشه را برای تحلیل «اندازهٔ مسئله و دسترس‌پذیری بازار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -2993,6 +3276,18 @@
               "title": "ارزیابی واقع‌بینانه",
               "id": "S06-C1-ST03-L02-CARD09",
               "text": "برای هر مزیت بنویسید شاهد چیست، چقدر دوام دارد، مشتری چرا به آن اهمیت می‌دهد و رقیب چگونه می‌تواند تکرارش کند. یک قابلیت خاص ممکن است مزیت آغاز باشد، اما اگر به رفتار خرید یا اجرای بهتر منجر نشود ارزش بازار ندارد."
+            },
+            {
+              "id": "S06-C1-ST03-L02-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Founder-market fit — تناسب بنیان‌گذار و بازار: دسترسی/دانش/توان تیم نسبت به مسئله؛ تجربهٔ بنیان‌گذار به‌تنهایی مزیت پایدار نیست. Team capability — قابلیت تیم: توان اجرای کارهای بحرانی با نقش‌های مکمل؛ اندازهٔ تیم الزاماً توان را نشان نمی‌دهد. Unfair advantage — مزیت دشوار تقلید: دسترسی یا قابلیتی که رقبا دشوار جایگزین کنند؛ برچسبی برای هر دارایی نیست."
+            },
+            {
+              "id": "S06-C1-ST03-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "تناسب تیم با بازار از دسترسی به مشتری، دانش مسئله و توان ساخت/فروش ناشی می‌شود. تجربهٔ بنیان‌گذار ممکن است فرض‌هایش را هم سوگیر کند، پس آن را با شاهد و نقش‌های مکمل بسنجید. اگر ورود نیازمند مجوز، عملیات یا فروش سازمانی باشد که تیم ندارد، «مزیت آغاز» ضعیف است؛ قابلیتی که سازمان می‌تواند بسازد را از دارایی فعلی جدا بنویسید."
             }
           ],
           "questions": [
@@ -3148,20 +3443,30 @@
               "id": "M11-BEACHHEAD",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/resources/mit15_390s13_lec06/",
               "review_depth": "official_lecture_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار."
+              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت با پژوهش بازار و مشتری."
+              "scope": "غربال فرصت با پژوهش بازار و مشتری.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "opportunity-memo",
             "prompt": "برای سپهر یادداشت انتخاب فرصت یک‌صفحه‌ای بسازید: بخش، مسئله، شاهد، TAM/SAM/SOM با دامنه، توان تیم، ریسک و آزمون بعدی را ثبت کنید.",
-            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف"
+            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف",
+            "rubric": [
+              "جامعه، بخش و مسئله با تعریف قابل بررسی مشخص‌اند.",
+              "اندازه/دسترسی بازار با منبع یا فرض شفاف محاسبه شده است.",
+              "تصمیم مشروط، عدم‌قطعیت، آزمون بعدی و معیار توقف را بیان می‌کند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -3187,7 +3492,14 @@
           "media_plan": {
             "type": "authored-market-sizing-sheet_or-decision-memo",
             "purpose": "نمایش اندازهٔ بازار و مسیر تصمیم از فرضیه تا آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/market-sizing-opportunity-memo.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «توان تیم و مزیت آغاز»: اندازهٔ نظری را با دسترسی واقعی بازار و توان تیم اشتباه نگیر. اندازهٔ مسئله، از واحد مشتری × فراوانی × ارزش استفاده کن؛ منبع هر فرض را ثبت کن.؛ بازار در دسترس، TAM، SAM و SOM را با دامنه و محدودیت کانال برآورد کن.؛ مزیت آغاز، قابلیت تیم، زمان دسترسی و نیاز به شریک را با شاهد بسنج.؛ AI و یادداشت، AI برای تولید فرضیه کمک می‌کند؛ شاهد تقاضا را مشتری واقعی می‌سازد.",
+                "caption": "نقشه را برای تحلیل «توان تیم و مزیت آغاز» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -3264,6 +3576,18 @@
               "title": "قاعدهٔ تصمیم",
               "id": "S06-C1-ST03-L03-CARD09",
               "text": "اگر AI خروجی ساختگی را به‌عنوان نقل‌قول، نرخ تقاضا، پرداخت یا اندازهٔ بازار عرضه کند، آن را شاهد ندانید. استفادهٔ درست، سرعت‌بخشیدن به تحلیل است در حالی که زنجیرهٔ منبع و اعتبارسنجی انسانی حفظ می‌شود."
+            },
+            {
+              "id": "S06-C1-ST03-L03-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "AI-assisted ideation — ایده‌پردازی با AI: استفاده از مدل برای ساخت گزینه/پرسش؛ متن روان شاهد بازار نیست. Synthetic data — دادهٔ مصنوعی: نمونهٔ تولیدی برای آزمون فنی/حریم؛ توزیع آن واقعیت مشتری را اثبات نمی‌کند. Research provenance — منشأ پژوهش: ثبت اینکه ادعا از کدام مشاهده/منبع آمده؛ خروجی مدل بدون منبع را نباید نقل قول مشتری شمرد."
+            },
+            {
+              "id": "S06-C1-ST03-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مدل زبانی می‌تواند فرضیه‌های جایگزین و پرسش مصاحبه بسازد، اما پاسخ آن از متن‌های پیشین می‌آید نه از مشتریان این بازار. برای هر فرضیه مسیر تولید و دادهٔ پشتیبان را ثبت کنید و نمونهٔ واقعی جمع کنید. اگر خروجی AI را به‌عنوان شاهد وارد کنید، چرخهٔ تأیید بسته می‌شود؛ بازبینی انسانی باید منبع ادعا را پیدا کند."
             }
           ],
           "questions": [
@@ -3419,20 +3743,30 @@
               "id": "PNAS-LLM-SURVEY-2026",
               "url": "https://doi.org/10.1073/pnas.2518075122",
               "review_depth": "peer_reviewed_article_reviewed",
-              "scope": "پژوهش دربارهٔ پاسخ‌گویان مصنوعی و پیامدهای اعتبارسنجی پژوهش پیمایشی؛ یافته‌ها را به مصاحبه یا همهٔ کاربردهای AI تعمیم ندهید."
+              "scope": "پژوهش دربارهٔ پاسخ‌گویان مصنوعی و پیامدهای اعتبارسنجی پژوهش پیمایشی؛ یافته‌ها را به مصاحبه یا همهٔ کاربردهای AI تعمیم ندهید.",
+              "checked_on": "2026-10-21",
+              "access_note": "صفحهٔ ناشر PNAS از طریق DOI به دامنهٔ pnas.org هدایت شد که در واکشی مستقیم باز نشد؛ دسترسی مستقیم به مقاله تأیید نشد."
             },
             {
               "title": "Lin (2025), Six Fallacies in Substituting Large Language Models for Human Participants",
               "id": "LLM-HUMAN-SURROGATE-2025",
               "url": "https://journals.sagepub.com/doi/full/10.1177/25152459251357566",
               "review_depth": "peer_reviewed_article_reviewed",
-              "scope": "نقد روش‌شناختی جایگزینی LLM با مشارکت‌کنندهٔ انسانی؛ برای مرزبندی ایده‌پردازی و شاهد تجربی."
+              "scope": "نقد روش‌شناختی جایگزینی LLM با مشارکت‌کنندهٔ انسانی؛ برای مرزبندی ایده‌پردازی و شاهد تجربی.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "opportunity-memo",
             "prompt": "برای سپهر یادداشت انتخاب فرصت یک‌صفحه‌ای بسازید: بخش، مسئله، شاهد، TAM/SAM/SOM با دامنه، توان تیم، ریسک و آزمون بعدی را ثبت کنید.",
-            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف"
+            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف",
+            "rubric": [
+              "جامعه، بخش و مسئله با تعریف قابل بررسی مشخص‌اند.",
+              "اندازه/دسترسی بازار با منبع یا فرض شفاف محاسبه شده است.",
+              "تصمیم مشروط، عدم‌قطعیت، آزمون بعدی و معیار توقف را بیان می‌کند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -3458,7 +3792,14 @@
           "media_plan": {
             "type": "authored-market-sizing-sheet_or-decision-memo",
             "purpose": "نمایش اندازهٔ بازار و مسیر تصمیم از فرضیه تا آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/market-sizing-opportunity-memo.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «AI برای کشف فرضیه، نه ساخت شاهد»: اندازهٔ نظری را با دسترسی واقعی بازار و توان تیم اشتباه نگیر. اندازهٔ مسئله، از واحد مشتری × فراوانی × ارزش استفاده کن؛ منبع هر فرض را ثبت کن.؛ بازار در دسترس، TAM، SAM و SOM را با دامنه و محدودیت کانال برآورد کن.؛ مزیت آغاز، قابلیت تیم، زمان دسترسی و نیاز به شریک را با شاهد بسنج.؛ AI و یادداشت، AI برای تولید فرضیه کمک می‌کند؛ شاهد تقاضا را مشتری واقعی می‌سازد.",
+                "caption": "نقشه را برای تحلیل «AI برای کشف فرضیه، نه ساخت شاهد» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,
@@ -3540,6 +3881,18 @@
               "title": "الگوی یک‌صفحه‌ای",
               "id": "S06-C1-ST03-L04-CARD10",
               "text": "بخش‌ها: تصمیم، مشتری/مسئله، روش فعلی، شواهد و محدودیت، اندازه و دسترسی، ارزش پیشنهادی، توان تیم، اقتصاد مقدماتی، سه ریسک، آزمون بعدی، معیار ادامه/توقف و مسئول. این سند نسخهٔ فرضیه را هم ثبت می‌کند."
+            },
+            {
+              "id": "S06-C1-ST03-L04-TERMS",
+              "type": "key_terms",
+              "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+              "text": "Opportunity memo — یادداشت فرصت: سند کوتاه مشتری، مسئله، شاهد، اندازه و عدم‌قطعیت؛ برآورد بازار بدون روش قابل‌ممیزی نیست. Evidence strength — قدرت شاهد: میزان نزدیکی و اعتبار داده نسبت به ادعا؛ رتبه‌بندی کیفی جای محدودیت را نمی‌گیرد. Go/no-go criterion — معیار ادامه/توقف: شرط تصمیم ازپیش‌تعریف‌شده؛ باید با هزینهٔ خطا و مرحلهٔ سرمایه‌گذاری سازگار باشد."
+            },
+            {
+              "id": "S06-C1-ST03-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "یادداشت فرصت تصمیم را با شواهد، اندازهٔ مسئله، بخش مشتری و عدم‌قطعیت کوتاه می‌کند تا تیم بداند چه چیزی باید آموخته شود. شواهد هم‌سطح نیستند: قرارداد پرداخت‌شده با اظهار علاقه یکی نیست. اگر هزینهٔ آزمون بالا یا نتیجه برگشت‌ناپذیر باشد، آستانهٔ ادامه و توقف را سخت‌تر کنید؛ نتیجهٔ «ادامه» باید همراه مسئول، موعد و فرض بعدی باشد."
             }
           ],
           "questions": [
@@ -3695,27 +4048,39 @@
               "id": "M11-BEACHHEAD",
               "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/resources/mit15_390s13_lec06/",
               "review_depth": "official_lecture_resource_reviewed",
-              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار."
+              "scope": "مواد کلاس دربارهٔ بخش‌بندی، بازار beachhead، مشتری هدف و آزمون فرض‌های کسب‌وکار.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "OpenStax Entrepreneurship, researching potential opportunities",
               "id": "OPENSTAX-ENT-5-2",
               "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
               "review_depth": "open_textbook_section_reviewed",
-              "scope": "غربال فرصت با پژوهش بازار و مشتری."
+              "scope": "غربال فرصت با پژوهش بازار و مشتری.",
+              "checked_on": "2026-10-21",
+              "accessed_on": "2026-10-21"
             },
             {
               "title": "PNAS (2026), The potential existential threat of LLMs to online survey research",
               "id": "PNAS-LLM-SURVEY-2026",
               "url": "https://doi.org/10.1073/pnas.2518075122",
               "review_depth": "peer_reviewed_article_reviewed",
-              "scope": "پژوهش دربارهٔ پاسخ‌گویان مصنوعی و پیامدهای اعتبارسنجی پژوهش پیمایشی؛ یافته‌ها را به مصاحبه یا همهٔ کاربردهای AI تعمیم ندهید."
+              "scope": "پژوهش دربارهٔ پاسخ‌گویان مصنوعی و پیامدهای اعتبارسنجی پژوهش پیمایشی؛ یافته‌ها را به مصاحبه یا همهٔ کاربردهای AI تعمیم ندهید.",
+              "checked_on": "2026-10-21",
+              "access_note": "صفحهٔ ناشر PNAS از طریق DOI به دامنهٔ pnas.org هدایت شد که در واکشی مستقیم باز نشد؛ دسترسی مستقیم به مقاله تأیید نشد."
             }
           ],
           "practice_activity": {
             "type": "opportunity-memo",
             "prompt": "برای سپهر یادداشت انتخاب فرصت یک‌صفحه‌ای بسازید: بخش، مسئله، شاهد، TAM/SAM/SOM با دامنه، توان تیم، ریسک و آزمون بعدی را ثبت کنید.",
-            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف"
+            "expected_output": "یادداشت تصمیم مشروط با شواهد و معیار توقف",
+            "rubric": [
+              "جامعه، بخش و مسئله با تعریف قابل بررسی مشخص‌اند.",
+              "اندازه/دسترسی بازار با منبع یا فرض شفاف محاسبه شده است.",
+              "تصمیم مشروط، عدم‌قطعیت، آزمون بعدی و معیار توقف را بیان می‌کند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -3741,7 +4106,14 @@
           "media_plan": {
             "type": "authored-market-sizing-sheet_or-decision-memo",
             "purpose": "نمایش اندازهٔ بازار و مسیر تصمیم از فرضیه تا آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/market-sizing-opportunity-memo.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «یادداشت انتخاب فرصت»: اندازهٔ نظری را با دسترسی واقعی بازار و توان تیم اشتباه نگیر. اندازهٔ مسئله، از واحد مشتری × فراوانی × ارزش استفاده کن؛ منبع هر فرض را ثبت کن.؛ بازار در دسترس، TAM، SAM و SOM را با دامنه و محدودیت کانال برآورد کن.؛ مزیت آغاز، قابلیت تیم، زمان دسترسی و نیاز به شریک را با شاهد بسنج.؛ AI و یادداشت، AI برای تولید فرضیه کمک می‌کند؛ شاهد تقاضا را مشتری واقعی می‌سازد.",
+                "caption": "نقشه را برای تحلیل «یادداشت انتخاب فرصت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 5,

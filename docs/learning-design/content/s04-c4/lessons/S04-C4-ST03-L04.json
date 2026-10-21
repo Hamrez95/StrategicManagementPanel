@@ -58,6 +58,18 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "در سپهر، گزارش اجرای پایلوت باید نشان دهد چه گروهی، کدام نسخهٔ ابزار را در چه دوره‌ای و با چه تعریف موفقیت به‌کار برد. نتیجه و عارضه را ثبت کنید و اجازه دهید تیم دیگر حدود انتقال را ببیند."
+    },
+    {
+      "id": "S04-C4-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Learning log — دفتر یادگیری: ثبت فرض، مداخله، شاهد و تغییر تصمیم؛ یادداشت بدون تصمیم بعدی دادهٔ سازمانی نمی‌سازد. After-action review — مرور پس از اقدام: مقایسهٔ انتظار با رخداد برای یادگیری؛ جلسهٔ سرزنش‌محور اطلاعات را کم می‌کند. Organizational learning — یادگیری سازمانی: تغییر قابل‌استمرار در رویه/فرض بر پایهٔ تجربه؛ ثبت درس‌آموخته بدون استفاده، یادگیری اثربخش نیست."
+    },
+    {
+      "id": "S04-C4-ST03-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "دفتر یادگیری تغییر سازمانی ثبت می‌کند چه تغییری آزمایش شد، برای چه گروهی، با چه فرض و نتیجه‌ای. ثبت صرف موفقیت‌ها یادگیری را منحرف می‌کند؛ شکست‌ها و پیامدهای ناخواسته نیز لازم‌اند. شاخص‌ها را از ابتدا تعیین و نتیجه را به زمینه و دامنهٔ نمونه مقید کنید. دادهٔ حساس کارکنان را کمینه و دسترسی را محدود کنید. اگر نقش یا سیاست عوض شد، نسخهٔ تصمیم را ثبت کنید تا اثر تغییرها از هم تفکیک شود. مسئول پیگیری و تاریخ بازبینی، درس را به اقدام سازمانی تبدیل می‌کند."
     }
   ],
   "questions": [
@@ -209,18 +221,23 @@
   ],
   "source_links": [
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "review_depth": "official_framework_reviewed",
       "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
       "title": "NIST AI Risk Management Framework Core",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "leader-trust-ai-2026",
       "review_depth": "peer_reviewed_article_reviewed",
       "scope": "مدل پژوهشی دربارهٔ فرصت اظهار نظر، فروتنی رهبر و اعتماد به AI؛ تعمیم بر اساس روش و نمونهٔ مقاله محدود است.",
       "title": "How leaders build employee trust in artificial intelligence (Journal of Business Research, 2026)",
-      "url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059"
+      "url": "https://econpapers.repec.org/article/eeejbrese/v_3a217_3ay_3a2026_3ai_3ac_3as0148296326005059.htm",
+      "previous_url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "رکورد دانشگاهی RePEc/EconPapers و چکیده باز شد؛ متن کامل در ScienceDirect مخصوص مشترکان است. فعلاً فقط فراداده و چکیده بررسی شده و ادعاها باید به همان سطح محدود بمانند."
     }
   ],
   "practice_activity": {
@@ -269,7 +286,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-team-work-learning-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «دفتر یادگیری تغییر سازمانی»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+        "caption": "نقشه را برای تحلیل «دفتر یادگیری تغییر سازمانی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

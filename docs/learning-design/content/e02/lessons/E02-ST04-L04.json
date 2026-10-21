@@ -44,6 +44,18 @@
       "id": "E02-ST04-L04-CARD08",
       "title": "یک صفحه برای مدیر سپهر",
       "text": "پیشنهاد دستیار پشتیبانی شامل مسئلهٔ انتظار مشتری، گزینهٔ قواعد ساده، حجم پایلوت، حدود اختیار، کنترل تزریق دستور، معیار کیفیت/هزینه، مسئول انسانی و شرط توقف است. درخواست بودجهٔ کامل را به شواهد مرحلهٔ آزمایشی موکول کنید."
+    },
+    {
+      "id": "E02-ST04-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "پایلوت (Pilot) آزمایش محدود برای کاهش عدم‌قطعیت است، نه مدرک موفقیت در کل سازمان. شرط ادامه/توقف (Stage gate) تصمیم را به معیار ازپیش‌تعریف‌شده وصل می‌کند. گزینهٔ ساده‌تر مانند قاعده یا تغییر فرایند، خط مبنای مهم برای توجیه AI است."
+    },
+    {
+      "id": "E02-ST04-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "پیشنهاد تحول با AI باید مسئله، کاربر، فرایند فعلی، خط مبنا و گزینه‌های غیرهوش‌مصنوعی را نیز نشان دهد. ارزش مورد انتظار را با شواهد و فرض‌ها جدا کنید و هزینهٔ اتصال، نگهداری، بازبینی، امنیت و تغییر نقش را وارد کنید. دامنهٔ پایلوت، معیار موفقیت، guardrail، مالک و شرط توقف را تعیین کنید. اگر منفعت فقط با دسترسی گسترده یا دادهٔ نامجاز حاصل می‌شود، طراحی باید عوض شود. پیشنهاد خوب تصمیم‌پذیر است: می‌گوید چه چیزی را می‌دانیم، چه چیزی را هنوز باید آزمایش کنیم و در چه زمانی بازنگری می‌کنیم."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "NIST AI RMF چارچوب مدیریت ریسک است و نسخهٔ واحد تصمیم نمی‌دهد."
+    },
+    {
+      "id": "E02-ST04-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پیشنهاد تحول مبتنی بر AI برای مدیر آماده شده است. کدام بخش برای تصمیم مرحله‌ای ضروری است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مسئله، گزینهٔ ساده‌تر، ارزش، هزینه، ریسک، سنجش و شرط ادامه/توقف",
+          "feedback": "مدیر باید گزینهٔ جایگزین و هزینه و ریسک و شواهد و نقطهٔ بازنگری را ببیند."
+        },
+        {
+          "id": "b",
+          "text": "فقط نام مدل و تخمین درآمد",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: مدیر باید گزینهٔ جایگزین و هزینه و ریسک و شواهد و نقطهٔ بازنگری را ببیند."
+        },
+        {
+          "id": "c",
+          "text": "فقط زمان خرید مجوز",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: مدیر باید گزینهٔ جایگزین و هزینه و ریسک و شواهد و نقطهٔ بازنگری را ببیند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مدیر باید گزینهٔ جایگزین و هزینه و ریسک و شواهد و نقطهٔ بازنگری را ببیند.",
+      "objective_id": "E02-ST04-L04-OBJ01",
+      "equivalence_group": "E02-ST04-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST04-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,55 @@
       "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "review_depth": "primary_public_framework_reviewed_current_status_checked",
-      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند."
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-600-1-GENAI-PROFILE",
       "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "primary_public_profile_reviewed",
-      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد."
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-2025",
       "title": "OWASP Top 10 for LLM Applications 2025",
       "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
       "review_depth": "community_security_awareness_resource_reviewed",
-      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست."
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-PDF-2025",
-      "title": "OWASP Top 10 for LLM Applications 2025, project PDF",
-      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
-      "review_depth": "community_security_project_document_reviewed",
-      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود."
+      "title": "OWASP Top 10 for LLM Applications 2025, official resource page",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "official_publication_resource_page_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "previous_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_community_guidance"
     },
     {
       "id": "NIST-ADVERSARIAL-ML-100-2E2025",
       "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
       "review_depth": "primary_technical_taxonomy_reviewed",
-      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود."
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "ai-agent-risk-and-governance-brief",
     "prompt": "برای سپهر «پیشنهاد تحول با AI» را در دستیار پشتیبانی تحلیل کنید؛ سطح اختیار، کنترل، معیار، مالک و مسیر خطا را بنویسید.",
-    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول"
+    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+    "rubric": [
+      "کار عامل از اتوماسیون ساده و مرز اختیارش تفکیک شده است.",
+      "دسترسی، داده، ریسک و مسئول پاسخ‌گو در طراحی دیده شده‌اند.",
+      "آزمون، نظارت انسانی، مسیر fallback و شرط توقف مشخص‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -233,7 +289,14 @@
   "media_plan": {
     "type": "responsible-ai-business-case",
     "purpose": "نمایش دامنهٔ اختیار، ریسک و سازوکار تصمیم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-agent-control-loop.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «پیشنهاد تحول با AI»: عامل می‌تواند چند گام را دنبال کند؛ دسترسی و اختیار باید محدود و قابل‌بازگشت باشد. درخواست و دامنه، هدف، منابع داده، ابزار مجاز و کارهای ممنوع را تعریف کن.؛ پیشنهاد و اقدام، عملیات کم‌خطر را محدود کن؛ برای تعهد، پرداخت یا دادهٔ حساس تأیید بگیر.؛ پایش و ثبت، عملکرد، خطا، دسترسی و شکایت را با مالک مشخص پایش کن.؛ توقف و بازیابی، کلید توقف، لغو دسترسی، بازگشت به نسخهٔ قبلی و مسئول پاسخ را آماده کن.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «پیشنهاد تحول با AI» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

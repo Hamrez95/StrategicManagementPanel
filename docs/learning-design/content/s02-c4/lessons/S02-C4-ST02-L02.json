@@ -58,6 +58,18 @@
       "text": "drift به تغییر در زمان اشاره می‌کند و bias انواع نظام‌مند خطا را دربرمی‌گیرد. یک نمودار واحد علت را شناسایی نمی‌کند؛ از شواهد چندگانه و آزمون بازنگری استفاده کنید.",
       "id": "S02-C4-ST02-L02-CARD09",
       "type": "explanation"
+    },
+    {
+      "id": "S02-C4-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Concept drift — رانش مفهوم: تغییر رابطهٔ ویژگی‌ها با پیامد در بازار؛ با تغییر ترکیب داده یکسان نیست. Data drift — رانش داده: تغییر توزیع ورودی‌ها نسبت به خط مبنا؛ لزوماً افت عملکرد را ثابت نمی‌کند. Monitoring threshold — آستانهٔ پایش: حدی از پیش‌تعریف‌شده برای بررسی یا اقدام؛ باید با هزینهٔ خطا و نرخ هشدار کاذب تنظیم شود."
+    },
+    {
+      "id": "S02-C4-ST02-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "سوگیری می‌تواند از نمونهٔ انتخابی، شاخص جانشین، بازماندگی دارایی‌ها یا تغییر رژیم بازار ناشی شود. مدل روی دورهٔ آرام ممکن است در تورم، شوک نقدینگی یا تغییر سیاست افت کند. ارزیابی را بر حسب دوره، دارایی و گروه ذی‌نفع تفکیک کنید. بازده گذشته ضمانت آینده نیست و متغیر همبسته الزاماً علت نیست. فرض تداوم روابط را صریح کنید و سناریوی تنش و پایش drift بسازید. اگر شواهد کافی برای تعمیم نیست، دامنهٔ استفاده یا اندازهٔ موقعیت را محدود کنید."
     }
   ],
   "questions": [
@@ -213,14 +225,16 @@
       "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
       "id": "nist-tevv-measure",
       "review_depth": "official_framework_guidance_reviewed",
-      "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص."
+      "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص.",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "Financial stability implications of artificial intelligence: Executive Summary (2025)",
       "url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary",
       "id": "bis-financial-ai-2025",
       "review_depth": "official_institution_summary_reviewed",
-      "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است."
+      "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -261,9 +275,17 @@
     "real_case_status": "choose_and_verify_during_authoring"
   },
   "media_plan": {
-    "type": "authored_diagram_or_worked_table",
-    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "type": "authored_diagram",
+    "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/financial-regime-shift.svg",
+        "alt_text": "نمودار مفهومی افزایش خطای مدل پس از تغییر رژیم بازار و حلقهٔ پایش، تشخیص، محدودسازی یا بازکالیبراسیون و ارزیابی دوباره.",
+        "caption": "نمایش مفهومی و بدون دادهٔ تجربی از ریسک تغییر شرایط بازار.",
+        "source_url": "https://airc.nist.gov/airmf-resources/playbook/measure/"
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

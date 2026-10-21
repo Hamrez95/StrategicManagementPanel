@@ -226,6 +226,10 @@
           "hint_used_may_not_count_as_independent": true
         }
       ],
+      "source_refs": [
+        "objectives",
+        "actions"
+      ],
       "source_links": [
         {
           "id": "objectives",
@@ -242,7 +246,6 @@
           "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
         }
       ],
-      "practice_activity": null,
       "review_status": {
         "editorial": "pending",
         "subject_expert": "pending",
@@ -267,7 +270,17 @@
           "definition": "گزاره‌ای که فعلاً مبنای انتخاب است و نیاز به بررسی دارد"
         }
       ],
-      "content_notice": "نسخهٔ نخست نوشته شده؛ هنوز تأیید متخصص و بررسی با یادگیرنده انجام نشده است."
+      "content_notice": "نسخهٔ نخست نوشته شده؛ هنوز تأیید متخصص و بررسی با یادگیرنده انجام نشده است.",
+      "practice_activity": {
+        "type": "short_response",
+        "prompt": "سه گزینهٔ راهبردی را با معیارهای رشد، سرمایه و ریسک امتیازدهی کنید. وزن‌ها را جمعاً ۱۰۰٪ بگیرید و یک تحلیل حساسیت انجام دهید.",
+        "rubric": [
+          "تعریف معیار و مقیاس ثابت است",
+          "امتیاز وزنی محاسبه شده",
+          "تغییر وزن و محدودیت قضاوت خبرگان گزارش شده"
+        ],
+        "auto_grade": false
+      }
     },
     {
       "id": "C07-ST05-L02",
@@ -490,6 +503,9 @@
           "remediation_card_id": "C07-ST05-L02-CARD02",
           "hint_used_may_not_count_as_independent": true
         }
+      ],
+      "source_refs": [
+        "actions"
       ],
       "source_links": [
         {
@@ -764,6 +780,10 @@
           "remediation_card_id": "C07-ST05-L03-CARD02",
           "hint_used_may_not_count_as_independent": true
         }
+      ],
+      "source_refs": [
+        "bsc",
+        "control"
       ],
       "source_links": [
         {
@@ -1040,6 +1060,9 @@
           "hint_used_may_not_count_as_independent": true
         }
       ],
+      "source_refs": [
+        "control"
+      ],
       "source_links": [
         {
           "id": "control",
@@ -1049,7 +1072,6 @@
           "scope": "چارچوب مفهومی؛ سناریو و عدد و تمرین مستقل تألیف شده‌اند"
         }
       ],
-      "practice_activity": null,
       "review_status": {
         "editorial": "pending",
         "subject_expert": "pending",
@@ -1074,7 +1096,17 @@
           "definition": "گزاره‌ای که فعلاً مبنای انتخاب است و نیاز به بررسی دارد"
         }
       ],
-      "content_notice": "نسخهٔ نخست نوشته شده؛ هنوز تأیید متخصص و بررسی با یادگیرنده انجام نشده است."
+      "content_notice": "نسخهٔ نخست نوشته شده؛ هنوز تأیید متخصص و بررسی با یادگیرنده انجام نشده است.",
+      "practice_activity": {
+        "type": "short_response",
+        "prompt": "فرض کلیدی «هزینهٔ جذب ثابت می‌ماند» را ۳۰٪ بدتر کنید. مشخص کنید کدام شاخص آستانهٔ بازنگری راهبرد را فعال می‌کند.",
+        "rubric": [
+          "فرض و تغییر آن صریح است",
+          "اثر بر اقتصاد واحد/جریان نقد پیگیری شده",
+          "آستانه، مسئول و زمان بازبینی تعیین شده"
+        ],
+        "auto_grade": false
+      }
     }
   ],
   "checkpoint": {

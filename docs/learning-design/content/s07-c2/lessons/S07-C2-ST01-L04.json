@@ -44,6 +44,18 @@
       "title": "مثال سپهر و تصمیم",
       "id": "S07-C2-ST01-L04-CARD08",
       "text": "پیش از قرارداد، هزینهٔ هر ۱۰۰۰ تیکت، اتصال CRM، دادهٔ مجاز، زمان بازبین، SLA ارائه‌دهنده، export، نگهداری و مسیر توقف ثبت می‌شود. اگر مالک داده یا امنیت مشخص نیست، شروع پایلوت را عقب می‌اندازند تا کنترل تعیین شود."
+    },
+    {
+      "id": "S07-C2-ST01-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "هزینهٔ کامل استقرار شامل اتصال (Integration)، امنیت و مجوز داده، بازبینی انسانی، نگهداری و تداوم خدمت است. مالک داده مسئول کیفیت و دسترسی آن است. هزینهٔ خرید اولیه با هزینهٔ عملیاتی و ریسک خروج تفاوت دارد."
+    },
+    {
+      "id": "S07-C2-ST01-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "پایلوت ممکن است با هزینهٔ اتصال، مجوز، اصلاح داده، امنیت، آموزش، نظارت انسانی و پشتیبانی روبه‌رو شود. هزینهٔ کل فقط مبلغ اشتراک مدل نیست؛ هزینهٔ خطا و توقف هم اهمیت دارد. پیش از اجرا مالک داده، دسترسی، محل پردازش، نگهداری و حذف را روشن کنید. محدودیت اتصال به سامانه‌های قدیمی یا تأخیر پاسخ می‌تواند استفادهٔ واقعی را مختل کند. فرض آمادگی سازمان را با یک بررسی فنی و کاری کوچک بیازمایید. اگر کاربر باید زمان زیادی برای اصلاح خروجی بگذارد، ارزش عملی کمتر از نتیجهٔ آزمایش نمایشی خواهد بود."
     }
   ],
   "questions": [
@@ -162,42 +174,85 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "بدون اختیار بازبینی صوری می‌شود."
+    },
+    {
+      "id": "S07-C2-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پایلوت به اتصال دادهٔ شخصی و بازبینی انسانی نیاز دارد. برآورد هزینه و امکان چه چیزی را می‌گیرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اتصال و امنیت و داده و نگهداری و کار بازبین و محدودیت‌های استقرار",
+          "feedback": "هزینه و امکان استقرار شامل کار انسانی و ریسک داده و یکپارچه‌سازی است، نه فقط مجوز ابزار."
+        },
+        {
+          "id": "b",
+          "text": "فقط هزینهٔ اولیهٔ مدل",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: هزینه و امکان استقرار شامل کار انسانی و ریسک داده و یکپارچه‌سازی است، نه فقط مجوز ابزار."
+        },
+        {
+          "id": "c",
+          "text": "تعداد promptها",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: هزینه و امکان استقرار شامل کار انسانی و ریسک داده و یکپارچه‌سازی است، نه فقط مجوز ابزار."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "هزینه و امکان استقرار شامل کار انسانی و ریسک داده و یکپارچه‌سازی است، نه فقط مجوز ابزار.",
+      "objective_id": "S07-C2-ST01-L04-OBJ01",
+      "equivalence_group": "S07-C2-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST01-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "NBER-GENAI-WORK-2025",
-      "title": "Brynjolfsson, Li & Raymond: Generative AI at Work",
-      "url": "https://www.nber.org/papers/w31161",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
       "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
-      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است."
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
     },
     {
       "id": "NIST-TEVV-ATHLON-2026",
       "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
       "review_depth": "official_framework_initial_public_draft_reviewed",
-      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد."
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل."
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-RMF-MEASURE",
       "title": "NIST AI RMF Core: Measure",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "معیارها، پیامدها و زمینهٔ استقرار."
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "AI-task-value-cost-brief",
     "prompt": "برای یک وظیفهٔ پشتیبانی سپهر، کاربر و تصمیم و خط مبنا، ارزش کیفیت/زمان، معیارهای زیان، هزینهٔ کامل، وابستگی و مجوز داده را تعریف کنید. گام‌های پردازش را نیز با مالک مشخص کنید.",
-    "expected_output": "برگهٔ مسئله و ارزش و هزینه برای تصمیم پایلوت"
+    "expected_output": "برگهٔ مسئله و ارزش و هزینه برای تصمیم پایلوت",
+    "rubric": [
+      "وظیفه، کاربر، تصمیم و وضعیت پایه دقیق تعریف شده‌اند.",
+      "ارزش، هزینهٔ کل و شاخص کیفیت/زیان با واحد و فرض روشن‌اند.",
+      "وابستگی، مالک تصمیم و آزمون پایلوت با شرط ادامه/توقف مشخص است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -223,7 +278,14 @@
   "media_plan": {
     "type": "AI-use-case-value-cost-map",
     "purpose": "پیوند تصمیم و خط مبنا و کیفیت و هزینه و محدودیت",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-use-case-value-baseline.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «هزینهٔ کامل و محدودیت استقرار»: اول تصمیم و کاربر را بشناس؛ سپس ارزش، کیفیت، هزینه و محدودیت را بسنج. وظیفه و کاربر، تصمیم، نقش کاربر و پیامد خطا را مشخص کن.؛ خط مبنا، عملکرد فعلی انسان یا سامانه را پیش از پایلوت اندازه بگیر.؛ ارزش و کیفیت، زمان، دقت، دسترسی و نیاز به اصلاح را با هم ارزیابی کن.؛ هزینه و استقرار، مصرف، یکپارچه‌سازی، نظارت، امنیت و نگهداری را به واحد کار وصل کن.",
+        "caption": "نقشه را برای تحلیل «هزینهٔ کامل و محدودیت استقرار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

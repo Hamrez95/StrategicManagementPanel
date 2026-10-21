@@ -75,6 +75,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Base case سناریوی پایه؛ downside سناریوی فشار؛ upside سناریوی فرصت؛ stress test آزمون تنش؛ trigger ماشه؛ runway مدت دوام نقد و assumption فرض است. سناریوها باید به یک انتخاب وصل شوند: اکنون چه کنیم، چه چیزی را پایش کنیم و کدام اقدام را مرحله‌ای نگه داریم؟"
+        },
+        {
+          "id": "S02-C1-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Scenario analysis (تحلیل سناریو) چند روایت سازگار از آینده می‌سازد تا تصمیم در شرط‌های متفاوت آزموده شود. Forecast (پیش‌بینی) برآورد محتمل‌تر و target (هدف) نتیجهٔ مطلوب است؛ این سه را یکی نگیر."
         }
       ],
       "questions": [
@@ -224,76 +230,98 @@
           "remediation_card_id": "S02-C1-ST03-L01-CARD06"
         }
       ],
+      "source_refs": [
+        "sec-financial-statements",
+        "cfa-fsa-intro-2026",
+        "cfa-quality-reports-2026",
+        "ifrs-ias7",
+        "cfa-forecasting-2026",
+        "cfa-techniques-2026",
+        "icaew-spreadsheet-20",
+        "cfa-backtesting-simulation-2026",
+        "nist-ai-rmf",
+        "nist-genai-profile"
+      ],
       "source_links": [
         {
           "id": "sec-financial-statements",
           "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
           "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
           "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
-          "review_depth": "official_regulator_guide_reviewed"
+          "review_depth": "official_regulator_guide_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-fsa-intro-2026",
           "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
           "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-quality-reports-2026",
           "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
           "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ifrs-ias7",
           "title": "IFRS: IAS 7 Statement of Cash Flows",
           "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
           "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
-          "review_depth": "official_standard_page_reviewed"
+          "review_depth": "official_standard_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-forecasting-2026",
           "title": "CFA Institute 2026: Company Analysis—Forecasting",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
           "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-techniques-2026",
           "title": "CFA Institute 2026: Financial Analysis Techniques",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
           "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "icaew-spreadsheet-20",
           "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
           "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
           "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
-          "review_depth": "official_professional_guidance_reviewed"
+          "review_depth": "official_professional_guidance_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-backtesting-simulation-2026",
           "title": "CFA Institute 2026: Backtesting & Simulation",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
           "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -377,6 +405,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Sensitivity analysis تحلیل حساسیت؛ break-even سربه‌سر؛ contribution margin حاشیهٔ مشارکت؛ two-way data table جدول دو‌متغیره؛ downside exposure مواجهه با زیان است. نتیجه را با محرک، دامنه، فرمول، فرض ثابت و زمان تصمیم گزارش کنید."
+        },
+        {
+          "id": "S02-C1-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Sensitivity analysis (تحلیل حساسیت) اثر تغییر فرض بر خروجی را نشان می‌دهد. تغییر یک ورودی، رابطهٔ مشروط مدل را روشن می‌کند؛ احتمال رخداد سناریو یا دقت پیش‌بینی را به‌تنهایی نشان نمی‌دهد."
         }
       ],
       "questions": [
@@ -526,76 +560,98 @@
           "remediation_card_id": "S02-C1-ST03-L02-CARD06"
         }
       ],
+      "source_refs": [
+        "sec-financial-statements",
+        "cfa-fsa-intro-2026",
+        "cfa-quality-reports-2026",
+        "ifrs-ias7",
+        "cfa-forecasting-2026",
+        "cfa-techniques-2026",
+        "icaew-spreadsheet-20",
+        "cfa-backtesting-simulation-2026",
+        "nist-ai-rmf",
+        "nist-genai-profile"
+      ],
       "source_links": [
         {
           "id": "sec-financial-statements",
           "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
           "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
           "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
-          "review_depth": "official_regulator_guide_reviewed"
+          "review_depth": "official_regulator_guide_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-fsa-intro-2026",
           "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
           "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-quality-reports-2026",
           "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
           "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ifrs-ias7",
           "title": "IFRS: IAS 7 Statement of Cash Flows",
           "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
           "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
-          "review_depth": "official_standard_page_reviewed"
+          "review_depth": "official_standard_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-forecasting-2026",
           "title": "CFA Institute 2026: Company Analysis—Forecasting",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
           "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-techniques-2026",
           "title": "CFA Institute 2026: Financial Analysis Techniques",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
           "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "icaew-spreadsheet-20",
           "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
           "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
           "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
-          "review_depth": "official_professional_guidance_reviewed"
+          "review_depth": "official_professional_guidance_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-backtesting-simulation-2026",
           "title": "CFA Institute 2026: Backtesting & Simulation",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
           "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -679,6 +735,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Hallucination/confabulation خروجی ساختگی؛ provenance منشأ داده؛ out-of-sample آزمون خارج نمونه؛ leakage نشت داده یا اطلاعات؛ human oversight نظارت انسانی است. AI تصمیم را پشتیبانی می‌کند؛ مسئولیت صحت و اثر تصمیم به مدیر و سازمان می‌ماند."
+        },
+        {
+          "id": "S02-C1-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Model risk (ریسک مدل) از داده، فرض، پیاده‌سازی یا کاربرد نامناسب می‌آید. Provenance (منشأ داده و خروجی) و data leakage (نشت داده) را بررسی کن؛ رقم دقیق تولیدشده با AI لزوماً برآورد معتبر نیست."
         }
       ],
       "questions": [
@@ -828,76 +890,98 @@
           "remediation_card_id": "S02-C1-ST03-L03-CARD06"
         }
       ],
+      "source_refs": [
+        "sec-financial-statements",
+        "cfa-fsa-intro-2026",
+        "cfa-quality-reports-2026",
+        "ifrs-ias7",
+        "cfa-forecasting-2026",
+        "cfa-techniques-2026",
+        "icaew-spreadsheet-20",
+        "cfa-backtesting-simulation-2026",
+        "nist-ai-rmf",
+        "nist-genai-profile"
+      ],
       "source_links": [
         {
           "id": "sec-financial-statements",
           "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
           "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
           "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
-          "review_depth": "official_regulator_guide_reviewed"
+          "review_depth": "official_regulator_guide_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-fsa-intro-2026",
           "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
           "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-quality-reports-2026",
           "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
           "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ifrs-ias7",
           "title": "IFRS: IAS 7 Statement of Cash Flows",
           "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
           "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
-          "review_depth": "official_standard_page_reviewed"
+          "review_depth": "official_standard_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-forecasting-2026",
           "title": "CFA Institute 2026: Company Analysis—Forecasting",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
           "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-techniques-2026",
           "title": "CFA Institute 2026: Financial Analysis Techniques",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
           "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "icaew-spreadsheet-20",
           "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
           "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
           "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
-          "review_depth": "official_professional_guidance_reviewed"
+          "review_depth": "official_professional_guidance_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-backtesting-simulation-2026",
           "title": "CFA Institute 2026: Backtesting & Simulation",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
           "scope": "روش‌های سناریو، شبیه‌سازی و حساسیت و محدودیت فرض‌های توزیع/دادهٔ تاریخی؛ در این درس با احتیاط به تحلیل مالی مدیریتی تطبیق داده می‌شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک و ویژگی‌های اعتمادپذیری؛ شامل منابع پروفایل GenAI و به‌روزرسانی‌های چارچوب.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و پیشنهاد اقدام‌های مدیریت ریسک مولد؛ نسخهٔ ۲۰۲۴ و مکمل AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -924,7 +1008,7 @@
     {
       "id": "S02-C1-ST03-L04",
       "version": "1-draft",
-      "title": "نقد گزارش و مدل ساخته‌شده با AI",
+      "title": "از سناریو تا توصیهٔ مشروط با AI",
       "content_status": "draft",
       "objective": "خروجی مالی AI را از نظر منشأ، واحد، فرض، خطا و نشت داده وارسی کند و تصمیم را به انسان مسئول بسپارد.",
       "learning_cards": [
@@ -981,6 +1065,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار در تحلیل سناریو",
           "text": "Hallucination/confabulation یعنی خروجی ساختگی؛ provenance منشأ داده؛ out-of-sample آزمون روی دادهٔ ندیده؛ leakage نشت داده؛ human oversight نظارت انسانی است. AI تصمیم را پشتیبانی می‌کند، اما مسئولیت صحت و اثر به مدیر و سازمان می‌ماند."
+        },
+        {
+          "id": "S02-C1-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Conditional recommendation (توصیهٔ مشروط) تصمیم را به فرض‌ها و محرک‌های تغییر گره می‌زند. Human accountability (پاسخ‌گویی انسانی) یعنی فرد مسئول بتواند منبع، واحد، محدودیت و دلیل اقدام را توضیح دهد؛ متن روان مدل جای این کار را نمی‌گیرد."
         }
       ],
       "questions": [
@@ -1130,55 +1220,71 @@
           "remediation_card_id": "S02-C1-ST03-L04-CARD06"
         }
       ],
+      "source_refs": [
+        "sec-financial-statements",
+        "cfa-fsa-intro-2026",
+        "cfa-quality-reports-2026",
+        "ifrs-ias7",
+        "cfa-forecasting-2026",
+        "cfa-techniques-2026",
+        "icaew-spreadsheet-20"
+      ],
       "source_links": [
         {
           "id": "sec-financial-statements",
           "title": "U.S. SEC: Beginners’ Guide to Financial Statements",
           "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
           "scope": "آموزش عمومی ساختار صورت‌ها و نسبت‌ها؛ جایگزین استاندارد حسابداری یا مشاوره نیست.",
-          "review_depth": "official_regulator_guide_reviewed"
+          "review_depth": "official_regulator_guide_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-fsa-intro-2026",
           "title": "CFA Institute 2026: Introduction to Financial Statement Analysis",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-financial-statement-analysis",
           "scope": "هدف تحلیل صورت‌ها برای بررسی عملکرد، وضعیت، ریسک و تصمیم؛ متن کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-quality-reports-2026",
           "title": "CFA Institute 2026: Evaluating Quality of Financial Reports",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
           "scope": "کیفیت گزارشگری و سود، دریافتنی، جریان نقد، نسبت‌ها و نشانه‌های هشدار؛ متن کامل ممکن است نیازمند دسترسی باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ifrs-ias7",
           "title": "IFRS: IAS 7 Statement of Cash Flows",
           "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows.html",
           "scope": "هدف و دسته‌بندی جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی؛ متن استاندارد تابع دسترسی IFRS است.",
-          "review_depth": "official_standard_page_reviewed"
+          "review_depth": "official_standard_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-forecasting-2026",
           "title": "CFA Institute 2026: Company Analysis—Forecasting",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/company-analysis-forecasting",
           "scope": "پیش‌بینی درآمد، هزینهٔ عملیاتی، سرمایهٔ در گردش و سناریو؛ دسترسی کامل ممکن است محدود باشد.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cfa-techniques-2026",
           "title": "CFA Institute 2026: Financial Analysis Techniques",
           "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
           "scope": "تحلیل و پیش‌بینی عملکرد با تحلیل حساسیت، سناریو و شبیه‌سازی؛ خلاصهٔ عمومی curriculum.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "icaew-spreadsheet-20",
           "title": "ICAEW: 20 Principles for Good Spreadsheet Practice (2024 edition)",
           "url": "https://www.icaew.com/technical/technology/excel-community/20-principles-for-good-spreadsheet-practice-2024-edition",
           "scope": "راهنمای حرفه‌ای طراحی، ساخت، بازبینی و کنترل ریسک صفحه‌گسترده؛ توصیهٔ عملی نه استاندارد حسابداری.",
-          "review_depth": "official_professional_guidance_reviewed"
+          "review_depth": "official_professional_guidance_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {

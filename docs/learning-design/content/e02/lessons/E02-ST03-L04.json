@@ -44,6 +44,18 @@
       "id": "E02-ST03-L04-CARD08",
       "title": "گزارش تصمیم سپهر",
       "text": "برای دستیار پشتیبانی، خط مبنا و گروه مقایسه تعریف کنید؛ زمان پاسخ، حل موفق، خطای پاسخ، شکایت و بار بازبینی را بسنجید. مالک ارزش، تاریخ مرور و تصمیم ادامه/اصلاح/توقف را ثبت کنید. نتیجه را با دامنهٔ آزمون و محدودیت تعمیم همراه کنید."
+    },
+    {
+      "id": "E02-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "خط مبنا (Baseline) مقدار پیش از مداخله است. شاخص پیشرو (Leading indicator) نشانهٔ زودهنگام حرکت به سوی نتیجه است؛ شاخص پیامدی (Lagging indicator) نتیجهٔ تحقق‌یافته را نشان می‌دهد. معیار تعادل (Guardrail) مانع بهبود یک معیار به بهای زیان مهم دیگر می‌شود."
+    },
+    {
+      "id": "E02-ST03-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "نتیجهٔ تحول را با خط مبنای پیش از تغییر، شاخص فرایندی و پیامد کسب‌وکار بسنجید. تحویل پروژه، تعداد کاربران یا نصب سامانه خروجی‌اند نه لزوماً منفعت. عوامل هم‌زمان، ترکیب مشتری و فصل می‌توانند تغییر را توضیح دهند؛ برای ادعای اثر، مقایسهٔ مناسب طراحی کنید. مزایا و هزینه‌های ناخواسته مانند خطا یا فشار کاری را ثبت کنید. اگر منفعت هنوز ظاهر نشده، مشخص کنید فرض زمان تحقق چیست و چه زمانی تصمیم ادامه گرفته می‌شود. مالک منفعت باید پس از تحویل پروژه نیز پاسخ‌گو باشد."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "معیار پیشینی پاسخ‌گویی و انضباط تصمیم را تقویت می‌کند."
+    },
+    {
+      "id": "E02-ST03-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پس از راه‌اندازی تحول، کدام سنجش برای تصمیم ادامه یا توقف مناسب‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خط مبنا، شاخص پیشرو و پیامدی، معیار تعادل و شواهد اثر",
+          "feedback": "معیارهای پیشرو و پیامدی با خط مبنا و guardrail کمک می‌کنند خروجی را با نتیجه اشتباه نگیریم."
+        },
+        {
+          "id": "b",
+          "text": "فقط تعداد حساب‌های ساخته‌شده",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: معیارهای پیشرو و پیامدی با خط مبنا و guardrail کمک می‌کنند خروجی را با نتیجه اشتباه نگیریم."
+        },
+        {
+          "id": "c",
+          "text": "فقط نظر تیم پروژه",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: معیارهای پیشرو و پیامدی با خط مبنا و guardrail کمک می‌کنند خروجی را با نتیجه اشتباه نگیریم."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "معیارهای پیشرو و پیامدی با خط مبنا و guardrail کمک می‌کنند خروجی را با نتیجه اشتباه نگیریم.",
+      "objective_id": "E02-ST03-L04-OBJ01",
+      "equivalence_group": "E02-ST03-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST03-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,48 +212,63 @@
       "title": "Project Management Institute, The Standard for Portfolio Management, 3rd ed.",
       "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/standard-for-portfolio-management-third-edition.pdf",
       "review_depth": "professional_standard_framework_reviewed",
-      "scope": "پیوند سبد با راهبرد، ارزش مورد انتظار، اولویت و تصمیم‌گیری؛ نسخهٔ 2013 قدیمی است و برای روش‌ها و واژگان روز باید با استانداردهای جدیدتر PMI تطبیق شود."
+      "scope": "پیوند سبد با راهبرد، ارزش مورد انتظار، اولویت و تصمیم‌گیری؛ نسخهٔ 2013 قدیمی است و برای روش‌ها و واژگان روز باید با استانداردهای جدیدتر PMI تطبیق شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "PMI-PORTFOLIO-LIMITED-RESOURCES",
       "title": "PMI, Project portfolio management and limited resources",
       "url": "https://www.pmi.org/learning/library/project-portfolio-management-limited-resources-6948",
       "review_depth": "professional_practice_article_reviewed",
-      "scope": "انتخاب و هماهنگی ابتکارها با منابع محدود و راهبرد؛ منبع حرفه‌ای است نه ارزیابی علّی تجربی."
+      "scope": "انتخاب و هماهنگی ابتکارها با منابع محدود و راهبرد؛ منبع حرفه‌ای است نه ارزیابی علّی تجربی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "HANELT-DIGITAL-TRANSFORMATION-REVIEW-2021",
       "title": "Hanelt et al., A systematic review of the literature on digital transformation",
       "url": "https://doi.org/10.1111/joms.12639",
       "review_depth": "peer_reviewed_systematic_review_reviewed",
-      "scope": "مرور 279 مقاله دربارهٔ تحول دیجیتال، تغییر سازمانی و سازگاری مستمر؛ دامنهٔ جست‌وجو و زمان انتشار مقاله را در تعمیم به AI امروز در نظر بگیرید."
+      "scope": "مرور 279 مقاله دربارهٔ تحول دیجیتال، تغییر سازمانی و سازگاری مستمر؛ دامنهٔ جست‌وجو و زمان انتشار مقاله را در تعمیم به AI امروز در نظر بگیرید.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "ACCIARINI-STRATEGIC-CHANGE-REVIEW-2024",
       "title": "Acciarini et al., Strategic change: A systematic review, synthesis, and a future research agenda",
       "url": "https://doi.org/10.1111/emre.12668",
       "review_depth": "peer_reviewed_systematic_review_reviewed",
-      "scope": "مرور و ترکیب پژوهش‌های تغییر راهبردی و دستورکار پژوهشی؛ برای کاربرد عملی باید با بافت سازمان و پژوهش‌های جدید تحول دیجیتال پیوند بخورد."
+      "scope": "مرور و ترکیب پژوهش‌های تغییر راهبردی و دستورکار پژوهشی؛ برای کاربرد عملی باید با بافت سازمان و پژوهش‌های جدید تحول دیجیتال پیوند بخورد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "DHINGRA-JAISWAL-DT-REVIEW-2025",
       "title": "Dhingra & Jaiswal, Determinants of digital transformation in organisation: a systematic literature review",
-      "url": "https://doi.org/10.1016/j.ssaho.2025.102129",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2590291125008599",
       "review_depth": "peer_reviewed_open_access_systematic_review_reviewed",
-      "scope": "مرور نظام‌مند عوامل فناوری، سازمانی و محیطی تحول دیجیتال؛ مقالهٔ مروری است و رابطهٔ قطعی علّی برای هر سازمان ادعا نمی‌کند."
+      "scope": "مرور نظام‌مند عوامل فناوری، سازمانی و محیطی تحول دیجیتال؛ مقالهٔ مروری است و رابطهٔ قطعی علّی برای هر سازمان ادعا نمی‌کند.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Social Sciences & Humanities Open، فراداده، وضعیت دسترسی آزاد و چکیده باز شد؛ متن کامل به‌صورت مستقل مرور نشد. مقاله یک مرور نظام‌مند با چارچوب TCCM است.",
+      "previous_url": "https://doi.org/10.1016/j.ssaho.2025.102129",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "PROSCI-ADKAR-MODEL",
       "title": "Prosci, The ADKAR Model",
       "url": "https://www.prosci.com/methodology/adkar",
       "review_depth": "practitioner_framework_primary_source_reviewed",
-      "scope": "چارچوب تجاری آگاهی، تمایل، دانش، توانایی و تقویت برای گفت‌وگوی تغییر؛ اعتبار آن را نباید بدون ارزیابی مستقل به‌عنوان اثر علّی قطعی ارائه کرد."
+      "scope": "چارچوب تجاری آگاهی، تمایل، دانش، توانایی و تقویت برای گفت‌وگوی تغییر؛ اعتبار آن را نباید بدون ارزیابی مستقل به‌عنوان اثر علّی قطعی ارائه کرد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "transformation-portfolio-change-plan",
     "prompt": "برای سپهر «سنجش نتیجهٔ تحول» را در تغییر دستیار AI پشتیبانی تحلیل کنید؛ شاهد، ذی‌نفع، ظرفیت، معیار و تصمیم را ثبت کنید.",
-    "expected_output": "برگهٔ تصمیم با اولویت/مداخله، مالک، معیار و تاریخ بازبینی"
+    "expected_output": "برگهٔ تصمیم با اولویت/مداخله، مالک، معیار و تاریخ بازبینی",
+    "rubric": [
+      "اولویت پروژه‌ها با ارزش، ظرفیت، وابستگی و ریسک توجیه شده است.",
+      "مالک، منابع، ذی‌نفعان و تغییر لازم برای هر مرحله مشخص‌اند.",
+      "شاخص نتیجه، تاریخ بازبینی و شرط ادامه/توقف از پیش نوشته شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -240,7 +297,14 @@
   "media_plan": {
     "type": "outcome-metrics-dashboard",
     "purpose": "نمایش انتخاب، وابستگی و سنجش تحول",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/transformation-portfolio-priority-map.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «سنجش نتیجهٔ تحول»: انتخاب پروژه باید ارزش، آمادگی، وابستگی و ریسک اجرا را هم‌زمان ببیند. تعریف نتیجه، هر پروژه را به پیامد قابل مشاهده و مالک کسب‌وکار متصل کن.؛ برآورد و شواهد، خط مبنا و اندازهٔ اثر را جدا از حدس ثبت کن؛ عدم‌قطعیت را پنهان نکن.؛ وابستگی و ظرفیت، ترتیب پروژه‌ها را با نیاز داده، نیروی متخصص، تغییر فرایند و سامانه بسنج.؛ پایلوت و تصمیم، معیار ادامه، اصلاح یا توقف را از پیش تعیین کن؛ نتیجه را به سبد برگردان.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «سنجش نتیجهٔ تحول» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

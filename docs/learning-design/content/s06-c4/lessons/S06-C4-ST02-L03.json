@@ -44,6 +44,18 @@
       "title": "مثال سپهر و محدودیت مدل",
       "id": "S06-C4-ST02-L03-CARD08",
       "text": "اگر سپهر مدیر خرید و تأمین‌کننده را به هم وصل کند، برای هر سمت باید ارزش، قواعد و معیار تراکم داشته باشد. مقالهٔ Rochet و Tirole مدل نظری قیمت در بازار دوسویه را بررسی می‌کند؛ شرایط مدل و بازار واقعی را یکی نگیرید."
+    },
+    {
+      "id": "S06-C4-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Platform business model — مدل کسب‌وکار پلتفرمی: تسهیل تعامل دو یا چند سمت؛ هر بازار آنلاین اثر شبکه ندارد. Network effect — اثر شبکه: تغییر ارزش برای یک سمت با شمار/کیفیت سمت دیگر؛ اثر می‌تواند منفی و وابسته به تراکم باشد. Liquidity — نقدشوندگی: احتمال تطبیق موفق عرضه و تقاضا؛ ثبت‌نام‌کنندهٔ غیرفعال نقدشوندگی نیست."
+    },
+    {
+      "id": "S06-C4-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "پلتفرم از تعامل چند گروه ارزش می‌گیرد و اثر شبکه می‌تواند جذب هر سمت را تقویت کند؛ اما اثر منفی، تقلب و ازدحام هم ممکن است. نقدشوندگی و کیفیت تطبیق از شمار ثبت‌نام مهم‌ترند. اگر یک سمت یارانه بگیرد ولی ارزش سمت دیگر کافی نباشد، رشد ناپایدار می‌شود؛ هزینهٔ خدمت و نرخ تطبیق را در هر سمت جدا سنجید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "بازار دوسویه به قیمت هر سمت حساس است."
+    },
+    {
+      "id": "S06-C4-ST02-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پلتفرم کاربران زیادی دارد اما تعامل میان دو سوی بازار کم است. چه سنجه‌ای مناسب‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نقدشوندگی و تطبیق ارزشمند هر سوی بازار و هزینهٔ راه‌اندازی",
+          "feedback": "اثر شبکه از تعامل و ارزش دو سوی بازار می‌آید؛ تعداد ثبت‌نام رشد عادی را از نقدشوندگی جدا نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "تعداد دانلود تنها",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: اثر شبکه از تعامل و ارزش دو سوی بازار می‌آید؛ تعداد ثبت‌نام رشد عادی را از نقدشوندگی جدا نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "اثر شبکه را بر اساس ثبت‌نام قطعی بدانیم",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: اثر شبکه از تعامل و ارزش دو سوی بازار می‌آید؛ تعداد ثبت‌نام رشد عادی را از نقدشوندگی جدا نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اثر شبکه از تعامل و ارزش دو سوی بازار می‌آید؛ تعداد ثبت‌نام رشد عادی را از نقدشوندگی جدا نمی‌کند.",
+      "objective_id": "S06-C4-ST02-L03-OBJ01",
+      "equivalence_group": "S06-C4-ST02-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C4-ST02-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,52 @@
       "title": "MIT OCW 15.392 Scaling Entrepreneurial Ventures (Spring 2026)",
       "url": "https://ocw.mit.edu/courses/15-392-scaling-entrepreneurial-ventures-spring-2026/",
       "review_depth": "official_current_graduate_course_reviewed",
-      "scope": "مباحث ۲۰۲۶ رشد، راهبرد و ورود به بازار."
+      "scope": "مباحث ۲۰۲۶ رشد، راهبرد و ورود به بازار.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ENT-GROWTH-10.5",
       "title": "OpenStax Entrepreneurship 10.5 Growth: Signs, Pains, and Cautions",
       "url": "https://openstax.org/books/entrepreneurship/pages/10-5-growth-signs-pains-and-cautions",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "رشد شرکت، دردهای رشد و اتحادهای راهبردی."
+      "scope": "رشد شرکت، دردهای رشد و اتحادهای راهبردی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "CHESBROUGH-APPLEYARD-OPEN-INNOVATION",
       "title": "Chesbrough & Appleyard: Open Innovation and Strategy",
       "url": "https://pdxscholar.library.pdx.edu/busadmin_fac/23/",
       "review_depth": "peer_reviewed_article_author_repository_reviewed",
-      "scope": "نوآوری باز، شبکه‌ها، ارزش‌آفرینی و ارزش‌گیری."
+      "scope": "نوآوری باز، شبکه‌ها، ارزش‌آفرینی و ارزش‌گیری.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "CHESBROUGH-VALUE-OPEN-INNOVATION-2018",
       "title": "Value Creation and Value Capture in Open Innovation",
       "url": "https://onlinelibrary.wiley.com/doi/10.1111/jpim.12471",
       "review_depth": "peer_reviewed_journal_article_reviewed",
-      "scope": "چارچوب مفهومی خلق و تصاحب ارزش در نوآوری باز."
+      "scope": "چارچوب مفهومی خلق و تصاحب ارزش در نوآوری باز.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "ROCHET-TIROLE-PLATFORM-2003",
       "title": "Rochet & Tirole: Platform Competition in Two-Sided Markets",
       "url": "https://onlinelibrary.wiley.com/doi/10.1162/154247603322493212",
       "review_depth": "peer_reviewed_foundational_economic_model_reviewed",
-      "scope": "مدل رقابت و ساختار قیمت در بازار دوسویه؛ نتیجهٔ نظری تابع فرض‌های مدل."
+      "scope": "مدل رقابت و ساختار قیمت در بازار دوسویه؛ نتیجهٔ نظری تابع فرض‌های مدل.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "partner-platform-governance-map",
     "prompt": "برای سپهر یک شریک یا پلتفرم را انتخاب کنید؛ طرف‌ها، ارزش هر طرف، هزینه و انگیزه، داده و کنترل، شاخص موفقیت، ریسک وابستگی و راه خروج را روی یک نقشه ثبت کنید.",
-    "expected_output": "نقشهٔ اکوسیستم و تصمیم همکاری با معیار و شرط خروج"
+    "expected_output": "نقشهٔ اکوسیستم و تصمیم همکاری با معیار و شرط خروج",
+    "rubric": [
+      "نقش طرف‌ها، جریان ارزش، وابستگی و انگیزهٔ مشارکت روشن است.",
+      "گزینهٔ همکاری با هزینه، داده، کنترل و ریسک مقایسه شده است.",
+      "معیار آغاز، حاکمیت رابطه و شرط خروج یا تغییر مشخص است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -232,7 +285,14 @@
   "media_plan": {
     "type": "ecosystem-platform-value-flow",
     "purpose": "نمایش بازیگران، اثرهای شبکه‌ای، قیمت و وابستگی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-platform-partner-dependency.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «پلتفرم و اثر شبکه»: رشد از اکوسیستم می‌آید، اما تمرکز کانال و کنترل ارزش را هم بسنج. کانال و شریک، نقش، انگیزه، دسترسی به مشتری و مسئولیت هر طرف را تعریف کن.؛ نوآوری باز، چه چیزی را می‌گشایی و چه قابلیتی را نگه می‌داری؟ مالکیت روشن باشد.؛ اثر شبکه‌ای، ارزش هر سمت و هزینهٔ جذب سمت دیگر را جدا اندازه بگیر.؛ وابستگی و خروج، تمرکز فروشنده، داده یا کانال و گزینهٔ جایگزین را ثبت کن.",
+        "caption": "نقشه را برای تحلیل «پلتفرم و اثر شبکه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

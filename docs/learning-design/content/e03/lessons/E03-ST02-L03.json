@@ -44,6 +44,18 @@
       "id": "E03-ST02-L03-CARD08",
       "title": "داشبورد سپهر",
       "text": "برای هر cohort سالانه، درصد فعال‌شدن، رسیدن به یک دستاورد آموزشی، تمدید آگاهانه، بازپرداخت، پشتیبانی و حاشیه را ثبت کنید. اگر تمدید بالا است اما استفاده و رضایت پایین، پیگیری و طراحی مجدد لازم است؛ این را موفقیت ساده گزارش نکنید."
+    },
+    {
+      "id": "E03-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "تخفیف (Discount) کاهش قیمت با هزینهٔ حاشیه است؛ اثر آن باید با حجم افزوده و هزینهٔ جذب و حاشیه سنجیده شود. نگهداشت (Retention) رفتار ادامهٔ استفاده است؛ تمدید (Renewal) رویداد قراردادی است و ممکن است از روی inertia رخ دهد. LTV پیش‌بینی حاشیهٔ آینده است، نه فروش تجمعی قطعی."
+    },
+    {
+      "id": "E03-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تخفیف می‌تواند جذب، خرید بزرگ‌تر یا تمدید را تشویق کند، اما ممکن است مشتریان غیرحساس را نیز با کاهش حاشیه پاداش دهد. هزینهٔ جذب را بر مبنای مشتری افزوده و حفظ واقعی بسنجید، نه کل فروش کمپین. نرخ تمدید باید cohort و طول عمر را در نظر بگیرد. فرض تداوم پس از پایان تخفیف را آزمایش کنید. اگر مشتری خرید را به دورهٔ تخفیف منتقل کند، افزایش کوتاه‌مدت به رشد خالص تبدیل نمی‌شود. معیار تصمیم باید حاشیهٔ مشارکت و ارزش طول عمر پس از تخفیف را ببیند."
     }
   ],
   "questions": [
@@ -162,49 +174,93 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "پیش‌بینی عمر مشتری به فرض‌های زمانی و cohort وابسته است."
+    },
+    {
+      "id": "E03-ST02-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تخفیف باعث افزایش تمدید شده اما حاشیهٔ سود کم شده است. تحلیل درست چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حاشیه و رفتار آینده و نگهداشت واقعی را کنار هم بسنجیم",
+          "feedback": "تمدید باید با سودآوری و ماندگاری رفتار سنجیده شود؛ قرارداد ممکن است ریزش را فقط عقب بیندازد."
+        },
+        {
+          "id": "b",
+          "text": "تمدید بیشتر را موفقیت قطعی بدانیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: تمدید باید با سودآوری و ماندگاری رفتار سنجیده شود؛ قرارداد ممکن است ریزش را فقط عقب بیندازد."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ تخفیف را از تحلیل حذف کنیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: تمدید باید با سودآوری و ماندگاری رفتار سنجیده شود؛ قرارداد ممکن است ریزش را فقط عقب بیندازد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تمدید باید با سودآوری و ماندگاری رفتار سنجیده شود؛ قرارداد ممکن است ریزش را فقط عقب بیندازد.",
+      "objective_id": "E03-ST02-L03-OBJ01",
+      "equivalence_group": "E03-ST02-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST02-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "DYNAMIC-PRICE-FAIRNESS-2024",
       "title": "The effects of price framing and magnitude of price differences on perceived fairness when switching from static to variable pricing",
-      "url": "https://doi.org/10.1016/j.jretconser.2024.103952",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0969698924002480",
       "review_depth": "peer_reviewed_experimental_article_reviewed",
-      "scope": "بررسی ادراک انصاف در سناریوهای تغییر از قیمت ثابت به متغیر؛ نتیجه به زمینه و طراحی مطالعه محدود است."
+      "scope": "بررسی ادراک انصاف در سناریوهای تغییر از قیمت ثابت به متغیر؛ نتیجه به زمینه و طراحی مطالعه محدود است.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی ScienceDirect و متن کامل مقاله در نتیجهٔ نمایه‌شده دیده شد، اما واکشی مستقیم صفحه ۴۰۳ داد و PDF مخزن Inland Norway در ابزار مستقیم باز نشد؛ بنابراین تاریخ دسترسی ثبت نشده است. مقاله دربارهٔ آزمایش قیمت‌گذاری با اسکی‌بازان نروژ است و تعمیم آن محدود است.",
+      "previous_url": "https://doi.org/10.1016/j.jretconser.2024.103952"
     },
     {
       "id": "PERSONALIZED-PRICING-FAIRNESS-2024",
       "title": "All is (not) fair in personalized pricing: antecedents and outcomes of consumer fairness perceptions",
       "url": "https://doi.org/10.1057/s41272-024-00509-2",
       "review_depth": "peer_reviewed_research_article_reviewed",
-      "scope": "بررسی عوامل و پیامدهای ادراک انصاف در قیمت شخصی‌سازی‌شده؛ دادهٔ مطالعه محدودیت تعمیم و دسترسی دارد."
+      "scope": "بررسی عوامل و پیامدهای ادراک انصاف در قیمت شخصی‌سازی‌شده؛ دادهٔ مطالعه محدودیت تعمیم و دسترسی دارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "STRIPE-SUBSCRIPTION-BILLING",
       "title": "Stripe, Subscription billing: Everything businesses need to know",
       "url": "https://stripe.com/resources/more/subscription-billing-101",
       "review_depth": "practitioner_guide_reviewed",
-      "scope": "اصول عملی صورتحساب و عملیات اشتراک؛ منبع فروشندهٔ خدمات پرداخت است و شواهد مستقل دربارهٔ افزایش نگهداشت محسوب نمی‌شود."
+      "scope": "اصول عملی صورتحساب و عملیات اشتراک؛ منبع فروشندهٔ خدمات پرداخت است و شواهد مستقل دربارهٔ افزایش نگهداشت محسوب نمی‌شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "DYNAMIC-BUNDLING-FAIRNESS",
       "title": "The impact of dynamic bundling on price fairness perceptions",
-      "url": "https://www.sciencedirect.com/science/article/pii/S0969698917302928",
+      "url": "https://scholars.uky.edu/en/publications/the-impact-of-dynamic-bundling-on-price-fairness-perceptions/",
       "review_depth": "peer_reviewed_experimental_research_reviewed",
-      "scope": "سه مطالعه دربارهٔ اثر بسته‌بندی پویا بر انصاف ادراک‌شده؛ قدیمی و سناریومحور است و نتیجهٔ آن نسخهٔ عمومی بسته‌بندی نیست."
+      "scope": "رکورد رسمی دانشگاه کنتاکی؛ چکیدهٔ سه مطالعهٔ آزمایشی و فرادادهٔ مقاله. متن ناشر کامل در این گذر بررسی نشده است.",
+      "doi": "10.1016/j.jretconser.2017.10.011",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-MICRO-ELASTICITY",
       "title": "OpenStax, Principles of Microeconomics 3e: Elasticity and Pricing",
       "url": "https://openstax.org/books/principles-economics-3e/pages/5-3-elasticity-and-pricing",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "مبانی کشش و درآمد برای تحلیل تصمیم قیمت؛ کشش اختصاصی یک کسب‌وکار را ارائه نمی‌کند."
+      "scope": "مبانی کشش و درآمد برای تحلیل تصمیم قیمت؛ کشش اختصاصی یک کسب‌وکار را ارائه نمی‌کند.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "pricing-subscription-offer-critique",
     "prompt": "پیشنهاد اشتراک سپهر را با محور «تخفیف، تمدید و اقتصاد مشتری» بررسی کنید؛ ارزش، شرط، هزینه و شاخصی برای سنجش بنویسید.",
-    "expected_output": "نقد پیشنهاد: فرض، معیار اقتصادی، انصاف و آزمایش"
+    "expected_output": "نقد پیشنهاد: فرض، معیار اقتصادی، انصاف و آزمایش",
+    "rubric": [
+      "سازوکار قیمت پویا یا اشتراک و فرض رفتاری آن روشن شده است.",
+      "درآمد، هزینه، تمدید/ریزش و پیامد قیمت برای بخش‌ها مقایسه شده‌اند.",
+      "معیار آزمایش، شفافیت و حد انصاف تعریف شده‌اند؛ نرخ تبدیل به‌تنهایی کافی نیست."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -232,7 +288,14 @@
   "media_plan": {
     "type": "discount-margin-table",
     "purpose": "نمایش مبادلهٔ ارزش و اثر اقتصادی قیمت",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/pricing-test-evidence-flow.svg",
+        "alt_text": "نمودار آموزشی مشترک مرحله برای «تخفیف، تمدید و اقتصاد مشتری»: قیمت را کنار ظرفیت، محدودیت بسته و حاشیهٔ مشارکت تحلیل کن. قیمت پویا، تقاضا و ظرفیت را در زمان ببین؛ قاعدهٔ تغییر و پیام به مشتری را شفاف کن.؛ اشتراک و بسته، پوشش، مدت، استفاده و لغو را تعریف کن؛ درآمد را با هزینهٔ خدمت بسنج.؛ تخفیف و حاشیه، برای حاشیهٔ قبلی m و تخفیف d، حجم سربه‌سر به m ÷ (m−d) برابر می‌شود.؛ نقد پیشنهاد، قیمت نهایی، استثناها، محدودیت، انصاف و ارزش واقعی را روی یک کارت تصمیم جمع کن.",
+        "caption": "از نمودار مرحله برای پاسخ به هدف «تخفیف، تمدید و اقتصاد مشتری» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

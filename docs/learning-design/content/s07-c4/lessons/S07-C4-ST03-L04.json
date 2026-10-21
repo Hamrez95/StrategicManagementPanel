@@ -44,6 +44,18 @@
       "title": "یک صفحه، اما با پیوست شواهد",
       "id": "S07-C4-ST03-L04-CARD08",
       "text": "خلاصهٔ تصمیم را کوتاه نگه دارید و برای جزئیات version, dataset, rubric, slice, رخداد و اقتصاد واحد به پیوست قابل بررسی ارجاع دهید. این روش هم خوانایی برای مدیر می‌سازد و هم مسیر حسابرسی را حفظ می‌کند."
+    },
+    {
+      "id": "S07-C4-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "خلاصهٔ مدیریتی مدل باید تصمیم و معیار و نمونه و دامنه و محدودیت و عدم‌قطعیت را بیان کند. توصیه (Recommendation) باید به شاهد و شرط اجرا وصل باشد. ادامه و محدودسازی و اصلاح و توقف گزینه‌های تصمیم‌اند، نه فقط «موفق/ناموفق»."
+    },
+    {
+      "id": "S07-C4-ST03-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "گزارش مدیریت باید به تصمیم ادامه، محدودسازی، اصلاح یا توقف پاسخ دهد و شواهد را با دامنهٔ کاربرد توضیح دهد. یک عدد میانگین بدون حجم، دوره، خط مبنا و عدم قطعیت کافی نیست. کنار منفعت، کیفیت، هزینه، رخدادها، ریسک باقی‌مانده و تجربهٔ افراد متأثر را خلاصه کنید. تفکیک واقعیت مشاهده‌شده از برآورد و فرض مانع ادعای بیش از شواهد می‌شود. پیشنهاد را با شرط و موعد بازبینی همراه کنید. مدیر باید بداند اگر فرض کلیدی عوض شد یا guardrail نقض شد، اقدام بعدی چیست و چه کسی مسئول آن است."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "مسئول و چرخهٔ بازبینی تصمیم را عملی می‌کند."
+    },
+    {
+      "id": "S07-C4-ST03-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "گزارش به مدیریت می‌گوید سامانه دقیق است ولی دامنه و عدم‌قطعیت ندارد. چه چیزی اضافه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "معیار و نمونه و گروه‌ها و هزینه و ریسک و محدودیت و گزینهٔ ادامه/اصلاح/توقف",
+          "feedback": "گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+        },
+        {
+          "id": "b",
+          "text": "فقط رتبهٔ مدل",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+        },
+        {
+          "id": "c",
+          "text": "فقط توصیهٔ قطعی",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند.",
+      "objective_id": "S07-C4-ST03-L04-OBJ01",
+      "equivalence_group": "S07-C4-ST03-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C4-ST03-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google ML Crash Course: Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است."
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "logging، monitoring، alerting، deployment strategy و rollback."
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Measure and Manage",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه."
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند."
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "AI-monitoring-and-management-report",
     "prompt": "برای کاربرد سپهر، «گزارش تصمیم برای مدیریت» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
-    "expected_output": "یادداشت یک‌صفحه‌ای تصمیم توسعه/اصلاح/توقف AI"
+    "expected_output": "یادداشت یک‌صفحه‌ای تصمیم توسعه/اصلاح/توقف AI",
+    "rubric": [
+      "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+      "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+      "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -212,7 +264,7 @@
   "source_refs": [
     "GOOGLE-ML-MONITORING",
     "GOOGLE-ML-PRODUCTIONIZATION",
-    "NIST-AIRMF-PLAYBOOK",
+    "NIST-AI-RMF-CORE",
     "NIST-GENAI-PROFILE"
   ],
   "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
@@ -224,7 +276,14 @@
   "media_plan": {
     "type": "AI-monitoring-dashboard-and-decision-brief",
     "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «گزارش تصمیم برای مدیریت»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+        "caption": "نقشه را برای تحلیل «گزارش تصمیم برای مدیریت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

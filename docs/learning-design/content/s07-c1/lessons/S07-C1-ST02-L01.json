@@ -44,6 +44,18 @@
       "title": "مثال مدیریتی سپهر",
       "id": "S07-C1-ST02-L01-CARD08",
       "text": "از مدل می‌خواهند علت تأخیر یک مشتری را بنویسد؛ بدون دادهٔ سفارش، پاسخ ممکن است علت‌های عمومی بسازد. مدیر باید بگوید مدل چه داده‌ای دیده، کدام گزاره استنباط است و چه مدرکی آن را تأیید می‌کند."
+    },
+    {
+      "id": "S07-C1-ST02-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "مدل زبانی بزرگ (LLM) دنبالهٔ متن را بر اساس زمینه و الگوهای آموخته‌شده تولید می‌کند. تولید محتمل (Next-token generation) بازیابی تضمینی واقعیت نیست. روانی متن را از صحت، استنادپذیری و تازگی گزاره جدا ارزیابی کنید."
+    },
+    {
+      "id": "S07-C1-ST02-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مدل زبانی بزرگ در توالی متن الگوهای آماری و ساختاری را می‌آموزد و با توجه به زمینه، ادامهٔ محتمل را تولید می‌کند. این توضیح به معنای پایگاه واقعیت کامل یا درک تضمین‌شدهٔ قصد کاربر نیست. روانی و انسجام پاسخ ممکن است در کنار خطای جزئیات یا استناد ساختگی دیده شود. کیفیت به مدل، دستور، زمینه و روش ارزیابی وابسته است. اگر پرسش نیازمند عدد حساس یا واقعیت تازه باشد، تولید آزاد به‌تنهایی کافی نیست؛ بازیابی منبع، بررسی ادعا و ثبت تاریخ داده لازم است. مدیر باید کاربرد را طوری طراحی کند که خطا قابل کشف و اصلاح باشد."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "خطا ممکن است در هر لایه رخ دهد."
+    },
+    {
+      "id": "S07-C1-ST02-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل زبانی متنی روان و دقیق‌نما تولید می‌کند. این رفتار چگونه توضیح داده می‌شود؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تولید محتمل متن بر اساس زمینه؛ روانی به‌تنهایی صحت واقعیت را تضمین نمی‌کند",
+          "feedback": "مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+        },
+        {
+          "id": "b",
+          "text": "جست‌وجوی خودکار در همهٔ اسناد جهان",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+        },
+        {
+          "id": "c",
+          "text": "گواهی قطعی بودن هر جمله",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است.",
+      "objective_id": "S07-C1-ST02-L01-OBJ01",
+      "equivalence_group": "S07-C1-ST02-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST02-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google Machine Learning Crash Course: Introduction to LLMs",
       "url": "https://developers.google.com/machine-learning/crash-course/llm",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
       "title": "Google Cloud Generative AI Glossary: RAG",
       "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-VERTEX-RAG-APIS",
       "title": "Google Cloud: APIs for Building Search and RAG Experiences",
       "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "llm-use-and-rag-review",
     "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+    "rubric": [
+      "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+      "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+      "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "llm-context-rag-trust-boundary-flow",
     "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «مدل زبانی چه می‌کند؟»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+        "caption": "نقشه را برای تحلیل «مدل زبانی چه می‌کند؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

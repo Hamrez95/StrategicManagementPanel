@@ -58,6 +58,12 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "ماتریس گزینه‌ها معیار، وزن، شاهد و ابهام را ثبت می‌کند. وزن‌ها قضاوت مدیریتی‌اند؛ حساسیت نتیجه به تغییر وزن را نیز نشان دهید و تصمیم را قطعی‌نمایی نکنید. اگر دو گزینه رتبهٔ مشابه گرفتند، نقطهٔ حساس تصمیم را بیازمایید: آیا تغییر وزن هزینه یا ریسک انتخاب را عوض می‌کند؟ گزینهٔ مقاوم‌تر در چند سناریو ممکن است از برندهٔ یک برآورد خاص مناسب‌تر باشد."
+    },
+    {
+      "id": "S05-C1-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Process selection — انتخاب فرایند: تطبیق فناوری/جریان با حجم، تنوع و نیاز پاسخ‌گویی؛ یک روش همیشه بهترین نیست. Fixed cost — هزینهٔ ثابت: هزینه‌ای که در دامنهٔ ظرفیت کوتاه‌مدت با حجم تغییر نمی‌کند؛ در بلندمدت ممکن است قابل‌تنظیم باشد. Flexibility — انعطاف‌پذیری: توان تغییر حجم/ترکیب با هزینه و زمان مشخص؛ ظرفیت بلااستفاده مساوی انعطاف نیست."
     }
   ],
   "questions": [
@@ -209,18 +215,20 @@
   ],
   "source_links": [
     {
-      "id": null,
-      "title": null,
-      "scope": null,
-      "review_depth": null,
-      "url": null
+      "id": "M06",
+      "title": "MIT OpenCourseWare, Introduction to Operations Management: Syllabus",
+      "url": "https://ocw.mit.edu/courses/15-761-introduction-to-operations-management-spring-2013/pages/syllabus/",
+      "accessed_on": "2026-10-20",
+      "scope": "سرفصل رسمی دربارهٔ طراحی فرایند، ظرفیت، موجودی و زنجیرهٔ تأمین؛ هم‌ترازی برنامه را نشان می‌دهد و متن درس‌نامه از آن کپی نشده است.",
+      "review_depth": "official_syllabus_reviewed"
     },
     {
-      "id": null,
-      "title": null,
-      "scope": null,
-      "review_depth": null,
-      "url": null
+      "id": "M13",
+      "title": "MIT OpenCourseWare, Operations Strategy: Syllabus",
+      "url": "https://ocw.mit.edu/courses/15-769-operations-strategy-fall-2010/pages/syllabus/",
+      "accessed_on": "2026-10-20",
+      "scope": "سرفصل رسمی برای پیوند راهبرد عملیات با انتخاب و طراحی فرایند؛ محتوای تألیفی درس عین محتوای درس دانشگاهی نیست.",
+      "review_depth": "official_syllabus_reviewed"
     }
   ],
   "practice_activity": {
@@ -248,10 +256,8 @@
   "node_type": "lesson",
   "source_refs": [
     "M06",
-    "M13",
-    "R15"
+    "M13"
   ],
-  "source_scope": "inherits_topic_candidates_not_claim_level",
   "example_plan": {
     "fictional_scenario": "SEPEHR-SERVICES",
     "real_case_candidates": [
@@ -265,7 +271,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/process-automation-exception-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ گزینه‌های فرایند»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+        "caption": "نقشه را برای تحلیل «مقایسهٔ گزینه‌های فرایند» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,
@@ -288,5 +301,6 @@
   "direct_entry_allowed": true,
   "free_sample": false,
   "legacy_lesson_ids": [],
-  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+  "source_scope": "منابع MIT، هم‌ترازی موضوعی درس را پشتیبانی می‌کنند؛ مقالهٔ نامزد ScienceDirect با شناسهٔ R15 در مرور زنده قابل بازیابی نبود و برای ادعای آموزشی استفاده نشده است."
 }

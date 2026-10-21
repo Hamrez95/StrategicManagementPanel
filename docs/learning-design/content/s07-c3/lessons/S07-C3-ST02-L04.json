@@ -44,6 +44,18 @@
       "title": "ثبت رخداد را به یادگیری وصل کن",
       "id": "S07-C3-ST02-L04-CARD08",
       "text": "به‌طور دوره‌ای نمونه‌های موفق، ارجاع، override و رخداد را مرور کنید. اگر خطا تکرار می‌شود، علت را در داده، ابزار، هدف، آموزش، طراحی اختیار یا ظرفیت بازبین جست‌وجو کنید. تغییر را نسخه‌بندی و پس از آن دوباره ارزیابی کنید؛ trace به‌تنهایی مشکل را حل نمی‌کند."
+    },
+    {
+      "id": "S07-C3-ST02-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "منشأ (Provenance) نشان می‌دهد داده و سند از کجا آمده؛ ردپای حسابرسی (Audit trail) زمان و نسخه و نقش و اقدام را ثبت می‌کند. لاگ باید برای بررسی کافی و دسترسی‌اش محدود باشد؛ خلاصهٔ نهایی منشأ تصمیم را جایگزین نمی‌کند."
+    },
+    {
+      "id": "S07-C3-ST02-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ردگیری تصمیم باید نشان دهد چه کسی یا عاملی، با کدام نسخه، زمینه، ورودی و ابزار، چه اقدامی را پیشنهاد یا انجام داد. ثبت بیش از حد می‌تواند دادهٔ حساس جمع کند، پس هدف، دسترسی و دورهٔ نگهداری را محدود کنید. شناسهٔ رویداد و زمان‌های قابل اتکا پیوند بررسی را ممکن می‌کنند. خروجی نهایی به‌تنهایی علت خطا را نشان نمی‌دهد؛ مراحل میانی و تأییدها نیز لازم‌اند. اگر داده‌ها قابل تغییر یا پاک‌کردن بی‌ردپا باشند، ممیزی ضعیف می‌شود. طراحی ثبت باید هم قابلیت تحقیق و هم حفاظت از حریم خصوصی را تأمین کند."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "ردیابی زمانی ارزش دارد که به اقدام اصلاحی و ارزیابی پیوند بخورد."
+    },
+    {
+      "id": "S07-C3-ST02-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "در بازبینی اختلاف، تیم نمی‌داند کدام نسخهٔ ابزار و داده باعث اقدام شده است. چه چیزی کم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ثبت منشأ ورودی و خروجی و نسخه و زمان و نقش‌های مسئول",
+          "feedback": "ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+        },
+        {
+          "id": "b",
+          "text": "فقط خلاصهٔ نهایی تصمیم",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+        },
+        {
+          "id": "c",
+          "text": "فقط نام پروژه",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ردگیری به رویداد و نسخه و مسئول نیاز دارد تا بررسی و اصلاح ممکن باشد.",
+      "objective_id": "S07-C3-ST02-L04-OBJ01",
+      "equivalence_group": "S07-C3-ST02-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C3-ST02-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
       "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
       "review_depth": "official_business_guide_reviewed",
-      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENAI-AGENTS-SDK-HANDOFFS",
       "title": "OpenAI Agents SDK: Handoffs",
       "url": "https://openai.github.io/openai-agents-python/handoffs/",
       "review_depth": "official_product_documentation_reviewed",
-      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
       "title": "Google PAIR: Feedback + Control",
       "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
       "review_depth": "official_practitioner_guide_reviewed",
-      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern and Map",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "agent-authorization-and-trace-map",
     "prompt": "در سناریوی سپهر، برای «ثبت منشأ و ردگیری تصمیم» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-    "expected_output": "نمونهٔ رد رخداد از درخواست تا نتیجه و مالک هر گام"
+    "expected_output": "نمونهٔ رد رخداد از درخواست تا نتیجه و مالک هر گام",
+    "rubric": [
+      "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+      "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+      "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -212,7 +264,7 @@
     "OPENAI-AGENTS-BUSINESS-GUIDE",
     "OPENAI-AGENTS-SDK-HANDOFFS",
     "GOOGLE-PAIR-FEEDBACK-CONTROL",
-    "NIST-AIRMF-PLAYBOOK"
+    "NIST-AI-RMF-CORE"
   ],
   "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
   "example_plan": {
@@ -223,7 +275,14 @@
   "media_plan": {
     "type": "agent-tool-permission-and-trace-map",
     "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ثبت منشأ و ردگیری تصمیم»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+        "caption": "نقشه را برای تحلیل «ثبت منشأ و ردگیری تصمیم» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

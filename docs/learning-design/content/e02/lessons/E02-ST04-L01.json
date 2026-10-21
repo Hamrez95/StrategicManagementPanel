@@ -44,6 +44,18 @@
       "id": "E02-ST04-L01-CARD08",
       "title": "نمونهٔ سپهر",
       "text": "دستیار سپهر سفارش را می‌خواند، وضعیت را از API می‌گیرد و پیش‌نویس می‌سازد. اگر فقط پیشنهاد می‌دهد، سطح اختیار پایین است؛ اگر اعتبار مالی صادر کند، پیامد و کنترل لازم فرق می‌کند. نسخهٔ اول را به بازیابی و پیش‌نویس محدود کنید."
+    },
+    {
+      "id": "E02-ST04-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "اتوماسیون (Automation) اجرای قاعده یا گردش‌کار ازپیش‌تعریف‌شده است. عامل AI (AI agent) ممکن است هدف را دنبال و از ابزار برای اقدام استفاده کند. وجود مدل زبانی یا پاسخ متنی به‌تنهایی عامل دارای اختیار اجرایی نمی‌سازد؛ حلقهٔ اقدام و سطح دسترسی را بسنجید."
+    },
+    {
+      "id": "E02-ST04-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "اتوماسیون معمولاً یک رویهٔ تعریف‌شده را اجرا می‌کند؛ عامل می‌تواند در چند مرحله هدف را دنبال کند، ابزار انتخاب کند و بر اساس نتیجه گام بعدی را برگزیند. مرز میان آن‌ها به سطح اختیار و حلقهٔ بازخورد بستگی دارد، نه برچسب فروشنده. اختیار بیشتر دامنهٔ خطا را بزرگ می‌کند. برای هر گام، ورودی، اجازه، آستانهٔ توقف و مسئول را مشخص کنید. اگر کار فقط قاعده‌پذیر و پرخطر است، خودکارسازی محدود ممکن است قابل‌کنترل‌تر باشد. ابتدا در محیط آزمایشی و با ابزارهای کم‌خطر توان عامل را ارزیابی کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "باید عملکرد وظیفه و سامانه در دامنهٔ استفاده ارزیابی شود."
+    },
+    {
+      "id": "E02-ST04-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "یک اسکریپت ثابت با ورودی و خروجی از پیش تعیین‌شده را چگونه از عامل AI متمایز می‌کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "عامل هدف را دنبال می‌کند و ممکن است در حلقه تصمیم و ابزار عمل کند؛ حدود اختیارش باید تعریف شود",
+          "feedback": "عامل را با هدف، حلقهٔ اقدام و اختیار می‌سنجیم؛ خودکاربودن به‌تنهایی استقلال عامل را ثابت نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "هر اسکریپت خودکار عامل است",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: عامل را با هدف، حلقهٔ اقدام و اختیار می‌سنجیم؛ خودکاربودن به‌تنهایی استقلال عامل را ثابت نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "هر پاسخ تولیدی اختیار اجرایی دارد",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: عامل را با هدف، حلقهٔ اقدام و اختیار می‌سنجیم؛ خودکاربودن به‌تنهایی استقلال عامل را ثابت نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "عامل را با هدف، حلقهٔ اقدام و اختیار می‌سنجیم؛ خودکاربودن به‌تنهایی استقلال عامل را ثابت نمی‌کند.",
+      "objective_id": "E02-ST04-L01-OBJ01",
+      "equivalence_group": "E02-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST04-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,55 @@
       "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "review_depth": "primary_public_framework_reviewed_current_status_checked",
-      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند."
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-600-1-GENAI-PROFILE",
       "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "primary_public_profile_reviewed",
-      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد."
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-2025",
       "title": "OWASP Top 10 for LLM Applications 2025",
       "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
       "review_depth": "community_security_awareness_resource_reviewed",
-      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست."
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-PDF-2025",
-      "title": "OWASP Top 10 for LLM Applications 2025, project PDF",
-      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
-      "review_depth": "community_security_project_document_reviewed",
-      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود."
+      "title": "OWASP Top 10 for LLM Applications 2025, official resource page",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "official_publication_resource_page_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "previous_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_community_guidance"
     },
     {
       "id": "NIST-ADVERSARIAL-ML-100-2E2025",
       "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
       "review_depth": "primary_technical_taxonomy_reviewed",
-      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود."
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "ai-agent-risk-and-governance-brief",
     "prompt": "برای سپهر «عامل با اتوماسیون چه فرقی دارد؟» را در دستیار پشتیبانی تحلیل کنید؛ سطح اختیار، کنترل، معیار، مالک و مسیر خطا را بنویسید.",
-    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول"
+    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+    "rubric": [
+      "کار عامل از اتوماسیون ساده و مرز اختیارش تفکیک شده است.",
+      "دسترسی، داده، ریسک و مسئول پاسخ‌گو در طراحی دیده شده‌اند.",
+      "آزمون، نظارت انسانی، مسیر fallback و شرط توقف مشخص‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -233,7 +289,14 @@
   "media_plan": {
     "type": "agent-versus-automation-flow",
     "purpose": "نمایش دامنهٔ اختیار، ریسک و سازوکار تصمیم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-agent-control-loop.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «عامل با اتوماسیون چه فرقی دارد؟»: عامل می‌تواند چند گام را دنبال کند؛ دسترسی و اختیار باید محدود و قابل‌بازگشت باشد. درخواست و دامنه، هدف، منابع داده، ابزار مجاز و کارهای ممنوع را تعریف کن.؛ پیشنهاد و اقدام، عملیات کم‌خطر را محدود کن؛ برای تعهد، پرداخت یا دادهٔ حساس تأیید بگیر.؛ پایش و ثبت، عملکرد، خطا، دسترسی و شکایت را با مالک مشخص پایش کن.؛ توقف و بازیابی، کلید توقف، لغو دسترسی، بازگشت به نسخهٔ قبلی و مسئول پاسخ را آماده کن.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «عامل با اتوماسیون چه فرقی دارد؟» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

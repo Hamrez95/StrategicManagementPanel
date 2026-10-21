@@ -58,6 +58,12 @@
       "type": "explanation",
       "title": "واژه‌های پرتکرار",
       "text": "Incremental cash flow جریان نقدی افزایشی؛ NPV ارزش فعلی خالص؛ hurdle rate نرخ مانع؛ TCO هزینهٔ کل مالکیت؛ opportunity cost هزینهٔ فرصت؛ sensitivity analysis تحلیل حساسیت؛ scenario analysis تحلیل سناریو؛ real option اختیار واقعی است. خروجی مدل، نتیجهٔ فرض‌هاست نه پیش‌گویی."
+    },
+    {
+      "id": "S02-C4-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌ها و مرز مفهومی",
+      "text": "Incremental cash flow (جریان نقد افزایشی) تفاوت جریان با فناوری و بدون آن است. Total cost of ownership (هزینهٔ کل مالکیت) هزینهٔ چرخهٔ عمر، اجرا و پشتیبانی را می‌گیرد؛ صرفه‌جویی اسمی بدون هزینهٔ فرصت، ارزش خالص نیست."
     }
   ],
   "questions": [
@@ -207,34 +213,44 @@
       "remediation_card_id": "S02-C4-ST03-L01-CARD07"
     }
   ],
+  "source_refs": [
+    "damodaran-capital-budgeting",
+    "damodaran-dcf-lectures",
+    "NIST-AI-RMF-CORE",
+    "bis-ai-explainability"
+  ],
   "source_links": [
     {
       "id": "damodaran-capital-budgeting",
       "title": "NYU Stern, Aswath Damodaran: Applied Corporate Finance—Investment Analysis Problems",
       "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
       "scope": "مسائل و چارچوب‌های تحلیل سرمایه‌گذاری و بودجه‌بندی سرمایه؛ برای آموزش روش و تمرین، نه اعداد نمونهٔ شرکت سپهر.",
-      "review_depth": "official_university_course_material_reviewed"
+      "review_depth": "official_university_course_material_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "damodaran-dcf-lectures",
       "title": "NYU Stern, Aswath Damodaran: Discounted Cash Flow Valuation Lectures",
       "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
       "scope": "مواد آموزشی جریان نقدی تنزیل‌شده و ارزش‌گذاری؛ فرض‌های نرخ و جریان باید سازگار و زمینه‌مند باشند.",
-      "review_depth": "official_university_course_material_reviewed"
+      "review_depth": "official_university_course_material_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "scope": "چرخهٔ govern, map, measure, manage و پایش پس از استقرار؛ چارچوب داوطلبانه است و جایگزین الزامات اختصاصی سازمان نیست.",
-      "review_depth": "official_framework_reviewed"
+      "review_depth": "official_framework_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "bis-ai-explainability",
-      "title": "BIS FSI Paper 24: Managing explanations—how regulators can address AI explainability",
-      "url": "https://www.bis.org/fsi/publ/insights24.htm",
-      "scope": "بحث توضیح‌پذیری و حکمرانی AI در خدمات مالی و نظارت؛ توضیح‌پذیری به‌تنهایی اثبات درستی یا انصاف مدل نیست.",
-      "review_depth": "official_policy_research_reviewed"
+      "title": "BIS FSI Occasional Paper 24 (2025): Managing Explanations—How Regulators Can Address AI Explainability",
+      "url": "https://www.bis.org/publications/fsi-paper-24-managing-explanations-how-regulators-can-address-ai-explainability",
+      "scope": "پژوهش سیاستی BIS FSI دربارهٔ توضیح‌پذیری AI در مؤسسات مالی؛ توضیح‌ها می‌توانند نادقیق، ناپایدار یا گمراه‌کننده باشند.",
+      "review_depth": "official_policy_research_reviewed",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

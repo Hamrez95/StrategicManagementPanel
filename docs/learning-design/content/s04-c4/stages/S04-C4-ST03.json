@@ -75,6 +75,18 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "اصطلاح «تقسیم کار انسان و AI» به این پرسش پاسخ می‌دهد که هر طرف کدام وظیفه را بهتر انجام می‌دهد و مسئولیت نهایی کجا می‌ماند؛ خودکارسازی کامل همیشه کاراتر یا عادلانه‌تر نیست."
+        },
+        {
+          "id": "S04-C4-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Human-AI decision boundary — مرز تصمیم انسان و AI: تفکیک توصیه، اختیار و تأیید بر پایهٔ پیامد خطا؛ انسان مسئول بدون اطلاعات/اختیار کنترل نیست. Human oversight — نظارت انسانی: توان نظارت، مداخله و توقف در عمل؛ حضور ظاهری کافی نیست. Automation bias — سوگیری اتوماسیون: اتکای بیش‌ازحد به سامانه؛ کنترل باید امکان مخالفت مؤثر بدهد."
+        },
+        {
+          "id": "S04-C4-ST03-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مرز اختیار انسان و ابزار باید با پیامد خطا، برگشت‌پذیری و کیفیت شاهد تناسب داشته باشد. ابزار می‌تواند پیشنهاد یا پیش‌نویس بدهد، اما تصمیم دربارهٔ فرد یا تخصیص فرصت نیازمند مسئولیت روشن و حق اعتراض است. وجود انسان در حلقه کافی نیست اگر زمان، اطلاعات یا اختیار ردکردن ندارد. حجم هشدار را با ظرفیت نظارت بسنجید. اگر کار کم‌خطر و تکراری است، خودکارسازی محدود ممکن است مناسب باشد؛ برای تصمیم پراثر کنترل چندمرحله‌ای لازم است. اختیارات مجاز و نقطهٔ توقف را مکتوب کنید."
         }
       ],
       "questions": [
@@ -226,18 +238,23 @@
       ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF-CORE",
           "review_depth": "official_framework_reviewed",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
           "title": "NIST AI Risk Management Framework Core",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nature-ai-delegation-2025",
           "review_depth": "peer_reviewed_experimental_article_reviewed",
           "scope": "شواهد آزمایشی خاص دربارهٔ واگذاری و فاصله‌گیری از مسئولیت اخلاقی؛ به موقعیت‌های دیگر بدون آزمون تعمیم داده نشود.",
           "title": "Delegation to artificial intelligence can increase dishonest behaviour (Nature, 2025)",
-          "url": "https://www.nature.com/articles/s41586-025-09505-x"
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12488497/",
+          "previous_url": "https://www.nature.com/articles/s41586-025-09505-x",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "متن کامل مقالهٔ Nature در PubMed Central باز شد و مجوز CC BY 4.0 دارد. نتیجه‌ها از ۱۳ آزمایش در چهار مطالعه و موقعیت‌های مشخص واگذاری به دست آمده‌اند؛ تعمیم مدیریتی باید محتاطانه باشد."
         }
       ],
       "practice_activity": {
@@ -284,9 +301,22 @@
         "real_case_status": "choose_and_verify_during_authoring"
       },
       "media_plan": {
-        "type": "authored_diagram_or_worked_table",
-        "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "نمودار مفهومی تألیفی برای روشن‌کردن چارچوب تصمیم درس؛ اعداد و نمونه‌ها ادعای تجربی نیستند",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-team-work-learning-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مرز اختیار انسان و ابزار»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+            "caption": "نقشه را برای تحلیل «مرز اختیار انسان و ابزار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          },
+          {
+            "asset_ref": "content/media/human-tool-authority-ladder.svg",
+            "alt_text": "چهار سطح اختیار از نمایش اطلاعات و پیشنهاد تا اقدام محدود و تصمیم پراثر را با کنترل متناسب نشان می‌دهد.",
+            "caption": "کنترل و تأیید را با پیامد خطا و برگشت‌پذیری تنظیم کنید.",
+            "source_url": "https://airc.nist.gov/airmf-resources/playbook/measure/"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -371,6 +401,27 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "اصطلاح «حدود تعمیم» یعنی یافته دقیقاً به چه جمعیت، کار و شرایطی قابل انتقال است. رهبر پژوهش را برای سؤال بهتر به‌کار می‌گیرد، نه برای تزئین تصمیمی که از قبل گرفته است."
+        },
+        {
+          "id": "S04-C4-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Team-level evidence — شاهد در سطح تیم: داده‌ای که واحد تحلیل و زمان‌بندی تیم را دارد؛ میانگین فردی الزاماً ویژگی تیم نیست. Aggregation bias — سوگیری تجمیع: نتیجهٔ گمراه‌کننده از ترکیب داده در سطح نادرست؛ رفتارهای فردی را نباید بی‌واسطه تیمی دانست. AI-mediated coordination — هماهنگی با واسطهٔ AI: کمک ابزار به جریان/تصمیم تیم؛ کیفیت همکاری باید مستقل از سرعت اندازه‌گیری شود."
+        },
+        {
+          "id": "S04-C4-ST03-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "پژوهش تیم و AI را با طرح، نمونه، واحد تحلیل و معیار پیامد بررسی کنید. بهبود یک وظیفه در آزمایش کنترل‌شده لزوماً افزایش بهره‌وری کل تیم نیست؛ هماهنگی، بازکاری و کیفیت نهایی هم اهمیت دارند. گروه‌های مختلف ممکن است منفعت متفاوت بگیرند. اندازهٔ اثر را با بازهٔ عدم قطعیت و شرایط اجرا بخوانید. فرض تعمیم به سازمان خود را با تفاوت مهارت، داده و گردش کار بسنجید. اگر مطالعهٔ تبلیغاتی یا شرکتی است، منبع و محدودیت استقلال را նշان دهید و نتیجه را قطعی معرفی نکنید."
+        },
+        {
+          "id": "S04-C4-ST03-L02-PG-CASE",
+          "type": "real_case",
+          "title": "مطالعهٔ میدانی واقعی: همکاری انسان و AI در P&G",
+          "text": "در آزمایش میدانیِ preregistered با ۷۹۱ متخصص P&G روی مسائل واقعی نوآوری محصول، شرکت‌کنندگان به کار با AI یا بدون آن و به‌صورت فردی یا تیمی تخصیص تصادفی یافتند. در این تکلیف، عملکرد افرادِ مجهز به AI با تیم‌های بدون AI برابر شد و پیشنهادها میان دیدگاه فنی و تجاری متوازن‌تر بود؛ کیفیت ایده‌ها بیشتر بهبود یافت و قضاوت انسانی در انتخاب آن‌ها همچنان ارزش داشت. این نتیجه به همان شرکت، وظیفه و طراحی مطالعه محدود است؛ پاسخ عاطفی گزارش‌شده هم خوداظهاری بود.",
+          "example_kind": "preregistered_field_experiment",
+          "source_id": "NBER-CYBERNETIC-TEAMMATE-2025",
+          "source_url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702"
         }
       ],
       "questions": [
@@ -526,14 +577,34 @@
           "review_depth": "peer_reviewed_article_reviewed",
           "scope": "مدل پژوهشی دربارهٔ فرصت اظهار نظر، فروتنی رهبر و اعتماد به AI؛ تعمیم بر اساس روش و نمونهٔ مقاله محدود است.",
           "title": "How leaders build employee trust in artificial intelligence (Journal of Business Research, 2026)",
-          "url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059"
+          "url": "https://econpapers.repec.org/article/eeejbrese/v_3a217_3ay_3a2026_3ai_3ac_3as0148296326005059.htm",
+          "previous_url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "رکورد دانشگاهی RePEc/EconPapers و چکیده باز شد؛ متن کامل در ScienceDirect مخصوص مشترکان است. فعلاً فقط فراداده و چکیده بررسی شده و ادعاها باید به همان سطح محدود بمانند."
         },
         {
           "id": "delegating-algorithm-2025",
           "review_depth": "peer_reviewed_article_reviewed",
-          "scope": "بررسی پژوهشی رابطهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ رابطهٔ مشاهده‌شده قانون همیشگی نیست.",
-          "title": "Delegating to the algorithm: AI-driven leadership, bias perceptions and disengagement (2025)",
-          "url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489"
+          "scope": "چکیدهٔ مقالهٔ داوری‌شده دربارهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ نمونهٔ دو موجی ۲۴۱ پاسخ‌گو از صنایع و خدمات دیجیتال در امارات است و تعمیم آن محدود است.",
+          "title": "Delegating to the algorithm: how AI-driven leadership shapes bias perceptions, trust and emotional disengagement in the workplace (2025)",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0143773925000489",
+          "previous_url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489",
+          "doi": "10.1108/LODJ-06-2025-0406",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "صفحهٔ رسمی ناشر و چکیده باز شد؛ در این گذر متن کامل را جداگانه ارزیابی نکردم. یافته‌ها به نمونهٔ ۲۴۱ نفری و زمینهٔ امارات محدودند."
+        },
+        {
+          "id": "CR-R33-PUBLISHED",
+          "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork (Organization Science, 2026)",
+          "url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702",
+          "scope": "آزمایش میدانیِ preregistered با ۷۹۱ متخصص P&G روی مسائل نوآوری محصول؛ نتایج به همان وظیفه و سازمان محدودند.",
+          "review_depth": "primary_field_experiment_reviewed",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "source_kind": "peer_reviewed_field_experiment",
+          "previous_url": "https://www.nber.org/papers/w33641"
         }
       ],
       "practice_activity": {
@@ -563,7 +634,8 @@
         "O06",
         "M05",
         "R27",
-        "R33"
+        "R33",
+        "CR-R33-PUBLISHED"
       ],
       "source_scope": "inherits_topic_candidates_not_claim_level",
       "example_plan": {
@@ -582,7 +654,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-team-work-learning-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «تفسیر پژوهش تیم و AI»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+            "caption": "نقشه را برای تحلیل «تفسیر پژوهش تیم و AI» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -667,6 +746,18 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "«طراحی انسان‌محور کار» توجه می‌کند فناوری چه تغییری در وظیفه، تعامل و اختیار می‌دهد. سؤال فقط این نیست که ابزار چه کاری را می‌تواند انجام دهد، بلکه این است که کیفیت کار و سلامت تیم چه می‌شود."
+        },
+        {
+          "id": "S04-C4-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Burnout — فرسودگی شغلی: پیامد فشار مزمن کار با ابعاد مشخص؛ هر خستگی کوتاه‌مدت فرسودگی بالینی نیست. Workload — بار کار: تقاضای زمانی/شناختی نسبت به ظرفیت؛ تعداد وظیفه کیفیت/وقفه را نشان نمی‌دهد. Work quality — کیفیت کار: دقت و ارزش خروجی با معیار نقش؛ سرعت بیشتر بدون نرخ خطا تصویر کامل نیست."
+        },
+        {
+          "id": "S04-C4-ST03-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "کیفیت کار و فرسودگی نظارت باید کنار سرعت و حجم خروجی پایش شوند. AI ممکن است کار ساده را کم کند ولی کار بررسی استثنا و اصلاح را افزایش دهد. تعداد تأییدها، زمان بازبینی، خطای کشف‌نشده و تجربهٔ کارکنان را بسنجید. خودگزارش خستگی نیز باید با تغییر وظیفه و بار واقعی تفسیر شود. فرض صرفه‌جویی زمان را با اندازه‌گیری چرخهٔ کامل کار بررسی کنید. اگر نظارت خسته‌کننده شده، حجم خودکارسازی، طراحی هشدار و ظرفیت نقش را بازتنظیم کنید."
         }
       ],
       "questions": [
@@ -818,18 +909,24 @@
       ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF-CORE",
           "review_depth": "official_framework_reviewed",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
           "title": "NIST AI Risk Management Framework Core",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "delegating-algorithm-2025",
           "review_depth": "peer_reviewed_article_reviewed",
-          "scope": "بررسی پژوهشی رابطهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ رابطهٔ مشاهده‌شده قانون همیشگی نیست.",
-          "title": "Delegating to the algorithm: AI-driven leadership, bias perceptions and disengagement (2025)",
-          "url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489"
+          "scope": "چکیدهٔ مقالهٔ داوری‌شده دربارهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ نمونهٔ دو موجی ۲۴۱ پاسخ‌گو از صنایع و خدمات دیجیتال در امارات است و تعمیم آن محدود است.",
+          "title": "Delegating to the algorithm: how AI-driven leadership shapes bias perceptions, trust and emotional disengagement in the workplace (2025)",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0143773925000489",
+          "previous_url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489",
+          "doi": "10.1108/LODJ-06-2025-0406",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "صفحهٔ رسمی ناشر و چکیده باز شد؛ در این گذر متن کامل را جداگانه ارزیابی نکردم. یافته‌ها به نمونهٔ ۲۴۱ نفری و زمینهٔ امارات محدودند."
         }
       ],
       "practice_activity": {
@@ -878,7 +975,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-team-work-learning-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «پایش فرسودگی و کیفیت کار»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+            "caption": "نقشه را برای تحلیل «پایش فرسودگی و کیفیت کار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -963,6 +1067,18 @@
           "title": "نکتهٔ 9",
           "type": "explanation",
           "text": "در سپهر، گزارش اجرای پایلوت باید نشان دهد چه گروهی، کدام نسخهٔ ابزار را در چه دوره‌ای و با چه تعریف موفقیت به‌کار برد. نتیجه و عارضه را ثبت کنید و اجازه دهید تیم دیگر حدود انتقال را ببیند."
+        },
+        {
+          "id": "S04-C4-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Learning log — دفتر یادگیری: ثبت فرض، مداخله، شاهد و تغییر تصمیم؛ یادداشت بدون تصمیم بعدی دادهٔ سازمانی نمی‌سازد. After-action review — مرور پس از اقدام: مقایسهٔ انتظار با رخداد برای یادگیری؛ جلسهٔ سرزنش‌محور اطلاعات را کم می‌کند. Organizational learning — یادگیری سازمانی: تغییر قابل‌استمرار در رویه/فرض بر پایهٔ تجربه؛ ثبت درس‌آموخته بدون استفاده، یادگیری اثربخش نیست."
+        },
+        {
+          "id": "S04-C4-ST03-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "دفتر یادگیری تغییر سازمانی ثبت می‌کند چه تغییری آزمایش شد، برای چه گروهی، با چه فرض و نتیجه‌ای. ثبت صرف موفقیت‌ها یادگیری را منحرف می‌کند؛ شکست‌ها و پیامدهای ناخواسته نیز لازم‌اند. شاخص‌ها را از ابتدا تعیین و نتیجه را به زمینه و دامنهٔ نمونه مقید کنید. دادهٔ حساس کارکنان را کمینه و دسترسی را محدود کنید. اگر نقش یا سیاست عوض شد، نسخهٔ تصمیم را ثبت کنید تا اثر تغییرها از هم تفکیک شود. مسئول پیگیری و تاریخ بازبینی، درس را به اقدام سازمانی تبدیل می‌کند."
         }
       ],
       "questions": [
@@ -1114,18 +1230,23 @@
       ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF-CORE",
           "review_depth": "official_framework_reviewed",
           "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
           "title": "NIST AI Risk Management Framework Core",
-          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "leader-trust-ai-2026",
           "review_depth": "peer_reviewed_article_reviewed",
           "scope": "مدل پژوهشی دربارهٔ فرصت اظهار نظر، فروتنی رهبر و اعتماد به AI؛ تعمیم بر اساس روش و نمونهٔ مقاله محدود است.",
           "title": "How leaders build employee trust in artificial intelligence (Journal of Business Research, 2026)",
-          "url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059"
+          "url": "https://econpapers.repec.org/article/eeejbrese/v_3a217_3ay_3a2026_3ai_3ac_3as0148296326005059.htm",
+          "previous_url": "https://www.sciencedirect.com/science/article/pii/S0148296326005059",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21",
+          "access_note": "رکورد دانشگاهی RePEc/EconPapers و چکیده باز شد؛ متن کامل در ScienceDirect مخصوص مشترکان است. فعلاً فقط فراداده و چکیده بررسی شده و ادعاها باید به همان سطح محدود بمانند."
         }
       ],
       "practice_activity": {
@@ -1174,7 +1295,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-team-work-learning-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «دفتر یادگیری تغییر سازمانی»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+            "caption": "نقشه را برای تحلیل «دفتر یادگیری تغییر سازمانی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

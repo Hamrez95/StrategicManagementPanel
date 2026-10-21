@@ -58,6 +58,18 @@
       "type": "explanation",
       "title": "معیار کیفیت تحلیل",
       "text": "تحلیل خوب ادعای محدود و قابل پیگیری دارد، فرض نامعلوم را پنهان نمی‌کند، بدیل را جدی می‌گیرد و به اقدام مشروط می‌رسد. متن طولانی یا نمودار زیبا جانشین دلیل، داده و مسئولیت نیست."
+    },
+    {
+      "id": "S01-C4-ST01-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Anchoring bias — سوگیری لنگراندازی: کشیده‌شدن قضاوت به عدد/پیشنهاد ابتدایی؛ عدد AI هم لنگر می‌شود. False precision — دقت کاذب: نمایش عدد دقیق‌تر از کیفیت داده و فرض؛ اعشار بیشتر اعتبار نمی‌آورد. Source traceability — ردیابی منبع: امکان بازگشت از ادعا به سند و زمان؛ ارجاع پیوندی بدون پشتیبانی ادعا کافی نیست."
+    },
+    {
+      "id": "S01-C4-ST01-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "AI می‌تواند شواهد را خلاصه یا سناریو و گزینه بسازد، اما کیفیت آن به منابع، دستور و فرض‌های واردشده وابسته است. مدل ممکن است دادهٔ قدیمی یا روایت محتمل اما بی‌سند ارائه کند. منبع هر ادعا را بررسی و واقعیت را از استنباط جدا کنید. مقایسهٔ گزینه‌ها باید معیار ثابت و دامنهٔ عدم‌قطعیت داشته باشد. اگر مدل فقط سناریوهای غالب در داده را بازتولید کند، آیندهٔ کم‌تکرار حذف می‌شود. خروجی را به‌عنوان ورودی بحث نگه دارید و تصمیم و مسئولیت را انسانی و مستند سازید."
     }
   ],
   "questions": [
@@ -207,6 +219,14 @@
       "remediation_card_id": "S01-C4-ST01-L04-CARD09"
     }
   ],
+  "source_refs": [
+    "oxford-scenarios",
+    "oxford-ospa",
+    "hbr-uncertainty",
+    "imf-ai-scenario",
+    "wef-risk-2026",
+    "oxford-handbook"
+  ],
   "source_links": [
     {
       "id": "oxford-scenarios",
@@ -218,31 +238,36 @@
       "id": "oxford-ospa",
       "title": "Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach",
       "url": "https://academic.oup.com/book/9616",
-      "scope": "سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه."
+      "scope": "سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "hbr-uncertainty",
       "title": "HBR (2025): Make Better Strategic Decisions Amid Uncertainty",
       "url": "https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty",
-      "scope": "سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع."
+      "scope": "سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "imf-ai-scenario",
       "title": "IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise",
       "url": "https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924",
-      "scope": "تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست."
+      "scope": "تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "wef-risk-2026",
       "title": "World Economic Forum: Global Risks Report 2026",
       "url": "https://www.weforum.org/publications/global-risks-report-2026/in-full/global-risks-report-2026-chapter-2/",
-      "scope": "دیدگاه کارشناسان/مدیران دربارهٔ ریسک‌های جهانی و AI؛ پیمایش ادراک ریسک است."
+      "scope": "دیدگاه کارشناسان/مدیران دربارهٔ ریسک‌های جهانی و AI؛ پیمایش ادراک ریسک است.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-handbook",
       "title": "Oxford Saïd: The Strategist’s Handbook",
       "url": "https://academic.oup.com/book/46836",
-      "scope": "چارچوب فرایند، ابزار و تصمیم‌گیری در استراتژی؛ دسترسی به متن ممکن است محدود باشد."
+      "scope": "چارچوب فرایند، ابزار و تصمیم‌گیری در استراتژی؛ دسترسی به متن ممکن است محدود باشد.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {

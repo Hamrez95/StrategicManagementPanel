@@ -75,6 +75,20 @@
           "text": "زمان ارزش‌آفرین کارِ نزدیک‌کنندهٔ خروجی به خواستهٔ مشتری است. هر کار لازم و قانونی الزاماً حذف‌پذیر نیست؛ ارزش، اتلاف و کنترل الزامی را جدا کنید. در نگاشت خدمت، کاربرگ می‌تواند یک پروندهٔ نمونه را از نقطهٔ تماس تا نتیجه دنبال کند. برای هر انتقال بنویسید چه اطلاعاتی کم است و چه کسی حق تصمیم دارد؛ همین دو پرسش اغلب حلقهٔ انتظار را پیدا می‌کنند.",
           "id": "S05-C1-ST01-L01-CARD09",
           "title": "نکتهٔ 9"
+        },
+        {
+          "id": "S05-C1-ST01-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Value stream map — نقشهٔ جریان ارزش: نمایش جریان ماده/اطلاعات و زمان ارزش‌افزا/انتظار؛ مرز فرایند و دادهٔ مشاهده‌شده باید روشن باشد. Lead time — زمان عبور: فاصلهٔ ورود تا تکمیل در تعریف فرایند؛ با زمان کار مستقیم یکی نیست. Value-added activity — فعالیت ارزش‌افزا: کاری که مشتری برایش ارزش می‌بیند و درست‌بار اول انجام می‌شود؛ قضاوت نیازمند دید مشتری است."
+        },
+        {
+          "id": "S05-C1-ST01-L01-CASE-TOYOTA",
+          "type": "real_case",
+          "title": "کیس تاریخی: شکل‌گیری و گسترش TPS",
+          "text": "بر اساس تاریخ‌نگاری رسمی تویوتا، پایه‌های سامانهٔ تولید در اواخر دههٔ ۱۹۴۰ و اوایل دههٔ ۱۹۵۰ با آزمون و خطا شکل گرفت؛ گسترش به کارخانهٔ هونشا در اواخر دههٔ ۱۹۵۰ و اجرای کارخانه‌ای از ۱۹۶۰ آغاز شد. تویوتا دو ستون را Just-in-Time و jidoka معرفی می‌کند و فعالیت‌های بهبود سازمانی را از ۱۹۸۲ گزارش می‌کند. این منبع، روایت رسمی شرکت از تاریخ خودش است؛ به‌تنهایی اثر علّی هر جزء بر عملکرد یا قابلیت انتقال همان روش به هر سازمان را ثابت نمی‌کند.",
+          "example_kind": "documented_company_history",
+          "source_url": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/production/system/change.html"
         }
       ],
       "questions": [
@@ -230,14 +244,26 @@
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "روش نقشه‌برداری جریان کار و اطلاعات، وضعیت جاری و آینده؛ برای خدمت تطبیق لازم است.",
           "id": "lei-value-stream-map",
-          "title": "Lean Enterprise Institute: Value-Stream Mapping / Learning to See"
+          "title": "Lean Enterprise Institute: Value-Stream Mapping / Learning to See",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "url": "https://www.lean.org/lexicon-terms/cycle-time/",
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
           "id": "lei-cycle-time",
-          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "TOYOTA-TPS-HISTORY",
+          "title": "Toyota 75-Year History: Toyota Production System",
+          "url": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/production/system/change.html",
+          "scope": "روایت رسمی شرکت از شکل‌گیری TPS، زمان‌بندی گسترش آن و دو مفهوم JIT و jidoka؛ شاهد مستقل اثر علّی نیست.",
+          "accessed_on": "2026-10-20",
+          "source_kind": "primary_company_history"
         }
       ],
       "practice_activity": {
@@ -266,7 +292,8 @@
       "source_refs": [
         "M06",
         "M13",
-        "R15"
+        "R15",
+        "TOYOTA-TPS-HISTORY"
       ],
       "source_scope": "inherits_topic_candidates_not_claim_level",
       "example_plan": {
@@ -282,7 +309,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/value-flow-capacity-time.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «نقشهٔ جریان ارزش»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+            "caption": "نقشه را برای تحلیل «نقشهٔ جریان ارزش» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -324,7 +358,26 @@
           "type": "explanation",
           "text": "برای یک گام ساده، ظرفیت نظری برابر زمان مفید تقسیم بر زمان چرخهٔ هر واحد است. ۴۲۰ دقیقهٔ مفید با چرخهٔ ۲ دقیقه، ۲۱۰ واحد ظرفیت نظری می‌دهد.",
           "id": "S05-C1-ST01-L02-CARD02",
-          "title": "نکتهٔ 2"
+          "title": "نکتهٔ 2",
+          "table": {
+            "columns": [
+              "محاسبه",
+              "نتیجه",
+              "محدودیت تفسیر"
+            ],
+            "rows": [
+              [
+                "۴۲۰ دقیقهٔ مفید ÷ ۲ دقیقه برای هر واحد",
+                "۲۱۰ واحد ظرفیت نظری",
+                "توقف و تنوع کار و دوباره‌کاری، خروجی واقعی را تغییر می‌دهد"
+              ],
+              [
+                "ظرفیت گام‌های زنجیره",
+                "کمترین ظرفیت گام‌ها",
+                "با یکسان‌بودن واحد و بازه، گام محدودکننده گلوگاه است"
+              ]
+            ]
+          }
         },
         {
           "type": "explanation",
@@ -367,6 +420,12 @@
           "text": "ظرفیت بافر زمانی یا منابعی است که برای نوسان نگه می‌داریم. آن را آگاهانه طراحی کنید تا از انسداد جلوگیری شود، نه اینکه صف پنهان دائمی بسازیم. مثال ظرفیت فرض می‌کند چرخه یکنواخت و زمان مفید پیوسته است. برای تصمیم واقعی، توقف، استراحت، تغییر نوع کار و بازده درست‌باراول را اضافه کنید. ظرفیت نظری سقف ساده‌شده است و تعهد خروجی نیست. اگر زمان چرخهٔ هر مرحله متفاوت است، ظرفیت ایستگاه‌ها را با زمان مفید و ترکیب کار بسنجید. یک مرحلهٔ کوتاه‌تر ممکن است به‌دلیل تنظیم یا کمبود ورودی، خروج واقعی کمی داشته باشد.",
           "id": "S05-C1-ST01-L02-CARD09",
           "title": "نکتهٔ 9"
+        },
+        {
+          "id": "S05-C1-ST01-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Process capacity — ظرفیت فرایند: بیشترین خروجی پایدار در زمان و ترکیب تعریف‌شده؛ ظرفیت نظری خرابی/تغییر محصول را نادیده می‌گیرد. Bottleneck — گلوگاه: محدودیتی که خروجی کل را در وضعیت جاری کنترل می‌کند؛ گلوگاه می‌تواند با تغییر برنامه جابه‌جا شود. Utilization — نرخ بهره‌برداری: خروجی/زمان استفاده نسبت به ظرفیت تعریف‌شده؛ نزدیک ۱۰۰٪شدن می‌تواند صف را شدیداً بالا ببرد."
         }
       ],
       "questions": [
@@ -522,14 +581,26 @@
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "زمان در دسترس تقسیم بر تقاضا برای هم‌ترازی نرخ کار با مشتری.",
           "id": "lei-takt-time",
-          "title": "Lean Enterprise Institute Lexicon: Takt Time"
+          "title": "Lean Enterprise Institute Lexicon: Takt Time",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "url": "https://www.lean.org/lexicon-terms/cycle-time/",
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
           "id": "lei-cycle-time",
-          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "title": "MIT Sloan OCW: Operations Management",
+          "url": "https://ocw.mit.edu/courses/15-760a-operations-management-spring-2002/",
+          "scope": "چارچوب درسی مدیریت عملیات؛ برای زمینهٔ تحلیل فرایند، ظرفیت و جریان کار",
+          "id": "MIT-OCW-OPS-2002",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -572,9 +643,22 @@
         "real_case_status": "choose_and_verify_during_authoring"
       },
       "media_plan": {
-        "type": "authored_diagram_or_worked_table",
-        "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "نمایش نرخ ظرفیت زنجیره، گلوگاه و محاسبهٔ ظرفیت نظری",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/value-flow-capacity-time.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «ظرفیت و گلوگاه»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+            "caption": "نقشه را برای تحلیل «ظرفیت و گلوگاه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          },
+          {
+            "asset_ref": "content/media/capacity-bottleneck-flow.svg",
+            "alt_text": "سه مرحلهٔ نمادین با ظرفیت C1 و C2 و C3؛ ظرفیت خروجی کل کمترین آن‌هاست. مثال یک ایستگاه: ۴۲۰ دقیقهٔ مفید تقسیم بر چرخهٔ دو دقیقه برابر ۲۱۰ واحد نظری.",
+            "caption": "گلوگاه را پیدا کن و محدودیت ظرفیت نظری را از خروجی واقعی جدا نگه دار.",
+            "source_url": "https://ocw.mit.edu/courses/15-760a-operations-management-spring-2002/"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -659,6 +743,12 @@
           "text": "زمان جریان از ورود کار به سیستم تا خروج است؛ زمان پردازش فقط لحظه‌های کار فعال را می‌شمارد. تفاوت این دو بخش بزرگی از انتظار پنهان را نشان می‌دهد. نرخ خروج را در همان واحد زمانی WIP و زمان بسنجید. اگر نرخ ساعتی را با WIP روزانه یا میانگین چند دورهٔ متفاوت ترکیب کنید، حاصل از نظر واحد معنی ندارد. ثبات را با روند ورود و خروج بسنجید. این قانون میانگین را پیوند می‌دهد و دربارهٔ تک‌پرونده زمان تحویل دقیق نمی‌دهد. برای پروندهٔ خاص، تفاوت نوع کار و اولویت و تغییر ظرفیت را جداگانه بررسی کنید.",
           "id": "S05-C1-ST01-L03-CARD09",
           "title": "نکتهٔ 9"
+        },
+        {
+          "id": "S05-C1-ST01-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Queue — صف: کار منتظر خدمت در فرایند؛ افزایش کار در جریان زمان انتظار و سرمایه را بالا می‌برد. Work in process — کار در جریان: کار آغازشده اما تکمیل‌نشده؛ موجودی زیاد الزاماً تولید بیشتر نیست. Little law — قانون لیتل: میانگین کار در جریان برابر نرخ عبور در زمان چرخه در حالت پایدار؛ فرض حالت پایدار و واحد یکسان لازم است."
         }
       ],
       "questions": [
@@ -814,14 +904,18 @@
           "review_depth": "peer_reviewed_foundational_article_reviewed",
           "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
           "id": "little-1961",
-          "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+          "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "url": "https://www.lean.org/lexicon-terms/cycle-time/",
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
           "id": "lei-cycle-time",
-          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -866,7 +960,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/value-flow-capacity-time.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «صف و کار در جریان»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+            "caption": "نقشه را برای تحلیل «صف و کار در جریان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -951,6 +1052,12 @@
           "text": "پایایی داده یعنی اندازه‌گیری در شرایط مشابه قابل تکرار باشد. اگر دو سامانه رویدادهای متفاوتی را مبنا می‌گیرند، اول تعریف و ثبت را هماهنگ کنید. یک تعریف شاخص باید رویداد سامانه، منطقهٔ زمانی، پرونده‌های لغوشده و کارهای باز را روشن کند. پاک‌کردن موارد دشوار از نمونه شاید عدد را بهتر کند اما نمایندگی عملکرد را کاهش می‌دهد. وقتی صدک بالا بدتر می‌شود اما میانگین ثابت است، ممکن است فقط گروه کوچکی آسیب دیده باشد. ترکیب پرونده و مسیرهای استثنا را با حفظ حریم خصوصی تحلیل کنید و اقدام را به علت مشاهده‌شده وصل کنید.",
           "id": "S05-C1-ST01-L04-CARD09",
           "title": "نکتهٔ 9"
+        },
+        {
+          "id": "S05-C1-ST01-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Cycle time — زمان چرخه: زمان انجام یک واحد/گام طبق مرز مشخص؛ با زمان عبور کل اشتباه نشود. Takt time — زمان تکت: زمان در دسترس تقسیم بر تقاضای مشتری در دوره؛ ظرفیت نامی را تضمین نمی‌کند. Process time — زمان پردازش: زمان کار فعال روی واحد؛ انتظار و بازکاری باید جداگانه ثبت شوند."
         }
       ],
       "questions": [
@@ -1106,14 +1213,18 @@
           "review_depth": "peer_reviewed_foundational_article_reviewed",
           "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
           "id": "little-1961",
-          "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+          "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "url": "https://www.lean.org/lexicon-terms/cycle-time/",
           "review_depth": "professional_practice_reference_reviewed",
           "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
           "id": "lei-cycle-time",
-          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+          "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -1158,7 +1269,14 @@
       "media_plan": {
         "type": "authored_diagram_or_worked_table",
         "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/value-flow-capacity-time.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «اندازه‌گیری زمان واقعی»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+            "caption": "نقشه را برای تحلیل «اندازه‌گیری زمان واقعی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

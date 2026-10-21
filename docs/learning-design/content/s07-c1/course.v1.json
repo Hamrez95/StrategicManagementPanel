@@ -68,6 +68,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST01-L01-CARD08",
               "text": "برای تحلیل دیرکرد، یک ردیف به‌ازای سفارش و شناسهٔ ناشناس سفارش؛ ویژگی‌ها فقط آنچه تا زمان تصمیم در دسترس بوده؛ برچسب دیرکرد طبق تعریف موعد قراردادی. اگر سفارش‌های لغوشده حذف شوند، نتیجه فقط برای سفارش‌های تکمیل‌شده معتبر است."
+            },
+            {
+              "id": "S07-C1-ST01-L01-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "واحد مشاهده (Unit of observation) رکوردی است که یک ردیف داده نمایندگی می‌کند؛ با هدف پیش‌بینی هم‌تراز باشد. ویژگی (Feature) ورودی و هدف (Target) متغیر مورد برآورد است. زمان دسترس‌پذیری هر ویژگی را ثبت کنید تا دادهٔ آینده وارد تصمیم گذشته نشود."
+            },
+            {
+              "id": "S07-C1-ST01-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "واحد مشاهده تعیین می‌کند هر ردیف داده دربارهٔ چه چیزی و در چه زمانی است؛ مثلاً سفارش، مشتری یا رخداد روزانه. اگر پرسش دربارهٔ تأخیر سفارش باشد اما داده بر مبنای مشتری تجمیع شود، رابطهٔ موردنیاز ممکن است ناپدید شود. تعریف شناسه، زمان ثبت، پوشش و دادهٔ مفقود را پیش از مدل‌سازی بنویسید. فرض نمونه‌بودن داده را بررسی کنید: کاربران ثبت‌شده شاید نمایندهٔ همهٔ مشتریان نباشند. تغییر واحد تحلیل می‌تواند هم نرخ پایه و هم تصمیم را عوض کند؛ بنابراین واحد را از تصمیم مدیریتی استخراج کنید و نتیجه را در سطح همان واحد تفسیر کنید."
             }
           ],
           "questions": [
@@ -186,6 +198,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "زمان ثبت و دسترسی از تعریف ویژگی است."
+            },
+            {
+              "id": "S07-C1-ST01-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "دادهٔ سفارش‌ها شامل چند ردیف برای یک سفارش است. پیش از ساخت مدل چه چیزی را تعیین کنیم؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "واحد مشاهده و زمان هر ویژگی و هدف پیش‌بینی",
+                  "feedback": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+                },
+                {
+                  "id": "b",
+                  "text": "تعداد ستون‌های بیشتر",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+                },
+                {
+                  "id": "c",
+                  "text": "واحدی را انتخاب کنیم که رکوردها را بیشتر کند",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند.",
+              "objective_id": "S07-C1-ST01-L01-OBJ01",
+              "equivalence_group": "S07-C1-ST01-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST01-L01-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -194,34 +236,44 @@
               "title": "Google Machine Learning Crash Course: Data Characteristics",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-DATA-SPLIT",
               "title": "Google Machine Learning Crash Course: Dividing Datasets",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTION-MONITORING",
               "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده و برچسب و خطا در استقرار."
+              "scope": "پایش داده و برچسب و خطا در استقرار.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI Risk Management Framework Core",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "managerial-ml-data-card",
             "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+            "rubric": [
+              "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+              "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+              "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -245,7 +297,14 @@
           "media_plan": {
             "type": "data-unit-feature-label-evaluation-diagram",
             "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/data-task-model-validation-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «داده و واحد مشاهده»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+                "caption": "نقشه را برای تحلیل «داده و واحد مشاهده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -310,12 +369,48 @@
             {
               "title": "مدل پیش‌بینی، سیاست تصمیم نیست",
               "id": "S07-C1-ST01-L02-CARD07",
-              "text": "مدل احتمال را برآورد می‌کند؛ قاعدهٔ عمل می‌گوید با احتمال چه کنیم. حتی مدل دقیق می‌تواند تصمیم بدی بسازد اگر هزینه، ظرفیت، محدودیت یا اثر بر افراد در سیاست نیامده باشد."
+              "text": "مدل احتمال را برآورد می‌کند؛ قاعدهٔ عمل می‌گوید با احتمال چه کنیم. حتی مدل دقیق می‌تواند تصمیم بدی بسازد اگر هزینه، ظرفیت، محدودیت یا اثر بر افراد در سیاست نیامده باشد.",
+              "table": {
+                "columns": [
+                  "مرحله",
+                  "نمونهٔ دیرکرد سفارش",
+                  "مسئولیت مدیریتی"
+                ],
+                "rows": [
+                  [
+                    "پیش‌بینی",
+                    "احتمال دیرکرد: ۰٫۷",
+                    "کیفیت و کالیبراسیون احتمال را بسنج"
+                  ],
+                  [
+                    "قاعدهٔ اقدام",
+                    "بررسی سفارش‌های بالای آستانه",
+                    "آستانه را با هزینهٔ خطا و ظرفیت تیم تنظیم کن"
+                  ],
+                  [
+                    "بازبینی",
+                    "کارشناس اطلاعات سفارش را می‌بیند",
+                    "کاربر بتواند دادهٔ نادرست را اصلاح کند"
+                  ]
+                ]
+              }
             },
             {
               "title": "مثال سپهر",
               "id": "S07-C1-ST01-L02-CARD08",
               "text": "مدل احتمال دیرکرد سفارش می‌دهد؛ تیم عملیات سفارش‌های بالای آستانه را بررسی می‌کند. آستانه باید با ظرفیت روزانه و هزینهٔ هشدار کاذب تنظیم شود و کاربر حق اصلاح اطلاعات داشته باشد."
+            },
+            {
+              "id": "S07-C1-ST01-L02-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "رگرسیون (Regression) مقدار پیوسته، طبقه‌بندی (Classification) برچسب/احتمال و رتبه‌بندی (Ranking) ترتیب گزینه‌ها را می‌دهد. کالیبراسیون (Calibration) می‌سنجد احتمال اعلامی با بسامد واقعی سازگار است یا نه. پیش‌بینی هیچ‌یک به‌تنهایی سیاست اقدام را تعیین نمی‌کند."
+            },
+            {
+              "id": "S07-C1-ST01-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "نوع خروجی باید با پرسش و هزینهٔ خطا هماهنگ باشد. پیش‌بینی عددی می‌گوید چه مقدار محتمل است؛ طبقه‌بندی دسته می‌دهد؛ رتبه‌بندی ترتیب بررسی را پیشنهاد می‌کند و توصیه گزینهٔ اقدام را برمی‌گزیند. این‌ها معادل یکدیگر نیستند: رتبه‌بندی بالا الزاماً به معنای احتمال قطعی یا اقدام خودکار نیست. معیار کیفیت هم فرق می‌کند و آستانهٔ تصمیم هزینهٔ مثبت و منفی کاذب را تغییر می‌دهد. اگر هدف از پیش‌بینی به اقدام تغییر کند، باید پیامد و اختیار تصمیم دوباره تعریف شود. مدیر خروجی، کاربر، گزینهٔ اقدام و مسئول پذیرش ریسک را مشخص می‌کند."
             }
           ],
           "questions": [
@@ -434,6 +529,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "هدف تصمیم و محدودیت‌ها هم باید طراحی شوند."
+            },
+            {
+              "id": "S07-C1-ST01-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل احتمال دیرکرد می‌دهد ولی تیم فقط ده سفارش را روزانه می‌تواند بررسی کند. قاعدهٔ اقدام چه باید ببیند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "آستانه را با ظرفیت بررسی و هزینهٔ خطای مثبت/منفی کاذب تنظیم کند",
+                  "feedback": "پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+                },
+                {
+                  "id": "b",
+                  "text": "احتمال را حکم قطعی بداند",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+                },
+                {
+                  "id": "c",
+                  "text": "همهٔ سفارش‌ها را خودکار متوقف کند",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است.",
+              "objective_id": "S07-C1-ST01-L02-OBJ01",
+              "equivalence_group": "S07-C1-ST01-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST01-L02-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -442,34 +567,44 @@
               "title": "Google Machine Learning Crash Course: Data Characteristics",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-DATA-SPLIT",
               "title": "Google Machine Learning Crash Course: Dividing Datasets",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTION-MONITORING",
               "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده و برچسب و خطا در استقرار."
+              "scope": "پایش داده و برچسب و خطا در استقرار.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI Risk Management Framework Core",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "managerial-ml-data-card",
             "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+            "rubric": [
+              "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+              "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+              "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -491,9 +626,22 @@
             "real_case_status": "fictional_case"
           },
           "media_plan": {
-            "type": "data-unit-feature-label-evaluation-diagram",
-            "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-            "production_status": "planned_not_created"
+            "type": "authored_diagram",
+            "purpose": "جداکردن پیش‌بینی از سیاست و اقدام مدیریتی",
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/data-task-model-validation-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «پیش‌بینی، طبقه‌بندی و توصیه»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+                "caption": "نقشه را برای تحلیل «پیش‌بینی، طبقه‌بندی و توصیه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              },
+              {
+                "asset_ref": "content/media/ai-prediction-to-decision.svg",
+                "alt_text": "تعریف داده و هدف، خروجی مدل، قاعدهٔ تصمیم با هزینهٔ خطا و ظرفیت پاسخ، و اقدام دارای بازبینی انسانی.",
+                "caption": "پیش‌بینی مدل با تصمیم نهایی یکی نیست؛ آستانه و پیامدها را آشکار کن.",
+                "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -564,6 +712,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST01-L03-CARD08",
               "text": "برای احتمال دیرکرد، recall سفارش‌های واقعاً دیررس کنار precision هشدارها و بار بررسی روزانه گزارش می‌شود؛ مقایسه با قاعدهٔ «تأمین‌کنندهٔ دیرکرددار قبلی» انجام می‌شود و آزمون روی دورهٔ زمانی بعدی می‌ماند."
+            },
+            {
+              "id": "S07-C1-ST01-L03-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "دادهٔ آموزش (Training set) برای برازش، اعتبارسنجی برای انتخاب تنظیم و آزمون (Test set) برای ارزیابی نهایی به کار می‌رود. تعمیم (Generalization) عملکرد روی دادهٔ تازه است. جداسازی مجموعه‌ها باید با زمان و واحد واقعی تصمیم سازگار باشد."
+            },
+            {
+              "id": "S07-C1-ST01-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مدل با دادهٔ آموزش پارامتر می‌آموزد، اعتبارسنجی برای انتخاب و تنظیم روش به کار می‌رود و آزمون برآورد نهایی روی دادهٔ کنارگذاشته‌شده می‌دهد. استفادهٔ مکرر از آزمون برای انتخاب مدل، آن را عملاً به دادهٔ توسعه تبدیل می‌کند و ارزیابی خوش‌بینانه می‌شود. تقسیم تصادفی برای رخدادهای زمانی یا دادهٔ تکراری ممکن است اطلاعات آینده یا هم‌پوشان را نشت دهد. معیار باید پیامد کاربرد را بازتاب دهد؛ دقت کل در دادهٔ نامتوازن می‌تواند گمراه کند. اگر زمان یا زیرگروه محیط واقعی فرق کند، طرح ارزیابی نیز باید همان تفاوت را منعکس کند."
             }
           ],
           "questions": [
@@ -682,6 +842,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "precision و recall و ماتریس خطا ابعاد مهم دیگری دارند."
+            },
+            {
+              "id": "S07-C1-ST01-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل روی دادهٔ آموزش عملکرد عالی دارد ولی روی نمونهٔ مستقل افت می‌کند. چه تفسیر محتملی است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تعمیم ضعیف یا بیش‌برازش؛ روش ارزیابی و دادهٔ آزمون را بررسی کنیم",
+                  "feedback": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل حتماً بهتر شده است",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+                },
+                {
+                  "id": "c",
+                  "text": "دادهٔ مستقل را حذف کنیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد.",
+              "objective_id": "S07-C1-ST01-L03-OBJ01",
+              "equivalence_group": "S07-C1-ST01-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST01-L03-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -690,34 +880,44 @@
               "title": "Google Machine Learning Crash Course: Data Characteristics",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-DATA-SPLIT",
               "title": "Google Machine Learning Crash Course: Dividing Datasets",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTION-MONITORING",
               "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده و برچسب و خطا در استقرار."
+              "scope": "پایش داده و برچسب و خطا در استقرار.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI Risk Management Framework Core",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "managerial-ml-data-card",
             "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+            "rubric": [
+              "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+              "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+              "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -741,7 +941,14 @@
           "media_plan": {
             "type": "data-unit-feature-label-evaluation-diagram",
             "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/data-task-model-validation-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «آموزش و ارزیابی مدل»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+                "caption": "نقشه را برای تحلیل «آموزش و ارزیابی مدل» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -812,6 +1019,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST01-L04-CARD08",
               "text": "مدل دیرکرد عملکرد تقریباً کامل دارد؛ بازبینی می‌بیند ویژگی «زمان تحویل واقعی» در داده هست. این نشتی آشکار است. پس از حذف، عملکرد پایین‌تر اما واقعی‌تر می‌شود؛ آزمون زمانی و گروهی تازه برای تصمیم استقرار لازم است."
+            },
+            {
+              "id": "S07-C1-ST01-L04-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "نشت داده (Data leakage) اطلاعاتی را وارد آموزش یا آزمون می‌کند که هنگام تصمیم واقعی در دسترس نبود. تقسیم زمانی برای پیش‌بینی آینده معمولاً از تقسیم تصادفی مناسب‌تر است. نمونهٔ آزمون آلوده، دقت ظاهری می‌سازد و برآورد تعمیم را بی‌اعتبار می‌کند."
+            },
+            {
+              "id": "S07-C1-ST01-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "نشت داده هنگامی رخ می‌دهد که اطلاعاتی وارد آموزش یا ارزیابی شود که هنگام تصمیم واقعی در دسترس نبوده یا از پیامد آینده مشتق شده است. تقسیم نامناسب مشتریان تکراری میان آموزش و آزمون نیز آشنایی پنهان ایجاد می‌کند. نتیجهٔ بالا در آزمون الزاماً عملکرد تولید نیست: توزیع، رفتار کاربر، تعریف برچسب و مسیر داده ممکن است تغییر کند. باید زمان دسترس‌پذیری هر ویژگی، واحد تقسیم و فرایند ساخت برچسب را ثبت کرد. اگر داده به ترتیب زمان جمع شده، ارزیابی زمانی واقع‌گرایانه‌تر است؛ کنترل نشت باید پیش از تفسیر معیار انجام شود."
             }
           ],
           "questions": [
@@ -930,6 +1149,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "تغییر توزیع و فرایند نیازمند پایش است."
+            },
+            {
+              "id": "S07-C1-ST01-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل پیش‌بینی تقاضا از دادهٔ پایان ماه برای پیش‌بینی ابتدای همان ماه استفاده کرده است. خطر چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نشت اطلاعات آینده که عملکرد آزمون را خوش‌بینانه می‌کند",
+                  "feedback": "ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+                },
+                {
+                  "id": "b",
+                  "text": "افزایش واقعی اطلاعات در دسترس مدیر",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+                },
+                {
+                  "id": "c",
+                  "text": "کاهش خطای عملیاتی واقعی",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد.",
+              "objective_id": "S07-C1-ST01-L04-OBJ01",
+              "equivalence_group": "S07-C1-ST01-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST01-L04-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -938,34 +1187,44 @@
               "title": "Google Machine Learning Crash Course: Data Characteristics",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+              "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-DATA-SPLIT",
               "title": "Google Machine Learning Crash Course: Dividing Datasets",
               "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+              "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTION-MONITORING",
               "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده و برچسب و خطا در استقرار."
+              "scope": "پایش داده و برچسب و خطا در استقرار.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-CORE",
               "title": "NIST AI Risk Management Framework Core",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+              "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "managerial-ml-data-card",
             "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+            "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+            "rubric": [
+              "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+              "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+              "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -989,7 +1248,14 @@
           "media_plan": {
             "type": "data-unit-feature-label-evaluation-diagram",
             "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/data-task-model-validation-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «نشت داده و خطای اعتبارسنجی»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+                "caption": "نقشه را برای تحلیل «نشت داده و خطای اعتبارسنجی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -1272,6 +1538,18 @@
               "title": "مثال مدیریتی سپهر",
               "id": "S07-C1-ST02-L01-CARD08",
               "text": "از مدل می‌خواهند علت تأخیر یک مشتری را بنویسد؛ بدون دادهٔ سفارش، پاسخ ممکن است علت‌های عمومی بسازد. مدیر باید بگوید مدل چه داده‌ای دیده، کدام گزاره استنباط است و چه مدرکی آن را تأیید می‌کند."
+            },
+            {
+              "id": "S07-C1-ST02-L01-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "مدل زبانی بزرگ (LLM) دنبالهٔ متن را بر اساس زمینه و الگوهای آموخته‌شده تولید می‌کند. تولید محتمل (Next-token generation) بازیابی تضمینی واقعیت نیست. روانی متن را از صحت، استنادپذیری و تازگی گزاره جدا ارزیابی کنید."
+            },
+            {
+              "id": "S07-C1-ST02-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مدل زبانی بزرگ در توالی متن الگوهای آماری و ساختاری را می‌آموزد و با توجه به زمینه، ادامهٔ محتمل را تولید می‌کند. این توضیح به معنای پایگاه واقعیت کامل یا درک تضمین‌شدهٔ قصد کاربر نیست. روانی و انسجام پاسخ ممکن است در کنار خطای جزئیات یا استناد ساختگی دیده شود. کیفیت به مدل، دستور، زمینه و روش ارزیابی وابسته است. اگر پرسش نیازمند عدد حساس یا واقعیت تازه باشد، تولید آزاد به‌تنهایی کافی نیست؛ بازیابی منبع، بررسی ادعا و ثبت تاریخ داده لازم است. مدیر باید کاربرد را طوری طراحی کند که خطا قابل کشف و اصلاح باشد."
             }
           ],
           "questions": [
@@ -1390,6 +1668,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "خطا ممکن است در هر لایه رخ دهد."
+            },
+            {
+              "id": "S07-C1-ST02-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل زبانی متنی روان و دقیق‌نما تولید می‌کند. این رفتار چگونه توضیح داده می‌شود؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "تولید محتمل متن بر اساس زمینه؛ روانی به‌تنهایی صحت واقعیت را تضمین نمی‌کند",
+                  "feedback": "مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+                },
+                {
+                  "id": "b",
+                  "text": "جست‌وجوی خودکار در همهٔ اسناد جهان",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+                },
+                {
+                  "id": "c",
+                  "text": "گواهی قطعی بودن هر جمله",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "مدل زبانی متن را تولید می‌کند؛ راستی‌آزمایی منبع و واقعیت کار جداگانه‌ای است.",
+              "objective_id": "S07-C1-ST02-L01-OBJ01",
+              "equivalence_group": "S07-C1-ST02-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST02-L01-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -1398,34 +1706,44 @@
               "title": "Google Machine Learning Crash Course: Introduction to LLMs",
               "url": "https://developers.google.com/machine-learning/crash-course/llm",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-GENAI-PROFILE",
               "title": "NIST AI 600-1: Generative AI Profile",
               "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
               "review_depth": "official_risk_profile_reviewed",
-              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
               "title": "Google Cloud Generative AI Glossary: RAG",
               "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-VERTEX-RAG-APIS",
               "title": "Google Cloud: APIs for Building Search and RAG Experiences",
               "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "llm-use-and-rag-review",
             "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+            "rubric": [
+              "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+              "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+              "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1449,7 +1767,14 @@
           "media_plan": {
             "type": "llm-context-rag-trust-boundary-flow",
             "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مدل زبانی چه می‌کند؟»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+                "caption": "نقشه را برای تحلیل «مدل زبانی چه می‌کند؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -1520,6 +1845,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST02-L02-CARD08",
               "text": "دستور: «بر اساس فایل پیوست، سفارش‌های نزدیک موعد را در جدول با شناسه، شاهد متن و اطمینان دسته‌بندی کن؛ اگر فیلدی نیست آن را خالی بگذار؛ هیچ اقدام بیرونی انجام نده.» سپس جدول را با فایل اصلی تطبیق می‌دهند."
+            },
+            {
+              "id": "S07-C1-ST02-L02-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "دستور (Instruction) خواسته را مشخص می‌کند؛ زمینه (Context) اطلاعات مرتبط را می‌دهد و قرارداد خروجی قالب پاسخ را تعیین می‌کند. prompt injection تلاشی است برای تغییر دستور از راه محتوای ورودی. قالب دقیق، تضمین صحت یا کنترل امنیت نیست."
+            },
+            {
+              "id": "S07-C1-ST02-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "دستور مؤثر وظیفه، زمینهٔ لازم، محدودیت، معیار موفقیت و قالب خروجی را روشن می‌کند. افزودن جزئیات نامربوط می‌تواند پاسخ را منحرف کند و خروجی ساختاریافته نیز فقط قالب را کنترل می‌کند، نه حقیقت را. مثال ورودی و خروجی می‌تواند ابهام را کم کند، اما برای موارد تازه باید آزمون نماینده داشت. اگر نسخهٔ مدل یا منابع زمینه عوض شود، رفتار دستور هم ممکن است تغییر کند. دستور را در کنار معیار پذیرش و نمونه‌های خطا مدیریت کنید؛ عبارت‌بندی خوب جای دادهٔ معتبر، مجوز دسترسی یا بازبینی انسانی را نمی‌گیرد."
             }
           ],
           "questions": [
@@ -1638,6 +1975,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "Prompt injection ممکن است از محتوای بیرونی بیاید."
+            },
+            {
+              "id": "S07-C1-ST02-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "پاسخ مدل باید در قالب JSON و فقط بر اساس سند ارائه شود. چه چیزی دستور را قوی‌تر می‌کند؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "وظیفه، دامنهٔ سند، قالب خروجی و رفتار هنگام نبود شاهد را روشن کنیم",
+                  "feedback": "دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+                },
+                {
+                  "id": "b",
+                  "text": "درخواست مبهم و طولانی‌تر بنویسیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+                },
+                {
+                  "id": "c",
+                  "text": "از مدل بخواهیم هرجا سند کم بود حدس بزند",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود.",
+              "objective_id": "S07-C1-ST02-L02-OBJ01",
+              "equivalence_group": "S07-C1-ST02-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST02-L02-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -1646,34 +2013,44 @@
               "title": "Google Machine Learning Crash Course: Introduction to LLMs",
               "url": "https://developers.google.com/machine-learning/crash-course/llm",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-GENAI-PROFILE",
               "title": "NIST AI 600-1: Generative AI Profile",
               "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
               "review_depth": "official_risk_profile_reviewed",
-              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
               "title": "Google Cloud Generative AI Glossary: RAG",
               "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-VERTEX-RAG-APIS",
               "title": "Google Cloud: APIs for Building Search and RAG Experiences",
               "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "llm-use-and-rag-review",
             "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+            "rubric": [
+              "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+              "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+              "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1697,7 +2074,14 @@
           "media_plan": {
             "type": "llm-context-rag-trust-boundary-flow",
             "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «دستور، زمینه و خروجی»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+                "caption": "نقشه را برای تحلیل «دستور، زمینه و خروجی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -1768,6 +2152,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST02-L03-CARD08",
               "text": "مدل می‌گوید مقاله‌ای ثابت کرده هشدار AI دیرکرد را ۴۰٪ کاهش داده و DOI می‌سازد. مدیر عنوان و DOI را در پایگاه ناشر/مقاله جست‌وجو می‌کند؛ تا یافتن سند، عدد در گزارش «تأییدنشده» می‌ماند."
+            },
+            {
+              "id": "S07-C1-ST02-L03-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "توهم (Hallucination) خروجی نادرست یا بی‌پشتوانه‌ای است که ممکن است مطمئن به نظر برسد. منبع‌سازی نادرست یعنی ارجاع یا نقل‌قولی که سند اصلی پشتیبانش نیست. منبع را باز کنید و هر ادعا را مستقل تطبیق دهید."
+            },
+            {
+              "id": "S07-C1-ST02-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مدل ممکن است پاسخ نادرست را با قطعیت زبانی بیان کند یا منبعی را بسازد که وجود ندارد؛ اصطلاح‌های confabulation و hallucination برای این دسته خطاها به کار می‌روند. ارزیابی باید ادعا را به سند قابل دسترسی وصل کند و تاریخ، نسخه و محل پشتیبان آن را ثبت کند. نقل‌قول دقیق را با متن اصلی بسنجید. در تصمیم‌های پراثر، بازبینی متخصص و مسیر ارجاع ضروری است. اگر پاسخ بدون شاهد منتشر شود، ظاهر مطمئن ریسک را کم نمی‌کند. نرخ خطا را بر اساس نوع ادعا و شدت پیامد اندازه بگیرید، نه فقط رضایت از روانی پاسخ."
             }
           ],
           "questions": [
@@ -1886,6 +2282,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "شدت کنترل باید با پیامد خطا متناسب باشد."
+            },
+            {
+              "id": "S07-C1-ST02-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "مدل منبع مقاله‌ای را ذکر می‌کند که پیدا نمی‌شود. چه اقدامی درست‌تر است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "ارجاع را در منبع اصلی جست‌وجو و ادعا را جداگانه تأیید کنیم",
+                  "feedback": "ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+                },
+                {
+                  "id": "b",
+                  "text": "به‌دلیل قالب دقیق ارجاع آن را بپذیریم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+                },
+                {
+                  "id": "c",
+                  "text": "از مدل بخواهیم شماره صفحه بسازد",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "ارجاع تولیدی ممکن است نادرست باشد؛ وجود منبع و پشتیبانی از ادعا باید مستقلاً بررسی شود.",
+              "objective_id": "S07-C1-ST02-L03-OBJ01",
+              "equivalence_group": "S07-C1-ST02-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST02-L03-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -1894,34 +2320,44 @@
               "title": "Google Machine Learning Crash Course: Introduction to LLMs",
               "url": "https://developers.google.com/machine-learning/crash-course/llm",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-GENAI-PROFILE",
               "title": "NIST AI 600-1: Generative AI Profile",
               "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
               "review_depth": "official_risk_profile_reviewed",
-              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
               "title": "Google Cloud Generative AI Glossary: RAG",
               "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-VERTEX-RAG-APIS",
               "title": "Google Cloud: APIs for Building Search and RAG Experiences",
               "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "llm-use-and-rag-review",
             "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+            "rubric": [
+              "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+              "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+              "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -1945,7 +2381,14 @@
           "media_plan": {
             "type": "llm-context-rag-trust-boundary-flow",
             "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «خطا، عدم قطعیت و منبع‌سازی نادرست»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+                "caption": "نقشه را برای تحلیل «خطا، عدم قطعیت و منبع‌سازی نادرست» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -2016,6 +2459,18 @@
               "title": "مثال سپهر و آزمون RAG",
               "id": "S07-C1-ST02-L04-CARD08",
               "text": "پرسش مدیر دربارهٔ شرط SLA؛ سامانه قطعهٔ قرارداد مشتری را بازیابی می‌کند و پاسخ را با شماره بند نشان می‌دهد. آزمون باید نرخ بازیابی بند درست، استناد دقیق، پاسخ امتناع در نبود بند و جداسازی مجوز مشتریان را بسنجد."
+            },
+            {
+              "id": "S07-C1-ST02-L04-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "بازیابی تقویت‌شده (RAG) اسناد مرتبط را وارد زمینهٔ مدل می‌کند. قطعهٔ بازیابی‌شده (Retrieved chunk) باید مجاز و تازه و مرتبط باشد؛ grounding تضمین نمی‌کند استنتاج درست است. مرز دسترسی، کیفیت سند و انطباق ادعا با شاهد را جدا بسنجید."
+            },
+            {
+              "id": "S07-C1-ST02-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "در RAG پرسش برای یافتن قطعات مرتبط در مجموعهٔ اسناد استفاده می‌شود؛ سپس قطعات بازیابی‌شده به زمینهٔ مدل داده می‌شوند و پاسخ باید به آن‌ها متصل باشد. کیفیت پاسخ به پوشش و تازگی اسناد، خردکردن متن، جستجو و رتبه‌بندی وابسته است. وجود منبع در زمینه تضمین نمی‌کند پاسخ درست آن را بازتاب دهد یا اسناد معتبر باشند. باید بازیابی و تولید جداگانه ارزیابی شوند و دسترسی کاربر بر منبع اصلی اعمال شود. اگر سند کهنه یا دستکاری‌شده باشد، پاسخ نیز خطر می‌گیرد؛ مرز اعتماد، نسخه و مالکیت محتوا را در طراحی لحاظ کنید."
             }
           ],
           "questions": [
@@ -2134,6 +2589,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "معیار باید بازیابی درست و استناد باشد."
+            },
+            {
+              "id": "S07-C1-ST02-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "سامانهٔ RAG پاسخ را از سند بازیابی‌شده می‌سازد. کدام مرز اعتماد همچنان لازم است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "کیفیت و تازگی سند، مجوز دسترسی، ارتباط قطعه و پشتیبانی ادعا را بسنجیم",
+                  "feedback": "بازیابی پاسخ را به اسناد متصل می‌کند اما کیفیت، دسترسی و استنتاج را خودکار تضمین نمی‌کند."
+                },
+                {
+                  "id": "b",
+                  "text": "هر قطعهٔ بازیابی‌شده را حقیقت بدانیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: بازیابی پاسخ را به اسناد متصل می‌کند اما کیفیت، دسترسی و استنتاج را خودکار تضمین نمی‌کند."
+                },
+                {
+                  "id": "c",
+                  "text": "دسترسی سند را از مجوز کاربر مستقل کنیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: بازیابی پاسخ را به اسناد متصل می‌کند اما کیفیت، دسترسی و استنتاج را خودکار تضمین نمی‌کند."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "بازیابی پاسخ را به اسناد متصل می‌کند اما کیفیت، دسترسی و استنتاج را خودکار تضمین نمی‌کند.",
+              "objective_id": "S07-C1-ST02-L04-OBJ01",
+              "equivalence_group": "S07-C1-ST02-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST02-L04-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -2142,34 +2627,44 @@
               "title": "Google Machine Learning Crash Course: Introduction to LLMs",
               "url": "https://developers.google.com/machine-learning/crash-course/llm",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+              "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-GENAI-PROFILE",
               "title": "NIST AI 600-1: Generative AI Profile",
               "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
               "review_depth": "official_risk_profile_reviewed",
-              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+              "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
               "title": "Google Cloud Generative AI Glossary: RAG",
               "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+              "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-VERTEX-RAG-APIS",
               "title": "Google Cloud: APIs for Building Search and RAG Experiences",
               "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
               "review_depth": "official_technical_documentation_reviewed",
-              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+              "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "llm-use-and-rag-review",
             "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+            "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+            "rubric": [
+              "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+              "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+              "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2193,7 +2688,14 @@
           "media_plan": {
             "type": "llm-context-rag-trust-boundary-flow",
             "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «بازیابی دانش و مرز اعتماد»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+                "caption": "نقشه را برای تحلیل «بازیابی دانش و مرز اعتماد» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -2476,6 +2978,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST03-L01-CARD08",
               "text": "اگر فقط چند تأمین‌کننده و قواعد موعد روشن‌اند، قاعدهٔ امتیازدهی ممکن است کافی باشد. وقتی سفارش‌ها، مناطق و الگوها زیاد شوند، مدل پیش‌بینی را با همان خط مبنا مقایسه می‌کنند و تنها در صورت منفعت و کنترل مناسب توسعه می‌دهند."
+            },
+            {
+              "id": "S07-C1-ST03-L01-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "قاعدهٔ مبنا (Baseline rule) معیار سادهٔ مقایسه است؛ پیچیدگی مدل باید ارزش افزوده بسازد. بیش‌برازش (Overfitting) یادگیری جزئیات آموزش به بهای عملکرد تازه است. اگر قاعده با هزینه و ریسک کمتر جواب مشابه دهد، پیچیدگی مدل باید توجیه شود."
+            },
+            {
+              "id": "S07-C1-ST03-L01-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "خط مبنای ساده مشخص می‌کند آیا مدل واقعاً ارزش افزوده دارد: قاعدهٔ ثابت، فرایند فعلی یا تصمیم انسانی می‌تواند نقطهٔ مقایسه باشد. خط مبنا باید روی همان نمونه، زمان، هزینه و تعریف نتیجه سنجیده شود. مسئلهٔ تکرارشونده با دادهٔ قابل اتکا ممکن است مدل را توجیه کند؛ یک مسئلهٔ نادر یا پیامد پرخطر شاید قاعدهٔ شفاف‌تر بخواهد. پیچیدگی، هزینهٔ پایش و امکان توضیح نیز هزینه‌اند. اگر خط مبنا ضعیف انتخاب شود، ارزش مدل بزرگ‌نمایی می‌شود. پیش از ساخت، تصمیم و معیار بهبود را تعیین کنید و بعد با شواهد مقایسه کنید."
             }
           ],
           "questions": [
@@ -2594,6 +3108,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "شدت حاکمیت باید با پیامد خطا متناسب باشد."
+            },
+            {
+              "id": "S07-C1-ST03-L01-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "یک قاعدهٔ آستانه‌ای ساده تقریباً همان ارزش مدل پیچیده را با هزینهٔ کمتر می‌دهد. انتخاب مناسب چیست؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "قاعده را خط مبنا بگیریم و منفعت افزودهٔ مدل را با هزینه و ریسک مقایسه کنیم",
+                  "feedback": "پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+                },
+                {
+                  "id": "b",
+                  "text": "مدل پیچیده را به‌خاطر جدیدبودن انتخاب کنیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+                },
+                {
+                  "id": "c",
+                  "text": "خط مبنا را گزارش نکنیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "پیچیدگی فقط وقتی توجیه دارد که ارزش افزودهٔ قابل مشاهده نسبت به گزینهٔ ساده داشته باشد.",
+              "objective_id": "S07-C1-ST03-L01-OBJ01",
+              "equivalence_group": "S07-C1-ST03-L01-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST03-L01-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -2602,34 +3146,44 @@
               "title": "Google ML Crash Course: Production Monitoring Pipelines",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTIONIZATION",
               "title": "Google for Developers: Productionization",
               "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-TEVV-ATHLON-2026",
               "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
               "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
               "review_depth": "official_framework_initial_public_draft_reviewed",
-              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-MEASURE",
               "title": "NIST AI RMF Core: Measure",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "AI-solution-selection-memo",
             "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+            "rubric": [
+              "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+              "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+              "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2653,7 +3207,14 @@
           "media_plan": {
             "type": "solution-selection-and-TEVV-scorecard",
             "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «قاعدهٔ ساده یا مدل؟»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+                "caption": "نقشه را برای تحلیل «قاعدهٔ ساده یا مدل؟» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -2724,6 +3285,26 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST03-L02-CARD08",
               "text": "پیش‌بینی به تاریخ سفارش، موعد و تاریخچهٔ تأمین‌کننده نیاز دارد. اطلاعات خرید ممکن است حساس باشد؛ تیم منبع، مجوز، تأخیر به‌روزرسانی، مالک برچسب و راه حذف داده پس از توقف را در برگه ثبت می‌کند."
+            },
+            {
+              "id": "S07-C1-ST03-L02-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "هزینهٔ کل مالکیت (Total cost of ownership) هزینهٔ داده و آموزش و اتصال و اجرا و پایش و نیروی انسانی را در چرخهٔ عمر می‌گیرد. بدهی نگهداری (Maintenance burden) با رشد وابستگی‌ها بالا می‌رود. هزینهٔ یک فراخوانی، اقتصاد کل راه‌حل نیست."
+            },
+            {
+              "id": "S07-C1-ST03-L02-SOCIAL-01",
+              "type": "contrast",
+              "title": "روایت حرفه‌ای در LinkedIn؛ ادعا را از شاهد جدا کن",
+              "text": "در پست عمومی David Forer در LinkedIn، نویسنده از مدیر انبار ۱۰۰نفره‌ای مثال می‌زند که سه هفته استفاده از زمان‌بندی AI را پایش کرده و بنا بر متن پست، تعارض شیفت‌ها ۴۰٪ کم شده؛ او همچنین از override در جمعه‌ها به‌علت نادیده‌گرفتن بازهٔ تحویل می‌گوید. نام شرکت، دادهٔ خام، تعریف «تعارض» و گروه مقایسه منتشر نشده؛ بنابراین این اعداد را نتیجهٔ مستقل یا رابطهٔ علّی تلقی نکنید. ارزش آموزشی روایت، ساخت فهرست سنجه‌هاست: وظیفهٔ مورد انتظار، خروجی واقعی، مداخلهٔ انسانی، خطای فرایندی و پیامد مشتری.",
+              "example_kind": "social_media_practitioner_narrative",
+              "source_url": "https://www.linkedin.com/posts/davidforer_your-ops-manager-just-got-handed-the-hardest-activity-7473336661981188097-2FPR"
+            },
+            {
+              "id": "S07-C1-ST03-L02-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "ارزیابی راه‌حل باید هزینهٔ گردآوری و پاک‌سازی داده، مجوز استفاده، زیرساخت، اتصال، امنیت، ارزیابی، نظارت انسانی و نگهداری را در طول عمر ببیند. خرید محصول هزینهٔ سفارشی‌سازی و وابستگی به فروشنده دارد؛ ساخت داخلی هم ظرفیت تیم و به‌روزرسانی می‌خواهد. مالک داده و مدل، نسخه و مسئول اصلاح باید روشن باشد. فرض ثبات قیمت یا کیفیت داده می‌تواند کل محاسبه را عوض کند. اگر بار بازبینی انسانی با رشد حجم افزایش یابد، صرفهٔ مقیاس ممکن است از بین برود. هزینه را به واحد تصمیم یا تراکنش و سناریوهای حجم ترجمه کنید."
             }
           ],
           "questions": [
@@ -2842,6 +3423,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "وابستگی و پردازش داده بر ریسک اثر دارد."
+            },
+            {
+              "id": "S07-C1-ST03-L02-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "تیم برای نگهداری مدل به دادهٔ تازه و بازبینی مداوم نیاز دارد. برآورد هزینه باید چه چیزی را بگیرد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "جمع‌آوری و کیفیت و مجوز و نسخه‌بندی و پایش و نیروی انسانی در کل عمر",
+                  "feedback": "هزینهٔ کل عمر شامل آماده‌سازی، نگهداری و نظارت است؛ مالکیت و دسترسی داده هم ریسک اجرایی دارد."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط هزینهٔ آموزش اولیه",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: هزینهٔ کل عمر شامل آماده‌سازی، نگهداری و نظارت است؛ مالکیت و دسترسی داده هم ریسک اجرایی دارد."
+                },
+                {
+                  "id": "c",
+                  "text": "فقط نرخ فراخوانی API",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: هزینهٔ کل عمر شامل آماده‌سازی، نگهداری و نظارت است؛ مالکیت و دسترسی داده هم ریسک اجرایی دارد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "هزینهٔ کل عمر شامل آماده‌سازی، نگهداری و نظارت است؛ مالکیت و دسترسی داده هم ریسک اجرایی دارد.",
+              "objective_id": "S07-C1-ST03-L02-OBJ01",
+              "equivalence_group": "S07-C1-ST03-L02-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST03-L02-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -2850,34 +3461,52 @@
               "title": "Google ML Crash Course: Production Monitoring Pipelines",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTIONIZATION",
               "title": "Google for Developers: Productionization",
               "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-TEVV-ATHLON-2026",
               "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
               "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
               "review_depth": "official_framework_initial_public_draft_reviewed",
-              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-MEASURE",
               "title": "NIST AI RMF Core: Measure",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+              "accessed_on": "2026-10-21"
+            },
+            {
+              "id": "LINKEDIN-DAVID-FORER-OPS-AI",
+              "title": "David Forer LinkedIn post: operations manager and AI adoption",
+              "url": "https://www.linkedin.com/posts/davidforer_your-ops-manager-just-got-handed-the-hardest-activity-7473336661981188097-2FPR",
+              "scope": "روایت/ادعای فردی دربارهٔ استقرار AI؛ شرکت و دادهٔ خام نامشخص، ادعا مستقل راستی‌آزمایی نشده و شاهد علّی محسوب نمی‌شود.",
+              "accessed_on": "2026-10-21",
+              "source_kind": "social_media_practitioner_post"
             }
           ],
           "practice_activity": {
             "type": "AI-solution-selection-memo",
             "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+            "rubric": [
+              "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+              "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+              "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -2890,7 +3519,8 @@
             "GOOGLE-ML-MONITORING",
             "GOOGLE-ML-PRODUCTIONIZATION",
             "NIST-TEVV-ATHLON-2026",
-            "NIST-AI-RMF-MEASURE"
+            "NIST-AI-RMF-MEASURE",
+            "LINKEDIN-DAVID-FORER-OPS-AI"
           ],
           "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
           "example_plan": {
@@ -2901,7 +3531,14 @@
           "media_plan": {
             "type": "solution-selection-and-TEVV-scorecard",
             "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «دادهٔ لازم و هزینهٔ نگهداری»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+                "caption": "نقشه را برای تحلیل «دادهٔ لازم و هزینهٔ نگهداری» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -2972,6 +3609,18 @@
               "title": "مثال سپهر",
               "id": "S07-C1-ST03-L03-CARD08",
               "text": "۵۰ سفارش با نمونهٔ دشوار انتخاب می‌شود؛ دو کارشناس مستقل و مدل هر کدام دیرکرد را برچسب می‌زنند. داور سوم اختلاف را حل می‌کند؛ زمان، recall موارد دیررس، هشدار بی‌مورد و تفاوت تأمین‌کنندگان گزارش می‌شود."
+            },
+            {
+              "id": "S07-C1-ST03-L03-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "ارزیابی مقایسه‌ای (Comparative evaluation) انسان و مدل را روی وظیفه و نمونه و معیار مشترک می‌سنجد. توافق ارزیابان کیفیت مرجع را نشان می‌دهد؛ خطای تفکیکی گروه‌ها میانگین را کامل می‌کند. سرعت بیشتر به‌تنهایی خروجی بهتر یا منصفانه‌تر نیست."
+            },
+            {
+              "id": "S07-C1-ST03-L03-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "مقایسهٔ انسان و ابزار باید وظیفه، پیچیدگی، اطلاعات ورودی و معیار کیفیت یکسان داشته باشد. انتخاب نمونهٔ آسان برای مدل یا زمان نامحدود برای انسان مقایسه را منحرف می‌کند. کیفیت را با داوری چندگانه یا معیار معتبر، زمان، نرخ خطای مهم و پیامد برای کاربر بسنجید؛ صرف سرعت کافی نیست. در همکاری انسان و مدل، تقسیم کار و نحوهٔ پذیرش پیشنهاد نیز بخشی از مداخله است. اگر انسان به پاسخ مدل بیش از حد اعتماد کند، ترکیب ممکن است از هر دو بدتر شود. طرح آزمون و محدودیت‌های نمونه را پیشاپیش ثبت کنید."
             }
           ],
           "questions": [
@@ -3090,6 +3739,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "باید کیفیت، زمان و هزینه را با هم بسنجیم."
+            },
+            {
+              "id": "S07-C1-ST03-L03-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "ارزیابان انسانی کندترند اما در خطای یک گروه حساسیت بیشتری دارند. مقایسهٔ انسان و مدل چه می‌خواهد؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "نمونه و معیار یکسان، کیفیت و زمان و خطا و پیامد برای گروه‌ها",
+                  "feedback": "مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+                },
+                {
+                  "id": "b",
+                  "text": "فقط میانگین سرعت",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+                },
+                {
+                  "id": "c",
+                  "text": "بهترین خروجی مدل را با میانگین انسانی مقایسه کنیم",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "مقایسهٔ منصفانه باید وظیفه و نمونه و معیار مشترک داشته باشد و پیامد خطا را هم بسنجد.",
+              "objective_id": "S07-C1-ST03-L03-OBJ01",
+              "equivalence_group": "S07-C1-ST03-L03-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST03-L03-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -3098,34 +3777,44 @@
               "title": "Google ML Crash Course: Production Monitoring Pipelines",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTIONIZATION",
               "title": "Google for Developers: Productionization",
               "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-TEVV-ATHLON-2026",
               "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
               "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
               "review_depth": "official_framework_initial_public_draft_reviewed",
-              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-MEASURE",
               "title": "NIST AI RMF Core: Measure",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "AI-solution-selection-memo",
             "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+            "rubric": [
+              "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+              "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+              "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -3149,7 +3838,14 @@
           "media_plan": {
             "type": "solution-selection-and-TEVV-scorecard",
             "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ خروجی انسان و ابزار»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+                "caption": "نقشه را برای تحلیل «مقایسهٔ خروجی انسان و ابزار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,
@@ -3220,6 +3916,18 @@
               "title": "مثال سپهر و جمع‌بندی",
               "id": "S07-C1-ST03-L04-CARD08",
               "text": "سپهر برای دیرکرد اول کیفیت تاریخ‌ها و قاعدهٔ موجود را اصلاح می‌کند، بعد مدل را با خط مبنا می‌سنجد. اگر بهبود ارزشمند باشد و هزینه/ریسک قابل مدیریت بماند، پایلوت محدود می‌گیرد؛ «AI» هدف نهایی نیست، تصمیم عملیاتی بهتر است."
+            },
+            {
+              "id": "S07-C1-ST03-L04-TERMS",
+              "type": "key_terms",
+              "title": "واژه‌ها و صورت‌بندی تخصصی",
+              "text": "یادداشت تصمیم (Decision memo) گزینه و خط مبنا و شواهد و هزینه و ریسک و شرط بازنگری را ثبت می‌کند. ارزش افزوده (Incremental value) تفاوت منفعت با گزینهٔ ساده‌تر است. شرط تغییر تصمیم، راه‌حل را به عدم‌قطعیت واقعی وصل می‌کند."
+            },
+            {
+              "id": "S07-C1-ST03-L04-DEEP-REVIEW",
+              "type": "explanation",
+              "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+              "text": "یادداشت انتخاب راه‌حل، تصمیم را از تبلیغ فناوری جدا می‌کند: مسئله و کاربر، خط مبنا، گزینه‌ها، ارزش مورد انتظار، داده، هزینه، خطر، شواهد و شرط توقف یا بازنگری را ثبت کنید. امتیاز ارزش/امکان/ریسک ابزار گفت‌وگوست، نه اندازه‌گیری عینی؛ وزن و اطمینان هر برآورد را نشان دهید. قاعده، نیروی انسانی، نرم‌افزار سنتی، مدل پیش‌بین و GenAI را در دامنهٔ مقایسه بگذارید. اگر فرض اصلی پایلوت نقض شد، یادداشت باید بگوید تصمیم بعدی چیست. مالک و تاریخ بازنگری مانع از آن می‌شوند که آزمایش موقت بی‌صدا به سامانهٔ دائمی تبدیل شود."
             }
           ],
           "questions": [
@@ -3338,6 +4046,36 @@
               "version": 1,
               "correct_option_id": "c",
               "explanation": "آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+            },
+            {
+              "id": "S07-C1-ST03-L04-Q05",
+              "version": 1,
+              "type": "single_choice",
+              "prompt": "یادداشت انتخاب راه‌حل باید نشان دهد چرا مدل لازم است. چه شاهدی قوی‌تر است؟",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "خط مبنا و گزینه‌های ساده‌تر و داده و هزینه و ریسک و شرط بازنگری",
+                  "feedback": "انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+                },
+                {
+                  "id": "b",
+                  "text": "نام مدل مشهور",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+                },
+                {
+                  "id": "c",
+                  "text": "پیش‌بینی منفعت بدون معیار",
+                  "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+                }
+              ],
+              "correct_option_id": "a",
+              "explanation": "انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد.",
+              "objective_id": "S07-C1-ST03-L04-OBJ01",
+              "equivalence_group": "S07-C1-ST03-L04-Q05-FAMILY",
+              "variant": "A",
+              "remediation_card_id": "S07-C1-ST03-L04-CARD04",
+              "hint_used_may_not_count_as_independent": true
             }
           ],
           "source_links": [
@@ -3346,34 +4084,44 @@
               "title": "Google ML Crash Course: Production Monitoring Pipelines",
               "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده."
+              "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "GOOGLE-ML-PRODUCTIONIZATION",
               "title": "Google for Developers: Productionization",
               "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
               "review_depth": "official_technical_education_reviewed",
-              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید."
+              "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-TEVV-ATHLON-2026",
               "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
               "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
               "review_depth": "official_framework_initial_public_draft_reviewed",
-              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی."
+              "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+              "accessed_on": "2026-10-21"
             },
             {
               "id": "NIST-AI-RMF-MEASURE",
               "title": "NIST AI RMF Core: Measure",
               "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
               "review_depth": "official_risk_framework_reviewed",
-              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه."
+              "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+              "accessed_on": "2026-10-21"
             }
           ],
           "practice_activity": {
             "type": "AI-solution-selection-memo",
             "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
-            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی"
+            "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+            "rubric": [
+              "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+              "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+              "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+            ],
+            "auto_grade": false
           },
           "review_status": "pending_expert_review",
           "fresh_equivalent_variants": 0,
@@ -3397,7 +4145,14 @@
           "media_plan": {
             "type": "solution-selection-and-TEVV-scorecard",
             "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
-            "production_status": "planned_not_created"
+            "production_status": "created",
+            "assets": [
+              {
+                "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+                "alt_text": "نمودار آموزشی این مرحله برای «یادداشت انتخاب نوع راه‌حل»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+                "caption": "نقشه را برای تحلیل «یادداشت انتخاب نوع راه‌حل» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+              }
+            ]
           },
           "assessment_plan": {
             "item_count": 4,

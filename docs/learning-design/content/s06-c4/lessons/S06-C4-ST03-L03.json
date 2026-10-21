@@ -44,6 +44,18 @@
       "title": "نسخهٔ اجرایی سپهر",
       "id": "S06-C4-ST03-L03-CARD08",
       "text": "سند نهایی شامل خلاصهٔ تصمیم، فرض‌های پرریسک، پیشنهاد ارزش، مشتری آغازین، شواهد موجود، مدل مالی با دامنه، برنامهٔ منابع ۱۲ هفته‌ای، شریک‌ها، ریسک AI/داده و سه معیار ادامه یا توقف است؛ هر بند مالک و تاریخ بازبینی دارد."
+    },
+    {
+      "id": "S06-C4-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Integrated business plan — برنامهٔ یکپارچهٔ کسب‌وکار: پیوند مشتری، محصول، بازار، عملیات و مالی؛ جزئیات بدون فرض مشترک سازگار نیستند. Assumption register — دفتر ثبت فرض‌ها: فرض، مالک، شاهد و موعد بازنگری؛ ثبت، صحت را تضمین نمی‌کند. Critical dependency — وابستگی بحرانی: شرط بیرونی لازم برای نقطهٔ عطف؛ احتمال/جایگزین باید مدیریت شود."
+    },
+    {
+      "id": "S06-C4-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "برنامهٔ یکپارچه فرض‌های مشتری، قیمت، جذب، عملیات، تیم و نقد را به یک تقویم مشترک می‌بندد. تغییر نرخ تبدیل بر درآمد و نقد اثر می‌گذارد و ممکن است استخدام/ظرفیت را هم جابه‌جا کند. اگر اجزای برنامه از نسخه‌های مختلف فرض استفاده کنند، جمع‌بندی مالی ناهماهنگ می‌شود؛ یک دفتر فرض و مالک بازبینی داشته باشید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "سناریوها دامنهٔ عدم‌قطعیت را آشکار می‌کنند."
+    },
+    {
+      "id": "S06-C4-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برنامهٔ کسب‌وکار کوتاه باید چه اجزایی را به هم وصل کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مشتری، ارزش، بازار، عملیات، تیم، مالی، ریسک، منابع و یادگیری",
+          "feedback": "برنامهٔ قابل بازنگری اجزای بازار و اجرا و مالی را با فرض‌ها و معیارهای یادگیری به هم پیوند می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "فقط پیش‌بینی مالی",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: برنامهٔ قابل بازنگری اجزای بازار و اجرا و مالی را با فرض‌ها و معیارهای یادگیری به هم پیوند می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "فقط داستان محصول",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: برنامهٔ قابل بازنگری اجزای بازار و اجرا و مالی را با فرض‌ها و معیارهای یادگیری به هم پیوند می‌دهد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "برنامهٔ قابل بازنگری اجزای بازار و اجرا و مالی را با فرض‌ها و معیارهای یادگیری به هم پیوند می‌دهد.",
+      "objective_id": "S06-C4-ST03-L03-OBJ01",
+      "equivalence_group": "S06-C4-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C4-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,50 @@
       "title": "MIT OCW 15.392 Scaling Entrepreneurial Ventures (Spring 2026)",
       "url": "https://ocw.mit.edu/courses/15-392-scaling-entrepreneurial-ventures-spring-2026/",
       "review_depth": "official_current_graduate_course_reviewed",
-      "scope": "رشد، مدل عملیاتی و شرکت‌های AI-native در دورهٔ ۲۰۲۶."
+      "scope": "رشد، مدل عملیاتی و شرکت‌های AI-native در دورهٔ ۲۰۲۶.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NBER-CYBERNETIC-TEAMMATE-2025",
-      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork",
-      "url": "https://www.nber.org/papers/w33641",
+      "id": "CR-R33-PUBLISHED",
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork (Organization Science, 2026)",
+      "url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702",
       "review_depth": "primary_preregistered_field_experiment_and_2026_publication_record_reviewed",
-      "scope": "۷۷۶ متخصص P&G در وظایف نوآوری محصول؛ دامنهٔ تعمیم محدود به وظیفه و زمینه."
+      "scope": "۷۷۶ متخصص P&G در وظایف نوآوری محصول؛ دامنهٔ تعمیم محدود به وظیفه و زمینه.",
+      "previous_url": "https://www.nber.org/papers/w33641",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی مقالهٔ نهایی در Organization Science باز شد و چکیده/متن مقاله قابل مشاهده است. آزمایش با ۷۹۱ متخصص P&G روی چالش‌های نوآوری محصول انجام شده؛ تعمیم نتیجه‌ها به سازمان‌ها و تکالیف دیگر محدود است. نشانی نسخهٔ کاری NBER در previous_url نگه داشته شد."
     },
     {
       "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
-      "title": "Shifting Work Patterns with Generative AI",
-      "url": "https://www.nber.org/papers/w33795",
+      "title": "Shifting Work Patterns with Generative AI (Microsoft Research, 2025)",
+      "url": "https://www.microsoft.com/en-us/research/publication/shifting-work-patterns-with-generative-ai/",
       "review_depth": "primary_multifirm_field_experiment_reviewed",
-      "scope": "آزمایش میدانی ۶۶ شرکت و ۷۱۳۷ کارمند دانشی؛ دسترسی و الگوی کار، نه معیار مستقیم رشد استارتاپ."
+      "scope": "آزمایش میدانی ۶۶ شرکت و ۷۱۳۷ کارمند دانشی؛ دسترسی و الگوی کار، نه معیار مستقیم رشد استارتاپ.",
+      "previous_url": "https://www.nber.org/papers/w33795",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Microsoft Research باز شد و مشخصات و چکیدهٔ مطالعه دیده شد؛ متن کامل PDF در این گذر مرور نشد. پژوهش، آزمایش میدانی در ۶۶ شرکت با ۷٬۱۳۷ کارمند دانش‌محور را گزارش می‌کند. نشانی نسخهٔ کاری NBER در previous_url باقی است."
     },
     {
       "id": "OPENSTAX-ENT-GROWTH-10.5",
       "title": "OpenStax Entrepreneurship 10.5 Growth: Signs, Pains, and Cautions",
       "url": "https://openstax.org/books/entrepreneurship/pages/10-5-growth-signs-pains-and-cautions",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "رشد، خطرها و اتحادهای راهبردی."
+      "scope": "رشد، خطرها و اتحادهای راهبردی.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "scaleup-integrated-plan",
     "prompt": "پروژهٔ سپهر را با سه مسیر رشد مقایسه کنید و برنامهٔ کوتاهی بسازید: شواهد مشتری، اقتصاد هر واحد، ظرفیت، نقش شریک و AI، سناریوهای نقد، ریسک و milestone با شرط ادامه/توقف.",
-    "expected_output": "برنامهٔ رشد ۱۲ هفته‌ای با مسیر، منابع، سنجه‌ها و قواعد بازنگری"
+    "expected_output": "برنامهٔ رشد ۱۲ هفته‌ای با مسیر، منابع، سنجه‌ها و قواعد بازنگری",
+    "rubric": [
+      "مسیر رشد، ظرفیت، منابع و milestoneهای ۱۲ هفته‌ای سازگارند.",
+      "اثر AI بر هزینه/کیفیت/نقش با baseline و محدودیت شاهد سنجیده شده است.",
+      "شاخص، مالک، ریسک و قاعدهٔ بازنگری یا توقف برای هر مرحله ثبت شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -208,7 +266,7 @@
   "node_type": "lesson",
   "source_refs": [
     "MIT-15-392-SCALING-2026",
-    "NBER-CYBERNETIC-TEAMMATE-2025",
+    "CR-R33-PUBLISHED",
     "NBER-SHIFTING-WORK-PATTERNS-2025",
     "OPENSTAX-ENT-GROWTH-10.5"
   ],
@@ -223,7 +281,14 @@
   "media_plan": {
     "type": "scaleup-scenario-decision-dashboard",
     "purpose": "اتصال رشد، اقتصاد واحد، ظرفیت و انتخاب مسیر",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-ai-growth-scenarios.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «پروژهٔ یکپارچهٔ برنامهٔ کسب‌وکار»: افزایش ظرفیت AI را در برابر هزینه، کیفیت، حفظ و گلوگاه انسانی بسنج. اثر بر مدل، تغییر در ارزش پیشنهادی، هزینه و نقش انسانی را به صورت فرضیه بنویس.؛ هشدار رشد ناسالم، ریزش، حاشیه، شکایت و بار پشتیبانی را کنار رشد فروش پایش کن.؛ طرح یکپارچه، بازار، تیم، عملیات، منابع، ریسک و نقطهٔ عطف را در یک برنامه جمع کن.؛ سناریوی رشد، حالت پایه، رشد سریع و شوک را با پاسخ و شرط توقف مقایسه کن.",
+        "caption": "نقشه را برای تحلیل «پروژهٔ یکپارچهٔ برنامهٔ کسب‌وکار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -58,6 +58,12 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "برگهٔ نهایی باید مالک، زمان اجرا، فرض، سنجهٔ نتیجه و توازن، کیفیت داده، شرط توقف و برنامهٔ تثبیت را داشته باشد. این اجزا تصمیم را برای مدیر بعدی قابل فهم می‌کنند. اگر نوع تقاضا یا گروه کاربران تغییر کرد، خط مبنا را به‌روز و مقایسه را بازطراحی کنید. فرایند تصمیم باید مشخص کند چه کسی کیفیت شواهد را می‌پذیرد و چه زمانی آزمایش وارد مرحلهٔ بعد می‌شود."
+    },
+    {
+      "id": "S05-C1-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Before-after evaluation — ارزیابی پیش و پس: مقایسهٔ شاخص قبل/بعد تغییر؛ فصل، ترکیب و روند هم‌زمان می‌تواند علت بدیل باشد. Control chart — نمودار کنترل: نمایش نوسان فرایند در زمان با حدود آماری؛ حد کنترل با مشخصهٔ پذیرش یکی نیست. Process capability — قابلیت فرایند: توان فرایند نسبت به حدود مشخصات در شرایط پایدار؛ شاخص بدون توزیع/پایداری معتبر نیست."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "title": "IHI: Testing Changes with PDSA Cycles",
       "scope": "آزمون تغییر در محیط واقعی با چرخهٔ یادگیری؛ اثر محلی باید پیش از تعمیم بررسی شود.",
       "review_depth": "professional_improvement_framework_reviewed",
-      "url": "https://www.ihi.org/library/model-for-improvement/testing-changes"
+      "url": "https://www.ihi.org/library/model-for-improvement/testing-changes",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "nist-monitoring-2026",
       "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
       "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
       "review_depth": "official_research_report_reviewed",
-      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/process-automation-exception-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «طرح بهبود با معیار پیش و پس»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+        "caption": "نقشه را برای تحلیل «طرح بهبود با معیار پیش و پس» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

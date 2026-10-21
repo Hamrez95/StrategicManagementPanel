@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C2-ST03-L03-CARD08",
       "text": "برای ۱۰هزار تیکت، سپهر تعداد فراخوانی، مصرف متوسط، نرخ بازبینی، دقیقهٔ اصلاح، هزینهٔ شکایت و ظرفیت پشتیبانی را تخمین می‌زند. سپس قیمت به ازای هر تیکتِ حل‌شده را با خط مبنای فعلی مقایسه می‌کند."
+    },
+    {
+      "id": "S07-C2-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "هزینهٔ استنتاج (Inference cost) با مدل و طول ورودی و حجم تغییر می‌کند. هزینهٔ هر واحد کار باید بازبینی انسانی، ارزیابی و زیرساخت را هم بگیرد. مقیاس‌پذیری (Scalability) فقط توان پردازش بیشتر نیست؛ کیفیت و ظرفیت کنترل باید حفظ شود."
+    },
+    {
+      "id": "S07-C2-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "هزینهٔ مصرف مدل با حجم، طول ورودی و خروجی، ابزارهای جانبی و نرخ تکرار تغییر می‌کند؛ هزینهٔ واقعی همچنین شامل ارزیابی، بازبینی انسانی، تأخیر و زیرساخت است. هزینه را برای هر کار کامل و در چند سناریوی حجم محاسبه کنید. رشد درخواست ممکن است هزینه را سریع‌تر از منفعت بالا ببرد یا برعکس. فرض ثابت‌ماندن نرخ پذیرش و نیاز به اصلاح را بسنجید. cache یا مدل کوچک‌تر شاید هزینه را کم کند اما کیفیت یا تازگی را تغییر دهد. داشبورد مدیریتی باید هزینه به ازای خروجی پذیرفته‌شده و کیفیت را کنار هم نشان دهد."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "ظرفیت تیم نیز محدود و ارزشمند است."
+    },
+    {
+      "id": "S07-C2-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "حجم کار AI ده برابر می‌شود. هزینهٔ هر درخواست ثابت نیست و بازبینی نیز بیشتر می‌شود. کدام تحلیل لازم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "هزینهٔ مصرف و ارزیابی و بازبینی و ظرفیت را در هر واحد و در سناریوی حجم بسنجیم",
+          "feedback": "هزینه با حجم و پیچیدگی و بار نظارت تغییر می‌کند؛ اقتصاد واحد و سناریو لازم است."
+        },
+        {
+          "id": "b",
+          "text": "هزینهٔ نمونهٔ آزمایشی را خطی و قطعی تعمیم دهیم",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: هزینه با حجم و پیچیدگی و بار نظارت تغییر می‌کند؛ اقتصاد واحد و سناریو لازم است."
+        },
+        {
+          "id": "c",
+          "text": "بازبینی انسانی را رایگان فرض کنیم",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: هزینه با حجم و پیچیدگی و بار نظارت تغییر می‌کند؛ اقتصاد واحد و سناریو لازم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "هزینه با حجم و پیچیدگی و بار نظارت تغییر می‌کند؛ اقتصاد واحد و سناریو لازم است.",
+      "objective_id": "S07-C2-ST03-L03-OBJ01",
+      "equivalence_group": "S07-C2-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,47 @@
       "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
       "review_depth": "official_initial_public_draft_reviewed",
-      "scope": "ارزیابی متناسب با کاربرد و اثر در محیط واقعی."
+      "scope": "ارزیابی متناسب با کاربرد و اثر در محیط واقعی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PIPELINES",
       "title": "Google for Developers: ML Pipelines",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline."
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش."
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
-      "title": "Shifting Work Patterns with Generative AI",
-      "url": "https://www.nber.org/papers/w33795",
+      "title": "Shifting Work Patterns with Generative AI (Microsoft Research, 2025)",
+      "url": "https://www.microsoft.com/en-us/research/publication/shifting-work-patterns-with-generative-ai/",
       "review_depth": "primary_multifirm_field_experiment_reviewed",
-      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ."
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ.",
+      "previous_url": "https://www.nber.org/papers/w33795",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Microsoft Research باز شد و مشخصات و چکیدهٔ مطالعه دیده شد؛ متن کامل PDF در این گذر مرور نشد. پژوهش، آزمایش میدانی در ۶۶ شرکت با ۷٬۱۳۷ کارمند دانش‌محور را گزارش می‌کند. نشانی نسخهٔ کاری NBER در previous_url باقی است."
     }
   ],
   "practice_activity": {
     "type": "AI-pilot-prioritization-decision",
     "prompt": "سه کاربرد سپهر را با ارزش، امکان، ریسک و اطمینان شواهد رتبه‌بندی کنید؛ برای کاربرد منتخب هزینهٔ هر کار کامل‌شده را بسنجید و شرط گسترش/اصلاح/توقف بنویسید.",
-    "expected_output": "سبد کاربرد AI و تصمیم مرحله‌ای پایلوت"
+    "expected_output": "سبد کاربرد AI و تصمیم مرحله‌ای پایلوت",
+    "rubric": [
+      "کاربردها با ارزش، ریسک، امکان آزمون و وابستگی اولویت‌بندی شده‌اند.",
+      "ظرفیت تیم و معیار مشترک انتخاب آشکارند.",
+      "سبد پایلوت دارای مالک، ترتیب، معیار گسترش/توقف و بازنگری است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -223,7 +278,14 @@
   "media_plan": {
     "type": "AI-portfolio-prioritization-and-scale-stop-scorecard",
     "purpose": "مقایسهٔ ارزش، امکان، ریسک، هزینه و قواعد گسترش",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-pilot-prioritize-scale-stop.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «اقتصاد مقیاس و هزینهٔ مصرف»: سبد AI را بر اساس ارزش، امکان، ریسک و قابلیت بازگشت مدیریت کن. انتخاب پایلوت، مسئلهٔ محدود و قابل‌آموزش با مالک روشن انتخاب کن.؛ اولویت و وزن، ارزش، امکان و ریسک را امتیاز بده؛ فرض و حساسیت وزن را آشکار کن.؛ هزینهٔ مقیاس، حجم، مصرف، ارزیابی و پشتیبانی را در اقتصاد واحد محاسبه کن.؛ توسعه یا توقف، آستانهٔ ادامه، اصلاح و توقف را قبل از نتیجه ثبت کن.",
+        "caption": "نقشه را برای تحلیل «اقتصاد مقیاس و هزینهٔ مصرف» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

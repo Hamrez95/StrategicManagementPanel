@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-21",
   "course_id": "S07-C4",
   "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
   "source_use_note": "مرحلهٔ استقرار با راهنمای تولید ML گوگل و NIST AI RMF مرور شده است. منابع عملیاتی، کنترل‌های رایج و مراحل چرخهٔ عمر را توصیف می‌کنند؛ نسخهٔ فنی، آستانه و کنترل نهایی برای هر کاربرد باید با متخصص همان سامانه تعیین شود. مثال‌ها ساختگی‌اند. مرحلهٔ حکمرانی و ایمنی بر NIST AI RMF/GenAI Profile و OWASP Top 10 2025 تکیه دارد. OWASP فهرست تهدیدهای جامعه‌محور است، نه چک‌لیست کامل یا تضمین حذف حمله؛ کنترل‌ها باید در معماری و آزمون واقعی سنجیده شوند. موضوع حریم خصوصی و رخداد نیز به سیاست سازمان و الزامات حوزه وابسته است. مرحلهٔ پایش و گزارش مدیریتی بر راهنمای Google برای پایش سیستم‌های ML و NIST AI RMF Measure/Manage متکی است. معیارهای جانشین و آستانه‌ها برای کاربرد خاص باید با دادهٔ واقعی اعتبارسنجی شوند؛ مثال‌های سپهر ساختگی‌اند.",
@@ -9,84 +9,118 @@
       "title": "Google for Developers, Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی."
+      "scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-DEPLOYMENT-TESTING",
       "title": "Google ML Crash Course, Deployment Testing",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار."
+      "scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-MONITORING",
       "title": "Google ML Crash Course, Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است."
+      "scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core and Playbook",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه."
+      "scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core and Playbook",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور."
+      "scope": "نقش‌ها، حریم خصوصی، ارزیابی، پاسخ و بازیابی رخداد؛ چارچوب داوطلبانه و زمینه‌محور.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه."
+      "scope": "خطرها و اقدام‌های مدیریت ریسک برای GenAI؛ پیشنهادهایی برای سازگارکردن با زمینه.",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
     },
     {
-      "id": "OWASP-LLM-TOP10-2025",
+      "id": "OWASP-LLM-TOP10",
       "title": "OWASP Top 10 for LLM Applications 2025",
       "url": "https://genai.owasp.org/llm-top-10/",
       "review_depth": "community_security_framework_reviewed",
-      "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست."
+      "scope": "فهرست جامعه‌محور آسیب‌پذیری‌های برنامه‌های LLM، از جمله prompt injection، افشای اطلاعات و خروجی ناامن؛ فهرست به‌تنهایی کنترل کافی نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-PROMPT-INJECTION-2025",
       "title": "OWASP GenAI Security Project: LLM01 Prompt Injection",
       "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
       "review_depth": "community_security_guidance_reviewed",
-      "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد."
+      "scope": "خطر ورودی مستقیم/غیرمستقیم و اقدام‌های کاهش ریسک؛ هیچ راه‌حل منفردی تضمین حذف خطر نمی‌دهد.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-MONITORING",
       "title": "Google ML Crash Course: Monitoring Pipelines",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است."
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTIONIZATION",
       "title": "Google for Developers: Productionization",
       "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "logging، monitoring، alerting، deployment strategy و rollback."
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Measure and Manage",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه."
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند."
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
+    },
+    {
+      "id": "UPS-ORION-NAV-2018",
+      "title": "UPS: Deploys Purpose-Built Navigation for UPS Service Personnel",
+      "url": "https://about.ups.com/us/en/newsroom/press-releases/innovation-driven/ups-deploys-purpose-built-navigation-for-ups-service-personnel.html",
+      "scope": "اطلاعیهٔ رسمی UPS در ۴ دسامبر ۲۰۱۸ دربارهٔ UPSNav/ORION، پایلوت و rollout؛ سنجش مستقل نتیجه در این منبع ارائه نشده است.",
+      "review_depth": "primary_company_press_release_reviewed",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_company_press_release"
     }
   ],
   "open_questions": [

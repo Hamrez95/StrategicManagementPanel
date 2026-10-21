@@ -59,6 +59,12 @@
       "type": "summary",
       "title": "جمع‌بندی",
       "text": "میانگین را با توزیع و ترکیب بخوانید؛ خروجی AI را از دادهٔ پایه بسنجید."
+    },
+    {
+      "id": "C08-ST01-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "میانگین کل برابر میانگین گروه‌ها نیست مگر اندازهٔ گروه‌ها برابر باشد؛ هر گروه باید به اندازهٔ خودش وزن بگیرد. اگر مشتریان بزرگ‌تر چند سفارش دارند، میانگین سفارشی ممکن است تجربهٔ مشتری معمولی را منعکس نکند. ابتدا بپرسید تصمیم دربارهٔ «سفارش»، «مشتری» یا «درآمد» است، سپس واحد را انتخاب کنید؛ تغییر واحد وزن‌دهی را عوض می‌کند و حتی جهت مقایسه را برمی‌گرداند."
     }
   ],
   "questions": [
@@ -208,24 +214,32 @@
       "remediation_card_id": "C08-ST01-L04-CARD07"
     }
   ],
+  "source_refs": [
+    "center",
+    "sampling",
+    "NIST-GENAI-PROFILE-2024"
+  ],
   "source_links": [
     {
       "id": "center",
       "title": "OpenStax Business Statistics 2.3: Center",
       "url": "https://openstax.org/books/introductory-business-statistics/pages/2-3-measures-of-the-center-of-the-data",
-      "scope": "میانگین و میانه."
+      "scope": "میانگین و میانه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "sampling",
       "title": "OpenStax Business Statistics 1.2: Sampling",
       "url": "https://openstax.org/books/introductory-business-statistics/pages/1-2-data-sampling-and-variation-in-data-and-sampling",
-      "scope": "نوع داده و نمونه‌گیری."
+      "scope": "نوع داده و نمونه‌گیری.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist",
+      "id": "NIST-GENAI-PROFILE-2024",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://doi.org/10.6028/NIST.AI.600-1",
-      "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI."
+      "scope": "ریسک اطلاعات ساختگی و نیاز به اعتبارسنجی خروجی GenAI.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

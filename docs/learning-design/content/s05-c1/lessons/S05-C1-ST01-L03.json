@@ -58,6 +58,12 @@
       "text": "زمان جریان از ورود کار به سیستم تا خروج است؛ زمان پردازش فقط لحظه‌های کار فعال را می‌شمارد. تفاوت این دو بخش بزرگی از انتظار پنهان را نشان می‌دهد. نرخ خروج را در همان واحد زمانی WIP و زمان بسنجید. اگر نرخ ساعتی را با WIP روزانه یا میانگین چند دورهٔ متفاوت ترکیب کنید، حاصل از نظر واحد معنی ندارد. ثبات را با روند ورود و خروج بسنجید. این قانون میانگین را پیوند می‌دهد و دربارهٔ تک‌پرونده زمان تحویل دقیق نمی‌دهد. برای پروندهٔ خاص، تفاوت نوع کار و اولویت و تغییر ظرفیت را جداگانه بررسی کنید.",
       "id": "S05-C1-ST01-L03-CARD09",
       "title": "نکتهٔ 9"
+    },
+    {
+      "id": "S05-C1-ST01-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Queue — صف: کار منتظر خدمت در فرایند؛ افزایش کار در جریان زمان انتظار و سرمایه را بالا می‌برد. Work in process — کار در جریان: کار آغازشده اما تکمیل‌نشده؛ موجودی زیاد الزاماً تولید بیشتر نیست. Little law — قانون لیتل: میانگین کار در جریان برابر نرخ عبور در زمان چرخه در حالت پایدار؛ فرض حالت پایدار و واحد یکسان لازم است."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "review_depth": "peer_reviewed_foundational_article_reviewed",
       "scope": "مقالهٔ اصلی قانون لیتل؛ کاربرد نیازمند مرز سیستم و واحد سازگار است.",
       "id": "little-1961",
-      "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W"
+      "title": "Little (1961), A Proof for the Queuing Formula: L = lambda W",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "url": "https://www.lean.org/lexicon-terms/cycle-time/",
       "review_depth": "professional_practice_reference_reviewed",
       "scope": "تعریف زمان پردازش، عبور و انتظار؛ باید با تعریف محلی هم‌تراز شود.",
       "id": "lei-cycle-time",
-      "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time"
+      "title": "Lean Enterprise Institute Lexicon: Cycle Time and Lead Time",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/value-flow-capacity-time.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «صف و کار در جریان»: جریان را با واحد مشترک بسنج؛ زمان فعالیت، انتظار و بازکاری را جدا کن. جریان ارزش، گام، تحویل، انتظار، داده و مشتری داخلی را از ابتدا تا انتها رسم کن.؛ گلوگاه ظرفیت، ظرفیت محدودکننده و نوسان بار را پیدا کن؛ افزایش ظرفیت غیرگلوگاه کافی نیست.؛ صف و WIP، ورودی، خروجی و کار در جریان را با قانون لیتل و واحد سازگار بخوان.؛ توزیع زمان، میانه و صدک‌ها را کنار میانگین ببین؛ زمان دوردست را پنهان نکن.",
+        "caption": "نقشه را برای تحلیل «صف و کار در جریان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

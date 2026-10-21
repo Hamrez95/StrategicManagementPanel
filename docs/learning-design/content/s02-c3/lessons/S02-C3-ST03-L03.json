@@ -58,6 +58,12 @@
       "type": "explanation",
       "title": "واژه‌های پرتکرار",
       "text": "Human-AI configuration ترکیب نقش انسان و AI؛ automation bias سوگیری اتوماسیون؛ model drift تغییر عملکرد؛ override اصلاح/رد خروجی؛ audit trail ردپای حسابرسی؛ false positive هشدار کاذب؛ monitoring پایش مستمر است. مسئولیت خروجی پراثر با سازمان و صاحب اختیار باقی می‌ماند."
+    },
+    {
+      "id": "S02-C3-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌ها و مرز مفهومی",
+      "text": "Model governance (حاکمیت مدل) مسئولیت مالک، اعتبارسنجی، ثبت نسخه و پایش را برای استفاده از AI تعیین می‌کند. Human review (بازبینی انسانی) باید اختیار اصلاح یا توقف داشته باشد؛ تأیید صوری کنترل مؤثر نیست."
     }
   ],
   "questions": [
@@ -207,41 +213,53 @@
       "remediation_card_id": "S02-C3-ST03-L03-CARD06"
     }
   ],
+  "source_refs": [
+    "cfa-governance-2026",
+    "sec-audit-committee",
+    "NIST-AI-RMF-CORE",
+    "nist-human-ai-interaction",
+    "sec-icfr"
+  ],
   "source_links": [
     {
       "id": "cfa-governance-2026",
       "title": "CFA Institute 2026: Corporate Governance—Conflicts, Mechanisms, Risks, and Benefits",
       "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/corporate-governance-conflicts-mechanisms-risks-and-benefits",
       "scope": "مکانیزم‌های نظارت، تعارض منافع و ریسک در حاکمیت شرکتی؛ متن کامل ممکن است نیازمند دسترسی باشد.",
-      "review_depth": "official_professional_curriculum_reviewed"
+      "review_depth": "official_professional_curriculum_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "sec-audit-committee",
       "title": "SEC: Role of Audit Committees in Financial Reporting and Oversight Responsibilities",
       "url": "https://www.sec.gov/newsroom/speeches-statements/statement-role-audit-committees-financial-reporting",
       "scope": "نقش کمیتهٔ حسابرسی در نظارت گزارشگری، کنترل داخلی و حسابرس مستقل؛ به مقررات مرتبط حوزهٔ قضایی توجه شود.",
-      "review_depth": "official_regulator_statement_reviewed"
+      "review_depth": "official_regulator_statement_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern and Human-AI Roles",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "scope": "تعریف مسئولیت انسانی-AI، پاسخ‌گویی مدیر و ارزیابی مستمر عملکرد/عدم‌قطعیت.",
-      "review_depth": "official_government_framework_reviewed"
+      "review_depth": "official_government_framework_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "nist-human-ai-interaction",
       "title": "NIST AI RMF Appendix C: AI Risk Management and Human-AI Interaction",
       "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
       "scope": "نقش‌ها و خطرهای تعامل انسان و AI، اختیار و سوگیری در تصمیم مشترک.",
-      "review_depth": "official_government_framework_reviewed"
+      "review_depth": "official_government_framework_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "sec-icfr",
-      "title": "SEC Financial Reporting Manual: Internal Control over Financial Reporting",
+      "title": "SEC Financial Reporting Manual, Topic 4: ICFR (Sections 4310–4320)",
       "url": "https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4",
-      "scope": "افشای کنترل داخلی گزارشگری مالی و محدودیت‌های ذاتی اطمینان؛ مرجع عمومی آمریکا، نه راهنمای جهانی قانون.",
-      "review_depth": "official_regulator_manual_reviewed"
+      "scope": "مرجع مقرراتی آمریکا؛ بخش ICFR آخرین‌بار 2009 به‌روزرسانی شده، پس وضعیت جاری مقررات باید جداگانه کنترل شود.",
+      "review_depth": "official_regulator_manual_reviewed",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

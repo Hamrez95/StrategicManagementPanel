@@ -58,6 +58,18 @@
       "type": "explanation",
       "title": "جمع‌بندی",
       "text": "ارزش واقعی را بسنجید، هزینه را به دیگران منتقل نکنید و پایلوت/سنجه/مسیر توقف داشته باشید."
+    },
+    {
+      "id": "C10-ST04-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Social cost — هزینهٔ اجتماعی: هزینهٔ تحمیل‌شده بر افراد/جامعه و خارج از حساب تصمیم خصوصی؛ اندازه‌گیری آن تابع دامنه و ارزش‌گذاری است. Benefit-cost analysis — تحلیل منفعت-هزینه: مقایسهٔ پیامدها در افق مشترک و با فرض‌های شفاف؛ عدد خالص جای قضاوت توزیعی را نمی‌گیرد. Distributional effect — اثر توزیعی: اینکه منفعت و هزینه میان گروه‌ها چگونه پخش می‌شود؛ میانگین کل ممکن است نابرابری را پنهان کند."
+    },
+    {
+      "id": "C10-ST04-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تحلیل منفعت-هزینه پیامدهای قابل‌قیاس را در افق مشترک کنار هم می‌گذارد، اما هزینهٔ اجتماعی و توزیع میان گروه‌ها را می‌توان با میانگین پنهان کرد. عدد خالص وابسته به مرز، ارزش‌گذاری و نرخ تنزیل است و به‌تنهایی مشروعیت اخلاقی نمی‌آورد. اگر هزینه به گروه آسیب‌پذیر یا آینده منتقل شود، آن را جدا نشان دهید و گزینهٔ کاهندهٔ آسیب را بررسی کنید."
     }
   ],
   "questions": [
@@ -207,24 +219,34 @@
       "remediation_card_id": "C10-ST04-L04-CARD05"
     }
   ],
+  "source_refs": [
+    "iea",
+    "NIST-AI-RMF-CORE",
+    "OECD-MNE-GUIDELINES-2023"
+  ],
   "source_links": [
     {
       "id": "iea",
       "title": "IEA Energy and AI (2025)",
       "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
-      "scope": "سناریوهای تقاضای برق مراکز داده و AI."
+      "scope": "سناریوهای تقاضای برق مراکز داده و AI.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
-      "scope": "سنجش و مدیریت ریسک AI در چرخهٔ عمر."
+      "scope": "سنجش و مدیریت ریسک AI در چرخهٔ عمر.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "oecd",
+      "id": "OECD-MNE-GUIDELINES-2023",
       "title": "OECD Responsible Business Conduct Guidelines",
       "url": "https://www.oecd.org/en/publications/2023/06/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_a0b49990.html",
-      "scope": "رفتار مسئولانه و بررسی موشکافانهٔ آثار."
+      "scope": "رفتار مسئولانه و بررسی موشکافانهٔ آثار.",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی فصل «مسئولیت‌های هیئت‌مدیره» در اصول حاکمیت شرکتی G20/OECD 2023 باز شد. این چارچوب بین‌المللی برای اصول راهنماست و جای قوانین حوزهٔ قضایی خاص را نمی‌گیرد."
     }
   ],
   "practice_activity": {

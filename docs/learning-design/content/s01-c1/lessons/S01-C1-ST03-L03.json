@@ -86,6 +86,18 @@
       "type": "explanation",
       "title": "AI و ممیزی",
       "text": "AI می‌تواند ردیف‌های تکراری را بیابد یا نمودار بسازد، اما ممکن است اختلاف شاهدها را صاف کند یا نمره‌ها را عوض کند. دادهٔ مبنا، فرمول و تغییرات باید قابل بازبینی بماند."
+    },
+    {
+      "id": "S01-C1-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "IE matrix — ماتریس درونی-بیرونی: جایگاه IFE و EFE را به ناحیهٔ توصیه‌ای وصل می‌کند؛ نسخه‌ها و مرز خانه‌ها قراردادی‌اند. Portfolio position — جایگاه سبد: موقعیت تقریبی واحد/کسب‌وکار طبق دو سنجه؛ تجویز مستقل از زمینه نیست. Sensitivity — حساسیت: تغییر خانه یا پیشنهاد با تغییر امتیاز و وزن؛ ثبات خانه به معنی قطعیت راهبرد نیست."
+    },
+    {
+      "id": "S01-C1-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ماتریس IE موقعیت داخلی و بیرونی را در شبکهٔ نه‌خانه‌ای ترکیب می‌کند تا جهت‌های کلی مانند رشد، حفظ یا برداشت را برای بحث پیشنهاد دهد. مرز خانه‌ها و امتیازهای ورودی قراردادی‌اند و تغییر کوچک ممکن است جایگاه را جابه‌جا کند. نمره‌های EFE و IFE را بدون بررسی کیفیت و دامنه وارد نکنید. این ابزار نسخهٔ سرمایه‌گذاری خودکار نیست؛ قابلیت، نقدینگی و تناسب کسب‌وکار را نیز بسنجید. اگر امتیاز نزدیک مرز است، تحلیل حساسیت و گزینه‌های مقاوم از برچسب خانه مفیدترند."
     }
   ],
   "questions": [
@@ -235,12 +247,21 @@
       "remediation_card_id": "S01-C1-ST03-L03-CARD09"
     }
   ],
+  "source_refs": [
+    "pearson-david",
+    "oxford-swot",
+    "space-radder",
+    "oecd-ai",
+    "stanford-ai",
+    "oxford-tools"
+  ],
   "source_links": [
     {
       "id": "pearson-david",
       "title": "Pearson: David, David & David, Strategic Management, 17th ed.",
       "url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405",
-      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی."
+      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-swot",
@@ -258,19 +279,22 @@
       "id": "oecd-ai",
       "title": "OECD/BCG/INSEAD (2025), The Adoption of AI in Firms",
       "url": "https://www.oecd.org/en/publications/the-adoption-of-artificial-intelligence-in-firms_f9ef33c3-en/full-report.html",
-      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند."
+      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "stanford-ai",
       "title": "Stanford HAI, AI Index 2026: Economy",
       "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
-      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود."
+      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-tools",
       "title": "Oxford Academic: Strategy in 3D: Essential Tools",
       "url": "https://academic.oup.com/book/36951",
-      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی."
+      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {
@@ -290,6 +314,18 @@
   "review_status": "pending",
   "fresh_equivalent_variants": 0,
   "prerequisites_suggested": [],
-  "prerequisites_block_access": false
+  "prerequisites_block_access": false,
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "نمایش جهت‌گیری گزینه بر اساس دو نمرهٔ IFE و EFE",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ie-portfolio-matrix.svg",
+        "alt_text": "ماتریس IE سه‌درسه؛ IFE افقی، EFE عمودی و مثال سپهر در خانهٔ مرکزی.",
+        "caption": "از جایگاه برای ساخت گزینه استفاده کن؛ آن را حکم قطعی ندان.",
+        "source_url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405"
+      }
+    ]
+  }
 }
-

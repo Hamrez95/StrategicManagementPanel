@@ -44,6 +44,18 @@
       "id": "E03-ST01-L04-CARD08",
       "title": "پروندهٔ تصمیم قیمت سپهر",
       "text": "در یک یادداشت بنویسید: مشاهدهٔ فعلی، تفسیر احتمالی، توضیح‌های جایگزین، فرضیه، طرح سنجش، معیار اصلی و محافظ، و آنچه هنوز نمی‌دانیم. تصمیم خوب با محدودیت‌هایش همراه است، نه با ادعای قطعیت."
+    },
+    {
+      "id": "E03-ST01-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "استنباط علّی (Causal inference) اثر تغییر قیمت را از فصل، ترکیب مشتری، کانال و رقابت جدا می‌کند. سوگیری انتخاب (Selection bias) وقتی رخ می‌دهد که شرکت‌کنندگان یا خریداران با دیگران فرق دارند. فروش مشاهده‌شده و قصد اعلام‌شده باید از آزمایش یا شواهد علت‌محور تفکیک شود."
+    },
+    {
+      "id": "E03-ST01-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "فروش مشاهده‌شده حاصل قیمت، تقاضا، دسترسی، موجودی، تبلیغ و انتخاب مشتری است. از آن نمی‌توان به‌تنهایی منحنی تقاضا یا علت رشد فروش را استخراج کرد. ممکن است قیمت پایین‌تر با افزایش تبلیغ همزمان بوده باشد یا کالای پرفروش زودتر موجود شده باشد. متغیرهای مخدوش‌گر و دورهٔ مقایسه را ثبت کنید. آزمایش قیمت باید خطر واکنش مشتری، انصاف و محدودیت عملیاتی را هم در نظر بگیرد. اگر دادهٔ آزمایشی ممکن نیست، روش شبه‌آزمایشی را با فرض‌ها و محدودیت‌ها گزارش کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "تعمیم نیازمند بررسی ثبات و دامنهٔ شواهد است."
+    },
+    {
+      "id": "E03-ST01-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نظرسنجی نشان می‌دهد مشتریان قیمت بالاتری را می‌پذیرند. چه نتیجه‌ای مجازتر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "این پاسخ فرضیه می‌سازد؛ رفتار خرید و عوامل مخدوش‌گر باید جدا بررسی شوند",
+          "feedback": "قصد اعلام‌شده با خرید واقعی یکی نیست و نمونه یا شرایط پرسش ممکن است پاسخ را منحرف کند."
+        },
+        {
+          "id": "b",
+          "text": "افزایش قیمت حتماً سود را بالا می‌برد",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: قصد اعلام‌شده با خرید واقعی یکی نیست و نمونه یا شرایط پرسش ممکن است پاسخ را منحرف کند."
+        },
+        {
+          "id": "c",
+          "text": "پاسخ‌دهندگان نمایندهٔ همهٔ مشتریان‌اند",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: قصد اعلام‌شده با خرید واقعی یکی نیست و نمونه یا شرایط پرسش ممکن است پاسخ را منحرف کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "قصد اعلام‌شده با خرید واقعی یکی نیست و نمونه یا شرایط پرسش ممکن است پاسخ را منحرف کند.",
+      "objective_id": "E03-ST01-L04-OBJ01",
+      "equivalence_group": "E03-ST01-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST01-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,55 @@
       "title": "OpenStax, Principles of Microeconomics 3e: Elasticity and Pricing",
       "url": "https://openstax.org/books/principles-economics-3e/pages/5-3-elasticity-and-pricing",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "تعریف کشش و رابطهٔ آن با قیمت و درآمد؛ مثال‌های فصل زمینه‌ای‌اند و کشش هر کسب‌وکار را برآورد نمی‌کنند."
+      "scope": "تعریف کشش و رابطهٔ آن با قیمت و درآمد؛ مثال‌های فصل زمینه‌ای‌اند و کشش هر کسب‌وکار را برآورد نمی‌کنند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-MARKETING",
       "title": "OpenStax, Principles of Marketing",
       "url": "https://openstax.org/books/principles-marketing/pages/preface",
       "review_depth": "open_educational_textbook_targeted_chapters_pending",
-      "scope": "مفاهیم بازاریابی، ارزش و بخش‌بندی؛ فصل‌های مرتبط باید هنگام بازبینی تخصصی به‌طور دقیق ارجاع داده شوند."
+      "scope": "مفاهیم بازاریابی، ارزش و بخش‌بندی؛ فصل‌های مرتبط باید هنگام بازبینی تخصصی به‌طور دقیق ارجاع داده شوند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "AEA-PRICE-EXPERIMENT-2024",
-      "title": "American Economic Journal: Microeconomics, (Reverse) Price Discrimination with Information Design",
-      "url": "https://pubs.aeaweb.org/doi/10.1257/mic.20220242",
+      "title": "(Reverse) Price Discrimination with Information Design (AEJ: Microeconomics, 2024)",
+      "url": "https://swlb2.aeaweb.org/articles?id=10.1257/mic.20220242",
       "review_depth": "peer_reviewed_theory_article_reviewed",
-      "scope": "مدل نظری قیمت و اطلاعات تحت تمایل پرداخت خصوصی؛ نتیجهٔ نظری بدون فرض‌های مقاله، دستورالعمل قیمت‌گذاری تجربی نیست."
+      "scope": "مدل نظری قیمت و اطلاعات تحت تمایل پرداخت خصوصی؛ نتیجهٔ نظری بدون فرض‌های مقاله، دستورالعمل قیمت‌گذاری تجربی نیست.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی مقاله در وبگاه American Economic Association باز شد؛ عنوان، مشخصات نشریه و چکیده قابل مشاهده‌اند. دسترسی به PDF کامل جداگانه بررسی نشده است. نشانی قبلی AEA در previous_url حفظ شد.",
+      "previous_url": "https://pubs.aeaweb.org/doi/10.1257/mic.20220242",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "QJE-PRICE-NEGOTIATION-FIELD-EXPERIMENT",
       "title": "Price Discrimination by Negotiation: A Field Experiment in Retail Electricity",
       "url": "https://academic.oup.com/qje/article/137/4/2499/6570715",
       "review_depth": "peer_reviewed_field_experiment_reviewed",
-      "scope": "شواهد میدانی دربارهٔ قیمت‌های مذاکره‌شده، بخش‌بندی و زمینهٔ برق خرده‌فروشی؛ تعمیم به محصول دیجیتال و دورهٔ آنلاین نیازمند احتیاط است."
+      "scope": "شواهد میدانی دربارهٔ قیمت‌های مذاکره‌شده، بخش‌بندی و زمینهٔ برق خرده‌فروشی؛ تعمیم به محصول دیجیتال و دورهٔ آنلاین نیازمند احتیاط است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "HBR-VALUE-BASED-PRICING",
       "title": "Harvard Business Review, A Quick Guide to Value-Based Pricing",
       "url": "https://hbr.org/2016/08/a-quick-guide-to-value-based-pricing",
       "review_depth": "practitioner_article_reviewed",
-      "scope": "راهنمای مدیریتی برای نگاه به ارزش مشتری در قیمت‌گذاری؛ منبع حرفه‌ای است و جای تخمین اقتصادی یا آزمایش را نمی‌گیرد."
+      "scope": "راهنمای مدیریتی برای نگاه به ارزش مشتری در قیمت‌گذاری؛ منبع حرفه‌ای است و جای تخمین اقتصادی یا آزمایش را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "willingness-to-pay-elasticity-segmentation-analysis",
     "prompt": "برای آموزش مدیریت سپهر «محدودیت استنباط از فروش» را تحلیل کنید؛ گروه مشتری، فرض قیمت، شواهد و محدودیت استنباط را ثبت کنید.",
-    "expected_output": "برگهٔ تصمیم قیمت: ارزش، فرضیه، سنجش، حاشیه و انصاف"
+    "expected_output": "برگهٔ تصمیم قیمت: ارزش، فرضیه، سنجش، حاشیه و انصاف",
+    "rubric": [
+      "بخش مشتری و ارزش مبنای تمایل پرداخت با شاهد یا فرض روشن تعریف شده‌اند.",
+      "کشش، حاشیه و پیامد تغییر قیمت در واحد و بازهٔ مناسب تحلیل شده‌اند.",
+      "آزمون بعدی و محدودیت استنباط مشخص است و انصاف گروه‌ها بررسی شده است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -234,7 +290,14 @@
   "media_plan": {
     "type": "causal-evidence-map",
     "purpose": "نمایش محاسبه یا منطق تصمیم قیمت",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/value-price-cost-bridge.svg",
+        "alt_text": "نمودار آموزشی مشترک مرحله برای «محدودیت استنباط از فروش»: تصمیم قیمت را با رفتار مشتری و طراحی شواهد بسنج، نه فقط با فهرست قیمت رقبا. تمایل به پرداخت، ارزش و گزینهٔ جایگزین را تعریف کن؛ اظهار نظر را با رفتار خرید مقایسه کن.؛ کشش و داده، درصد تغییر مقدار را به درصد تغییر قیمت نسبت بده؛ بخش و دوره را ثابت نگه دار.؛ بخش‌بندی قیمت، شرط دسترسی و بسته را روشن کن؛ تفاوت قیمت را با تفاوت ارزش یا هزینه توجیه‌پذیر کن.؛ شواهد علّی، هم‌زمانی تغییر قیمت و فروش اثر را ثابت نمی‌کند؛ گروه کنترل یا طراحی مناسب لازم است.",
+        "caption": "از نمودار مرحله برای پاسخ به هدف «محدودیت استنباط از فروش» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

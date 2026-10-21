@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S06-C3-ST01-L03-CARD08",
       "text": "سپهر اتصال کامل را حذف می‌کند، فایل مجاز را دستی پردازش می‌کند و متخصص امنیت را برای بازبینی می‌آورد. هدف پایلوت گزارش مفید و تعهد مشتری است، نه معماری نهایی؛ هزینه و وابستگی ثبت می‌شوند."
+    },
+    {
+      "id": "S06-C3-ST01-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Critical resource — منبع بحرانی: منبعی که نبودش نقطهٔ عطف/اجرا را متوقف می‌کند؛ فهرست آرزوهای بنیان‌گذار نیست. Resource constraint — محدودیت منابع: سقف پول، زمان، دسترسی یا ظرفیت؛ راه‌حل باید وابستگی‌هایش را نیز بشناسد. Bootstrapping — رشد با منابع محدود: تأمین هزینه از درآمد/سرمایهٔ بنیان‌گذار؛ صرفه‌جویی ممکن است هزینهٔ فرصت رشد باشد."
+    },
+    {
+      "id": "S06-C3-ST01-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "منبع بحرانی را از وابستگی نقطهٔ عطف به پول، زمان، مجوز یا فرد مشخص می‌کنیم. کمبود باید در مسیر اجرا و پیامدش نشان داده شود؛ فهرست امکانات مطلوب اولویت نمی‌دهد. اگر تأمین‌کننده یا زمان دسترسی تغییر کند، برنامهٔ جایگزین و زمان‌بندی عوض می‌شود؛ پیش از تعهد بزرگ، گلوگاه و گزینهٔ جایگزین را با شاهد بسنجید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "b",
       "explanation": "قیمت ابزار کل هزینهٔ قابلیت نیست."
+    },
+    {
+      "id": "S06-C3-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای یک نقطهٔ عطف، تیم به مهارتی نیاز دارد که فعلاً کمبودش دارد. انتخاب منبع چگونه انجام شود؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ساخت، خرید، شریک، آموزش یا کاهش دامنه را با هزینهٔ فرصت و وابستگی مقایسه کنیم",
+          "feedback": "روش تأمین قابلیت باید با زمان و هزینه و کنترل و وابستگی متناسب باشد."
+        },
+        {
+          "id": "b",
+          "text": "همیشه استخدام تمام‌وقت کنیم",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: روش تأمین قابلیت باید با زمان و هزینه و کنترل و وابستگی متناسب باشد."
+        },
+        {
+          "id": "c",
+          "text": "نیاز را تا بعد از تعهد مشتری نادیده بگیریم",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: روش تأمین قابلیت باید با زمان و هزینه و کنترل و وابستگی متناسب باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "روش تأمین قابلیت باید با زمان و هزینه و کنترل و وابستگی متناسب باشد.",
+      "objective_id": "S06-C3-ST01-L03-OBJ01",
+      "equivalence_group": "S06-C3-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C3-ST01-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,48 +212,66 @@
       "title": "OpenStax Organizational Behavior 10.1 Teamwork in the Workplace",
       "url": "https://openstax.org/books/organizational-behavior/pages/10-1-teamwork-in-the-workplace",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "تفاوت تیم و گروه کاری و قواعد همکاری."
+      "scope": "تفاوت تیم و گروه کاری و قواعد همکاری.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-OB-TEAM-MGMT-10.3",
       "title": "OpenStax Organizational Behavior 10.3 Managing Teams",
       "url": "https://openstax.org/books/organizational-behavior/pages/10-3-things-to-consider-when-managing-teams",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "انتخاب اعضا، هنجارها، پویایی و مرزهای تیم."
+      "scope": "انتخاب اعضا، هنجارها، پویایی و مرزهای تیم.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-OB-TEAM-CONFLICT-10.4",
       "title": "OpenStax Organizational Behavior 10.4 Team Conflict",
       "url": "https://openstax.org/books/organizational-behavior/pages/10-4-opportunities-and-challenges-to-team-building",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "منابع تعارض و پاسخ سازنده برای یادگیری و حل‌وفصل."
+      "scope": "منابع تعارض و پاسخ سازنده برای یادگیری و حل‌وفصل.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "STANFORD-ECORNER-COFOUNDER-CONFLICT",
       "title": "Stanford eCorner: Resolving Co-founder Conflict",
-      "url": "https://ecorner.stanford.edu/clips/resolving-co-founder-conflict/",
-      "review_depth": "official_university_practitioner_talk_reviewed",
-      "scope": "تجربهٔ بنیان‌گذار دربارهٔ تعارض؛ توصیهٔ حقوقی یا شاهد تعمیم‌پذیر نیست."
+      "url": "https://vimeo.com/673830452",
+      "review_depth": "official_video_metadata_page_reviewed",
+      "scope": "تجربهٔ بنیان‌گذار دربارهٔ تعارض؛ توصیهٔ حقوقی یا شاهد تعمیم‌پذیر نیست.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ Vimeo با برچسب Stanford eCorner باز شد و عنوان، نام گوینده و توضیح کوتاه دربارهٔ اعتماد، هم‌راستایی بر واقعیت‌ها و ادامه‌دادن پس از تصمیم را نشان می‌دهد. خود ویدئو در این گذر پخش و بازبینی نشده؛ این منبع روایت یک بنیان‌گذار است، نه شاهد تعمیم‌پذیر. پیوند رسمی eCorner در previous_url نگه داشته شده است.",
+      "previous_url": "https://ecorner.stanford.edu/clips/resolving-co-founder-conflict/",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "MITX-BOOTSTRAPPING-ENTREPRENEURS",
       "title": "MIT Learn: Bootstrapping for Entrepreneurs",
       "url": "https://learn.mit.edu/courses/course-v1%3AMITxT%2B15.356.2x",
       "review_depth": "official_course_page_reviewed",
-      "scope": "کارآفرینی و نوآوری در محیط کم‌منبع."
+      "scope": "کارآفرینی و نوآوری در محیط کم‌منبع.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NBER-CYBERNETIC-TEAMMATE-2025",
-      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork",
-      "url": "https://www.nber.org/papers/w33641",
+      "id": "CR-R33-PUBLISHED",
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork (Organization Science, 2026)",
+      "url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702",
       "review_depth": "primary_field_experiment_reviewed",
-      "scope": "AI و همکاری تیمی در زمینهٔ مطالعه؛ تعمیم مستقیم به همهٔ تیم‌ها محدود است."
+      "scope": "AI و همکاری تیمی در زمینهٔ مطالعه؛ تعمیم مستقیم به همهٔ تیم‌ها محدود است.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی مقالهٔ نهایی در Organization Science باز شد و چکیده/متن مقاله قابل مشاهده است. آزمایش با ۷۹۱ متخصص P&G روی چالش‌های نوآوری محصول انجام شده؛ تعمیم نتیجه‌ها به سازمان‌ها و تکالیف دیگر محدود است. نشانی نسخهٔ کاری NBER در previous_url نگه داشته شد.",
+      "previous_url": "https://www.nber.org/papers/w33641",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "venture-team-resource-plan",
     "prompt": "برای سناریوی سپهر نقش‌ها و تصمیم‌ها، قابلیت‌های بحرانی، منبع لازم برای نقطهٔ عطف و مرز کار پیمانکار یا شریک را ثبت کنید. معیار پذیرش، وابستگی و ریسک داده را نیز بنویسید.",
-    "expected_output": "نقشهٔ نقش و قابلیت، برنامهٔ منابع و معیار پذیرش"
+    "expected_output": "نقشهٔ نقش و قابلیت، برنامهٔ منابع و معیار پذیرش",
+    "rubric": [
+      "نقش‌ها، قابلیت‌های لازم و مسئولیت تصمیم بدون شکاف روشن‌اند.",
+      "ظرفیت، هزینه و ترتیب جذب با فرض و milestone مرتبط است.",
+      "معیار پذیرش، مالک، ریسک وابستگی و برنامهٔ جایگزین آمده است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -226,7 +286,7 @@
     "OPENSTAX-OB-TEAM-CONFLICT-10.4",
     "STANFORD-ECORNER-COFOUNDER-CONFLICT",
     "MITX-BOOTSTRAPPING-ENTREPRENEURS",
-    "NBER-CYBERNETIC-TEAMMATE-2025"
+    "CR-R33-PUBLISHED"
   ],
   "source_scope": "منابع درسی، تجربه‌محور و پژوهش میدانی؛ مثال آموزشی و فاقد توصیهٔ حقوقی.",
   "example_plan": {
@@ -239,7 +299,14 @@
   "media_plan": {
     "type": "team-role-resource-dependency-map",
     "purpose": "نمایش مالکیت کار و وابستگی منابع",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/founder-team-resource-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «منابع ضروری و محدودیت»: تیم و تصمیم ساخت/خرید را با وابستگی کار و نقطهٔ عطف هماهنگ کن. مهارت مکمل، شکاف مهارتی را با کار واقعی بسنج؛ عنوان شغلی جانشین توانایی نیست.؛ توافق بنیان‌گذاران، نقش، تصمیم، سهم و مسیر حل اختلاف را پیش از بحران روشن کن.؛ منبع ضروری، منبع را به نقطهٔ عطف وصل کن؛ محدودیت پول، زمان و دانش را آشکار کن.؛ ساخت یا شریک، مالکیت، کیفیت، وابستگی، امنیت و هزینهٔ بلندمدت را مقایسه کن.",
+        "caption": "نقشه را برای تحلیل «منابع ضروری و محدودیت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -58,6 +58,12 @@
       "text": "«بحرانی‌بودن نسبت» تصمیم حاشیه‌ای را در فرض مدل خلاصه می‌کند. این نسبت ترجیح ریسک و ارزش‌های سازمان را خودکار تعیین نمی‌کند؛ هزینه‌ها و فرض‌های توزیع باید شفاف باشند. اگر ارزش نجات، حراج یا استفادهٔ جایگزین وجود دارد، هزینهٔ مازاد را بر اساس زیان خالص بنویسید. تصمیم را در چند سطح تقاضا و چند سناریوی قیمت باقیمانده مرور کنید.",
       "type": "explanation",
       "title": "نکتهٔ 9"
+    },
+    {
+      "id": "S05-C2-ST02-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Newsvendor model — مدل فروشندهٔ روزنامه: توازن هزینهٔ کمبود و مازاد برای تقاضای یک‌دوره‌ای؛ سفارش را برای محصول چندفصلی مستقیماً تعیین نمی‌کند. Underage cost — هزینهٔ کمبود: حاشیه/زیان از یک واحد کمتر از نیاز؛ نباید کل قیمت فروش را فرض کرد. Overage cost — هزینهٔ مازاد: زیان باقیمانده پس از ارزش بازیافت/تخفیف؛ قیمت خرید همیشه کل زیان نیست."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "id": "cornell-newsvendor",
       "review_depth": "university_open_textbook_reviewed",
       "scope": "شرح مدل تک‌دوره‌ای تقاضای نامطمئن و هزینهٔ کمبود/مازاد؛ مفروضات مدل برای کاربرد محلی بررسی شوند.",
-      "title": "Cornell Computational Optimization Open Textbook: Newsvendor Problem"
+      "title": "Cornell Computational Optimization Open Textbook: Newsvendor Problem",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "url": "https://academic.oup.com/imaman/article/36/4/649/8251395",
       "id": "oxford-eoq-stochastic-2025",
       "review_depth": "peer_reviewed_article_reviewed",
       "scope": "پژوهش دربارهٔ EOQ اکتشافی همراه ذخیرهٔ اطمینان در موجودی تصادفی؛ نتایج نظری و شرایط مدل محدودکننده‌اند.",
-      "title": "Simple Economic Order Quantity heuristics for stochastic inventory control (Oxford Academic, 2025)"
+      "title": "Simple Economic Order Quantity heuristics for stochastic inventory control (Oxford Academic, 2025)",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/inventory-cost-ordering-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «موجودی کالای فصلی»: موجودی را با هزینهٔ سفارش، نگهداری، کمبود و نوسان تقاضا تصمیم‌گیری کن. هزینه‌ها، هزینهٔ سفارش و نگهداری را از جریمهٔ کمبود و قیمت خرید جدا کن.؛ EOQ و فرض‌ها، Q*=√(2DS/H) در مدل سادهٔ قطعی است؛ فرض تقاضا و هزینهٔ ثابت را اعلام کن.؛ نقطهٔ سفارش، تقاضای زمان تحویل و ذخیرهٔ اطمینان را با سطح خدمت هدف مرتبط کن.؛ کالای فصلی، هزینهٔ کمبود و مازاد را مقایسه کن؛ پیش‌بینی را با سناریو به‌روز کن.",
+        "caption": "نقشه را برای تحلیل «موجودی کالای فصلی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

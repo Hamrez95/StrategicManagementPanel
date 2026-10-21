@@ -58,6 +58,18 @@
       "type": "summary",
       "title": "AI دستیار تمرین است",
       "text": "AI می‌تواند در آمادگی و پیش‌نویس کمک کند؛ صحت، افشای مجاز، تعهد و پیامد بر عهدهٔ انسان/سازمان است."
+    },
+    {
+      "id": "C09-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "AI-assisted negotiation — مذاکره با کمک AI: استفاده از مدل برای آماده‌سازی یا تحلیل متن؛ خروجی آن تضمین محرمانگی یا دقت نیست. Automation bias — سوگیری اتوماسیون: پذیرش بیش‌ازحد پیشنهاد الگوریتم حتی در تعارض با شواهد. Confidentiality — محرمانگی: کنترل دسترسی به اطلاعات مذاکره؛ واردکردن داده در ابزار عمومی ممکن است آن را نقض کند."
+    },
+    {
+      "id": "C09-ST03-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "AI می‌تواند متن را خلاصه یا گزینه‌ها را مرتب کند، ولی ممکن است اطلاعات محرمانه را افشا کند، موضع را بد بفهمد یا پیشنهاد ناعادلانه بسازد. دادهٔ ورودی، سیاست محرمانگی و مسئولیت انسانی در نتیجه دخیل‌اند. اگر مدل به متن حساس یا تصمیم پراثر دسترسی ندارد، کاربرد باید محدود شود؛ تصمیم نهایی، مجوز استفاده و بازبینی باید در اختیار انسان مشخص باقی بماند."
     }
   ],
   "questions": [
@@ -207,24 +219,32 @@
       "remediation_card_id": "C09-ST03-L04-CARD09"
     }
   ],
+  "source_refs": [
+    "ai-study",
+    "arena",
+    "listen"
+  ],
   "source_links": [
     {
       "id": "ai-study",
       "title": "Automated Mediator for Human Negotiation (2026 preprint)",
       "url": "https://arxiv.org/abs/2606.11379",
-      "scope": "دو آزمایش محدود دربارهٔ پیش‌میانجی‌گری ساختاریافته با LLM."
+      "scope": "دو آزمایش محدود دربارهٔ پیش‌میانجی‌گری ساختاریافته با LLM.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "arena",
       "title": "NegotiationArena: How Well Can LLMs Negotiate?",
       "url": "https://arxiv.org/abs/2402.05863",
-      "scope": "ارزیابی عامل‌های زبانی در محیط آزمایشی مذاکره."
+      "scope": "ارزیابی عامل‌های زبانی در محیط آزمایشی مذاکره.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "listen",
       "title": "Harvard PON: Active Listening",
       "url": "https://www.pon.harvard.edu/daily/negotiation-skills-daily/listening-skills-for-maximum-success/",
-      "scope": "گوش‌دادن فعال و روشن‌کردن منافع."
+      "scope": "گوش‌دادن فعال و روشن‌کردن منافع.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

@@ -58,6 +58,18 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "«طراحی انسان‌محور کار» توجه می‌کند فناوری چه تغییری در وظیفه، تعامل و اختیار می‌دهد. سؤال فقط این نیست که ابزار چه کاری را می‌تواند انجام دهد، بلکه این است که کیفیت کار و سلامت تیم چه می‌شود."
+    },
+    {
+      "id": "S04-C4-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Burnout — فرسودگی شغلی: پیامد فشار مزمن کار با ابعاد مشخص؛ هر خستگی کوتاه‌مدت فرسودگی بالینی نیست. Workload — بار کار: تقاضای زمانی/شناختی نسبت به ظرفیت؛ تعداد وظیفه کیفیت/وقفه را نشان نمی‌دهد. Work quality — کیفیت کار: دقت و ارزش خروجی با معیار نقش؛ سرعت بیشتر بدون نرخ خطا تصویر کامل نیست."
+    },
+    {
+      "id": "S04-C4-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "کیفیت کار و فرسودگی نظارت باید کنار سرعت و حجم خروجی پایش شوند. AI ممکن است کار ساده را کم کند ولی کار بررسی استثنا و اصلاح را افزایش دهد. تعداد تأییدها، زمان بازبینی، خطای کشف‌نشده و تجربهٔ کارکنان را بسنجید. خودگزارش خستگی نیز باید با تغییر وظیفه و بار واقعی تفسیر شود. فرض صرفه‌جویی زمان را با اندازه‌گیری چرخهٔ کامل کار بررسی کنید. اگر نظارت خسته‌کننده شده، حجم خودکارسازی، طراحی هشدار و ظرفیت نقش را بازتنظیم کنید."
     }
   ],
   "questions": [
@@ -209,18 +221,24 @@
   ],
   "source_links": [
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "review_depth": "official_framework_reviewed",
       "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI، نقش‌ها و نظارت انسان و AI را مشخص می‌کند؛ تضمین انطباق یا بی‌خطایی نیست.",
       "title": "NIST AI Risk Management Framework Core",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "delegating-algorithm-2025",
       "review_depth": "peer_reviewed_article_reviewed",
-      "scope": "بررسی پژوهشی رابطهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ رابطهٔ مشاهده‌شده قانون همیشگی نیست.",
-      "title": "Delegating to the algorithm: AI-driven leadership, bias perceptions and disengagement (2025)",
-      "url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489"
+      "scope": "چکیدهٔ مقالهٔ داوری‌شده دربارهٔ ادراک سوگیری الگوریتمی، اعتماد و disengagement؛ نمونهٔ دو موجی ۲۴۱ پاسخ‌گو از صنایع و خدمات دیجیتال در امارات است و تعمیم آن محدود است.",
+      "title": "Delegating to the algorithm: how AI-driven leadership shapes bias perceptions, trust and emotional disengagement in the workplace (2025)",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0143773925000489",
+      "previous_url": "https://www.sciencedirect.com/org/science/article/abs/pii/S0143773925000489",
+      "doi": "10.1108/LODJ-06-2025-0406",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی ناشر و چکیده باز شد؛ در این گذر متن کامل را جداگانه ارزیابی نکردم. یافته‌ها به نمونهٔ ۲۴۱ نفری و زمینهٔ امارات محدودند."
     }
   ],
   "practice_activity": {
@@ -269,7 +287,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-team-work-learning-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «پایش فرسودگی و کیفیت کار»: اختیار ابزار را به شواهد واقعی وصل کن؛ اثر بر کار و سلامت را هم بسنج. حد اختیار، کارهای پیشنهادی، خودکار و نیازمند تأیید انسان را تفکیک کن.؛ پژوهش و دامنه، روش، نمونه و محدودیت مطالعهٔ تیم و AI را پیش از تعمیم بخوان.؛ کیفیت و فرسودگی، کیفیت خروجی، حجم کار و بار نظارت را با هم پایش کن.؛ دفتر یادگیری، فرض، شاهد، تغییر تصمیم، مسئول و تاریخ بازبینی را ثبت کن.",
+        "caption": "نقشه را برای تحلیل «پایش فرسودگی و کیفیت کار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

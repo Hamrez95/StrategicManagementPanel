@@ -44,6 +44,18 @@
       "title": "حافظه و ابزار را با چرخهٔ عمر اداره کن",
       "id": "S07-C3-ST02-L02-CARD08",
       "text": "ثبت دسترسی و حذف، بررسی دوره‌ای مجوز، نسخه‌بندی ابزار و آزمون پس از تغییر را در فرایند بگذارید. مدیر محصول باید بداند چه داده‌ای چرا وارد سامانه می‌شود و در رخداد چه کسی دسترسی را محدود می‌کند؛ جزئیات حقوقی را با متخصص حوزه تطبیق دهید."
+    },
+    {
+      "id": "S07-C3-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "حداقل دسترسی (Least privilege) مجوز هر ابزار را به وظیفه محدود می‌کند. حافظهٔ کاری موقت و حافظهٔ پایدار از نظر نگهداری و حریم داده فرق دارند. مجوزها و مدت ماندگاری باید جدا تعریف شوند تا زمینهٔ قدیمی به اقدام تازه نشت نکند."
+    },
+    {
+      "id": "S07-C3-ST02-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ابزار عامل توانایی خواندن یا تغییر سامانه را فراهم می‌کند؛ حافظه ممکن است اطلاعات را بین مراحل نگه دارد. هر اتصال خطر دسترسی و اقدام دارد، بنابراین اصل حداقل دسترسی باید به هر ابزار و نقش اعمال شود. دادهٔ حافظه می‌تواند کهنه، حساس یا متعلق به کاربر دیگر شود؛ ماندگاری، پاک‌سازی و جداسازی زمینه را تعریف کنید. اگر ابزار بتواند پرداخت یا ارسال پیام انجام دهد، محیط آزمایشی و محدودیت مقصد لازم است. هدف عامل مجوز تازه ایجاد نمی‌کند و نباید کنترل‌های دسترسی سامانهٔ اصلی دور زده شوند."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+    },
+    {
+      "id": "S07-C3-ST02-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل از حافظهٔ بلندمدت و ابزار مالی استفاده می‌کند. اصل طراحی مناسب چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دادهٔ حافظه، ماندگاری و حداقل مجوز هر ابزار را جدا تعریف کنیم",
+          "feedback": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        },
+        {
+          "id": "b",
+          "text": "همهٔ ابزارها را آزادانه در دسترس بگذاریم",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        },
+        {
+          "id": "c",
+          "text": "حافظه را بدون کنترل نگه داریم",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود.",
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "equivalence_group": "S07-C3-ST02-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
       "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
       "review_depth": "official_business_guide_reviewed",
-      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENAI-AGENTS-SDK-HANDOFFS",
       "title": "OpenAI Agents SDK: Handoffs",
       "url": "https://openai.github.io/openai-agents-python/handoffs/",
       "review_depth": "official_product_documentation_reviewed",
-      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
       "title": "Google PAIR: Feedback + Control",
       "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
       "review_depth": "official_practitioner_guide_reviewed",
-      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern and Map",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه."
+      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "agent-authorization-and-trace-map",
     "prompt": "در سناریوی سپهر، برای «ابزار، حافظه و حدود اختیار» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
-    "expected_output": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل"
+    "expected_output": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل",
+    "rubric": [
+      "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+      "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+      "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -212,7 +264,7 @@
     "OPENAI-AGENTS-BUSINESS-GUIDE",
     "OPENAI-AGENTS-SDK-HANDOFFS",
     "GOOGLE-PAIR-FEEDBACK-CONTROL",
-    "NIST-AIRMF-PLAYBOOK"
+    "NIST-AI-RMF-CORE"
   ],
   "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
   "example_plan": {
@@ -223,7 +275,14 @@
   "media_plan": {
     "type": "agent-tool-permission-and-trace-map",
     "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ابزار، حافظه و حدود اختیار»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+        "caption": "نقشه را برای تحلیل «ابزار، حافظه و حدود اختیار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

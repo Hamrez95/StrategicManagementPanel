@@ -59,6 +59,18 @@
           "title": "مثال سپهر",
           "id": "S07-C1-ST01-L01-CARD08",
           "text": "برای تحلیل دیرکرد، یک ردیف به‌ازای سفارش و شناسهٔ ناشناس سفارش؛ ویژگی‌ها فقط آنچه تا زمان تصمیم در دسترس بوده؛ برچسب دیرکرد طبق تعریف موعد قراردادی. اگر سفارش‌های لغوشده حذف شوند، نتیجه فقط برای سفارش‌های تکمیل‌شده معتبر است."
+        },
+        {
+          "id": "S07-C1-ST01-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "واحد مشاهده (Unit of observation) رکوردی است که یک ردیف داده نمایندگی می‌کند؛ با هدف پیش‌بینی هم‌تراز باشد. ویژگی (Feature) ورودی و هدف (Target) متغیر مورد برآورد است. زمان دسترس‌پذیری هر ویژگی را ثبت کنید تا دادهٔ آینده وارد تصمیم گذشته نشود."
+        },
+        {
+          "id": "S07-C1-ST01-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "واحد مشاهده تعیین می‌کند هر ردیف داده دربارهٔ چه چیزی و در چه زمانی است؛ مثلاً سفارش، مشتری یا رخداد روزانه. اگر پرسش دربارهٔ تأخیر سفارش باشد اما داده بر مبنای مشتری تجمیع شود، رابطهٔ موردنیاز ممکن است ناپدید شود. تعریف شناسه، زمان ثبت، پوشش و دادهٔ مفقود را پیش از مدل‌سازی بنویسید. فرض نمونه‌بودن داده را بررسی کنید: کاربران ثبت‌شده شاید نمایندهٔ همهٔ مشتریان نباشند. تغییر واحد تحلیل می‌تواند هم نرخ پایه و هم تصمیم را عوض کند؛ بنابراین واحد را از تصمیم مدیریتی استخراج کنید و نتیجه را در سطح همان واحد تفسیر کنید."
         }
       ],
       "questions": [
@@ -177,6 +189,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "زمان ثبت و دسترسی از تعریف ویژگی است."
+        },
+        {
+          "id": "S07-C1-ST01-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "دادهٔ سفارش‌ها شامل چند ردیف برای یک سفارش است. پیش از ساخت مدل چه چیزی را تعیین کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "واحد مشاهده و زمان هر ویژگی و هدف پیش‌بینی",
+              "feedback": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+            },
+            {
+              "id": "b",
+              "text": "تعداد ستون‌های بیشتر",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+            },
+            {
+              "id": "c",
+              "text": "واحدی را انتخاب کنیم که رکوردها را بیشتر کند",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند.",
+          "objective_id": "S07-C1-ST01-L01-OBJ01",
+          "equivalence_group": "S07-C1-ST01-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C1-ST01-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -185,34 +227,44 @@
           "title": "Google Machine Learning Crash Course: Data Characteristics",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google Machine Learning Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-PRODUCTION-MONITORING",
           "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش داده و برچسب و خطا در استقرار."
+          "scope": "پایش داده و برچسب و خطا در استقرار.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI Risk Management Framework Core",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "managerial-ml-data-card",
         "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+        "rubric": [
+          "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+          "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+          "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -236,7 +288,14 @@
       "media_plan": {
         "type": "data-unit-feature-label-evaluation-diagram",
         "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/data-task-model-validation-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «داده و واحد مشاهده»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+            "caption": "نقشه را برای تحلیل «داده و واحد مشاهده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -301,12 +360,48 @@
         {
           "title": "مدل پیش‌بینی، سیاست تصمیم نیست",
           "id": "S07-C1-ST01-L02-CARD07",
-          "text": "مدل احتمال را برآورد می‌کند؛ قاعدهٔ عمل می‌گوید با احتمال چه کنیم. حتی مدل دقیق می‌تواند تصمیم بدی بسازد اگر هزینه، ظرفیت، محدودیت یا اثر بر افراد در سیاست نیامده باشد."
+          "text": "مدل احتمال را برآورد می‌کند؛ قاعدهٔ عمل می‌گوید با احتمال چه کنیم. حتی مدل دقیق می‌تواند تصمیم بدی بسازد اگر هزینه، ظرفیت، محدودیت یا اثر بر افراد در سیاست نیامده باشد.",
+          "table": {
+            "columns": [
+              "مرحله",
+              "نمونهٔ دیرکرد سفارش",
+              "مسئولیت مدیریتی"
+            ],
+            "rows": [
+              [
+                "پیش‌بینی",
+                "احتمال دیرکرد: ۰٫۷",
+                "کیفیت و کالیبراسیون احتمال را بسنج"
+              ],
+              [
+                "قاعدهٔ اقدام",
+                "بررسی سفارش‌های بالای آستانه",
+                "آستانه را با هزینهٔ خطا و ظرفیت تیم تنظیم کن"
+              ],
+              [
+                "بازبینی",
+                "کارشناس اطلاعات سفارش را می‌بیند",
+                "کاربر بتواند دادهٔ نادرست را اصلاح کند"
+              ]
+            ]
+          }
         },
         {
           "title": "مثال سپهر",
           "id": "S07-C1-ST01-L02-CARD08",
           "text": "مدل احتمال دیرکرد سفارش می‌دهد؛ تیم عملیات سفارش‌های بالای آستانه را بررسی می‌کند. آستانه باید با ظرفیت روزانه و هزینهٔ هشدار کاذب تنظیم شود و کاربر حق اصلاح اطلاعات داشته باشد."
+        },
+        {
+          "id": "S07-C1-ST01-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "رگرسیون (Regression) مقدار پیوسته، طبقه‌بندی (Classification) برچسب/احتمال و رتبه‌بندی (Ranking) ترتیب گزینه‌ها را می‌دهد. کالیبراسیون (Calibration) می‌سنجد احتمال اعلامی با بسامد واقعی سازگار است یا نه. پیش‌بینی هیچ‌یک به‌تنهایی سیاست اقدام را تعیین نمی‌کند."
+        },
+        {
+          "id": "S07-C1-ST01-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "نوع خروجی باید با پرسش و هزینهٔ خطا هماهنگ باشد. پیش‌بینی عددی می‌گوید چه مقدار محتمل است؛ طبقه‌بندی دسته می‌دهد؛ رتبه‌بندی ترتیب بررسی را پیشنهاد می‌کند و توصیه گزینهٔ اقدام را برمی‌گزیند. این‌ها معادل یکدیگر نیستند: رتبه‌بندی بالا الزاماً به معنای احتمال قطعی یا اقدام خودکار نیست. معیار کیفیت هم فرق می‌کند و آستانهٔ تصمیم هزینهٔ مثبت و منفی کاذب را تغییر می‌دهد. اگر هدف از پیش‌بینی به اقدام تغییر کند، باید پیامد و اختیار تصمیم دوباره تعریف شود. مدیر خروجی، کاربر، گزینهٔ اقدام و مسئول پذیرش ریسک را مشخص می‌کند."
         }
       ],
       "questions": [
@@ -425,6 +520,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "هدف تصمیم و محدودیت‌ها هم باید طراحی شوند."
+        },
+        {
+          "id": "S07-C1-ST01-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مدل احتمال دیرکرد می‌دهد ولی تیم فقط ده سفارش را روزانه می‌تواند بررسی کند. قاعدهٔ اقدام چه باید ببیند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "آستانه را با ظرفیت بررسی و هزینهٔ خطای مثبت/منفی کاذب تنظیم کند",
+              "feedback": "پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+            },
+            {
+              "id": "b",
+              "text": "احتمال را حکم قطعی بداند",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+            },
+            {
+              "id": "c",
+              "text": "همهٔ سفارش‌ها را خودکار متوقف کند",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "پیش‌بینی و تصمیم جدا هستند؛ آستانه به زیان و ظرفیت عمل وابسته است.",
+          "objective_id": "S07-C1-ST01-L02-OBJ01",
+          "equivalence_group": "S07-C1-ST01-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C1-ST01-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -433,34 +558,44 @@
           "title": "Google Machine Learning Crash Course: Data Characteristics",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google Machine Learning Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-PRODUCTION-MONITORING",
           "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش داده و برچسب و خطا در استقرار."
+          "scope": "پایش داده و برچسب و خطا در استقرار.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI Risk Management Framework Core",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "managerial-ml-data-card",
         "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+        "rubric": [
+          "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+          "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+          "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -482,9 +617,22 @@
         "real_case_status": "fictional_case"
       },
       "media_plan": {
-        "type": "data-unit-feature-label-evaluation-diagram",
-        "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-        "production_status": "planned_not_created"
+        "type": "authored_diagram",
+        "purpose": "جداکردن پیش‌بینی از سیاست و اقدام مدیریتی",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/data-task-model-validation-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «پیش‌بینی، طبقه‌بندی و توصیه»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+            "caption": "نقشه را برای تحلیل «پیش‌بینی، طبقه‌بندی و توصیه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          },
+          {
+            "asset_ref": "content/media/ai-prediction-to-decision.svg",
+            "alt_text": "تعریف داده و هدف، خروجی مدل، قاعدهٔ تصمیم با هزینهٔ خطا و ظرفیت پاسخ، و اقدام دارای بازبینی انسانی.",
+            "caption": "پیش‌بینی مدل با تصمیم نهایی یکی نیست؛ آستانه و پیامدها را آشکار کن.",
+            "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -555,6 +703,18 @@
           "title": "مثال سپهر",
           "id": "S07-C1-ST01-L03-CARD08",
           "text": "برای احتمال دیرکرد، recall سفارش‌های واقعاً دیررس کنار precision هشدارها و بار بررسی روزانه گزارش می‌شود؛ مقایسه با قاعدهٔ «تأمین‌کنندهٔ دیرکرددار قبلی» انجام می‌شود و آزمون روی دورهٔ زمانی بعدی می‌ماند."
+        },
+        {
+          "id": "S07-C1-ST01-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "دادهٔ آموزش (Training set) برای برازش، اعتبارسنجی برای انتخاب تنظیم و آزمون (Test set) برای ارزیابی نهایی به کار می‌رود. تعمیم (Generalization) عملکرد روی دادهٔ تازه است. جداسازی مجموعه‌ها باید با زمان و واحد واقعی تصمیم سازگار باشد."
+        },
+        {
+          "id": "S07-C1-ST01-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مدل با دادهٔ آموزش پارامتر می‌آموزد، اعتبارسنجی برای انتخاب و تنظیم روش به کار می‌رود و آزمون برآورد نهایی روی دادهٔ کنارگذاشته‌شده می‌دهد. استفادهٔ مکرر از آزمون برای انتخاب مدل، آن را عملاً به دادهٔ توسعه تبدیل می‌کند و ارزیابی خوش‌بینانه می‌شود. تقسیم تصادفی برای رخدادهای زمانی یا دادهٔ تکراری ممکن است اطلاعات آینده یا هم‌پوشان را نشت دهد. معیار باید پیامد کاربرد را بازتاب دهد؛ دقت کل در دادهٔ نامتوازن می‌تواند گمراه کند. اگر زمان یا زیرگروه محیط واقعی فرق کند، طرح ارزیابی نیز باید همان تفاوت را منعکس کند."
         }
       ],
       "questions": [
@@ -673,6 +833,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "precision و recall و ماتریس خطا ابعاد مهم دیگری دارند."
+        },
+        {
+          "id": "S07-C1-ST01-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مدل روی دادهٔ آموزش عملکرد عالی دارد ولی روی نمونهٔ مستقل افت می‌کند. چه تفسیر محتملی است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تعمیم ضعیف یا بیش‌برازش؛ روش ارزیابی و دادهٔ آزمون را بررسی کنیم",
+              "feedback": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+            },
+            {
+              "id": "b",
+              "text": "مدل حتماً بهتر شده است",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+            },
+            {
+              "id": "c",
+              "text": "دادهٔ مستقل را حذف کنیم",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "عملکرد آموزش نشان نمی‌دهد مدل روی نمونهٔ تازه تعمیم می‌یابد.",
+          "objective_id": "S07-C1-ST01-L03-OBJ01",
+          "equivalence_group": "S07-C1-ST01-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C1-ST01-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -681,34 +871,44 @@
           "title": "Google Machine Learning Crash Course: Data Characteristics",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google Machine Learning Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-PRODUCTION-MONITORING",
           "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش داده و برچسب و خطا در استقرار."
+          "scope": "پایش داده و برچسب و خطا در استقرار.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI Risk Management Framework Core",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "managerial-ml-data-card",
         "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+        "rubric": [
+          "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+          "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+          "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -732,7 +932,14 @@
       "media_plan": {
         "type": "data-unit-feature-label-evaluation-diagram",
         "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/data-task-model-validation-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «آموزش و ارزیابی مدل»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+            "caption": "نقشه را برای تحلیل «آموزش و ارزیابی مدل» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,
@@ -803,6 +1010,18 @@
           "title": "مثال سپهر",
           "id": "S07-C1-ST01-L04-CARD08",
           "text": "مدل دیرکرد عملکرد تقریباً کامل دارد؛ بازبینی می‌بیند ویژگی «زمان تحویل واقعی» در داده هست. این نشتی آشکار است. پس از حذف، عملکرد پایین‌تر اما واقعی‌تر می‌شود؛ آزمون زمانی و گروهی تازه برای تصمیم استقرار لازم است."
+        },
+        {
+          "id": "S07-C1-ST01-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "نشت داده (Data leakage) اطلاعاتی را وارد آموزش یا آزمون می‌کند که هنگام تصمیم واقعی در دسترس نبود. تقسیم زمانی برای پیش‌بینی آینده معمولاً از تقسیم تصادفی مناسب‌تر است. نمونهٔ آزمون آلوده، دقت ظاهری می‌سازد و برآورد تعمیم را بی‌اعتبار می‌کند."
+        },
+        {
+          "id": "S07-C1-ST01-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "نشت داده هنگامی رخ می‌دهد که اطلاعاتی وارد آموزش یا ارزیابی شود که هنگام تصمیم واقعی در دسترس نبوده یا از پیامد آینده مشتق شده است. تقسیم نامناسب مشتریان تکراری میان آموزش و آزمون نیز آشنایی پنهان ایجاد می‌کند. نتیجهٔ بالا در آزمون الزاماً عملکرد تولید نیست: توزیع، رفتار کاربر، تعریف برچسب و مسیر داده ممکن است تغییر کند. باید زمان دسترس‌پذیری هر ویژگی، واحد تقسیم و فرایند ساخت برچسب را ثبت کرد. اگر داده به ترتیب زمان جمع شده، ارزیابی زمانی واقع‌گرایانه‌تر است؛ کنترل نشت باید پیش از تفسیر معیار انجام شود."
         }
       ],
       "questions": [
@@ -921,6 +1140,36 @@
           "version": 1,
           "correct_option_id": "c",
           "explanation": "تغییر توزیع و فرایند نیازمند پایش است."
+        },
+        {
+          "id": "S07-C1-ST01-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "مدل پیش‌بینی تقاضا از دادهٔ پایان ماه برای پیش‌بینی ابتدای همان ماه استفاده کرده است. خطر چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "نشت اطلاعات آینده که عملکرد آزمون را خوش‌بینانه می‌کند",
+              "feedback": "ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+            },
+            {
+              "id": "b",
+              "text": "افزایش واقعی اطلاعات در دسترس مدیر",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+            },
+            {
+              "id": "c",
+              "text": "کاهش خطای عملیاتی واقعی",
+              "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "ویژگی باید در زمان تصمیم واقعاً در دسترس باشد؛ اطلاعات آینده نشت و ارزیابی نامعتبر می‌سازد.",
+          "objective_id": "S07-C1-ST01-L04-OBJ01",
+          "equivalence_group": "S07-C1-ST01-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C1-ST01-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
         }
       ],
       "source_links": [
@@ -929,34 +1178,44 @@
           "title": "Google Machine Learning Crash Course: Data Characteristics",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+          "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-DATA-SPLIT",
           "title": "Google Machine Learning Crash Course: Dividing Datasets",
           "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+          "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "GOOGLE-ML-PRODUCTION-MONITORING",
           "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
           "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
           "review_depth": "official_technical_education_reviewed",
-          "scope": "پایش داده و برچسب و خطا در استقرار."
+          "scope": "پایش داده و برچسب و خطا در استقرار.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "NIST-AI-RMF-CORE",
           "title": "NIST AI Risk Management Framework Core",
           "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
           "review_depth": "official_risk_framework_reviewed",
-          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+          "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "managerial-ml-data-card",
         "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+        "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+        "rubric": [
+          "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+          "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+          "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -980,7 +1239,14 @@
       "media_plan": {
         "type": "data-unit-feature-label-evaluation-diagram",
         "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/data-task-model-validation-map.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «نشت داده و خطای اعتبارسنجی»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+            "caption": "نقشه را برای تحلیل «نشت داده و خطای اعتبارسنجی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 4,

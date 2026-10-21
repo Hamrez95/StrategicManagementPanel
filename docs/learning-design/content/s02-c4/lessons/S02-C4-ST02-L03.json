@@ -58,6 +58,18 @@
       "text": "ریسک مدل یعنی عدم‌قطعیت ناشی از خطا، فرض یا کاربرد نامناسب مدل. امنیت سایبری، حریم خصوصی و ریسک مدل هم‌پوشانی دارند اما یک مفهوم واحد نیستند.",
       "id": "S02-C4-ST02-L03-CARD09",
       "type": "explanation"
+    },
+    {
+      "id": "S02-C4-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Least privilege — حداقل دسترسی: اعطای کمترین مجوز لازم برای نقش و زمان؛ مجوز دائمی گسترده ریسک را بالا می‌برد. Data lineage — تبار داده: ردگیری منشأ، تبدیل و مصرف داده؛ وجود ثبت مسیر دقت داده را تضمین نمی‌کند. Model risk management — مدیریت ریسک مدل: شناسایی، اعتبارسنجی، پایش و کنترل کاربرد مدل؛ رتبهٔ مدل جای پاسخ‌گویی کسب‌وکار را نمی‌گیرد."
+    },
+    {
+      "id": "S02-C4-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "امنیت و اعتماد در کاربرد مالی AI به محرمانگی داده، کنترل دسترسی، صحت خروجی، ثبت و تداوم خدمت وابسته است. اتصال مدل به تراکنش یا اطلاعات حساس پیامد نفوذ را بالا می‌برد. داده را کمینه کنید، ابزار را محدود کنید و اقدام مالی را با تأیید و سقف کنترل کنید. فرض بی‌خطر بودن خروجی یا سرویس بیرونی را نپذیرید؛ مسیر جایگزین و پاسخ رخداد را طراحی کنید. مالک امنیت و مالک ریسک مالی باید روشن باشند. کنترل‌ها را با تغییر مدل و دسترسی دوباره ارزیابی کنید."
     }
   ],
   "questions": [
@@ -213,14 +225,16 @@
       "url": "https://www.bis.org/project/noor",
       "id": "bis-project-noor-2025",
       "review_depth": "official_institution_project_reviewed",
-      "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست."
+      "scope": "پروژهٔ پژوهشی نظارتی دربارهٔ تفسیرپذیری، انصاف و استحکام مدل AI در مالی؛ نمونهٔ ابتکار است و تأیید محصول نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "Financial stability implications of artificial intelligence: Executive Summary (2025)",
       "url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary",
       "id": "bis-financial-ai-2025",
       "review_depth": "official_institution_summary_reviewed",
-      "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است."
+      "scope": "مرور ریسک‌های AI مالی از جمله کیفیت داده، ریسک مدل و حکمرانی؛ متن خلاصه سیاستی است.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -261,9 +275,17 @@
     "real_case_status": "choose_and_verify_during_authoring"
   },
   "media_plan": {
-    "type": "authored_diagram_or_worked_table",
-    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "type": "authored_diagram",
+    "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/financial-ai-controls-layers.svg",
+        "alt_text": "پنج لایهٔ کنترل کاربرد مالی AI: داده و دسترسی، ارزیابی خروجی، تأیید اقدام، ثبت و بررسی، توقف و بازگشت.",
+        "caption": "کنترل‌ها را با حساسیت کاربرد و سطح اختیار سامانه متناسب کنید.",
+        "source_url": "https://www.bis.org/publications/fsi-summary-financial-stability-implications-artificial-intelligence-executive-summary"
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

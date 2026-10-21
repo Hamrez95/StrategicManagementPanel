@@ -33,7 +33,21 @@
           "id": "S03-C4-ST01-L01-CARD02",
           "type": "explanation",
           "title": "نرخ عبور با تعداد یکی نیست",
-          "text": "اگر ۱۰۰۰ کاربر ببینند و ۱۰۰ نفر خرید کنند، نرخ تبدیل ۱۰٪ است؛ اما اگر فقط افراد واجدشرایط را مخرج بگیریم، پاسخ فرق می‌کند. تعداد مطلق برای ظرفیت و نرخ برای مقایسه کاربرد دارد؛ هر دو را گزارش کنید."
+          "text": "اگر ۱۰۰۰ کاربر ببینند و ۱۰۰ نفر خرید کنند، نرخ تبدیل ۱۰٪ است؛ اما اگر فقط افراد واجدشرایط را مخرج بگیریم، پاسخ فرق می‌کند. تعداد مطلق برای ظرفیت و نرخ برای مقایسه کاربرد دارد؛ هر دو را گزارش کنید.",
+          "table": {
+            "columns": [
+              "رویداد شمارش‌شده",
+              "مخرج",
+              "محاسبهٔ نرخ تبدیل"
+            ],
+            "rows": [
+              [
+                "۱۰۰ خرید",
+                "۱٬۰۰۰ بازدید",
+                "۱۰۰ ÷ ۱٬۰۰۰ = ۱۰٪"
+              ]
+            ]
+          }
         },
         {
           "id": "S03-C4-ST01-L01-CARD03",
@@ -76,6 +90,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "Funnel قیف؛ conversion نرخ تبدیل؛ cohort گروه هم‌دوره؛ retention حفظ؛ churn ریزش؛ activation فعال‌سازی؛ denominator مخرج؛ censored cohort گروه با زمان مشاهدهٔ ناقص است. نرخ را بدون تعریف رویداد و جامعه مقایسه نکنید."
+        },
+        {
+          "id": "S03-C4-ST01-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Acquisition funnel — قیف جذب: نرخ عبور میان مراحل تعریف‌شده؛ مخرج و پنجره هر مرحله باید یکسان/قابل‌توضیح باشد. Cohort — گروه هم‌دوره: کاربران با زمان/ویژگی آغاز مشترک برای مقایسهٔ هم‌سن؛ cohortها با ترکیب متفاوت قابل‌قیاس خام نیستند. Retention — حفظ مشتری: بازگشت/فعال‌بودن در پنجرهٔ تعریف‌شده؛ فعالیت یک‌باره معادل ماندگاری نیست."
         }
       ],
       "questions": [
@@ -225,34 +245,52 @@
           "remediation_card_id": "S03-C4-ST01-L01-CARD07"
         }
       ],
+      "source_refs": [
+        "mit-marketing-clv-ocw",
+        "mit-new-enterprises-ltv-cac",
+        "mit-marketing-analytics-growth",
+        "ama-cac-calculator",
+        "REFORGE-GROWTH-LOOPS-2018"
+      ],
       "source_links": [
         {
           "id": "mit-marketing-clv-ocw",
           "title": "MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics",
           "url": "https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/",
           "scope": "مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-new-enterprises-ltv-cac",
           "title": "MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/",
           "scope": "تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.",
-          "review_depth": "official_university_assignment_reviewed"
+          "review_depth": "official_university_assignment_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-marketing-analytics-growth",
-          "title": "MIT Sloan: Digital Marketing Analytics and Experimentation Course Description",
-          "url": "https://mitsloan.mit.edu/business-analytics-certificate",
-          "scope": "شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.",
-          "review_depth": "official_university_course_description_reviewed"
+          "title": "MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)",
+          "url": "https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/",
+          "scope": "درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.",
+          "review_depth": "official_university_course_description_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ama-cac-calculator",
           "title": "American Marketing Association: Customer Acquisition Cost Calculator",
           "url": "https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/",
-          "scope": "ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.",
-          "review_depth": "professional_association_tool_reviewed"
+          "scope": "ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.",
+          "review_depth": "professional_association_tool_reviewed",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "title": "Reforge (2018): Growth Loops are the New Funnels",
+          "url": "https://www.reforge.com/blog/growth-loops",
+          "scope": "دیدگاه اجرایی و نقد محدودیت قیف خطی؛ برای مقایسه با رشد چرخه‌ای، نه به‌عنوان قانون قطعی",
+          "id": "REFORGE-GROWTH-LOOPS-2018",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -274,7 +312,20 @@
       "review_status": "pending",
       "fresh_equivalent_variants": 0,
       "prerequisites_suggested": [],
-      "prerequisites_block_access": false
+      "prerequisites_block_access": false,
+      "media_plan": {
+        "type": "authored_diagram",
+        "purpose": "نمایش مسیر متداول قیف همراه با هشدار دربارهٔ غیرخطی بودن مسیر واقعی",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/growth-funnel-stages.svg",
+            "alt_text": "پنج گام قیف رشد: آگاهی، ورود، فعال‌سازی، تبدیل و حفظ. مسیر می‌تواند غیرخطی باشد؛ نرخ هر مرحله به رویداد و مخرج نیاز دارد.",
+            "caption": "از قیف برای یافتن مرحلهٔ افت استفاده کن؛ علت را با پژوهش یا آزمایش بررسی کن.",
+            "source_url": "https://www.reforge.com/blog/growth-loops"
+          }
+        ]
+      }
     },
     {
       "id": "S03-C4-ST01-L02",
@@ -336,6 +387,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "CAC/COCA هزینهٔ جذب مشتری؛ blended CAC هزینهٔ ترکیبی؛ channel CAC هزینهٔ کانالی؛ attribution انتساب؛ conversion lag تأخیر تبدیل؛ fully loaded cost هزینهٔ کامل؛ acquisition window پنجرهٔ جذب است. عدد CAC بدون دامنه و مخرج قابل‌تفسیر نیست."
+        },
+        {
+          "id": "S03-C4-ST01-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Customer acquisition cost — هزینهٔ جذب مشتری: هزینهٔ تعریف‌شدهٔ جذب تقسیم بر مشتری جدید در دوره؛ انتساب و هزینه‌های حذف‌شده نتیجه را تغییر می‌دهند. CAC payback — دورهٔ بازپرداخت CAC: زمانی تا پوشش هزینهٔ جذب از حاشیهٔ مشارکت؛ درآمد ناخالص نباید جای حاشیه بنشیند. Fully loaded cost — هزینهٔ کامل‌شده: هزینهٔ مستقیم و سربار قابل‌تخصیص با قاعدهٔ روشن؛ تخصیص قراردادی را افشا کنید."
         }
       ],
       "questions": [
@@ -485,34 +542,44 @@
           "remediation_card_id": "S03-C4-ST01-L02-CARD06"
         }
       ],
+      "source_refs": [
+        "mit-marketing-clv-ocw",
+        "mit-new-enterprises-ltv-cac",
+        "mit-marketing-analytics-growth",
+        "ama-cac-calculator"
+      ],
       "source_links": [
         {
           "id": "mit-marketing-clv-ocw",
           "title": "MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics",
           "url": "https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/",
           "scope": "مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-new-enterprises-ltv-cac",
           "title": "MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/",
           "scope": "تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.",
-          "review_depth": "official_university_assignment_reviewed"
+          "review_depth": "official_university_assignment_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-marketing-analytics-growth",
-          "title": "MIT Sloan: Digital Marketing Analytics and Experimentation Course Description",
-          "url": "https://mitsloan.mit.edu/business-analytics-certificate",
-          "scope": "شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.",
-          "review_depth": "official_university_course_description_reviewed"
+          "title": "MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)",
+          "url": "https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/",
+          "scope": "درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.",
+          "review_depth": "official_university_course_description_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ama-cac-calculator",
           "title": "American Marketing Association: Customer Acquisition Cost Calculator",
           "url": "https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/",
-          "scope": "ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.",
-          "review_depth": "professional_association_tool_reviewed"
+          "scope": "ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.",
+          "review_depth": "professional_association_tool_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -596,6 +663,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "LTV/CLV ارزش طول عمر مشتری؛ contribution margin حاشیهٔ مشارکت؛ payback period دورهٔ بازپرداخت CAC؛ retention حفظ؛ discount rate نرخ تنزیل؛ survival analysis تحلیل بقا؛ cohort quality کیفیت گروه؛ gross margin حاشیهٔ ناخالص است. LTV را به درآمد فروش برابر نگیرید."
+        },
+        {
+          "id": "S03-C4-ST01-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Customer lifetime value — ارزش طول عمر مشتری: ارزش فعلی/تجمعی حاشیهٔ موردانتظار در رابطه؛ برآوردش به حفظ و افق حساس است. Contribution margin — حاشیهٔ مشارکت: درآمد پس از هزینهٔ متغیر خدمت؛ درآمد به‌تنهایی CLV را بیش‌برآورد می‌کند. Discount rate — نرخ تنزیل: نرخ تبدیل جریان آتی به ارزش امروز؛ انتخاب آن فرض مالی است، نه پارامتر خنثی."
         }
       ],
       "questions": [
@@ -745,34 +818,44 @@
           "remediation_card_id": "S03-C4-ST01-L03-CARD06"
         }
       ],
+      "source_refs": [
+        "mit-marketing-clv-ocw",
+        "mit-new-enterprises-ltv-cac",
+        "mit-marketing-analytics-growth",
+        "ama-cac-calculator"
+      ],
       "source_links": [
         {
           "id": "mit-marketing-clv-ocw",
           "title": "MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics",
           "url": "https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/",
           "scope": "مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-new-enterprises-ltv-cac",
           "title": "MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/",
           "scope": "تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.",
-          "review_depth": "official_university_assignment_reviewed"
+          "review_depth": "official_university_assignment_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-marketing-analytics-growth",
-          "title": "MIT Sloan: Digital Marketing Analytics and Experimentation Course Description",
-          "url": "https://mitsloan.mit.edu/business-analytics-certificate",
-          "scope": "شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.",
-          "review_depth": "official_university_course_description_reviewed"
+          "title": "MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)",
+          "url": "https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/",
+          "scope": "درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.",
+          "review_depth": "official_university_course_description_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ama-cac-calculator",
           "title": "American Marketing Association: Customer Acquisition Cost Calculator",
           "url": "https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/",
-          "scope": "ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.",
-          "review_depth": "professional_association_tool_reviewed"
+          "scope": "ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.",
+          "review_depth": "professional_association_tool_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -856,6 +939,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "Profitable growth رشد سودآور؛ payback بازپرداخت؛ working capital سرمایهٔ در گردش؛ contribution margin حاشیهٔ مشارکت؛ cohort mix ترکیب cohort؛ burn مصرف نقد؛ runway مدت دوام منابع؛ incrementality اثر افزایشی است. رشد را با کیفیت و جریان نقد بسنجید، نه با حجم تنها."
+        },
+        {
+          "id": "S03-C4-ST01-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Growth quality — کیفیت رشد: سنجش رشد با حاشیه، ماندگاری، نقد و هزینهٔ خدمت؛ نرخ رشد تنها تصویر کامل نیست. Working capital — سرمایهٔ در گردش: منابع لازم برای چرخهٔ عملیات؛ رشد سریع می‌تواند پیش از وصول نقد مصرف‌کننده شود. Cohort payback — بازپرداخت گروهی: زمان پوشش هزینه برای cohort مشخص؛ میانگین کل تفاوت مشتریان را پنهان می‌کند."
         }
       ],
       "questions": [
@@ -1005,34 +1094,44 @@
           "remediation_card_id": "S03-C4-ST01-L04-CARD08"
         }
       ],
+      "source_refs": [
+        "mit-marketing-clv-ocw",
+        "mit-new-enterprises-ltv-cac",
+        "mit-marketing-analytics-growth",
+        "ama-cac-calculator"
+      ],
       "source_links": [
         {
           "id": "mit-marketing-clv-ocw",
           "title": "MIT Sloan OCW 15.810: Customer Lifetime Value and Marketing Analytics",
           "url": "https://ocw.mit.edu/courses/15-810-marketing-management-fall-2010/resources/mit15_810f10_lec04/",
           "scope": "مواد تحصیلات تکمیلی دربارهٔ ارزش مشتری، حفظ و LTV؛ محتوای ۲۰۱۰ برای چارچوب و فرمول، نه برآورد جاری یک بازار.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-new-enterprises-ltv-cac",
           "title": "MIT Sloan OCW 15.390 New Enterprises: Assignment 7—LTV and Cost of Customer Acquisition",
           "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/pages/assignments/assignment-7/",
           "scope": "تمرین تحصیلات تکمیلی در طراحی go-to-market و ارتباط LTV/COCA با سودآوری؛ راهنمای ساختار تحلیل، نه فرمول قطعی برای همهٔ مدل‌ها.",
-          "review_depth": "official_university_assignment_reviewed"
+          "review_depth": "official_university_assignment_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-marketing-analytics-growth",
-          "title": "MIT Sloan: Digital Marketing Analytics and Experimentation Course Description",
-          "url": "https://mitsloan.mit.edu/business-analytics-certificate",
-          "scope": "شرح آموزشی دربارهٔ تحلیل بازاریابی، رشد، نگهداشت و طراحی آزمایش تصادفی/A-B.",
-          "review_depth": "official_university_course_description_reviewed"
+          "title": "MIT Sloan OCW 15.810: Marketing Management—Analytics, Frameworks, and Applications (Fall 2015)",
+          "url": "https://ocw.mit.edu/courses/15-810-marketing-management-analytics-frameworks-and-applications-fall-2015/",
+          "scope": "درس تحصیلات تکمیلی پاییز ۲۰۱۵ با مواد عمومی دربارهٔ تحلیل بازاریابی و تصمیم‌گیری؛ منبع برای چارچوب و سرفصل است، نه محتوای جاری ۲۰۲۶.",
+          "review_depth": "official_university_course_description_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "ama-cac-calculator",
           "title": "American Marketing Association: Customer Acquisition Cost Calculator",
           "url": "https://www.ama.org/toolkits/ama-customer-acquisition-cost-calculator/",
-          "scope": "ابزار و یادداشت دربارهٔ اختلاف تعریف CAC میان بازاریابی و مالی و دامنهٔ هزینه و مشتری.",
-          "review_depth": "professional_association_tool_reviewed"
+          "scope": "ابزار پایه CAC برابر مخارج جذب تقسیم بر مشتریان جدید در همان بازه؛ ابزار کامل نیازمند عضویت است و دامنهٔ هزینه/تعریف مشتری باید مستند شود.",
+          "review_depth": "professional_association_tool_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {

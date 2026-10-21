@@ -233,12 +233,17 @@
           "remediation_card_id": "C03-ST04-L01-CARD06"
         }
       ],
+      "source_refs": [
+        "nyu-capstr",
+        "nyu-cflect-2026",
+        "hbs-finance"
+      ],
       "source_links": [
         {
           "id": "nyu-capstr",
           "title": "NYU Stern: Capital Structure",
           "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/lectures/capstr.html",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "مبادلهٔ منفعت مالیاتی، خطر نکول و انعطاف؛ مثال‌های درس مستقل‌اند."
         },
         {
@@ -252,7 +257,7 @@
           "id": "hbs-finance",
           "title": "Harvard Business School Finance II curriculum",
           "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "تطبیق با سیاست مالی شرکت و مدیریت ریسک."
         }
       ],
@@ -343,7 +348,36 @@
             "پرداخت به فروشنده DPO",
             "دریافت نقد / CCC"
           ],
-          "alt": "جریان از خرید تا دریافت وجه با سه بازهٔ موجودی، وصول و پرداخت؛ چرخه نقد برابر روز موجودی و وصول منهای روز پرداخت است."
+          "alt": "جریان از خرید تا دریافت وجه با سه بازهٔ موجودی، وصول و پرداخت؛ چرخه نقد برابر روز موجودی و وصول منهای روز پرداخت است.",
+          "table": {
+            "columns": [
+              "جزء",
+              "روز",
+              "نقش در چرخه"
+            ],
+            "rows": [
+              [
+                "DIO: روز موجودی",
+                "۳۶",
+                "مدت نگهداری موجودی"
+              ],
+              [
+                "DSO: روز وصول",
+                "۵۵",
+                "مدت تبدیل طلب به وجه"
+              ],
+              [
+                "DPO: روز پرداخت",
+                "۳۴",
+                "بازهٔ پرداخت به تأمین‌کننده؛ از جمع کم می‌شود"
+              ],
+              [
+                "CCC",
+                "۵۷",
+                "۳۶ + ۵۵ − ۳۴"
+              ]
+            ]
+          }
         },
         {
           "id": "C03-ST04-L02-CARD09",
@@ -499,12 +533,17 @@
           "remediation_card_id": "C03-ST04-L02-CARD05"
         }
       ],
+      "source_refs": [
+        "openstax-wc",
+        "nyu-cflect-2026",
+        "oxford-mba"
+      ],
       "source_links": [
         {
           "id": "openstax-wc",
           "title": "OpenStax Principles of Finance: What Is Working Capital?",
           "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "تعریف سرمایهٔ در گردش، روزهای موجودی/وصول/پرداخت و چرخهٔ تبدیل نقد؛ متن/مثال OpenStax بازتولید نشده است."
         },
         {
@@ -544,7 +583,20 @@
       "prerequisites_suggested": [
         "صورت‌های مالی و نسبت‌های پایه پیشنهاد می‌شود؛ دسترسی قفل نیست."
       ],
-      "prerequisites_block_access": false
+      "prerequisites_block_access": false,
+      "media_plan": {
+        "type": "authored_diagram",
+        "purpose": "نمایش اجزای DIO، DSO، DPO و چرخهٔ ۵۷روزه در مثال فرضی سپهر",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/cash-conversion-cycle-sepehr.svg",
+            "alt_text": "۳۶ روز موجودی به‌علاوهٔ ۵۵ روز وصول، منهای ۳۴ روز پرداخت برابر CCC پنجاه‌وهفت روز است؛ کاهش DSO به ۴۸ روز، آن را به ۵۰ روز می‌رساند.",
+            "caption": "فرمول را از اجزای فرایند بخوان و اثر جانبی هر اقدام را هم بسنج.",
+            "source_url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital"
+          }
+        ]
+      }
     },
     {
       "id": "C03-ST04-L03",
@@ -764,12 +816,17 @@
           "remediation_card_id": "C03-ST04-L03-CARD06"
         }
       ],
+      "source_refs": [
+        "openstax-wc",
+        "nyu-cflect-2026",
+        "hbs-finance"
+      ],
       "source_links": [
         {
           "id": "openstax-wc",
           "title": "OpenStax Principles of Finance: What Is Working Capital?",
           "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "اجزای سرمایه در گردش و چرخهٔ نقد؛ مثال فروش اعتباری این درس مستقل است."
         },
         {
@@ -783,7 +840,7 @@
           "id": "hbs-finance",
           "title": "Harvard Business School Finance II",
           "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "تطبیق کلی با یکپارچه‌کردن تصمیم‌های مالی شرکت."
         }
       ],
@@ -1031,19 +1088,24 @@
           "remediation_card_id": "C03-ST04-L04-CARD06"
         }
       ],
+      "source_refs": [
+        "bis-ai",
+        "hbs-finance",
+        "bis-annual"
+      ],
       "source_links": [
         {
           "id": "bis-ai",
           "title": "BIS FSI Insights 73: AI data use in financial services, 2026",
           "url": "https://www.bis.org/publications/fsi-insight-73-data-we-trust-emerging-policy-and-supervisory-approaches-ai-data-use-financial-services",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "موضوع‌های داده، حریم خصوصی، امنیت، وابستگی و پاسخ‌گویی؛ این گزارش دقت/ROI یک محصول مشخص را اثبات نمی‌کند."
         },
         {
           "id": "hbs-finance",
           "title": "Harvard Business School Finance II curriculum",
           "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "تطبیق کلی با تصمیم یکپارچه و تعارض منافع در آموزش MBA."
         },
         {

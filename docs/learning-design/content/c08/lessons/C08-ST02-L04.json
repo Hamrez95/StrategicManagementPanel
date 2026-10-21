@@ -58,6 +58,18 @@
       "type": "summary",
       "title": "مدیر مالک تصمیم می‌ماند",
       "text": "خروجی مدل ورودی تصمیم است. برای تصمیم پرهزینه، عدم‌قطعیت، گزینهٔ پشتیبان، مسئول بازبینی و اقدام در صورت افت عملکرد را از پیش روشن کنید."
+    },
+    {
+      "id": "C08-ST02-L04-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Baseline forecast — پیش‌بینی مبنا: روش سادهٔ مرجع برای سنجش بهبود مدل. Forecast horizon — افق پیش‌بینی: فاصلهٔ زمانی میان زمان پیش‌بینی و پیامد؛ خطا معمولاً با افق تغییر می‌کند. Data leakage — نشت داده: ورود اطلاعاتی از آینده یا برچسب هدف به فرایند آموزش؛ ارزیابی را خوش‌بینانه می‌کند."
+    },
+    {
+      "id": "C08-ST02-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مدل AI باید کنار یک روش ساده و روی دادهٔ زمانیِ مستقل سنجیده شود؛ در غیر این صورت پیچیدگی یا نشت داده می‌تواند برتری کاذب بسازد. خطای پیش‌بینی فقط وقتی ارزش مدیریتی دارد که هزینهٔ هشدار نادرست، کمبود و ظرفیت پاسخ را هم بدانیم. اگر زمینه یا افق عوض شود، مبنا و آستانهٔ تصمیم را دوباره ارزیابی کنید؛ پیش‌بینی دقیق‌تر ممکن است به‌خاطر هزینهٔ اقدام، تصمیم بهتری نسازد."
     }
   ],
   "questions": [
@@ -207,24 +219,32 @@
       "remediation_card_id": "C08-ST02-L04-CARD08"
     }
   ],
+  "source_refs": [
+    "forecast",
+    "tscv",
+    "NIST-GENAI-PROFILE-2024"
+  ],
   "source_links": [
     {
       "id": "forecast",
       "title": "Forecasting: Principles and Practice, 3e: Forecast Accuracy",
-      "url": "https://otexts.com/fpp3/accuracy.html",
-      "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی."
+      "url": "https://otexts.com/fpp3/toolbox.html",
+      "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "tscv",
       "title": "Forecasting: Principles and Practice, 3e: Time Series Cross-validation",
-      "url": "https://otexts.com/fpp3/tscv.html",
-      "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده."
+      "url": "https://otexts.com/fpp3/toolbox.html",
+      "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist",
+      "id": "NIST-GENAI-PROFILE-2024",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://doi.org/10.6028/NIST.AI.600-1",
-      "scope": "مدیریت ریسک خروجی مولد؛ منبع راهنمای ریسک است، نه تضمین وقوع خطا."
+      "scope": "مدیریت ریسک خروجی مولد؛ منبع راهنمای ریسک است، نه تضمین وقوع خطا.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

@@ -44,6 +44,18 @@
       "title": "مثال سپهر و تصمیم‌نامه",
       "id": "S06-C3-ST02-L03-CARD08",
       "text": "سپهر pre-money فرضی ۸ و جذب ۲ را می‌بیند؛ محاسبهٔ ساده ۲۰٪ سهم جدید می‌دهد. سپس هزینهٔ دور، اختیار تصمیم، حقوق سرمایه‌گذار، زمان runway و milestone را کنار عدد می‌گذارد. تصمیم‌نامه، فرض‌ها و سؤال‌های حقوقی باز را ثبت می‌کند."
+    },
+    {
+      "id": "S06-C3-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Dilution — رقیق‌شدن مالکیت: کاهش درصد سهم پس از انتشار سهام جدید؛ ارزش اقتصادی بنیان‌گذار لزوماً به همان نسبت کم نمی‌شود. Pre-money valuation — ارزش پیش از سرمایه: ارزش توافقی قبل از ورود سرمایه؛ قرارداد و نوع سهم آن را تغییر می‌دهند. Liquidation preference — حق تقدم نقدشوندگی: اولویت توزیع عواید هنگام فروش/انحلال؛ درصد مالکیت به‌تنهایی دریافتی را نشان نمی‌دهد."
+    },
+    {
+      "id": "S06-C3-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "رقیق‌شدن درصد مالکیت پس از انتشار سهام تازه رخ می‌دهد، اما ارزش دریافت‌شده و حق تقدم قرارداد بر عایدی واقعی اثر می‌گذارند. ارزش‌گذاری پیش از سرمایه به‌تنهایی سهم اقتصادی بنیان‌گذار را نمی‌گوید. اگر preference یا گزینه‌های سهام تغییر کند، سناریوی خروج را دوباره محاسبه کنید؛ درصد اسمی را با آبشار توزیع نقد اشتباه نگیرید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "b",
       "explanation": "خود NVCA می‌گوید اسناد باید با نیازها تطبیق یابند."
+    },
+    {
+      "id": "S06-C3-ST02-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "سرمایه‌گذار ۲ میلیون برای ارزش پیش از سرمایهٔ ۸ میلیون می‌دهد. سهم سادهٔ تازه چقدر می‌شود؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "۲۰٪؛ زیرا پس از سرمایه ۱۰ میلیون و مبلغ سرمایه ۲ میلیون است",
+          "feedback": "ارزش پس از سرمایه=۸+۲=۱۰؛ سهم سرمایه‌گذار=۲÷۱۰=۲۰٪ در فرض ساده و بدون ابزارهای دیگر."
+        },
+        {
+          "id": "b",
+          "text": "۲۵٪؛ سرمایه را بر ارزش پیش از سرمایه تقسیم کنیم",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: ارزش پس از سرمایه=۸+۲=۱۰؛ سهم سرمایه‌گذار=۲÷۱۰=۲۰٪ در فرض ساده و بدون ابزارهای دیگر."
+        },
+        {
+          "id": "c",
+          "text": "۸۰٪",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: ارزش پس از سرمایه=۸+۲=۱۰؛ سهم سرمایه‌گذار=۲÷۱۰=۲۰٪ در فرض ساده و بدون ابزارهای دیگر."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ارزش پس از سرمایه=۸+۲=۱۰؛ سهم سرمایه‌گذار=۲÷۱۰=۲۰٪ در فرض ساده و بدون ابزارهای دیگر.",
+      "objective_id": "S06-C3-ST02-L03-OBJ01",
+      "equivalence_group": "S06-C3-ST02-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C3-ST02-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,48 +212,60 @@
       "title": "OpenStax Principles of Finance 2e: Capital Structure Choices",
       "url": "https://openstax.org/books/principles-finance-2e/pages/17-4-capital-structure-choices",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "مفاهیم پایهٔ بدهی، سهام و ساختار سرمایه؛ نمونه‌ها لزوماً شرکت نوپا نیستند."
+      "scope": "مفاهیم پایهٔ بدهی، سهام و ساختار سرمایه؛ نمونه‌ها لزوماً شرکت نوپا نیستند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-FINANCE-CASHFLOW-5.5",
       "title": "OpenStax Principles of Finance: Statement of Cash Flows",
       "url": "https://openstax.org/books/principles-finance/pages/5-5-the-statement-of-cash-flows",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "تفکیک جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی."
+      "scope": "تفکیک جریان نقد عملیاتی، سرمایه‌گذاری و تأمین مالی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-WORKING-CAPITAL",
       "title": "OpenStax Principles of Finance: Working Capital",
       "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "چرخه نقد، سرمایه در گردش و نیازهای کوتاه‌مدت."
+      "scope": "چرخه نقد، سرمایه در گردش و نیازهای کوتاه‌مدت.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "DAMODARAN-CASH-BURN",
       "title": "Aswath Damodaran: Cash Burn and Runway",
       "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/blog/CashBurn.pdf",
       "review_depth": "official_faculty_teaching_material_reviewed",
-      "scope": "تعریف سادهٔ burn و runway؛ پیش‌بینی نیازمند سناریوهای شرکت است."
+      "scope": "تعریف سادهٔ burn و runway؛ پیش‌بینی نیازمند سناریوهای شرکت است.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NVCA-MODEL-DOCS",
       "title": "NVCA Model Legal Documents",
       "url": "https://nvca.org/model-legal-documents/",
       "review_depth": "industry_model_document_reviewed",
-      "scope": "نمونه اسناد سرمایه‌گذاری خطرپذیر آمریکا؛ اسناد نقطهٔ شروع‌اند و مشاورهٔ حقوقی نیستند."
+      "scope": "نمونه اسناد سرمایه‌گذاری خطرپذیر آمریکا؛ اسناد نقطهٔ شروع‌اند و مشاورهٔ حقوقی نیستند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "SEC-PRIVATE-OFFERINGS",
-      "title": "SEC: Private Placements under Regulation D",
-      "url": "https://www.sec.gov/resources-small-businesses/exempt-offerings/private-placements",
+      "title": "SEC: Exempt Offerings (includes Rule 506 private placements)",
+      "url": "https://www.sec.gov/resources-small-businesses/exempt-offerings",
       "review_depth": "official_regulator_guidance_reviewed",
-      "scope": "اطلاعات آمریکا دربارهٔ عرضهٔ خصوصی؛ قانون‌محور و قابل تعمیم جهانی نیست."
+      "scope": "اطلاعات آمریکا دربارهٔ عرضهٔ خصوصی؛ قانون‌محور و قابل تعمیم جهانی نیست.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "startup-financing-decision",
     "prompt": "برای سپهر، نیاز مالی یک milestone را برآورد کنید؛ دو منبع تأمین مالی را از نظر زمان، هزینهٔ نقدی، کنترل، ریسک و runway مقایسه کنید. در صورت ارائه به سرمایه‌گذار، واقعیت و فرض را جدا و مبلغ و شاهد بعدی را مشخص کنید.",
-    "expected_output": "سناریوی نقدینگی و یادداشت تصمیم تأمین مالی"
+    "expected_output": "سناریوی نقدینگی و یادداشت تصمیم تأمین مالی",
+    "rubric": [
+      "Runway، burn و جریان نقد با دوره و سناریوی روشن محاسبه شده‌اند.",
+      "گزینه‌های درآمد، سرمایهٔ شخصی و سرمایه‌گذار با کنترل و تعهد مقایسه شده‌اند.",
+      "تصمیم، فرض‌های حساس، نقطهٔ بازنگری و پیامد کمبود نقد را بیان می‌کند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -237,7 +291,14 @@
   "media_plan": {
     "type": "cash-runway-and-dilution-worked-table",
     "purpose": "محاسبهٔ runway و اثر نمونهٔ سادهٔ سرمایهٔ جدید",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-runway-financing-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «رقیق‌شدن و پیشنهاد سرمایه»: سرمایهٔ لازم را به زمان بقا و نقطهٔ عطف وصل کن؛ درصد سهام تنها هزینه نیست. منبع پول، درآمد، سرمایهٔ شخصی، بدهی یا سرمایه‌گذار را با شرط و ریسک بسنج.؛ نرخ سوخت و runway، نقد قابل‌استفاده را بر مصرف خالص دوره تقسیم کن؛ سناریو بساز.؛ رقیق‌شدن، درصد مالکیت قبل و بعد از سرمایه‌گذاری را با فرض تبدیل و اختیار محاسبه کن.؛ ارائهٔ شواهد، بازار، استفاده، اقتصاد واحد و ریسک را با دادهٔ قابل‌ردیابی نشان بده.",
+        "caption": "نقشه را برای تحلیل «رقیق‌شدن و پیشنهاد سرمایه» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

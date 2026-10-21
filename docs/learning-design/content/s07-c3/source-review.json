@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-21",
   "course_id": "S07-C3",
   "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
   "source_use_note": "مرحلهٔ گردش کار ترکیبی بر سه مرجع اولیه/رسمی تکیه دارد: راهنمای تعامل انسان و AI مایکروسافت (CHI 2019)، راهنمای عملی Google PAIR و هسته/Playbook چارچوب مدیریت ریسک NIST. این مراجع اصول طراحی و نقاط کنترل را پشتیبانی می‌کنند، اما اثر کمی، الزام حقوقی یا نسخهٔ بهینه برای یک سازمان را ثابت نمی‌کنند. مثال‌های آموزشی سپهر ساختگی‌اند. مرحلهٔ عامل و ابزار با راهنمای مدیران OpenAI و مستندات SDK برای توصیف گردش عامل، ابزار و handoff، همراه با PAIR برای توازن کنترل و NIST برای نقش/نظارت مرور شد. منابع OpenAI برای مستند کردن محصول خود شرکت‌اند، نه شاهد مستقل کارایی. نقش اختیار، مجوز و ثبت باید در استقرار واقعی با کنترل‌های سازمانی سنجیده شود. مرحلهٔ تیم و تغییر نقش بر آزمایش میدانی NBER در یک شرکت و چالش نوآوری محصول، خلاصهٔ OECD در ۲۰۲۶ و فصل دانشگاهی Oxford دربارهٔ طراحی کار تکیه دارد. این شواهد برای صورت‌بندی فرضیه و پرسش پایلوت به‌کار رفته‌اند؛ تعمیم به سپهر بدون سنجش محلی مجاز نیست.",
@@ -7,72 +7,96 @@
     {
       "id": "MICROSOFT-HAX-CHI-2019",
       "title": "Amershi et al., Guidelines for Human-AI Interaction (CHI 2019)",
-      "url": "https://doi.org/10.1145/3290605.3300233",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2019/01/Guidelines-for-Human-AI-Interaction-camera-ready.pdf",
       "review_depth": "primary_research_paper_reviewed",
-      "scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه."
+      "scope": "۱۸ راهنمای تعامل انسان و AI؛ برای آغاز تعامل، تعامل جاری، خطا و تغییر در طول زمان؛ راهنماست نه تضمین نتیجه.",
+      "checked_on": "2026-10-21",
+      "access_note": "نسخهٔ کامل ۱۹صفحه‌ای PDF در مخزن رسمی Microsoft Research باز شد. مقالهٔ CHI 2019، ۱۸ راهنمای تعامل انسان و AI را پس از ارزیابی‌های چندمرحله‌ای و مطالعهٔ ۴۹ متخصص طراحی روی ۲۰ محصول گزارش می‌کند؛ این راهنماها ابزار تشخیصی‌اند و نتیجهٔ هر محصول را تضمین نمی‌کنند. PDF حق تکثیر تجاری نمی‌دهد؛ متن/تصویر مقاله در اپ پولی بازتولید نشود. DOI ناشر در previous_url حفظ شد.",
+      "previous_url": "https://doi.org/10.1145/3290605.3300233",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-PAIR-GUIDEBOOK",
       "title": "Google PAIR, People + AI Guidebook v2",
       "url": "https://pair.withgoogle.com/guidebook-v2/",
       "review_depth": "official_practitioner_guide_reviewed",
-      "scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر."
+      "scope": "الگوها و روش‌های طراحی انسان‌محور؛ شامل ارزش AI، کنترل کاربر، بازخورد و خطا؛ منبع اجرایی شرکت، نه ارزیابی مستقل اثر.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Playbook and Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی."
+      "scope": "تعریف نقش، دامنهٔ کاربرد، شایستگی اپراتور و نظارت انسانی در چرخهٔ عمر؛ چارچوب داوطلبانه و نیازمند بومی‌سازی.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENAI-AGENTS-BUSINESS-GUIDE",
       "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
       "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
       "review_depth": "official_business_guide_reviewed",
-      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست."
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENAI-AGENTS-SDK-HANDOFFS",
       "title": "OpenAI Agents SDK: Handoffs",
       "url": "https://openai.github.io/openai-agents-python/handoffs/",
       "review_depth": "official_product_documentation_reviewed",
-      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است."
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
       "title": "Google PAIR: Feedback + Control",
       "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
       "review_depth": "official_practitioner_guide_reviewed",
-      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است."
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NBER-CYBERNETIC-TEAMMATE-2025",
-      "title": "Dell’Acqua et al., The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
-      "url": "https://www.nber.org/papers/w33641",
+      "id": "CR-R33-PUBLISHED",
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork (Organization Science, 2026)",
+      "url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702",
       "review_depth": "primary_field_experiment_working_paper_reviewed",
-      "scope": "پیش‌ثبت‌شده با ۷۷۶ متخصص P&G در چالش‌های نوآوری محصول؛ یافته‌ها وابسته به وظیفه و نمونه‌اند و حکم عمومی دربارهٔ همهٔ تیم‌ها نیست."
+      "scope": "پیش‌ثبت‌شده با ۷۷۶ متخصص P&G در چالش‌های نوآوری محصول؛ یافته‌ها وابسته به وظیفه و نمونه‌اند و حکم عمومی دربارهٔ همهٔ تیم‌ها نیست.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی مقالهٔ نهایی در Organization Science باز شد و چکیده/متن مقاله قابل مشاهده است. آزمایش با ۷۹۱ متخصص P&G روی چالش‌های نوآوری محصول انجام شده؛ تعمیم نتیجه‌ها به سازمان‌ها و تکالیف دیگر محدود است. نشانی نسخهٔ کاری NBER در previous_url نگه داشته شد.",
+      "previous_url": "https://www.nber.org/papers/w33641",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-AI-SKILLS-2026",
       "title": "OECD, AI and Skills: What We Know So Far (2026)",
       "url": "https://www.oecd.org/en/publications/ai-and-skills_f843b352-en.html",
       "review_depth": "official_policy_brief_reviewed",
-      "scope": "خلاصهٔ شواهد پیمایشی/سیاستی دربارهٔ مهارت و آموزش؛ وابسته به کشور، صنعت و روش پیمایش."
+      "scope": "خلاصهٔ شواهد پیمایشی/سیاستی دربارهٔ مهارت و آموزش؛ وابسته به کشور، صنعت و روش پیمایش.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OXFORD-WORKDESIGN-AI-2025",
       "title": "Bienefeld & Grote, Artificial Intelligence: How It Changes the Landscape for Work Design Research and Practice (Oxford, 2025)",
       "url": "https://academic.oup.com/book/60029/chapter-abstract/513542857",
       "review_depth": "academic_book_chapter_abstract_reviewed",
-      "scope": "چارچوب نظری و پرسش‌های پژوهشی دربارهٔ کیفیت شغل و طراحی کار؛ متن کامل ممکن است دسترسی محدود داشته باشد."
+      "scope": "چارچوب نظری و پرسش‌های پژوهشی دربارهٔ کیفیت شغل و طراحی کار؛ متن کامل ممکن است دسترسی محدود داشته باشد.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ فصل Oxford Academic به نشانی CDN ناشر هدایت شد؛ صفحهٔ کتاب اصلی باز شد اما صفحهٔ فصل/چکیدهٔ مورد استناد مستقیم واکشی نشد."
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern and Map",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش، نظارت، پیامد و شایستگی در چرخهٔ عمر؛ چارچوب داوطلبانه و زمینه‌محور."
+      "scope": "نقش، نظارت، پیامد و شایستگی در چرخهٔ عمر؛ چارچوب داوطلبانه و زمینه‌محور.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "open_questions": [

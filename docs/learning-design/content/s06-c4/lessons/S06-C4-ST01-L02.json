@@ -44,6 +44,18 @@
       "title": "مثال سپهر و محدودیت",
       "id": "S06-C4-ST01-L02-CARD08",
       "text": "اگر CAC برابر ۳۰ میلیون و حاشیهٔ مشارکت ماهانه ۵ میلیون باشد، بازگشت ساده شش ماه است؛ اما ریزش، زمان وصول و هزینه‌های ثابت محاسبه نشده‌اند. پیش از گسترش کانال، دادهٔ واقعی چند cohort و هزینهٔ کامل لازم است."
+    },
+    {
+      "id": "S06-C4-ST01-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Contribution margin — حاشیهٔ مشارکت: درآمد پس از هزینهٔ متغیر هر واحد؛ حاشیهٔ بالا بدون مقیاس/هزینهٔ ثابت سود نمی‌سازد. Customer acquisition cost — هزینهٔ جذب مشتری: هزینهٔ جذب طبق دامنه و دوره تقسیم بر مشتری جدید؛ مقایسه باید پنجرهٔ یکسان داشته باشد. Growth quality — کیفیت رشد: رشد همراه با حفظ، حاشیه و نقد؛ افزایش فروش می‌تواند ارزش را کاهش دهد."
+    },
+    {
+      "id": "S06-C4-ST01-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "اقتصاد واحد درآمد هر مشتری/سفارش را پس از هزینهٔ متغیر و در افق مشخص با هزینهٔ جذب مقایسه می‌کند. حاشیهٔ مثبت هنوز هزینهٔ ثابت، سرمایهٔ در گردش و مرجوعی را پوشش نداده است. اگر cohort تازه ارزان‌تر جذب شود اما زودتر ریزش کند، رشد ظاهری ارزش عمر را بیش‌برآورد می‌کند؛ کیفیت و ماندگاری را هم‌سن و هم‌تعریف بسنجید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "زمان وصول با runway و نیاز سرمایه مرتبط است."
+    },
+    {
+      "id": "S06-C4-ST01-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "درآمد هر سفارش بالا رفته اما هزینهٔ خدمت و جذب نیز رشد کرده. تحلیل اقتصاد واحد چه می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "درآمد و حاشیه و هزینهٔ خدمت و جذب را به واحد مشترک وصل می‌کند",
+          "feedback": "رشد درآمد با رشد سود یکی نیست؛ هزینهٔ خدمت و جذب باید روی واحد مشتری یا سفارش محاسبه شود."
+        },
+        {
+          "id": "b",
+          "text": "فقط درآمد کل را نشان می‌دهد",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: رشد درآمد با رشد سود یکی نیست؛ هزینهٔ خدمت و جذب باید روی واحد مشتری یا سفارش محاسبه شود."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ جذب را از مشتری تازه حذف می‌کند",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: رشد درآمد با رشد سود یکی نیست؛ هزینهٔ خدمت و جذب باید روی واحد مشتری یا سفارش محاسبه شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "رشد درآمد با رشد سود یکی نیست؛ هزینهٔ خدمت و جذب باید روی واحد مشتری یا سفارش محاسبه شود.",
+      "objective_id": "S06-C4-ST01-L02-OBJ01",
+      "equivalence_group": "S06-C4-ST01-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C4-ST01-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "MIT OCW 15.392 Scaling Entrepreneurial Ventures (Spring 2026)",
       "url": "https://ocw.mit.edu/courses/15-392-scaling-entrepreneurial-ventures-spring-2026/",
       "review_depth": "official_current_graduate_course_reviewed",
-      "scope": "دورهٔ تحصیلات تکمیلی ۲۰۲۶ دربارهٔ رهبری، سازمان، عملیات، حکمرانی، منابع انسانی و رشد شرکت نوپا."
+      "scope": "دورهٔ تحصیلات تکمیلی ۲۰۲۶ دربارهٔ رهبری، سازمان، عملیات، حکمرانی، منابع انسانی و رشد شرکت نوپا.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ENT-LIFECYCLE-2.2",
       "title": "OpenStax Entrepreneurship 2.2 Business Life Cycle",
       "url": "https://openstax.org/books/entrepreneurship/pages/2-2-the-process-of-becoming-an-entrepreneur",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "چرخهٔ عمر کسب‌وکار و تغییر ساختار و ظرفیت در رشد."
+      "scope": "چرخهٔ عمر کسب‌وکار و تغییر ساختار و ظرفیت در رشد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ENT-RESOURCES-14.3",
       "title": "OpenStax Entrepreneurship 14.3 Managing Resources over the Venture Life Cycle",
       "url": "https://openstax.org/books/entrepreneurship/pages/14-3-managing-resources-over-the-venture-life-cycle",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "بازسرمایه‌گذاری درآمد و نیاز منابع در چرخهٔ عمر شرکت."
+      "scope": "بازسرمایه‌گذاری درآمد و نیاز منابع در چرخهٔ عمر شرکت.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "MIT-SLOAN-CLEANSTART",
       "title": "MIT Sloan CleanStart Startup Simulation",
       "url": "https://mitsloan.mit.edu/teaching-resources-library/cleanstart-simulating-a-clean-energy-startup",
       "review_depth": "official_teaching_simulation_page_reviewed",
-      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی در رشد شرکت نوپا."
+      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی در رشد شرکت نوپا.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "growth-capacity-market-map",
     "prompt": "برای سپهر موتور رشد را با شاهدهای جذب، استفاده، نگهداشت و اقتصاد توصیف کنید؛ یک گلوگاه پیدا کنید و یک بازار توسعه را با ماتریس جذابیت/تناسب و پایلوت کم‌هزینه مقایسه کنید.",
-    "expected_output": "نقشهٔ موتور رشد، اقتصاد واحد اولیه و تصمیم بازار مرحله‌ای"
+    "expected_output": "نقشهٔ موتور رشد، اقتصاد واحد اولیه و تصمیم بازار مرحله‌ای",
+    "rubric": [
+      "موتور رشد و حلقهٔ جذب، استفاده یا نگهداشت به‌روشنی تعریف شده‌اند.",
+      "اقتصاد واحد، ظرفیت تحویل و شاهد تکرارپذیری با گروه/زمان مشخص‌اند.",
+      "گسترش بازار مرحله‌ای است و معیار کیفیت/توقف دارد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -223,7 +275,14 @@
   "media_plan": {
     "type": "growth-engine-unit-economics-bottleneck-map",
     "purpose": "پیوند جذب، تحویل، نگهداشت، ظرفیت و بازار توسعه",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-growth-quality-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «اقتصاد هر واحد و کیفیت رشد»: رشد را به حفظ مشتری، ظرفیت تحویل و حاشیهٔ مشارکت متصل کن. تکرارپذیری، کانال و رفتار مشتری را در چند cohort بسنج؛ یک جهش فروش کافی نیست.؛ اقتصاد واحد، درآمد خالص، هزینهٔ متغیر و هزینهٔ جذب را در واحد مشترک محاسبه کن.؛ گلوگاه رشد، ظرفیت تیم، پشتیبانی، کیفیت و نقدینگی را با حجم بعدی مقایسه کن.؛ بازار توسعه، تقاضا، دسترسی، رقابت و هزینهٔ بومی‌سازی را پیش از ورود بسنج.",
+        "caption": "نقشه را برای تحلیل «اقتصاد هر واحد و کیفیت رشد» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

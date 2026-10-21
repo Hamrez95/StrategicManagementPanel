@@ -44,6 +44,18 @@
       "id": "E02-ST03-L03-CARD08",
       "title": "تغییر در سپهر",
       "text": "اگر دستیار AI پاسخ اولیهٔ پشتیبانی را می‌نویسد، نمایندگان خدمت، مشتری و امنیت را در طراحی وارد کنید. تعریف کنید کارشناس چه چیزی را بازبینی می‌کند، پاسخ غلط چگونه گزارش می‌شود و زمان ذخیره‌شده صرف چه کاری می‌شود. بدون این توافق، ابزار ممکن است کار تکراری بسازد."
+    },
+    {
+      "id": "E02-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "پذیرش تغییر (Change adoption) استفادهٔ واقعی از روش تازه در کار روزمره است، نه صرف حضور در آموزش. ذی‌نفع متأثر ممکن است کاربر یا تیم پشتیبان باشد. بازخورد (Feedback) باید به مانع مشخص، مالک و اصلاح فرایند وصل شود."
+    },
+    {
+      "id": "E02-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مدیریت تغییر یعنی کمک به افراد برای فهم، یادگیری و استفادهٔ ایمن از فرایند تازه؛ اعلامیهٔ رهبری به‌تنهایی تغییر رفتار نمی‌سازد. اثر بر نقش، مهارت، اختیار و شاخص‌های شغلی را روشن کنید و کانال دریافت بازخورد داشته باشید. مقاومت را فقط نقص فرد ندانید؛ ممکن است طراحی بار یا ریسک را نادیده گرفته باشد. فرض دسترسی برابر به آموزش را بسنجید. سنجهٔ پذیرش باید استفادهٔ باکیفیت و پیامد را ببیند، نه صرف ورود به سامانه. حمایت مدیر خط و زمان تمرین برای انتقال به کار روزانه لازم است."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "پایلوت باید کیفیت و تجربه را با سازوکار انسانی و پاسخ‌گویی بسنجد."
+    },
+    {
+      "id": "E02-ST03-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کاربران از تغییر ابزار استقبال نمی‌کنند و در کار واقعی دورش می‌زنند. پاسخ مدیریتی بهتر؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "با مشارکتشان مانع را کشف کنیم و آموزش و بازخورد را متناسب بازطراحی کنیم",
+          "feedback": "پذیرش به تجربه و مهارت و فرایند گره خورده؛ مشارکت و بازخورد علت را روشن می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "پذیرش را با پیام اجباری اعلام کنیم",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: پذیرش به تجربه و مهارت و فرایند گره خورده؛ مشارکت و بازخورد علت را روشن می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "دورزدن را پنهان کنیم و rollout را شتاب دهیم",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: پذیرش به تجربه و مهارت و فرایند گره خورده؛ مشارکت و بازخورد علت را روشن می‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پذیرش به تجربه و مهارت و فرایند گره خورده؛ مشارکت و بازخورد علت را روشن می‌کند.",
+      "objective_id": "E02-ST03-L03-OBJ01",
+      "equivalence_group": "E02-ST03-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST03-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,48 +212,63 @@
       "title": "Project Management Institute, The Standard for Portfolio Management, 3rd ed.",
       "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/standard-for-portfolio-management-third-edition.pdf",
       "review_depth": "professional_standard_framework_reviewed",
-      "scope": "پیوند سبد با راهبرد، ارزش مورد انتظار، اولویت و تصمیم‌گیری؛ نسخهٔ 2013 قدیمی است و برای روش‌ها و واژگان روز باید با استانداردهای جدیدتر PMI تطبیق شود."
+      "scope": "پیوند سبد با راهبرد، ارزش مورد انتظار، اولویت و تصمیم‌گیری؛ نسخهٔ 2013 قدیمی است و برای روش‌ها و واژگان روز باید با استانداردهای جدیدتر PMI تطبیق شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "PMI-PORTFOLIO-LIMITED-RESOURCES",
       "title": "PMI, Project portfolio management and limited resources",
       "url": "https://www.pmi.org/learning/library/project-portfolio-management-limited-resources-6948",
       "review_depth": "professional_practice_article_reviewed",
-      "scope": "انتخاب و هماهنگی ابتکارها با منابع محدود و راهبرد؛ منبع حرفه‌ای است نه ارزیابی علّی تجربی."
+      "scope": "انتخاب و هماهنگی ابتکارها با منابع محدود و راهبرد؛ منبع حرفه‌ای است نه ارزیابی علّی تجربی.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "HANELT-DIGITAL-TRANSFORMATION-REVIEW-2021",
       "title": "Hanelt et al., A systematic review of the literature on digital transformation",
       "url": "https://doi.org/10.1111/joms.12639",
       "review_depth": "peer_reviewed_systematic_review_reviewed",
-      "scope": "مرور 279 مقاله دربارهٔ تحول دیجیتال، تغییر سازمانی و سازگاری مستمر؛ دامنهٔ جست‌وجو و زمان انتشار مقاله را در تعمیم به AI امروز در نظر بگیرید."
+      "scope": "مرور 279 مقاله دربارهٔ تحول دیجیتال، تغییر سازمانی و سازگاری مستمر؛ دامنهٔ جست‌وجو و زمان انتشار مقاله را در تعمیم به AI امروز در نظر بگیرید.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "ACCIARINI-STRATEGIC-CHANGE-REVIEW-2024",
       "title": "Acciarini et al., Strategic change: A systematic review, synthesis, and a future research agenda",
       "url": "https://doi.org/10.1111/emre.12668",
       "review_depth": "peer_reviewed_systematic_review_reviewed",
-      "scope": "مرور و ترکیب پژوهش‌های تغییر راهبردی و دستورکار پژوهشی؛ برای کاربرد عملی باید با بافت سازمان و پژوهش‌های جدید تحول دیجیتال پیوند بخورد."
+      "scope": "مرور و ترکیب پژوهش‌های تغییر راهبردی و دستورکار پژوهشی؛ برای کاربرد عملی باید با بافت سازمان و پژوهش‌های جدید تحول دیجیتال پیوند بخورد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "DHINGRA-JAISWAL-DT-REVIEW-2025",
       "title": "Dhingra & Jaiswal, Determinants of digital transformation in organisation: a systematic literature review",
-      "url": "https://doi.org/10.1016/j.ssaho.2025.102129",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2590291125008599",
       "review_depth": "peer_reviewed_open_access_systematic_review_reviewed",
-      "scope": "مرور نظام‌مند عوامل فناوری، سازمانی و محیطی تحول دیجیتال؛ مقالهٔ مروری است و رابطهٔ قطعی علّی برای هر سازمان ادعا نمی‌کند."
+      "scope": "مرور نظام‌مند عوامل فناوری، سازمانی و محیطی تحول دیجیتال؛ مقالهٔ مروری است و رابطهٔ قطعی علّی برای هر سازمان ادعا نمی‌کند.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Social Sciences & Humanities Open، فراداده، وضعیت دسترسی آزاد و چکیده باز شد؛ متن کامل به‌صورت مستقل مرور نشد. مقاله یک مرور نظام‌مند با چارچوب TCCM است.",
+      "previous_url": "https://doi.org/10.1016/j.ssaho.2025.102129",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "PROSCI-ADKAR-MODEL",
       "title": "Prosci, The ADKAR Model",
       "url": "https://www.prosci.com/methodology/adkar",
       "review_depth": "practitioner_framework_primary_source_reviewed",
-      "scope": "چارچوب تجاری آگاهی، تمایل، دانش، توانایی و تقویت برای گفت‌وگوی تغییر؛ اعتبار آن را نباید بدون ارزیابی مستقل به‌عنوان اثر علّی قطعی ارائه کرد."
+      "scope": "چارچوب تجاری آگاهی، تمایل، دانش، توانایی و تقویت برای گفت‌وگوی تغییر؛ اعتبار آن را نباید بدون ارزیابی مستقل به‌عنوان اثر علّی قطعی ارائه کرد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "transformation-portfolio-change-plan",
     "prompt": "برای سپهر «مدیریت تغییر و پذیرش» را در تغییر دستیار AI پشتیبانی تحلیل کنید؛ شاهد، ذی‌نفع، ظرفیت، معیار و تصمیم را ثبت کنید.",
-    "expected_output": "برگهٔ تصمیم با اولویت/مداخله، مالک، معیار و تاریخ بازبینی"
+    "expected_output": "برگهٔ تصمیم با اولویت/مداخله، مالک، معیار و تاریخ بازبینی",
+    "rubric": [
+      "اولویت پروژه‌ها با ارزش، ظرفیت، وابستگی و ریسک توجیه شده است.",
+      "مالک، منابع، ذی‌نفعان و تغییر لازم برای هر مرحله مشخص‌اند.",
+      "شاخص نتیجه، تاریخ بازبینی و شرط ادامه/توقف از پیش نوشته شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -240,7 +297,14 @@
   "media_plan": {
     "type": "stakeholder-change-impact-map",
     "purpose": "نمایش انتخاب، وابستگی و سنجش تحول",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/transformation-portfolio-priority-map.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «مدیریت تغییر و پذیرش»: انتخاب پروژه باید ارزش، آمادگی، وابستگی و ریسک اجرا را هم‌زمان ببیند. تعریف نتیجه، هر پروژه را به پیامد قابل مشاهده و مالک کسب‌وکار متصل کن.؛ برآورد و شواهد، خط مبنا و اندازهٔ اثر را جدا از حدس ثبت کن؛ عدم‌قطعیت را پنهان نکن.؛ وابستگی و ظرفیت، ترتیب پروژه‌ها را با نیاز داده، نیروی متخصص، تغییر فرایند و سامانه بسنج.؛ پایلوت و تصمیم، معیار ادامه، اصلاح یا توقف را از پیش تعیین کن؛ نتیجه را به سبد برگردان.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «مدیریت تغییر و پذیرش» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

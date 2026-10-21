@@ -44,6 +44,18 @@
       "id": "E05-ST02-L04-CARD08",
       "title": "دفتر نقد گزارش",
       "text": "نقد را با شاهد، پرسش باز و سطح اطمینان مستند سازد."
+    },
+    {
+      "id": "E05-ST02-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "گزارش پایداری (Sustainability report) ادعا و سنجه و مرز گزارش‌دهی را کنار هم می‌گذارد. شدت انتشار (Emissions intensity) نسبت انتشار به یک واحد خروجی است؛ کاهش شدت لزوماً انتشار کل را کم نمی‌کند اگر حجم رشد کند. روند را با سال پایه و تغییر پوشش تفسیر کنید."
+    },
+    {
+      "id": "E05-ST02-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "گزارش پایداری شرکت را با تعیین دامنه و دوره، روش، دادهٔ مستقل، هدف و نتیجه نقد کنید. بررسی کنید آیا شاخص مطلق و نسبی هر دو آمده‌اند و آیا تغییر مرز یا برآورد توضیح داده شده است. برجسته‌سازی یک برنامهٔ نمونه نمی‌گوید اثر کل عملیات چیست. ادعاهای آینده را با سرمایه‌گذاری و نقاط عطف بسنجید. منبع شرکتی برای فهم سیاست و دادهٔ خوداظهاری مفید است، اما تأیید مستقل همهٔ نتایج نیست. نتیجهٔ نقد را به قوت، خلأ و پرسش قابل پیگیری تقسیم کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "id": "E05-ST02-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای نقد گزارش پایداری یک شرکت، کدام مقایسه کمک بیشتری می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ادعا را به مرز سنجش، سری زمانی، روش و منبع داده و هدف اعلام‌شده وصل کنیم",
+          "feedback": "گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+        },
+        {
+          "id": "b",
+          "text": "فقط تصاویر و پیام‌های برند",
+          "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+        },
+        {
+          "id": "c",
+          "text": "یک شاخص را جدا از حوزهٔ اثر بررسی کنیم",
+          "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست.",
+      "objective_id": "E05-ST02-L04-OBJ01",
+      "equivalence_group": "E05-ST02-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E05-ST02-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,27 +212,36 @@
       "title": "IFRS S1 and IFRS S2 Standards",
       "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
       "review_depth": "primary_or_authoritative_reference",
-      "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد."
+      "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GHG",
       "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
-      "url": "https://ghgprotocol.org/standards/scope-3-standard",
+      "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
       "review_depth": "primary_or_authoritative_reference",
-      "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند."
+      "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OECD-GOV",
       "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
       "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
       "review_depth": "primary_or_authoritative_reference",
-      "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید."
+      "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "decision-analysis",
     "prompt": "برای سناریوی سپهر، تمرین «نقد گزارش پایداری شرکت» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-    "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی"
+    "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+    "rubric": [
+      "پیامد هدف، مرز سیستم، خط پایه و افق زمانی تعریف شده‌اند.",
+      "شاخص و روش گردآوری به سازوکار اثر وصل‌اند و محدودیت انتساب روشن است.",
+      "گزارش نتیجه عدم‌قطعیت، پیامد ناخواسته و تصمیم اصلاحی را پوشش می‌دهد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -214,7 +265,14 @@
   "media_plan": {
     "type": "decision-workspace",
     "purpose": "ثبت فرض‌ها و شواهد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/sustainability-measurement-boundary.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «نقد گزارش پایداری شرکت»: عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی، واحد، مالکیت یا کنترل و دورهٔ گزارش را اعلام کن؛ تغییر مرز را توضیح بده.؛ دامنهٔ ۱ و ۲، انتشار مستقیم را از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب را مستند کن.؛ دامنهٔ ۳، زنجیرهٔ ارزش را بخش‌بندی کن؛ برآورد و دادهٔ اولیه را با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام، فرض، ضریب، پوشش و عدم‌قطعیت را گزارش کن؛ کاهش را با خط مبنای ثابت بسنج.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «نقد گزارش پایداری شرکت» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

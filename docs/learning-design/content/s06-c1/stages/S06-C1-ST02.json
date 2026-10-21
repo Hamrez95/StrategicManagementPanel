@@ -63,6 +63,18 @@
           "title": "مثال سپهر",
           "id": "S06-C1-ST02-L01-CARD09",
           "text": "سپهر به‌جای پرسیدن «اگر داشبورد تأخیر داشته باشیم از آن استفاده می‌کنید؟» می‌پرسد «آخرین سفارش دیررس را چطور فهمیدید؟» پاسخ می‌دهد مدیر از مشتری مطلع شد؛ این شاهد دربارهٔ هشدار و مالک اطلاعات می‌دهد، اما هنوز تقاضا برای داشبورد را اثبات نمی‌کند."
+        },
+        {
+          "id": "S06-C1-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Customer interview — مصاحبهٔ مشتری: گفت‌وگوی اکتشافی دربارهٔ تجربه و رفتار؛ پرسیدن «می‌خری؟» شواهد خرید نمی‌سازد. Leading question — پرسش القایی: پرسشی که پاسخ مطلوب را القا می‌کند؛ تأیید مصاحبه‌شونده ممکن است اثر پرسشگر باشد. Critical incident — رخداد بحرانی: نمونهٔ واقعی اخیر از مسئله/تصمیم؛ خاطرهٔ کلی جزییات رفتاری ندارد."
+        },
+        {
+          "id": "S06-C1-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مصاحبهٔ اکتشافی با رخداد و تصمیم گذشته شروع می‌شود تا رفتار واقعی از نظر فرضی جدا شود. پرسش القایی یا ارائهٔ راه‌حل، پاسخ اجتماعی مطلوب می‌سازد. اگر سؤال دربارهٔ خرید آینده باشد، قطعیت را پایین‌تر بگیرید و تعهد واقعی را بعداً با رفتار سنجید؛ پرسش خوب دادهٔ دقیق‌تر می‌سازد اما نمونهٔ کوچک نمایندهٔ کل بازار نمی‌شود."
         }
       ],
       "questions": [
@@ -216,22 +228,33 @@
         {
           "title": "MIT OCW 15.390 New Enterprises: customer research resources",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
           "id": "STANFORD-CUST-INTERVIEWS",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
           "review_depth": "university_course_reading_reviewed",
-          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "interview-and-synthesis",
         "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+        "rubric": [
+          "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+          "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+          "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -257,7 +280,14 @@
       "media_plan": {
         "type": "authored-interview-script_or-evidence-ladder",
         "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مصاحبه بدون فروش ایده»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+            "caption": "نقشه را برای تحلیل «مصاحبه بدون فروش ایده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -334,6 +364,18 @@
           "title": "گزارش صادقانه",
           "id": "S06-C1-ST02-L02-CARD09",
           "text": "نتیجه را با تعداد و نوع شاهد، نه عبارت «اکثریت مشتریان خواهان‌اند» گزارش کنید. نمونهٔ کوچک، انتخاب‌شده و کیفی محدودیت دارد؛ میزان اطمینان را با دامنهٔ داده هم‌خوان نگه دارید."
+        },
+        {
+          "id": "S06-C1-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Compliment bias — سوگیری تعریف‌وتمجید: تعارف یا حمایت اجتماعی به‌جای تقاضای واقعی؛ تعریف محصول نشانهٔ پرداخت نیست. Social desirability bias — سوگیری مطلوبیت اجتماعی: پاسخ مطابق انتظار اجتماعی؛ پرسش دربارهٔ گذشته و رفتار عینی کمک می‌کند. Purchase intent — قصد خرید: اظهار نیت در شرایط فرضی؛ فاصلهٔ قصد تا رفتار باید سنجیده شود."
+        },
+        {
+          "id": "S06-C1-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "تعریف دوستانه و قصد خرید به‌تنهایی تقاضا را نشان نمی‌دهند، چون پاسخ کم‌هزینه است و فرد با پول/زمان واقعی روبه‌رو نیست. از مشتری بخواهید نمونهٔ استفاده، هزینه یا راه‌حل فعلی را شرح دهد. اگر قیمت، دسترسی یا فوریت در آزمون واقعی با مصاحبه فرق کند، رفتار خرید تغییر می‌کند؛ ستایش را شاهد مسئله یا پرداخت حساب نکنید."
         }
       ],
       "questions": [
@@ -487,29 +529,42 @@
         {
           "title": "MIT OCW 15.390 New Enterprises: customer research resources",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
           "id": "STANFORD-CUST-INTERVIEWS",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
           "review_depth": "university_course_reading_reviewed",
-          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, researching potential business opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "interview-and-synthesis",
         "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+        "rubric": [
+          "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+          "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+          "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -535,7 +590,14 @@
       "media_plan": {
         "type": "authored-interview-script_or-evidence-ladder",
         "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «تفکیک تعریف و تمجید از تقاضا»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+            "caption": "نقشه را برای تحلیل «تفکیک تعریف و تمجید از تقاضا» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -612,6 +674,18 @@
           "title": "سطح شاهد را نام‌گذاری کنید",
           "id": "S06-C1-ST02-L03-CARD09",
           "text": "گزارش کشف می‌تواند شواهد را «اظهار»، «رخداد بازگو‌شده»، «دادهٔ رفتاری»، «تعهد زمان/داده» یا «تراکنش پرداخت» برچسب بزند. این تفکیک از تبدیل نظر به پیش‌بینی درآمد جلوگیری می‌کند."
+        },
+        {
+          "id": "S06-C1-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Revealed preference — ترجیح آشکارشده: استنباط ترجیح از انتخاب واقعی؛ انتخاب محدود به گزینه‌های در دسترس است. Willingness to pay — تمایل به پرداخت: مقدار/احتمال پرداخت در وضعیت معین؛ قیمت پیشنهادی باید قابل‌مقایسه باشد. Behavioral commitment — تعهد رفتاری: اقدام پرهزینه‌تر از اعلام علاقه، مانند پرداخت/زمان؛ هنوز نمایندهٔ کل بازار نیست."
+        },
+        {
+          "id": "S06-C1-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "رفتار پرهزینه‌تر مانند پرداخت آزمایشی یا صرف زمان، از اظهار علاقه شاهد قوی‌تری است، اما فقط برای همان پیشنهاد، قیمت و گروه. تعریف بازپرداخت، تخفیف و بازهٔ مشاهده بر نرخ اثر می‌گذارد. اگر قیمت یا روش تحویل تغییر کند، تمایل پرداخت قبلی قابل‌انتقال نیست؛ تعداد مشاهده، نرخ تبدیل و ریزش را با مخرج روشن گزارش کنید."
         }
       ],
       "questions": [
@@ -765,29 +839,42 @@
         {
           "title": "MIT OCW 15.390 New Enterprises: customer research resources",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
           "id": "STANFORD-CUST-INTERVIEWS",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
           "review_depth": "university_course_reading_reviewed",
-          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, researching potential business opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "interview-and-synthesis",
         "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+        "rubric": [
+          "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+          "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+          "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -813,7 +900,14 @@
       "media_plan": {
         "type": "authored-interview-script_or-evidence-ladder",
         "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «شاهد رفتار و تمایل پرداخت»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+            "caption": "نقشه را برای تحلیل «شاهد رفتار و تمایل پرداخت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,
@@ -890,6 +984,18 @@
           "title": "دفترچهٔ چرخهٔ کشف",
           "id": "S06-C1-ST02-L04-CARD09",
           "text": "هر چرخه شامل نسخهٔ فرضیه، بخش، روش نمونه‌گیری، پرسش، شاهد، مورد مخالف، سطح اطمینان، تصمیم و آزمون بعدی است. این دفترچه نشان می‌دهد چرا فرصت انتخاب شد و کدام بخش هنوز ریسک دارد."
+        },
+        {
+          "id": "S06-C1-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Bayesian updating — به‌روزرسانی بیزی: تغییر باور با شواهد تازه طبق احتمال پیشین و درست‌نمایی؛ عدد دقیق وابسته به مفروضات است. Disconfirming evidence — شاهد ناسازگار: داده‌ای که فرض اولیه را تضعیف می‌کند؛ باید پیش از آزمایش دنبال شود. Hypothesis revision — بازنگری فرضیه: اصلاح دامنه/سازوکار بر اساس نتیجه؛ تغییر پسینی معیار، شکست را پنهان می‌کند."
+        },
+        {
+          "id": "S06-C1-ST02-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "یادگیری یعنی وزن باور با توجه به کیفیت شاهد تغییر کند؛ دادهٔ مستقل و نزدیک به رفتار باید از نظر تشخیص فرض ارزش بیشتری داشته باشد. پاسخ مبهم هم می‌تواند فرض را محدود کند، نه اینکه به تأیید تبدیل شود. اگر معیار موفقیت پس از مشاهدهٔ نتیجه عوض شود، آزمون خودفریبی می‌سازد؛ نسخهٔ فرض، داده و دلیل بازنگری را ثبت کنید."
         }
       ],
       "questions": [
@@ -1043,29 +1149,42 @@
         {
           "title": "MIT OCW 15.390 New Enterprises: customer research resources",
           "id": "M11-CUSTOMER",
-          "url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
           "review_depth": "official_course_resource_reviewed",
-          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است."
+          "scope": "مواد کلاس دربارهٔ مشتری هدف و پژوهش اولیه؛ نمونهٔ محتوای یک دورهٔ دانشگاهی است.",
+          "previous_url": "https://www.ocw.mit.edu/courses/15-390-new-enterprises-spring-2013/download/",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "Stanford HCI course reading: Early Customer Research / Customer Interviews",
           "id": "STANFORD-CUST-INTERVIEWS",
           "url": "https://hci.stanford.edu/courses/cs147/2025/au/readings/Early_Customer_Research_Eisenmann.pdf",
           "review_depth": "university_course_reading_reviewed",
-          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند."
+          "scope": "راهنمای مصاحبه و محدودیت خوداظهاری؛ مصاحبه به‌تنهایی قیمت یا خرید را پیش‌بینی نمی‌کند.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         },
         {
           "title": "OpenStax Entrepreneurship, researching potential business opportunities",
           "id": "OPENSTAX-ENT-5-2",
           "url": "https://openstax.org/books/entrepreneurship/pages/5-2-researching-potential-business-opportunities",
           "review_depth": "open_textbook_section_reviewed",
-          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی."
+          "scope": "پژوهش اولیه و ثانویه برای غربال فرصت؛ منبع آموزشی مقدماتی.",
+          "checked_on": "2026-10-21",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
         "type": "interview-and-synthesis",
         "prompt": "یک مصاحبهٔ ۲۰ دقیقه‌ای برای فرضیهٔ سپهر طراحی کنید؛ سؤال‌های باز، رضایت، شواهد قوی/ضعیف، مورد مخالف و معیار تصمیم بعدی را بنویسید.",
-        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید"
+        "expected_output": "راهنمای مصاحبه و خلاصهٔ شواهد بدون ادعای خرید",
+        "rubric": [
+          "پرسش‌ها دربارهٔ رفتار یا رخداد مشخص‌اند و راهنمای مصاحبه القایی نیست.",
+          "یافته‌ها با نقل‌قول/مشاهده و زمینه مستند شده‌اند؛ فرض از شاهد جداست.",
+          "بینش به فرضیهٔ آزمون‌پذیر تبدیل شده و سوگیری نمونه/یادآوری ثبت شده است."
+        ],
+        "auto_grade": false
       },
       "review_status": "pending_expert_review",
       "fresh_equivalent_variants": 0,
@@ -1091,7 +1210,14 @@
       "media_plan": {
         "type": "authored-interview-script_or-evidence-ladder",
         "purpose": "نمایش پرسش‌های بی‌طرفانه و تفاوت سطح شواهد",
-        "production_status": "planned_not_created"
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/customer-interview-evidence-ladder.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «بازنگری فرضیه با داده»: از تعریف و تمجید تا رفتار و پرداخت، قدرت شواهد یکسان نیست. پرسش بی‌طرف، دربارهٔ تجربهٔ گذشته بپرس؛ ایده را نفروش و پاسخ را القا نکن.؛ تمجید یا تقاضا، «ایده خوبه» را از استفاده، تعهد زمانی و پرداخت واقعی جدا کن.؛ رفتار و قیمت، رفتار قابل مشاهده، خرید قبلی یا اقدام پرهزینه از اظهار نظر قوی‌تر است.؛ بازنگری فرضیه، شواهد مخالف را ثبت کن و گام بعد را با معیار ادامه یا رد تعیین کن.",
+            "caption": "نقشه را برای تحلیل «بازنگری فرضیه با داده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
       },
       "assessment_plan": {
         "item_count": 5,

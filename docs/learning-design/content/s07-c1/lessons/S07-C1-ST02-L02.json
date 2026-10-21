@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST02-L02-CARD08",
       "text": "دستور: «بر اساس فایل پیوست، سفارش‌های نزدیک موعد را در جدول با شناسه، شاهد متن و اطمینان دسته‌بندی کن؛ اگر فیلدی نیست آن را خالی بگذار؛ هیچ اقدام بیرونی انجام نده.» سپس جدول را با فایل اصلی تطبیق می‌دهند."
+    },
+    {
+      "id": "S07-C1-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "دستور (Instruction) خواسته را مشخص می‌کند؛ زمینه (Context) اطلاعات مرتبط را می‌دهد و قرارداد خروجی قالب پاسخ را تعیین می‌کند. prompt injection تلاشی است برای تغییر دستور از راه محتوای ورودی. قالب دقیق، تضمین صحت یا کنترل امنیت نیست."
+    },
+    {
+      "id": "S07-C1-ST02-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "دستور مؤثر وظیفه، زمینهٔ لازم، محدودیت، معیار موفقیت و قالب خروجی را روشن می‌کند. افزودن جزئیات نامربوط می‌تواند پاسخ را منحرف کند و خروجی ساختاریافته نیز فقط قالب را کنترل می‌کند، نه حقیقت را. مثال ورودی و خروجی می‌تواند ابهام را کم کند، اما برای موارد تازه باید آزمون نماینده داشت. اگر نسخهٔ مدل یا منابع زمینه عوض شود، رفتار دستور هم ممکن است تغییر کند. دستور را در کنار معیار پذیرش و نمونه‌های خطا مدیریت کنید؛ عبارت‌بندی خوب جای دادهٔ معتبر، مجوز دسترسی یا بازبینی انسانی را نمی‌گیرد."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "Prompt injection ممکن است از محتوای بیرونی بیاید."
+    },
+    {
+      "id": "S07-C1-ST02-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پاسخ مدل باید در قالب JSON و فقط بر اساس سند ارائه شود. چه چیزی دستور را قوی‌تر می‌کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "وظیفه، دامنهٔ سند، قالب خروجی و رفتار هنگام نبود شاهد را روشن کنیم",
+          "feedback": "دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+        },
+        {
+          "id": "b",
+          "text": "درخواست مبهم و طولانی‌تر بنویسیم",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+        },
+        {
+          "id": "c",
+          "text": "از مدل بخواهیم هرجا سند کم بود حدس بزند",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دستور روشن و قرارداد خروجی خطا را کم می‌کند، اما صحت همچنان باید سنجیده شود.",
+      "objective_id": "S07-C1-ST02-L02-OBJ01",
+      "equivalence_group": "S07-C1-ST02-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST02-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google Machine Learning Crash Course: Introduction to LLMs",
       "url": "https://developers.google.com/machine-learning/crash-course/llm",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن."
+      "scope": "توکن، زمینه و پیش‌بینی دنبالهٔ متن.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-GENAI-PROFILE",
       "title": "NIST AI 600-1: Generative AI Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "official_risk_profile_reviewed",
-      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد."
+      "scope": "ریسک‌های confabulation، حریم خصوصی، اعتماد انسان و کاربردهای مولد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-CLOUD-RAG-GLOSSARY",
       "title": "Google Cloud Generative AI Glossary: RAG",
       "url": "https://docs.cloud.google.com/docs/generative-ai/glossary",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع."
+      "scope": "مراحل بازیابی، افزودن زمینه و تولید مبتنی بر منبع.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-VERTEX-RAG-APIS",
       "title": "Google Cloud: APIs for Building Search and RAG Experiences",
       "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
       "review_depth": "official_technical_documentation_reviewed",
-      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG."
+      "scope": "تفکیک مرحلهٔ بازیابی از تولید در سامانهٔ RAG.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "llm-use-and-rag-review",
     "prompt": "برای پاسخ‌گویی دربارهٔ SLA سپهر، دستور، زمینهٔ مجاز، منبع بازیابی، نمایش استناد، موارد امتناع، سطح تأیید انسانی و آزمون خطا را مشخص کنید. سه ادعای نمونه را نیز از متن منبع بررسی کنید.",
-    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد"
+    "expected_output": "طرح کاربرد LLM/RAG با معیارهای کیفیت و مرز اعتماد",
+    "rubric": [
+      "کاربرد LLM یا RAG با نمونهٔ ورودی/خروجی و منبع دانش مشخص است.",
+      "معیارهای صحت، استناد، پوشش و شکست با نمونهٔ نماینده تعریف شده‌اند.",
+      "مرز اعتماد، دادهٔ حساس، fallback و مسئول بررسی انسانی روشن است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "llm-context-rag-trust-boundary-flow",
     "purpose": "نمایش دستور، زمینه، بازیابی، تولید و بازبینی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/llm-prompt-rag-trust-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «دستور، زمینه و خروجی»: خروجی روان را با واقعیت یکی نگیر؛ منبع و محدودیت را در جریان پاسخ ببین. پیش‌بینی توکن، مدل زبانی دنبالهٔ محتمل می‌سازد؛ سازوکار آن تضمین حقیقت نیست.؛ دستور و زمینه، هدف، زمینه، مثال و محدودیت پاسخ را شکل می‌دهند؛ ورودی حساس را کنترل کن.؛ خطا و منبع، خروجی می‌تواند ساختگی یا ناقص باشد؛ ادعای حساس نیازمند شاهد بیرونی است.؛ بازیابی دانش، RAG متن بازیابی‌شده را به ورودی می‌افزاید؛ کیفیت بازیابی و ارجاع را هم بسنج.",
+        "caption": "نقشه را برای تحلیل «دستور، زمینه و خروجی» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

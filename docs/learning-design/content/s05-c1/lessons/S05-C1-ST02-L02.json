@@ -58,6 +58,12 @@
       "id": "S05-C1-ST02-L02-CARD09",
       "title": "نکتهٔ 9",
       "type": "explanation"
+    },
+    {
+      "id": "S05-C1-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Root-cause analysis — تحلیل علت ریشه‌ای: بررسی سازوکارهای زمینه‌ساز نقص؛ هم‌زمانی با علت یکی نیست. Rework — بازکاری: اصلاح خروجی برای رسیدن به معیار؛ نباید به‌عنوان تولید تازه شمرده شود. Pareto chart — نمودار پارتو: مرتب‌سازی فراوانی/اثر برای تمرکز؛ شکل نمودار علت را ثابت نمی‌کند."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "review_depth": "professional_quality_reference_reviewed",
       "id": "asq-cost-quality",
       "title": "ASQ: Cost of Quality",
-      "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد."
+      "scope": "تعریف پیشگیری، ارزیابی و شکست داخلی و بیرونی؛ دسته‌بندی عملیاتی سازمان باید روشن باشد.",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
     },
     {
       "url": "https://www.ihi.org/library/model-for-improvement",
       "review_depth": "professional_improvement_framework_reviewed",
       "id": "ihi-model-improvement",
       "title": "Institute for Healthcare Improvement: Model for Improvement",
-      "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود."
+      "scope": "سه پرسش بهبود و چرخهٔ PDSA برای آزمون کوچک و یادگیری محلی؛ زمینهٔ سلامت در تعمیم به عملیات دیگر لحاظ شود.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/quality-cause-pdsa-cost.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «علت‌یابی و بازکاری»: تعریف نقص را به نیاز مشتری وصل کن و تغییر را در چرخه‌ای کوچک بیازما. تعریف نقص، واحد، معیار پذیرش و اثر بر مشتری را روشن کن.؛ علت‌یابی، علت‌های ممکن را فرضیه بنویس؛ هم‌بستگی را علت قطعی نخوان.؛ آزمون PDSA، تغییر محدود را برنامه‌ریزی و اجرا کن، یاد بگیر و استاندارد را بازنگری کن.؛ هزینه و اندازه‌گیری، پیشگیری، ارزیابی و شکست را جدا کن؛ خطای سنجه را ثبت کن.",
+        "caption": "نقشه را برای تحلیل «علت‌یابی و بازکاری» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

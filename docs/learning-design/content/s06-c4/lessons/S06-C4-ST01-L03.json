@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S06-C4-ST01-L03-CARD08",
       "text": "زمان فروش کاهش یافته اما زمان اتصال داده سه برابر شده و صف آنبوردینگ رو به رشد است. راه‌حل ممکن است محدودکردن انواع سامانهٔ پشتیبانی‌شده و خودکارسازی اعتبارسنجی باشد، نه افزایش تبلیغ یا استخدام فروش."
+    },
+    {
+      "id": "S06-C4-ST01-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Operational bottleneck — گلوگاه عملیاتی: منبع محدودکنندهٔ خروجی فعلی؛ استخدام همهٔ بخش‌ها گلوگاه را رفع نمی‌کند. Throughput — نرخ عبور: خروجی تکمیل‌شده در زمان؛ شروع کار معیار ظرفیت نیست. Founder dependency — وابستگی به بنیان‌گذار: تصمیم/دانشی که فقط یک فرد می‌تواند انجام دهد؛ واگذاری بدون مستندسازی مشکل را حل نمی‌کند."
+    },
+    {
+      "id": "S06-C4-ST01-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "گلوگاه رشد منبعی است که خروجی یا سرعت یادگیری را محدود می‌کند؛ فروش بیشتر آن را ممکن است به پشتیبانی یا نقدینگی منتقل کند. ظرفیت را با نرخ عبور و زمان واقعی اندازه بگیرید نه تعداد افراد. اگر تقاضا افزایش یابد ولی فرایند دستی بماند، backlog بالا می‌رود؛ سرمایه‌گذاری باید گلوگاه تازه را هدف بگیرد."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "اتوماسیون کار نادرست را سریع‌تر می‌کند."
+    },
+    {
+      "id": "S06-C4-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "با افزایش سفارش‌ها، تأخیر تحویل زیاد شده است. تشخیص پیش از توسعه باید چه کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نقطهٔ گلوگاه را در ظرفیت، کیفیت، تصمیم یا جریان کار پیدا و شاخص پایش تعیین کند",
+          "feedback": "رشد می‌تواند گلوگاه تازه بسازد؛ علت محدودیت باید پیش از افزایش حجم روشن شود."
+        },
+        {
+          "id": "b",
+          "text": "حجم فروش را فوراً بیشتر کند",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: رشد می‌تواند گلوگاه تازه بسازد؛ علت محدودیت باید پیش از افزایش حجم روشن شود."
+        },
+        {
+          "id": "c",
+          "text": "فقط تبلیغات را کاهش دهد",
+          "feedback": "این پاسخ یکی از محدودیت‌های هدف درس را نادیده می‌گیرد: رشد می‌تواند گلوگاه تازه بسازد؛ علت محدودیت باید پیش از افزایش حجم روشن شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "رشد می‌تواند گلوگاه تازه بسازد؛ علت محدودیت باید پیش از افزایش حجم روشن شود.",
+      "objective_id": "S06-C4-ST01-L03-OBJ01",
+      "equivalence_group": "S06-C4-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C4-ST01-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "MIT OCW 15.392 Scaling Entrepreneurial Ventures (Spring 2026)",
       "url": "https://ocw.mit.edu/courses/15-392-scaling-entrepreneurial-ventures-spring-2026/",
       "review_depth": "official_current_graduate_course_reviewed",
-      "scope": "دورهٔ تحصیلات تکمیلی ۲۰۲۶ دربارهٔ رهبری، سازمان، عملیات، حکمرانی، منابع انسانی و رشد شرکت نوپا."
+      "scope": "دورهٔ تحصیلات تکمیلی ۲۰۲۶ دربارهٔ رهبری، سازمان، عملیات، حکمرانی، منابع انسانی و رشد شرکت نوپا.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ENT-LIFECYCLE-2.2",
       "title": "OpenStax Entrepreneurship 2.2 Business Life Cycle",
       "url": "https://openstax.org/books/entrepreneurship/pages/2-2-the-process-of-becoming-an-entrepreneur",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "چرخهٔ عمر کسب‌وکار و تغییر ساختار و ظرفیت در رشد."
+      "scope": "چرخهٔ عمر کسب‌وکار و تغییر ساختار و ظرفیت در رشد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ENT-RESOURCES-14.3",
       "title": "OpenStax Entrepreneurship 14.3 Managing Resources over the Venture Life Cycle",
       "url": "https://openstax.org/books/entrepreneurship/pages/14-3-managing-resources-over-the-venture-life-cycle",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "بازسرمایه‌گذاری درآمد و نیاز منابع در چرخهٔ عمر شرکت."
+      "scope": "بازسرمایه‌گذاری درآمد و نیاز منابع در چرخهٔ عمر شرکت.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "MIT-SLOAN-CLEANSTART",
       "title": "MIT Sloan CleanStart Startup Simulation",
       "url": "https://mitsloan.mit.edu/teaching-resources-library/cleanstart-simulating-a-clean-energy-startup",
       "review_depth": "official_teaching_simulation_page_reviewed",
-      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی در رشد شرکت نوپا."
+      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی در رشد شرکت نوپا.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "growth-capacity-market-map",
     "prompt": "برای سپهر موتور رشد را با شاهدهای جذب، استفاده، نگهداشت و اقتصاد توصیف کنید؛ یک گلوگاه پیدا کنید و یک بازار توسعه را با ماتریس جذابیت/تناسب و پایلوت کم‌هزینه مقایسه کنید.",
-    "expected_output": "نقشهٔ موتور رشد، اقتصاد واحد اولیه و تصمیم بازار مرحله‌ای"
+    "expected_output": "نقشهٔ موتور رشد، اقتصاد واحد اولیه و تصمیم بازار مرحله‌ای",
+    "rubric": [
+      "موتور رشد و حلقهٔ جذب، استفاده یا نگهداشت به‌روشنی تعریف شده‌اند.",
+      "اقتصاد واحد، ظرفیت تحویل و شاهد تکرارپذیری با گروه/زمان مشخص‌اند.",
+      "گسترش بازار مرحله‌ای است و معیار کیفیت/توقف دارد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -223,7 +275,14 @@
   "media_plan": {
     "type": "growth-engine-unit-economics-bottleneck-map",
     "purpose": "پیوند جذب، تحویل، نگهداشت، ظرفیت و بازار توسعه",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-growth-quality-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «گلوگاه تیم و عملیات»: رشد را به حفظ مشتری، ظرفیت تحویل و حاشیهٔ مشارکت متصل کن. تکرارپذیری، کانال و رفتار مشتری را در چند cohort بسنج؛ یک جهش فروش کافی نیست.؛ اقتصاد واحد، درآمد خالص، هزینهٔ متغیر و هزینهٔ جذب را در واحد مشترک محاسبه کن.؛ گلوگاه رشد، ظرفیت تیم، پشتیبانی، کیفیت و نقدینگی را با حجم بعدی مقایسه کن.؛ بازار توسعه، تقاضا، دسترسی، رقابت و هزینهٔ بومی‌سازی را پیش از ورود بسنج.",
+        "caption": "نقشه را برای تحلیل «گلوگاه تیم و عملیات» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -15,7 +15,31 @@
       "id": "S05-C2-ST02-L03-CARD02",
       "text": "اگر تقاضای روزانهٔ متوسط ۲۰ واحد و زمان تأمین ۵ روز باشد، تقاضای زمان تأمین ۱۰۰ واحد است. با ذخیرهٔ اطمینان ۳۰، نقطهٔ سفارش مجدد ۱۳۰ می‌شود.",
       "type": "explanation",
-      "title": "نکتهٔ 2"
+      "title": "نکتهٔ 2",
+      "table": {
+        "columns": [
+          "جزء",
+          "محاسبه/مقدار",
+          "تفسیر"
+        ],
+        "rows": [
+          [
+            "تقاضای زمان تأمین",
+            "۲۰ × ۵ = ۱۰۰",
+            "تقاضای مورد انتظار طی زمان تأمین"
+          ],
+          [
+            "ذخیرهٔ اطمینان",
+            "۳۰ واحد",
+            "حفاظ برای عدم‌قطعیت؛ سطح خدمت را تضمین مطلق نمی‌کند"
+          ],
+          [
+            "ROP",
+            "۱۰۰ + ۳۰ = ۱۳۰",
+            "موقعیت موجودی که سفارش را فعال می‌کند"
+          ]
+        ]
+      }
     },
     {
       "id": "S05-C2-ST02-L03-CARD03",
@@ -58,6 +82,12 @@
       "text": "ذخیرهٔ زیاد مشکل فرایندی را می‌پوشاند. پیش از افزایش buffer، دقت برنامه، کیفیت تأمین‌کننده، اندازهٔ سفارش و مسیر جایگزین را هم بررسی کنید. ذخیرهٔ اطمینان بالاتر احتمال کمبود چرخه را کم می‌کند اما تضمین نمی‌کند هر واحد تقاضا پاسخ داده شود. سطح خدمت انتخابی و نرخ پرکردن را جداگانه پایش کنید.",
       "type": "explanation",
       "title": "نکتهٔ 9"
+    },
+    {
+      "id": "S05-C2-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Safety stock — ذخیرهٔ اطمینان: موجودی برای پوشش تغییر تقاضا/تحویل؛ سطح خدمت و توزیع فرضی بر اندازه اثر دارند. Service level — سطح خدمت: احتمال/درصد پاسخ به تقاضا طبق تعریف؛ نوع معیار (چرخه‌ای یا واحدی) باید اعلام شود. Lead-time demand — تقاضای زمان تأمین: مصرف موردانتظار طی زمان انتظار؛ زمان تحویل متغیر محاسبه را تغییر می‌دهد."
     }
   ],
   "questions": [
@@ -213,14 +243,18 @@
       "id": "ncsu-safety-stock",
       "review_depth": "university_supply_chain_resource_reviewed",
       "scope": "آموزش مدل‌های ذخیرهٔ اطمینان و سطح خدمت؛ فرمول‌ها به توزیع، زمان تأمین و فرض‌ها وابسته‌اند.",
-      "title": "NC State Supply Chain Resource Cooperative: Safety Stock Analysis"
+      "title": "NC State Supply Chain Resource Cooperative: Safety Stock Analysis",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
       "id": "mit-inventory-eoq",
       "review_depth": "university_course_material_reviewed",
       "scope": "یادداشت درسی دربارهٔ موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان؛ زمینهٔ مدل و فرض‌های آموزشی حفظ شوند.",
-      "title": "MIT OCW Logistics Systems: Inventory Management"
+      "title": "MIT OCW Logistics Systems: Inventory Management",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -262,11 +296,6 @@
     ],
     "real_case_status": "choose_and_verify_during_authoring"
   },
-  "media_plan": {
-    "type": "authored_diagram_or_worked_table",
-    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
-  },
   "assessment_plan": {
     "item_count": 5,
     "targets": [
@@ -288,5 +317,23 @@
   "direct_entry_allowed": true,
   "free_sample": false,
   "legacy_lesson_ids": [],
-  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده"
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "تفکیک تقاضای زمان تأمین، ذخیرهٔ اطمینان و نقطهٔ سفارش مجدد",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/inventory-cost-ordering-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ذخیرهٔ اطمینان و کمبود»: موجودی را با هزینهٔ سفارش، نگهداری، کمبود و نوسان تقاضا تصمیم‌گیری کن. هزینه‌ها، هزینهٔ سفارش و نگهداری را از جریمهٔ کمبود و قیمت خرید جدا کن.؛ EOQ و فرض‌ها، Q*=√(2DS/H) در مدل سادهٔ قطعی است؛ فرض تقاضا و هزینهٔ ثابت را اعلام کن.؛ نقطهٔ سفارش، تقاضای زمان تحویل و ذخیرهٔ اطمینان را با سطح خدمت هدف مرتبط کن.؛ کالای فصلی، هزینهٔ کمبود و مازاد را مقایسه کن؛ پیش‌بینی را با سناریو به‌روز کن.",
+        "caption": "نقشه را برای تحلیل «ذخیرهٔ اطمینان و کمبود» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      },
+      {
+        "asset_ref": "content/media/reorder-point-safety-stock.svg",
+        "alt_text": "۲۰ واحد تقاضای روزانه در ۵ روز، ۱۰۰ واحد تقاضای زمان تأمین می‌سازد؛ با ذخیرهٔ ۳۰ واحد، ROP برابر ۱۳۰ است. تغییرپذیری زمان تأمین تا ۸ روز باید جدا سنجیده شود.",
+        "caption": "ROP سادهٔ این مثال ۱۳۰ واحد است؛ سطح خدمت و پراکندگی تقاضا و زمان تأمین را هم بررسی کن.",
+        "source_url": "https://scm.ncsu.edu/scm-articles/article/safety-stock-analysis-inventory-management-models-a-tutorial"
+      }
+    ]
+  }
 }

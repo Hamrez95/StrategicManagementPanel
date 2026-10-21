@@ -58,6 +58,18 @@
       "type": "explanation",
       "title": "سوگیری مدیر",
       "text": "هزینهٔ قبلی، شهرت فناوری و قدرت صاحب بودجه روی قضاوت اثر می‌گذارد. پیش از تصمیم بپرسید چه شواهدی نظر ما را عوض می‌کند و چه کسی بدون تعارض منافع بازبینی می‌کند."
+    },
+    {
+      "id": "S01-C2-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Decision under uncertainty — تصمیم‌گیری در عدم‌قطعیت: انتخاب وقتی احتمال‌ها نامعلوم یا ناپایدارند؛ برآورد نقطه‌ای را قطعی نگیریم. Scenario analysis — تحلیل سناریو: مقایسهٔ مسیرهای سازگار و محرک‌ها؛ سناریو پیش‌بینی محتمل‌ترین آینده نیست. Robustness — استحکام گزینه: عملکرد قابل‌قبول در دامنه‌ای از شرایط؛ الزاماً بهترین نتیجه در سناریوی پایه نیست."
+    },
+    {
+      "id": "S01-C2-ST03-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مقایسهٔ گزینه‌ها با دادهٔ ناقص باید کیفیت منبع، دامنه و عدم‌قطعیت هر برآورد را کنار امتیاز نشان دهد. جدول امتیازدهی تصمیم را شفاف می‌کند اما وزن‌ها ممکن است سلیقه‌ای باشند و جمع نهایی تفاوت حیاتی را پنهان کند. ابتدا معیارهای حذف را تعیین کنید، سپس رتبه‌بندی را با دامنهٔ معقول وزن‌ها حساسیت‌سنجی کنید. اگر انتخاب بر اثر فرضی شکننده است، اطلاعات بیشتر یا گزینهٔ مرحله‌ای ارزش دارد. تصمیم‌گیر باید بداند کدام داده اگر عوض شود نتیجه را تغییر می‌دهد."
     }
   ],
   "questions": [
@@ -207,18 +219,28 @@
       "remediation_card_id": "S01-C2-ST03-L03-CARD09"
     }
   ],
+  "source_refs": [
+    "mck-capalloc",
+    "hbr-uncertainty",
+    "oxford-options",
+    "hbs-scorecard",
+    "hbs-online",
+    "mck-portfolio"
+  ],
   "source_links": [
     {
       "id": "mck-capalloc",
       "title": "McKinsey: Capital allocation and CEO-led governance",
       "url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/capital-allocation-starts-with-governance-and-should-be-led-by-the-ceo",
-      "scope": "بازتخصیص پویا بر مبنای اولویت و پایداری فرضیهٔ رشد."
+      "scope": "بازتخصیص پویا بر مبنای اولویت و پایداری فرضیهٔ رشد.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "hbr-uncertainty",
       "title": "HBR (2025): Make Better Strategic Decisions Amid Uncertainty",
       "url": "https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty",
-      "scope": "بررسی فرض، سوگیری و تغییر مسیر در تصمیم‌های بزرگ."
+      "scope": "بررسی فرض، سوگیری و تغییر مسیر در تصمیم‌های بزرگ.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-options",
@@ -230,19 +252,22 @@
       "id": "hbs-scorecard",
       "title": "HBS Working Knowledge: Strategy Execution and the Balanced Scorecard",
       "url": "https://www.library.hbs.edu/working-knowledge/strategy-execution-and-the-balanced-scorecard",
-      "scope": "کارت امتیازی به‌مثابهٔ سیستم اجرای استراتژی."
+      "scope": "کارت امتیازی به‌مثابهٔ سیستم اجرای استراتژی.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "hbs-online",
       "title": "HBS Online: What Is a Balanced Scorecard?",
       "url": "https://online.hbs.edu/blog/post/balanced-scorecard",
-      "scope": "آموزش کارت امتیازی متوازن در کورس Strategy Execution."
+      "scope": "آموزش کارت امتیازی متوازن در کورس Strategy Execution.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "mck-portfolio",
       "title": "McKinsey: Portfolio Strategy and Resource Allocation",
       "url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/how-we-help-clients/portfolio-strategy",
-      "scope": "سرمایه، استعداد و توجه در مدیریت پورتفو."
+      "scope": "سرمایه، استعداد و توجه در مدیریت پورتفو.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {

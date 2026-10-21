@@ -58,6 +58,18 @@
       "text": "اصطلاح حرفه‌ای: «اعتبار سازه» یعنی شواهدی که نشان می‌دهد سنجه واقعاً مفهوم مورد نظر را می‌سنجد. هیچ آزمون منفردی عدالت را ثابت نمی‌کند؛ تصمیم نیازمند شواهد چندگانه و بازنگری است.",
       "id": "S04-C3-ST03-L02-CARD09",
       "type": "explanation"
+    },
+    {
+      "id": "S04-C3-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Measurement bias — سوگیری سنجش: خطای نظام‌مند در ارزیابی/داده؛ نمرهٔ دقیق می‌تواند سوگیر باشد. Disparate impact — اثر نامتناسب گروهی: تفاوت خروجی میان گروه‌ها طبق قواعد حوزهٔ مربوط؛ بررسی آن باید کیفیت داده و زمینه را هم بسنجد. Measurement invariance — ناوردایی سنجش: معنای سنجه میان گروه/زمان یکسان می‌ماند؛ بدون آن مقایسهٔ نمره مستقیم نیست."
+    },
+    {
+      "id": "S04-C3-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "پایش تبعیض و خطای سنجش باید نشان دهد چه گروه‌هایی چگونه با چه داده‌ای ارزیابی می‌شوند. میانگین عملکرد نمی‌تواند خطای نامتوازن میان گروه‌ها را آشکار کند. تعریف گروه، پیامد و خطای قابل قبول را پیشاپیش بنویسید و حریم خصوصی را رعایت کنید. دادهٔ کوچک یا طبقه‌بندی ناقص عدم قطعیت را زیاد می‌کند؛ نتیجه را با احتیاط گزارش کنید. معیار انصاف بسته به تصمیم و زمینه فرق دارد و یک عدد همهٔ آن را نمی‌سنجد. اگر اختلاف دیده شد، علت در داده، طراحی کار یا مدل را بررسی و اصلاح را پیگیری کنید."
     }
   ],
   "questions": [
@@ -207,20 +219,26 @@
       "explanation": "خط مبنا و بازبینی از پیش تعیین‌شده امکان یادگیری و اصلاح را فراهم می‌کنند."
     }
   ],
+  "source_refs": [
+    "cipd-pay-fairness-2026",
+    "NIST-AI-RMF-CORE"
+  ],
   "source_links": [
     {
       "title": "CIPD Pay Fairness and Pay Reporting Factsheet (2026)",
       "url": "https://www.cipd.org/uk/knowledge/factsheets/pay-fairness-reporting-factsheet/",
       "id": "cipd-pay-fairness-2026",
       "scope": "چارچوب حرفه‌ای برای بررسی انصاف پرداخت و گزارش‌دهی؛ الزامات حقوقی بسته به کشور فرق دارد.",
-      "review_depth": "professional_body_evidence_factsheet_reviewed"
+      "review_depth": "professional_body_evidence_factsheet_reviewed",
+      "accessed_on": "2026-10-21"
     },
     {
       "title": "NIST AI Risk Management Framework Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "scope": "حاکمیت، اندازه‌گیری و ثبت ریسک هوش مصنوعی؛ چارچوب مدیریت ریسک است و تضمین بی‌طرفی نیست.",
-      "review_depth": "official_framework_reviewed"
+      "review_depth": "official_framework_reviewed",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

@@ -44,6 +44,18 @@
       "title": "مثال سپهر",
       "id": "S07-C1-ST01-L01-CARD08",
       "text": "برای تحلیل دیرکرد، یک ردیف به‌ازای سفارش و شناسهٔ ناشناس سفارش؛ ویژگی‌ها فقط آنچه تا زمان تصمیم در دسترس بوده؛ برچسب دیرکرد طبق تعریف موعد قراردادی. اگر سفارش‌های لغوشده حذف شوند، نتیجه فقط برای سفارش‌های تکمیل‌شده معتبر است."
+    },
+    {
+      "id": "S07-C1-ST01-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "واحد مشاهده (Unit of observation) رکوردی است که یک ردیف داده نمایندگی می‌کند؛ با هدف پیش‌بینی هم‌تراز باشد. ویژگی (Feature) ورودی و هدف (Target) متغیر مورد برآورد است. زمان دسترس‌پذیری هر ویژگی را ثبت کنید تا دادهٔ آینده وارد تصمیم گذشته نشود."
+    },
+    {
+      "id": "S07-C1-ST01-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "واحد مشاهده تعیین می‌کند هر ردیف داده دربارهٔ چه چیزی و در چه زمانی است؛ مثلاً سفارش، مشتری یا رخداد روزانه. اگر پرسش دربارهٔ تأخیر سفارش باشد اما داده بر مبنای مشتری تجمیع شود، رابطهٔ موردنیاز ممکن است ناپدید شود. تعریف شناسه، زمان ثبت، پوشش و دادهٔ مفقود را پیش از مدل‌سازی بنویسید. فرض نمونه‌بودن داده را بررسی کنید: کاربران ثبت‌شده شاید نمایندهٔ همهٔ مشتریان نباشند. تغییر واحد تحلیل می‌تواند هم نرخ پایه و هم تصمیم را عوض کند؛ بنابراین واحد را از تصمیم مدیریتی استخراج کنید و نتیجه را در سطح همان واحد تفسیر کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "c",
       "explanation": "زمان ثبت و دسترسی از تعریف ویژگی است."
+    },
+    {
+      "id": "S07-C1-ST01-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دادهٔ سفارش‌ها شامل چند ردیف برای یک سفارش است. پیش از ساخت مدل چه چیزی را تعیین کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "واحد مشاهده و زمان هر ویژگی و هدف پیش‌بینی",
+          "feedback": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+        },
+        {
+          "id": "b",
+          "text": "تعداد ستون‌های بیشتر",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+        },
+        {
+          "id": "c",
+          "text": "واحدی را انتخاب کنیم که رکوردها را بیشتر کند",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مدل باید روی واحد درست آموزش و ارزیابی شود؛ ردیف‌های تکراری می‌توانند مشاهدهٔ مستقل را جعل کنند.",
+      "objective_id": "S07-C1-ST01-L01-OBJ01",
+      "equivalence_group": "S07-C1-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST01-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,34 +212,44 @@
       "title": "Google Machine Learning Crash Course: Data Characteristics",
       "url": "https://developers.google.com/machine-learning/crash-course/overfitting/data-characteristics",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه."
+      "scope": "ویژگی و کیفیت داده و وابستگی عملکرد به نمونه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-DATA-SPLIT",
       "title": "Google Machine Learning Crash Course: Dividing Datasets",
       "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه."
+      "scope": "نقش دادهٔ آموزش، اعتبارسنجی و آزمون و خطر تکرار نمونه.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "GOOGLE-ML-PRODUCTION-MONITORING",
       "title": "Google Machine Learning Crash Course: Monitoring Production ML Systems",
       "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
       "review_depth": "official_technical_education_reviewed",
-      "scope": "پایش داده و برچسب و خطا در استقرار."
+      "scope": "پایش داده و برچسب و خطا در استقرار.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI Risk Management Framework Core",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک."
+      "scope": "تناسب و نمایندگی داده، TEVV و پایش ریسک.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "managerial-ml-data-card",
     "prompt": "برای کاربرد پیش‌بینی دیرکرد سپهر، پرسش تصمیم، واحد مشاهده، زمان تصمیم، ویژگی‌ها و برچسب، تقسیم داده، معیار خطا و خطر حریم خصوصی را مشخص کنید.",
-    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی"
+    "expected_output": "کارت تعریف داده و ارزیابی مدل برای تصمیم عملیاتی",
+    "rubric": [
+      "تصمیم، واحد مشاهده، زمان تصمیم و برچسب با هم سازگارند.",
+      "تقسیم داده، معیار خطا و خط پایه بدون نشت زمانی توضیح داده شده‌اند.",
+      "حریم خصوصی، خطای گروهی و پیامد اقدام پس از مدل دیده شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -221,7 +273,14 @@
   "media_plan": {
     "type": "data-unit-feature-label-evaluation-diagram",
     "purpose": "نمایش ردیف داده و جریان آموزش/اعتبارسنجی/آزمون",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/data-task-model-validation-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «داده و واحد مشاهده»: نوع مسئله را مشخص کن و مرز دادهٔ آموزش، ارزیابی و آزمون را حفظ کن. واحد داده، ردیف، برچسب، زمان و واحد تصمیم را تعریف کن؛ دادهٔ گمشده را ببین.؛ نوع وظیفه، پیش‌بینی عدد، طبقه‌بندی یا توصیه پاسخ متفاوت می‌خواهد.؛ ارزیابی زمان‌مند، تقسیم آموزش/اعتبارسنجی/آزمون را با زمان واقعی تصمیم هم‌راستا کن.؛ نشت و خطا، هر ویژگی را بپرس: در لحظهٔ پیش‌بینی واقعاً در دسترس بود؟",
+        "caption": "نقشه را برای تحلیل «داده و واحد مشاهده» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

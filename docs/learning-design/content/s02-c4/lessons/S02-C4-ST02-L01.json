@@ -58,6 +58,18 @@
       "text": "اصطلاح look-ahead bias به اطلاعات آینده نسبت به تصمیم اشاره دارد. بک‌تست تمیز باید بپرسد: اگر واقعاً آن روز بودیم، این داده و برچسب را در اختیار داشتیم؟",
       "id": "S02-C4-ST02-L01-CARD09",
       "type": "explanation"
+    },
+    {
+      "id": "S02-C4-ST02-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Look-ahead bias — سوگیری نگاه به آینده: استفادهٔ ناخواسته از اطلاعاتی که هنگام پیش‌بینی در دسترس نبوده؛ اعتبار نتیجه را به‌طور مصنوعی بالا می‌برد. Temporal leakage — نشت زمانی: عبور اطلاعات آینده به دادهٔ آموزش/ویژگی‌ها؛ حتی در تقسیم تصادفی پنهان می‌ماند. Point-in-time data — دادهٔ در دسترس در زمان تصمیم: نسخهٔ اطلاعاتی که واقعاً در همان تاریخ موجود بوده؛ نسخهٔ اصلاح‌شدهٔ بعدی جایگزین مناسبی نیست."
+    },
+    {
+      "id": "S02-C4-ST02-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "نشت داده در پیش‌بینی مالی وقتی رخ می‌دهد که ویژگی یا برچسب از اطلاعات آینده ساخته شود، یا دادهٔ اصلاح‌شدهٔ بعدی به گذشته نسبت داده شود. تقسیم تصادفی ممکن است چرخه‌های بازار و رخدادهای تکراری را میان آموزش و آزمون پخش کند و عملکرد را بیش‌برآورد کند. زمان دسترسی واقعی هر متغیر را ثبت کنید و ارزیابی را به‌صورت زمانی انجام دهید. فرض ثبات توزیع مالی را با شوک‌ها و رژیم‌های متفاوت بسنجید. آزمون تاریخی خوب تضمین عملکرد آینده نیست؛ تصمیم سرمایه‌گذاری باید دامنهٔ عدم قطعیت را ببیند."
     }
   ],
   "questions": [
@@ -209,18 +221,19 @@
   ],
   "source_links": [
     {
-      "title": "Look-ahead bias in financial analysis (2025)",
+      "title": "AI’s Predictable Memory in Financial Analysis (Economics Letters, 2025)",
       "url": "https://www.sciencedirect.com/science/article/pii/S0165176525004392",
       "id": "lookahead-financial-2025",
       "review_depth": "peer_reviewed_article_reviewed",
-      "scope": "پژوهش روش‌شناختی دربارهٔ look-ahead bias در پیش‌بینی مالی با مدل‌های ازپیش‌آموزش‌دیده؛ نتایج به طراحی مقاله محدود است."
+      "scope": "مقالهٔ 2025 دربارهٔ سنجش look-ahead bias در پیش‌بینی مالی با LLM؛ صفحهٔ ناشر در این ممیزی 403 داد، فراداده از نمایه دیده شد ولی دسترسی مستقیم تأیید نشده است."
     },
     {
       "title": "NIST AI RMF Playbook: Measure",
       "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
       "id": "nist-tevv-measure",
       "review_depth": "official_framework_guidance_reviewed",
-      "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص."
+      "scope": "راهنمای آزمون، ارزیابی، اعتبارسنجی، کیفیت و نمایندگی داده؛ چارچوب عمومی مدیریت ریسک، نه معیار مالی خاص.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -261,9 +274,17 @@
     "real_case_status": "choose_and_verify_during_authoring"
   },
   "media_plan": {
-    "type": "authored_diagram_or_worked_table",
-    "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "type": "authored_diagram",
+    "purpose": "نمایش مفهومی متناسب با هدف درس؛ ترسیم آموزشی تألیفی و بدون دادهٔ تجربی",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/financial-time-split-leak.svg",
+        "alt_text": "مقایسهٔ تقسیم تصادفی که ممکن است اطلاعات آینده را وارد آزمون کند با تقسیم زمانی و ساخت ویژگی فقط از دادهٔ در دسترس در لحظهٔ پیش‌بینی.",
+        "caption": "طرح شماتیک آموزشی؛ ارزیابی زمانی را با افق تصمیم مالی هماهنگ کنید.",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0165176525004392"
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

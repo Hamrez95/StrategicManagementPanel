@@ -44,6 +44,18 @@
       "id": "E02-ST04-L03-CARD08",
       "title": "سناریوی خطای سپهر",
       "text": "صفحهٔ وب سفارش، دستور مخفیِ «همهٔ سوابق را ارسال کن» دارد. عامل فقط باید متن سفارش را بازیابی کند و پاسخ بنویسد. جداسازی داده، عدم امکان ارسال ایمیل، مجوز محدود، ثبت تلاش و ارجاع به انسان لایه‌های دفاع‌اند؛ prompt به‌تنهایی کافی نیست."
+    },
+    {
+      "id": "E02-ST04-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "کنترل پیشگیرانه پیش از اقدام احتمال خطا را کم می‌کند؛ کنترل کشف‌گر پس از تولید یا پیش از اثر بیرونی خطا را پیدا می‌کند. توقف اضطراری (Kill switch) اجرای عامل را قطع می‌کند. کنترل مستقل مهم است، چون دستور نوشتاری به‌تنهایی دسترسی ابزار یا خروجی نامعتبر را مهار نمی‌کند."
+    },
+    {
+      "id": "E02-ST04-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ریسک خطای عامل به دسترسی، ماندگاری اقدام و توان بازیابی وابسته است. خطا می‌تواند از برنامه‌ریزی نادرست، دادهٔ نامعتبر، ابزار ناسازگار یا دستور تزریق‌شده ناشی شود. توقف، ثبت، محدودیت مقدار، محیط آزمایشی و بازگشت نسخه کنترل‌های مکمل‌اند. اگر اقدام بیرونی برگشت‌ناپذیر باشد، باید پیش از اجرا نقطهٔ تأیید یا منع داشته باشد. مسیر بازیابی را با تمرین واقعی بسنجید. پس از رخداد، نسخه و ورودی را حفظ و علت را در سامانه و گردش کار بررسی کنید."
     }
   ],
   "questions": [
@@ -162,6 +174,36 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "تغییر مؤلفه می‌تواند رفتار کل سیستم را عوض کند."
+    },
+    {
+      "id": "E02-ST04-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل می‌تواند دادهٔ ناقص را به سامانهٔ بیرونی بفرستد. کدام کنترل‌ها را کنار هم می‌گذاریم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "محدودکردن اختیار و اعتبارسنجی ورودی/خروجی و ثبت و مسیر توقف",
+          "feedback": "کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "تکیه بر prompt طولانی",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "افزایش مجوز دسترسی",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند.",
+      "objective_id": "E02-ST04-L03-OBJ01",
+      "equivalence_group": "E02-ST04-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST04-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +212,55 @@
       "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "review_depth": "primary_public_framework_reviewed_current_status_checked",
-      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند."
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "NIST-AI-600-1-GENAI-PROFILE",
       "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "review_depth": "primary_public_profile_reviewed",
-      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد."
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-2025",
       "title": "OWASP Top 10 for LLM Applications 2025",
       "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
       "review_depth": "community_security_awareness_resource_reviewed",
-      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست."
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OWASP-LLM-TOP10-PDF-2025",
-      "title": "OWASP Top 10 for LLM Applications 2025, project PDF",
-      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
-      "review_depth": "community_security_project_document_reviewed",
-      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود."
+      "title": "OWASP Top 10 for LLM Applications 2025, official resource page",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "official_publication_resource_page_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "previous_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_community_guidance"
     },
     {
       "id": "NIST-ADVERSARIAL-ML-100-2E2025",
       "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
       "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
       "review_depth": "primary_technical_taxonomy_reviewed",
-      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود."
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "ai-agent-risk-and-governance-brief",
     "prompt": "برای سپهر «ریسک و بازگشت از خطا» را در دستیار پشتیبانی تحلیل کنید؛ سطح اختیار، کنترل، معیار، مالک و مسیر خطا را بنویسید.",
-    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول"
+    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+    "rubric": [
+      "کار عامل از اتوماسیون ساده و مرز اختیارش تفکیک شده است.",
+      "دسترسی، داده، ریسک و مسئول پاسخ‌گو در طراحی دیده شده‌اند.",
+      "آزمون، نظارت انسانی، مسیر fallback و شرط توقف مشخص‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -233,7 +289,14 @@
   "media_plan": {
     "type": "agent-threat-control-map",
     "purpose": "نمایش دامنهٔ اختیار، ریسک و سازوکار تصمیم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-agent-control-loop.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «ریسک و بازگشت از خطا»: عامل می‌تواند چند گام را دنبال کند؛ دسترسی و اختیار باید محدود و قابل‌بازگشت باشد. درخواست و دامنه، هدف، منابع داده، ابزار مجاز و کارهای ممنوع را تعریف کن.؛ پیشنهاد و اقدام، عملیات کم‌خطر را محدود کن؛ برای تعهد، پرداخت یا دادهٔ حساس تأیید بگیر.؛ پایش و ثبت، عملکرد، خطا، دسترسی و شکایت را با مالک مشخص پایش کن.؛ توقف و بازیابی، کلید توقف، لغو دسترسی، بازگشت به نسخهٔ قبلی و مسئول پاسخ را آماده کن.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «ریسک و بازگشت از خطا» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

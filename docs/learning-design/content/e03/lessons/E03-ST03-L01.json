@@ -44,6 +44,18 @@
       "id": "E03-ST03-L01-CARD08",
       "title": "تصمیم پس از آزمون",
       "text": "نتیجه باید با اندازهٔ اثر، عدم‌قطعیت، محدودهٔ نمونه و هزینه‌های جانبی گزارش شود. اگر اثر مبهم است، آزمایش را بازطراحی یا تصمیم محافظه‌کارانه بگیرید؛ یک p-value یا درصد رشد به‌تنهایی تصمیم نیست."
+    },
+    {
+      "id": "E03-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "آزمایش کنترل‌شده (Controlled experiment) مداخله را با گروه/دورهٔ مقایسه می‌سنجد. تصادفی‌سازی (Randomization) عوامل مشاهده‌نشده را به‌طور متوسط متوازن می‌کند، اما آلودگی گروه یا حجم ناکافی همچنان مسئله است. پیش از آزمایش، معیار اصلی و guardrail را تعیین کنید."
+    },
+    {
+      "id": "E03-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "آزمایش قیمت به گروه مقایسه، تخصیص مناسب، مدت کافی و شاخص از پیش تعیین‌شده نیاز دارد. تغییرات هم‌زمان در محصول یا تبلیغ تفسیر را دشوار می‌کند. تخصیص باید از نشت قیمت میان گروه‌ها جلوگیری کند و اثر بر اعتماد مشتری را پایش کند. درآمد کوتاه‌مدت ممکن است حفظ و ارزش بلندمدت را نادیده بگیرد. حجم نمونه و حساسیت زیرگروه‌ها را بسنجید. اگر آزمایش تصادفی اخلاقی یا عملی نیست، روش جایگزین را با فرض‌هایش گزارش کنید؛ نتیجهٔ آزمایش فقط برای دامنهٔ مشابه تعمیم‌پذیر است."
     }
   ],
   "questions": [
@@ -162,42 +174,84 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "زمان و رفتار آینده‌نگر می‌تواند اثر قیمت را مخلوط کند."
+    },
+    {
+      "id": "E03-ST03-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای آزمون قیمت جدید، چرا گروه کنترل مهم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تا روندهای هم‌زمان را از اثر احتمالی تغییر قیمت جدا کنیم",
+          "feedback": "مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+        },
+        {
+          "id": "b",
+          "text": "برای اطمینان از افزایش فروش در هر گروه",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+        },
+        {
+          "id": "c",
+          "text": "تا فقط مشتریان وفادار قیمت تازه را ببینند",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مقایسهٔ کنترل‌شده خط مبنا می‌دهد؛ تخصیص و آلودگی گروه‌ها باید مدیریت شود.",
+      "objective_id": "E03-ST03-L01-OBJ01",
+      "equivalence_group": "E03-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST03-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "OPENSTAX-MARKETING-METRICS",
       "title": "OpenStax, Principles of Marketing: Marketing Plan Progress Using Metrics",
-      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress-using-metrics",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست."
+      "scope": "تعریف CAC و LTV به‌عنوان تخمین آینده، هزینه خدمت و شاخص‌های بازاریابی؛ فرمول کتاب ساده‌سازی شده و برای پیش‌بینی واقعی کافی نیست.",
+      "previous_url": "https://openstax.org/books/principles-marketing/pages/2-4-marketing-plan-progress",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "AMA-LTV-CALCULATOR",
       "title": "American Marketing Association, Customer Lifetime Value Guide & Calculator",
       "url": "https://www.ama.org/toolkits/ama-lifetime-value-calculator/",
       "review_depth": "professional_association_guide_reviewed",
-      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود."
+      "scope": "پیوند LTV با حاشیه، تکرار، حفظ، CAC و دورهٔ بازگشت؛ راهنمای حرفه‌ای و محاسبه‌گر است و برآورد باید با cohort سازمان سنجیده شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "SWITCHBACK-PRICING-EXPERIMENTS-2024",
       "title": "Switchback Price Experiments with Forward-Looking Demand",
       "url": "https://arxiv.org/abs/2410.14904",
       "review_depth": "working_paper_preprint_theory_reviewed",
-      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد."
+      "scope": "مدل نظری طراحی switchback قیمت با خریداران آینده‌نگر؛ پیش‌چاپ/مقالهٔ کاری است و ادعای تأیید داوری یا کارایی عمومی ندارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-ONLINE-METRICS",
       "title": "OpenStax, Principles of Marketing: Metrics Used to Evaluate Online Marketing",
       "url": "https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing",
       "review_depth": "open_educational_textbook_reviewed",
-      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد."
+      "scope": "مفاهیم قیف، تبدیل و سنجه‌های بازاریابی دیجیتال؛ سنجهٔ ترافیک به‌تنهایی اثربخشی علّی را نشان نمی‌دهد.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "pricing-experiment-economics-metrics",
     "prompt": "برای جذب دانش‌پذیر سپهر «آزمایش قیمت و گروه کنترل» را تحلیل کنید؛ تعریف سنجه، فرض و معیار محافظ را بنویسید.",
-    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها"
+    "expected_output": "برگهٔ رشد cohort با CAC، LTV، بازگشت، کیفیت و فرض‌ها",
+    "rubric": [
+      "فرضیه، گروه/دورهٔ مقایسه و معیارها پیش از آزمون تعیین شده‌اند.",
+      "CAC، LTV، بازگشت هزینه و کیفیت داده با تعریف سازگار محاسبه شده‌اند.",
+      "عدم‌قطعیت و محدودیت علیت گزارش شده و تصمیم بعدی به آستانهٔ ازپیش‌تعیین‌شده وصل است."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -224,7 +278,14 @@
   "media_plan": {
     "type": "price-test-design",
     "purpose": "نمایش طراحی آزمایش و تحلیل رشد",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/cac-ltv-margin-cohort.svg",
+        "alt_text": "نمودار آموزشی مشترک مرحله برای «آزمایش قیمت و گروه کنترل»: رشد را به هزینهٔ جذب، حاشیه، حفظ و کیفیت شواهد وصل کن. آزمایش قیمت، فرضیه، کنترل، معیار اصلی و مدت را پیشاپیش تعیین کن؛ هم‌زمانی علت نیست.؛ CAC کانالی، هزینهٔ منتسب به کانال را بر مشتری جدید همان کانال تقسیم کن؛ روش انتساب را بگو.؛ LTV و cohort، حاشیهٔ مشارکت و ماندگاری هر گروه را در زمان ببین؛ ریزش را پنهان نکن.؛ رشد سالم، بازگشت هزینه، حفظ، کیفیت و شکایت را با هم پایش کن؛ نسبت واحد قانون جهان‌شمول نیست.",
+        "caption": "از نمودار مرحله برای پاسخ به هدف «آزمایش قیمت و گروه کنترل» استفاده کن؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

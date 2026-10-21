@@ -59,6 +59,12 @@
       "type": "summary",
       "title": "جمع‌بندی",
       "text": "EOQ موازنهٔ هزینهٔ سفارش و نگهداری را در فرض‌های ساده می‌سنجد. فرمول را با واحدهای سازگار به‌کار ببرید و پیش از تبدیل نتیجه به سیاست، فرض‌ها و هزینه‌های حذف‌شده را بازبینی کنید."
+    },
+    {
+      "id": "C06-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "مقدار سفارش اقتصادی میان هزینهٔ ثابت هر سفارش و هزینهٔ نگهداری موجودی مصالحه می‌سازد. مدل کلاسیک تقاضای نسبتاً پایدار، زمان تأمین معلوم، قیمت و هزینهٔ ثابت را فرض می‌کند؛ تخفیف پله‌ای، کمبود و عدم قطعیت ساده‌سازی نشده‌اند. حاصل فرمول نقطهٔ شروع تحلیل است، نه مقدار قطعی برای هر قلم. اگر تقاضا یا زمان تأمین نوسان کند، نقطهٔ سفارش و ذخیرهٔ اطمینان جداگانه لازم‌اند. هزینهٔ واقعی ثبت سفارش و نگهداری را برآورد کنید و با تحلیل حساسیت ببینید تغییر فرض‌ها چقدر تصمیم را عوض می‌کند."
     }
   ],
   "questions": [
@@ -208,18 +214,24 @@
       "remediation_card_id": "C06-ST03-L02-CARD07"
     }
   ],
+  "source_refs": [
+    "mit-inventory",
+    "openstax-inventory"
+  ],
   "source_links": [
     {
       "id": "mit-inventory",
       "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
       "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
-      "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان."
+      "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "openstax-inventory",
       "title": "OpenStax Principles of Finance 2e 19.5: Inventory Management",
       "url": "https://openstax.org/books/principles-finance-2e/pages/19-5-inventory-management",
-      "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی."
+      "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {

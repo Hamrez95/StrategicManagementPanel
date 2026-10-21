@@ -58,6 +58,12 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "نظارت چرخه‌ای است: نشانه را کشف کنید، زمینه را بررسی کنید، اقدام اصلاحی بگذارید و اثربخشی را بعداً بسنجید. لاگ‌برداری باید به هدف و حریم خصوصی متناسب باشد. شاخص‌ها باید امکان تفسیر عملی داشته باشند: هشدار را به پروندهٔ نمونه، نسخهٔ ابزار و نتیجهٔ انسانی وصل کنید. هم‌زمان مراقب باشید ثبت بیش از حد دادهٔ فردی برای پایش ضرورت نداشته باشد."
+    },
+    {
+      "id": "S05-C1-ST03-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Operational AI — هوش مصنوعی عملیاتی: کاربرد مدل در تصمیم/گردش کار عملیات؛ دقت مدل به‌تنهایی عملکرد فرایند نیست. Human override — مداخلهٔ انسانی: اختیار رد/تغییر خروجی در شرایط تعریف‌شده؛ باید آستانه و ثبت دلیل داشته باشد. False negative cost — هزینهٔ منفی کاذب: زیان از شناسایی‌نکردن رخداد واقعی؛ باید در آستانهٔ هشدار منظور شود."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "title": "NIST: Challenges to the Monitoring of Deployed AI Systems (2026)",
       "scope": "گزارش چالش‌های پایش AI مستقر، شامل کیفیت خروجی و تعامل انسان-سامانه؛ گزارش تحلیلی و راهنمای زمینه‌ای است.",
       "review_depth": "official_research_report_reviewed",
-      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems"
+      "url": "https://www.nist.gov/news-events/news/2026/03/new-report-challenges-monitoring-deployed-ai-systems",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core",
       "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
       "review_depth": "official_framework_reviewed",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/process-automation-exception-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «نظارت بر AI در عملیات»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+        "caption": "نقشه را برای تحلیل «نظارت بر AI در عملیات» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

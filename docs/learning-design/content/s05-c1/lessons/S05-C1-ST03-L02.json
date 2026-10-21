@@ -58,6 +58,12 @@
       "title": "نکتهٔ 9",
       "type": "explanation",
       "text": "اصطلاح «automation bias» گرایش به پذیرش پیشنهاد خودکار حتی هنگام وجود شاهد مخالف است؛ طراحی نمایش اعتماد، توضیح و اختیار توقف بر رفتار کاربر اثر می‌گذارد. قابلیت دسترسی سامانه و مسیر خطای آن را در آموزش کاربر تمرین کنید. کاربران باید بدانند خروجی چه زمانی خارج از دامنه است و چگونه کار را بی‌داده‌زدایی یا پنهان‌کردن خطا به متخصص منتقل کنند."
+    },
+    {
+      "id": "S05-C1-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Automation — خودکارسازی: اجرای وظیفه به‌وسیلهٔ سامانه؛ استثنا و بازیابی خطا بخش طراحی است. Exception handling — مدیریت استثنا: مسیر برخورد با ورودی/وضعیت خارج از قاعده؛ ارجاع انسانی بدون مالکیت روشن انباشت صف می‌کند. Straight-through processing — پردازش بی‌وقفه: تکمیل خودکار بدون مداخلهٔ دستی در دامنهٔ معتبر؛ نرخ بالا می‌تواند خطای پنهان ایجاد کند."
     }
   ],
   "questions": [
@@ -213,14 +219,18 @@
       "title": "NIST AI RMF Appendix C: Human-AI Interaction",
       "scope": "راهنمای نقش انسان و تعامل با AI در محیط عملیاتی؛ تفسیر باید با کاربرد خاص انجام شود.",
       "review_depth": "official_framework_guidance_reviewed",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "nist-ai-rmf-core",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core",
       "scope": "نتایج و مسئولیت‌های حکمرانی، اندازه‌گیری و مدیریت در چرخهٔ عمر؛ چارچوب داوطلبانهٔ عمومی.",
       "review_depth": "official_framework_reviewed",
-      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
@@ -265,7 +275,14 @@
   "media_plan": {
     "type": "authored_diagram_or_worked_table",
     "purpose": "نشان‌دادن رابطه یا مراحل مفهوم، فقط در صورت کمک به فهم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/process-automation-exception-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «اتوماسیون و استثناها»: اتوماسیون باید استثنا، مالک تصمیم و سنجهٔ پیش و پس داشته باشد. گزینهٔ فرایند، سرعت، کیفیت، انعطاف و هزینه را با واحد و دامنهٔ یکسان مقایسه کن.؛ استثنا و اختیار، چه زمانی کار به انسان برمی‌گردد و چه کسی پاسخ‌گوست؟؛ پایش AI، خطا، تغییر داده و مداخلهٔ انسانی را با مسئول مشخص ثبت کن.؛ اثر بهبود، خط مبنا و سنجهٔ توازن را پیش و پس از تغییر بسنج.",
+        "caption": "نقشه را برای تحلیل «اتوماسیون و استثناها» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 5,

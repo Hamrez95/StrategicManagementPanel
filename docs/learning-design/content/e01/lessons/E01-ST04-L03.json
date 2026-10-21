@@ -44,6 +44,18 @@
       "title": "گزارش ارزیابی باید دامنه را بگوید",
       "id": "E01-ST04-L03-CARD08",
       "text": "نسخه، مدل، prompt، نمونه، زبان، معیار، ارزیاب و نتایج sliceها را ثبت کنید. معلوم کنید چه چیزهایی آزمایش نشده‌اند. هر ادعای «منصف»، «بهتر» یا «خودکار» باید به شواهد و دامنهٔ آن متصل باشد."
+    },
+    {
+      "id": "E01-ST04-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "عدالت نتیجه‌ای (Outcome fairness) به توزیع پیامدها نگاه می‌کند؛ عدالت فرایندی (Procedural fairness) به شفافیت و امکان شنیده‌شدن در روش تصمیم. استحکام (Robustness) یعنی نتیجه در تغییر معقول سناریو فرو نریزد. امتیاز میانگین به‌تنهایی هیچ‌یک را ثابت نمی‌کند."
+    },
+    {
+      "id": "E01-ST04-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ارزیابی کیفیت عامل در مذاکره فقط نرخ قبولی متن نیست. صحت واقعیت، انطباق با اختیار، حفظ محرمانگی، انصاف میان طرف‌ها و نتیجهٔ فرایند باید جدا سنجیده شوند. دادهٔ گذشته ممکن است رفتارهای ناعادلانه یا توافق‌های نامتوازن را بازتولید کند. موارد دشوار و زیرگروه‌ها را در آزمون بگنجانید و خطای پراثر را مستقل گزارش کنید. فرض بی‌طرفی خروجی مدل را بررسی کنید. اگر عامل در زمان یا فشار متفاوت عملکردش افت می‌کند، کاربرد را محدود و کنترل را تقویت کنید؛ معیار و مسئول بازبینی را پیش از استقرار تعیین کنید."
     }
   ],
   "questions": [
@@ -162,42 +174,83 @@
       "version": 1,
       "correct_option_id": "a",
       "explanation": "زمینه و محدودیت برای تفسیر لازم است."
+    },
+    {
+      "id": "E01-ST04-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل مذاکره در یک سناریو نتیجهٔ قیمتی خوبی دارد ولی طرف‌ها به فرایند اعتماد ندارند. ارزیابی کامل چه می‌خواهد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط سود مالی عامل",
+          "feedback": "کیفیت مذاکره چندبعدی است و یک نتیجهٔ مطلوب، اعتماد یا انصاف را به‌تنهایی اثبات نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "نتیجه، کیفیت فرایند، اعتماد و انصاف در سناریوهای متنوع",
+          "feedback": "این گزینه دلیل کلیدی درس را نادیده می‌گیرد: کیفیت مذاکره چندبعدی است و یک نتیجهٔ مطلوب، اعتماد یا انصاف را به‌تنهایی اثبات نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "فقط سرعت تولید پیشنهاد",
+          "feedback": "این گزینه دلیل کلیدی درس را نادیده می‌گیرد: کیفیت مذاکره چندبعدی است و یک نتیجهٔ مطلوب، اعتماد یا انصاف را به‌تنهایی اثبات نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "کیفیت مذاکره چندبعدی است و یک نتیجهٔ مطلوب، اعتماد یا انصاف را به‌تنهایی اثبات نمی‌کند.",
+      "objective_id": "E01-ST04-L03-OBJ01",
+      "equivalence_group": "E01-ST04-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E01-ST04-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
     {
       "id": "SONDERN-ARNHOLZ-HERTEL-2025",
       "title": "Sondern, Arnholz & Hertel, Employment Negotiations With an Algorithm?",
-      "url": "https://doi.org/10.1002/crq.21472",
+      "url": "https://cris.uni-muenster.de/portal/de/publication/171877455",
       "review_depth": "peer_reviewed_experimental_article_reviewed",
-      "scope": "مطالعهٔ ادراک و انتظار افراد از مذاکرهٔ استخدامی با طرف انسانی یا AI؛ پاسخ‌دهندگان و موقعیت مطالعه محدودند."
+      "scope": "رکورد پژوهشی رسمی دانشگاه مونستر؛ چکیدهٔ مطالعهٔ وینیت پیش‌ثبت‌شده با ۲۹۱ پاسخ‌دهنده دربارهٔ اعتماد به طرف مذاکرهٔ AI/انسان. متن کامل ناشر در این گذر بررسی نشده است.",
+      "doi": "10.1002/crq.21472",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "BHATTACHARYA-NEGOTIATION-LLM-2025",
       "title": "Bhattacharya et al., Evaluating Negotiation Capabilities of Large Language Models",
       "url": "https://doi.org/10.1177/10711813251372102",
       "review_depth": "peer_reviewed_benchmark_paper_reviewed",
-      "scope": "ارزیابی در بازی‌های کلاسیک چانه‌زنی؛ benchmark شبیه‌سازی‌شده معادل مذاکرهٔ سازمانی واقعی نیست."
+      "scope": "ارزیابی در بازی‌های کلاسیک چانه‌زنی؛ benchmark شبیه‌سازی‌شده معادل مذاکرهٔ سازمانی واقعی نیست.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
       "title": "AI-Mediated Dispute Resolution",
       "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/view/35558",
       "review_depth": "conference_proceedings_paper_reviewed",
-      "scope": "بررسی اولیهٔ میانجی‌گری با LLM در سناریوهای پژوهشی؛ شواهد اولیه و محدود، نه جایگزین میانجی حرفه‌ای."
+      "scope": "بررسی اولیهٔ میانجی‌گری با LLM در سناریوهای پژوهشی؛ شواهد اولیه و محدود، نه جایگزین میانجی حرفه‌ای.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NIST-AIRMF-PLAYBOOK",
+      "id": "NIST-AI-RMF-CORE",
       "title": "NIST AI RMF Core: Govern, Measure and Manage",
       "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
       "review_depth": "official_risk_framework_reviewed",
-      "scope": "نقش‌ها، شفافیت، پایش، اعتراض و مدیریت اثرها در کاربرد AI؛ چارچوب داوطلبانه و زمینه‌محور."
+      "scope": "نقش‌ها، شفافیت، پایش، اعتراض و مدیریت اثرها در کاربرد AI؛ چارچوب داوطلبانه و زمینه‌محور.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "human-agent-negotiation-simulation",
     "prompt": "برای «ارزیابی کیفیت و انصاف» یک مذاکرهٔ ساختگی سپهر را با نقش انسانی و AI اجرا/تحلیل کنید؛ حد اختیار، افشا، fairness و توقف را ثبت کنید.",
-    "expected_output": "rubric ارزیابی مذاکرهٔ AI و گزارش sliceهای مهم"
+    "expected_output": "rubric ارزیابی مذاکرهٔ AI و گزارش sliceهای مهم",
+    "rubric": [
+      "وظیفهٔ مجاز عامل AI، ورودی‌ها و مرز اختیار روشن است.",
+      "حریم خصوصی، خطا، سوگیری و مالک تصمیم انسانی در طرح آمده‌اند.",
+      "ارزیابی، ثبت رخداد، راه ارجاع و شرط توقف قابل اجرا تعریف شده‌اند."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -214,7 +267,7 @@
     "SONDERN-ARNHOLZ-HERTEL-2025",
     "BHATTACHARYA-NEGOTIATION-LLM-2025",
     "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
-    "NIST-AIRMF-PLAYBOOK"
+    "NIST-AI-RMF-CORE"
   ],
   "source_scope": "مطالعات ۲۰۲۵ دربارهٔ مذاکرهٔ استخدامی، بازی‌های چانه‌زنی و میانجی‌گری AI اولیه‌اند و به موقعیت‌های آزمایشی محدودند؛ سیاست‌ها باید با بافت و طرف‌های واقعی آزموده شوند.",
   "example_plan": {
@@ -228,7 +281,14 @@
   "media_plan": {
     "type": "human-ai-negotiation-workflow-and-evaluation-rubric",
     "purpose": "نمایش سطوح اختیار، افشا، تأیید و سنجه‌های ارزیابی",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/human-ai-negotiation-guardrails.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «ارزیابی کیفیت و انصاف»: پیشنهاد، تحلیل و پذیرش توافق سه سطح اختیار متفاوت‌اند. داده و افشا، محدودهٔ دادهٔ مجاز و شیوهٔ اعلام استفاده از AI را پیش از مذاکره مشخص کن.؛ اختیار محدود، عامل می‌تواند گزینه و خلاصه بسازد؛ سقف پیشنهاد، مخاطب و اقدام مجاز باید بسته باشد.؛ تأیید انسان، تعهد، پذیرش نهایی یا تغییر توافق با تأیید انسانیِ مجاز انجام شود.؛ ثبت و ارزیابی، خطا، انصاف، کیفیت توافق و امکان اعتراض را ثبت کن؛ مسیر توقف و اصلاح داشته باش.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «ارزیابی کیفیت و انصاف» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,

@@ -232,26 +232,31 @@
           "remediation_card_id": "C03-ST02-L01-CARD03"
         }
       ],
+      "source_refs": [
+        "nyu-capbudg",
+        "nyu-cf2e",
+        "hbs-finance"
+      ],
       "source_links": [
         {
           "id": "nyu-capbudg",
           "title": "NYU Stern: Capital Budgeting under Certainty",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "جزوهٔ عمومی استاد دربارهٔ جریان نقد افزایشی؛ مثال این درس مستقل تألیف شده است."
         },
         {
           "id": "nyu-cf2e",
           "title": "NYU Stern: Corporate Finance, project interactions",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/CF2E.htm",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "موضوع‌های عمومی دربارهٔ هزینهٔ فرصت و اثرات جانبی پروژه."
         },
         {
           "id": "hbs-finance",
           "title": "Harvard Business School: Finance I and II curriculum",
           "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "شرح رسمی موضوعات مالی MBA برای هم‌راستایی کلی."
         }
       ],
@@ -309,7 +314,32 @@
           "type": "worked_example",
           "title": "مثال حل‌شده؛ تفاوت درصد و ارزش",
           "text": "دو پروژهٔ یک‌ساله و متقابلاً مانع با نرخ لازم ۱۰٪: الف ۱۰۰ امروز می‌پردازد و ۱۴۰ سال بعد می‌گیرد؛ NPV≈۲۷٫۲۷ و IRR=۴۰٪. ب ۱٬۰۰۰ امروز می‌پردازد و ۱٬۲۵۰ می‌گیرد؛ NPV≈۱۳۶٫۳۶ و IRR=۲۵٪. هر دو NPV مثبت‌اند؛ الف درصد بالاتری دارد ولی ب ارزش پولی بیشتری می‌افزاید. این محاسبه فقط برای نشان‌دادن اثر مقیاس است؛ ریسک، مالیات و محدودیت اجرا وارد نشده‌اند.",
-          "example_kind": "fictional"
+          "example_kind": "fictional",
+          "table": {
+            "columns": [
+              "پروژه",
+              "سرمایه‌گذاری امروز",
+              "جریان پایان سال",
+              "NPV با نرخ ۱۰٪",
+              "IRR"
+            ],
+            "rows": [
+              [
+                "الف",
+                "۱۰۰",
+                "۱۴۰",
+                "۲۷٫۲۷",
+                "۴۰٪"
+              ],
+              [
+                "ب",
+                "۱٬۰۰۰",
+                "۱٬۲۵۰",
+                "۱۳۶٫۳۶",
+                "۲۵٪"
+              ]
+            ]
+          }
         },
         {
           "id": "C03-ST02-L02-CARD05",
@@ -497,12 +527,17 @@
           "remediation_card_id": "C03-ST02-L02-CARD03"
         }
       ],
+      "source_refs": [
+        "nyu-capbudg",
+        "nyu-cf",
+        "openstax-npv"
+      ],
       "source_links": [
         {
           "id": "nyu-capbudg",
           "title": "NYU Stern: Capital Budgeting under Certainty",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "منبع عمومی دربارهٔ NPV و IRR و محدودیت‌های مقایسه؛ مثال مستقل است."
         },
         {
@@ -516,7 +551,7 @@
           "id": "openstax-npv",
           "title": "OpenStax Principles of Finance 2e: NPV",
           "url": "https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "شرح مفهومی عمومی NPV؛ متن و تمرین بازتولید نشده است."
         }
       ],
@@ -542,7 +577,20 @@
       "prerequisites_suggested": [
         "مرور جریان نقد و ارزش زمانی پول از مرحلهٔ نخست مفید است."
       ],
-      "prerequisites_block_access": false
+      "prerequisites_block_access": false,
+      "media_plan": {
+        "type": "authored_diagram",
+        "purpose": "مقایسهٔ اثر اندازهٔ سرمایه بر رتبه‌بندی NPV و IRR",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/npv-irr-scale-comparison.svg",
+            "alt_text": "دو نمودار جداگانه نشان می‌دهند پروژهٔ الف IRR برابر ۴۰٪ و NPV برابر ۲۷٫۲۷ دارد و پروژهٔ ب IRR برابر ۲۵٪ و NPV برابر ۱۳۶٫۳۶؛ نرخ لازم ۱۰٪ است.",
+            "caption": "مثال آموزشی یک‌ساله؛ مقیاس‌های NPV و IRR جدا هستند.",
+            "source_url": "https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method"
+          }
+        ]
+      }
     },
     {
       "id": "C03-ST02-L03",
@@ -762,12 +810,18 @@
           "remediation_card_id": "C03-ST02-L03-CARD03"
         }
       ],
+      "source_refs": [
+        "nyu-capbudg",
+        "nyu-cf",
+        "bis-ai-data",
+        "cfa-ai-finance"
+      ],
       "source_links": [
         {
           "id": "nyu-capbudg",
           "title": "NYU Stern: Capital Budgeting under Certainty",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "پروفایل NPV و حساسیت به نرخ؛ مثال‌ها مستقل‌اند."
         },
         {
@@ -781,14 +835,14 @@
           "id": "bis-ai-data",
           "title": "BIS FSI Insights 73: AI data use in financial services, 2026",
           "url": "https://www.bis.org/publications/fsi-insight-73-data-we-trust-emerging-policy-and-supervisory-approaches-ai-data-use-financial-services",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "مرور ۲۰۲۶ دربارهٔ کیفیت، حریم خصوصی، امنیت و وابستگی داده در به‌کارگیری AI مالی؛ برای نکتهٔ حکمرانی، نه ادعای سودآوری AI."
         },
         {
           "id": "cfa-ai-finance",
           "title": "CFA Institute: Artificial Intelligence and the Future of Finance, 2026",
           "url": "https://rpc.cfainstitute.org/research/reports/2026/artificial-intelligence-future-of-finance",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "گزارش آینده‌نگر ۲۰۲۶ دربارهٔ تغییر تحلیل و تخصیص سرمایه و نیاز به حکمرانی؛ سناریوهای احتمالی آن تضمین پیش‌بینی نیستند."
         }
       ],
@@ -1034,33 +1088,39 @@
           "remediation_card_id": "C03-ST02-L04-CARD03"
         }
       ],
+      "source_refs": [
+        "nyu-cf2e",
+        "nyu-capbudg",
+        "hbs-finance",
+        "bis-ai-data"
+      ],
       "source_links": [
         {
           "id": "nyu-cf2e",
           "title": "NYU Stern: Corporate Finance, project interactions",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/CF2E.htm",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "موضوع‌های عمومی اثر متقابل و انتخاب پروژه."
         },
         {
           "id": "nyu-capbudg",
           "title": "NYU Stern: Capital Budgeting under Certainty",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "منبع عمومی بودجه‌بندی سرمایه‌ای برای تطبیق موضوعی."
         },
         {
           "id": "hbs-finance",
           "title": "Harvard Business School: Finance I and II curriculum",
           "url": "https://www.hbs.edu/faculty/units/finance/Pages/curriculum.aspx",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "شرح رسمی آموزش مالی MBA برای هم‌راستایی کلی."
         },
         {
           "id": "bis-ai-data",
           "title": "BIS FSI Insights 73: AI data use in financial services, 2026",
           "url": "https://www.bis.org/publications/fsi-insight-73-data-we-trust-emerging-policy-and-supervisory-approaches-ai-data-use-financial-services",
-          "accessed_on": "2026-10-19",
+          "accessed_on": "2026-10-21",
           "scope": "موضوع‌های داده، حریم خصوصی، کیفیت، امنیت و وابستگی به ارائه‌دهنده در استفاده از AI مالی."
         }
       ],

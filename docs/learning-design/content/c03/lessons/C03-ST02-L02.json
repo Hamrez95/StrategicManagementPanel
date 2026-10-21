@@ -1,25 +1,308 @@
 {
-  "id":"C03-ST02-L02","version":"1-draft","title":"ارزش فعلی خالص و نرخ بازده داخلی","content_status":"draft","objective":"NPV و IRR را با جریان‌های یکسان محاسبه و محدودیت IRR در رتبه‌بندی پروژه‌ها را توضیح دهد.",
-  "learning_cards":[
-    {"id":"C03-ST02-L02-CARD01","type":"problem","title":"هدف این درس‌نامه","text":"ارزش پولی و نرخ بازده را از هم جدا کنید و برای هرکدام سؤال درست بپرسید."},
-    {"id":"C03-ST02-L02-CARD02","type":"definition","title":"مفهوم را ساده کنیم","text":"NPV (Net Present Value) ارزش امروز جریان‌های پروژه پس از کسر سرمایه‌گذاری است. IRR (Internal Rate of Return) نرخی است که NPV را صفر می‌کند. NPV مقدار ارزش پولی را نشان می‌دهد؛ IRR نرخ درصدی است."},
-    {"id":"C03-ST02-L02-CARD03","type":"explanation","title":"روش کار مرحله‌به‌مرحله","text":"۱) جریان افزایشی و زمان‌بندی را ثبت کنید. ۲) نرخ تنزیل متناسب با ریسک و نوع جریان را مستند کنید. ۳) NPV را از جمع جریان‌های تنزیل‌شده بسازید. ۴) IRR را به‌عنوان نرخی بیابید که NPV را صفر می‌کند. ۵) برای پروژهٔ مستقل، NPV و IRR را نسبت به نرخ لازم تفسیر کنید. ۶) در گزینه‌های ناسازگار، مقیاس، زمان‌بندی، عمر و محدودیت منابع را نیز بررسی کنید."},
-    {"id":"C03-ST02-L02-CARD04","type":"worked_example","title":"مثال حل‌شده؛ تفاوت درصد و ارزش","text":"دو پروژهٔ یک‌ساله و متقابلاً مانع با نرخ لازم ۱۰٪: الف ۱۰۰ امروز می‌پردازد و ۱۴۰ سال بعد می‌گیرد؛ NPV≈۲۷٫۲۷ و IRR=۴۰٪. ب ۱٬۰۰۰ امروز می‌پردازد و ۱٬۲۵۰ می‌گیرد؛ NPV≈۱۳۶٫۳۶ و IRR=۲۵٪. هر دو NPV مثبت‌اند؛ الف درصد بالاتری دارد ولی ب ارزش پولی بیشتری می‌افزاید. این محاسبه فقط برای نشان‌دادن اثر مقیاس است؛ ریسک، مالیات و محدودیت اجرا وارد نشده‌اند.","example_kind":"fictional"},
-    {"id":"C03-ST02-L02-CARD05","type":"contrast","title":"خطای رایج","text":"IRR را سود قطعی نخوانید. جریان‌هایی که چند بار علامت عوض می‌کنند می‌توانند چند IRR یا هیچ IRR معناداری بسازند. درصد بالاتر در پروژهٔ ناسازگار الزاماً ارزش پولی بیشتر نیست. نرخ و کیفیت پیش‌بینی را پنهان نکنید."},
-    {"id":"C03-ST02-L02-CARD06","type":"explanation","title":"منطق پشت تصمیم","text":"NPV و IRR از یک جریان سؤال متفاوت می‌پرسند. NPV می‌گوید پس از تبدیل جریان‌ها به ارزش امروز و کسر سرمایه، چه مقدار ارزش پولی باقی می‌ماند؛ IRR می‌پرسد چه نرخی NPV را صفر می‌کند. برای پروژهٔ مستقل با جریان معمول و نرخ مناسب، NPV مثبت و IRR بالاتر از نرخ لازم غالباً هم‌جهت‌اند. اما نرخ درصدی به اندازهٔ سرمایه بی‌تفاوت است و زمان‌بندی متفاوت هم ممکن است رتبه را جابه‌جا کند. جریان نامتعارف ممکن است چند جواب بسازد. در انتخاب میان پروژه‌های ناسازگار، محدودیت واقعی و امکان اجرای ترکیبی را روشن کنید و NPV، سرمایهٔ مصرفی، عمر و ریسک را کنار هم ببینید. هیچ شاخصی خطای پیش‌بینی جریان را اصلاح نمی‌کند."},
-    {"id":"C03-ST02-L02-CARD07","type":"key_terms","title":"واژگان تخصصی پرتکرار","text":"Net Present Value (NPV): ارزش فعلی خالص؛ جمع ارزش امروز جریان‌ها پس از سرمایه‌گذاری اولیه. Internal Rate of Return (IRR): نرخ بازده داخلی؛ نرخی که NPV را صفر می‌کند. Hurdle rate: نرخ حداقل بازده لازم. Mutually exclusive projects: پروژه‌های متقابلاً مانع. Scale effect: اثر مقیاس؛ درصد، مقدار ارزش پولی را نشان نمی‌دهد."},
-    {"id":"C03-ST02-L02-CARD08","type":"authored_diagram","title":"نقشهٔ مفهوم","text":"نقشهٔ این درس به‌صورت مستقل تألیف شده است.","elements":["جریان نقد افزایشی","نرخ متناسب و مستند","NPV: ارزش پولی امروز","IRR: نرخ متناظر با NPV صفر","انتخاب با توجه به محدودیت و مقیاس"],"alt":"جریان افزایشی؛ نرخ؛ NPV؛ IRR؛ انتخاب با توجه به محدودیت و مقیاس"},
-    {"id":"C03-ST02-L02-CARD09","type":"summary","title":"برای تصمیم بعدی","text":"NPV مقدار ارزش را می‌سنجد و IRR نرخ را؛ درصد بالاتر را به‌تنهایی برنده نکنید."}
+  "id": "C03-ST02-L02",
+  "version": "1-draft",
+  "title": "ارزش فعلی خالص و نرخ بازده داخلی",
+  "content_status": "draft",
+  "objective": "NPV و IRR را با جریان‌های یکسان محاسبه و محدودیت IRR در رتبه‌بندی پروژه‌ها را توضیح دهد.",
+  "learning_cards": [
+    {
+      "id": "C03-ST02-L02-CARD01",
+      "type": "problem",
+      "title": "هدف این درس‌نامه",
+      "text": "ارزش پولی و نرخ بازده را از هم جدا کنید و برای هرکدام سؤال درست بپرسید."
+    },
+    {
+      "id": "C03-ST02-L02-CARD02",
+      "type": "definition",
+      "title": "مفهوم را ساده کنیم",
+      "text": "NPV (Net Present Value) ارزش امروز جریان‌های پروژه پس از کسر سرمایه‌گذاری است. IRR (Internal Rate of Return) نرخی است که NPV را صفر می‌کند. NPV مقدار ارزش پولی را نشان می‌دهد؛ IRR نرخ درصدی است."
+    },
+    {
+      "id": "C03-ST02-L02-CARD03",
+      "type": "explanation",
+      "title": "روش کار مرحله‌به‌مرحله",
+      "text": "۱) جریان افزایشی و زمان‌بندی را ثبت کنید. ۲) نرخ تنزیل متناسب با ریسک و نوع جریان را مستند کنید. ۳) NPV را از جمع جریان‌های تنزیل‌شده بسازید. ۴) IRR را به‌عنوان نرخی بیابید که NPV را صفر می‌کند. ۵) برای پروژهٔ مستقل، NPV و IRR را نسبت به نرخ لازم تفسیر کنید. ۶) در گزینه‌های ناسازگار، مقیاس، زمان‌بندی، عمر و محدودیت منابع را نیز بررسی کنید."
+    },
+    {
+      "id": "C03-ST02-L02-CARD04",
+      "type": "worked_example",
+      "title": "مثال حل‌شده؛ تفاوت درصد و ارزش",
+      "text": "دو پروژهٔ یک‌ساله و متقابلاً مانع با نرخ لازم ۱۰٪: الف ۱۰۰ امروز می‌پردازد و ۱۴۰ سال بعد می‌گیرد؛ NPV≈۲۷٫۲۷ و IRR=۴۰٪. ب ۱٬۰۰۰ امروز می‌پردازد و ۱٬۲۵۰ می‌گیرد؛ NPV≈۱۳۶٫۳۶ و IRR=۲۵٪. هر دو NPV مثبت‌اند؛ الف درصد بالاتری دارد ولی ب ارزش پولی بیشتری می‌افزاید. این محاسبه فقط برای نشان‌دادن اثر مقیاس است؛ ریسک، مالیات و محدودیت اجرا وارد نشده‌اند.",
+      "example_kind": "fictional",
+      "table": {
+        "columns": [
+          "پروژه",
+          "سرمایه‌گذاری امروز",
+          "جریان پایان سال",
+          "NPV با نرخ ۱۰٪",
+          "IRR"
+        ],
+        "rows": [
+          [
+            "الف",
+            "۱۰۰",
+            "۱۴۰",
+            "۲۷٫۲۷",
+            "۴۰٪"
+          ],
+          [
+            "ب",
+            "۱٬۰۰۰",
+            "۱٬۲۵۰",
+            "۱۳۶٫۳۶",
+            "۲۵٪"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C03-ST02-L02-CARD05",
+      "type": "contrast",
+      "title": "خطای رایج",
+      "text": "IRR را سود قطعی نخوانید. جریان‌هایی که چند بار علامت عوض می‌کنند می‌توانند چند IRR یا هیچ IRR معناداری بسازند. درصد بالاتر در پروژهٔ ناسازگار الزاماً ارزش پولی بیشتر نیست. نرخ و کیفیت پیش‌بینی را پنهان نکنید."
+    },
+    {
+      "id": "C03-ST02-L02-CARD06",
+      "type": "explanation",
+      "title": "منطق پشت تصمیم",
+      "text": "NPV و IRR از یک جریان سؤال متفاوت می‌پرسند. NPV می‌گوید پس از تبدیل جریان‌ها به ارزش امروز و کسر سرمایه، چه مقدار ارزش پولی باقی می‌ماند؛ IRR می‌پرسد چه نرخی NPV را صفر می‌کند. برای پروژهٔ مستقل با جریان معمول و نرخ مناسب، NPV مثبت و IRR بالاتر از نرخ لازم غالباً هم‌جهت‌اند. اما نرخ درصدی به اندازهٔ سرمایه بی‌تفاوت است و زمان‌بندی متفاوت هم ممکن است رتبه را جابه‌جا کند. جریان نامتعارف ممکن است چند جواب بسازد. در انتخاب میان پروژه‌های ناسازگار، محدودیت واقعی و امکان اجرای ترکیبی را روشن کنید و NPV، سرمایهٔ مصرفی، عمر و ریسک را کنار هم ببینید. هیچ شاخصی خطای پیش‌بینی جریان را اصلاح نمی‌کند."
+    },
+    {
+      "id": "C03-ST02-L02-CARD07",
+      "type": "key_terms",
+      "title": "واژگان تخصصی پرتکرار",
+      "text": "Net Present Value (NPV): ارزش فعلی خالص؛ جمع ارزش امروز جریان‌ها پس از سرمایه‌گذاری اولیه. Internal Rate of Return (IRR): نرخ بازده داخلی؛ نرخی که NPV را صفر می‌کند. Hurdle rate: نرخ حداقل بازده لازم. Mutually exclusive projects: پروژه‌های متقابلاً مانع. Scale effect: اثر مقیاس؛ درصد، مقدار ارزش پولی را نشان نمی‌دهد."
+    },
+    {
+      "id": "C03-ST02-L02-CARD08",
+      "type": "authored_diagram",
+      "title": "نقشهٔ مفهوم",
+      "text": "نقشهٔ این درس به‌صورت مستقل تألیف شده است.",
+      "elements": [
+        "جریان نقد افزایشی",
+        "نرخ متناسب و مستند",
+        "NPV: ارزش پولی امروز",
+        "IRR: نرخ متناظر با NPV صفر",
+        "انتخاب با توجه به محدودیت و مقیاس"
+      ],
+      "alt": "جریان افزایشی؛ نرخ؛ NPV؛ IRR؛ انتخاب با توجه به محدودیت و مقیاس"
+    },
+    {
+      "id": "C03-ST02-L02-CARD09",
+      "type": "summary",
+      "title": "برای تصمیم بعدی",
+      "text": "NPV مقدار ارزش را می‌سنجد و IRR نرخ را؛ درصد بالاتر را به‌تنهایی برنده نکنید."
+    }
   ],
-  "questions":[
-    {"id":"C03-ST02-L02-Q01","version":1,"type":"single_choice","prompt":"NPV مثبت با نرخ لازم چه می‌گوید؟","options":[{"id":"a","text":"جریان‌های برآوردی از نرخ لازم ارزش بیشتری می‌سازند","feedback":"نتیجه به جریان و نرخ مفروض وابسته است."},{"id":"b","text":"سود قطعی است","feedback":"این نتیجه تضمین سود واقعی نمی‌دهد."},{"id":"c","text":"ریسک وجود ندارد","feedback":"NPV ریسک را حذف نمی‌کند."}],"correct_option_id":"a","explanation":"نتیجه به جریان و نرخ مفروض وابسته است.","objective_id":"C03-ST02-L02-OBJ1","equivalence_group":"C03-ST02-L02-Q01-FAMILY","variant":"A","remediation_card_id":"C03-ST02-L02-CARD03"},
-    {"id":"C03-ST02-L02-Q02","version":1,"type":"single_choice","prompt":"IRR کدام نرخ است؟","options":[{"id":"a","text":"نرخی که NPV را صفر می‌کند","feedback":"این تعریف محاسباتی IRR است."},{"id":"b","text":"نرخ رشد فروش","feedback":"رشد فروش تعریف IRR نیست."},{"id":"c","text":"نرخ تورم قطعی","feedback":"تورم ورودی دیگری است."}],"correct_option_id":"a","explanation":"این تعریف محاسباتی IRR است.","objective_id":"C03-ST02-L02-OBJ1","equivalence_group":"C03-ST02-L02-Q02-FAMILY","variant":"A","remediation_card_id":"C03-ST02-L02-CARD03"},
-    {"id":"C03-ST02-L02-Q03","version":1,"type":"single_choice","prompt":"الف IRR=۴۰٪ و NPV=۲۷ دارد؛ ب IRR=۲۵٪ و NPV=۱۳۶. چه نکته‌ای مهم است؟","options":[{"id":"a","text":"مقیاس ارزش پولی و محدودیت؛ IRR الف به‌تنهایی برتری نمی‌آورد","feedback":"IRR اندازهٔ ارزش افزوده را نشان نمی‌دهد."},{"id":"b","text":"فقط درصد IRR","feedback":"درصد بالاتر لزوماً ارزش بیشتری ایجاد نمی‌کند."},{"id":"c","text":"فقط نام پروژه","feedback":"نام پروژه معیار تحلیل نیست."}],"correct_option_id":"a","explanation":"IRR اندازهٔ ارزش افزوده را نشان نمی‌دهد.","objective_id":"C03-ST02-L02-OBJ1","equivalence_group":"C03-ST02-L02-Q03-FAMILY","variant":"A","remediation_card_id":"C03-ST02-L02-CARD03"},
-    {"id":"C03-ST02-L02-Q04","version":1,"type":"single_choice","prompt":"جریان پروژه چند بار بین مثبت و منفی تغییر می‌کند. چه احتیاطی لازم است؟","options":[{"id":"a","text":"IRR ممکن است چندجوابی یا دشوار برای تفسیر باشد","feedback":"جریان نامتعارف می‌تواند ریشه‌های متعدد بسازد."},{"id":"b","text":"همیشه فقط یک IRR دارد","feedback":"چند تغییر علامت می‌تواند چند جواب بسازد."},{"id":"c","text":"دیگر نیازی به NPV نیست","feedback":"NPV همچنان برای تحلیل لازم است."}],"correct_option_id":"a","explanation":"جریان نامتعارف می‌تواند ریشه‌های متعدد بسازد.","objective_id":"C03-ST02-L02-OBJ1","equivalence_group":"C03-ST02-L02-Q04-FAMILY","variant":"A","remediation_card_id":"C03-ST02-L02-CARD03"},
-    {"id":"C03-ST02-L02-Q05","version":1,"type":"single_choice","prompt":"چه گزارشی شفاف‌تر است؟","options":[{"id":"a","text":"جریان، نرخ، NPV، IRR و محدودیت‌ها","feedback":"شاخص‌ها با فرض‌هایشان قابل ارزیابی‌اند."},{"id":"b","text":"فقط IRR","feedback":"IRR به‌تنهایی مقیاس و ریسک را پوشش نمی‌دهد."},{"id":"c","text":"نتیجه بدون فرض","feedback":"بدون فرض‌ها نتیجه بازبینی‌پذیر نیست."}],"correct_option_id":"a","explanation":"شاخص‌ها با فرض‌هایشان قابل ارزیابی‌اند.","objective_id":"C03-ST02-L02-OBJ1","equivalence_group":"C03-ST02-L02-Q05-FAMILY","variant":"A","remediation_card_id":"C03-ST02-L02-CARD03"}
+  "questions": [
+    {
+      "id": "C03-ST02-L02-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "NPV مثبت با نرخ لازم چه می‌گوید؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "جریان‌های برآوردی از نرخ لازم ارزش بیشتری می‌سازند",
+          "feedback": "نتیجه به جریان و نرخ مفروض وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "سود قطعی است",
+          "feedback": "این نتیجه تضمین سود واقعی نمی‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "ریسک وجود ندارد",
+          "feedback": "NPV ریسک را حذف نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نتیجه به جریان و نرخ مفروض وابسته است.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q01-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03"
+    },
+    {
+      "id": "C03-ST02-L02-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "IRR کدام نرخ است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نرخی که NPV را صفر می‌کند",
+          "feedback": "این تعریف محاسباتی IRR است."
+        },
+        {
+          "id": "b",
+          "text": "نرخ رشد فروش",
+          "feedback": "رشد فروش تعریف IRR نیست."
+        },
+        {
+          "id": "c",
+          "text": "نرخ تورم قطعی",
+          "feedback": "تورم ورودی دیگری است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "این تعریف محاسباتی IRR است.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q02-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03"
+    },
+    {
+      "id": "C03-ST02-L02-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "الف IRR=۴۰٪ و NPV=۲۷ دارد؛ ب IRR=۲۵٪ و NPV=۱۳۶. چه نکته‌ای مهم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مقیاس ارزش پولی و محدودیت؛ IRR الف به‌تنهایی برتری نمی‌آورد",
+          "feedback": "IRR اندازهٔ ارزش افزوده را نشان نمی‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "فقط درصد IRR",
+          "feedback": "درصد بالاتر لزوماً ارزش بیشتری ایجاد نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "فقط نام پروژه",
+          "feedback": "نام پروژه معیار تحلیل نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "IRR اندازهٔ ارزش افزوده را نشان نمی‌دهد.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q03-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03"
+    },
+    {
+      "id": "C03-ST02-L02-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "جریان پروژه چند بار بین مثبت و منفی تغییر می‌کند. چه احتیاطی لازم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "IRR ممکن است چندجوابی یا دشوار برای تفسیر باشد",
+          "feedback": "جریان نامتعارف می‌تواند ریشه‌های متعدد بسازد."
+        },
+        {
+          "id": "b",
+          "text": "همیشه فقط یک IRR دارد",
+          "feedback": "چند تغییر علامت می‌تواند چند جواب بسازد."
+        },
+        {
+          "id": "c",
+          "text": "دیگر نیازی به NPV نیست",
+          "feedback": "NPV همچنان برای تحلیل لازم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "جریان نامتعارف می‌تواند ریشه‌های متعدد بسازد.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03"
+    },
+    {
+      "id": "C03-ST02-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چه گزارشی شفاف‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "جریان، نرخ، NPV، IRR و محدودیت‌ها",
+          "feedback": "شاخص‌ها با فرض‌هایشان قابل ارزیابی‌اند."
+        },
+        {
+          "id": "b",
+          "text": "فقط IRR",
+          "feedback": "IRR به‌تنهایی مقیاس و ریسک را پوشش نمی‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "نتیجه بدون فرض",
+          "feedback": "بدون فرض‌ها نتیجه بازبینی‌پذیر نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "شاخص‌ها با فرض‌هایشان قابل ارزیابی‌اند.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03"
+    }
   ],
-  "source_links":[{"id":"nyu-capbudg","title":"NYU Stern: Capital Budgeting under Certainty","url":"https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html","accessed_on":"2026-10-19","scope":"منبع عمومی دربارهٔ NPV و IRR و محدودیت‌های مقایسه؛ مثال مستقل است."},{"id":"nyu-cf","title":"NYU Stern: Corporate Finance","url":"https://pages.stern.nyu.edu/~adamodar/New_Home_Page/corpfin.html","accessed_on":"2026-10-19","scope":"مواد عمومی درس برای هم‌راستایی موضوعی."},{"id":"openstax-npv","title":"OpenStax Principles of Finance 2e: NPV","url":"https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method","accessed_on":"2026-10-19","scope":"شرح مفهومی عمومی NPV؛ متن و تمرین بازتولید نشده است."}],
-  "practice_activity":{"type":"numeric","prompt":"پروژه ۱۰۰ واحد امروز می‌پردازد و ۱۴۰ واحد یک سال بعد می‌گیرد. با نرخ ۱۰٪ NPV چقدر است؟","unit":"واحد امروز","answer":27.27,"absolute_tolerance":0.02,"solution":"−۱۰۰+۱۴۰÷۱٫۱۰≈۲۷٫۲۷. IRR برابر ۴۰٪ است اما جای بررسی فرض‌ها را نمی‌گیرد.","rubric":["جریان زمان صفر منفی است","جریان سال بعد یک بار تنزیل می‌شود"],"auto_grade":true},
-  "review_status":{"editorial":"pending","subject_expert":"pending","learner_pilot":"pending"},"fresh_equivalent_variants":0,"prerequisites_suggested":["مرور جریان نقد و ارزش زمانی پول از مرحلهٔ نخست مفید است."],"prerequisites_block_access":false
+  "source_refs": [
+    "nyu-capbudg",
+    "nyu-cf",
+    "openstax-npv"
+  ],
+  "source_links": [
+    {
+      "id": "nyu-capbudg",
+      "title": "NYU Stern: Capital Budgeting under Certainty",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/cbcert.html",
+      "accessed_on": "2026-10-21",
+      "scope": "منبع عمومی دربارهٔ NPV و IRR و محدودیت‌های مقایسه؛ مثال مستقل است."
+    },
+    {
+      "id": "nyu-cf",
+      "title": "NYU Stern: Corporate Finance",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/corpfin.html",
+      "accessed_on": "2026-10-19",
+      "scope": "مواد عمومی درس برای هم‌راستایی موضوعی."
+    },
+    {
+      "id": "openstax-npv",
+      "title": "OpenStax Principles of Finance 2e: NPV",
+      "url": "https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method",
+      "accessed_on": "2026-10-21",
+      "scope": "شرح مفهومی عمومی NPV؛ متن و تمرین بازتولید نشده است."
+    }
+  ],
+  "practice_activity": {
+    "type": "numeric",
+    "prompt": "پروژه ۱۰۰ واحد امروز می‌پردازد و ۱۴۰ واحد یک سال بعد می‌گیرد. با نرخ ۱۰٪ NPV چقدر است؟",
+    "unit": "واحد امروز",
+    "answer": 27.27,
+    "absolute_tolerance": 0.02,
+    "solution": "−۱۰۰+۱۴۰÷۱٫۱۰≈۲۷٫۲۷. IRR برابر ۴۰٪ است اما جای بررسی فرض‌ها را نمی‌گیرد.",
+    "rubric": [
+      "جریان زمان صفر منفی است",
+      "جریان سال بعد یک بار تنزیل می‌شود"
+    ],
+    "auto_grade": true
+  },
+  "review_status": {
+    "editorial": "pending",
+    "subject_expert": "pending",
+    "learner_pilot": "pending"
+  },
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "مرور جریان نقد و ارزش زمانی پول از مرحلهٔ نخست مفید است."
+  ],
+  "prerequisites_block_access": false,
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "مقایسهٔ اثر اندازهٔ سرمایه بر رتبه‌بندی NPV و IRR",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/npv-irr-scale-comparison.svg",
+        "alt_text": "دو نمودار جداگانه نشان می‌دهند پروژهٔ الف IRR برابر ۴۰٪ و NPV برابر ۲۷٫۲۷ دارد و پروژهٔ ب IRR برابر ۲۵٪ و NPV برابر ۱۳۶٫۳۶؛ نرخ لازم ۱۰٪ است.",
+        "caption": "مثال آموزشی یک‌ساله؛ مقیاس‌های NPV و IRR جدا هستند.",
+        "source_url": "https://openstax.org/books/principles-finance-2e/pages/16-2-net-present-value-npv-method"
+      }
+    ]
+  }
 }
-

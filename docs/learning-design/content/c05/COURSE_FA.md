@@ -103,7 +103,7 @@
 
 - منبع [OpenStax Organizational Behavior 3.1: The Perceptual Process](https://openstax.org/books/organizational-behavior/pages/3-1-the-perceptual-process)؛ فرایند ادراک، عوامل اجتماعی و خطر سوگیری؛ سناریو و ابزار درس مستقل است.
 - منبع [OpenStax Organizational Behavior: Chapter 3 learning outcomes, attribution and bias](https://openstax.org/books/organizational-behavior/pages/3-summary-of-learning-outcomes)؛ خطای اسناد بنیادی و سوگیری خودخدمت‌گر در تفسیر رفتار؛ نه تشخیص فردی.
-- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/leadership/mba-experience)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
+- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/faculty/units/ob/Pages/curriculum.aspx)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
 - منبع [Oxford MBA: Core courses and electives](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ Organisational Behaviour یکی از هشت درس هسته‌ای MBA است؛ صرفاً تطبیق نام و دامنهٔ سرفصل.
 
 ### درس‌نامهٔ `C05-ST01-L02`؛ انگیزه، توانایی و محیط
@@ -203,7 +203,7 @@
 - منبع [OpenStax Organizational Behavior 2.1: Individual and Cultural Factors in Employee Performance](https://openstax.org/books/organizational-behavior/pages/2-1-individual-and-cultural-factors-in-employee-performance)؛ توانایی و تفاوت‌های فردی در عملکرد؛ توضیح عملکرد چندعاملی و مثال‌ها مستقل است.
 - منبع [OpenStax Organizational Behavior 7.1: Motivation: Direction and Intensity](https://openstax.org/books/organizational-behavior/pages/7-1-motivation-direction-and-intensity)؛ توانایی، نقش، محیط عملکرد و انگیزش به‌عنوان عوامل متمایز.
 - منبع [OpenStax Organizational Behavior 7.3: Process Theories of Motivation](https://openstax.org/books/organizational-behavior/pages/7-3-process-theories-of-motivation)؛ انتظار تلاش/عملکرد، ارزش پیامد و انصاف؛ ابزار تحلیلی مستقل.
-- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/leadership/mba-experience)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
+- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/faculty/units/ob/Pages/curriculum.aspx)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
 - منبع [Oxford MBA: Core courses and electives](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ Organisational Behaviour یکی از هشت درس هسته‌ای MBA است؛ صرفاً تطبیق نام و دامنهٔ سرفصل.
 
 ### درس‌نامهٔ `C05-ST01-L03`؛ تصمیم دربارهٔ پاداش
@@ -306,7 +306,7 @@
 
 - منبع [OpenStax Organizational Behavior 7.3: Process Theories of Motivation](https://openstax.org/books/organizational-behavior/pages/7-3-process-theories-of-motivation)؛ انتظار تلاش/عملکرد، ارزش پیامد و انصاف؛ ابزار تحلیلی مستقل.
 - منبع [OpenStax Organizational Behavior 8.4: Reward Systems in Organizations](https://openstax.org/books/organizational-behavior/pages/8-4-reward-systems-in-organizations)؛ کارکرد و مبنای پاداش‌ها و پیامدهای توزیع پاداش.
-- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/leadership/mba-experience)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
+- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/faculty/units/ob/Pages/curriculum.aspx)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
 - منبع [Oxford MBA: Core courses and electives](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ Organisational Behaviour یکی از هشت درس هسته‌ای MBA است؛ صرفاً تطبیق نام و دامنهٔ سرفصل.
 
 ### درس‌نامهٔ `C05-ST01-L04`؛ به رفتار نگاه کنیم، نه برچسب شخصیت
@@ -406,8 +406,8 @@
 - منبع [OpenStax Organizational Behavior 3.1: The Perceptual Process](https://openstax.org/books/organizational-behavior/pages/3-1-the-perceptual-process)؛ فرایند ادراک، عوامل اجتماعی و خطر سوگیری؛ سناریو و ابزار درس مستقل است.
 - منبع [OpenStax Organizational Behavior: Chapter 3 learning outcomes, attribution and bias](https://openstax.org/books/organizational-behavior/pages/3-summary-of-learning-outcomes)؛ خطای اسناد بنیادی و سوگیری خودخدمت‌گر در تفسیر رفتار؛ نه تشخیص فردی.
 - منبع [OpenStax Organizational Behavior 2.1: Individual and Cultural Factors in Employee Performance](https://openstax.org/books/organizational-behavior/pages/2-1-individual-and-cultural-factors-in-employee-performance)؛ توانایی و تفاوت‌های فردی در عملکرد؛ توضیح عملکرد چندعاملی و مثال‌ها مستقل است.
-- منبع [Milanez, Lemmens & Ruggiu (2025), Algorithmic management in the workplace: New evidence from an OECD employer survey, OECD AI Papers 31](https://doi.org/10.1787/287c13c4-en)؛ پیمایش کارفرمایان و مرور کاربرد ابزارهای الگوریتمی برای دستوردهی، پایش و ارزیابی؛ گزارش ادراک مدیران است و اثر علّی بر کارکنان را به تنهایی ثابت نمی‌کند.
-- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/leadership/mba-experience)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
+- منبع [Milanez, Lemmens & Ruggiu (2025), Algorithmic management in the workplace: New evidence from an OECD employer survey, OECD AI Papers 31](https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en.html)؛ پیمایش کارفرمایان و مرور کاربرد ابزارهای الگوریتمی برای دستوردهی، پایش و ارزیابی؛ گزارش ادراک مدیران است و اثر علّی بر کارکنان را به تنهایی ثابت نمی‌کند.
+- منبع [Harvard Business School MBA: Leadership & Organizational Behavior (LEAD)](https://www.hbs.edu/faculty/units/ob/Pages/curriculum.aspx)؛ تطبیق موضوعی با افراد، تیم‌ها، فرهنگ گروه و مدیریت عملکرد زیردستان در سرفصل الزامی؛ بدون ادعای تأیید یا دسترسی به کلاس.
 
 ### مرور مرحله
 
@@ -665,7 +665,7 @@
 
 #### نتیجهٔ مقالهٔ ۲۰۲۶ چه می‌گوید؟
 
-آزمایش میدانیِ پیش‌ثبت‌شده با ۷۹۱ متخصص در یک شرکت کالاهای مصرفی، مسئله‌های واقعی نوآوری محصول و کار مجازی یک‌روزه را بررسی کرد. مقاله گزارش می‌کند شرکت‌کنندگانِ دارای AI به‌تنهایی در برخی سنجه‌ها با تیم‌های بدون AI هم‌تراز شدند و AI به پیوند دیدگاه‌های تخصصی کمک کرد. باید به زمینه و شیوهٔ سنجش توجه کرد.
+آزمایش میدانیِ پیش‌ثبت‌شده با ۷۹۱ متخصص P&G، مسئله‌های واقعی نوآوری محصول و کار یک‌روزه را در چهار وضعیت مقایسه کرد: فرد یا تیم، هرکدام با یا بدون AI. مقاله گزارش می‌کند فردِ مجهز به AI در کیفیت راه‌حل با تیمِ بدون AI هم‌تراز شد و تیم‌های مجهز به AI نیز بهبود داشتند؛ AI به متعادل‌شدن پیشنهادهای تخصصی کمک کرد. این نتیجه به همان تکلیف و شرکت محدود است و جایگزینی عمومی تیم‌ها را ثابت نمی‌کند؛ انتخاب نهایی ایده همچنان به داوری انسانی نیاز داشت.
 
 #### چه چیزی را نمی‌توان نتیجه گرفت؟
 
@@ -744,7 +744,7 @@
 #### منابع
 
 - منبع [The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork, Organization Science (2026)](https://doi.org/10.1287/orsc.2025.20702)؛ آزمایش پیش‌ثبت‌شده با ۷۹۱ متخصص در یک شرکت کالاهای مصرفی؛ مسئله‌های نوآوری محصول و فعالیت مجازی یک‌روزه. نتایج به زمینهٔ مطالعه محدود است.
-- منبع [When Teams Embrace AI: Human Collaboration Strategies in Generative Prompting in a Creative Design Task (CHI 2024)](https://doi.org/10.1145/3613904.3642133)؛ راهبردهای همکاری انسانی در یک تکلیف طراحی خلاق؛ برای نمونهٔ زمینه‌مند، نه قانون عمومی.
+- منبع [When Teams Embrace AI: Human Collaboration Strategies in Generative Prompting in a Creative Design Task (CHI 2024)](https://scholars.cityu.edu.hk/en/publications/when-teams-embrace-ai-human-collaboration-strategies-in-generativ/)؛ راهبردهای همکاری انسانی در یک تکلیف طراحی خلاق؛ برای نمونهٔ زمینه‌مند، نه قانون عمومی.
 - منبع [Oxford MBA: Core courses and electives (2026–27 curriculum pages)](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی موضوعی با Organizational Behaviour و کار گروهی MBA؛ صفحهٔ برنامه، منبع ادعای تجربی نیست.
 
 ### درس‌نامهٔ `C05-ST02-L04`؛ کیس تیم و AI: نتیجه چه چیزی را ثابت می‌کند؟
@@ -1287,7 +1287,7 @@ AI در ساختار سازمان، جریان اختیار و نظارت را �
 
 #### منابع
 
-- منبع [OECD (2025), How widespread is algorithmic management in workplaces?](https://doi.org/10.1787/cda7a114-en)؛ خلاصهٔ پیمایش کارفرمایان در شش کشور دربارهٔ ابزارهای مدیریتی الگوریتمی؛ برداشت پاسخ‌دهندگان و محدود به کشورها/نمونهٔ بررسی‌شده است.
+- منبع [OECD (2025), How widespread is algorithmic management in workplaces?](https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en.html)؛ خلاصهٔ پیمایش کارفرمایان در شش کشور دربارهٔ ابزارهای مدیریتی الگوریتمی؛ برداشت پاسخ‌دهندگان و محدود به کشورها/نمونهٔ بررسی‌شده است.
 - منبع [ILO Working Paper 154 (2025), AI in human resource management: The limits of empiricism](https://doi.org/10.54394/NMSH7611)؛ مرور انتقادی کاربردهای AI در HR با چارچوب هدف، داده و برنامه‌ریزی؛ شواهد آن به معنای اثر یکسان همهٔ سامانه‌ها نیست.
 - منبع [OpenStax Organizational Behavior 15.5: Corporate Cultures](https://openstax.org/books/organizational-behavior/pages/15-5-corporate-cultures)؛ فرهنگ سازمانی و چارچوب ارزش‌های رقیب؛ مدل برای تشخیص و گفت‌وگو است نه برچسب‌زدن قطعی.
 - منبع [Oxford MBA: Core courses and electives (2026–27)](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی موضوعی با Organisational Behaviour و چارچوب‌های فردی/تیمی/سازمانی؛ سیلابس عمومی همهٔ منابع درسی را منتشر نمی‌کند.
@@ -1728,7 +1728,7 @@ AI پیش‌نویس خلاصه می‌سازد؛ کارشناس زمینهٔ م
 #### منابع
 
 - منبع [ILO Working Paper 154 (2025), AI in human resource management: The limits of empiricism](https://doi.org/10.54394/NMSH7611)؛ مرور انتقادی کاربرد AI در جذب، پرداخت، زمان‌بندی و مدیریت عملکرد با لنز هدف، داده و برنامه‌ریزی؛ نه برآورد اثر یکسان همهٔ سامانه‌ها.
-- منبع [OECD (2025), How widespread is algorithmic management in workplaces?](https://doi.org/10.1787/cda7a114-en)؛ پیمایش کارفرمایان شش کشور دربارهٔ کاربرد و نگرانی‌های ابزارهای مدیریت الگوریتمی؛ دادهٔ پیمایشی و محدود به نمونهٔ مورد بررسی.
+- منبع [OECD (2025), How widespread is algorithmic management in workplaces?](https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en.html)؛ پیمایش کارفرمایان شش کشور دربارهٔ کاربرد و نگرانی‌های ابزارهای مدیریت الگوریتمی؛ دادهٔ پیمایشی و محدود به نمونهٔ مورد بررسی.
 - منبع [OpenStax Organizational Behavior 17.3: Performance Management](https://openstax.org/books/organizational-behavior/pages/17-3-performance-management)؛ مدیریت عملکرد، هم‌راستایی هدف، بازخورد و انصاف؛ مثال‌ها مستقلاً تألیف شده‌اند.
 
 ### مرور مرحله

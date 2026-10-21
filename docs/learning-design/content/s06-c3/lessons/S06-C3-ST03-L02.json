@@ -44,6 +44,27 @@
       "title": "مثال سپهر",
       "id": "S06-C3-ST03-L02-CARD08",
       "text": "خلاصهٔ AI برای دسته‌بندی رخدادهای سفارش، با حذف شناسهٔ مشتری و بازبینی نمونه‌ای آزمایش می‌شود. معیار: دقت دسته، از‌دست‌رفتن شاهد مخالف، زمان صرفه‌جویی و اصلاح انسانی. تصمیم استخدام یا اتوماسیون کامل پس از یک نمایش جذاب گرفته نمی‌شود."
+    },
+    {
+      "id": "S06-C3-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Responsible AI use — استفادهٔ مسئولانه از AI: تعیین دادهٔ مجاز، بازبینی و مسئول؛ سیاست داخلی بدون اجرای ابزار کافی نیست. Data exposure — افشای داده: دسترسی خارج از دامنهٔ مجاز؛ prompt خصوصی ممکن است در سرویس بیرونی پردازش شود. Human verification — راستی‌آزمایی انسانی: سنجش خروجی با شاهد مستقل؛ بازخوانی پاسخ روان کنترل کافی نیست."
+    },
+    {
+      "id": "S06-C3-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "استفاده از AI در تیم کوچک زمان برخی کارها را کم می‌کند، ولی دادهٔ محرمانه، خطا و وابستگی ابزار هزینهٔ تازه دارند. برای هر فرایند هدف، ورودی مجاز، کنترل کیفیت و مالک تصمیم را تعریف کنید. اگر خروجی به مشتری یا سرمایه‌گذار می‌رود، راستی‌آزمایی و منشأ لازم سخت‌گیرانه‌تر است؛ سیاست بدون رفتار و ابزار اجرایی کفایت ندارد."
+    },
+    {
+      "id": "S06-C3-ST03-L02-PG-CASE",
+      "type": "real_case",
+      "title": "مطالعهٔ میدانی واقعی: همکاری انسان و AI در P&G",
+      "text": "در آزمایش میدانیِ preregistered با ۷۹۱ متخصص P&G روی مسائل واقعی نوآوری محصول، شرکت‌کنندگان به کار با AI یا بدون آن و به‌صورت فردی یا تیمی تخصیص تصادفی یافتند. در این تکلیف، عملکرد افرادِ مجهز به AI با تیم‌های بدون AI برابر شد و پیشنهادها میان دیدگاه فنی و تجاری متوازن‌تر بود؛ کیفیت ایده‌ها بیشتر بهبود یافت و قضاوت انسانی در انتخاب آن‌ها همچنان ارزش داشت. این نتیجه به همان شرکت، وظیفه و طراحی مطالعه محدود است؛ پاسخ عاطفی گزارش‌شده هم خوداظهاری بود.",
+      "example_kind": "preregistered_field_experiment",
+      "source_id": "NBER-CYBERNETIC-TEAMMATE-2025",
+      "source_url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702"
     }
   ],
   "questions": [
@@ -162,6 +183,36 @@
       "version": 1,
       "correct_option_id": "b",
       "explanation": "نظارت بدون اختیار و زمان صوری است."
+    },
+    {
+      "id": "S06-C3-ST03-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "AI نوشتن پاسخ پشتیبانی را سریع‌تر کرده ولی محرمانگی و خطای واقعیت نگران‌کننده است. پایلوت مناسب چه دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خط مبنای انسانی، نمونهٔ بازبینی، کنترل داده و سنجش زمان و کیفیت و یادگیری",
+          "feedback": "منفعت زمان باید با خطا و محرمانگی و حفظ مهارت سنجیده شود؛ خط مبنای مقایسه لازم است."
+        },
+        {
+          "id": "b",
+          "text": "فقط تعداد متن‌های تولیدشده",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: منفعت زمان باید با خطا و محرمانگی و حفظ مهارت سنجیده شود؛ خط مبنای مقایسه لازم است."
+        },
+        {
+          "id": "c",
+          "text": "حذف بازبینی برای اثبات صرفه‌جویی",
+          "feedback": "این گزینه یک هزینه یا فرض مهم را کنار می‌گذارد: منفعت زمان باید با خطا و محرمانگی و حفظ مهارت سنجیده شود؛ خط مبنای مقایسه لازم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "منفعت زمان باید با خطا و محرمانگی و حفظ مهارت سنجیده شود؛ خط مبنای مقایسه لازم است.",
+      "objective_id": "S06-C3-ST03-L02-OBJ01",
+      "equivalence_group": "S06-C3-ST03-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S06-C3-ST03-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
     }
   ],
   "source_links": [
@@ -170,41 +221,55 @@
       "title": "OpenStax Introduction to Business 8.1 Human Resource Management",
       "url": "https://openstax.org/books/introduction-business/pages/8-1-achieving-high-performance-through-human-resources-management",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "تحلیل شغل، برنامه‌ریزی نیروی انسانی، انتخاب و رشد."
+      "scope": "تحلیل شغل، برنامه‌ریزی نیروی انسانی، انتخاب و رشد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "OPENSTAX-OB-FUTURE-17.5",
       "title": "OpenStax Organizational Behavior 17.5 Building an Organization for the Future",
       "url": "https://openstax.org/books/organizational-behavior/pages/17-5-building-an-organization-for-the-future",
       "review_depth": "open_textbook_section_reviewed",
-      "scope": "نیاز آتی، جذب استعداد و طراحی سازمان."
+      "scope": "نیاز آتی، جذب استعداد و طراحی سازمان.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "MIT-MAKE-BUY-TECH-STRATEGY",
       "title": "MIT OCW 15.912 Technology Strategy: Make vs Buy",
       "url": "https://ocw.mit.edu/courses/15-912-technology-strategy-fall-2008/7a0d875dda0ae5a0deb699f3c61cb4ca_lec_24.pdf",
       "review_depth": "official_lecture_slide_reviewed",
-      "scope": "چارچوب آموزشی مقایسهٔ ساخت و خرید فناوری."
+      "scope": "چارچوب آموزشی مقایسهٔ ساخت و خرید فناوری.",
+      "accessed_on": "2026-10-21"
     },
     {
-      "id": "NBER-CYBERNETIC-TEAMMATE-2025",
-      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork",
-      "url": "https://www.nber.org/papers/w33641",
+      "id": "CR-R33-PUBLISHED",
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI and Teamwork (Organization Science, 2026)",
+      "url": "https://pubsonline.informs.org/doi/10.1287/orsc.2025.20702",
       "review_depth": "primary_field_experiment_reviewed",
-      "scope": "آزمایش میدانی ۷۷۶ متخصص P&G در وظایف نوآوری محصول؛ نتایج به زمینهٔ مطالعه محدود است."
+      "scope": "آزمایش میدانی ۷۷۶ متخصص P&G در وظایف نوآوری محصول؛ نتایج به زمینهٔ مطالعه محدود است.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی مقالهٔ نهایی در Organization Science باز شد و چکیده/متن مقاله قابل مشاهده است. آزمایش با ۷۹۱ متخصص P&G روی چالش‌های نوآوری محصول انجام شده؛ تعمیم نتیجه‌ها به سازمان‌ها و تکالیف دیگر محدود است. نشانی نسخهٔ کاری NBER در previous_url نگه داشته شد.",
+      "previous_url": "https://www.nber.org/papers/w33641",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "MIT-CLEANSTART-CASE",
       "title": "MIT Sloan: CleanStart Startup Simulation",
       "url": "https://mitsloan.mit.edu/teaching-resources-library/cleanstart-simulating-a-clean-energy-startup",
       "review_depth": "official_teaching_case_page_reviewed",
-      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی شرکت نوپا."
+      "scope": "شبیه‌سازی تصمیم‌های مالی، نیروی انسانی و راهبردی شرکت نوپا.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {
     "type": "milestone-resource-plan",
     "prompt": "برای milestone سپهر، خروجی، قابلیت‌های لازم، ظرفیت، هزینه، مالک، وابستگی، معیار کیفیت و شرط ادامه یا توقف را بنویسید. در یک مورد هم ساخت، خرید و شریک را مقایسه کنید.",
-    "expected_output": "برنامهٔ منابع مرحله‌ای و تصمیم build/buy/partner"
+    "expected_output": "برنامهٔ منابع مرحله‌ای و تصمیم build/buy/partner",
+    "rubric": [
+      "قابلیت موردنیاز و گزینه‌های ساخت/خرید/همکاری متناسب مقایسه شده‌اند.",
+      "منابع، milestone و وابستگی به شواهد و ظرفیت وصل‌اند.",
+      "تصمیم استخدام/تأمین، معیار پذیرش و شرط بازنگری مرحله‌ای دارد."
+    ],
+    "auto_grade": false
   },
   "review_status": "pending_expert_review",
   "fresh_equivalent_variants": 0,
@@ -217,7 +282,7 @@
     "OPENSTAX-HR-8.1",
     "OPENSTAX-OB-FUTURE-17.5",
     "MIT-MAKE-BUY-TECH-STRATEGY",
-    "NBER-CYBERNETIC-TEAMMATE-2025",
+    "CR-R33-PUBLISHED",
     "MIT-CLEANSTART-CASE"
   ],
   "source_scope": "پژوهش AI و روش‌های مدیریت تیم به زمینهٔ مطالعه محدودند؛ مثال، آموزشی است.",
@@ -231,7 +296,14 @@
   "media_plan": {
     "type": "capability-milestone-resource-map",
     "purpose": "اتصال خروجی به قابلیت، ظرفیت، هزینه و شرط تصمیم",
-    "production_status": "planned_not_created"
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/startup-milestone-resource-plan.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «استفادهٔ مسئولانه از AI در تیم کوچک»: منابع را مرحله‌ای آزاد کن و ببین کدام قابلیت باید داخل تیم بماند. استخدام با عدم‌قطعیت، نقش را به گلوگاه و مهارت قابل‌سنجش وصل کن؛ زود بزرگ‌کردن تیم هزینه‌ساز است.؛ AI در تیم کوچک، وظیفه، دادهٔ حساس و نیاز به بازبینی را قبل از استفاده تعریف کن.؛ ساخت، خرید، شریک، زمان، کنترل، نگهداری، امنیت و وابستگی را در هزینهٔ کل مقایسه کن.؛ منبع تا نقطهٔ عطف، بودجه، مالک، خروجی و شرط یادگیری/توقف را روی زمان‌بندی قرار بده.",
+        "caption": "نقشه را برای تحلیل «استفادهٔ مسئولانه از AI در تیم کوچک» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
   },
   "assessment_plan": {
     "item_count": 4,
