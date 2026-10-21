@@ -15,6 +15,7 @@ import { applyAccountPreferences, readDevicePreferences } from '../account/api';
 import { AcademyIcon } from './AcademyIcons';
 import type { AcademyIconName } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
+import { CourseHero } from './CourseHero';
 import { LearningPlayer } from './LearningPlayer';
 import type { LearningActions } from './LearningPlayer';
 import { academyCopy as copy } from './academyMessages';
@@ -22,6 +23,7 @@ import { faNumber, learningState, loadContent, saveProgress, submitAnswer } from
 import type { Catalog, Course, LearningState, Progress, Unit } from './connectedData';
 import './academy.css';
 import './connectedAcademy.css';
+import './courseHero.css';
 
 const fresh = (unit: Unit): Progress => ({
   unit_id: unit.id,
@@ -37,6 +39,18 @@ const fresh = (unit: Unit): Progress => ({
 });
 const lessonIds = (course: Course) =>
   course.stages.flatMap((stage) => stage.lessons.map((lesson) => lesson.id));
+function previewCompletion(unit: Unit, row: Progress): Progress {
+  const viewed = unit.learning_cards.every((card) => row.viewed_cards.includes(card.id));
+  const answered = unit.questions.every(
+    (question) => row.responses[question.id]?.result.correct === true,
+  );
+  const practiced =
+    !unit.practice_activity ||
+    (unit.practice_activity.type === 'numeric'
+      ? row.activity_response.result?.correct === true
+      : Boolean(row.activity_response.answer));
+  return { ...row, completed: row.completed || (viewed && answered && practiced) };
+}
 const courseFor = (catalog: Catalog, id: string) =>
   catalog.courses.find(
     (course) =>
@@ -129,14 +143,12 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
         </label>
       </aside>
       <section className="academy-path">
-        <div className="academy-chapter">
-          <AcademyIcon name="book" />
-          <p>{path.title}</p>
-          <h1 tabIndex={-1}>{selected.title}</h1>
-          <p>
-            {faNumber(ids.length)} درس‌نامه در {faNumber(selected.stages.length)} مرحله
-          </p>
-        </div>
+        <CourseHero
+          key={selected.id}
+          course={selected}
+          pathTitle={path.title}
+          lessons={ids.length}
+        />
         <div className="academy-path-intro">
           <span>
             {faNumber(done)} از {faNumber(ids.length)} درس‌نامه تمرین شده
@@ -184,7 +196,10 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
               ))}
             </ol>
             {stage.review_id && (
-              <Link className="learning-review-node" to={`/academy/review/${stage.review_id}`}>
+              <Link
+                className={`learning-review-node${learning.progress[stage.review_id]?.completed ? ' learning-review-node--completed' : ''}`}
+                to={`/academy/review/${stage.review_id}`}
+              >
                 <AcademyIcon name="target" />
                 {learning.progress[stage.review_id]?.completed
                   ? 'مرور مرحله انجام شد'
@@ -194,7 +209,10 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
           </section>
         ))}
         {selected.final_review_id && (
-          <Link className="learning-final-node" to={`/academy/review/${selected.final_review_id}`}>
+          <Link
+            className={`learning-final-node${learning.progress[selected.final_review_id]?.completed ? ' learning-review-node--completed' : ''}`}
+            to={`/academy/review/${selected.final_review_id}`}
+          >
             <AcademyIcon name="trophy" />
             مرور پایانی {selected.title}
           </Link>
@@ -291,8 +309,8 @@ function ReviewPage({ catalog, learning }: { catalog: Catalog; learning: Learnin
       <p>{copy.independentNotice}</p>
       {!selected.length && (
         <p>
-          بعد از شروع درس‌ها، یادداشت‌ها، نشانک‌ها و تمرین‌هایی که نیاز به مرور دارن اینجا دیده
-          می‌شن.
+          بعد از شروع درس‌ها، یادداشت‌ها، درس‌های ذخیره‌شده و تمرین‌هایی که نیاز به مرور دارن اینجا
+          دیده می‌شن.
         </p>
       )}
       <div className="learning-course-grid">
@@ -304,7 +322,7 @@ function ReviewPage({ catalog, learning }: { catalog: Catalog; learning: Learnin
               <h2>{lesson?.title ?? course?.title ?? row.unit_id}</h2>
               <p>
                 {row.completed ? 'تمرین شده' : 'در حال تمرین'}
-                {row.bookmarked ? ' · نشانک‌دار' : ''}
+                {row.bookmarked ? ' · ذخیره‌شده برای بعد' : ''}
               </p>
               {row.note && <p className="learning-prose">{row.note}</p>}
               <Link to={`/academy/lesson/${row.unit_id}`}>بازکردن و مرور</Link>
@@ -360,8 +378,8 @@ function GuidePage({ catalog }: { catalog: Catalog }) {
           حساب نمی‌شن.
         </li>
         <li>
-          با ورود به حسابت، پیشرفت، پاسخ ثبت‌شده، نشانک و یادداشت‌هات در حساب خودت ذخیره می‌شن.
-          ترتیب پیشنهادی درس‌ها جلوی دسترسی مستقیم رو نمی‌گیره.
+          با ورود به حسابت، پیشرفت، پاسخ ثبت‌شده، درس‌های انتخاب‌شده برای بعد و یادداشت‌هات در حساب
+          خودت ذخیره می‌شن. ترتیب پیشنهادی درس‌ها جلوی دسترسی مستقیم رو نمی‌گیره.
         </li>
       </ol>
       <h2>وضعیت علمی این نسخه</h2>
@@ -405,6 +423,15 @@ export default function ConnectedAcademy() {
       setStatus('ready');
       setWarning('');
     } catch (error) {
+      if (
+        silent &&
+        error instanceof ApiError &&
+        error.status === 401 &&
+        !stateRef.current.user_id
+      ) {
+        setStatus('guest');
+        return;
+      }
       if (silent && !(error instanceof ApiError && error.status === 401)) {
         setWarning(
           'ارتباط با حسابت برقرار نشد؛ نوشتهٔ ذخیره‌نشده‌ات همین‌جا می‌مونه. دوباره تلاش کن.',
@@ -423,6 +450,7 @@ export default function ConnectedAcademy() {
   useEffect(() => {
     void refresh();
     const clear = () => {
+      if (!stateRef.current.user_id) return;
       stateRef.current = { user_id: '', units: {} };
       setState(stateRef.current);
       setStatus('guest');
@@ -458,7 +486,7 @@ export default function ConnectedAcademy() {
         );
         update({
           ...stateRef.current.units,
-          [unit.id]: { ...current, ...data, viewed_cards: viewed },
+          [unit.id]: previewCompletion(unit, { ...current, ...data, viewed_cards: viewed }),
         });
       }
     },
@@ -473,20 +501,21 @@ export default function ConnectedAcademy() {
       if (response.progress) update({ ...stateRef.current.units, [unit.id]: response.progress });
       else {
         const current = stateRef.current.units[unit.id] ?? fresh(unit);
+        const previous = id === 'activity' ? current.activity_response : current.responses[id];
         const record = {
           answer: value,
           result: response.result,
-          attempts: 1,
-          first_correct: response.result.correct,
+          attempts: (previous?.attempts ?? 0) + 1,
+          first_correct: previous?.first_correct ?? response.result.correct,
         };
         update({
           ...stateRef.current.units,
-          [unit.id]: {
+          [unit.id]: previewCompletion(unit, {
             ...current,
             ...(id === 'activity'
               ? { activity_response: record }
               : { responses: { ...current.responses, [id]: record } }),
-          },
+          }),
         });
       }
       return response.result;

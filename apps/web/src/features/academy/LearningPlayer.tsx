@@ -239,6 +239,7 @@ export function LearningPlayer({
   const [busy, setBusy] = useState(false);
   const [activityDirty, setActivityDirty] = useState(false);
   const [message, setMessage] = useState('');
+  const [bookmarkMessage, setBookmarkMessage] = useState('');
   const [error, setError] = useState('');
   const heading = useRef<HTMLHeadingElement>(null);
   const card = unit.learning_cards[step];
@@ -293,6 +294,21 @@ export function LearningPlayer({
       setBusy(false);
     }
   }
+  async function toggleBookmark() {
+    setBusy(true);
+    setError('');
+    setBookmarkMessage('');
+    try {
+      await learning.save(unit, { bookmarked: !row?.bookmarked });
+      setBookmarkMessage(
+        row?.bookmarked ? 'از درس‌های ذخیره‌شده برداشته شد.' : 'این درس در بخش «مرور» ذخیره شد.',
+      );
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
   return (
     <section className="academy-lesson learning-player">
       <Link className="academy-back" to={`/academy?course=${course.id}`}>
@@ -305,17 +321,44 @@ export function LearningPlayer({
             {unit.title}
           </h1>
         </div>
-        <Button
-          variant="quiet"
-          disabled={busy || !learning.authenticated}
-          onClick={() =>
-            void learning
-              .save(unit, { bookmarked: !row?.bookmarked })
-              .catch((e: Error) => setError(e.message))
-          }
-        >
-          {row?.bookmarked ? 'حذف نشانک' : 'نشانک'}
-        </Button>
+        <div className="learning-bookmark">
+          {learning.authenticated ? (
+            <Button
+              variant="quiet"
+              disabled={busy}
+              aria-pressed={Boolean(row?.bookmarked)}
+              onClick={() => void toggleBookmark()}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill={row?.bookmarked ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden="true"
+              >
+                <path d="M6 3h12v18l-6-4-6 4Z" />
+              </svg>
+              {row?.bookmarked ? 'حذف از ذخیره‌ها' : 'ذخیره برای بعد'}
+            </Button>
+          ) : (
+            <Link
+              className="ui-button ui-button--quiet"
+              to={`/account/login?next=${encodeURIComponent(`/academy/lesson/${unit.id}`)}`}
+            >
+              ذخیره برای بعد
+            </Link>
+          )}
+          <p>
+            {learning.authenticated ? (
+              <>
+                درس‌های ذخیره‌شده رو در <Link to="/academy/review">مرور</Link> پیدا می‌کنی.
+              </>
+            ) : (
+              'برای ذخیرهٔ این درس، وارد حسابت شو.'
+            )}
+          </p>
+          <p role="status">{bookmarkMessage}</p>
+        </div>
       </div>
       <progress aria-label="پیشرفت این بخش" max={lastStep} value={step} />
       <p className="academy-muted">

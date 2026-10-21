@@ -70,12 +70,28 @@
 .learning-stage-header {
   padding: 1.2rem 1.5rem;
   border-radius: 20px;
-  background: var(--stage-fill);
-  color: var(--stage-ink);
-  border-block-end: 5px solid var(--stage-edge);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--stage-edge);
 }
 .learning-stage-header h2 {
   margin: 0.3rem 0 0;
+}
+.learning-stage-header > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.learning-stage-header > span::before {
+  content: '';
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background: var(--stage-fill);
+  border: 1px solid var(--stage-edge);
 }
 .learning-stage .academy-node-disc {
   background: var(--stage-fill);
@@ -87,10 +103,6 @@
   box-shadow:
     0 0 0 6px var(--canvas),
     0 0 0 10px var(--stage-fill);
-}
-.learning-stage .academy-node--completed .academy-node-disc {
-  background: var(--paper);
-  color: var(--ink);
 }
 .learning-stage .academy-node {
   padding-block: 1.5rem 2rem;
