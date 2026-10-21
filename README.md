@@ -35,22 +35,20 @@ Set-ExecutionPolicy -Scope Process Bypass
 .\run-local.ps1
 ```
 
-بعد از دریافت آخرین refها، در اجرای معمولی منو یکی از این دو نسخه را می‌پرسد: `main` یا شاخه `feat/stratino-academy`. رانر ابتدا commit شاخه محلی را اجرا می‌کند و اگر موجود نبود از `origin/<branch>` کمک می‌گیرد؛ هیچ branch checkout یا فایل کاری را تغییر نمی‌دهد.
+در اجرای معمولی منو یکی از این دو نسخه را می‌پرسد: `main` یا شاخه `feat/stratino-academy`. برای این انتخاب‌ها، رانر آخرین ref را از `origin` دریافت می‌کند و در worktree موقت می‌سازد؛ شاخهٔ کاری و فایل‌های پروژه را تغییر نمی‌دهد.
 
 ```powershell
-git fetch origin main feat/stratino-academy
 .\run-local.ps1
 ```
 
-انتخاب academy آموزش را فعال و `/academy` را باز می‌کند. main به‌صورت پیش‌فرض آموزش را فعال نمی‌کند؛ برای مشاهده آموزش روی main از `-AcademyPreview` استفاده کنید. این رفتار برای هر ref در اجرای چندنسخه‌ای مستقل است. انتخاب مستقیم هم ممکن است:
+انتخاب `main` سایت کامل را در `/` باز می‌کند و Academy هم به‌صورت پیش‌فرض فعال است؛ مسیر `/academy` و ورودی آموزش در سایت در دسترس‌اند. انتخاب `academy` شاخهٔ آموزشی را مستقیماً در `/academy` باز می‌کند. انتخاب مستقیم هم ممکن است:
 
 ```powershell
 .\run-local.ps1 -Version main
 .\run-local.ps1 -Version academy
-.\run-local.ps1 -Version main -AcademyPreview
 ```
 
-برای اجرای refهای دلخواه یا چند نسخه کنار هم، همچنان از `-Refs` استفاده کنید:
+برای ref دلخواه یا اجرای چند نسخه کنار هم، از `-Refs` استفاده کنید. در این حالت ref محلی بر `origin/<branch>` اولویت دارد؛ `-AcademyPreview` برای فعال‌کردن آموزش روی refهای دیگر باقی است:
 
 ```powershell
 .\run-local.ps1 -Refs main, feat/stratino-academy
@@ -59,7 +57,7 @@ git fetch origin main feat/stratino-academy
 
 با `Ctrl+C` سرورها بسته می‌شوند و worktreeهای موقت پاک می‌شوند. اجرای پروژه روی شاخه کاری فعلی اثری ندارد. برای باز نکردن خودکار مرورگر از `-NoBrowser` استفاده کنید.
 
-در هر worktree ابتدا `npm ci` با فایل قفل همان نسخه اجرا می‌شود. Node.js حداقل 22.12 لازم است. اگر پورتی اشغال باشد، رانر پورت آزاد بعدی را انتخاب می‌کند؛ با `-FirstPort 18473` بازه شروع را تغییر دهید. آدرس فقط پس از پاسخ HTTP موفق چاپ می‌شود. گزارش‌ها در پوشه موقت اختصاصی هر اجرا می‌مانند. `-SmokeTest -NoBrowser` پس از آماده‌شدن همه نسخه‌ها، سرورها و worktreeها را می‌بندد. آزمون منوی واقعی، commit منتخب، default-off/preview، پورت اشغال‌شده، healthcheck و cleanup با `pwsh -File scripts/test-local-runner.ps1` اجرا می‌شود. پس از ادغام آموزش در main، `-IncludePreviewOnMain` را نیز به آزمون اضافه کنید. برای ذخیره شاهد اجرای رانر از `-EvidencePath test-results/runner.json` استفاده کنید.
+در هر worktree ابتدا `npm ci` با فایل قفل همان نسخه اجرا می‌شود. Node.js حداقل 22.12 لازم است. اگر پورتی اشغال باشد، رانر پورت آزاد بعدی را انتخاب می‌کند؛ با `-FirstPort 18473` بازه شروع را تغییر دهید. آدرس فقط پس از پاسخ HTTP موفق صفحهٔ اصلی و Academy چاپ می‌شود. گزارش‌ها در پوشه موقت اختصاصی هر اجرا می‌مانند. `-SmokeTest -NoBrowser` پس از آماده‌شدن همه نسخه‌ها، سرورها و worktreeها را می‌بندد. آزمون منوی واقعی، آخرین commit، نمایش Academy روی main، مسیرهای سایت/آموزش، پورت اشغال‌شده و cleanup با `pwsh -File scripts/test-local-runner.ps1` اجرا می‌شود. برای ذخیره شاهد اجرای رانر از `-EvidencePath test-results/runner.json` استفاده کنید.
 
 اجرای پیش‌فرض فقط وب است؛ اجرای اختیاری سرویس‌های محلی در بخش زیر توضیح داده شده است.
 
