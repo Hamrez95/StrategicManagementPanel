@@ -27,6 +27,7 @@ services:
     build: ../apps/api
     environment:
       STRATINO_ENV: development
+      STRATINO_ACADEMY_ROOT: /app/academy-content
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set a local session secret}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a local database password}
       POSTGRES_HOST: db
@@ -39,6 +40,7 @@ services:
       - '127.0.0.1:${API_PORT:-8000}:8000'
     volumes:
       - private-files:/private-files
+      - ../docs/learning-design:/app/academy-content:ro
     depends_on:
       db:
         condition: service_healthy

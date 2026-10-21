@@ -68,7 +68,12 @@ function errorMessage(response: Response, body: unknown) {
 
 function reportSessionExpiry(path: string, status: number) {
   if (status !== 401 || typeof window === 'undefined') return;
-  if (!path.startsWith('/api/v1/workspaces/') && !path.startsWith('/api/v1/account/')) return;
+  if (
+    !path.startsWith('/api/v1/workspaces/') &&
+    !path.startsWith('/api/v1/account/') &&
+    !path.startsWith('/api/v1/academy/')
+  )
+    return;
   window.dispatchEvent(new Event('stratino:session-expired'));
 }
 

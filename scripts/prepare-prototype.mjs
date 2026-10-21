@@ -27,3 +27,4 @@ await writeFile(
   "self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('strategy-prototype-')).map(k=>caches.delete(k)))).then(()=>self.registration.unregister()).then(()=>self.clients.claim())));\n",
 );
 console.log('Legacy prototype preserved under /prototype/ with a scoped asset-only worker.');
+await import('./prepare-academy.mjs');

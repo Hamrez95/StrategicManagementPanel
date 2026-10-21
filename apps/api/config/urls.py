@@ -43,6 +43,7 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('api/v1/academy/', include('modules.academy.urls')),
     path('api/v1/health/live', live),
     path('api/v1/health/ready', ready),
     path('api/v1/csrf/', csrf_cookie),

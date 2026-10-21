@@ -33,9 +33,11 @@
     "test:browser:all": "node scripts/verify-browser-suite.mjs",
     "dev:academy": "node scripts/run-academy.mjs",
     "build:academy": "node scripts/run-academy.mjs --build",
-    "test:academy": "npm run build:domain && node --test packages/domain/tests/academy.test.mjs && node scripts/check-academy.mjs",
-    "test:academy:browser": "node scripts/verify-academy.mjs",
-    "test:academy:disabled": "node scripts/verify-academy-disabled.mjs"
+    "test:academy": "npm run build:domain && node --test packages/domain/tests/academy.test.mjs && node scripts/prepare-academy.mjs && node scripts/check-connected-academy.mjs",
+    "test:academy:browser": "node scripts/verify-connected-academy.mjs",
+    "test:academy:disabled": "node scripts/verify-academy-disabled.mjs",
+    "check:academy:content": "node scripts/check-connected-academy.mjs",
+    "test:academy:connected": "node scripts/verify-connected-academy.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",

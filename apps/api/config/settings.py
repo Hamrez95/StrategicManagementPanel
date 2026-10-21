@@ -21,6 +21,7 @@ elif not SECRET_KEY:
     SECRET_KEY = secrets.token_urlsafe(64)
 
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.customer_context', 'modules.evidence', 'modules.metrics', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.exports', 'modules.core']
+INSTALLED_APPS += ['modules.academy']
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'modules.core.middleware.PrivateResponseMiddleware']
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
@@ -83,6 +84,10 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'development@stratino.invalid')
 STRATINO_PUBLIC_URL = os.environ.get('STRATINO_PUBLIC_URL', 'http://127.0.0.1:4173').rstrip('/')
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in os.environ.get(
+    'DJANGO_CSRF_TRUSTED_ORIGINS',
+    STRATINO_PUBLIC_URL if PRODUCTION else ','.join([STRATINO_PUBLIC_URL, 'http://127.0.0.1:5193', 'http://localhost:5193']),
+).split(',') if origin.strip()]
 PASSWORD_RESET_TIMEOUT = 60 * 60
 EMAIL_VERIFICATION_TIMEOUT = 60 * 60 * 24
 public_url = urlsplit(STRATINO_PUBLIC_URL)
