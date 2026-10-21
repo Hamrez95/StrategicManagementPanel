@@ -100,7 +100,7 @@ Risk — ریسک: پیامدهای نامطمئن با احتمال قابل‌
 
 #### منابع
 
-- منبع [Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده.
+- منبع [Coyle, Scenario Thinking and Strategic Modelling, Chapter 11 in The Oxford Handbook of Strategy (2009)](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ فصل راهبرد و سناریو؛ چکیده بر تفاوت سناریوسازی با پیش‌بینی یک آینده و سنجش گزینه‌ها در چند آینده تأکید می‌کند.
 - منبع [Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach](https://academic.oup.com/book/9616)؛ سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.
 - منبع [HBR (2025): Make Better Strategic Decisions Amid Uncertainty](https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty)؛ سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.
 - منبع [IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise](https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924)؛ تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.
@@ -214,7 +214,7 @@ IMF 2026 سناریو دربارهٔ AI چه چیزی را ثابت می‌کن�
 
 #### منابع
 
-- منبع [Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده.
+- منبع [Coyle, Scenario Thinking and Strategic Modelling, Chapter 11 in The Oxford Handbook of Strategy (2009)](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ فصل راهبرد و سناریو؛ چکیده بر تفاوت سناریوسازی با پیش‌بینی یک آینده و سنجش گزینه‌ها در چند آینده تأکید می‌کند.
 - منبع [Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach](https://academic.oup.com/book/9616)؛ سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.
 - منبع [HBR (2025): Make Better Strategic Decisions Amid Uncertainty](https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty)؛ سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.
 - منبع [IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise](https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924)؛ تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.
@@ -321,7 +321,7 @@ Robust decision — تصمیم مقاوم: گزینه‌ای با عملکرد �
 
 #### منابع
 
-- منبع [Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده.
+- منبع [Coyle, Scenario Thinking and Strategic Modelling, Chapter 11 in The Oxford Handbook of Strategy (2009)](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ فصل راهبرد و سناریو؛ چکیده بر تفاوت سناریوسازی با پیش‌بینی یک آینده و سنجش گزینه‌ها در چند آینده تأکید می‌کند.
 - منبع [Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach](https://academic.oup.com/book/9616)؛ سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.
 - منبع [HBR (2025): Make Better Strategic Decisions Amid Uncertainty](https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty)؛ سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.
 - منبع [IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise](https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924)؛ تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.
@@ -428,7 +428,7 @@ AI می‌تواند شواهد را خلاصه یا سناریو و گزینه 
 
 #### منابع
 
-- منبع [Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده.
+- منبع [Coyle, Scenario Thinking and Strategic Modelling, Chapter 11 in The Oxford Handbook of Strategy (2009)](https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665)؛ فصل راهبرد و سناریو؛ چکیده بر تفاوت سناریوسازی با پیش‌بینی یک آینده و سنجش گزینه‌ها در چند آینده تأکید می‌کند.
 - منبع [Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach](https://academic.oup.com/book/9616)؛ سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.
 - منبع [HBR (2025): Make Better Strategic Decisions Amid Uncertainty](https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty)؛ سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.
 - منبع [IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise](https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924)؛ تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.

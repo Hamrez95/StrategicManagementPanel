@@ -1026,7 +1026,7 @@ Disruptive innovation — نوآوری اختلال‌گر: مسیر ورود ا
 - منبع [Oxford Strategy in 3D, Chapter 15: Hypothesis Testing](https://academic.oup.com/book/36951/chapter-abstract/322252821)؛ آزمون فرضیه برای کاهش عدم‌قطعیت تصمیم و آشکارکردن داده‌های رد/تأیید.
 - منبع [Harvard Business School AI Institute: Scaling Experimentation for a Competitive Edge](https://aiinstitute.hbs.edu/scaling-experimentation-for-a-competitive-edge/)؛ مزیت و محدودیت سازمان‌دهی آزمایش در مقیاس.
 - منبع [HBR On Strategy (2025): Great Strategy Starts with Experimentation](https://hbr.org/podcast/2025/04/great-strategy-starts-with-experimentation)؛ آزمایش فرضیه پیش از گسترش ایدهٔ تازه.
-- منبع [Harvard Business School: The Value Potential of New Business](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ سبد کسب‌وکارهای جدید و پاسخ به تحول مدل موجود؛ مقالهٔ پژوهشی/کاری.
+- منبع [Harvard Business School Working Paper 20-028: The Value Potential of New Business Models](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ مقالهٔ کاری David J. Collis دربارهٔ ارزش مدل کسب‌وکار و نسبت آن با موقعیت‌یابی رقابتی؛ نسخهٔ کاری ۲۰۱۹ است و مقالهٔ نهایی تلقی نشود.
 
 ### درس‌نامهٔ `S01-C3-ST03-L02`؛ آزمایش مدل جدید بدون تخریب هسته
 
@@ -1134,7 +1134,7 @@ AI و سازمان دوگانه چه نیازی دارد؟
 - منبع [Oxford Strategy in 3D, Chapter 15: Hypothesis Testing](https://academic.oup.com/book/36951/chapter-abstract/322252821)؛ آزمون فرضیه برای کاهش عدم‌قطعیت تصمیم و آشکارکردن داده‌های رد/تأیید.
 - منبع [Harvard Business School AI Institute: Scaling Experimentation for a Competitive Edge](https://aiinstitute.hbs.edu/scaling-experimentation-for-a-competitive-edge/)؛ مزیت و محدودیت سازمان‌دهی آزمایش در مقیاس.
 - منبع [HBR On Strategy (2025): Great Strategy Starts with Experimentation](https://hbr.org/podcast/2025/04/great-strategy-starts-with-experimentation)؛ آزمایش فرضیه پیش از گسترش ایدهٔ تازه.
-- منبع [Harvard Business School: The Value Potential of New Business](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ سبد کسب‌وکارهای جدید و پاسخ به تحول مدل موجود؛ مقالهٔ پژوهشی/کاری.
+- منبع [Harvard Business School Working Paper 20-028: The Value Potential of New Business Models](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ مقالهٔ کاری David J. Collis دربارهٔ ارزش مدل کسب‌وکار و نسبت آن با موقعیت‌یابی رقابتی؛ نسخهٔ کاری ۲۰۱۹ است و مقالهٔ نهایی تلقی نشود.
 
 ### درس‌نامهٔ `S01-C3-ST03-L03`؛ ساخت سبد آزمایش‌های نوآوری
 
@@ -1242,7 +1242,7 @@ Innovation portfolio — سبد نوآوری: مجموعهٔ آزمایش‌ها
 - منبع [Oxford Strategy in 3D, Chapter 15: Hypothesis Testing](https://academic.oup.com/book/36951/chapter-abstract/322252821)؛ آزمون فرضیه برای کاهش عدم‌قطعیت تصمیم و آشکارکردن داده‌های رد/تأیید.
 - منبع [Harvard Business School AI Institute: Scaling Experimentation for a Competitive Edge](https://aiinstitute.hbs.edu/scaling-experimentation-for-a-competitive-edge/)؛ مزیت و محدودیت سازمان‌دهی آزمایش در مقیاس.
 - منبع [HBR On Strategy (2025): Great Strategy Starts with Experimentation](https://hbr.org/podcast/2025/04/great-strategy-starts-with-experimentation)؛ آزمایش فرضیه پیش از گسترش ایدهٔ تازه.
-- منبع [Harvard Business School: The Value Potential of New Business](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ سبد کسب‌وکارهای جدید و پاسخ به تحول مدل موجود؛ مقالهٔ پژوهشی/کاری.
+- منبع [Harvard Business School Working Paper 20-028: The Value Potential of New Business Models](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ مقالهٔ کاری David J. Collis دربارهٔ ارزش مدل کسب‌وکار و نسبت آن با موقعیت‌یابی رقابتی؛ نسخهٔ کاری ۲۰۱۹ است و مقالهٔ نهایی تلقی نشود.
 
 ### درس‌نامهٔ `S01-C3-ST03-L04`؛ انتخاب با شاهد و ریسک قفل‌شدن
 
@@ -1350,7 +1350,7 @@ Lock-in — قفل‌شدن: هزینه یا مانعی که جابه‌جایی
 - منبع [Oxford Strategy in 3D, Chapter 15: Hypothesis Testing](https://academic.oup.com/book/36951/chapter-abstract/322252821)؛ آزمون فرضیه برای کاهش عدم‌قطعیت تصمیم و آشکارکردن داده‌های رد/تأیید.
 - منبع [Harvard Business School AI Institute: Scaling Experimentation for a Competitive Edge](https://aiinstitute.hbs.edu/scaling-experimentation-for-a-competitive-edge/)؛ مزیت و محدودیت سازمان‌دهی آزمایش در مقیاس.
 - منبع [HBR On Strategy (2025): Great Strategy Starts with Experimentation](https://hbr.org/podcast/2025/04/great-strategy-starts-with-experimentation)؛ آزمایش فرضیه پیش از گسترش ایدهٔ تازه.
-- منبع [Harvard Business School: The Value Potential of New Business](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ سبد کسب‌وکارهای جدید و پاسخ به تحول مدل موجود؛ مقالهٔ پژوهشی/کاری.
+- منبع [Harvard Business School Working Paper 20-028: The Value Potential of New Business Models](https://www.hbs.edu/ris/download.aspx?name=20-028.pdf)؛ مقالهٔ کاری David J. Collis دربارهٔ ارزش مدل کسب‌وکار و نسبت آن با موقعیت‌یابی رقابتی؛ نسخهٔ کاری ۲۰۱۹ است و مقالهٔ نهایی تلقی نشود.
 
 ### مرور مرحله
 

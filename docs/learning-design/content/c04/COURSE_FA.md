@@ -1619,7 +1619,7 @@ CAC و CLV را تنها همراه تعریف هزینه، مشتری، حاش�
 - منبع [OpenStax Principles of Marketing 6.3: Steps in a Successful Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ طراحی پژوهش و سنجش؛ آزمایش تمرینی درس مستقل است.
 - منبع [OpenStax Principles of Marketing 16.3: Metrics Used to Evaluate the Success of Online Marketing](https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing)؛ قیف دیجیتال و شاخص‌های آنلاین؛ شمار کلیک به تنهایی نتیجهٔ تجاری را ثابت نمی‌کند.
 - منبع [Gupta et al. (2025), Generative AI and Personalized Video Advertisements, Marketing Science](https://doi.org/10.1287/mksc.2023.0494)؛ آزمایش میدانی تبلیغ ویدئویی شخصی‌سازی‌شده با یک برند تجارت مستقیم؛ نتایج به زمینه و طراحی همان پژوهش محدود است.
-- منبع [When AI advice backfires: Field experimental evidence on personalization, intrusiveness, and purchase behavior (2026), Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S0969698926001256)؛ آزمایش میدانی ارتباط شخصی‌سازی‌شده با شرایط مشخص؛ تعمیم اثر به همهٔ برندها/مشتریان نیازمند آزمون است.
+- منبع [When AI advice backfires: Field experimental evidence on personalization, intrusiveness, and purchase behavior (2026)](https://www.sciencedirect.com/science/article/pii/S0969698926001256)؛ آزمایش میدانی در خرده‌فروشی آمریکا (N=409)؛ پیام شخصی‌سازی‌شده در برابر پیام طنز، با دو مسیر هم‌زمانِ برداشتِ مفیدبودن و مزاحمت؛ نتیجه به همین زمینه و مقایسه محدود است.
 
 ### درس‌نامهٔ `C04-ST04-L04`؛ داستان رشد را از اثر واقعی جدا کنیم
 

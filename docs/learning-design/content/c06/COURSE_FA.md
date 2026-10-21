@@ -1256,8 +1256,8 @@ Bias چه کمکی می‌کند؟
 
 #### منابع
 
-- منبع [A systematic review of machine learning approaches in inventory control optimization (2025)](https://doi.org/10.1016/j.orp.2025.100367)؛ مرور نظام‌مند ۱۲۲ مقاله دربارهٔ پیوند پیش‌بینی و سیاست موجودی؛ مروری بر مطالعات است و تضمین عملکرد یک مدل مشخص نیست.
-- منبع [AI-enhanced demand forecasting: an organizational information processing view (2025)](https://doi.org/10.1108/IJPDLM-01-2025-0022)؛ پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا؛ نقش فرایند و قابلیت سازمانی را بررسی می‌کند، قابل تعمیم بی‌قید نیست.
+- منبع [A systematic review of machine learning approaches in inventory control optimization (2025)](https://doi.org/10.1016/j.orp.2025.100367)؛ مرور نظام‌مند ۱۲۲ مطالعه دربارهٔ سه شیوهٔ اتصال ML به کنترل موجودی؛ مرور، شکاف کاربرد واقعی و مقیاس‌پذیری را گزارش می‌کند و تضمین عملکرد مدل مشخص نیست.
+- منبع [AI-enhanced demand forecasting: an organizational information processing view (2025)](https://doi.org/10.1108/IJPDLM-01-2025-0022)؛ پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا دربارهٔ سامانهٔ پیش‌بینی تقاضای یادگیری عمیق و نقش فرایند و قابلیت سازمانی؛ دامنهٔ یک سازمان دارد.
 - منبع [MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management](https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/)؛ یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.
 
 ### مرور مرحله
@@ -1682,7 +1682,7 @@ AI سرنخ می‌سازد؛ تاب‌آوری به دادهٔ قابل اتک�
 
 #### منابع
 
-- منبع [Dai et al. (2025), AI Applications in Supply Chain Management: A Survey](https://doi.org/10.3390/app15052775)؛ مرور کاربردهای AI در زنجیره؛ عملکرد ابزار مشخصی را تضمین نمی‌کند.
+- منبع [Daios et al. (2025), AI Applications in Supply Chain Management: A Survey](https://doi.org/10.3390/app15052775)؛ مرور کاربردهای AI در فرایندهای زنجیرهٔ تأمین و موانع پذیرش؛ مرور نقشهٔ ادبیات است و کارایی هر ابزار خاص را اثبات نمی‌کند.
 - منبع [Enhancing Supply Chain Visibility with Generative AI: Exploratory Case Study (preprint)](https://arxiv.org/abs/2412.03390)؛ پیش‌چاپ موردی و اکتشافی؛ نتیجه محدود به همان طراحی است.
 - منبع [OECD Supply Chain Resilience Review (2025)](https://doi.org/10.1787/94e3a8ea-en)؛ مرور داده‌ها و سیاست تاب‌آوری؛ تنوع‌بخشی نامتناسب نیز می‌تواند هزینه‌زا باشد.
 
