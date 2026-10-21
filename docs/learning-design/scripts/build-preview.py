@@ -1,7 +1,9 @@
 """Rebuild the standalone review page from catalog and authored course bundles."""
 from pathlib import Path
-import json,re
+import json,re,shutil
 ROOT=Path(__file__).resolve().parents[1]
+# Keep the standalone review page on the same typography source as the app.
+shutil.copytree(ROOT.parents[1]/'public/typography',ROOT/'theme',dirs_exist_ok=True)
 catalog=json.loads((ROOT/'catalog.v1.json').read_text(encoding='utf-8'))
 def read(p):return json.loads(p.read_text(encoding='utf-8'))
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
