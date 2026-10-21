@@ -44,6 +44,10 @@
 
 Debt بدهی؛ equity حقوق مالکانه؛ leverage اهرم؛ dilution رقیق‌شدن؛ maturity سررسید؛ covenant شرط قراردادی؛ residual claim ادعای باقیمانده؛ convertible اوراق قابل‌تبدیل است. انتخاب ابزار، معاملهٔ کنترل و ریسک در برابر هزینه و اختیار است.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Debt (بدهی) تعهد قراردادی بازپرداخت و معمولاً هزینهٔ مالی می‌سازد؛ equity (حقوق مالکانه) ادعای باقی‌مانده بر ارزش و حق رأی احتمالی دارد. بدهی رقیق‌شدن مالکیت را کم می‌کند اما ریسک بازپرداخت و محدودیت تعهد را بالا می‌برد.
+
 #### تمرین و بازخورد
 
 خریدار اوراق شرکتی چه می‌شود؟
@@ -96,7 +100,7 @@ Debt بدهی؛ equity حقوق مالکانه؛ leverage اهرم؛ dilution ر
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ موازنهٔ منافع اهرم، مالیات، هزینهٔ درماندگی و agency cost؛ سند رسمی برنامهٔ درسی با نسخهٔ قدیمی‌تر از 2026.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [CFA Institute 2026: Corporate Governance—Conflicts, Mechanisms, Risks, and Benefits](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/corporate-governance-conflicts-mechanisms-risks-and-benefits)؛ تعارض اصیل/نماینده، سازوکارهای حاکمیت و مدیریت ذی‌نفعان؛ متن کامل ممکن است دسترسی‌محور باشد.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ ویژگی تعهدی اوراق شرکتی، بهره، اصل و تفاوت با مالکیت سهام.
 - منبع [Investor.gov/SEC: Stocks—FAQs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)؛ مفهوم مالکیت سهام، حق رأی و منابع استفاده از سرمایهٔ جذب‌شده.
@@ -140,6 +144,10 @@ Covenant می‌تواند نسبت اهرم، حداقل نقد، محدودی�
 #### واژه‌های پرتکرار
 
 Maturity سررسید؛ amortization برنامهٔ استهلاک اصل؛ DSCR پوشش خدمت بدهی؛ floating rate نرخ شناور؛ rollover risk ریسک تمدید؛ covenant شرط تعهد؛ headroom فاصله تا نقض شرط است. برنامهٔ نقد با مبلغ و زمان تعهد ساخته می‌شود، نه با سود خالص.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Maturity mismatch (ناهم‌زمانی سررسید) وقتی موعد بدهی پیش از دسترسی به نقد کافی می‌رسد رخ می‌دهد. Covenant (شرط قراردادی) محدودیت یا تعهد مالی است؛ نقض آن ممکن است مذاکره یا بازپرداخت زودتر را فعال کند.
 
 #### تمرین و بازخورد
 
@@ -193,7 +201,7 @@ Maturity سررسید؛ amortization برنامهٔ استهلاک اصل؛ DSCR
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ موازنهٔ منافع اهرم، مالیات، هزینهٔ درماندگی و agency cost؛ سند رسمی برنامهٔ درسی با نسخهٔ قدیمی‌تر از 2026.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [CFA Institute 2026: Corporate Governance—Conflicts, Mechanisms, Risks, and Benefits](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/corporate-governance-conflicts-mechanisms-risks-and-benefits)؛ تعارض اصیل/نماینده، سازوکارهای حاکمیت و مدیریت ذی‌نفعان؛ متن کامل ممکن است دسترسی‌محور باشد.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ ویژگی تعهدی اوراق شرکتی، بهره، اصل و تفاوت با مالکیت سهام.
 - منبع [Investor.gov/SEC: Stocks—FAQs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)؛ مفهوم مالکیت سهام، حق رأی و منابع استفاده از سرمایهٔ جذب‌شده.
@@ -237,6 +245,10 @@ AI می‌تواند بندهای قرارداد و covenant را استخراج
 #### واژه‌های پرتکرار
 
 Principal اصیل؛ agent نماینده؛ agency cost هزینهٔ نمایندگی؛ information asymmetry اطلاعات نامتقارن؛ covenant شرط وام؛ monitoring پایش؛ incentive سازوکار انگیزشی است. هر کنترل باید یک رفتار/ریسک مشخص را هدف بگیرد و هزینهٔ انعطاف را هم ببیند.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Agency conflict (تعارض نمایندگی) زمانی است که انگیزهٔ مدیر، مالک یا وام‌دهنده یکسان نیست. Governance mechanism (سازوکار حاکمیت) باید با نوع تعارض و هزینهٔ پایش تناسب داشته باشد؛ کنترل بیشتر همیشه هزینهٔ خالص را کم نمی‌کند.
 
 #### تمرین و بازخورد
 
@@ -290,7 +302,7 @@ Covenant برای چه کسی می‌تواند هزینه داشته باشد؟
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ موازنهٔ منافع اهرم، مالیات، هزینهٔ درماندگی و agency cost؛ سند رسمی برنامهٔ درسی با نسخهٔ قدیمی‌تر از 2026.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [CFA Institute 2026: Corporate Governance—Conflicts, Mechanisms, Risks, and Benefits](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/corporate-governance-conflicts-mechanisms-risks-and-benefits)؛ تعارض اصیل/نماینده، سازوکارهای حاکمیت و مدیریت ذی‌نفعان؛ متن کامل ممکن است دسترسی‌محور باشد.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ ویژگی تعهدی اوراق شرکتی، بهره، اصل و تفاوت با مالکیت سهام.
 - منبع [Investor.gov/SEC: Stocks—FAQs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)؛ مفهوم مالکیت سهام، حق رأی و منابع استفاده از سرمایهٔ جذب‌شده.
@@ -334,6 +346,10 @@ Covenant برای چه کسی می‌تواند هزینه داشته باشد؟
 #### واژه‌های پرتکرار
 
 Term sheet برگهٔ شرایط؛ effective cost هزینهٔ مؤثر؛ collateral وثیقه؛ guarantee ضمانت؛ prepayment جریمه/حق بازپرداخت زودهنگام؛ liquidation preference حق تقدم در تسویه؛ cap table جدول مالکیت است. هزینهٔ تأمین مالی فقط نرخ نیست؛ کنترل، نقد، ریسک و اختیار آینده هم در آن است.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Total financing cost (هزینهٔ کل تأمین مالی) فقط نرخ اسمی نیست و کارمزد، وثیقه، تعهد، اختیار تبدیل و رقیق‌شدن را هم دربر می‌گیرد. Term sheet (خلاصهٔ شرایط) باید در سناریوهای نقد و کنترل مقایسه شود.
 
 #### تمرین و بازخورد
 
@@ -387,7 +403,7 @@ Term sheet برگهٔ شرایط؛ effective cost هزینهٔ مؤثر؛ collat
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ موازنهٔ منافع اهرم، مالیات، هزینهٔ درماندگی و agency cost؛ سند رسمی برنامهٔ درسی با نسخهٔ قدیمی‌تر از 2026.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [CFA Institute 2026: Corporate Governance—Conflicts, Mechanisms, Risks, and Benefits](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/corporate-governance-conflicts-mechanisms-risks-and-benefits)؛ تعارض اصیل/نماینده، سازوکارهای حاکمیت و مدیریت ذی‌نفعان؛ متن کامل ممکن است دسترسی‌محور باشد.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ ویژگی تعهدی اوراق شرکتی، بهره، اصل و تفاوت با مالکیت سهام.
 - منبع [Investor.gov/SEC: Stocks—FAQs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)؛ مفهوم مالکیت سهام، حق رأی و منابع استفاده از سرمایهٔ جذب‌شده.
@@ -460,6 +476,10 @@ AI بند وام را استخراج کرد؛ قدم بعدی؟
 
 Exposure مواجهه؛ floating rate نرخ شناور؛ repricing date تاریخ بازتنظیم؛ FX risk ریسک ارز؛ natural hedge پوشش طبیعی؛ forward قرارداد آتی توافقی؛ swap معاوضه؛ hedge coverage نسبت پوشش است. هدف کاهش زیان نامطلوب است، نه حذف هر عدم‌قطعیت یا تضمین سود.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Interest-rate exposure (مواجهه با نرخ بهره) و foreign-exchange exposure (مواجههٔ ارزی) از تفاوت زمان و واحد جریان‌های دارایی و بدهی می‌آیند. Natural hedge (پوشش طبیعی) از هم‌ترازی جریان‌ها استفاده می‌کند؛ حذف کامل ریسک را تضمین نمی‌کند.
+
 #### تمرین و بازخورد
 
 بدهی شناور ۱۰ میلیون، نرخ +۲٪؛ بهرهٔ سالانهٔ تقریبی چقدر زیاد می‌شود؟
@@ -514,7 +534,7 @@ Exposure مواجهه؛ floating rate نرخ شناور؛ repricing date تار�
 
 - منبع [CFA Institute 2026: Introduction to Risk Management](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-risk-management)؛ چارچوب حاکمیت، شناسایی، سنجش، کاهش و ارتباط ریسک و پیوند آن به هدف سازمان؛ متن کامل ممکن است نیازمند دسترسی باشد.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ تنوع، همبستگی، ریسک و بازده؛ برای منطق تنوع و محدودیت داده استفاده می‌شود.
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مبادلهٔ مزیت و هزینهٔ اهرم مالی؛ راهنمای curriculum قدیمی‌تر است و به بازبینی نسخهٔ جدید نیاز دارد.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ تعهد بهره و اصل، سررسید و ماهیت ادعای طلبکار.
 
 ### درس‌نامهٔ `S02-C3-ST02-L02`؛ نقدینگی و ذخیرهٔ احتیاطی
@@ -556,6 +576,10 @@ Exposure مواجهه؛ floating rate نرخ شناور؛ repricing date تار�
 #### واژه‌های پرتکرار
 
 Liquidity buffer ذخیرهٔ نقد؛ cash runway مدت دوام نقد؛ committed facility خط اعتباری تعهدشده؛ restricted cash نقد محدود؛ cash concentration تمرکز نقد؛ 13-week forecast پیش‌بینی ۱۳هفته‌ای است. تاب‌آوری نقد یعنی زمان برای اقدام بخریم، نه اینکه نقد بی‌هزینه انباشته کنیم.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Liquidity buffer (ذخیرهٔ نقدینگی) توان پوشش تعهد در سناریوی فشار را می‌دهد. Credit line (خط اعتباری) ظرفیت مشروط وام‌گیری است؛ هزینه، دسترس‌پذیری و تعهدهای آن را در کنار هزینهٔ فرصت نگهداری نقد بسنج.
 
 #### تمرین و بازخورد
 
@@ -611,7 +635,7 @@ Liquidity buffer ذخیرهٔ نقد؛ cash runway مدت دوام نقد؛ comm
 
 - منبع [CFA Institute 2026: Introduction to Risk Management](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-risk-management)؛ چارچوب حاکمیت، شناسایی، سنجش، کاهش و ارتباط ریسک و پیوند آن به هدف سازمان؛ متن کامل ممکن است نیازمند دسترسی باشد.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ تنوع، همبستگی، ریسک و بازده؛ برای منطق تنوع و محدودیت داده استفاده می‌شود.
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مبادلهٔ مزیت و هزینهٔ اهرم مالی؛ راهنمای curriculum قدیمی‌تر است و به بازبینی نسخهٔ جدید نیاز دارد.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ تعهد بهره و اصل، سررسید و ماهیت ادعای طلبکار.
 
 ### درس‌نامهٔ `S02-C3-ST02-L03`؛ سیاست تقسیم و نگهداری سود
@@ -653,6 +677,10 @@ Liquidity buffer ذخیرهٔ نقد؛ cash runway مدت دوام نقد؛ comm
 #### واژه‌های پرتکرار
 
 Dividend سود تقسیمی؛ retained earnings سود انباشته؛ payout ratio نسبت پرداخت؛ repurchase بازخرید؛ reinvestment بازسرمایه‌گذاری؛ capital allocation تخصیص سرمایه؛ residual cash نقد مازاد است. تصمیم بازگرداندن پول باید به گزینهٔ ارزش‌آفرین و تعهدهای شرکت مقایسه شود.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Payout policy (سیاست توزیع سود) میان پرداخت نقد به مالک و نگهداری برای سرمایه‌گذاری تعادل می‌سازد. Retained earnings (سود انباشته) منبع خودکار ارزش نیست؛ فرصت‌های بازده‌دار، نقد و محدودیت قرارداد را بررسی کن.
 
 #### تمرین و بازخورد
 
@@ -708,7 +736,7 @@ Dividend سود تقسیمی؛ retained earnings سود انباشته؛ payout 
 
 - منبع [CFA Institute 2026: Introduction to Risk Management](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-risk-management)؛ چارچوب حاکمیت، شناسایی، سنجش، کاهش و ارتباط ریسک و پیوند آن به هدف سازمان؛ متن کامل ممکن است نیازمند دسترسی باشد.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ تنوع، همبستگی، ریسک و بازده؛ برای منطق تنوع و محدودیت داده استفاده می‌شود.
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مبادلهٔ مزیت و هزینهٔ اهرم مالی؛ راهنمای curriculum قدیمی‌تر است و به بازبینی نسخهٔ جدید نیاز دارد.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ تعهد بهره و اصل، سررسید و ماهیت ادعای طلبکار.
 
 ### درس‌نامهٔ `S02-C3-ST02-L04`؛ کنترل ریسک بدون دقت ساختگی
@@ -750,6 +778,10 @@ AI می‌تواند متن خبر یا داده را دسته‌بندی کند
 #### واژه‌های پرتکرار
 
 Risk appetite تمایل به ریسک؛ risk tolerance حد پذیرش؛ exposure مواجهه؛ stress test آزمون تنش؛ VaR ارزش در معرض خطر؛ tail risk ریسک دنباله‌ای؛ residual risk ریسک باقیمانده؛ false positive هشدار کاذب است. هر عدد ریسک را با افق، تعریف، دامنه و محدودیت گزارش کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Risk appetite (تمایل به ریسک) حد کلی پذیرش ریسک است؛ risk tolerance (تحمل ریسک) انحراف قابل‌تحمل در یک هدف مشخص را دقیق‌تر می‌کند. برآورد را با دامنه و سناریو گزارش کن، نه با دقت ظاهری یک عدد.
 
 #### تمرین و بازخورد
 
@@ -805,7 +837,7 @@ VaR چه چیزی را نمی‌گوید؟
 
 - منبع [CFA Institute 2026: Introduction to Risk Management](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/introduction-risk-management)؛ چارچوب حاکمیت، شناسایی، سنجش، کاهش و ارتباط ریسک و پیوند آن به هدف سازمان؛ متن کامل ممکن است نیازمند دسترسی باشد.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ تنوع، همبستگی، ریسک و بازده؛ برای منطق تنوع و محدودیت داده استفاده می‌شود.
-- منبع [CFA Institute: Corporate Issuers—Capital Structure curriculum](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مبادلهٔ مزیت و هزینهٔ اهرم مالی؛ راهنمای curriculum قدیمی‌تر است و به بازبینی نسخهٔ جدید نیاز دارد.
+- منبع [CFA Institute 2026: Capital Structure](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-structure)؛ برنامهٔ CFA 2026، Level I Corporate Issuers؛ WACC و ساختار سرمایه؛ متن کامل در Learning Ecosystem است.
 - منبع [Investor.gov/SEC: Corporate Bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products)؛ تعهد بهره و اصل، سررسید و ماهیت ادعای طلبکار.
 
 ### مرور مرحله
@@ -876,6 +908,10 @@ VaR چه محدودیتی دارد؟
 
 Board oversight نظارت هیئت؛ audit committee کمیتهٔ حسابرسی؛ ICFR کنترل داخلی گزارشگری مالی؛ segregation of duties تفکیک وظایف؛ material weakness ضعف بااهمیت؛ reasonable assurance اطمینان معقول؛ related party طرف وابسته است. کنترل خوب مرز نظارت و مسئولیت اجرایی را روشن می‌کند.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Board oversight (نظارت هیئت‌مدیره) جهت، ریسک و پاسخ‌گویی را پایش می‌کند؛ management execution (اجرای مدیریتی) تصمیم‌های روزانه را پیش می‌برد. تفکیک نقش، استقلال قضاوت و اطلاعات کافی را جایگزین نمی‌کند.
+
 #### تمرین و بازخورد
 
 کمیتهٔ حسابرسی معمولاً بر چه چیزی نظارت دارد؟
@@ -932,7 +968,7 @@ Board oversight نظارت هیئت؛ audit committee کمیتهٔ حسابرس�
 - منبع [SEC: Role of Audit Committees in Financial Reporting and Oversight Responsibilities](https://www.sec.gov/newsroom/speeches-statements/statement-role-audit-committees-financial-reporting)؛ نقش کمیتهٔ حسابرسی در نظارت گزارشگری، کنترل داخلی و حسابرس مستقل؛ به مقررات مرتبط حوزهٔ قضایی توجه شود.
 - منبع [NIST AI RMF Core: Govern and Human-AI Roles](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)؛ تعریف مسئولیت انسانی-AI، پاسخ‌گویی مدیر و ارزیابی مستمر عملکرد/عدم‌قطعیت.
 - منبع [NIST AI RMF Appendix C: AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)؛ نقش‌ها و خطرهای تعامل انسان و AI، اختیار و سوگیری در تصمیم مشترک.
-- منبع [SEC Financial Reporting Manual: Internal Control over Financial Reporting](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ افشای کنترل داخلی گزارشگری مالی و محدودیت‌های ذاتی اطمینان؛ مرجع عمومی آمریکا، نه راهنمای جهانی قانون.
+- منبع [SEC Financial Reporting Manual, Topic 4: ICFR (Sections 4310–4320)](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ مرجع مقرراتی آمریکا؛ بخش ICFR آخرین‌بار 2009 به‌روزرسانی شده، پس وضعیت جاری مقررات باید جداگانه کنترل شود.
 
 ### درس‌نامهٔ `S02-C3-ST03-L02`؛ حدود اختیار تصمیم سرمایه
 
@@ -973,6 +1009,10 @@ AI می‌تواند اسناد پیشنهاد را خلاصه کند یا نا�
 #### واژه‌های پرتکرار
 
 Delegation of authority تفویض اختیار؛ approval threshold آستانهٔ تصویب؛ stage gate دروازهٔ مرحله؛ capital committee کمیتهٔ سرمایه؛ conflict of interest تعارض منافع؛ decision log ثبت تصمیم؛ stop rule قاعدهٔ توقف است. اختیار خوب سرعت را حفظ می‌کند و از ارجاع خطرهای نامتناسب جلوگیری می‌کند.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Delegation of authority (تفویض اختیار) حق تصمیم را به سطح مناسب می‌سپارد. آستانهٔ مبلغ به‌تنهایی کافی نیست؛ ریسک، برگشت‌پذیری، تعارض منافع، مستندسازی و مسیر اعتراض را هم روشن کن.
 
 #### تمرین و بازخورد
 
@@ -1030,7 +1070,7 @@ Delegation of authority تفویض اختیار؛ approval threshold آستان�
 - منبع [SEC: Role of Audit Committees in Financial Reporting and Oversight Responsibilities](https://www.sec.gov/newsroom/speeches-statements/statement-role-audit-committees-financial-reporting)؛ نقش کمیتهٔ حسابرسی در نظارت گزارشگری، کنترل داخلی و حسابرس مستقل؛ به مقررات مرتبط حوزهٔ قضایی توجه شود.
 - منبع [NIST AI RMF Core: Govern and Human-AI Roles](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)؛ تعریف مسئولیت انسانی-AI، پاسخ‌گویی مدیر و ارزیابی مستمر عملکرد/عدم‌قطعیت.
 - منبع [NIST AI RMF Appendix C: AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)؛ نقش‌ها و خطرهای تعامل انسان و AI، اختیار و سوگیری در تصمیم مشترک.
-- منبع [SEC Financial Reporting Manual: Internal Control over Financial Reporting](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ افشای کنترل داخلی گزارشگری مالی و محدودیت‌های ذاتی اطمینان؛ مرجع عمومی آمریکا، نه راهنمای جهانی قانون.
+- منبع [SEC Financial Reporting Manual, Topic 4: ICFR (Sections 4310–4320)](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ مرجع مقرراتی آمریکا؛ بخش ICFR آخرین‌بار 2009 به‌روزرسانی شده، پس وضعیت جاری مقررات باید جداگانه کنترل شود.
 
 ### درس‌نامهٔ `S02-C3-ST03-L03`؛ AI در فرایند گزارش و بازبینی
 
@@ -1071,6 +1111,10 @@ NIST بر روشن‌بودن نقش انسان و AI در طراحی، استف
 #### واژه‌های پرتکرار
 
 Human-AI configuration ترکیب نقش انسان و AI؛ automation bias سوگیری اتوماسیون؛ model drift تغییر عملکرد؛ override اصلاح/رد خروجی؛ audit trail ردپای حسابرسی؛ false positive هشدار کاذب؛ monitoring پایش مستمر است. مسئولیت خروجی پراثر با سازمان و صاحب اختیار باقی می‌ماند.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Model governance (حاکمیت مدل) مسئولیت مالک، اعتبارسنجی، ثبت نسخه و پایش را برای استفاده از AI تعیین می‌کند. Human review (بازبینی انسانی) باید اختیار اصلاح یا توقف داشته باشد؛ تأیید صوری کنترل مؤثر نیست.
 
 #### تمرین و بازخورد
 
@@ -1128,7 +1172,7 @@ Automation bias چیست؟
 - منبع [SEC: Role of Audit Committees in Financial Reporting and Oversight Responsibilities](https://www.sec.gov/newsroom/speeches-statements/statement-role-audit-committees-financial-reporting)؛ نقش کمیتهٔ حسابرسی در نظارت گزارشگری، کنترل داخلی و حسابرس مستقل؛ به مقررات مرتبط حوزهٔ قضایی توجه شود.
 - منبع [NIST AI RMF Core: Govern and Human-AI Roles](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)؛ تعریف مسئولیت انسانی-AI، پاسخ‌گویی مدیر و ارزیابی مستمر عملکرد/عدم‌قطعیت.
 - منبع [NIST AI RMF Appendix C: AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)؛ نقش‌ها و خطرهای تعامل انسان و AI، اختیار و سوگیری در تصمیم مشترک.
-- منبع [SEC Financial Reporting Manual: Internal Control over Financial Reporting](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ افشای کنترل داخلی گزارشگری مالی و محدودیت‌های ذاتی اطمینان؛ مرجع عمومی آمریکا، نه راهنمای جهانی قانون.
+- منبع [SEC Financial Reporting Manual, Topic 4: ICFR (Sections 4310–4320)](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ مرجع مقرراتی آمریکا؛ بخش ICFR آخرین‌بار 2009 به‌روزرسانی شده، پس وضعیت جاری مقررات باید جداگانه کنترل شود.
 
 ### درس‌نامهٔ `S02-C3-ST03-L04`؛ طراحی گزارش ریسک برای مدیر
 
@@ -1169,6 +1213,10 @@ AI می‌تواند تغییر متن خبر، قرارداد یا دادهٔ �
 #### واژه‌های پرتکرار
 
 Risk register ثبت ریسک؛ heat map نقشهٔ حرارتی؛ exposure at default مواجهه هنگام نکول؛ key risk indicator شاخص کلیدی ریسک؛ appetite تمایل؛ escalation ارجاع؛ residual risk ریسک باقیمانده است. گزارش خوب از خواننده تصمیم، زمان و مسئول می‌خواهد، نه فقط توجه.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Risk exposure (مواجههٔ ریسک) مقدار حساس به یک عامل است؛ threshold (آستانه) حد اقدام را مشخص می‌کند. گزارش مدیریتی باید روند، مالک، محدودیت داده و اقدام لازم را کنار هم نشان دهد؛ عدد بی‌زمینه تصمیم نمی‌سازد.
 
 #### تمرین و بازخورد
 
@@ -1226,7 +1274,7 @@ Risk register ثبت ریسک؛ heat map نقشهٔ حرارتی؛ exposure at d
 - منبع [SEC: Role of Audit Committees in Financial Reporting and Oversight Responsibilities](https://www.sec.gov/newsroom/speeches-statements/statement-role-audit-committees-financial-reporting)؛ نقش کمیتهٔ حسابرسی در نظارت گزارشگری، کنترل داخلی و حسابرس مستقل؛ به مقررات مرتبط حوزهٔ قضایی توجه شود.
 - منبع [NIST AI RMF Core: Govern and Human-AI Roles](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)؛ تعریف مسئولیت انسانی-AI، پاسخ‌گویی مدیر و ارزیابی مستمر عملکرد/عدم‌قطعیت.
 - منبع [NIST AI RMF Appendix C: AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)؛ نقش‌ها و خطرهای تعامل انسان و AI، اختیار و سوگیری در تصمیم مشترک.
-- منبع [SEC Financial Reporting Manual: Internal Control over Financial Reporting](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ افشای کنترل داخلی گزارشگری مالی و محدودیت‌های ذاتی اطمینان؛ مرجع عمومی آمریکا، نه راهنمای جهانی قانون.
+- منبع [SEC Financial Reporting Manual, Topic 4: ICFR (Sections 4310–4320)](https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-4)؛ مرجع مقرراتی آمریکا؛ بخش ICFR آخرین‌بار 2009 به‌روزرسانی شده، پس وضعیت جاری مقررات باید جداگانه کنترل شود.
 
 ### مرور مرحله
 

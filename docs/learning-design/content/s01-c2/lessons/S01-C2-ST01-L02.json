@@ -58,6 +58,12 @@
       "type": "explanation",
       "title": "پس از ادغام، اندازه‌گیری",
       "text": "قبل از اعلام هم‌افزایی خط مبنا بسازید و پس از ادغام در دوره‌های مشخص هزینه، کیفیت، زمان و رضایت مشتری را بسنجید. اگر منفعت تحقق نیافت، مفروضات را اصلاح یا اتصال را کوچک کنید؛ ادامهٔ پروژه فقط به‌خاطر هزینهٔ قبلی توجیه نیست."
+    },
+    {
+      "id": "S01-C2-ST01-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Synergy — هم‌افزایی: ارزش افزوده از همکاری بیش از جمع ارزش مستقل واحدها؛ برآوردش باید هزینهٔ هماهنگی را هم کسر کند. Economies of scope — صرفهٔ دامنه: کاهش هزینه/افزایش ارزش از استفادهٔ مشترک منابع؛ اشتراک ظاهری منابع کافی نیست. Parenting fit — تناسب والد: هم‌خوانی مهارت‌های مرکز با نیاز واحد؛ استاندارد واحد برای همه ممکن است ارزش نابود کند."
     }
   ],
   "questions": [
@@ -128,7 +134,7 @@
         {
           "id": "a",
           "text": "۳",
-          "feedback": "درست: ۱۰−۴−۳=۳."
+          "feedback": "درست: ۱۰−۴−۳=۳؛ پس از کسر هر دو هزینه، ارزش خالص تقریبی ۳ است."
         },
         {
           "id": "b",
@@ -142,7 +148,7 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation": "۱۰−۴−۳=۳.",
+      "explanation": "ارزش خالص تقریبی از منفعت خرید، منهای هزینهٔ ادغام و اختلال به دست می‌آید: ۱۰−۴−۳=۳. هزینه‌ها را از منفعت ناخالص کم کن.",
       "objective_id": "S01-C2-ST01-L02-OBJ1",
       "equivalence_group": "S01-C2-ST01-L02-Q03-FAMILY",
       "variant": "A",
@@ -207,24 +213,35 @@
       "remediation_card_id": "S01-C2-ST01-L02-CARD03"
     }
   ],
+  "source_refs": [
+    "hbs-corporate",
+    "bcg-growth-share",
+    "mckinsey-ge",
+    "oxford-parent",
+    "hbr-parent",
+    "stanford-ai"
+  ],
   "source_links": [
     {
       "id": "hbs-corporate",
       "title": "Harvard Business School Institute for Strategy and Competitiveness: Corporate Strategy",
       "url": "https://www.isc.hbs.edu/strategy/Pages/corporate-strategy.aspx",
-      "scope": "ارزش شرکتی باید به مزیت رقابتی واحدهای کسب‌وکار کمک کند؛ هم‌افزایی و تناسب فعالیت‌ها باید واقعی و قابل ردیابی باشد."
+      "scope": "ارزش شرکتی باید به مزیت رقابتی واحدهای کسب‌وکار کمک کند؛ هم‌افزایی و تناسب فعالیت‌ها باید واقعی و قابل ردیابی باشد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "bcg-growth-share",
       "title": "Boston Consulting Group: What Is the Growth Share Matrix?",
       "url": "https://www.bcg.com/about/overview/our-history/growth-share-matrix",
-      "scope": "منطق ماتریس رشد-سهم و دو محرک رشد بازار و سهم نسبی؛ چارچوب تاریخی است و نباید دستور سرمایه‌گذاری تلقی شود."
+      "scope": "منطق ماتریس رشد-سهم و دو محرک رشد بازار و سهم نسبی؛ چارچوب تاریخی است و نباید دستور سرمایه‌گذاری تلقی شود.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "mckinsey-ge",
       "title": "McKinsey: Enduring Ideas—The GE–McKinsey nine-box matrix",
       "url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/enduring-ideas-the-ge-and-mckinsey-nine-box-matrix",
-      "scope": "جذابیت صنعت و قدرت رقابتی واحد برای اولویت‌بندی سرمایه؛ ماتریس نقشهٔ تحلیلی است و قضاوت لازم دارد."
+      "scope": "جذابیت صنعت و قدرت رقابتی واحد برای اولویت‌بندی سرمایه؛ ماتریس نقشهٔ تحلیلی است و قضاوت لازم دارد.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "oxford-parent",
@@ -236,13 +253,15 @@
       "id": "hbr-parent",
       "title": "Campbell, Goold & Alexander (1995), Corporate Strategy: The Quest for Parenting Advantage",
       "url": "https://hbr.org/1995/03/corporate-strategy-the-quest-for-parenting-advantage",
-      "scope": "منطق مزیت والد شرکتی و تناسب توان مرکز با فرصت ارزش‌آفرینی واحدها."
+      "scope": "منطق مزیت والد شرکتی و تناسب توان مرکز با فرصت ارزش‌آفرینی واحدها.",
+      "accessed_on": "2026-10-21"
     },
     {
       "id": "stanford-ai",
       "title": "Stanford HAI, AI Index 2026: Economy",
       "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
-      "scope": "شواهد تاریخ‌دار دربارهٔ پذیرش سازمانی AI در ۲۰۲۵؛ سنجه‌ها و نمونهٔ گزارش باید دیده شوند."
+      "scope": "شواهد تاریخ‌دار دربارهٔ پذیرش سازمانی AI در ۲۰۲۵؛ سنجه‌ها و نمونهٔ گزارش باید دیده شوند.",
+      "accessed_on": "2026-10-21"
     }
   ],
   "practice_activity": {

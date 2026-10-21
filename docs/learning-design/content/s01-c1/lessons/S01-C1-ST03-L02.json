@@ -98,6 +98,18 @@
       "type": "explanation",
       "title": "از تشخیص به مالکیت",
       "text": "برای دو شکاف، مالک، اقدام محدود، معیار موفقیت و زمان بازبینی تعیین کنید. اگر وزن یا نمره تغییر کند، نتیجه را دوباره بسنجید؛ ماتریس نسخهٔ درمان خودکار نیست."
+    },
+    {
+      "id": "S01-C1-ST03-L02-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "IFE matrix — ماتریس ارزیابی عوامل درونی: وزن و امتیاز قوت‌ها/ضعف‌ها برای تشخیص وضعیت داخلی؛ خودارزیابی بدون شاهد سوگیر می‌شود. Internal factor — عامل درونی: ویژگی یا قابلیت مرتبط با عملکرد و تا حدی تحت اختیار سازمان؛ آرزو را نباید قوت شمرد. Weighted score — امتیاز وزن‌دار: حاصل وزن در امتیاز عامل؛ دقت عددیِ حاصل، قضاوت ورودی را عینی نمی‌کند."
+    },
+    {
+      "id": "S01-C1-ST03-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ماتریس IFE عوامل قوت و ضعف درونی را وزن‌دار می‌کند؛ وزن اهمیت عامل و رتبه وضعیت سازمان را نشان می‌دهد و این دو معنا نباید با هم خلط شوند. شواهد عملکرد، قابلیت و مقایسهٔ معتبر برای رتبه لازم‌اند. نظر مدیران یک واحد می‌تواند سوگیری داشته باشد؛ دیدگاه بخش‌های مختلف را جمع کنید. وزن کل باید با قاعدهٔ روش سازگار باشد. نتیجهٔ عددی تشخیص قطعی نیست و قوتی که در آینده قابل تقلید باشد مزیت پایدار نیست. عامل و شاهد را به گزینهٔ عملی وصل کنید."
     }
   ],
   "questions": [
@@ -247,12 +259,21 @@
       "remediation_card_id": "S01-C1-ST03-L02-CARD02"
     }
   ],
+  "source_refs": [
+    "pearson-david",
+    "oxford-swot",
+    "space-radder",
+    "oecd-ai",
+    "stanford-ai",
+    "oxford-tools"
+  ],
   "source_links": [
     {
       "id": "pearson-david",
       "title": "Pearson: David, David & David, Strategic Management, 17th ed.",
       "url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405",
-      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی."
+      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-swot",
@@ -270,19 +291,22 @@
       "id": "oecd-ai",
       "title": "OECD/BCG/INSEAD (2025), The Adoption of AI in Firms",
       "url": "https://www.oecd.org/en/publications/the-adoption-of-artificial-intelligence-in-firms_f9ef33c3-en/full-report.html",
-      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند."
+      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "stanford-ai",
       "title": "Stanford HAI, AI Index 2026: Economy",
       "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
-      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود."
+      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-tools",
       "title": "Oxford Academic: Strategy in 3D: Essential Tools",
       "url": "https://academic.oup.com/book/36951",
-      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی."
+      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {
@@ -302,5 +326,18 @@
   "review_status": "pending",
   "fresh_equivalent_variants": 0,
   "prerequisites_suggested": [],
-  "prerequisites_block_access": false
+  "prerequisites_block_access": false,
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "نمایش محاسبهٔ IFE با مثال همین درس",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/efe-ife-weighted-matrix.svg",
+        "alt_text": "جدول IFE سپهر با چهار عامل داخلی، وزن، امتیاز و جمع وزنی ۲٫۵۵؛ همهٔ داده‌ها فرضی‌اند.",
+        "caption": "نمونهٔ آموزشی IFE؛ عامل‌ها و وزن‌ها را با شاهد و حساسیت بررسی کن.",
+        "source_url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405"
+      }
+    ]
+  }
 }

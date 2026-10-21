@@ -1,0 +1,380 @@
+{
+  "id": "E02-ST04-L02",
+  "version": "1-draft",
+  "title": "تفویض اختیار و کنترل",
+  "content_status": "draft",
+  "objective": "سطح اختیار عامل را با پیامد و برگشت‌پذیری کار متناسب کند، نقاط تأیید انسانی و حداقل مجوز لازم را طراحی کند.",
+  "learning_cards": [
+    {
+      "id": "E02-ST04-L02-CARD01",
+      "title": "اختیار یک طیف است",
+      "text": "سامانه می‌تواند فقط توصیه دهد، پیش‌نویس بسازد، اقدام را پس از تأیید اجرا کند یا در دامنه‌ای محدود مستقل باشد. اختیار را برای هر نوع اقدام جدا تعریف کنید؛ اجازهٔ خواندن، نوشتن و پرداخت یکسان نیست."
+    },
+    {
+      "id": "E02-ST04-L02-CARD02",
+      "title": "اصل حداقل دسترسی",
+      "text": "عامل فقط ابزار و دادهٔ لازم برای وظیفه را دریافت کند. ابزارها را از هم جدا کنید و دسترسی موقت، دامنه‌دار و قابل لغو بدهید. prompt خوب جای کنترل دسترسی در نرم‌افزار را نمی‌گیرد."
+    },
+    {
+      "id": "E02-ST04-L02-CARD03",
+      "title": "تأیید انسانی متناسب با ریسک",
+      "text": "برای پرداخت، افشای داده، حذف یا تعهد به مشتری، تأیید و احراز هویت مستقل در نظر بگیرید. تأیید هر اقدام کم‌ریسک می‌تواند کار را کند کند؛ نقطهٔ بازبینی باید پیامد، عدم‌قطعیت و امکان بازگشت را منعکس کند."
+    },
+    {
+      "id": "E02-ST04-L02-CARD04",
+      "title": "تأیید واقعی و قابل فهم",
+      "text": "انسان باید ببیند عامل چه می‌خواهد انجام دهد، بر چه ورودی تکیه دارد و چه پیامدی دارد. دکمهٔ تأیید در انبوه پیشنهادها نظارت مؤثر نیست. امکان رد، اصلاح و توقف با زمان کافی فراهم شود."
+    },
+    {
+      "id": "E02-ST04-L02-CARD05",
+      "title": "مالکیت تصمیم مبهم نماند",
+      "text": "مشخص کنید چه کسی مسئول سیاست، دسترسی، کیفیت و پاسخ به خطاست. انسان در حلقه اگر اختیار و اطلاعات نداشته باشد فقط امضاکننده است. سازنده، خریدار و مالک فرایند باید مرز مسئولیت را ثبت کنند."
+    },
+    {
+      "id": "E02-ST04-L02-CARD06",
+      "title": "ثبت رویداد و قابلیت بازسازی",
+      "text": "نسخهٔ مدل و ابزار، ورودی مجاز، تصمیم، اقدام، تأیید و نتیجه را به اندازهٔ لازم ثبت کنید. از گردآوری بی‌حد دادهٔ شخصی پرهیز کنید. لاگ باید برای بررسی رخداد و بهبود قابل جست‌وجو و محافظت‌شده باشد."
+    },
+    {
+      "id": "E02-ST04-L02-CARD07",
+      "title": "کنترل بر رفتار ابزار",
+      "text": "محدودیت‌ها را در API و سرویس اجرا کنید: سقف مبلغ، فهرست گیرندگان، دامنهٔ داده، تعداد تلاش، زمان و نرخ درخواست. متن دستوری ممکن است خطا کند؛ قید اجرایی را در سامانه تحمیل کنید."
+    },
+    {
+      "id": "E02-ST04-L02-CARD08",
+      "title": "سپهر اختیار مرحله‌ای می‌دهد",
+      "text": "نسخهٔ اول فقط سفارش را می‌خواند و پاسخ پیشنهادی می‌دهد. پس از شواهد پایلوت، شاید تغییر زمان ارسال با تأیید کارشناس فعال شود. اعتبار مالی یا حذف سفارش بیرون از اختیار نسخه است. دسترسی هر مرحله جدا و ممیزی‌پذیر باقی می‌ماند."
+    },
+    {
+      "id": "E02-ST04-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "حداقل دسترسی (Least privilege) فقط مجوز لازم برای وظیفه را می‌دهد. نقطهٔ تایید انسانی (Human approval gate) باید پیش از اقدام پرپیامد قرار گیرد و صاحب اختیار واقعی داشته باشد. برگشت‌پذیری (Reversibility) هزینه و امکان لغو نتیجه را می‌سنجد و در تعیین سطح اختیار مهم است."
+    },
+    {
+      "id": "E02-ST04-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تفویض اختیار به سامانه باید حداقلی، محدود به هدف و قابل بازگشت باشد. دسترسی به ابزارها و داده را بر اساس نقش تنظیم کنید و برای اقدام حساس تأیید انسانی بخواهید. نمایش شواهد و پارامترها به تأییدکننده امکان قضاوت می‌دهد؛ تأیید صوری این کنترل را بی‌اثر می‌کند. فرض کنید عامل ممکن است دستورهای مخرب در سند یا ورودی را دنبال کند و کنترل دفاعی مستقل بسازید. اختیار و دامنهٔ مجاز را با افزایش شواهد مرحله‌ای گسترش دهید، نه با یک مجوز کلی."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E02-ST04-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "حداقل دسترسی برای عامل یعنی چه؟",
+      "remediation_card_id": "E02-ST04-L02-CARD01",
+      "variant": "A",
+      "id": "E02-ST04-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط داده و ابزار لازم برای وظیفه و در دامنهٔ مجاز را بدهیم",
+          "feedback": "درست: کاهش دسترسی، دامنهٔ خطا و سوءاستفاده را محدود می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "دادن همهٔ کلیدهای سازمان برای روان‌شدن کار",
+          "feedback": "بازبینی: کاهش دسترسی، دامنهٔ خطا و سوءاستفاده را محدود می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "محدودکردن همهٔ ابزارها حتی برای خواندن",
+          "feedback": "بازبینی: کاهش دسترسی، دامنهٔ خطا و سوءاستفاده را محدود می‌کند."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "کاهش دسترسی، دامنهٔ خطا و سوءاستفاده را محدود می‌کند."
+    },
+    {
+      "objective_id": "E02-ST04-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "چه زمانی تأیید انسانی مؤثر است؟",
+      "remediation_card_id": "E02-ST04-L02-CARD02",
+      "variant": "A",
+      "id": "E02-ST04-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "وقتی همهٔ پیشنهادها بدون مرور پذیرفته می‌شوند",
+          "feedback": "بازبینی: نظارت واقعی به اختیار، اطلاعات و فرصت تصمیم نیاز دارد."
+        },
+        {
+          "id": "b",
+          "text": "وقتی دکمهٔ تأیید وجود دارد ولی حجم زیاد است",
+          "feedback": "بازبینی: نظارت واقعی به اختیار، اطلاعات و فرصت تصمیم نیاز دارد."
+        },
+        {
+          "id": "c",
+          "text": "وقتی فرد زمینه، پیامد و امکان رد یا اصلاح اقدام را می‌بیند",
+          "feedback": "درست: نظارت واقعی به اختیار، اطلاعات و فرصت تصمیم نیاز دارد."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "نظارت واقعی به اختیار، اطلاعات و فرصت تصمیم نیاز دارد."
+    },
+    {
+      "objective_id": "E02-ST04-L02-OBJ03",
+      "type": "single_choice",
+      "prompt": "چرا کنترل سقف پرداخت باید در API باشد؟",
+      "remediation_card_id": "E02-ST04-L02-CARD03",
+      "variant": "A",
+      "id": "E02-ST04-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون ثبت لاگ کافی است",
+          "feedback": "بازبینی: قید سامانه‌ای در زمان اجرای ابزار اعمال می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "چون محدودیت اجرایی مستقل از تفسیر مدل عمل می‌کند",
+          "feedback": "درست: قید سامانه‌ای در زمان اجرای ابزار اعمال می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "چون prompt همیشه قابل دورزدن نیست",
+          "feedback": "بازبینی: قید سامانه‌ای در زمان اجرای ابزار اعمال می‌شود."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "قید سامانه‌ای در زمان اجرای ابزار اعمال می‌شود."
+    },
+    {
+      "objective_id": "E02-ST04-L02-OBJ04",
+      "type": "single_choice",
+      "prompt": "برای فعال‌کردن اختیار تازه چه رویکردی مناسب‌تر است؟",
+      "remediation_card_id": "E02-ST04-L02-CARD04",
+      "variant": "A",
+      "id": "E02-ST04-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "افزایش مرحله‌ای بر مبنای شواهد و بازبینی دسترسی",
+          "feedback": "درست: اختیار باید متناسب با شواهد، پیامد و کنترل‌های آماده رشد کند."
+        },
+        {
+          "id": "b",
+          "text": "اعطای اختیار کامل از روز اول",
+          "feedback": "بازبینی: اختیار باید متناسب با شواهد، پیامد و کنترل‌های آماده رشد کند."
+        },
+        {
+          "id": "c",
+          "text": "افزایش اختیار برای جبران کیفیت پایین",
+          "feedback": "بازبینی: اختیار باید متناسب با شواهد، پیامد و کنترل‌های آماده رشد کند."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اختیار باید متناسب با شواهد، پیامد و کنترل‌های آماده رشد کند."
+    },
+    {
+      "id": "E02-ST04-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل می‌خواهد سفارش واقعی ایجاد کند. طراحی اختیار مناسب چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دسترسی حداقلی، تأیید متناسب با ریسک و امکان توقف یا بازگشت",
+          "feedback": "سطح اختیار باید با پیامد و برگشت‌پذیری متناسب باشد و نقطهٔ کنترل واقعی باقی بماند."
+        },
+        {
+          "id": "b",
+          "text": "دسترسی کامل برای همهٔ ابزارها",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: سطح اختیار باید با پیامد و برگشت‌پذیری متناسب باشد و نقطهٔ کنترل واقعی باقی بماند."
+        },
+        {
+          "id": "c",
+          "text": "تأیید را حتی برای اقدام برگشت‌ناپذیر حذف کنیم",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: سطح اختیار باید با پیامد و برگشت‌پذیری متناسب باشد و نقطهٔ کنترل واقعی باقی بماند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "سطح اختیار باید با پیامد و برگشت‌پذیری متناسب باشد و نقطهٔ کنترل واقعی باقی بماند.",
+      "objective_id": "E02-ST04-L02-OBJ01",
+      "equivalence_group": "E02-ST04-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST04-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-AI-RMF-1",
+      "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_public_framework_reviewed_current_status_checked",
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-600-1-GENAI-PROFILE",
+      "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "primary_public_profile_reviewed",
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OWASP-LLM-TOP10-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "community_security_awareness_resource_reviewed",
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OWASP-LLM-TOP10-PDF-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025, official resource page",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "official_publication_resource_page_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "previous_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_community_guidance"
+    },
+    {
+      "id": "NIST-ADVERSARIAL-ML-100-2E2025",
+      "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
+      "review_depth": "primary_technical_taxonomy_reviewed",
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "ai-agent-risk-and-governance-brief",
+    "prompt": "برای سپهر «تفویض اختیار و کنترل» را در دستیار پشتیبانی تحلیل کنید؛ سطح اختیار، کنترل، معیار، مالک و مسیر خطا را بنویسید.",
+    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+    "rubric": [
+      "کار عامل از اتوماسیون ساده و مرز اختیارش تفکیک شده است.",
+      "دسترسی، داده، ریسک و مسئول پاسخ‌گو در طراحی دیده شده‌اند.",
+      "آزمون، نظارت انسانی، مسیر fallback و شرط توقف مشخص‌اند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E02-ST01-L01",
+    "E02-ST02-L04",
+    "E02-ST03-L03"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/e02/lessons/E02-ST04-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-AI-RMF-1",
+    "NIST-AI-600-1-GENAI-PROFILE",
+    "OWASP-LLM-TOP10-2025",
+    "OWASP-LLM-TOP10-PDF-2025",
+    "NIST-ADVERSARIAL-ML-100-2E2025"
+  ],
+  "source_scope": "NIST چارچوب عمومی مدیریت ریسک و در حال بازنگری نسخهٔ 1.0؛ OWASP منبع آگاهی تهدید جامعه است؛ مثال سپهر ساختگی است. هیچ منبعی نبود ریسک یا انطباق کامل را تضمین نمی‌کند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; fictional example; no causal claims"
+  },
+  "media_plan": {
+    "type": "agent-authority-ladder",
+    "purpose": "نمایش دامنهٔ اختیار، ریسک و سازوکار تصمیم",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-agent-control-loop.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «تفویض اختیار و کنترل»: عامل می‌تواند چند گام را دنبال کند؛ دسترسی و اختیار باید محدود و قابل‌بازگشت باشد. درخواست و دامنه، هدف، منابع داده، ابزار مجاز و کارهای ممنوع را تعریف کن.؛ پیشنهاد و اقدام، عملیات کم‌خطر را محدود کن؛ برای تعهد، پرداخت یا دادهٔ حساس تأیید بگیر.؛ پایش و ثبت، عملکرد، خطا، دسترسی و شکایت را با مالک مشخص پایش کن.؛ توقف و بازیابی، کلید توقف، لغو دسترسی، بازگشت به نسخهٔ قبلی و مسئول پاسخ را آماده کن.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «تفویض اختیار و کنترل» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تشخیص نوع سامانه",
+      "طراحی کنترل",
+      "تحلیل ریسک",
+      "ساخت پیشنهاد اجرایی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 23,
+    "practice": 22
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+  "selected_source_refs": [
+    {
+      "source_id": "NIST-AI-RMF-1",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_public_framework_reviewed_current_status_checked",
+      "supports_scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AI-600-1-GENAI-PROFILE",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_public_profile_reviewed",
+      "supports_scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OWASP-LLM-TOP10-2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "community_security_awareness_resource_reviewed",
+      "supports_scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OWASP-LLM-TOP10-PDF-2025",
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "community_security_project_document_reviewed",
+      "supports_scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-ADVERSARIAL-ML-100-2E2025",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_technical_taxonomy_reviewed",
+      "supports_scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "id": "S07-C3-ST02-L02",
+  "version": "1-draft",
+  "title": "ابزار، حافظه و حدود اختیار",
+  "content_status": "draft",
+  "objective": "ابزارها و حافظهٔ عامل را به کار واقعی وصل کند و دسترسی، داده، ماندگاری و اختیار هر جزء را با اصل حداقل دسترسی تنظیم کند.",
+  "learning_cards": [
+    {
+      "title": "ابزار، مسیر عمل عامل است",
+      "id": "S07-C3-ST02-L02-CARD01",
+      "text": "ابزار می‌تواند جست‌وجوی پرونده، محاسبه، ثبت سفارش یا ارسال پیام باشد. هر ابزار را با نام، ورودی مجاز، اثر جانبی، خروجی، صاحب سامانه و روش شکست توصیف کنید. «اتصال به CRM» به‌تنهایی روشن نمی‌کند عامل چه فیلدی را می‌تواند تغییر دهد."
+    },
+    {
+      "title": "فقط ابزار لازم را واگذار کن",
+      "id": "S07-C3-ST02-L02-CARD02",
+      "text": "اصل حداقل دسترسی یعنی هر جزء فقط آن دسترسی لازم برای کار مشخص را داشته باشد. عامل پاسخ وضعیت شاید به خواندن سفارش نیاز داشته باشد؛ معمولاً برای اصلاح قیمت یا حذف حساب نیاز ندارد. مجوز خواندن را با نوشتن و اجرای عملیات حساس یکی نگیرید."
+    },
+    {
+      "title": "ابزار خواندن با ابزار نوشتن فرق دارد",
+      "id": "S07-C3-ST02-L02-CARD03",
+      "text": "بازیابی یک سیاست داخلی، تعهد بیرونی ایجاد نمی‌کند؛ ثبت بازپرداخت یا ارسال پیام می‌تواند هزینه و مسئولیت بسازد. ابزارهای دارای اثر جانبی را جداگانه طبقه‌بندی کنید و برایشان سقف، تأیید و ثبت رخداد تعریف کنید."
+    },
+    {
+      "title": "حافظه شکل‌های گوناگون دارد",
+      "id": "S07-C3-ST02-L02-CARD04",
+      "text": "پنجرهٔ مکالمه، خلاصهٔ نشست، پروفایل پایدار و پایگاه بازیابی‌شونده یک چیز نیستند. مشخص کنید چه داده‌ای در کدام نوع باقی می‌ماند، چه کسی می‌تواند آن را ببیند یا اصلاح کند، برای چه مدت نگهداری می‌شود و چگونه حذف می‌شود."
+    },
+    {
+      "title": "حافظهٔ بیشتر، کیفیت تضمین‌شده نیست",
+      "id": "S07-C3-ST02-L02-CARD05",
+      "text": "اطلاعات نامربوط یا قدیمی ممکن است خروجی را منحرف کند. برای هر فیلد حافظه هدف، منشأ، تاریخ و قاعدهٔ تازه‌سازی تعیین کنید. بازخورد ضمنی یا رفتار کاربر را بی‌اطلاع او به‌عنوان حقیقت قطعی یا اجازهٔ استفاده تلقی نکنید."
+    },
+    {
+      "title": "مرز ابزار را با قرارداد روشن کن",
+      "id": "S07-C3-ST02-L02-CARD06",
+      "text": "قرارداد ابزار باید نوع داده، دامنهٔ شناسه‌ها، خطاهای ممکن، محدودیت نرخ و نتیجهٔ برگشت را تعریف کند. ورودی را اعتبارسنجی کنید و درخواست مبهم یا خارج از محدوده را رد کنید. عامل نباید بتواند با تغییر زبان درخواست، مجوز فنی را دور بزند."
+    },
+    {
+      "title": "تأمین‌کننده و زنجیرهٔ ثالث را ببین",
+      "id": "S07-C3-ST02-L02-CARD07",
+      "text": "عامل ممکن است مدل، جست‌وجو، پایگاه داده و API چند تأمین‌کننده را به‌هم وصل کند. NIST توصیه می‌کند خطر اجزای ثالث و داده‌های آن‌ها شناسایی و مستند شود. مالک، محل داده، دسترس‌پذیری و روند تغییر نسخه را در تصمیم خرید بگنجانید."
+    },
+    {
+      "title": "حافظه و ابزار را با چرخهٔ عمر اداره کن",
+      "id": "S07-C3-ST02-L02-CARD08",
+      "text": "ثبت دسترسی و حذف، بررسی دوره‌ای مجوز، نسخه‌بندی ابزار و آزمون پس از تغییر را در فرایند بگذارید. مدیر محصول باید بداند چه داده‌ای چرا وارد سامانه می‌شود و در رخداد چه کسی دسترسی را محدود می‌کند؛ جزئیات حقوقی را با متخصص حوزه تطبیق دهید."
+    },
+    {
+      "id": "S07-C3-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "حداقل دسترسی (Least privilege) مجوز هر ابزار را به وظیفه محدود می‌کند. حافظهٔ کاری موقت و حافظهٔ پایدار از نظر نگهداری و حریم داده فرق دارند. مجوزها و مدت ماندگاری باید جدا تعریف شوند تا زمینهٔ قدیمی به اقدام تازه نشت نکند."
+    },
+    {
+      "id": "S07-C3-ST02-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ابزار عامل توانایی خواندن یا تغییر سامانه را فراهم می‌کند؛ حافظه ممکن است اطلاعات را بین مراحل نگه دارد. هر اتصال خطر دسترسی و اقدام دارد، بنابراین اصل حداقل دسترسی باید به هر ابزار و نقش اعمال شود. دادهٔ حافظه می‌تواند کهنه، حساس یا متعلق به کاربر دیگر شود؛ ماندگاری، پاک‌سازی و جداسازی زمینه را تعریف کنید. اگر ابزار بتواند پرداخت یا ارسال پیام انجام دهد، محیط آزمایشی و محدودیت مقصد لازم است. هدف عامل مجوز تازه ایجاد نمی‌کند و نباید کنترل‌های دسترسی سامانهٔ اصلی دور زده شوند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای عامل پاسخ‌گوی وضعیت سفارش، چه مجوزی نقطهٔ شروع محتاطانه‌تری است؟",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C3-ST02-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "خواندن دادهٔ وضعیت لازم",
+          "feedback": "درست: دسترسی باید با وظیفه متناسب و حداقلی باشد."
+        },
+        {
+          "id": "b",
+          "text": "تغییر قیمت و حذف پرونده",
+          "feedback": "بازبینی: دسترسی باید با وظیفه متناسب و حداقلی باشد."
+        },
+        {
+          "id": "c",
+          "text": "دسترسی مدیرکل به تمام سامانه",
+          "feedback": "بازبینی: دسترسی باید با وظیفه متناسب و حداقلی باشد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST02-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "دسترسی باید با وظیفه متناسب و حداقلی باشد."
+    },
+    {
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه چیزی دربارهٔ حافظه باید تعریف شود؟",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD02",
+      "variant": "A",
+      "id": "S07-C3-ST02-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط نام مدل",
+          "feedback": "بازبینی: حافظه بدون سیاست داده، دامنه و ریسک نامعلوم دارد."
+        },
+        {
+          "id": "b",
+          "text": "نوع داده، هدف، ماندگاری، اصلاح و حذف",
+          "feedback": "درست: حافظه بدون سیاست داده، دامنه و ریسک نامعلوم دارد."
+        },
+        {
+          "id": "c",
+          "text": "تعداد رنگ‌های رابط",
+          "feedback": "بازبینی: حافظه بدون سیاست داده، دامنه و ریسک نامعلوم دارد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST02-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "حافظه بدون سیاست داده، دامنه و ریسک نامعلوم دارد."
+    },
+    {
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا ابزار نوشتن را جداگانه کنترل می‌کنیم؟",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD03",
+      "variant": "A",
+      "id": "S07-C3-ST02-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون می‌تواند اثر واقعی و بیرونی ایجاد کند",
+          "feedback": "درست: اثر جانبی، سطح کنترل لازم را تغییر می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "چون خروجی متن دارد",
+          "feedback": "بازبینی: اثر جانبی، سطح کنترل لازم را تغییر می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "چون همیشه بی‌خطر است",
+          "feedback": "بازبینی: اثر جانبی، سطح کنترل لازم را تغییر می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST02-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اثر جانبی، سطح کنترل لازم را تغییر می‌دهد."
+    },
+    {
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "با تغییر API یا تأمین‌کننده چه کار مدیریتی لازم است؟",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD04",
+      "variant": "A",
+      "id": "S07-C3-ST02-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "نسخه و دسترسی را ثبت و دوباره ارزیابی کنیم",
+          "feedback": "درست: اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+        },
+        {
+          "id": "b",
+          "text": "پایش را حذف کنیم",
+          "feedback": "بازبینی: اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+        },
+        {
+          "id": "c",
+          "text": "فرض کنیم خروجی ثابت می‌ماند",
+          "feedback": "بازبینی: اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+        }
+      ],
+      "equivalence_group": "S07-C3-ST02-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اجزای ثالث و تغییر نسخه می‌توانند ریسک و عملکرد را عوض کنند."
+    },
+    {
+      "id": "S07-C3-ST02-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل از حافظهٔ بلندمدت و ابزار مالی استفاده می‌کند. اصل طراحی مناسب چیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "دادهٔ حافظه، ماندگاری و حداقل مجوز هر ابزار را جدا تعریف کنیم",
+          "feedback": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        },
+        {
+          "id": "b",
+          "text": "همهٔ ابزارها را آزادانه در دسترس بگذاریم",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        },
+        {
+          "id": "c",
+          "text": "حافظه را بدون کنترل نگه داریم",
+          "feedback": "این انتخاب شرط اختیار یا شواهد مؤثر را ندارد: ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ابزار و حافظه دامنهٔ اثر و داده را گسترش می‌دهند؛ دسترسی و ماندگاری باید به وظیفه محدود شود.",
+      "objective_id": "S07-C3-ST02-L02-OBJ01",
+      "equivalence_group": "S07-C3-ST02-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C3-ST02-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "OPENAI-AGENTS-BUSINESS-GUIDE",
+      "title": "OpenAI, A Business Leader’s Guide to Working with Agents",
+      "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
+      "review_depth": "official_business_guide_reviewed",
+      "scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OPENAI-AGENTS-SDK-HANDOFFS",
+      "title": "OpenAI Agents SDK: Handoffs",
+      "url": "https://openai.github.io/openai-agents-python/handoffs/",
+      "review_depth": "official_product_documentation_reviewed",
+      "scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
+      "title": "Google PAIR: Feedback + Control",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI RMF Core: Govern and Map",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "agent-authorization-and-trace-map",
+    "prompt": "در سناریوی سپهر، برای «ابزار، حافظه و حدود اختیار» نقش عامل، ابزار، داده، حد اختیار، تأیید و رخداد قابل ردگیری را مشخص کنید.",
+    "expected_output": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل",
+    "rubric": [
+      "سطح خودمختاری با پیامد خطا و برگشت‌پذیری متناسب است.",
+      "اجازهٔ ابزار، تأیید انسان، ردپا و مسیر escalation برای هر کار مشخص‌اند.",
+      "محدودیت، آزمون و شرط کاهش اختیار یا توقف تعریف شده‌اند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C3-ST01-L02"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c3/lessons/S07-C3-ST02-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "OPENAI-AGENTS-BUSINESS-GUIDE",
+    "OPENAI-AGENTS-SDK-HANDOFFS",
+    "GOOGLE-PAIR-FEEDBACK-CONTROL",
+    "NIST-AI-RMF-CORE"
+  ],
+  "source_scope": "مستندات OpenAI برای معرفی الگوی محصول خود و جزئیات SDK به‌کار رفته‌اند؛ PAIR و NIST چارچوب طراحی/ریسک‌اند. نمونه‌ها ساختگی‌اند و سطح اختیار باید با بافت و سیاست سازمان تطبیق یابد.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "agent-tool-permission-and-trace-map",
+    "purpose": "نمایش رابطهٔ عامل، ابزار، اختیار، تأیید و رخداد",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/agent-tools-permissions-trace.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ابزار، حافظه و حدود اختیار»: دسترسی عامل را به کار محدود کن و اقدام اثرگذار را قابل ردگیری نگه دار. دستیار یا عامل، هدف، حلقهٔ اقدام، ابزار و پیامد بیرونی را مقایسه کن.؛ ابزار و حافظه، حداقل دسترسی، ماندگاری داده و دامنهٔ ابزار را تعیین کن.؛ اقدام حساس، برای اثر بیرونی یا برگشت‌ناپذیر تأیید و توقف بگذار.؛ ردپای تصمیم، ورودی، نسخه، ابزار، تأیید و نتیجه را با نقش مسئول ثبت کن.",
+        "caption": "نقشه را برای تحلیل «ابزار، حافظه و حدود اختیار» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تمایز مفهوم",
+      "تشخیص مرز اختیار",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "ماتریس ابزار و حافظه با مجوز، داده، مالک و کنترل",
+  "selected_source_refs": [
+    {
+      "source_id": "OPENAI-AGENTS-BUSINESS-GUIDE",
+      "url": "https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf",
+      "locator": "بخش‌های تعریف عامل، ابزار/انتقال کنترل، کنترل کاربر یا نقش و نظارت",
+      "review_depth": "official_business_guide_reviewed",
+      "supports_scope": "مدخل مدیریتی برای شناخت اجزا و کاربرد عامل‌ها؛ راهنمای عرضه‌کننده است و شاهد مستقل اثربخشی نیست.",
+      "gap": "مستندات محصول یا راهنما جای ارزیابی مستقل، امنیت سامانه یا الزام حقوقی در کاربرد خاص را نمی‌گیرند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OPENAI-AGENTS-SDK-HANDOFFS",
+      "url": "https://openai.github.io/openai-agents-python/handoffs/",
+      "locator": "بخش‌های تعریف عامل، ابزار/انتقال کنترل، کنترل کاربر یا نقش و نظارت",
+      "review_depth": "official_product_documentation_reviewed",
+      "supports_scope": "رفتار انتقال کنترل، ورودی و guardrail در SDK؛ جزئیات فنی به نسخهٔ SDK وابسته است.",
+      "gap": "مستندات محصول یا راهنما جای ارزیابی مستقل، امنیت سامانه یا الزام حقوقی در کاربرد خاص را نمی‌گیرند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-PAIR-FEEDBACK-CONTROL",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/feedback-controls/",
+      "locator": "بخش‌های تعریف عامل، ابزار/انتقال کنترل، کنترل کاربر یا نقش و نظارت",
+      "review_depth": "official_practitioner_guide_reviewed",
+      "supports_scope": "توازن کنترل انسان و خودکارسازی، بازخورد و کنترل کاربر؛ راهنمای طراحی است.",
+      "gap": "مستندات محصول یا راهنما جای ارزیابی مستقل، امنیت سامانه یا الزام حقوقی در کاربرد خاص را نمی‌گیرند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "بخش‌های تعریف عامل، ابزار/انتقال کنترل، کنترل کاربر یا نقش و نظارت",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "نقش‌ها، دامنهٔ کاربرد و نظارت انسانی؛ چارچوب داوطلبانه، نیازمند انطباق با زمینه.",
+      "gap": "مستندات محصول یا راهنما جای ارزیابی مستقل، امنیت سامانه یا الزام حقوقی در کاربرد خاص را نمی‌گیرند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

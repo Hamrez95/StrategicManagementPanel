@@ -1,0 +1,361 @@
+{
+  "id": "E01-ST04-L01",
+  "version": "1-draft",
+  "title": "عامل AI در مذاکره",
+  "content_status": "draft",
+  "objective": "نقش‌های ممکن AI را به‌عنوان آماده‌ساز، تحلیلگر، همکار یا طرف مذاکره از هم جدا کند و کاربرد مناسب را بر اساس هدف و پیامد انتخاب کند.",
+  "learning_cards": [
+    {
+      "title": "AI پیش از جلسه چه کمکی می‌کند؟",
+      "id": "E01-ST04-L01-CARD01",
+      "text": "می‌تواند اسناد را خلاصه، گزینه‌ها را مقایسه، پرسش آماده یا سناریو را تمرین کند. این کمک به آمادگی است و اختیار مذاکره را خودبه‌خود منتقل نمی‌کند. خروجی باید با اطلاعات محرمانه، منبع و فرض‌های کاربر سنجیده شود."
+    },
+    {
+      "title": "همکار با طرف مذاکره یکی نیست",
+      "id": "E01-ST04-L01-CARD02",
+      "text": "AI-coach کنار کاربر تحلیل می‌کند؛ AI-counterpart مستقیماً با انسان دیگر مذاکره می‌کند؛ عامل خودکار ممکن است پیشنهاد یا توافق را اجرا کند. هر نقش شفافیت، رضایت، سطح اختیار و مسئولیت متفاوت می‌خواهد."
+    },
+    {
+      "title": "در مذاکره، دادهٔ شخصی حساس است",
+      "id": "E01-ST04-L01-CARD03",
+      "text": "اولویت‌های محرمانه، حد نهایی و اطلاعات شخصی را وارد ابزار نامناسب نکنید. پیش از استفاده، سیاست داده، نگهداری، دسترسی و استفادهٔ ثانویه را بررسی کنید. اطلاعات داخلی را از متن عمومی طرف مقابل جدا کنید."
+    },
+    {
+      "title": "مزیت تحلیل با محدودیت تعامل همراه است",
+      "id": "E01-ST04-L01-CARD04",
+      "text": "AI می‌تواند بسته‌ها یا سناریوها را سریع مقایسه کند؛ اما ممکن است زمینه، رابطه، اختیار و معنای فرهنگی را بد بفهمد. روانی گفت‌وگو شاهد همدلی، انصاف یا درک کامل منافع طرف نیست."
+    },
+    {
+      "title": "شواهد استخدامی چه می‌گوید؟",
+      "id": "E01-ST04-L01-CARD05",
+      "text": "مطالعهٔ ۲۰۲۵ در مذاکرهٔ استخدامی، انتظار و اعتماد افراد را نسبت به طرف انسانی یا AI بررسی کرد. این مطالعهٔ ادراک در موقعیت طراحی‌شده است و نتیجهٔ اقتصادی همهٔ مذاکرات کاری را پیش‌بینی نمی‌کند."
+    },
+    {
+      "title": "شبیه‌سازی با واقعیت فرق دارد",
+      "id": "E01-ST04-L01-CARD06",
+      "text": "benchmarkهای LLM در بازی‌های استاندارد می‌توانند رفتار چانه‌زنی را اندازه بگیرند. نمره در بازی، آمادگی برای قرارداد واقعی با اطلاعات نامتقارن، قانون، رابطهٔ بلندمدت و هزینهٔ خطا را ثابت نمی‌کند."
+    },
+    {
+      "title": "AI را برای آماده‌سازی به کار ببر",
+      "id": "E01-ST04-L01-CARD07",
+      "text": "کاربر می‌تواند از AI بخواهد جدول موضوع، منافع و گزینه‌ها بسازد؛ سپس منبع و فرض را بررسی و حد تصمیم را خودش تعیین کند. برای مذاکرهٔ حساس، AI می‌تواند تمرین‌کننده باشد و انسان صاحب تصمیم باقی بماند."
+    },
+    {
+      "title": "تصمیم بده چه چیزی را خودکار نکنی",
+      "id": "E01-ST04-L01-CARD08",
+      "text": "توافق نهایی، پذیرش مسئولیت یا ارسال پیام الزام‌آور ممکن است پیامد حقوقی و رابطه‌ای داشته باشد. خودکارسازی را به کار کم‌خطر، محدود و قابل برگشت محدود کنید تا شواهد کافی به دست آید."
+    },
+    {
+      "id": "E01-ST04-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "عامل مذاکرهٔ AI (AI negotiation agent) می‌تواند آماده‌ساز، تحلیلگر، همکار یا طرف تعامل باشد؛ این نقش‌ها از نظر اختیار و پیامد یکسان نیستند. پشتیبانی تصمیم (Decision support) پیشنهاد می‌دهد، اما مسئول انسانی هدف و پذیرش تعهد را تعیین می‌کند. نام «عامل» به‌تنهایی سطح اختیار را مشخص نمی‌کند."
+    },
+    {
+      "id": "E01-ST04-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "عامل AI می‌تواند اسناد را خلاصه، گزینه بسازد یا پیام را پیش‌نویس کند، اما مذاکره شامل منافع، تعهدات و اطلاعات محرمانه است. خروجی روان ممکن است موضع نادرست یا امتیازی ناخواسته پیشنهاد دهد. نقش عامل را به کمک محدود کنید مگر اختیار و کنترل روشن باشد. دادهٔ مذاکره را با ابزار مجاز پردازش کنید و نسخهٔ پیام را پیش از ارسال بررسی کنید. اگر عامل با طرف دیگر تعامل مستقیم دارد، هویت، مجوز، ثبت و مسیر توقف باید روشن باشد. مسئول انسانی همچنان باید معنای توافق و پیامد آن را بسنجد."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E01-ST04-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "AI-coach چه تفاوتی با AI-counterpart دارد؟",
+      "remediation_card_id": "E01-ST04-L01-CARD01",
+      "variant": "A",
+      "id": "E01-ST04-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "coach به کاربر کمک می‌کند؛ counterpart مستقیماً طرف گفت‌وگوست",
+          "feedback": "درست: نقش AI تعیین‌کنندهٔ شفافیت و کنترل است."
+        },
+        {
+          "id": "b",
+          "text": "هر دو اختیار نامحدود دارند",
+          "feedback": "بازبینی: نقش AI تعیین‌کنندهٔ شفافیت و کنترل است."
+        },
+        {
+          "id": "c",
+          "text": "هیچ تفاوت نقشی ندارند",
+          "feedback": "بازبینی: نقش AI تعیین‌کنندهٔ شفافیت و کنترل است."
+        }
+      ],
+      "equivalence_group": "E01-ST04-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "نقش AI تعیین‌کنندهٔ شفافیت و کنترل است."
+    },
+    {
+      "objective_id": "E01-ST04-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای چه کاری استفادهٔ اولیه از AI مناسب‌تر است؟",
+      "remediation_card_id": "E01-ST04-L01-CARD02",
+      "variant": "A",
+      "id": "E01-ST04-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "ساخت گزینه و تمرین با بازبینی انسان",
+          "feedback": "درست: کمک آماده‌سازی کنترل‌پذیرتر است."
+        },
+        {
+          "id": "b",
+          "text": "قبول خودکار تعهد حقوقی",
+          "feedback": "بازبینی: کمک آماده‌سازی کنترل‌پذیرتر است."
+        },
+        {
+          "id": "c",
+          "text": "افشای حد نهایی مذاکره",
+          "feedback": "بازبینی: کمک آماده‌سازی کنترل‌پذیرتر است."
+        }
+      ],
+      "equivalence_group": "E01-ST04-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "کمک آماده‌سازی کنترل‌پذیرتر است."
+    },
+    {
+      "objective_id": "E01-ST04-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "نتیجهٔ benchmark چانه‌زنی چه چیزی را ثابت نمی‌کند؟",
+      "remediation_card_id": "E01-ST04-L01-CARD03",
+      "variant": "A",
+      "id": "E01-ST04-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "موفقیت در قرارداد واقعی و چندجانبه",
+          "feedback": "درست: محیط شبیه‌سازی‌شده با جهان واقعی تفاوت دارد."
+        },
+        {
+          "id": "b",
+          "text": "توان اندازه‌گیری در بازی تعریف‌شده",
+          "feedback": "بازبینی: محیط شبیه‌سازی‌شده با جهان واقعی تفاوت دارد."
+        },
+        {
+          "id": "c",
+          "text": "وجود یک معیار مقایسه",
+          "feedback": "بازبینی: محیط شبیه‌سازی‌شده با جهان واقعی تفاوت دارد."
+        }
+      ],
+      "equivalence_group": "E01-ST04-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "محیط شبیه‌سازی‌شده با جهان واقعی تفاوت دارد."
+    },
+    {
+      "objective_id": "E01-ST04-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "در مذاکرهٔ حساس صاحب تصمیم نهایی کیست؟",
+      "remediation_card_id": "E01-ST04-L01-CARD04",
+      "variant": "A",
+      "id": "E01-ST04-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "نقش انسانی دارای اختیار سازمانی",
+          "feedback": "درست: مسئولیت و اختیار باید در سازمان روشن بماند."
+        },
+        {
+          "id": "b",
+          "text": "مدل به‌تنهایی",
+          "feedback": "بازبینی: مسئولیت و اختیار باید در سازمان روشن بماند."
+        },
+        {
+          "id": "c",
+          "text": "کاربر ناشناس ابزار",
+          "feedback": "بازبینی: مسئولیت و اختیار باید در سازمان روشن بماند."
+        }
+      ],
+      "equivalence_group": "E01-ST04-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "مسئولیت و اختیار باید در سازمان روشن بماند."
+    },
+    {
+      "id": "E01-ST04-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای آماده‌سازی یک مذاکرهٔ کم‌ریسک، کدام استفاده از AI مناسب‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ساخت فهرست پرسش و سناریو برای بازبینی مذاکره‌کننده",
+          "feedback": "نقش آماده‌ساز می‌تواند مفید باشد؛ اختیار و داده باید متناسب با هدف و پیامد محدود شوند."
+        },
+        {
+          "id": "b",
+          "text": "واگذاری خودکار تعهد الزام‌آور بدون حد اختیار",
+          "feedback": "این گزینه دلیل کلیدی درس را نادیده می‌گیرد: نقش آماده‌ساز می‌تواند مفید باشد؛ اختیار و داده باید متناسب با هدف و پیامد محدود شوند."
+        },
+        {
+          "id": "c",
+          "text": "دادن محرمانه‌ترین داده‌ها به ابزار بدون ارزیابی دسترسی",
+          "feedback": "این گزینه دلیل کلیدی درس را نادیده می‌گیرد: نقش آماده‌ساز می‌تواند مفید باشد؛ اختیار و داده باید متناسب با هدف و پیامد محدود شوند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "نقش آماده‌ساز می‌تواند مفید باشد؛ اختیار و داده باید متناسب با هدف و پیامد محدود شوند.",
+      "objective_id": "E01-ST04-L01-OBJ01",
+      "equivalence_group": "E01-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E01-ST04-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "SONDERN-ARNHOLZ-HERTEL-2025",
+      "title": "Sondern, Arnholz & Hertel, Employment Negotiations With an Algorithm?",
+      "url": "https://cris.uni-muenster.de/portal/de/publication/171877455",
+      "review_depth": "peer_reviewed_experimental_article_reviewed",
+      "scope": "رکورد پژوهشی رسمی دانشگاه مونستر؛ چکیدهٔ مطالعهٔ وینیت پیش‌ثبت‌شده با ۲۹۱ پاسخ‌دهنده دربارهٔ اعتماد به طرف مذاکرهٔ AI/انسان. متن کامل ناشر در این گذر بررسی نشده است.",
+      "doi": "10.1002/crq.21472",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "BHATTACHARYA-NEGOTIATION-LLM-2025",
+      "title": "Bhattacharya et al., Evaluating Negotiation Capabilities of Large Language Models",
+      "url": "https://doi.org/10.1177/10711813251372102",
+      "review_depth": "peer_reviewed_benchmark_paper_reviewed",
+      "scope": "ارزیابی در بازی‌های کلاسیک چانه‌زنی؛ benchmark شبیه‌سازی‌شده معادل مذاکرهٔ سازمانی واقعی نیست.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
+      "title": "AI-Mediated Dispute Resolution",
+      "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/view/35558",
+      "review_depth": "conference_proceedings_paper_reviewed",
+      "scope": "بررسی اولیهٔ میانجی‌گری با LLM در سناریوهای پژوهشی؛ شواهد اولیه و محدود، نه جایگزین میانجی حرفه‌ای.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI RMF Core: Govern, Measure and Manage",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "نقش‌ها، شفافیت، پایش، اعتراض و مدیریت اثرها در کاربرد AI؛ چارچوب داوطلبانه و زمینه‌محور.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "human-agent-negotiation-simulation",
+    "prompt": "برای «عامل AI در مذاکره» یک مذاکرهٔ ساختگی سپهر را با نقش انسانی و AI اجرا/تحلیل کنید؛ حد اختیار، افشا، fairness و توقف را ثبت کنید.",
+    "expected_output": "ماتریس نقش AI، صاحب تصمیم و محدودیت استفاده",
+    "rubric": [
+      "وظیفهٔ مجاز عامل AI، ورودی‌ها و مرز اختیار روشن است.",
+      "حریم خصوصی، خطا، سوگیری و مالک تصمیم انسانی در طرح آمده‌اند.",
+      "ارزیابی، ثبت رخداد، راه ارجاع و شرط توقف قابل اجرا تعریف شده‌اند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E01-ST01-L03",
+    "E01-ST02-L02",
+    "E01-ST03-L02"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/e01/lessons/E01-ST04-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "SONDERN-ARNHOLZ-HERTEL-2025",
+    "BHATTACHARYA-NEGOTIATION-LLM-2025",
+    "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
+    "NIST-AI-RMF-CORE"
+  ],
+  "source_scope": "مطالعات ۲۰۲۵ دربارهٔ مذاکرهٔ استخدامی، بازی‌های چانه‌زنی و میانجی‌گری AI اولیه‌اند و به موقعیت‌های آزمایشی محدودند؛ سیاست‌ها باید با بافت و طرف‌های واقعی آزموده شوند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "ai-employment-negotiation-study",
+      "llm-bargaining-benchmark"
+    ],
+    "real_case_status": "primary_source_scope_reviewed; external_validity_limited"
+  },
+  "media_plan": {
+    "type": "human-ai-negotiation-workflow-and-evaluation-rubric",
+    "purpose": "نمایش سطوح اختیار، افشا، تأیید و سنجه‌های ارزیابی",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/human-ai-negotiation-guardrails.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «عامل AI در مذاکره»: پیشنهاد، تحلیل و پذیرش توافق سه سطح اختیار متفاوت‌اند. داده و افشا، محدودهٔ دادهٔ مجاز و شیوهٔ اعلام استفاده از AI را پیش از مذاکره مشخص کن.؛ اختیار محدود، عامل می‌تواند گزینه و خلاصه بسازد؛ سقف پیشنهاد، مخاطب و اقدام مجاز باید بسته باشد.؛ تأیید انسان، تعهد، پذیرش نهایی یا تغییر توافق با تأیید انسانیِ مجاز انجام شود.؛ ثبت و ارزیابی، خطا، انصاف، کیفیت توافق و امکان اعتراض را ثبت کن؛ مسیر توقف و اصلاح داشته باش.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «عامل AI در مذاکره» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تفکیک نقش AI",
+      "حد اختیار",
+      "ارزیابی کیفیت و انصاف",
+      "اجرای سناریو"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 24
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "ماتریس نقش AI، صاحب تصمیم و محدودیت استفاده",
+  "selected_source_refs": [
+    {
+      "source_id": "SONDERN-ARNHOLZ-HERTEL-2025",
+      "url": "https://doi.org/10.1002/crq.21472",
+      "locator": "مقاله/راهنمای مرتبط با اعتماد، بازی، میانجی‌گری یا حکمرانی AI",
+      "review_depth": "peer_reviewed_experimental_article_reviewed",
+      "supports_scope": "مطالعهٔ ادراک و انتظار افراد از مذاکرهٔ استخدامی با طرف انسانی یا AI؛ پاسخ‌دهندگان و موقعیت مطالعه محدودند.",
+      "gap": "مطالعات اولیه‌اند و به سناریوهای خاص محدودند؛ برای تعمیم باید شواهد مستقل و کاربردی افزوده شود.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "BHATTACHARYA-NEGOTIATION-LLM-2025",
+      "url": "https://doi.org/10.1177/10711813251372102",
+      "locator": "مقاله/راهنمای مرتبط با اعتماد، بازی، میانجی‌گری یا حکمرانی AI",
+      "review_depth": "peer_reviewed_benchmark_paper_reviewed",
+      "supports_scope": "ارزیابی در بازی‌های کلاسیک چانه‌زنی؛ benchmark شبیه‌سازی‌شده معادل مذاکرهٔ سازمانی واقعی نیست.",
+      "gap": "مطالعات اولیه‌اند و به سناریوهای خاص محدودند؛ برای تعمیم باید شواهد مستقل و کاربردی افزوده شود.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "AI-MEDIATED-DISPUTE-RESOLUTION-2025",
+      "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/view/35558",
+      "locator": "مقاله/راهنمای مرتبط با اعتماد، بازی، میانجی‌گری یا حکمرانی AI",
+      "review_depth": "conference_proceedings_paper_reviewed",
+      "supports_scope": "بررسی اولیهٔ میانجی‌گری با LLM در سناریوهای پژوهشی؛ شواهد اولیه و محدود، نه جایگزین میانجی حرفه‌ای.",
+      "gap": "مطالعات اولیه‌اند و به سناریوهای خاص محدودند؛ برای تعمیم باید شواهد مستقل و کاربردی افزوده شود.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "مقاله/راهنمای مرتبط با اعتماد، بازی، میانجی‌گری یا حکمرانی AI",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "نقش‌ها، شفافیت، پایش، اعتراض و مدیریت اثرها در کاربرد AI؛ چارچوب داوطلبانه و زمینه‌محور.",
+      "gap": "مطالعات اولیه‌اند و به سناریوهای خاص محدودند؛ برای تعمیم باید شواهد مستقل و کاربردی افزوده شود.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

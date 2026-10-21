@@ -1,0 +1,354 @@
+{
+  "id": "E04-ST02-L03",
+  "version": "1-draft",
+  "title": "دادهٔ ناقص و ریسک پنهان",
+  "content_status": "draft",
+  "objective": "دادهٔ غایب را به‌عنوان عدم‌قطعیت ثبت کند، نه صفر یا تأیید ضمنی.",
+  "learning_cards": [
+    {
+      "id": "E04-ST02-L03-CARD01",
+      "title": "نبود داده بی‌خطر نیست",
+      "text": "دادهٔ غایب را به‌عنوان عدم‌قطعیت ثبت کند، نه صفر یا تأیید ضمنی."
+    },
+    {
+      "id": "E04-ST02-L03-CARD02",
+      "title": "دفتر فرض‌ها",
+      "text": "فرض، منبع، تاریخ، مالک و راه آزمون هر مجهول را مستند کند."
+    },
+    {
+      "id": "E04-ST02-L03-CARD03",
+      "title": "ریسک را وزن بده",
+      "text": "احتمال و شدت اثر را جدا برآورد و آستانهٔ تصمیم را تعیین کند."
+    },
+    {
+      "id": "E04-ST02-L03-CARD04",
+      "title": "تضاد منافع و سوگیری",
+      "text": "انگیزهٔ فروشنده، مشاور و تیم معامله می‌تواند بر انتخاب و تفسیر شواهد اثر بگذارد."
+    },
+    {
+      "id": "E04-ST02-L03-CARD05",
+      "title": "تعهدات پنهان",
+      "text": "ریسک سایبری، حریم خصوصی، دعاوی، نیروی انسانی و قراردادها را در دامنه بیاورد."
+    },
+    {
+      "id": "E04-ST02-L03-CARD06",
+      "title": "توقف یا قیمت‌گذاری",
+      "text": "ریسک را با شرط قراردادی، escrow، قیمت، بیمه یا خروج از معامله پاسخ دهد."
+    },
+    {
+      "id": "E04-ST02-L03-CARD07",
+      "title": "AI در خواندن اسناد",
+      "text": "مدل زبانی می‌تواند قرارداد و اتاق داده را جست‌وجو و خلاصه کند، اما منبع‌سازی/حذف خطا محتمل است."
+    },
+    {
+      "id": "E04-ST02-L03-CARD08",
+      "title": "بازبینی انسانی",
+      "text": "هر یافتهٔ حساس را به سند اصلی و متخصص مستقل ارجاع دهد و دادهٔ محرمانه را بی‌اجازه بارگذاری نکند."
+    },
+    {
+      "id": "E04-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "ریسک پنهان (Hidden risk) تعهد، وابستگی، کیفیت داده یا مسئلهٔ عملیاتی‌ای است که در اطلاعات خلاصه‌شده دیده نشده. اهمیت با احتمال و پیامد و امکان کشف تعیین می‌شود. دادهٔ ناقص باید دامنهٔ برآورد و شرط معامله را تغییر دهد، نه اینکه با میانگین پر شود."
+    },
+    {
+      "id": "E04-ST02-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "دادهٔ ناقص در بررسی موشکافانه، ریسک را حذف نمی‌کند؛ بلکه دامنهٔ برآورد را وسیع‌تر می‌کند. نشانه‌های جانشین مانند تمرکز مشتری یا وابستگی به یک سامانه باید پرسش و آزمون بیشتر ایجاد کنند. اطمینان به سند را بر اساس منشأ، تاریخ و امکان تطبیق بسنجید. فرض اینکه نبود گزارش یعنی نبود مشکل نادرست است. می‌توان عدم قطعیت را با سناریو، ضمانت قراردادی یا پرداخت مشروط مدیریت کرد، اما ضمانت به توان وصول وابسته است. مورد حل‌نشده، مالک بررسی و پیامد آن برای تصمیم را روشن کنید."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E04-ST02-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه تفاوتی میان «اثبات نشده» و «وجود ندارد» است؟",
+      "remediation_card_id": "E04-ST02-L03-CARD01",
+      "variant": "A",
+      "id": "E04-ST02-L03-Q01",
+      "options": [
+        {
+          "id": "c",
+          "text": "میانگین صنعت بدون بررسی",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "a",
+          "text": "دفتر فرض و شکاف",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "قیمت پیشنهادی فروشنده",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E04-ST02-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E04-ST02-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "کدام یافته معامله را متوقف می‌کند؟",
+      "remediation_card_id": "E04-ST02-L03-CARD02",
+      "variant": "A",
+      "id": "E04-ST02-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "وزن ریسک",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "یک شاخص منفرد",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "c",
+          "text": "اظهار شفاهی بدون سند",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E04-ST02-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E04-ST02-L03-OBJ03",
+      "type": "single_choice",
+      "prompt": "چرا خلاصهٔ AI جای سند و وکیل را نمی‌گیرد؟",
+      "remediation_card_id": "E04-ST02-L03-CARD03",
+      "variant": "A",
+      "id": "E04-ST02-L03-Q03",
+      "options": [
+        {
+          "id": "c",
+          "text": "سپردن تصمیم قطعی به مدل",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "a",
+          "text": "پاسخ قراردادی",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "نادیده‌گرفتن مجهول",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E04-ST02-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E04-ST02-L03-OBJ04",
+      "type": "single_choice",
+      "prompt": "ریسک ناشی از دادهٔ ناقص را چطور قیمت‌گذاری می‌کنیم؟",
+      "remediation_card_id": "E04-ST02-L03-CARD04",
+      "variant": "A",
+      "id": "E04-ST02-L03-Q04",
+      "options": [
+        {
+          "id": "c",
+          "text": "یک خروجی بدون ارجاع",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "a",
+          "text": "AI با کنترل انسانی",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "حدس تیم معامله",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E04-ST02-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "id": "E04-ST02-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دادهٔ یکپارچهٔ مشتریان در دسترس نیست و فروشنده رشد بالا گزارش می‌کند. واکنش بهتر؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "محدودیت داده را ثبت، ادعا را با منابع دیگر بسنجیم و شرط/دامنهٔ تصمیم را تنظیم کنیم",
+          "feedback": "دادهٔ ناقص عدم‌قطعیت را بالا می‌برد؛ باید منبع جایگزین یا شرط حفاظتی تعریف شود."
+        },
+        {
+          "id": "b",
+          "text": "نبود داده را بی‌اهمیت بدانیم",
+          "feedback": "این گزینه شاهد یا سازوکار لازم را ندارد: دادهٔ ناقص عدم‌قطعیت را بالا می‌برد؛ باید منبع جایگزین یا شرط حفاظتی تعریف شود."
+        },
+        {
+          "id": "c",
+          "text": "رشد گزارش‌شده را قطعی فرض کنیم",
+          "feedback": "این گزینه شاهد یا سازوکار لازم را ندارد: دادهٔ ناقص عدم‌قطعیت را بالا می‌برد؛ باید منبع جایگزین یا شرط حفاظتی تعریف شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دادهٔ ناقص عدم‌قطعیت را بالا می‌برد؛ باید منبع جایگزین یا شرط حفاظتی تعریف شود.",
+      "objective_id": "E04-ST02-L03-OBJ01",
+      "equivalence_group": "E04-ST02-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E04-ST02-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "CFA-DD",
+      "title": "CFA Institute, Due Diligence",
+      "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "DELOITTE-AI26",
+      "title": "Deloitte, GenAI in M&A Pulse Study 2026",
+      "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI",
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19).",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "SEC-ACQ",
+      "title": "SEC, Financial Disclosures about Acquired and Disposed Businesses",
+      "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "decision-analysis",
+    "prompt": "برای سناریوی سپهر، تمرین «دادهٔ ناقص و ریسک پنهان» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+    "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+    "rubric": [
+      "روش ارزش‌گذاری و سنجهٔ قابل‌مقایسه با کسب‌وکار هدف سازگار است.",
+      "سناریو، نرخ/مضاعف، هزینهٔ ادغام و حساسیت‌های مهم آشکارند.",
+      "دامنهٔ ارزش و توصیه مشروط‌اند و محدودیت داده یا برآورد بیان شده است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E04-ST01-L01"
+  ],
+  "prerequisites_block_access": false,
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "CFA-DD",
+    "DELOITTE-AI26",
+    "NIST-AI",
+    "SEC-ACQ"
+  ],
+  "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_example; no transaction-specific claims"
+  },
+  "media_plan": {
+    "type": "decision-workspace",
+    "purpose": "ثبت فرض‌ها و شواهد",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ma-due-diligence-evidence-map.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «دادهٔ ناقص و ریسک پنهان»: برای هر فرض، مدرک، مالک بررسی، ابهام و پیامد تصمیم را کنار هم ثبت کن. بازار و مشتری، تمرکز درآمد، حفظ مشتری، قرارداد و اعتبار تقاضا را با دادهٔ مستقل بررسی کن.؛ مالی و عملیات، کیفیت سود، سرمایهٔ در گردش، ظرفیت و گلوگاه‌ها را با فرض‌های قابل‌ردیابی بسنج.؛ فناوری و داده، مالکیت، امنیت، کیفیت داده، بدهی فنی و وابستگی فروشنده را بررسی کن.؛ افراد، قانون و AI، نقش‌های کلیدی، تعهدها و ریسک‌های مدل را ثبت کن؛ مورد نامعلوم را «حل‌شده» نشان نده.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «دادهٔ ناقص و ریسک پنهان» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "دفتر فرض و شکاف",
+      "وزن ریسک",
+      "پاسخ قراردادی",
+      "AI با کنترل انسانی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 28,
+    "practice": 25
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "یادداشت تصمیم مستند",
+  "selected_source_refs": [
+    {
+      "source_id": "CFA-DD",
+      "url": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/practical-skills-modules/due-diligence",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "راهنمای حرفه‌ای بررسی موشکافانه؛ دامنهٔ آن به صلاحیت و بازار مالی وابسته است.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "DELOITTE-AI26",
+      "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions/articles/m-and-a-generative-ai-study.html",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "پیمایش حرفه‌ای دربارهٔ کاربرد AI در معامله؛ خوداظهاری و وابسته به نمونه.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AI",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "SEC-ACQ",
+      "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/financial-disclosures-about-acquired-disposed-businesses",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "الزامات افشا در حوزهٔ قضایی آمریکا؛ برای آموزش تحلیل، نه مشاورهٔ حقوقی در کشور دیگر.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

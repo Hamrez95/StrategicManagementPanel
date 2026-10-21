@@ -1,0 +1,315 @@
+{
+  "id": "E05-ST04-L03",
+  "version": "1-draft",
+  "title": "پایش هزینهٔ انرژی و کیفیت",
+  "content_status": "draft",
+  "objective": "مصرف انرژی مدل را به کاربرد، سخت‌افزار، محل و دورهٔ استفاده پیوند دهد.",
+  "learning_cards": [
+    {
+      "id": "E05-ST04-L03-CARD01",
+      "title": "محاسبه را مرزگذاری کن",
+      "text": "مصرف انرژی مدل را به کاربرد، سخت‌افزار، محل و دورهٔ استفاده پیوند دهد."
+    },
+    {
+      "id": "E05-ST04-L03-CARD02",
+      "title": "انرژی در چرخهٔ AI",
+      "text": "آموزش و استنتاج بار متفاوت دارند؛ چرخهٔ عمر و زیرساخت را در نظر بگیرد."
+    },
+    {
+      "id": "E05-ST04-L03-CARD03",
+      "title": "کیفیت خدمت",
+      "text": "کاهش انرژی نباید با افت کیفیت، دسترس‌پذیری یا ایمنی اشتباه شود."
+    },
+    {
+      "id": "E05-ST04-L03-CARD04",
+      "title": "کارایی و مقدار کل",
+      "text": "بهره‌وری هر درخواست ممکن است بهتر شود ولی رشد تعداد درخواست مصرف کل را بالا ببرد."
+    },
+    {
+      "id": "E05-ST04-L03-CARD05",
+      "title": "دادهٔ تأمین‌کننده",
+      "text": "دادهٔ مرکز داده یا تأمین‌کننده را با مرز، روش و زمان ثبت کند."
+    },
+    {
+      "id": "E05-ST04-L03-CARD06",
+      "title": "دقت تخمین",
+      "text": "اگر اندازه‌گیری مستقیم نیست، تخمین و دامنهٔ عدم‌قطعیت را اعلام کند."
+    },
+    {
+      "id": "E05-ST04-L03-CARD07",
+      "title": "trade-off واقعی",
+      "text": "موازنهٔ کیفیت، تأخیر، انرژی، هزینه و اثر کربنی را متناسب با کاربرد بسنجد."
+    },
+    {
+      "id": "E05-ST04-L03-CARD08",
+      "title": "داشبورد پایش",
+      "text": "داشبورد روند و هشدار را نشان دهد و آستانهٔ اقدام مشخص داشته باشد."
+    },
+    {
+      "id": "E05-ST04-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "هزینهٔ محاسباتی (Compute cost) با حجم و مدل و طول کار تغییر می‌کند؛ انرژی و زمان پاسخ نیز باید در واحد کاری مشترک گزارش شوند. کیفیت خروجی و بار بازبینی را کنار مصرف بسنجید. کاهش هزینهٔ هر فراخوانی به‌تنهایی کارایی کل فرایند را نشان نمی‌دهد."
+    },
+    {
+      "id": "E05-ST04-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "هزینهٔ انرژی AI به حجم، نوع مدل، سخت‌افزار، منطقه و شیوهٔ استفاده وابسته است و باید به واحد خدمت ترجمه شود. کاهش انرژی به ازای هر درخواست ممکن است با رشد حجم، مصرف مطلق را بالا ببرد. کیفیت نیز باید کنار مصرف سنجیده شود؛ مدل کوچک‌تر با خطای بیشتر شاید هزینهٔ عملی را افزایش دهد. دادهٔ زیرساخت و مرز محاسبه را ثبت کنید و از عدد عمومی برای کاربرد خاص نتیجه نگیرید. گزینه‌های مدل و زمان اجرا را مقایسه کنید. پایش دوره‌ای به مدیر نشان می‌دهد بهینه‌سازی واقعاً اثر کل را کم کرده یا فقط شدت را."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E05-ST04-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا مصرف هر درخواست با مصرف کل یکی نیست؟",
+      "remediation_card_id": "E05-ST04-L03-CARD01",
+      "variant": "A",
+      "id": "E05-ST04-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "مرز مصرف",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "c",
+          "text": "میانگین صنعت بدون بررسی",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "b",
+          "text": "قیمت پیشنهادی فروشنده",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E05-ST04-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E05-ST04-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "چه چیزی مقایسهٔ مدل‌ها را منصفانه می‌کند؟",
+      "remediation_card_id": "E05-ST04-L03-CARD02",
+      "variant": "A",
+      "id": "E05-ST04-L03-Q02",
+      "options": [
+        {
+          "id": "b",
+          "text": "یک شاخص منفرد",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "c",
+          "text": "اظهار شفاهی بدون سند",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "a",
+          "text": "مقدار کل و شدت",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        }
+      ],
+      "equivalence_group": "E05-ST04-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E05-ST04-L03-OBJ03",
+      "type": "single_choice",
+      "prompt": "کیفیت در پایش چه شاخصی دارد؟",
+      "remediation_card_id": "E05-ST04-L03-CARD03",
+      "variant": "A",
+      "id": "E05-ST04-L03-Q03",
+      "options": [
+        {
+          "id": "c",
+          "text": "سپردن تصمیم قطعی به مدل",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "b",
+          "text": "نادیده‌گرفتن مجهول",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "a",
+          "text": "معیار کیفیت",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        }
+      ],
+      "equivalence_group": "E05-ST04-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "objective_id": "E05-ST04-L03-OBJ04",
+      "type": "single_choice",
+      "prompt": "تخمین انرژی را چگونه شفاف گزارش می‌کنیم؟",
+      "remediation_card_id": "E05-ST04-L03-CARD04",
+      "variant": "A",
+      "id": "E05-ST04-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "عدم‌قطعیت داده",
+          "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "حدس تیم معامله",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        },
+        {
+          "id": "c",
+          "text": "یک خروجی بدون ارجاع",
+          "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+        }
+      ],
+      "equivalence_group": "E05-ST04-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+    },
+    {
+      "id": "E05-ST04-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کاهش هزینهٔ اجرای مدل با کاهش ارزیابی کیفیت پیشنهاد شده است. چه معیار تصمیم لازم است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "هزینه به‌ازای کار را همراه کیفیت، خطا، انرژی و بار بازبینی بسنجیم",
+          "feedback": "بهینه‌سازی هزینه ممکن است کیفیت یا ریسک را بدتر کند؛ واحد مشترک و guardrailها trade-off را آشکار می‌کنند."
+        },
+        {
+          "id": "b",
+          "text": "فقط مصرف کمتر را موفقیت بدانیم",
+          "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: بهینه‌سازی هزینه ممکن است کیفیت یا ریسک را بدتر کند؛ واحد مشترک و guardrailها trade-off را آشکار می‌کنند."
+        },
+        {
+          "id": "c",
+          "text": "کیفیت را ثابت فرض کنیم",
+          "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: بهینه‌سازی هزینه ممکن است کیفیت یا ریسک را بدتر کند؛ واحد مشترک و guardrailها trade-off را آشکار می‌کنند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "بهینه‌سازی هزینه ممکن است کیفیت یا ریسک را بدتر کند؛ واحد مشترک و guardrailها trade-off را آشکار می‌کنند.",
+      "objective_id": "E05-ST04-L03-OBJ01",
+      "equivalence_group": "E05-ST04-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E05-ST04-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-AI",
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "چارچوب داوطلبانه؛ صفحهٔ NIST می‌گوید AI RMF 1.0 در حال بازنگری است (بررسی 2026-10-19).",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GHG",
+      "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+      "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
+      "review_depth": "primary_or_authoritative_reference",
+      "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "decision-analysis",
+    "prompt": "برای سناریوی سپهر، تمرین «پایش هزینهٔ انرژی و کیفیت» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+    "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+    "rubric": [
+      "کاربرد AI، تصمیم پراثر و انسان پاسخ‌گو مشخص شده‌اند.",
+      "داده، خطا، پیامد برای گروه‌ها و مسیر اعتراض بررسی شده‌اند.",
+      "کنترل، پایش و شرط توقف متناسب‌اند و محدودیت شواهد بیان شده است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E04-ST01-L01"
+  ],
+  "prerequisites_block_access": false,
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-AI",
+    "GHG"
+  ],
+  "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_example; no transaction-specific claims"
+  },
+  "media_plan": {
+    "type": "decision-workspace",
+    "purpose": "ثبت فرض‌ها و شواهد",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/responsible-ai-impact-chain.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «پایش هزینهٔ انرژی و کیفیت»: ارزیابی مسئولانه از ورودی و چرخهٔ عمر شروع می‌شود و به پیامد واقعی می‌رسد. چرخهٔ عمر و منابع، محاسبات، انرژی، سخت‌افزار و زنجیرهٔ تأمین را با دامنه و منبع داده بسنج.؛ کار و ذی‌نفع، اثر بر وظیفه، اختیار، کیفیت کار و گروه‌های متأثر را بررسی کن.؛ کیفیت و حکمرانی، دقت، خطا، دسترسی، پاسخ‌گویی و امکان اعتراض را با مالک مشخص بسنج.؛ کاهش و بازبینی، اقدام کاهشی و سنجهٔ پس از اجرا تعیین کن؛ در صورت عبور از آستانه امکان توقف بده.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «پایش هزینهٔ انرژی و کیفیت» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "مرز مصرف",
+      "مقدار کل و شدت",
+      "معیار کیفیت",
+      "عدم‌قطعیت داده"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 28,
+    "practice": 25
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "یادداشت تصمیم مستند",
+  "selected_source_refs": [
+    {
+      "source_id": "NIST-AI",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "صفحهٔ رسمی NIST بازنگری AI RMF 1.0 را اعلام کرده؛ نسخهٔ جاری و playbook باید پیش از انتشار دوباره بررسی شوند.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GHG",
+      "url": "https://ghgprotocol.org/standards/scope-3-standard",
+      "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+      "review_depth": "primary_or_authoritative_reference",
+      "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+      "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ],
+  "content_ref": "content/e05/lessons/E05-ST04-L03.json"
+}

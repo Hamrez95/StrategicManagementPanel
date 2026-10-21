@@ -74,6 +74,18 @@
           "type": "summary",
           "title": "قاعدهٔ مدیریتی",
           "text": "هر درصد را با صورت، مخرج، شرط و بازهٔ زمانی گزارش کن. احتمال پاسخ «چقدر محتمل؟» است، نه «چرا رخ داد؟»؛ برای علت به طراحی علّی نیاز داریم."
+        },
+        {
+          "id": "C08-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Conditional probability — احتمال شرطی: احتمال رخداد A پس از دانستن B؛ مخرج فقط مواردِ دارای شرط B است. Base rate — نرخ پایه: فراوانی رخداد در جمعیت مرجع؛ نرخ گروهی بدون آن گمراه‌کننده می‌شود. Independence — استقلال: دانستن یک رخداد احتمال دیگری را تغییر نمی‌دهد؛ از کم‌بودن همبستگی به‌تنهایی نتیجه نمی‌شود."
+        },
+        {
+          "id": "C08-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "احتمال شرطی نرخ را در مجموعه‌ای محاسبه می‌کند که شرط در آن برقرار است: موارد A میان موارد B. جابه‌جایی شرط و رخداد معمولاً مخرج دیگری می‌سازد و پاسخ را تغییر می‌دهد؛ به همین دلیل صورت و مخرج را کنار درصد بنویسید. مقایسهٔ دو نرخ شرطی فقط همراهی را نشان می‌دهد؛ اگر فصل، ترکیب مشتری یا موجودی گروه‌ها فرق کند، برای ادعای علت باید طراحی مقایسه‌ای جدا داشت."
         }
       ],
       "questions": [
@@ -223,18 +235,24 @@
           "remediation_card_id": "C08-ST02-L01-CARD07"
         }
       ],
+      "source_refs": [
+        "prob",
+        "cond"
+      ],
       "source_links": [
         {
           "id": "prob",
           "title": "OpenStax Business Statistics 2e: Probability",
           "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-introduction",
-          "scope": "فضای نمونه، رویداد و قواعد احتمال."
+          "scope": "فضای نمونه، رویداد و قواعد احتمال.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "cond",
           "title": "OpenStax Business Statistics 2e: Conditional Probability",
           "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-key-terms",
-          "scope": "احتمال شرطی، جدول توافقی و رویدادها."
+          "scope": "احتمال شرطی، جدول توافقی و رویدادها.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -254,7 +272,20 @@
       "review_status": "pending",
       "fresh_equivalent_variants": 0,
       "prerequisites_suggested": [],
-      "prerequisites_block_access": false
+      "prerequisites_block_access": false,
+      "media_plan": {
+        "type": "authored_diagram",
+        "purpose": "نمایش مخرج درست احتمال شرطی و مرز استنباط از مقایسهٔ نرخ‌ها",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/conditional-probability-denominator.svg",
+            "alt_text": "در ۱۰۰ سفارش کمپین ۲۰ دیرکرد و در ۱۰۰ سفارش عادی ۱۰ دیرکرد است؛ نرخ هر گروه به کل سفارش همان گروه تقسیم می‌شود. تفاوت نرخ به‌تنهایی علیت را نشان نمی‌دهد.",
+            "caption": "در احتمال شرطی، مخرج با شرط انتخاب می‌شود؛ مقایسهٔ نرخ، علت را ثابت نمی‌کند.",
+            "source_url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-key-terms"
+          }
+        ]
+      }
     },
     {
       "id": "C08-ST02-L02",
@@ -316,6 +347,18 @@
           "type": "summary",
           "title": "پیش‌بینی، نه وعده",
           "text": "پیش‌بینی نقطه‌ای یک سناریوی مرکزی است؛ دامنه و فرض‌ها را گزارش کنید. خطای گذشته اندازه‌گیری است، نه تضمین خطای آینده."
+        },
+        {
+          "id": "C08-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Out-of-sample — خارج از نمونه: ارزیابی روی داده‌ای که در برازش استفاده نشده؛ دادهٔ آزمون نباید در تنظیم مدل نشت کند. Baseline — خط مبنا: پیش‌بینی ساده و ازپیش‌تعریف‌شده برای مقایسه؛ مدل پیچیده بدون بهبود نسبت به آن ارزش افزوده ندارد. Overfitting — بیش‌برازش: یادگیری جزئیات تصادفی دادهٔ آموزش؛ عملکرد آموزش بالا، تعمیم ضعیف."
+        },
+        {
+          "id": "C08-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "پیش‌بینی الگویی را از دادهٔ گذشته می‌آموزد و روی دوره‌ای سنجیده می‌شود که در آموزش نبوده است. اگر اطلاعات آینده به ویژگی‌ها نشت کند، خطای آزمون خوش‌بینانه می‌شود؛ اگر فصل‌ها تغییر کنند، تقسیم تصادفی ممکن است کاربرد واقعی را شبیه‌سازی نکند. مبنا و افق را پیشاپیش تعیین کنید و خطا را با هزینهٔ تصمیم بخوانید؛ مدل برتر در MAE الزاماً کم‌هزینه‌ترین تصمیم را نمی‌دهد."
         }
       ],
       "questions": [
@@ -465,18 +508,24 @@
           "remediation_card_id": "C08-ST02-L02-CARD06"
         }
       ],
+      "source_refs": [
+        "forecast",
+        "tscv"
+      ],
       "source_links": [
         {
           "id": "forecast",
           "title": "Forecasting: Principles and Practice, 3e: Forecast Accuracy",
-          "url": "https://otexts.com/fpp3/accuracy.html",
-          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی."
+          "url": "https://otexts.com/fpp3/toolbox.html",
+          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "tscv",
           "title": "Forecasting: Principles and Practice, 3e: Time Series Cross-validation",
-          "url": "https://otexts.com/fpp3/tscv.html",
-          "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده."
+          "url": "https://otexts.com/fpp3/toolbox.html",
+          "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -558,6 +607,18 @@
           "type": "summary",
           "title": "دامنه را به اقدام وصل کن",
           "text": "به‌جای پرسش «عدد درست چیست؟» بپرسید «کدام فرض تصمیم را عوض می‌کند؟» سناریو و شبیه‌سازی ابزار گفت‌وگو دربارهٔ ریسک‌اند؛ جایگزین قضاوت مسئولانه نیستند."
+        },
+        {
+          "id": "C08-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Scenario analysis — تحلیل سناریو: بررسی چند مجموعه فرض سازگار؛ پیش‌بینی قطعی یا احتمال‌دار نیست مگر احتمال‌ها جداگانه برآورد شوند. Simulation — شبیه‌سازی: اجرای تکراری مدل با ورودی‌های متغیر؛ کیفیت خروجی از مفروضات ورودی بهتر نمی‌شود. Sensitivity analysis — تحلیل حساسیت: سنجش تغییر خروجی با تغییر یک ورودی یا فرض؛ علت‌یابی اثر واقعی محسوب نمی‌شود."
+        },
+        {
+          "id": "C08-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "شبیه‌سازی با نمونه‌گیری از ورودی‌های نامطمئن، دامنهٔ پیامدهای مدل را نشان می‌دهد؛ اما توزیع ورودی و رابطه‌ها را از پیش فرض می‌کند. سناریوهای سازگار کمک می‌کنند فرض‌های متفاوت را جدا ببینیم، نه اینکه محتمل‌ترین آینده را اعلام کنیم. اگر احتمال ورودی‌ها تغییر کند، خروجی و رتبهٔ گزینه‌ها هم تغییر می‌کند؛ حساسیت را گزارش کنید و تصمیم برگشت‌پذیر را از تصمیم پرهزینه جدا سازید."
         }
       ],
       "questions": [
@@ -707,18 +768,24 @@
           "remediation_card_id": "C08-ST02-L03-CARD07"
         }
       ],
+      "source_refs": [
+        "prob",
+        "forecast"
+      ],
       "source_links": [
         {
           "id": "prob",
           "title": "OpenStax Business Statistics 2e: Probability",
           "url": "https://openstax.org/books/introductory-business-statistics-2e/pages/3-introduction",
-          "scope": "فضای نمونه، رویداد و قواعد احتمال."
+          "scope": "فضای نمونه، رویداد و قواعد احتمال.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "forecast",
           "title": "Forecasting: Principles and Practice, 3e: Forecast Accuracy",
-          "url": "https://otexts.com/fpp3/accuracy.html",
-          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی."
+          "url": "https://otexts.com/fpp3/toolbox.html",
+          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -800,6 +867,18 @@
           "type": "summary",
           "title": "مدیر مالک تصمیم می‌ماند",
           "text": "خروجی مدل ورودی تصمیم است. برای تصمیم پرهزینه، عدم‌قطعیت، گزینهٔ پشتیبان، مسئول بازبینی و اقدام در صورت افت عملکرد را از پیش روشن کنید."
+        },
+        {
+          "id": "C08-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Baseline forecast — پیش‌بینی مبنا: روش سادهٔ مرجع برای سنجش بهبود مدل. Forecast horizon — افق پیش‌بینی: فاصلهٔ زمانی میان زمان پیش‌بینی و پیامد؛ خطا معمولاً با افق تغییر می‌کند. Data leakage — نشت داده: ورود اطلاعاتی از آینده یا برچسب هدف به فرایند آموزش؛ ارزیابی را خوش‌بینانه می‌کند."
+        },
+        {
+          "id": "C08-ST02-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مدل AI باید کنار یک روش ساده و روی دادهٔ زمانیِ مستقل سنجیده شود؛ در غیر این صورت پیچیدگی یا نشت داده می‌تواند برتری کاذب بسازد. خطای پیش‌بینی فقط وقتی ارزش مدیریتی دارد که هزینهٔ هشدار نادرست، کمبود و ظرفیت پاسخ را هم بدانیم. اگر زمینه یا افق عوض شود، مبنا و آستانهٔ تصمیم را دوباره ارزیابی کنید؛ پیش‌بینی دقیق‌تر ممکن است به‌خاطر هزینهٔ اقدام، تصمیم بهتری نسازد."
         }
       ],
       "questions": [
@@ -949,24 +1028,32 @@
           "remediation_card_id": "C08-ST02-L04-CARD08"
         }
       ],
+      "source_refs": [
+        "forecast",
+        "tscv",
+        "NIST-GENAI-PROFILE-2024"
+      ],
       "source_links": [
         {
           "id": "forecast",
           "title": "Forecasting: Principles and Practice, 3e: Forecast Accuracy",
-          "url": "https://otexts.com/fpp3/accuracy.html",
-          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی."
+          "url": "https://otexts.com/fpp3/toolbox.html",
+          "scope": "تفکیک آموزش و آزمون و سنجش خطای پیش‌بینی واقعی.",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "tscv",
           "title": "Forecasting: Principles and Practice, 3e: Time Series Cross-validation",
-          "url": "https://otexts.com/fpp3/tscv.html",
-          "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده."
+          "url": "https://otexts.com/fpp3/toolbox.html",
+          "scope": "اعتبارسنجی پیش‌رونده بدون استفاده از آینده.",
+          "accessed_on": "2026-10-21"
         },
         {
-          "id": "nist",
+          "id": "NIST-GENAI-PROFILE-2024",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://doi.org/10.6028/NIST.AI.600-1",
-          "scope": "مدیریت ریسک خروجی مولد؛ منبع راهنمای ریسک است، نه تضمین وقوع خطا."
+          "scope": "مدیریت ریسک خروجی مولد؛ منبع راهنمای ریسک است، نه تضمین وقوع خطا.",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {

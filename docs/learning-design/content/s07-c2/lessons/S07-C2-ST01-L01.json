@@ -1,0 +1,312 @@
+{
+  "id": "S07-C2-ST01-L01",
+  "version": "1-draft",
+  "title": "وظیفه، کاربر و تصمیم",
+  "content_status": "draft",
+  "objective": "وظیفهٔ مدیریتی و کاربر و تصمیم واقعی را تعریف کند و سطح مداخلهٔ AI را از کمک تا خودکارسازی مشخص سازد.",
+  "learning_cards": [
+    {
+      "title": "مسئله را پیش از فناوری بنویسید",
+      "id": "S07-C2-ST01-L01-CARD01",
+      "text": "صورت مسئله بگوید چه کسی، در چه لحظه‌ای، با چه کاری و چه مانعی روبه‌روست. «می‌خواهیم دستیار هوشمند داشته باشیم» راه‌حل پیشنهادی است؛ مسئله شاید زمان پاسخ طولانی یا خطای دسته‌بندی باشد."
+    },
+    {
+      "title": "وظیفه را به گام بشکنید",
+      "id": "S07-C2-ST01-L01-CARD02",
+      "text": "کار معمولاً شامل دریافت اطلاعات، تفسیر، تصمیم، ارتباط و پیگیری است. AI ممکن است در خلاصه‌سازی کمک کند اما اختیار تغییر سفارش یا پاسخ نهایی حساس باشد. هر گام را جدا از بقیه ارزیابی کنید."
+    },
+    {
+      "title": "کاربر، تصمیم‌گیر و متأثر",
+      "id": "S07-C2-ST01-L01-CARD03",
+      "text": "کاربر ابزار، مدیرِ صاحب تصمیم، مشتریِ متأثر و تیم پاسخ‌گو شاید افراد متفاوت باشند. نیاز و آسیب هر گروه را ثبت کنید؛ بهره‌وری یک تیم ممکن است زمان یا ریسک را به مشتری منتقل کند."
+    },
+    {
+      "title": "تصمیمی که می‌خواهیم بهتر شود",
+      "id": "S07-C2-ST01-L01-CARD04",
+      "text": "تصمیم را عملیاتی بنویسید: کدام سفارش بررسی شود، چه کسی پاسخ دهد یا کدام مسیر پیگیری شود؟ این تعریف معیار ارزش و دادهٔ لازم را روشن می‌کند."
+    },
+    {
+      "title": "سطح اختیار",
+      "id": "S07-C2-ST01-L01-CARD05",
+      "text": "AI می‌تواند اطلاع دهد، پیش‌نویس بسازد، اولویت پیشنهاد کند یا تصمیم خودکار بگیرد. با افزایش اختیار، نیاز به صحت، بازبینی، ثبت اقدام و مسیر اعتراض بیشتر می‌شود."
+    },
+    {
+      "title": "حجم و تکرار",
+      "id": "S07-C2-ST01-L01-CARD06",
+      "text": "وظیفهٔ کم‌تکرار شاید با چک‌لیست ساده حل شود؛ کار پرتکرار و پرحجم می‌تواند فرصت اتوماسیون ایجاد کند. فراوانی را همراه تنوع، استثنا و هزینهٔ هر مورد بسنجید."
+    },
+    {
+      "title": "زمینهٔ تصمیم",
+      "id": "S07-C2-ST01-L01-CARD07",
+      "text": "زمان، محل، مقررات، اطلاعات در دسترس و محدودیت کاربر را وارد تعریف کنید. سیستمی که در محیط آزمایشی موفق است ممکن است به سبب داده ناقص یا اتصال کند در عملیات شکست بخورد."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST01-L01-CARD08",
+      "text": "کاربر مدیر پشتیبانی است؛ تصمیم، اولویت پاسخ به تیکت‌های مرتبط با سفارش در معرض دیرکرد؛ هدف کاهش تأخیر بدون افزایش هشدار کاذب. AI فقط اولویت را پیشنهاد می‌کند و کارشناس پاسخ را تأیید می‌کند."
+    },
+    {
+      "id": "S07-C2-ST01-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "وظیفه (Task) کار مشخص، کاربر (User) استفاده‌کننده و تصمیم (Decision) اقدامی است که خروجی بر آن اثر می‌گذارد. سطح مداخله از پیشنهاد تا اجرای خودکار متفاوت است. یک وظیفهٔ خوب تعریف‌شده، اثر و مسئولیت را قابل سنجش می‌کند."
+    },
+    {
+      "id": "S07-C2-ST01-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "کاربرد را به وظیفه و تصمیم واقعی وصل کنید: چه کسی چه کاری را با چه اطلاعاتی انجام می‌دهد و خطا چه اثری دارد؟ سطح مداخله از پیشنهاددهی تا اجرای خودکار متغیر است. خودکارسازی بیشتر می‌تواند زمان را کم کند اما دامنهٔ پیامد و نیاز به کنترل را بالا می‌برد. تشخیص وظیفه از عنوان شغلی مهم است، چون نقش‌ها مجموعه‌ای از کارهای متفاوت‌اند. اگر مسئله مبهم باشد، سنجهٔ موفقیت نیز مبهم می‌ماند. گردش‌کار فعلی، استثناها و نقاط اختیار را ترسیم کنید و محدودهٔ کاربرد را طوری انتخاب کنید که مسئول تصمیم پاسخ‌گو بماند."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "صورت مسئله با چه چیزی شروع می‌شود؟",
+      "remediation_card_id": "S07-C2-ST01-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST01-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "نام مدل",
+          "feedback": "بازبینی: فناوری بعد از تعریف نیاز انتخاب می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "خرید نرم‌افزار",
+          "feedback": "بازبینی: فناوری بعد از تعریف نیاز انتخاب می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "کاربر، وظیفه، مانع و تصمیم",
+          "feedback": "درست: فناوری بعد از تعریف نیاز انتخاب می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "فناوری بعد از تعریف نیاز انتخاب می‌شود."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا وظیفه را به گام‌ها تقسیم کنیم؟",
+      "remediation_card_id": "S07-C2-ST01-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST01-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون هیچ کار انسانی ندارد",
+          "feedback": "بازبینی: خلاصه‌سازی و تصمیم نهایی پیامدهای یکسان ندارند."
+        },
+        {
+          "id": "b",
+          "text": "اختیار و ریسک هر گام متفاوت است",
+          "feedback": "درست: خلاصه‌سازی و تصمیم نهایی پیامدهای یکسان ندارند."
+        },
+        {
+          "id": "c",
+          "text": "تا همه‌چیز خودکار شود",
+          "feedback": "بازبینی: خلاصه‌سازی و تصمیم نهایی پیامدهای یکسان ندارند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "خلاصه‌سازی و تصمیم نهایی پیامدهای یکسان ندارند."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "در کنار کاربر چه کسی را بررسی کنیم؟",
+      "remediation_card_id": "S07-C2-ST01-L01-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST01-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "تصمیم‌گیر و مشتری/فرد متأثر",
+          "feedback": "درست: اثر کاربرد می‌تواند به چند نقش برسد."
+        },
+        {
+          "id": "b",
+          "text": "فقط فروشندهٔ ابزار",
+          "feedback": "بازبینی: اثر کاربرد می‌تواند به چند نقش برسد."
+        },
+        {
+          "id": "c",
+          "text": "فقط مدیرعامل",
+          "feedback": "بازبینی: اثر کاربرد می‌تواند به چند نقش برسد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "اثر کاربرد می‌تواند به چند نقش برسد."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "با افزایش اختیار AI چه چیزی باید بیشتر شود؟",
+      "remediation_card_id": "S07-C2-ST01-L01-CARD05",
+      "variant": "A",
+      "id": "S07-C2-ST01-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "ابهام مسئولیت",
+          "feedback": "بازبینی: ریسک پیامد تصمیم بالاتر می‌رود."
+        },
+        {
+          "id": "b",
+          "text": "اعتماد بی‌بررسی",
+          "feedback": "بازبینی: ریسک پیامد تصمیم بالاتر می‌رود."
+        },
+        {
+          "id": "c",
+          "text": "کنترل، بازبینی و امکان اعتراض",
+          "feedback": "درست: ریسک پیامد تصمیم بالاتر می‌رود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "ریسک پیامد تصمیم بالاتر می‌رود."
+    },
+    {
+      "id": "S07-C2-ST01-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "فرایند پیشنهادشدهٔ AI خوب به‌نظر می‌رسد اما کاربر و تصمیم نهایی مشخص نیستند. ابتدا چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "وظیفه، کاربر، تصمیم و سطح مداخله را تعریف کنیم",
+          "feedback": "ارزیابی ارزش بدون تصمیم و کاربر واقعی ممکن نیست؛ نخست محل مداخله و مسئولیت را روشن کنید."
+        },
+        {
+          "id": "b",
+          "text": "مدل را انتخاب کنیم",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: ارزیابی ارزش بدون تصمیم و کاربر واقعی ممکن نیست؛ نخست محل مداخله و مسئولیت را روشن کنید."
+        },
+        {
+          "id": "c",
+          "text": "خروجی را خودکار اجرا کنیم",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: ارزیابی ارزش بدون تصمیم و کاربر واقعی ممکن نیست؛ نخست محل مداخله و مسئولیت را روشن کنید."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ارزیابی ارزش بدون تصمیم و کاربر واقعی ممکن نیست؛ نخست محل مداخله و مسئولیت را روشن کنید.",
+      "objective_id": "S07-C2-ST01-L01-OBJ01",
+      "equivalence_group": "S07-C2-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST01-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-task-value-cost-brief",
+    "prompt": "برای یک وظیفهٔ پشتیبانی سپهر، کاربر و تصمیم و خط مبنا، ارزش کیفیت/زمان، معیارهای زیان، هزینهٔ کامل، وابستگی و مجوز داده را تعریف کنید. گام‌های پردازش را نیز با مالک مشخص کنید.",
+    "expected_output": "برگهٔ مسئله و ارزش و هزینه برای تصمیم پایلوت",
+    "rubric": [
+      "وظیفه، کاربر، تصمیم و وضعیت پایه دقیق تعریف شده‌اند.",
+      "ارزش، هزینهٔ کل و شاخص کیفیت/زیان با واحد و فرض روشن‌اند.",
+      "وابستگی، مالک تصمیم و آزمون پایلوت با شرط ادامه/توقف مشخص است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST01-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "NBER-GENAI-WORK-2025",
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AI-RMF-MEASURE"
+  ],
+  "source_scope": "مطالعهٔ میدانی و منابع چارچوبی به زمینه محدودند؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work-customer-support"
+    ],
+    "real_case_status": "research_scope_reviewed; results_not_directly_generalizable"
+  },
+  "media_plan": {
+    "type": "AI-use-case-value-cost-map",
+    "purpose": "پیوند تصمیم و خط مبنا و کیفیت و هزینه و محدودیت",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-use-case-value-baseline.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «وظیفه، کاربر و تصمیم»: اول تصمیم و کاربر را بشناس؛ سپس ارزش، کیفیت، هزینه و محدودیت را بسنج. وظیفه و کاربر، تصمیم، نقش کاربر و پیامد خطا را مشخص کن.؛ خط مبنا، عملکرد فعلی انسان یا سامانه را پیش از پایلوت اندازه بگیر.؛ ارزش و کیفیت، زمان، دقت، دسترسی و نیاز به اصلاح را با هم ارزیابی کن.؛ هزینه و استقرار، مصرف، یکپارچه‌سازی، نظارت، امنیت و نگهداری را به واحد کار وصل کن.",
+        "caption": "نقشه را برای تحلیل «وظیفه، کاربر و تصمیم» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف وظیفه",
+      "خط مبنا",
+      "ارزش کیفیت و زمان",
+      "هزینهٔ استقرار"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 16
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برگهٔ ارزیابی وظیفه و ارزش AI"
+}

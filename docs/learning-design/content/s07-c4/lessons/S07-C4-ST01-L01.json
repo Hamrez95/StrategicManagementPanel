@@ -1,0 +1,356 @@
+{
+  "id": "S07-C4-ST01-L01",
+  "version": "1-draft",
+  "title": "آزمایشگاه در برابر تولید",
+  "content_status": "draft",
+  "objective": "تفاوت شرایط آزمایش و محیط عملیاتی را توضیح دهد و آمادگی داده، سامانه، نقش و پایش را پیش از انتشار بررسی کند.",
+  "learning_cards": [
+    {
+      "title": "نمونهٔ آزمایش، خدمت واقعی نیست",
+      "id": "S07-C4-ST01-L01-CARD01",
+      "text": "مدل در notebook یا محیط آزمایش با دادهٔ آماده و کنترل‌شده اجرا می‌شود؛ در تولید با کاربران، ورودی‌های ناقص، بار متغیر، وابستگی‌ها و پیامد واقعی روبه‌روست. دقت آزمایشگاهی به‌تنهایی آمادگی عرضه را ثابت نمی‌کند."
+    },
+    {
+      "title": "محیط‌ها را برای پرسش‌های متفاوت بساز",
+      "id": "S07-C4-ST01-L01-CARD02",
+      "text": "توسعه برای یادگیری، staging برای سنجش یکپارچگی نزدیک به تولید و تولید برای ارائهٔ خدمت است. هر محیط باید هدف، دادهٔ مجاز، دسترسی و معیار ورود/خروج روشن داشته باشد. دادهٔ واقعی حساس را بدون کنترل به محیط آزمایش منتقل نکنید."
+    },
+    {
+      "title": "کل سامانه را آماده کن",
+      "id": "S07-C4-ST01-L01-CARD03",
+      "text": "مدل فقط یک جزء است. داده‌گیری، تبدیل ویژگی، سرویس‌دهی، مجوز، API، صف، رابط و ثبت رخداد به‌هم وابسته‌اند. راهنمای Google برای تولید، زیرساخت، logging، monitoring و alerting را جزو آمادگی سامانه می‌داند."
+    },
+    {
+      "title": "اندازه‌گیری آفلاین کافی نیست",
+      "id": "S07-C4-ST01-L01-CARD04",
+      "text": "آزمون آفلاین کیفیت را روی مجموعهٔ ارزیابی می‌سنجد؛ در تولید، ترکیب ورودی یا رفتار کاربر ممکن است فرق کند. معیار آنلاین، شاخص جانشین و محدودیت‌های مشاهدهٔ نتیجهٔ واقعی را از قبل تعریف کنید."
+    },
+    {
+      "title": "سرویس چه وقت آماده است؟",
+      "id": "S07-C4-ST01-L01-CARD05",
+      "text": "آمادگی شامل توان عملیاتی، تأخیر، دسترس‌پذیری، مدیریت خطا، پشتیبانی و ظرفیت پاسخ‌گویی است. تخمین بزنید در ساعات اوج چه منابعی لازم است و هنگام قطعی یا تأخیر مدل، فرایند کسب‌وکار چگونه ادامه می‌یابد."
+    },
+    {
+      "title": "نسخه و مالک را ثبت کن",
+      "id": "S07-C4-ST01-L01-CARD06",
+      "text": "برای هر انتشار نسخهٔ مدل، کد، داده یا pipeline، تنظیمات، تاریخ، مالک و تأیید را مستند کنید. اگر چیزی تغییر کند و اثر بدتر شود، این ردپا کمک می‌کند علت را محدود کنید. نام کلی مثل «مدل جدید» برای پاسخ‌گویی کافی نیست."
+    },
+    {
+      "title": "عرضهٔ تدریجی اطلاعات می‌دهد",
+      "id": "S07-C4-ST01-L01-CARD07",
+      "text": "انتشار به بخشی از ترافیک یا کاربران می‌تواند مشکل را پیش از گسترش کامل آشکار کند. گروه مقایسه، معیار توقف و مدت مشاهده را از قبل تعیین کنید؛ گروه آزمایشی باید نمایندهٔ دامنه‌ای باشد که قصد توسعه‌اش را دارید."
+    },
+    {
+      "title": "تصمیم go/no-go را نقش‌محور کن",
+      "id": "S07-C4-ST01-L01-CARD08",
+      "text": "مالک کسب‌وکار، فنی، امنیت/حریم خصوصی و عملیات باید بدانند چه شواهدی برای اجازهٔ عرضه لازم است. NIST ارزیابی را به کاربرد و پیامد گره می‌زند. برگهٔ آمادگی، خلأ، مسئول رفع و تاریخ تصمیم را ثبت کنید."
+    },
+    {
+      "id": "S07-C4-ST01-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "محیط آزمایش (Staging) برای بررسی پیش از انتشار است؛ محیط تولید (Production) با کاربر و داده و اتصال واقعی کار می‌کند. برابری نسخه و دسترسی و پایش شرط انتقال است. موفقیت آزمایش، آمادگی تولید را به‌تنهایی ثابت نمی‌کند."
+    },
+    {
+      "id": "S07-C4-ST01-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "آزمایشگاه ممکن است دادهٔ تمیز، حجم کم و پشتیبانی مستقیم سازنده داشته باشد؛ تولید با کاربران، خطاهای ورودی، تأخیر و سامانه‌های وابسته روبه‌رو است. آمادگی فقط دقت مدل نیست: جریان داده، دسترسی، ثبت، پاسخ به رخداد، ظرفیت عملیاتی و آموزش کاربر را هم بررسی کنید. فرض تعمیم نمونهٔ پایلوت به محیط بزرگ را بسنجید. انتشار مرحله‌ای می‌تواند دامنهٔ اثر خطا را محدود کند. معیار ورود و بازگشت به نسخهٔ قبل را پیش از انتشار تعریف کنید و پس از استقرار کیفیت را با دادهٔ واقعی پایش کنید."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا امتیاز آزمایشگاهی آمادگی تولید را ثابت نمی‌کند؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-ST01-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "محیط واقعی داده، بار و وابستگی متفاوت دارد",
+          "feedback": "درست: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        },
+        {
+          "id": "b",
+          "text": "چون مدل در آزمایش قابل سنجش نیست",
+          "feedback": "بازبینی: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        },
+        {
+          "id": "c",
+          "text": "چون تولید نیازی به کنترل ندارد",
+          "feedback": "بازبینی: تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تولید یک سامانهٔ کامل در زمینهٔ واقعی است."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "کدام مورد در چک‌لیست استقرار ضروری است؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C4-ST01-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط نام مدل",
+          "feedback": "بازبینی: عملکرد خدمت به کل خط تولید وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "نسخه، وابستگی‌ها، پایش و مسیر قطعی",
+          "feedback": "درست: عملکرد خدمت به کل خط تولید وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "تعداد اسلاید معرفی",
+          "feedback": "بازبینی: عملکرد خدمت به کل خط تولید وابسته است."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "عملکرد خدمت به کل خط تولید وابسته است."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "انتشار تدریجی چه فایده‌ای دارد؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD03",
+      "variant": "A",
+      "id": "S07-C4-ST01-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "کشف مسئله در دامنهٔ محدود پیش از گسترش",
+          "feedback": "درست: rollout مرحله‌ای فرصت مشاهده و بازگشت می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "اثبات بی‌خطایی",
+          "feedback": "بازبینی: rollout مرحله‌ای فرصت مشاهده و بازگشت می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "حذف نیاز به معیار توقف",
+          "feedback": "بازبینی: rollout مرحله‌ای فرصت مشاهده و بازگشت می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "rollout مرحله‌ای فرصت مشاهده و بازگشت می‌دهد."
+    },
+    {
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "تصمیم go/no-go باید به چه چیزی متکی باشد؟",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD04",
+      "variant": "A",
+      "id": "S07-C4-ST01-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "معیار و نقش‌های از پیش تعیین‌شده",
+          "feedback": "درست: معیارها باید با زمینه و پیامد استقرار تناسب داشته باشند."
+        },
+        {
+          "id": "b",
+          "text": "فقط نظر فروشنده",
+          "feedback": "بازبینی: معیارها باید با زمینه و پیامد استقرار تناسب داشته باشند."
+        },
+        {
+          "id": "c",
+          "text": "فقط نتیجهٔ یک demo",
+          "feedback": "بازبینی: معیارها باید با زمینه و پیامد استقرار تناسب داشته باشند."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST01-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "معیارها باید با زمینه و پیامد استقرار تناسب داشته باشند."
+    },
+    {
+      "id": "S07-C4-ST01-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل در محیط آزمایش خوب است اما داده و کاربر و اتصال محیط تولید متفاوت‌اند. پیش از انتشار چه می‌سنجیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "آمادگی داده و سامانه و نقش و پایش را در شرایط مقصد بررسی کنیم",
+          "feedback": "محیط آزمایش با تولید فرق دارد؛ داده و اتصال و نقش و پایش باید در مقصد آماده باشند."
+        },
+        {
+          "id": "b",
+          "text": "نتیجهٔ آزمایش را مستقیماً تعمیم دهیم",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: محیط آزمایش با تولید فرق دارد؛ داده و اتصال و نقش و پایش باید در مقصد آماده باشند."
+        },
+        {
+          "id": "c",
+          "text": "آمادگی را فقط با نرخ پاسخ مدل بسنجیم",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: محیط آزمایش با تولید فرق دارد؛ داده و اتصال و نقش و پایش باید در مقصد آماده باشند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "محیط آزمایش با تولید فرق دارد؛ داده و اتصال و نقش و پایش باید در مقصد آماده باشند.",
+      "objective_id": "S07-C4-ST01-L01-OBJ01",
+      "equivalence_group": "S07-C4-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C4-ST01-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers, Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-DEPLOYMENT-TESTING",
+      "title": "Google ML Crash Course, Deployment Testing",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course, Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI RMF Core and Playbook",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "deployment-readiness-runbook",
+    "prompt": "در سناریوی سپهر، برای «آزمایشگاه در برابر تولید» داده، نسخه، مالک، معیار پذیرش و مسیر توقف/بازگشت را تعیین کنید.",
+    "expected_output": "چک‌لیست آمادگی استقرار و شکاف‌های محیط آزمایش/تولید",
+    "rubric": [
+      "تفاوت محیط آزمایش و تولید، داده، نسخه و مالک مستند شده‌اند.",
+      "معیار پذیرش، امنیت، پایش و rollback پیش از راه‌اندازی روشن‌اند.",
+      "استقرار مرحله‌ای، مسئول رخداد و شرط توقف قابل اجراست."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C1-ST03-L03",
+    "S07-C2-ST02-L03"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c4/lessons/S07-C4-ST01-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "GOOGLE-ML-DEPLOYMENT-TESTING",
+    "GOOGLE-ML-MONITORING",
+    "NIST-AI-RMF-CORE"
+  ],
+  "source_scope": "راهنمای Google برای مهندسی تولید و NIST برای ارزیابی زمینه‌ای به‌کار رفته‌اند؛ مثال سپهر ساختگی است و آستانهٔ پذیرش باید برای کاربرد تعیین شود.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "deployment-readiness-and-rollback-checklist",
+    "purpose": "ترسیم مسیر از staging تا عرضه، پایش و بازگشت",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/model-production-release-rollback.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «آزمایشگاه در برابر تولید»: عرضهٔ مرحله‌ای را با خط مبنا، مالک و ماشهٔ توقف طراحی کن. آمادگی تولید، محیط، دسترسی، داده، نقش و پایش را از آزمایش جدا کن.؛ ارزیابی نسخه، نسخهٔ جدید را با baseline و مجموعهٔ نماینده مقایسه کن.؛ عرضه و بازگشت، انتشار مرحله‌ای، آستانهٔ توقف و مسیر نسخهٔ قبلی را تمرین کن.؛ مالک و خدمت، مسئول تصمیم و گزینهٔ کسب‌وکار هنگام توقف را پیشاپیش مشخص کن.",
+        "caption": "نقشه را برای تحلیل «آزمایشگاه در برابر تولید» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف مفهوم",
+      "تشخیص شکاف عملیاتی",
+      "تصمیم انتشار",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": true,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "چک‌لیست آمادگی استقرار و شکاف‌های محیط آزمایش/تولید",
+  "selected_source_refs": [
+    {
+      "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "خط تولید، پایش، تأیید، انتشار تدریجی و rollback در ML؛ راهنمای فنی است نه ضمانت اجرایی.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-DEPLOYMENT-TESTING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "آزمون داده، مدل، زیرساخت و یکپارچگی پیش از انتشار.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-MONITORING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "پایش داده، skew، drift، کیفیت زنده و افت عملکرد؛ جزئیات به مسئله وابسته است.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "راهنمای عملیاتی مرتبط با استقرار، داده، ارزیابی یا بازگشت نسخه",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "آزمون، ارزیابی و مدیریت ریسک بر مبنای زمینه و پیامد؛ چارچوب داوطلبانه.",
+      "gap": "راهنمای عمومی است؛ آستانه‌ها و روش استقرار باید با کاربرد خاص تعیین شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

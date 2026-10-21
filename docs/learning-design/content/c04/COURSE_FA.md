@@ -12,6 +12,12 @@
 
 قبل از تبلیغ یا طراحی محصول باید معلوم شود چه کسی تصمیم خرید می‌گیرد و چه کسی از خدمت استفاده می‌کند. گاهی یک نفر هر دو نقش را دارد و گاهی نه.
 
+| نقش | نمونه در سناریوی سپهر | مسئله‌ای که باید بررسی شود |
+|---|---|---|
+| تصمیم‌گیر/خریدار | مدیر منابع انسانی | ارزش و گزارش‌پذیری |
+| پرداخت‌کننده | شرکت | بودجه و معیار خرید |
+| استفاده‌کننده | کارمند | سهولت و تمرین کوتاه |
+
 #### تعریف روشن
 
 نیاز مسئله یا پیشرفتی است که فرد می‌خواهد؛ راه‌حل یک پیشنهاد مشخص شرکت است. خواسته شیوه یا شکل برآورده‌شدن نیاز است و تقاضا وقتی شکل می‌گیرد که خواسته با توان و قصد خرید همراه شود.
@@ -54,7 +60,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - قیمت از هزینهٔ ساخت
 - نام از رنگ محصول
 
-پاسخ: خریدار و استفاده‌کننده و نیاز هر کدام؛ a
+پاسخ: خریدار و استفاده‌کننده و نیاز هر کدام؛ در خرید سازمانی، واحد تصمیم چند نقش دارد. خریدار بودجه و قرارداد را می‌بیند؛ کاربر تجربه و کار روزانه را. نیاز هر دو را جدا ثبت کن.
 
 مشتری می‌گوید «اپ می‌خواهم». اقدام پژوهشگر؟
 
@@ -62,7 +68,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - ثبت اپ به‌عنوان نیاز قطعی
 - فروش فوری همان اپ
 
-پاسخ: پرسیدن دربارهٔ موقعیت، کار فعلی، مانع و نتیجه؛ a
+پاسخ: پرسیدن دربارهٔ موقعیت، کار فعلی، مانع و نتیجه؛ درخواست راه‌حل را به رخداد واقعی برگردان: آخرین بار چه کاری داشت، چه مانعی دید و چه نتیجه‌ای می‌خواست؟ این پاسخ فرضیهٔ بهتری می‌سازد.
 
 کدام مورد تقاضا را از خواسته متمایز می‌کند؟
 
@@ -70,7 +76,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - رنگ انتخابی
 - عادت استفاده
 
-پاسخ: توان و قصد خرید در بازار؛ a
+پاسخ: توان و قصد خرید در بازار؛ تقاضا به خواست تنها محدود نیست؛ توان و قصد خرید در بازار هم مهم است. رنگ ترجیحی فقط بخشی از خواسته است.
 
 برای خدمت B2B کدام مصاحبه می‌تواند شکاف بپوشاند؟
 
@@ -78,7 +84,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - فقط مدیرعامل
 - فقط تیم فروش
 
-پاسخ: گفت‌وگو هم با تصمیم‌گیر و هم با کاربر روزمره؛ a
+پاسخ: گفت‌وگو هم با تصمیم‌گیر و هم با کاربر روزمره؛ در B2B تصمیم‌گیر دربارهٔ بودجه و خرید می‌داند؛ کاربر روزانه هم جریان واقعی کار را می‌شناسد. گفت‌وگو با هر دو شکاف را کم می‌کند.
 
 پیش از طراحی راه‌حل چه چیزی باید روشن شود؟
 
@@ -86,7 +92,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - نام کمپین
 - رنگ لوگو
 
-پاسخ: زمینه، مسئله، جایگزین و نتیجهٔ مطلوب؛ a
+پاسخ: زمینه، مسئله، جایگزین و نتیجهٔ مطلوب؛ پیش از ساخت، زمینه و مسئله را همراه با جایگزین فعلی و نتیجهٔ مطلوب روشن کن؛ این کار مانع قفل‌شدن زودهنگام روی یک محصول می‌شود.
 
 #### فعالیت کاربردی
 
@@ -103,7 +109,7 @@ Customer: مشتری/طرف مبادله یا تصمیم خرید. Consumer/user
 - منبع [OpenStax Principles of Marketing: 6.3 Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ تعریف مسئله، طرح پژوهش، نمونه، گردآوری و تحلیل داده.
 - منبع [Harvard Business School: MBA Marketing curriculum](https://www.hbs.edu/faculty/units/marketing/Pages/curriculum.aspx)؛ هم‌راستایی رسمی با رفتار خریدار، ارزش مشتری و تصمیم‌های آمیختهٔ بازاریابی.
 - منبع [Oxford MBA: Core courses and electives, Marketing](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی رسمی با تحلیل بازار، رفتار مصرف‌کننده، ارزش مشتری و بازاریابی دیجیتال.
-- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ یک مطالعهٔ تجربی دربارهٔ پاسخ‌های ترجیح اقتصادی شبیه‌سازی‌شده؛ نتیجه به داده، مدل و نوع سؤال همان مطالعه محدود است.
+- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 
 ### درس‌نامهٔ `C04-ST01-L02`؛ پرسش خوب در پژوهش مشتری
 
@@ -155,7 +161,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - اگر محصول عالی باشد می‌خرید؟
 - ایدهٔ ما خوب است، درست است؟
 
-پاسخ: آخرین بار چگونه این کار را انجام دادید؟؛ a
+پاسخ: آخرین بار چگونه این کار را انجام دادید؟؛ پرسش دربارهٔ رخداد گذشته رفتار مشخص را بازیابی می‌کند و پاسخ‌دهنده را کمتر به وعدهٔ فرضی سوق می‌دهد.
 
 هدف اصلی مصاحبهٔ اکتشافی چیست؟
 
@@ -163,7 +169,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - تخمین دقیق سهم بازار از چند نفر
 - اثبات قطعی فروش
 
-پاسخ: فهم زمینه و ساخت فرضیهٔ قابل آزمون؛ a
+پاسخ: فهم زمینه و ساخت فرضیهٔ قابل آزمون؛ مصاحبهٔ اکتشافی برای فهم زمینه و ساخت فرضیه است. چند گفت‌وگو معمولاً اندازهٔ بازار یا فروش را برآورد نمی‌کند.
 
 پاسخ‌دهنده می‌گوید «احتمالاً خریده بودم». چه ثبت کنیم؟
 
@@ -171,7 +177,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - فروش قطعی
 - دادهٔ تراکنش
 
-پاسخ: گفتهٔ فرضی، جدا از رفتار خرید واقعی؛ a
+پاسخ: گفتهٔ فرضی، جدا از رفتار خرید واقعی؛ «احتمالاً می‌خریدم» پاسخ فرضی است. آن را از خرید ثبت‌شده یا تعهد واقعی جدا نگه دار.
 
 پاسخ‌دهنده رخداد قدیمی را دقیق به یاد ندارد. چه خطری هست؟
 
@@ -179,7 +185,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - خطای تصادفی سیستم
 - رقیق‌شدن سهام
 
-پاسخ: سوگیری یادآوری؛ a
+پاسخ: سوگیری یادآوری؛ فراموشی یا بازسازی نادقیق رخداد گذشته سوگیری یادآوری است. پرسش دربارهٔ نمونهٔ نزدیک یا مدرک رفتاری می‌تواند آن را کم کند.
 
 برای مصاحبهٔ ضبط‌شده چه رویه‌ای مهم است؟
 
@@ -187,7 +193,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - ضبط پنهانی
 - انتشار نام پاسخ‌دهنده
 
-پاسخ: توضیح هدف، رضایت و نحوهٔ حفاظت داده؛ a
+پاسخ: توضیح هدف، رضایت و نحوهٔ حفاظت داده؛ رضایت آگاهانه، هدف ضبط و نگهداری یا دسترسی به داده باید پیش از ضبط روشن شود.
 
 #### فعالیت کاربردی
 
@@ -204,7 +210,7 @@ Open-ended question: سؤال باز با پاسخ غیرمحدود. Leading que
 - منبع [OpenStax Principles of Marketing: 6.3 Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ تعریف مسئله، طرح پژوهش، نمونه، گردآوری و تحلیل داده.
 - منبع [Harvard Business School: MBA Marketing curriculum](https://www.hbs.edu/faculty/units/marketing/Pages/curriculum.aspx)؛ هم‌راستایی رسمی با رفتار خریدار، ارزش مشتری و تصمیم‌های آمیختهٔ بازاریابی.
 - منبع [Oxford MBA: Core courses and electives, Marketing](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی رسمی با تحلیل بازار، رفتار مصرف‌کننده، ارزش مشتری و بازاریابی دیجیتال.
-- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ یک مطالعهٔ تجربی دربارهٔ پاسخ‌های ترجیح اقتصادی شبیه‌سازی‌شده؛ نتیجه به داده، مدل و نوع سؤال همان مطالعه محدود است.
+- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 
 ### درس‌نامهٔ `C04-ST01-L03`؛ از مشاهده تا فرضیهٔ ارزش
 
@@ -248,6 +254,10 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 
 شاهد، تفسیر و فرضیه را جدا کنید و نتیجهٔ مخالف را نیز جست‌وجو کنید.
 
+#### توضیح عمیق‌تر: سازوکار، فرض و پیامد
+
+مشاهدهٔ رفتار مشتری هنگامی به فرضیهٔ ارزش تبدیل می‌شود که توضیح قابل آزمونی دربارهٔ نیاز، مانع یا انگیزه بسازد. یک رفتار مثل رهاکردن خرید می‌تواند علت‌های متفاوت داشته باشد و نباید بی‌درنگ به «قیمت زیاد» نسبت داده شود. فرضیه را به جمعیت، موقعیت، مداخله و پیامد قابل سنجش محدود کنید. دادهٔ مشاهده‌ای علت را ثابت نمی‌کند؛ مصاحبه، آزمایش یا مقایسهٔ مناسب می‌تواند شواهد بیشتری بدهد. اگر فرضیه درست باشد باید انتظار چه تغییری داشته باشیم؟ همین پیش‌بینی آن را از برداشت پسینی جدا می‌کند.
+
 #### تمرین و بازخورد
 
 کدام جمله مشاهده است؟
@@ -256,7 +266,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - همهٔ مدیران از گزارش‌گیری متنفرند
 - بازار قطعاً ابزار می‌خرد
 
-پاسخ: کاربر در دو مورد اخیر فایل‌ها را دستی ادغام کرد؛ a
+پاسخ: کاربر در دو مورد اخیر فایل‌ها را دستی ادغام کرد؛ این جمله رفتار مشاهده‌شده را در دو رخداد مشخص توصیف می‌کند؛ هنوز علت یا ترجیح کاربر را نتیجه نمی‌گیرد.
 
 برای فرضیهٔ قابل آزمون چه لازم است؟
 
@@ -264,7 +274,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - فقط جملهٔ الهام‌بخش
 - عدد بدون تعریف متغیر
 
-پاسخ: شرط یا مشاهده‌ای که بتواند آن را تضعیف کند؛ a
+پاسخ: شرط یا مشاهده‌ای که بتواند آن را تضعیف کند؛ فرضیه باید پیامد یا شاهدی داشته باشد که در صورت رخداد، آن را تضعیف کند. این شرط آن را از ادعای غیرقابل‌آزمون جدا می‌کند.
 
 دو مصاحبه، نمایندگی بازار را ثابت می‌کند؟
 
@@ -272,7 +282,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - بله، هر مصاحبه 50٪ بازار است
 - بله، اگر مشتریان مؤدب باشند
 
-پاسخ: خیر؛ برای کشف بینش مفید است ولی نمایندگی/اندازه نیازمند طراحی نمونه است؛ a
+پاسخ: خیر؛ برای کشف بینش مفید است ولی نمایندگی/اندازه نیازمند طراحی نمونه است؛ دو مصاحبه برای کشف مسئله و واژگان مفید است؛ نمایندگی و اندازهٔ بازار به جامعه، نمونه و روش مناسب نیاز دارد.
 
 تفسیر در جدول یافته‌ها کجا قرار گیرد؟
 
@@ -280,7 +290,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - درون نقل‌قول به شکل واقعیت
 - حذف هر شاهد مخالف
 
-پاسخ: ستون جدا از شاهد خام؛ a
+پاسخ: ستون جدا از شاهد خام؛ شاهد خام و تفسیر پژوهشگر را در ستون جدا نگه دار تا خواننده بتواند ببیند نتیجه از کدام داده آمده است.
 
 برای کاهش تأییدگرایی چه کنیم؟
 
@@ -288,7 +298,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - فقط مشتریان راضی را بپرسیم
 - سؤال را به پاسخ دلخواه ببندیم
 
-پاسخ: شاهد مخالف و توضیح بدیل را فعالانه ثبت کنیم؛ a
+پاسخ: شاهد مخالف و توضیح بدیل را فعالانه ثبت کنیم؛ ثبت فعالانهٔ شاهد مخالف و توضیح بدیل کمک می‌کند فرضیه فقط با دادهٔ موافق تقویت نشود.
 
 #### فعالیت کاربردی
 
@@ -305,7 +315,7 @@ Observation: مشاهدهٔ ثبت‌شده. Interpretation: تفسیر پژوه
 - منبع [OpenStax Principles of Marketing: 6.3 Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ تعریف مسئله، طرح پژوهش، نمونه، گردآوری و تحلیل داده.
 - منبع [Harvard Business School: MBA Marketing curriculum](https://www.hbs.edu/faculty/units/marketing/Pages/curriculum.aspx)؛ هم‌راستایی رسمی با رفتار خریدار، ارزش مشتری و تصمیم‌های آمیختهٔ بازاریابی.
 - منبع [Oxford MBA: Core courses and electives, Marketing](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی رسمی با تحلیل بازار، رفتار مصرف‌کننده، ارزش مشتری و بازاریابی دیجیتال.
-- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ یک مطالعهٔ تجربی دربارهٔ پاسخ‌های ترجیح اقتصادی شبیه‌سازی‌شده؛ نتیجه به داده، مدل و نوع سؤال همان مطالعه محدود است.
+- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 
 ### درس‌نامهٔ `C04-ST01-L04`؛ آیا پرسوناهای AI شاهد مشتری‌اند؟
 
@@ -357,7 +367,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - نمایندگی کامل بازار
 - تمایل خرید واقعی
 
-پاسخ: فقط اینکه مدل یک پاسخ محتمل تولید کرده، نه اینکه مشتری واقعی چنین گفته؛ a
+پاسخ: فقط اینکه مدل یک پاسخ محتمل تولید کرده، نه اینکه مشتری واقعی چنین گفته؛ پرسونای AI نشان می‌دهد مدل چه پاسخی تولید کرده است؛ این خروجی شاهد رفتار یا گفتهٔ مشتری واقعی نیست.
 
 استفادهٔ مناسب از پرسوناهای مصنوعی چیست؟
 
@@ -365,7 +375,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - جایگزینی کامل مصاحبهٔ مشتری برای تصمیم مهم
 - اثبات اندازهٔ بازار
 
-پاسخ: پیشنهاد فرضیه/پرسش برای آزمون بعدی؛ a
+پاسخ: پیشنهاد فرضیه/پرسش برای آزمون بعدی؛ پرسونای مصنوعی می‌تواند سؤال یا فرضیهٔ تازه پیشنهاد دهد؛ آن را با مشتری واقعی یا دادهٔ خرید بیازما.
 
 مطالعهٔ ۲۰۲۶ پاسخ‌های شبیه‌سازی‌شده دربارهٔ ترجیحات اقتصادی را چگونه گزارش کرد؟
 
@@ -373,7 +383,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - همهٔ AIها در تمام پژوهش‌ها نامعتبرند
 - AI همیشه دقیق‌تر از انسان است
 
-پاسخ: برای آن مطالعه proxy ضعیفی از ترجیح انسانی بودند؛ تعمیم باید محدود بماند؛ a
+پاسخ: برای آن مطالعه proxy ضعیفی از ترجیح انسانی بودند؛ تعمیم باید محدود بماند؛ نتیجهٔ آن مطالعه دربارهٔ نمونه و تکلیف خودش محدود است. پاسخ‌های مصنوعی proxy ضعیفی از ترجیح انسانی بودند؛ این حکم دربارهٔ همهٔ کاربردهای AI نیست.
 
 پرسونای AI با مصاحبهٔ مشتری ناسازگار است. چه کنیم؟
 
@@ -381,7 +391,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - مصاحبهٔ واقعی را حذف کنیم
 - prompt را تا جواب دلخواه عوض کنیم
 
-پاسخ: اختلاف را ثبت و فرضیه را با شواهد واقعی بازنگری کنیم؛ a
+پاسخ: اختلاف را ثبت و فرضیه را با شواهد واقعی بازنگری کنیم؛ اختلاف را نگه دار، منبع هر شاهد را مشخص کن و فرضیه را با دادهٔ واقعی مشتری دوباره بررسی کن.
 
 برای ادعای تقاضای بازار چه شاهدی قوی‌تر است؟
 
@@ -389,7 +399,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - متن متقاعدکنندهٔ مدل
 - یک پرسونای خیالی
 
-پاسخ: رفتار/تعهد واقعی نمونهٔ مرتبط، با تعریف و محدودیت روشن؛ a
+پاسخ: رفتار/تعهد واقعی نمونهٔ مرتبط، با تعریف و محدودیت روشن؛ رفتار یا تعهد واقعی از نمونه‌ای مرتبط با بازار، با تعریف و محدودیت روشن، به ادعای تقاضا نزدیک‌تر است.
 
 #### فعالیت کاربردی
 
@@ -406,7 +416,7 @@ AI می‌تواند ایده بسازد؛ ادعای بازار را با مش�
 - منبع [OpenStax Principles of Marketing: 6.3 Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ تعریف مسئله، طرح پژوهش، نمونه، گردآوری و تحلیل داده.
 - منبع [Harvard Business School: MBA Marketing curriculum](https://www.hbs.edu/faculty/units/marketing/Pages/curriculum.aspx)؛ هم‌راستایی رسمی با رفتار خریدار، ارزش مشتری و تصمیم‌های آمیختهٔ بازاریابی.
 - منبع [Oxford MBA: Core courses and electives, Marketing](https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba/academic-curriculum/core-courses-and-electives)؛ هم‌راستایی رسمی با تحلیل بازار، رفتار مصرف‌کننده، ارزش مشتری و بازاریابی دیجیتال.
-- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ یک مطالعهٔ تجربی دربارهٔ پاسخ‌های ترجیح اقتصادی شبیه‌سازی‌شده؛ نتیجه به داده، مدل و نوع سؤال همان مطالعه محدود است.
+- منبع [Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries, Nature Human Behaviour (2026)](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 
 ### مرور مرحله
 
@@ -849,8 +859,8 @@ SOM به چه پرسشی نزدیک‌تر است؟
 - منبع [OpenStax Principles of Marketing: Chapter 5.1–5.4, Market Segmentation and Effective Segmentation](https://openstax.org/books/principles-marketing/pages/5-4-essential-factors-in-effective-market-segmentation)؛ تعریف و معیارهای عملی بخش‌بندی؛ چارچوب آموزشی با مثال و تصمیم‌های تازه بازنویسی شده است.
 - منبع [OpenStax Principles of Marketing: 5.7 Ethical Concerns and Target Marketing](https://openstax.org/books/principles-marketing/pages/5-7-ethical-concerns-and-target-marketing)؛ ملاحظات اخلاقی بخش‌بندی و هدف‌گیری.
 - منبع [OpenStax Principles of Marketing: 5.6 Product Positioning](https://openstax.org/books/principles-marketing/pages/5-6-product-positioning)؛ جایگاه‌یابی، بیانیهٔ جایگاه و نقشهٔ ادراکی؛ قالب درس مستقل است.
-- منبع [Li, Liu & Yu (2025), Consumer segmentation with large language models, Journal of Retailing and Consumer Services 82, 104078](https://www.sciencedirect.com/science/article/abs/pii/S0969698924003746)؛ یک workflow مبتنی بر survey و مدل زبانی را بررسی می‌کند؛ نتیجه به داده، مدل، نمونه و آزمون همان پژوهش محدود است و مجوز جایگزینی شواهد مشتری واقعی نیست.
-- منبع [Nature Human Behaviour (2026), Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ شواهدی دربارهٔ محدودیت جانشینی پاسخ شبیه‌سازی‌شده به‌جای ترجیحات انسان در قلمرو پژوهش خودش؛ نباید تعمیم بیش از دامنهٔ مطالعه داد.
+- منبع [Li, Liu & Yu (2025), Consumer segmentation with large language models, Journal of Retailing and Consumer Services 82, 104078](https://ideas.repec.org/a/eee/joreco/v82y2025ics0969698924003746.html)؛ یک workflow مبتنی بر survey و مدل زبانی را بررسی می‌کند؛ نتیجه به داده، مدل، نمونه و آزمون همان پژوهش محدود است و مجوز جایگزینی شواهد مشتری واقعی نیست.
+- منبع [Nature Human Behaviour (2026), Simulated responses from LLMs are weak proxies for human economic preferences across 74 countries](https://www.nature.com/articles/s41562-026-02611-4)؛ مطالعهٔ اعتبار پاسخ‌های شبیه‌سازی‌شدهٔ LLM با دادهٔ Global Preference Survey؛ شامل ۶۷٬۲۰۱ پاسخ‌گو در ۷۴ کشور و مقایسه در سطوح فردی، جمعیت‌شناختی و فرهنگی. دادهٔ GPS مربوط به ۲۰۱۲ است و نتیجه به دامنهٔ ترجیحات اقتصادی و روش مطالعه محدود می‌ماند.
 
 ### مرور مرحله
 
@@ -1073,7 +1083,7 @@ SOM به چه پرسشی نزدیک‌تر است؟
 
 - منبع [OpenStax Principles of Marketing 12.3: Establishing Pricing Policy](https://openstax.org/books/principles-marketing/pages/12-3-the-five-step-procedure-for-establishing-pricing-policy)؛ هدف، تقاضا، هزینه، محیط و تاکتیک قیمت؛ محاسبات تمرینی فرضی‌اند.
 - منبع [OpenStax Principles of Marketing 12.6: Ethical Considerations in Pricing](https://openstax.org/books/principles-marketing/pages/12-6-ethical-considerations-in-pricing)؛ ملاحظات اخلاقی قیمت‌گذاری؛ برای مقررات جاری، منبع حقوقی حوزهٔ مربوط جداگانه لازم است.
-- منبع [Kopalle et al. (2025), Algorithmic pricing: Implications for marketing strategy and regulation, International Journal of Research in Marketing](https://doi.org/10.1016/j.ijresmar.2025.05.001)؛ پیوند قیمت‌گذاری الگوریتمی با استراتژی و نگرانی‌های رقابتی؛ متن، توصیهٔ حقوقی کشور خاص نیست.
+- منبع [Kopalle et al. (2025), Algorithmic pricing: Implications for marketing strategy and regulation, International Journal of Research in Marketing](https://www.anderson.ucla.edu/sites/default/files/document/2025-06/algo_pricing_IJRM.pdf)؛ پیوند قیمت‌گذاری الگوریتمی با استراتژی و نگرانی‌های رقابتی؛ متن، توصیهٔ حقوقی کشور خاص نیست.
 - منبع [OECD (2025), Dynamic and personalised pricing, DAF/COMP/GF(2025)4](https://one.oecd.org/document/DAF/COMP/GF%282025%294/en/pdf)؛ مرور رقابت و پیامدهای قیمت‌گذاری پویا/شخصی‌سازی‌شده؛ بازارها و مقررات متفاوت‌اند.
 
 ### درس‌نامهٔ `C04-ST03-L03`؛ کانال، تجارت الکترونیک و تعارض
@@ -1609,7 +1619,7 @@ CAC و CLV را تنها همراه تعریف هزینه، مشتری، حاش�
 - منبع [OpenStax Principles of Marketing 6.3: Steps in a Successful Marketing Research Plan](https://openstax.org/books/principles-marketing/pages/6-3-steps-in-a-successful-marketing-research-plan)؛ طراحی پژوهش و سنجش؛ آزمایش تمرینی درس مستقل است.
 - منبع [OpenStax Principles of Marketing 16.3: Metrics Used to Evaluate the Success of Online Marketing](https://openstax.org/books/principles-marketing/pages/16-3-metrics-used-to-evaluate-the-success-of-online-marketing)؛ قیف دیجیتال و شاخص‌های آنلاین؛ شمار کلیک به تنهایی نتیجهٔ تجاری را ثابت نمی‌کند.
 - منبع [Gupta et al. (2025), Generative AI and Personalized Video Advertisements, Marketing Science](https://doi.org/10.1287/mksc.2023.0494)؛ آزمایش میدانی تبلیغ ویدئویی شخصی‌سازی‌شده با یک برند تجارت مستقیم؛ نتایج به زمینه و طراحی همان پژوهش محدود است.
-- منبع [When AI advice backfires: Field experimental evidence on personalization, intrusiveness, and purchase behavior (2026), Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S0969698926001256)؛ آزمایش میدانی ارتباط شخصی‌سازی‌شده با شرایط مشخص؛ تعمیم اثر به همهٔ برندها/مشتریان نیازمند آزمون است.
+- منبع [When AI advice backfires: Field experimental evidence on personalization, intrusiveness, and purchase behavior (2026)](https://www.sciencedirect.com/science/article/pii/S0969698926001256)؛ آزمایش میدانی در خرده‌فروشی آمریکا (N=409)؛ پیام شخصی‌سازی‌شده در برابر پیام طنز، با دو مسیر هم‌زمانِ برداشتِ مفیدبودن و مزاحمت؛ نتیجه به همین زمینه و مقایسه محدود است.
 
 ### درس‌نامهٔ `C04-ST04-L04`؛ داستان رشد را از اثر واقعی جدا کنیم
 

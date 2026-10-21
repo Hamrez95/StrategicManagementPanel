@@ -1,0 +1,312 @@
+{
+  "id": "S07-C2-ST01-L03",
+  "version": "1-draft",
+  "title": "ارزش کیفیت و زمان",
+  "content_status": "draft",
+  "objective": "ارزش بالقوهٔ AI را در کیفیت، زمان، ظرفیت و تجربهٔ ذی‌نفعان بسنجد و مبادلهٔ میان این پیامدها را صریح کند.",
+  "learning_cards": [
+    {
+      "title": "ارزش با هزینهٔ مسئله شروع می‌شود",
+      "id": "S07-C2-ST01-L03-CARD01",
+      "text": "ارزش AI به کاری بستگی دارد که بهتر می‌شود: زمان آزادشده، خطای کمتر، دسترسی بیشتر یا تصمیم بهتر. «مدل دقیق است» نتیجهٔ کسب‌وکار را اثبات نمی‌کند."
+    },
+    {
+      "title": "زمان آزادشده ارزش بالقوه است",
+      "id": "S07-C2-ST01-L03-CARD02",
+      "text": "اگر کارشناس هر پرونده ۳ دقیقه کمتر صرف کند، این زمان فقط وقتی ارزش می‌شود که به خدمت بیشتر، هزینهٔ کمتر یا کار باارزش‌تر تبدیل شود. ظرفیت نظری را با برنامهٔ عملی استفاده از زمان پیوند دهید."
+    },
+    {
+      "title": "کیفیت چندبعدی است",
+      "id": "S07-C2-ST01-L03-CARD03",
+      "text": "دقت، کامل‌بودن، لحن، سازگاری، عدالت و حل مسئله می‌توانند همسو یا متعارض باشند. مشتری ممکن است پاسخ کاملاً دقیق اما بی‌همدلی را نامطلوب بداند؛ معیار کیفیت را با کاربر تعریف کنید."
+    },
+    {
+      "title": "ارزش برای چند گروه",
+      "id": "S07-C2-ST01-L03-CARD04",
+      "text": "مدیر ممکن است هزینه را کم کند، کارمند بار ذهنی متفاوت بگیرد و مشتری تجربهٔ تازه‌ای داشته باشد. منافع و زیان را برای هر گروه جدا و با افق زمانی مشخص کنید."
+    },
+    {
+      "title": "کاهش خطا و هزینهٔ خطا",
+      "id": "S07-C2-ST01-L03-CARD05",
+      "text": "شمار خطا را با شدت آن بسنجید؛ غلط جزئی و وعدهٔ نادرست دربارهٔ قرارداد یک پیامد ندارند. هزینهٔ جبران، شکایت، اعتماد و آسیب را به شاخص‌های کیفیت اضافه کنید."
+    },
+    {
+      "title": "توزیع اثر",
+      "id": "S07-C2-ST01-L03-CARD06",
+      "text": "میانگین اثر ممکن است برای تازه‌کارها مثبت و برای متخصص‌ها خنثی باشد یا برای برخی زبان‌ها افت کند. نتیجه را به تفکیک سطح تجربه، نوع درخواست و گروه کاربر نگاه کنید."
+    },
+    {
+      "title": "پژوهش میدانی نمونهٔ زمینه‌مند",
+      "id": "S07-C2-ST01-L03-CARD07",
+      "text": "مطالعهٔ پشتیبانی مشتری در یک شرکت نرم‌افزاری، دستیار را در محیط واقعی سنجیده و تفاوت اثر بر کارکنان را گزارش کرده است. نتیجه به شغل، داده و rollout همان سازمان وابسته است و تضمین سپهر نیست."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST01-L03-CARD08",
+      "text": "پایلوت باید زمان پاسخ، حل بی‌ارجاع، تماس دوباره، شکایت، بار اصلاح کارشناس و تفاوت تجربهٔ تازه‌کار/باتجربه را کنار هم بسنجد؛ پس از آن ارزش اقتصادی با هزینهٔ کامل محاسبه می‌شود."
+    },
+    {
+      "id": "S07-C2-ST01-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "ارزش کاربرد (Use-case value) تغییر در کیفیت، زمان، ظرفیت، تجربه یا هزینه است. شاخص اصلی نتیجهٔ مطلوب را می‌سنجد؛ guardrail جلوی افت خطرناک پیامد دیگر را می‌گیرد. صرفه‌جویی زمانی را با دوباره‌کاری و خطا و تجربهٔ مشتری تعدیل کنید."
+    },
+    {
+      "id": "S07-C2-ST01-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ارزش AI می‌تواند در کاهش زمان، کاهش خطا، افزایش ظرفیت یا تجربهٔ بهتر ظاهر شود؛ این پیامدها لزوماً هم‌جهت نیستند. پاسخ سریع‌تر ممکن است کیفیت را کاهش دهد یا زمان آزادشده صرف کارهای دیگر شود. برای هر شاخص تعریف، واحد، خط مبنا و ذی‌نفع متأثر را مشخص کنید و هزینهٔ انتقال را هم وارد کنید. ارزش پولی‌سازی‌شده به فرض نرخ دستمزد، حجم و ماندگاری بهبود حساس است. اگر بهبود فقط در نمونهٔ منتخب دیده شود، تعمیم آن به کل سازمان موجه نیست. ابتدا فرض ارزش را در پایلوت کوچک و با guardrail بسنجید."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "زمان آزادشده چه وقت ارزش اقتصادی می‌شود؟",
+      "remediation_card_id": "S07-C2-ST01-L03-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST01-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "به‌محض تولید متن",
+          "feedback": "بازبینی: زمان صرفه‌جویی بالقوه است، نه منفعت قطعی."
+        },
+        {
+          "id": "b",
+          "text": "همیشه به سود تبدیل می‌شود",
+          "feedback": "بازبینی: زمان صرفه‌جویی بالقوه است، نه منفعت قطعی."
+        },
+        {
+          "id": "c",
+          "text": "وقتی به ظرفیت یا خدمت بهتر تبدیل شود",
+          "feedback": "درست: زمان صرفه‌جویی بالقوه است، نه منفعت قطعی."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "زمان صرفه‌جویی بالقوه است، نه منفعت قطعی."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "کیفیت چرا چندبعدی است؟",
+      "remediation_card_id": "S07-C2-ST01-L03-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST01-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط سرعت",
+          "feedback": "بازبینی: معیار به نیاز کاربر وابسته است."
+        },
+        {
+          "id": "b",
+          "text": "دقت، کامل‌بودن، لحن و اثر می‌تواند فرق کند",
+          "feedback": "درست: معیار به نیاز کاربر وابسته است."
+        },
+        {
+          "id": "c",
+          "text": "فقط دقت مهم است",
+          "feedback": "بازبینی: معیار به نیاز کاربر وابسته است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "معیار به نیاز کاربر وابسته است."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "چرا اثر را میان گروه‌ها جدا می‌کنیم؟",
+      "remediation_card_id": "S07-C2-ST01-L03-CARD06",
+      "variant": "A",
+      "id": "S07-C2-ST01-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "میانگین می‌تواند برنده و بازنده را پنهان کند",
+          "feedback": "درست: تجربه و اثر ممکن است ناهمگن باشد."
+        },
+        {
+          "id": "b",
+          "text": "برای کم‌کردن نمونه",
+          "feedback": "بازبینی: تجربه و اثر ممکن است ناهمگن باشد."
+        },
+        {
+          "id": "c",
+          "text": "برای اینکه مدل را کنار بگذاریم",
+          "feedback": "بازبینی: تجربه و اثر ممکن است ناهمگن باشد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تجربه و اثر ممکن است ناهمگن باشد."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "مطالعهٔ یک مرکز پشتیبانی چه چیزی برای سپهر تضمین نمی‌کند؟",
+      "remediation_card_id": "S07-C2-ST01-L03-CARD07",
+      "variant": "A",
+      "id": "S07-C2-ST01-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "وجود سنجش میدانی",
+          "feedback": "بازبینی: تعمیم مستقیم از یک زمینه محدود است."
+        },
+        {
+          "id": "b",
+          "text": "اهمیت زمینه",
+          "feedback": "بازبینی: تعمیم مستقیم از یک زمینه محدود است."
+        },
+        {
+          "id": "c",
+          "text": "همان اثر در شغل و سازمان دیگر",
+          "feedback": "درست: تعمیم مستقیم از یک زمینه محدود است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "تعمیم مستقیم از یک زمینه محدود است."
+    },
+    {
+      "id": "S07-C2-ST01-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کاربرد AI زمان پاسخ را کم می‌کند اما دقت و تجربهٔ مشتری افت می‌کند. معیار ارزش باید چه کند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "زمان و کیفیت و ظرفیت و تجربهٔ ذی‌نفع را متوازن کند",
+          "feedback": "ارزش یک‌بعدی نیست؛ کاهش زمان می‌تواند با خطا یا تجربهٔ بدتر همراه شود."
+        },
+        {
+          "id": "b",
+          "text": "فقط ثانیه‌های ذخیره‌شده را بسنجد",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: ارزش یک‌بعدی نیست؛ کاهش زمان می‌تواند با خطا یا تجربهٔ بدتر همراه شود."
+        },
+        {
+          "id": "c",
+          "text": "کیفیت را خارج از دامنه بگذارد",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: ارزش یک‌بعدی نیست؛ کاهش زمان می‌تواند با خطا یا تجربهٔ بدتر همراه شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ارزش یک‌بعدی نیست؛ کاهش زمان می‌تواند با خطا یا تجربهٔ بدتر همراه شود.",
+      "objective_id": "S07-C2-ST01-L03-OBJ01",
+      "equivalence_group": "S07-C2-ST01-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST01-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-task-value-cost-brief",
+    "prompt": "برای یک وظیفهٔ پشتیبانی سپهر، کاربر و تصمیم و خط مبنا، ارزش کیفیت/زمان، معیارهای زیان، هزینهٔ کامل، وابستگی و مجوز داده را تعریف کنید. گام‌های پردازش را نیز با مالک مشخص کنید.",
+    "expected_output": "برگهٔ مسئله و ارزش و هزینه برای تصمیم پایلوت",
+    "rubric": [
+      "وظیفه، کاربر، تصمیم و وضعیت پایه دقیق تعریف شده‌اند.",
+      "ارزش، هزینهٔ کل و شاخص کیفیت/زیان با واحد و فرض روشن‌اند.",
+      "وابستگی، مالک تصمیم و آزمون پایلوت با شرط ادامه/توقف مشخص است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST01-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "NBER-GENAI-WORK-2025",
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AI-RMF-MEASURE"
+  ],
+  "source_scope": "مطالعهٔ میدانی و منابع چارچوبی به زمینه محدودند؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work-customer-support"
+    ],
+    "real_case_status": "research_scope_reviewed; results_not_directly_generalizable"
+  },
+  "media_plan": {
+    "type": "AI-use-case-value-cost-map",
+    "purpose": "پیوند تصمیم و خط مبنا و کیفیت و هزینه و محدودیت",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-use-case-value-baseline.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ارزش کیفیت و زمان»: اول تصمیم و کاربر را بشناس؛ سپس ارزش، کیفیت، هزینه و محدودیت را بسنج. وظیفه و کاربر، تصمیم، نقش کاربر و پیامد خطا را مشخص کن.؛ خط مبنا، عملکرد فعلی انسان یا سامانه را پیش از پایلوت اندازه بگیر.؛ ارزش و کیفیت، زمان، دقت، دسترسی و نیاز به اصلاح را با هم ارزیابی کن.؛ هزینه و استقرار، مصرف، یکپارچه‌سازی، نظارت، امنیت و نگهداری را به واحد کار وصل کن.",
+        "caption": "نقشه را برای تحلیل «ارزش کیفیت و زمان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف وظیفه",
+      "خط مبنا",
+      "ارزش کیفیت و زمان",
+      "هزینهٔ استقرار"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 16
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برگهٔ ارزیابی وظیفه و ارزش AI"
+}

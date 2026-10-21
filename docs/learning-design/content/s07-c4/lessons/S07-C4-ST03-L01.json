@@ -1,0 +1,356 @@
+{
+  "id": "S07-C4-ST03-L01",
+  "version": "1-draft",
+  "title": "تغییر داده و افت عملکرد",
+  "content_status": "draft",
+  "objective": "نشانه‌های تغییر توزیع داده و افت کیفیت مدل را از هم تفکیک کند و مسیر بررسی، هشدار و بازآموزی یا توقف پیشنهاد دهد.",
+  "learning_cards": [
+    {
+      "title": "Drift را به تغییر زمینه وصل کن",
+      "id": "S07-C4-ST03-L01-CARD01",
+      "text": "تغییر توزیع دادهٔ ورودی با گذر زمان data drift نامیده می‌شود؛ تغییر رابطهٔ ورودی و نتیجه می‌تواند افت کیفیت ایجاد کند. تغییر کاربر، فصل، سیاست یا محصول ممکن است دلیل زمینه‌ای باشد. هشدار آماری به‌تنهایی علت را مشخص نمی‌کند."
+    },
+    {
+      "title": "Skew با drift فرق دارد",
+      "id": "S07-C4-ST03-L01-CARD02",
+      "text": "training-serving skew یعنی ورودی یا تبدیل زمان آموزش با زمان سرویس متفاوت است؛ drift تغییرات محیطی یا داده در طول زمان است. هر دو ممکن است روی خروجی اثر بگذارند، اما محل بررسی متفاوت است. مثال و تعریف سازمانی را در runbook ثابت نگه دارید."
+    },
+    {
+      "title": "کیفیت واقعی را با دادهٔ نتیجه بسنج",
+      "id": "S07-C4-ST03-L01-CARD03",
+      "text": "در تولید برچسب درست ممکن است دیر برسد یا اصلاً ثبت نشود. از بازبینی انسانی نمونه‌ای، نتیجهٔ کسب‌وکار یا proxy معتبر استفاده کنید و محدودیت هرکدام را ثبت کنید. Google نمونه‌هایی از معیارهای جانشین مانند اقدام کاربر را برای پایش پیشنهاد می‌کند."
+    },
+    {
+      "title": "تغییر بی‌ضرر را از افت مهم جدا کن",
+      "id": "S07-C4-ST03-L01-CARD04",
+      "text": "توزیع داده ممکن است تغییر کند اما کیفیت کاربردی بماند؛ هشدار لازم نیست هر تغییری را توقف کند. با نمونهٔ برچسب‌خورده، sliceها، هزینهٔ خطا و نظر متخصص بررسی کنید آیا تغییر از آستانهٔ عملیاتی عبور کرده است."
+    },
+    {
+      "title": "آستانه و پنجرهٔ زمانی تعیین کن",
+      "id": "S07-C4-ST03-L01-CARD05",
+      "text": "آستانهٔ هشدار را به حجم نمونه، نوسان طبیعی و زمان رسیدگی پیوند دهید. برای دادهٔ کم‌حجم، یک روز غیرعادی ممکن است گمراه‌کننده باشد. روند، شدت، مدت و مقایسه با دورهٔ مشابه را در داشبورد نمایش دهید."
+    },
+    {
+      "title": "مدل پیر، ولی گاهی پایدار است",
+      "id": "S07-C4-ST03-L01-CARD06",
+      "text": "مدل ممکن است با تغییر محیط کهنه شود، اما نیاز به بازآموزی روزانه برای همهٔ کاربردها یکسان نیست. تغییرپذیری مسئله، هزینهٔ برچسب و ریسک مدل را بسنجید. retraining بدون ارزیابی می‌تواند نسخهٔ بدتر بسازد."
+    },
+    {
+      "title": "مداخله را مشخص کن",
+      "id": "S07-C4-ST03-L01-CARD07",
+      "text": "هشدار باید به مالک و اقدام پیوند بخورد: نمونه‌گیری بیشتر، بررسی داده، محدودکردن دامنه، بازآموزی، rollback یا خاموش‌کردن. زمان پاسخ و معیار پایان بررسی را از قبل بنویسید؛ داشبورد بدون تصمیم جریان کاری نیست."
+    },
+    {
+      "title": "هر آستانه باید دوباره ارزیابی شود",
+      "id": "S07-C4-ST03-L01-CARD08",
+      "text": "پس از تغییر داده، مدل یا سیاست، تعریف baseline و هشدارها را بازبینی کنید. NIST پایش پس از استقرار را همراه با پاسخ و مدیریت تغییر در چرخهٔ عمر قرار می‌دهد. اثربخشی هشدار را با رخدادهای واقعی و موارد ازدست‌رفته بسنجید."
+    },
+    {
+      "id": "S07-C4-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "تغییر توزیع (Data drift) تغییر ویژگی‌های ورودی است؛ افت عملکرد (Performance degradation) افزایش خطا در نتیجهٔ واقعی است. برای تشخیص دومی معمولاً به برچسب و نتیجه نیاز است. بازآموزی بدون تشخیص علت می‌تواند سوگیری یا نشت را تکرار کند."
+    },
+    {
+      "id": "S07-C4-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "تغییر توزیع داده یعنی الگوهای ورودی نسبت به دورهٔ مرجع عوض شده‌اند؛ افت عملکرد نشان می‌دهد کیفیت پیش‌بینی یا تصمیم پایین آمده است. تغییر ورودی همیشه به افت کیفیت نمی‌انجامد، و افت می‌تواند از برچسب، فرایند یا ابزار ثبت هم باشد. شاخص‌ها را در سطح ورودی، خروجی و پیامد بسنجید و با تأخیر برچسب واقعی تطبیق دهید. آستانهٔ هشدار را با هزینهٔ هشدار کاذب تنظیم کنید. بازآموزی فوری بدون تشخیص علت ممکن است خطا را تثبیت کند؛ گاهی محدودسازی یا توقف امن‌تر است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "data drift به چه چیزی اشاره دارد؟",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C4-ST03-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "تغییر داده یا محیط در طول زمان",
+          "feedback": "درست: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        },
+        {
+          "id": "b",
+          "text": "تفاوت صرف نسخهٔ فونت",
+          "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        },
+        {
+          "id": "c",
+          "text": "قطعاً بدترشدن همهٔ خروجی‌ها",
+          "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "training-serving skew چیست؟",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C4-ST03-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "تفاوت داده یا تبدیل آموزش و سرویس",
+          "feedback": "درست: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "افزایش بودجهٔ سرور",
+          "feedback": "بازبینی: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "تغییر تعداد مدیران",
+          "feedback": "بازبینی: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "برای کاربرد با برچسب دیررس چه کار می‌کنیم؟",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD03",
+      "variant": "A",
+      "id": "S07-C4-ST03-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "proxy معتبر و نمونه‌گیری/برچسب‌گذاری انسانی را با محدودیت ثبت می‌کنیم",
+          "feedback": "درست: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+        },
+        {
+          "id": "b",
+          "text": "هیچ معیاری لازم نیست",
+          "feedback": "بازبینی: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+        },
+        {
+          "id": "c",
+          "text": "خروجی مدل را حقیقت می‌گیریم",
+          "feedback": "بازبینی: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+    },
+    {
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "هشدار drift باید به چه چیزی منجر شود؟",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD04",
+      "variant": "A",
+      "id": "S07-C4-ST03-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "مالک، بررسی و اقدام تعریف‌شده",
+          "feedback": "درست: پایش مؤثر به تصمیم و پاسخ وصل است."
+        },
+        {
+          "id": "b",
+          "text": "قطع همهٔ خدمات بدون معیار",
+          "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+        },
+        {
+          "id": "c",
+          "text": "فقط نمودار جدید",
+          "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+        }
+      ],
+      "equivalence_group": "S07-C4-ST03-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "پایش مؤثر به تصمیم و پاسخ وصل است."
+    },
+    {
+      "id": "S07-C4-ST03-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ خطا بالا رفته است. چگونه تغییر توزیع داده را از افت کیفیت مدل تفکیک کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ویژگی‌های ورودی و برچسب‌های واقعی و عملکرد را جدا پایش و علت را بررسی کنیم",
+          "feedback": "تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+        },
+        {
+          "id": "b",
+          "text": "هر دو را drift بنامیم و فوراً بازآموزی کنیم",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+        },
+        {
+          "id": "c",
+          "text": "هشدار را خاموش کنیم",
+          "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند.",
+      "objective_id": "S07-C4-ST03-L01-OBJ01",
+      "equivalence_group": "S07-C4-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C4-ST03-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-CORE",
+      "title": "NIST AI RMF Core: Measure and Manage",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-monitoring-and-management-report",
+    "prompt": "برای کاربرد سپهر، «تغییر داده و افت عملکرد» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+    "expected_output": "طرح پایش داده و افت کیفیت با شاخص، آستانه و مالک",
+    "rubric": [
+      "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+      "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+      "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "S07-C4-ST01-L03",
+    "S07-C4-ST02-L01"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-MONITORING",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AI-RMF-CORE",
+    "NIST-GENAI-PROFILE"
+  ],
+  "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; examples are explicitly fictional"
+  },
+  "media_plan": {
+    "type": "AI-monitoring-dashboard-and-decision-brief",
+    "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «تغییر داده و افت عملکرد»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+        "caption": "نقشه را برای تحلیل «تغییر داده و افت عملکرد» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تشخیص تغییر",
+      "تفسیر trade-off",
+      "کنترل نسخه",
+      "تصمیم مدیریتی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح پایش داده و افت کیفیت با شاخص، آستانه و مالک",
+  "selected_source_refs": [
+    {
+      "source_id": "GOOGLE-ML-MONITORING",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_technical_education_reviewed",
+      "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AIRMF-PLAYBOOK",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_risk_framework_reviewed",
+      "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-GENAI-PROFILE",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+      "review_depth": "official_risk_profile_reviewed",
+      "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+      "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

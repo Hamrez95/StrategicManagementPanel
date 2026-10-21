@@ -1,0 +1,321 @@
+{
+  "id": "S07-C2-ST02-L02",
+  "version": "1-draft",
+  "title": "معیار موفقیت و معیار زیان",
+  "content_status": "draft",
+  "objective": "معیار اصلی، guardrail و آستانهٔ تصمیم را پیشاپیش تعریف کند و پیامدهای مثبت/منفی کاذب و زیان‌های احتمالی را در آن بگنجاند.",
+  "learning_cards": [
+    {
+      "title": "هدف و معیار را جدا کنید",
+      "id": "S07-C2-ST02-L02-CARD01",
+      "text": "هدف ممکن است کاهش تأخیر مشتری باشد؛ معیار جانشین مانند زمان پاسخ باید رابطه‌اش با هدف روشن باشد. اگر معیار جانشین را بهینه کنیم، ممکن است عدد بهتر شود بدون بهترشدن تجربهٔ واقعی."
+    },
+    {
+      "title": "معیار اصلی",
+      "id": "S07-C2-ST02-L02-CARD02",
+      "text": "برای هر آزمون یک معیار اصلی تعیین کنید که به تصمیم نزدیک و قابل اندازه‌گیری باشد. تعریف، واحد، مخرج، بازه، منبع و مالک را ثبت کنید تا پس از دیدن نتیجه معیار عوض نشود."
+    },
+    {
+      "title": "معیار کیفیت و زیان",
+      "id": "S07-C2-ST02-L02-CARD03",
+      "text": "Guardrail سقف خطای قابل قبول یا افت تجربه را می‌گوید: شکایت، خطای حیاتی، اختلاف زیرگروه، افشای داده یا بار اصلاح انسانی. بهبود معیار اصلی اگر از guardrail عبور کند، بهبود موفق نیست."
+    },
+    {
+      "title": "مثبت و منفی کاذب",
+      "id": "S07-C2-ST02-L02-CARD04",
+      "text": "مثبت کاذب هشدار بی‌مورد و منفی کاذب از دست‌دادن مورد واقعی است. در سپهر، هشدار کاذب وقت تیم را می‌گیرد؛ از دست‌دادن تأخیر می‌تواند توقف عملیات بسازد. هزینهٔ دو خطا را با ذی‌نفعان برآورد کنید."
+    },
+    {
+      "title": "آستانه و ظرفیت پاسخ",
+      "id": "S07-C2-ST02-L02-CARD05",
+      "text": "آستانهٔ مدل باید با هزینهٔ خطا و ظرفیت بررسی انسانی هماهنگ شود. آستانه‌ای که ۸۰٪ پرونده‌ها را پرچم می‌کند اگر تیم ظرفیت ۲۰٪ را دارد، در عمل قابل اجرا نیست."
+    },
+    {
+      "title": "تفکیک اثر و ارزش",
+      "id": "S07-C2-ST02-L02-CARD06",
+      "text": "دقت پیش‌بینی معیار فنی است؛ ارزش کسب‌وکار به تصمیم و اقدام پس از پیش‌بینی وابسته است. بررسی کنید هشدار باعث اقدام مفید می‌شود یا فقط صفحهٔ هشدار دیگری می‌سازد."
+    },
+    {
+      "title": "آستانهٔ ازپیش‌توافق‌شده",
+      "id": "S07-C2-ST02-L02-CARD07",
+      "text": "حداقل بهبود مهم، حد زیان، حجم و بازهٔ آزمون را قبل از اجرا ثبت کنید. «آستانه» باید با تصمیم و هزینهٔ خطا توجیه شود؛ درصد نمونهٔ آموزشی قانون عمومی نیست."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST02-L02-CARD08",
+      "text": "شرط اولیهٔ پایلوت: زمان رسیدگی کمتر شود، recall دیرکردهای بحرانی افت نکند، نرخ اصلاح هشدار قابل مدیریت باشد و اختلاف میان مناطق از حد توافق‌شده بیشتر نشود. اگر معیار اصلی رشد کند اما خطای بحرانی بیشتر شود، توقف/بازطراحی فعال می‌شود."
+    },
+    {
+      "id": "S07-C2-ST02-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "معیار اصلی (Primary metric) پیامد هدف است؛ معیار زیان (Harm metric) خطای پرپیامد را می‌پاید و guardrail آستانهٔ توقف را تعیین می‌کند. تعریف معیار را پیش از دیدن نتایج ثبت کنید تا جابه‌جایی هدف، شکست را به موفقیت ظاهری تبدیل نکند."
+    },
+    {
+      "id": "S07-C2-ST02-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "معیار موفقیت می‌گوید چه بهبودی می‌خواهیم؛ معیار زیان و guardrail مشخص می‌کند کدام پیامد را نباید از حد بگذرانیم. در غربال درخواست، مثبت کاذب ممکن است مشتری مناسب را رد کند و منفی کاذب فرصت را از دست بدهد؛ هزینه‌ها وابسته به کاربردند. آستانهٔ خروجی با نرخ پایه و ظرفیت رسیدگی تغییر می‌کند. معیارها را پیش از دیدن نتیجه تعریف کنید تا پسینی جابه‌جا نشوند. اگر اثر بر زیرگروه‌ها متفاوت باشد، میانگین کل زیان را پنهان می‌کند. آستانه، مالک تصمیم، روش گزارش و شرط توقف را همراه هم ثبت کنید."
+    },
+    {
+      "id": "S07-C2-ST02-L02-QJE-CASE",
+      "type": "real_case",
+      "title": "کیس پژوهشی: میانگین اثر، تفاوت گروه‌ها را پنهان می‌کند",
+      "text": "در مطالعهٔ Brynjolfsson، Li و Raymond، پژوهشگران ورود مرحله‌ای دستیار مولد را میان ۵٬۱۷۲ کارشناس پشتیبانی مشتری در یک شرکت بررسی کردند. دسترسی به دستیار به‌طور میانگین تعداد مسئله‌های حل‌شده در ساعت را ۱۵٪ بالا برد، اما اثر برای همه یکسان نبود: کارکنان کم‌تجربه‌تر و کم‌مهارت‌تر بیشتر سود بردند؛ برای باتجربه‌ترین و ماهرترین کارکنان، افزایش سرعت اندک و افت کیفیت کوچک گزارش شد. پیام این درس آن است که میانگین به‌تنهایی کافی نیست؛ سرعت و کیفیت را به تفکیک گروه‌های ازپیش‌تعریف‌شده بسنج و تغییر معیار را پس از دیدن نتیجه مجاز ندان. مطالعه به یک شرکت و پشتیبانی مشتری محدود است و نتیجه را نمی‌توان مستقیم به همهٔ شغل‌ها تعمیم داد.",
+      "example_kind": "peer_reviewed_field_study",
+      "source_id": "NBER-GENAI-WORK-2025",
+      "source_url": "https://academic.oup.com/qje/article/140/2/889/7990658"
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "معیار جانشین چه خطری دارد؟",
+      "remediation_card_id": "S07-C2-ST02-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST02-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "همیشه مستقیم هدف است",
+          "feedback": "بازبینی: باید پیوند معیار با هدف بررسی شود."
+        },
+        {
+          "id": "b",
+          "text": "اندازه‌گیری نمی‌شود",
+          "feedback": "بازبینی: باید پیوند معیار با هدف بررسی شود."
+        },
+        {
+          "id": "c",
+          "text": "عددش بهتر شود بی‌آنکه هدف واقعی بهتر شود",
+          "feedback": "درست: باید پیوند معیار با هدف بررسی شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "باید پیوند معیار با هدف بررسی شود."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "Guardrail چه نقشی دارد؟",
+      "remediation_card_id": "S07-C2-ST02-L02-CARD03",
+      "variant": "A",
+      "id": "S07-C2-ST02-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط عدد فروش است",
+          "feedback": "بازبینی: بهبود بدون عبور از حد زیان پذیرفته می‌شود."
+        },
+        {
+          "id": "b",
+          "text": "حد زیان یا افت کیفیت را محدود می‌کند",
+          "feedback": "درست: بهبود بدون عبور از حد زیان پذیرفته می‌شود."
+        },
+        {
+          "id": "c",
+          "text": "جای معیار اصلی را می‌گیرد",
+          "feedback": "بازبینی: بهبود بدون عبور از حد زیان پذیرفته می‌شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "بهبود بدون عبور از حد زیان پذیرفته می‌شود."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "آستانهٔ مناسب چه چیزی را لحاظ می‌کند؟",
+      "remediation_card_id": "S07-C2-ST02-L02-CARD05",
+      "variant": "A",
+      "id": "S07-C2-ST02-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "هزینهٔ خطا و ظرفیت اقدام",
+          "feedback": "درست: قاعدهٔ تصمیم باید با عملیات هم‌خوان باشد."
+        },
+        {
+          "id": "b",
+          "text": "فقط عدد پیش‌فرض مدل",
+          "feedback": "بازبینی: قاعدهٔ تصمیم باید با عملیات هم‌خوان باشد."
+        },
+        {
+          "id": "c",
+          "text": "نام ابزار",
+          "feedback": "بازبینی: قاعدهٔ تصمیم باید با عملیات هم‌خوان باشد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "قاعدهٔ تصمیم باید با عملیات هم‌خوان باشد."
+    },
+    {
+      "objective_id": "S07-C2-ST02-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "اگر زمان بهتر ولی خطای بحرانی بیشتر شد؟",
+      "remediation_card_id": "S07-C2-ST02-L02-CARD08",
+      "variant": "A",
+      "id": "S07-C2-ST02-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "موفقیت کامل",
+          "feedback": "بازبینی: معیارهای زیان بخش تعریف موفقیت‌اند."
+        },
+        {
+          "id": "b",
+          "text": "خطا را پنهان کنیم",
+          "feedback": "بازبینی: معیارهای زیان بخش تعریف موفقیت‌اند."
+        },
+        {
+          "id": "c",
+          "text": "Guardrail نقض شده؛ توقف یا بازطراحی لازم است",
+          "feedback": "درست: معیارهای زیان بخش تعریف موفقیت‌اند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST02-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "معیارهای زیان بخش تعریف موفقیت‌اند."
+    },
+    {
+      "id": "S07-C2-ST02-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تیم معیار موفقیت را پس از دیدن نتیجه انتخاب می‌کند. چه خطری دارد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "انتخاب پسینی معیار، نتیجهٔ مطلوب را برجسته و خطا را پنهان می‌کند",
+          "feedback": "معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+        },
+        {
+          "id": "b",
+          "text": "شفافیت ارزیابی را بالا می‌برد",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+        },
+        {
+          "id": "c",
+          "text": "مانع تغییر هدف می‌شود",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "معیار و guardrail را پیشاپیش تعریف کنید تا جابه‌جایی هدف و زیان‌های مهم آشکار شود.",
+      "objective_id": "S07-C2-ST02-L02-OBJ01",
+      "equivalence_group": "S07-C2-ST02-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST02-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "چارچوب طراحی ارزیابی متناسب با اهداف و ریسک استفاده.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ پشتیبانی مشتری و دستیار AI در یک شرکت؛ نه الگوی عمومی برای هر مداخله.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-effect-evaluation-protocol",
+    "prompt": "برای پایلوت سپهر، نمونهٔ آزمون، معیار موفقیت و guardrail، تخصیص/rollout، عوامل هم‌زمان، مدت و شیوهٔ گزارش عدم‌قطعیت را تعیین کنید.",
+    "expected_output": "پروتکل ارزیابی و قالب گزارش اثر",
+    "rubric": [
+      "نمونه، گروه، بازه، معیار اصلی و guardrail پیش از آزمون تعیین شده‌اند.",
+      "مقایسه و عدم‌قطعیت با عوامل هم‌زمان و تفاوت زیرگروه‌ها سنجیده می‌شود.",
+      "قاعدهٔ تصمیم، ظرفیت اقدام انسانی و محدودیت تعمیم را گزارش می‌کند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST02-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-DATA-SPLIT",
+    "GOOGLE-ML-MONITORING",
+    "NBER-GENAI-WORK-2025"
+  ],
+  "source_scope": "چارچوب TEVV در پیش‌نویس است؛ مثال سپهر فرضی و نتایج واقعی مطالعه محدود به زمینهٔ خود هستند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "study_scope_reviewed; generalization_limited"
+  },
+  "media_plan": {
+    "type": "evaluation-sample-metrics-controlled-comparison",
+    "purpose": "نمایش مجموعه آزمون، معیار، گروه و عدم قطعیت",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-evaluation-controlled-impact.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «معیار موفقیت و معیار زیان»: آزمون باید شبیه شرایط استفاده باشد و زیان‌های مهم را جدا اندازه بگیرد. نمونهٔ نماینده، گروه‌ها، زبان، زمان و استثناهای واقعی را پوشش بده.؛ معیار موفقیت و زیان، معیار اصلی را با هزینهٔ false positive و false negative همراه کن.؛ مقایسهٔ کنترل‌شده، در حد امکان گروه مقایسه و شرایط ثابت بساز؛ مداخله‌ها را ثبت کن.؛ اثر و عدم‌قطعیت، اندازهٔ اثر و بازه را گزارش کن؛ نتیجه را بیرون دامنه تعمیم نده.",
+        "caption": "نقشه را برای تحلیل «معیار موفقیت و معیار زیان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "نمونهٔ ارزیابی",
+      "معیار زیان",
+      "مقایسهٔ کنترل‌شده",
+      "عدم قطعیت"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پروتکل و گزارش اثر AI"
+}

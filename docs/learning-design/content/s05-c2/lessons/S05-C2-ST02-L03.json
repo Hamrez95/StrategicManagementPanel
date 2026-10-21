@@ -1,0 +1,339 @@
+{
+  "id": "S05-C2-ST02-L03",
+  "version": 1,
+  "title": "ذخیرهٔ اطمینان و کمبود",
+  "content_status": "draft",
+  "objective": "نقطهٔ سفارش و ذخیرهٔ اطمینان را با سطح خدمت تفسیر کند.",
+  "learning_cards": [
+    {
+      "id": "S05-C2-ST02-L03-CARD01",
+      "text": "نقطهٔ سفارش مجدد ROP زمانی فعال می‌شود که موقعیت موجودی به حدی برسد که تقاضا طی زمان تأمین پوشش داده شود. موقعیت معمولاً موجودی در دست + سفارش در راه − تعهدات یا عقب‌ماندگی است.",
+      "type": "explanation",
+      "title": "نکتهٔ 1"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD02",
+      "text": "اگر تقاضای روزانهٔ متوسط ۲۰ واحد و زمان تأمین ۵ روز باشد، تقاضای زمان تأمین ۱۰۰ واحد است. با ذخیرهٔ اطمینان ۳۰، نقطهٔ سفارش مجدد ۱۳۰ می‌شود.",
+      "type": "explanation",
+      "title": "نکتهٔ 2",
+      "table": {
+        "columns": [
+          "جزء",
+          "محاسبه/مقدار",
+          "تفسیر"
+        ],
+        "rows": [
+          [
+            "تقاضای زمان تأمین",
+            "۲۰ × ۵ = ۱۰۰",
+            "تقاضای مورد انتظار طی زمان تأمین"
+          ],
+          [
+            "ذخیرهٔ اطمینان",
+            "۳۰ واحد",
+            "حفاظ برای عدم‌قطعیت؛ سطح خدمت را تضمین مطلق نمی‌کند"
+          ],
+          [
+            "ROP",
+            "۱۰۰ + ۳۰ = ۱۳۰",
+            "موقعیت موجودی که سفارش را فعال می‌کند"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD03",
+      "text": "ذخیرهٔ اطمینان نوسان تقاضا یا زمان تأمین را پوشش می‌دهد. فرمول ساده با ضریب z و انحراف معیار تقاضا طی زمان تأمین به سطح خدمت هدف و فرض توزیع وابسته است.",
+      "type": "explanation",
+      "title": "نکتهٔ 3"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD04",
+      "text": "سطح خدمت چرخه‌ای احتمال نداشتن کمبود در چرخهٔ سفارش است؛ نرخ پرکردن سهم تقاضا یا واحدهایی است که فوراً از موجودی برآورده می‌شوند. این دو معیار یک چیز نیستند.",
+      "type": "explanation",
+      "title": "نکتهٔ 4"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD05",
+      "text": "افزایش سطح خدمت معمولاً موجودی اطمینان و هزینه را بالا می‌برد. هدف ۹۹ درصد را برای همهٔ اقلام یکسان نگذارید؛ هزینهٔ کمبود و اهمیت خدمت تفاوت دارد.",
+      "type": "explanation",
+      "title": "نکتهٔ 5"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD06",
+      "text": "وقتی هم تقاضا و هم زمان تأمین نوسان دارند، انحراف معیار تقاضا در زمان تأمین به‌سادگی جمع نمی‌شود؛ به همبستگی و ساختار تغییرات توجه کنید یا شبیه‌سازی و دادهٔ تاریخی به‌کار برید.",
+      "type": "explanation",
+      "title": "نکتهٔ 6"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD07",
+      "text": "خطای تأمین‌کننده و کمبود داده نیز عدم‌قطعیت است. میانگین زمان تأمین بدون پراکندگی می‌تواند سطح خدمت را خوش‌بینانه نشان دهد؛ ثبت تأخیر و علتش را حفظ کنید.",
+      "type": "explanation",
+      "title": "نکتهٔ 7"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD08",
+      "text": "در سپهر، تأمین‌کننده ۵ روز وعده می‌دهد اما گاهی ۸ روز طول می‌کشد. ROP باید تغییرپذیری واقعی و هزینهٔ توقف را ببیند، نه فقط زمان قراردادی.",
+      "type": "explanation",
+      "title": "نکتهٔ 8"
+    },
+    {
+      "id": "S05-C2-ST02-L03-CARD09",
+      "text": "ذخیرهٔ زیاد مشکل فرایندی را می‌پوشاند. پیش از افزایش buffer، دقت برنامه، کیفیت تأمین‌کننده، اندازهٔ سفارش و مسیر جایگزین را هم بررسی کنید. ذخیرهٔ اطمینان بالاتر احتمال کمبود چرخه را کم می‌کند اما تضمین نمی‌کند هر واحد تقاضا پاسخ داده شود. سطح خدمت انتخابی و نرخ پرکردن را جداگانه پایش کنید.",
+      "type": "explanation",
+      "title": "نکتهٔ 9"
+    },
+    {
+      "id": "S05-C2-ST02-L03-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Safety stock — ذخیرهٔ اطمینان: موجودی برای پوشش تغییر تقاضا/تحویل؛ سطح خدمت و توزیع فرضی بر اندازه اثر دارند. Service level — سطح خدمت: احتمال/درصد پاسخ به تقاضا طبق تعریف؛ نوع معیار (چرخه‌ای یا واحدی) باید اعلام شود. Lead-time demand — تقاضای زمان تأمین: مصرف موردانتظار طی زمان انتظار؛ زمان تحویل متغیر محاسبه را تغییر می‌دهد."
+    }
+  ],
+  "questions": [
+    {
+      "id": "S05-C2-ST02-L03-Q01",
+      "equivalence_group": "S05-C2-ST02-L03-Q01-FAMILY",
+      "type": "single_choice",
+      "prompt": "تقاضا ۲۰ در روز، زمان تأمین ۵ روز و ذخیره ۳۰ است. ROP؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: ۲۰×۵ + ۳۰ برابر ۱۳۰ است.",
+          "id": "a",
+          "text": "۱۳۰"
+        },
+        {
+          "feedback": "بازبینی: ۲۰×۵ + ۳۰ برابر ۱۳۰ است.",
+          "id": "b",
+          "text": "۱۰۰"
+        },
+        {
+          "feedback": "بازبینی: ۲۰×۵ + ۳۰ برابر ۱۳۰ است.",
+          "id": "c",
+          "text": "۵۰"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "۲۰×۵ + ۳۰ برابر ۱۳۰ است.",
+      "objective_id": "S05-C2-ST02-L03-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L03-CARD02"
+    },
+    {
+      "id": "S05-C2-ST02-L03-Q02",
+      "equivalence_group": "S05-C2-ST02-L03-Q02-FAMILY",
+      "type": "single_choice",
+      "prompt": "موقعیت موجودی برای سفارش چه چیزهایی را می‌بیند؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: سفارش‌های در راه و عقب‌ماندگی بر موقعیت اثر دارند.",
+          "id": "a",
+          "text": "در دست و در راه و تعهدات"
+        },
+        {
+          "feedback": "بازبینی: سفارش‌های در راه و عقب‌ماندگی بر موقعیت اثر دارند.",
+          "id": "b",
+          "text": "فقط موجودی قفسه"
+        },
+        {
+          "feedback": "بازبینی: سفارش‌های در راه و عقب‌ماندگی بر موقعیت اثر دارند.",
+          "id": "c",
+          "text": "فقط سفارش سالانه"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "سفارش‌های در راه و عقب‌ماندگی بر موقعیت اثر دارند.",
+      "objective_id": "S05-C2-ST02-L03-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L03-CARD01"
+    },
+    {
+      "id": "S05-C2-ST02-L03-Q03",
+      "equivalence_group": "S05-C2-ST02-L03-Q03-FAMILY",
+      "type": "single_choice",
+      "prompt": "سطح خدمت چرخه‌ای معمولاً چه چیزی را می‌سنجد؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: این معیار به چرخهٔ سفارش مربوط است.",
+          "id": "a",
+          "text": "احتمال چرخه بدون کمبود"
+        },
+        {
+          "feedback": "بازبینی: این معیار به چرخهٔ سفارش مربوط است.",
+          "id": "b",
+          "text": "سهم تقاضای تأمین‌شده"
+        },
+        {
+          "feedback": "بازبینی: این معیار به چرخهٔ سفارش مربوط است.",
+          "id": "c",
+          "text": "هزینهٔ سالانه"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "این معیار به چرخهٔ سفارش مربوط است.",
+      "objective_id": "S05-C2-ST02-L03-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L03-CARD04"
+    },
+    {
+      "id": "S05-C2-ST02-L03-Q04",
+      "equivalence_group": "S05-C2-ST02-L03-Q04-FAMILY",
+      "type": "single_choice",
+      "prompt": "چرا زمان تأمین متغیر مهم است؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: پراکندگی زمان تأمین بخشی از عدم‌قطعیت است.",
+          "id": "a",
+          "text": "تقاضای زمان تأمین و ریسک کمبود را تغییر می‌دهد"
+        },
+        {
+          "feedback": "بازبینی: پراکندگی زمان تأمین بخشی از عدم‌قطعیت است.",
+          "id": "b",
+          "text": "هیچ اثری ندارد"
+        },
+        {
+          "feedback": "بازبینی: پراکندگی زمان تأمین بخشی از عدم‌قطعیت است.",
+          "id": "c",
+          "text": "فقط هزینهٔ خرید را عوض می‌کند"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "پراکندگی زمان تأمین بخشی از عدم‌قطعیت است.",
+      "objective_id": "S05-C2-ST02-L03-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L03-CARD07"
+    },
+    {
+      "id": "S05-C2-ST02-L03-Q05",
+      "equivalence_group": "S05-C2-ST02-L03-Q05-FAMILY",
+      "type": "single_choice",
+      "prompt": "هدف خدمت بالاتر چه tradeoff ای دارد؟",
+      "variant": "A",
+      "options": [
+        {
+          "feedback": "درست: خدمت و هزینه نیازمند انتخاب متناسب با ریسک‌اند.",
+          "id": "a",
+          "text": "معمولاً موجودی اطمینان و هزینه را بالا می‌برد"
+        },
+        {
+          "feedback": "بازبینی: خدمت و هزینه نیازمند انتخاب متناسب با ریسک‌اند.",
+          "id": "b",
+          "text": "همیشه هزینه را صفر می‌کند"
+        },
+        {
+          "feedback": "بازبینی: خدمت و هزینه نیازمند انتخاب متناسب با ریسک‌اند.",
+          "id": "c",
+          "text": "موجودی را کم می‌کند"
+        }
+      ],
+      "correct_option_id": "a",
+      "version": 1,
+      "explanation": "خدمت و هزینه نیازمند انتخاب متناسب با ریسک‌اند.",
+      "objective_id": "S05-C2-ST02-L03-OBJ01",
+      "remediation_card_id": "S05-C2-ST02-L03-CARD05"
+    }
+  ],
+  "source_links": [
+    {
+      "url": "https://scm.ncsu.edu/scm-articles/article/safety-stock-analysis-inventory-management-models-a-tutorial",
+      "id": "ncsu-safety-stock",
+      "review_depth": "university_supply_chain_resource_reviewed",
+      "scope": "آموزش مدل‌های ذخیرهٔ اطمینان و سطح خدمت؛ فرمول‌ها به توزیع، زمان تأمین و فرض‌ها وابسته‌اند.",
+      "title": "NC State Supply Chain Resource Cooperative: Safety Stock Analysis",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
+      "id": "mit-inventory-eoq",
+      "review_depth": "university_course_material_reviewed",
+      "scope": "یادداشت درسی دربارهٔ موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان؛ زمینهٔ مدل و فرض‌های آموزشی حفظ شوند.",
+      "title": "MIT OCW Logistics Systems: Inventory Management",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "unit": "مقادیر ساختگی و فقط برای آموزش هستند.",
+    "solution": "مدل مناسب را انتخاب کن؛ واحد و دوره را همسان کن؛ مقدار را محاسبه کن؛ محدودیت‌های زمان تأمین و مازاد را بررسی کن؛ حساسیت و سطح خدمت را ثبت کن.",
+    "answer": "پاسخ یگانه نیست؛ ورودی، واحد، فرض و هزینهٔ تصمیم باید شفاف باشد.",
+    "prompt": "برای کالای سپهر، تقاضا و هزینهٔ سفارش و نگهداری یا کمبود را ثبت کن؛ EOQ یا مقدار فصلی را حساب و فرض و حساسیت را توضیح بده.",
+    "absolute_tolerance": null,
+    "rubric": [
+      "انتخاب مدل مناسب (۰–۲)",
+      "سازگاری واحدها (۰–۲)",
+      "محاسبه یا تفسیر (۰–۲)",
+      "ذکر فرض و محدودیت (۰–۲)",
+      "پیامد و سطح خدمت (۰–۲)"
+    ],
+    "type": "short_answer",
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s05-c2/lessons/S05-C2-ST02-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "M06",
+    "O03",
+    "R15"
+  ],
+  "source_scope": "inherits_topic_candidates_not_claim_level",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "amazon-capital-operations",
+      "toyota-process",
+      "klarna-service-ai",
+      "aravind-service"
+    ],
+    "real_case_status": "choose_and_verify_during_authoring"
+  },
+  "assessment_plan": {
+    "item_count": 5,
+    "targets": [
+      "مفهوم",
+      "تشخیص خطای رایج",
+      "مثال کاربردی",
+      "تصمیم در سناریو",
+      "انتقال به موقعیت تازه"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true
+  },
+  "suggested_minutes": {
+    "learning": 8,
+    "practice": 5
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "پاسخ تصمیم با دلیل و ثبت نکتهٔ آموخته‌شده",
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "تفکیک تقاضای زمان تأمین، ذخیرهٔ اطمینان و نقطهٔ سفارش مجدد",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/inventory-cost-ordering-map.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «ذخیرهٔ اطمینان و کمبود»: موجودی را با هزینهٔ سفارش، نگهداری، کمبود و نوسان تقاضا تصمیم‌گیری کن. هزینه‌ها، هزینهٔ سفارش و نگهداری را از جریمهٔ کمبود و قیمت خرید جدا کن.؛ EOQ و فرض‌ها، Q*=√(2DS/H) در مدل سادهٔ قطعی است؛ فرض تقاضا و هزینهٔ ثابت را اعلام کن.؛ نقطهٔ سفارش، تقاضای زمان تحویل و ذخیرهٔ اطمینان را با سطح خدمت هدف مرتبط کن.؛ کالای فصلی، هزینهٔ کمبود و مازاد را مقایسه کن؛ پیش‌بینی را با سناریو به‌روز کن.",
+        "caption": "نقشه را برای تحلیل «ذخیرهٔ اطمینان و کمبود» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      },
+      {
+        "asset_ref": "content/media/reorder-point-safety-stock.svg",
+        "alt_text": "۲۰ واحد تقاضای روزانه در ۵ روز، ۱۰۰ واحد تقاضای زمان تأمین می‌سازد؛ با ذخیرهٔ ۳۰ واحد، ROP برابر ۱۳۰ است. تغییرپذیری زمان تأمین تا ۸ روز باید جدا سنجیده شود.",
+        "caption": "ROP سادهٔ این مثال ۱۳۰ واحد است؛ سطح خدمت و پراکندگی تقاضا و زمان تأمین را هم بررسی کن.",
+        "source_url": "https://scm.ncsu.edu/scm-articles/article/safety-stock-analysis-inventory-management-models-a-tutorial"
+      }
+    ]
+  }
+}

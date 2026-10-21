@@ -1,0 +1,307 @@
+{
+  "id": "S07-C1-ST03-L04",
+  "version": "1-draft",
+  "title": "یادداشت انتخاب نوع راه‌حل",
+  "content_status": "draft",
+  "objective": "یادداشت انتخابی بسازد که مسئله، خط مبنا، گزینه‌های قاعده/انسان/مدل/GenAI، داده، ارزش، ریسک، شواهد و شرط بازنگری را مستند کند.",
+  "learning_cards": [
+    {
+      "title": "یادداشت تصمیم یک‌صفحه‌ای",
+      "id": "S07-C1-ST03-L04-CARD01",
+      "text": "مسئله و کاربر، تصمیمی که می‌خواهد بهتر شود، مالک، دامنه و پیامد خطا را بنویسید. صورت مسئله باید بی‌طرف باشد؛ «می‌خواهیم AI نصب کنیم» مسئله نیست."
+    },
+    {
+      "title": "گزینه‌ها را کامل فهرست کنید",
+      "id": "S07-C1-ST03-L04-CARD02",
+      "text": "گزینه‌ها می‌تواند قاعدهٔ دستی، بهبود فرایند، گزارش، ML پیش‌بین، مدل زبانی، RAG، خرید خدمت یا عدم اقدام باشد. ابزارهای ساده و تغییر فرایند را از ابتدا حذف نکنید."
+    },
+    {
+      "title": "تناسب داده و فناوری",
+      "id": "S07-C1-ST03-L04-CARD03",
+      "text": "برای هر گزینه دادهٔ لازم، زمان دسترس‌پذیری، کیفیت، مجوز، هزینه و توان نگهداری را مقایسه کنید. روش باید نوع کار را حل کند؛ متن مولد برای محاسبهٔ دقیق یا تصمیم قطعی شاید انتخاب مناسبی نباشد."
+    },
+    {
+      "title": "ارزش و پیامد",
+      "id": "S07-C1-ST03-L04-CARD04",
+      "text": "منفعت را در زمان، کیفیت، خطا یا تصمیم بهتر برآورد و هزینهٔ چرخهٔ عمر را کسر کنید. پیامد برای مشتری، کارمند و گروه‌های متأثر را اضافه کنید؛ صرفه‌جویی ظاهری می‌تواند هزینه را به فرد دیگری منتقل کند."
+    },
+    {
+      "title": "ریسک و کنترل",
+      "id": "S07-C1-ST03-L04-CARD05",
+      "text": "مالک داده و مدل، سطح اختیار، تأیید انسانی، اعتراض، پایش، ثبت نسخه، امنیت و توقف را تعیین کنید. برای کاربرد پراثر، معیار و شواهد قوی‌تر و مسیر پاسخ‌گویی روشن لازم است."
+    },
+    {
+      "title": "شواهد و آزمایش بعدی",
+      "id": "S07-C1-ST03-L04-CARD06",
+      "text": "کیفیت شواهد فعلی را بگویید و آزمونی با معیار، نمونه، زمان و هزینه طراحی کنید. اگر خروجی به آستانه نرسد چه می‌کنید؟ اگر هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد، آزمایش را بازطراحی کنید."
+    },
+    {
+      "title": "شرط انتخاب و بازبینی",
+      "id": "S07-C1-ST03-L04-CARD07",
+      "text": "گزینهٔ برتر را مشروط اعلام کنید: چه شاهدی اجازهٔ گسترش می‌دهد، چه تغییری باعث توقف می‌شود و چه کسی در چه تاریخی بازبینی می‌کند؟ یادداشت پس از استقرار هم با عملکرد واقعی به‌روزرسانی می‌شود."
+    },
+    {
+      "title": "مثال سپهر و جمع‌بندی",
+      "id": "S07-C1-ST03-L04-CARD08",
+      "text": "سپهر برای دیرکرد اول کیفیت تاریخ‌ها و قاعدهٔ موجود را اصلاح می‌کند، بعد مدل را با خط مبنا می‌سنجد. اگر بهبود ارزشمند باشد و هزینه/ریسک قابل مدیریت بماند، پایلوت محدود می‌گیرد؛ «AI» هدف نهایی نیست، تصمیم عملیاتی بهتر است."
+    },
+    {
+      "id": "S07-C1-ST03-L04-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "یادداشت تصمیم (Decision memo) گزینه و خط مبنا و شواهد و هزینه و ریسک و شرط بازنگری را ثبت می‌کند. ارزش افزوده (Incremental value) تفاوت منفعت با گزینهٔ ساده‌تر است. شرط تغییر تصمیم، راه‌حل را به عدم‌قطعیت واقعی وصل می‌کند."
+    },
+    {
+      "id": "S07-C1-ST03-L04-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "یادداشت انتخاب راه‌حل، تصمیم را از تبلیغ فناوری جدا می‌کند: مسئله و کاربر، خط مبنا، گزینه‌ها، ارزش مورد انتظار، داده، هزینه، خطر، شواهد و شرط توقف یا بازنگری را ثبت کنید. امتیاز ارزش/امکان/ریسک ابزار گفت‌وگوست، نه اندازه‌گیری عینی؛ وزن و اطمینان هر برآورد را نشان دهید. قاعده، نیروی انسانی، نرم‌افزار سنتی، مدل پیش‌بین و GenAI را در دامنهٔ مقایسه بگذارید. اگر فرض اصلی پایلوت نقض شد، یادداشت باید بگوید تصمیم بعدی چیست. مالک و تاریخ بازنگری مانع از آن می‌شوند که آزمایش موقت بی‌صدا به سامانهٔ دائمی تبدیل شود."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C1-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "یادداشت انتخاب راه‌حل از چه چیزی شروع می‌شود؟",
+      "remediation_card_id": "S07-C1-ST03-L04-CARD01",
+      "variant": "A",
+      "id": "S07-C1-ST03-L04-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "نام مدل",
+          "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+        },
+        {
+          "id": "b",
+          "text": "قیمت اشتراک",
+          "feedback": "بازبینی: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+        },
+        {
+          "id": "c",
+          "text": "مسئله و تصمیم، نه نام ابزار",
+          "feedback": "درست: انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L04-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "انتخاب فناوری باید به نیاز تصمیم وصل باشد."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L04-OBJ01",
+      "type": "single_choice",
+      "prompt": "چه گزینه‌هایی را در نظر بگیریم؟",
+      "remediation_card_id": "S07-C1-ST03-L04-CARD02",
+      "variant": "A",
+      "id": "S07-C1-ST03-L04-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط ساخت سفارشی",
+          "feedback": "بازبینی: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+        },
+        {
+          "id": "b",
+          "text": "قاعده، فرایند، انسان، ML، GenAI یا عدم اقدام",
+          "feedback": "درست: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+        },
+        {
+          "id": "c",
+          "text": "فقط آخرین مدل",
+          "feedback": "بازبینی: گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L04-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "گزینهٔ ساده ممکن است به‌اندازهٔ کافی خوب باشد."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "شرط گسترش را چه وقت تعریف کنیم؟",
+      "remediation_card_id": "S07-C1-ST03-L04-CARD07",
+      "variant": "A",
+      "id": "S07-C1-ST03-L04-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "پیش از پایلوت و نتیجه",
+          "feedback": "درست: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text": "پس از خرج کامل",
+          "feedback": "بازبینی: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text": "وقتی فروشنده وعده داد",
+          "feedback": "بازبینی: قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L04-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "قاعدهٔ قبلی جلوی گسترش بی‌معیار را می‌گیرد."
+    },
+    {
+      "objective_id": "S07-C1-ST03-L04-OBJ02",
+      "type": "single_choice",
+      "prompt": "اگر هیچ نتیجه‌ای تصمیم را تغییر نمی‌دهد؟",
+      "remediation_card_id": "S07-C1-ST03-L04-CARD06",
+      "variant": "A",
+      "id": "S07-C1-ST03-L04-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "باز هم همهٔ داده را جمع کنیم",
+          "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+        },
+        {
+          "id": "b",
+          "text": "آن را موفق اعلام کنیم",
+          "feedback": "بازبینی: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+        },
+        {
+          "id": "c",
+          "text": "آزمایش را بازطراحی یا حذف کنیم",
+          "feedback": "درست: آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+        }
+      ],
+      "equivalence_group": "S07-C1-ST03-L04-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "آزمایش باید ارزش اطلاعاتی برای تصمیم داشته باشد."
+    },
+    {
+      "id": "S07-C1-ST03-L04-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "یادداشت انتخاب راه‌حل باید نشان دهد چرا مدل لازم است. چه شاهدی قوی‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خط مبنا و گزینه‌های ساده‌تر و داده و هزینه و ریسک و شرط بازنگری",
+          "feedback": "انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+        },
+        {
+          "id": "b",
+          "text": "نام مدل مشهور",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+        },
+        {
+          "id": "c",
+          "text": "پیش‌بینی منفعت بدون معیار",
+          "feedback": "این گزینه مرز پیش‌بینی و شاهد را رعایت نمی‌کند: انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "انتخاب باید نسبت به گزینه‌های قاعده یا انسان توجیه شود و شواهد و شرط تغییر تصمیم ثبت گردد.",
+      "objective_id": "S07-C1-ST03-L04-OBJ01",
+      "equivalence_group": "S07-C1-ST03-L04-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C1-ST03-L04-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش داده، عملکرد، skew، نسخه و کیفیت زنده.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، منابع محاسباتی و پایش مدل در تولید.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "چارچوب ارزیابی متناسب با کاربرد و پیامد؛ نسخهٔ پیش‌نویس عمومی.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "اندازه‌گیری زمینه‌مند عملکرد و ریسک و مشارکت متخصصان حوزه.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-solution-selection-memo",
+    "prompt": "برای پیش‌بینی دیرکرد سپهر، راه‌حل قاعده، فرایند، مدل یا سرویس را با خط مبنا، داده، هزینهٔ کل، معیار، ریسک، کنترل انسانی و شرط گسترش/توقف مقایسه کنید.",
+    "expected_output": "یادداشت انتخاب راه‌حل مبتنی بر شواهد و برنامهٔ ارزیابی",
+    "rubric": [
+      "قاعدهٔ ساده، مدل و گزینهٔ انسانی با هدف و هزینه مقایسه شده‌اند.",
+      "کیفیت داده، baseline، معیار و محدودیت هر گزینه مستند است.",
+      "انتخاب مرحله‌ای است و معیار پذیرش، زیان قابل‌قبول و شرط توقف دارد."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c1/lessons/S07-C1-ST03-L04.json",
+  "order": 4,
+  "node_type": "lesson",
+  "source_refs": [
+    "GOOGLE-ML-MONITORING",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-TEVV-ATHLON-2026",
+    "NIST-AI-RMF-MEASURE"
+  ],
+  "source_scope": "چارچوب و مستندات فنی رسمی؛ گزینهٔ نهایی تابع شواهد مسئله و سازمان است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_case"
+  },
+  "media_plan": {
+    "type": "solution-selection-and-TEVV-scorecard",
+    "purpose": "مقایسهٔ خط مبنا، گزینه، ریسک و آزمون",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ml-rule-human-solution-choice.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «یادداشت انتخاب نوع راه‌حل»: پیچیدگی مدل را با ارزش تصمیم، داده و هزینهٔ نگهداری توجیه کن. قاعدهٔ ساده، اگر منطق پایدار و قابل‌توضیح است، baseline ساده را بساز.؛ داده و نگهداری، برچسب، تغییر توزیع، پایش و تیم نگهداری را در هزینه بیاور.؛ مقایسهٔ انسان و ابزار، کیفیت، زمان، خطا و شرایط ارجاع را در تکلیف یکسان مقایسه کن.؛ یادداشت تصمیم، چرا این راه‌حل، چه شاهدی و چه شرط بازنگری دارد؟",
+        "caption": "نقشه را برای تحلیل «یادداشت انتخاب نوع راه‌حل» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "خط مبنا",
+      "هزینهٔ عمر",
+      "ارزیابی منصفانه",
+      "یادداشت انتخاب"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "یادداشت انتخاب راه‌حل و طرح TEVV"
+}

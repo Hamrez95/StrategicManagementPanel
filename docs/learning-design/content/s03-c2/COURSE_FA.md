@@ -44,6 +44,10 @@ Customer-based brand equity به تفاوت واکنش مصرف‌کننده ب�
 
 Brand awareness آگاهی برند؛ aided recognition بازشناسی با کمک؛ unaided recall یادآوری بی‌کمک؛ brand association تداعی برند؛ preference ترجیح؛ customer-based brand equity ارزش ویژهٔ مبتنی بر مشتری؛ sales-based brand equity ارزش فروش‌محور است. آگاهی را با انتخاب یکی نگیرید.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Brand awareness — آگاهی از برند: توان یادآوری یا تشخیص برند طبق روش سنجش؛ آگاهی مساوی ترجیح یا خرید نیست. Brand association — تداعی برند: معنا یا ویژگی پیوندخورده با برند در حافظه؛ مثبت‌بودن آن باید سنجیده شود. Brand preference — ترجیح برند: گرایش نسبی به گزینه در مقایسهٔ تعریف‌شده؛ با انتخاب هنگام خرید یکی نیست.
+
 #### تمرین و بازخورد
 
 آگاهی برند بیشتر چه چیزی را می‌سنجد؟
@@ -139,6 +143,10 @@ Point of difference دلیل انتخاب خاص است؛ point of parity حدا
 #### واژگان پرتکرار
 
 Differentiation تمایز؛ claim ادعا؛ feature ویژگی؛ benefit منفعت؛ point of difference نقطهٔ تمایز؛ point of parity شرط برابری؛ reason to believe دلیل باور؛ substitutability جایگزین‌پذیری است. تمایز را از نگاه مشتری و جایگزین واقعی بررسی کنید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Differentiation — تمایز: تفاوت ارزشمند و ادراک‌شده در انتخاب مشتری؛ متفاوت‌بودن فنی به‌تنهایی ارزش نمی‌سازد. Positioning claim — ادعای جایگاه‌یابی: وعدهٔ نسبی به بخش هدف در برابر مرجع رقابتی؛ شعار بدون دلیل باورپذیر نیست. Reason to believe — دلیل باور: شاهد یا قابلیت پشتیبان وعده؛ گواهی یا ادعای داخلی دامنهٔ محدود دارد.
 
 #### تمرین و بازخورد
 
@@ -236,6 +244,10 @@ Reason to believe می‌تواند عملکرد مشاهده‌شده، قاب�
 
 Positioning جایگاه‌یابی؛ frame of reference چارچوب مرجع؛ target segment بخش هدف؛ benefit منفعت؛ reason to believe دلیل باور؛ perceptual map نقشهٔ ادراکی؛ brand promise وعدهٔ برند است. جایگاه وعده‌ای است که باید در تجربه تحویل شود.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Brand positioning — جایگاه برند: جایگاه مطلوب در ذهن بخش هدف نسبت به جایگزین‌ها؛ عبارت تبلیغاتی بدون قابلیت تحویل پایدار نمی‌شود. Frame of reference — چارچوب مرجع: دسته/رقبایی که مشتری مقایسه می‌کند؛ انتخاب مرجع نامناسب مزیت را بی‌معنا می‌سازد. Perceptual map — نقشهٔ ادراکی: نمایش شباهت/تفاوت بر اساس سنجش مشخص؛ محورهای نمودار واقعیت مستقل از روش نیستند.
+
 #### تمرین و بازخورد
 
 جایگاه برند چه چیزی را روشن می‌کند؟
@@ -331,6 +343,10 @@ Positioning جایگاه‌یابی؛ frame of reference چارچوب مرجع؛
 #### واژگان پرتکرار
 
 Brand lift تغییر شاخص برند؛ baseline خط پایه؛ pre/post سنجش پیش و پس؛ control group گروه کنترل؛ attribution انتساب اثر؛ brand tracking پایش دوره‌ای؛ measurement invariance ثبات معنای ابزار میان گروه/زمان است. رشد شاخص پس از تبلیغ، اثر علّی قطعی نیست.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Brand lift — تغییر برند: اختلاف شاخص برند در بازه/گروه‌های مقایسه؛ تغییر قبل‌و‌بعد بدون کنترل علت کمپین را ثابت نمی‌کند. Brand tracking — پایش برند: سنجش تکراری سازه‌های برند با روش نسبتاً ثابت؛ تغییر پرسش/نمونه روند را می‌شکند. Difference-in-differences — تفاوت در تفاوت‌ها: مقایسهٔ تغییر دو گروه با فرض روند موازی؛ طراحی نامناسب یا شوک متفاوت نتیجه را سوگیر می‌کند.
 
 #### تمرین و بازخورد
 
@@ -456,6 +472,10 @@ brand lift را چه وقت بازده مالی می‌خوانیم؟
 
 Perceived value ارزش درک‌شده؛ willingness to pay تمایل به پرداخت؛ willingness to accept حداقل پذیرش؛ cost-to-serve هزینهٔ خدمت؛ contribution margin حاشیهٔ مشارکت؛ net revenue درآمد خالص؛ value-based pricing قیمت‌گذاری مبتنی بر ارزش است. احساس ارزش را با سود شرکت یکی نگیرید.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Perceived value — ارزش ادراک‌شده: منفعت مورد انتظار در برابر هزینهٔ پولی و غیرپولی؛ قیمت ارزان‌تر الزاماً ارزش بیشتر نیست. Economic value to customer — ارزش اقتصادی برای مشتری: منفعت/صرفه‌جویی در قیاس با جایگزین در فرض‌های مشخص؛ سقف قیمت قطعی بازار نیست. Price floor — کف قیمت: حدی بر اساس هزینه و هدف اقتصادی؛ هزینهٔ حسابداری به‌تنهایی کف راهبردی را تعیین نمی‌کند.
+
 #### تمرین و بازخورد
 
 ارزش درک‌شده با قیمت چه تفاوتی دارد؟
@@ -510,8 +530,8 @@ Perceived value ارزش درک‌شده؛ willingness to pay تمایل به پ
 
 - منبع [MIT Sloan OCW 15.818 Pricing: Measuring Customer Reactions to Prices](https://ocw.mit.edu/courses/15-818-pricing-spring-2010/resources/mit15_818s10_lec04/)؛ مواد آموزشی تحصیلات تکمیلی دربارهٔ سنجش واکنش قیمت با پیمایش، conjoint، دادهٔ تاریخی و آزمون میدانی؛ محتوای ۲۰۱۰ برای روش است نه قیمت امروز.
 - منبع [MIT Sloan Executive Education: Pricing—Using Data to Improve Pricing Performance](https://executive.mit.edu/course/pricing/a056g00000URaaPAAT.html)؛ توصیف دورهٔ حرفه‌ای MIT دربارهٔ ارزش اقتصادی، تقاضا و سنجش واکنش مشتری به قیمت.
-- منبع [FTC: Surveillance Pricing Study—Initial Findings (2025)](https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer)؛ یافته‌های اولیهٔ مطالعهٔ بازار ایالات متحده دربارهٔ واسطه‌ها و داده‌های مورد استفاده در قیمت‌گذاری شخصی؛ مطالعهٔ بازار است، نه اثبات رفتار همهٔ فروشندگان یا قانون جهانی.
-- منبع [MIT Press: AI Fairness, Chapter 9—Algorithmic Pricing](https://direct.mit.edu/books/oa-monograph/5967/AI-FairnessDesigning-Equal-Opportunity-Algorithms)؛ فصل کتاب دسترسی‌آزاد دربارهٔ قیمت‌گذاری الگوریتمی و موازنه‌های انصاف؛ چارچوب تحلیلی است، نه پاسخ یگانهٔ سیاستی.
+- منبع [FTC Surveillance Pricing 6(b) Study: Research Summaries—A Staff Perspective (2025)](https://www.ftc.gov/system/files/ftc_gov/pdf/p246202_surveillancepricing6bstudy_researchsummaries_redacted.pdf)؛ گزارش اولیهٔ کارکنان FTC بر پایهٔ پاسخ شش شرکت به مطالعهٔ 6(b) در آمریکا؛ غیرجامع و موقت است و دربارهٔ نقض قانون از سوی شرکت‌ها نتیجه‌گیری نمی‌کند.
+- منبع [MIT Press: AI Fairness: Designing Equal Opportunity Algorithms (2025)](https://mitpress.mit.edu/9780262552363/ai-fairness/)؛ کتاب ۲۰۲۵ دربارهٔ انصاف الگوریتمی؛ فصل نهم به قیمت‌گذاری الگوریتمی می‌پردازد. چارچوب عمومی انصاف است، نه شاهد تجربی دربارهٔ پیامدهای قیمت‌گذاری برای مصرف‌کننده.
 
 ### درس‌نامهٔ `S03-C2-ST02-L02`؛ کشش و مرز تخمین
 
@@ -552,6 +572,10 @@ Perceived value ارزش درک‌شده؛ willingness to pay تمایل به پ
 #### واژگان پرتکرار
 
 Price elasticity of demand کشش قیمتی تقاضا؛ own-price elasticity کشش قیمت خود محصول؛ cross-price elasticity کشش متقاطع؛ confounding مخدوش‌گر؛ price test آزمون قیمت؛ estimate برآورد؛ confidence interval بازهٔ اطمینان است. کشش یک پارامتر زمینه‌مند است نه قانون ثابت بازار.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Price elasticity — کشش قیمت: درصد تغییر تقاضا نسبت به درصد تغییر قیمت در دامنه و شرایط معین؛ ثابت و جهان‌شمول نیست. Ceteris paribus — با ثابت‌بودن سایر شرایط: فرض تحلیلی برای جداکردن رابطه؛ در بازار واقعی اغلب نقض می‌شود. Stated vs revealed demand — تقاضای اظهارشده در برابر آشکارشده: پاسخ فرضی در برابر رفتار واقعی؛ هیچ‌کدام بدون زمینه کامل نیستند.
 
 #### تمرین و بازخورد
 
@@ -607,8 +631,8 @@ Price elasticity of demand کشش قیمتی تقاضا؛ own-price elasticity �
 
 - منبع [MIT Sloan OCW 15.818 Pricing: Measuring Customer Reactions to Prices](https://ocw.mit.edu/courses/15-818-pricing-spring-2010/resources/mit15_818s10_lec04/)؛ مواد آموزشی تحصیلات تکمیلی دربارهٔ سنجش واکنش قیمت با پیمایش، conjoint، دادهٔ تاریخی و آزمون میدانی؛ محتوای ۲۰۱۰ برای روش است نه قیمت امروز.
 - منبع [MIT Sloan Executive Education: Pricing—Using Data to Improve Pricing Performance](https://executive.mit.edu/course/pricing/a056g00000URaaPAAT.html)؛ توصیف دورهٔ حرفه‌ای MIT دربارهٔ ارزش اقتصادی، تقاضا و سنجش واکنش مشتری به قیمت.
-- منبع [FTC: Surveillance Pricing Study—Initial Findings (2025)](https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer)؛ یافته‌های اولیهٔ مطالعهٔ بازار ایالات متحده دربارهٔ واسطه‌ها و داده‌های مورد استفاده در قیمت‌گذاری شخصی؛ مطالعهٔ بازار است، نه اثبات رفتار همهٔ فروشندگان یا قانون جهانی.
-- منبع [MIT Press: AI Fairness, Chapter 9—Algorithmic Pricing](https://direct.mit.edu/books/oa-monograph/5967/AI-FairnessDesigning-Equal-Opportunity-Algorithms)؛ فصل کتاب دسترسی‌آزاد دربارهٔ قیمت‌گذاری الگوریتمی و موازنه‌های انصاف؛ چارچوب تحلیلی است، نه پاسخ یگانهٔ سیاستی.
+- منبع [FTC Surveillance Pricing 6(b) Study: Research Summaries—A Staff Perspective (2025)](https://www.ftc.gov/system/files/ftc_gov/pdf/p246202_surveillancepricing6bstudy_researchsummaries_redacted.pdf)؛ گزارش اولیهٔ کارکنان FTC بر پایهٔ پاسخ شش شرکت به مطالعهٔ 6(b) در آمریکا؛ غیرجامع و موقت است و دربارهٔ نقض قانون از سوی شرکت‌ها نتیجه‌گیری نمی‌کند.
+- منبع [MIT Press: AI Fairness: Designing Equal Opportunity Algorithms (2025)](https://mitpress.mit.edu/9780262552363/ai-fairness/)؛ کتاب ۲۰۲۵ دربارهٔ انصاف الگوریتمی؛ فصل نهم به قیمت‌گذاری الگوریتمی می‌پردازد. چارچوب عمومی انصاف است، نه شاهد تجربی دربارهٔ پیامدهای قیمت‌گذاری برای مصرف‌کننده.
 
 ### درس‌نامهٔ `S03-C2-ST02-L03`؛ بسته‌بندی، تخفیف و کانال
 
@@ -649,6 +673,10 @@ Price elasticity of demand کشش قیمتی تقاضا؛ own-price elasticity �
 #### واژگان پرتکرار
 
 Price architecture معماری قیمت؛ tier سطح بسته؛ bundling بسته‌بندی؛ unbundling تفکیک؛ reference price قیمت مرجع؛ channel margin حاشیهٔ کانال؛ discount depth عمق تخفیف؛ net price قیمت خالص؛ price fairness انصاف ادراک‌شدهٔ قیمت است. تعداد بسته را با تناسب نیاز اشتباه نگیرید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Bundling — بسته‌بندی: فروش چند محصول/خدمت به‌صورت ترکیبی؛ تخفیف بسته باید با هزینه و ارزش هر جزء سنجیده شود. Price discrimination — تمایز قیمت: قیمت متفاوت با مبنای بخش/شرط متفاوت؛ عدالت، مقررات و امکان آربیتراژ محدودیت‌اند. Channel conflict — تعارض کانال: اصطکاک ناشی از قیمت/نقش کانال‌ها؛ همیشه با یکسان‌کردن قیمت حل نمی‌شود.
 
 #### تمرین و بازخورد
 
@@ -704,8 +732,8 @@ Price architecture معماری قیمت؛ tier سطح بسته؛ bundling بس�
 
 - منبع [MIT Sloan OCW 15.818 Pricing: Measuring Customer Reactions to Prices](https://ocw.mit.edu/courses/15-818-pricing-spring-2010/resources/mit15_818s10_lec04/)؛ مواد آموزشی تحصیلات تکمیلی دربارهٔ سنجش واکنش قیمت با پیمایش، conjoint، دادهٔ تاریخی و آزمون میدانی؛ محتوای ۲۰۱۰ برای روش است نه قیمت امروز.
 - منبع [MIT Sloan Executive Education: Pricing—Using Data to Improve Pricing Performance](https://executive.mit.edu/course/pricing/a056g00000URaaPAAT.html)؛ توصیف دورهٔ حرفه‌ای MIT دربارهٔ ارزش اقتصادی، تقاضا و سنجش واکنش مشتری به قیمت.
-- منبع [FTC: Surveillance Pricing Study—Initial Findings (2025)](https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer)؛ یافته‌های اولیهٔ مطالعهٔ بازار ایالات متحده دربارهٔ واسطه‌ها و داده‌های مورد استفاده در قیمت‌گذاری شخصی؛ مطالعهٔ بازار است، نه اثبات رفتار همهٔ فروشندگان یا قانون جهانی.
-- منبع [MIT Press: AI Fairness, Chapter 9—Algorithmic Pricing](https://direct.mit.edu/books/oa-monograph/5967/AI-FairnessDesigning-Equal-Opportunity-Algorithms)؛ فصل کتاب دسترسی‌آزاد دربارهٔ قیمت‌گذاری الگوریتمی و موازنه‌های انصاف؛ چارچوب تحلیلی است، نه پاسخ یگانهٔ سیاستی.
+- منبع [FTC Surveillance Pricing 6(b) Study: Research Summaries—A Staff Perspective (2025)](https://www.ftc.gov/system/files/ftc_gov/pdf/p246202_surveillancepricing6bstudy_researchsummaries_redacted.pdf)؛ گزارش اولیهٔ کارکنان FTC بر پایهٔ پاسخ شش شرکت به مطالعهٔ 6(b) در آمریکا؛ غیرجامع و موقت است و دربارهٔ نقض قانون از سوی شرکت‌ها نتیجه‌گیری نمی‌کند.
+- منبع [MIT Press: AI Fairness: Designing Equal Opportunity Algorithms (2025)](https://mitpress.mit.edu/9780262552363/ai-fairness/)؛ کتاب ۲۰۲۵ دربارهٔ انصاف الگوریتمی؛ فصل نهم به قیمت‌گذاری الگوریتمی می‌پردازد. چارچوب عمومی انصاف است، نه شاهد تجربی دربارهٔ پیامدهای قیمت‌گذاری برای مصرف‌کننده.
 
 ### درس‌نامهٔ `S03-C2-ST02-L04`؛ قیمت‌گذاری با کمک AI و کنترل انسانی
 
@@ -746,6 +774,10 @@ Price architecture معماری قیمت؛ tier سطح بسته؛ bundling بس�
 #### واژگان پرتکرار
 
 Dynamic pricing قیمت‌گذاری پویا؛ surveillance pricing قیمت‌گذاری نظارت‌محور؛ objective function تابع هدف؛ feedback loop حلقهٔ بازخورد؛ price dispersion پراکندگی قیمت؛ human override تغییر انسانی؛ shadow mode اجرای سایه؛ rollback بازگشت سیاست است. مدل بهینه‌ساز به‌تنهایی سیاست منصفانه انتخاب نمی‌کند.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Dynamic pricing — قیمت‌گذاری پویا: تغییر قیمت با زمان/تقاضا/موجودی طبق قاعده؛ بهینه‌سازی کوتاه‌مدت می‌تواند اعتماد را آسیب بزند. Algorithmic pricing — قیمت‌گذاری الگوریتمی: استفاده از داده/مدل برای توصیه یا تعیین قیمت؛ خودکاربودن عدالت یا رقابت‌پذیری را تضمین نمی‌کند. Human override — اختیار مداخلهٔ انسانی: توان توقف/اصلاح قیمت طبق معیار؛ نیازمند ثبت، مسئول و آستانه است.
 
 #### تمرین و بازخورد
 
@@ -801,8 +833,8 @@ Dynamic pricing قیمت‌گذاری پویا؛ surveillance pricing قیمت�
 
 - منبع [MIT Sloan OCW 15.818 Pricing: Measuring Customer Reactions to Prices](https://ocw.mit.edu/courses/15-818-pricing-spring-2010/resources/mit15_818s10_lec04/)؛ مواد آموزشی تحصیلات تکمیلی دربارهٔ سنجش واکنش قیمت با پیمایش، conjoint، دادهٔ تاریخی و آزمون میدانی؛ محتوای ۲۰۱۰ برای روش است نه قیمت امروز.
 - منبع [MIT Sloan Executive Education: Pricing—Using Data to Improve Pricing Performance](https://executive.mit.edu/course/pricing/a056g00000URaaPAAT.html)؛ توصیف دورهٔ حرفه‌ای MIT دربارهٔ ارزش اقتصادی، تقاضا و سنجش واکنش مشتری به قیمت.
-- منبع [FTC: Surveillance Pricing Study—Initial Findings (2025)](https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer)؛ یافته‌های اولیهٔ مطالعهٔ بازار ایالات متحده دربارهٔ واسطه‌ها و داده‌های مورد استفاده در قیمت‌گذاری شخصی؛ مطالعهٔ بازار است، نه اثبات رفتار همهٔ فروشندگان یا قانون جهانی.
-- منبع [MIT Press: AI Fairness, Chapter 9—Algorithmic Pricing](https://direct.mit.edu/books/oa-monograph/5967/AI-FairnessDesigning-Equal-Opportunity-Algorithms)؛ فصل کتاب دسترسی‌آزاد دربارهٔ قیمت‌گذاری الگوریتمی و موازنه‌های انصاف؛ چارچوب تحلیلی است، نه پاسخ یگانهٔ سیاستی.
+- منبع [FTC Surveillance Pricing 6(b) Study: Research Summaries—A Staff Perspective (2025)](https://www.ftc.gov/system/files/ftc_gov/pdf/p246202_surveillancepricing6bstudy_researchsummaries_redacted.pdf)؛ گزارش اولیهٔ کارکنان FTC بر پایهٔ پاسخ شش شرکت به مطالعهٔ 6(b) در آمریکا؛ غیرجامع و موقت است و دربارهٔ نقض قانون از سوی شرکت‌ها نتیجه‌گیری نمی‌کند.
+- منبع [MIT Press: AI Fairness: Designing Equal Opportunity Algorithms (2025)](https://mitpress.mit.edu/9780262552363/ai-fairness/)؛ کتاب ۲۰۲۵ دربارهٔ انصاف الگوریتمی؛ فصل نهم به قیمت‌گذاری الگوریتمی می‌پردازد. چارچوب عمومی انصاف است، نه شاهد تجربی دربارهٔ پیامدهای قیمت‌گذاری برای مصرف‌کننده.
 
 ### مرور مرحله
 
@@ -871,6 +903,10 @@ FTC 2025 چه نوع شاهدی فراهم می‌کند؟
 #### واژگان پرتکرار
 
 Brand promise وعدهٔ برند؛ touchpoint نقطهٔ تماس؛ journey map نقشهٔ مسیر؛ service blueprint نقشهٔ خدمت؛ handoff انتقال بین تیم‌ها؛ service recovery بازیابی خدمت؛ voice of customer صدای مشتری است. یکپارچگی را با تحویل واقعی وعده بسنجید.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Customer touchpoint — نقطهٔ تماس: لحظهٔ تعامل مشتری با سازمان/کانال؛ شمارش تماس‌ها کیفیت تجربه را نشان نمی‌دهد. Service blueprint — نقشهٔ خدمت: پیوند کنش مشتری، نمایان و پشتیبان، و فرایند؛ نقشه بدون مالکیت عملیاتی اجرا نمی‌شود. Brand promise — وعدهٔ برند: انتظار ایجادشده برای تجربه؛ باید به استاندارد و جبران خدمت وصل شود.
 
 #### تمرین و بازخورد
 
@@ -969,6 +1005,10 @@ Brand promise وعدهٔ برند؛ touchpoint نقطهٔ تماس؛ journey map
 
 Crisis communication ارتباطات بحران؛ holding statement پیام اولیهٔ موقت؛ verified fact واقعیت تأییدشده؛ incident command فرماندهی رخداد؛ remediation اصلاح؛ service recovery بازیابی خدمت؛ post-incident review مرور پس از رخداد است. اعتبار با اقدام و گزارش پیگیری بازسازی می‌شود.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Crisis communication — ارتباطات بحران: انتقال سریع و دقیق اطلاعات در شرایط آسیب/ابهام؛ پیام روابط عمومی جای ایمنی و اقدام اصلاحی نیست. Verified fact — واقعیت تأییدشده: گزارهٔ پشتیبانی‌شده در محدودهٔ شاهد موجود؛ ناشناخته‌ها باید جدا اعلام شوند. Corrective action — اقدام اصلاحی: رفع علت و کاهش تکرار؛ عذرخواهی بدون تغییر فرایند کافی نیست.
+
 #### تمرین و بازخورد
 
 پیام اولیهٔ بحران باید چه چیزهایی را جدا کند؟
@@ -1066,6 +1106,10 @@ Crisis communication ارتباطات بحران؛ holding statement پیام ا
 
 Randomization تصادفی‌سازی؛ unit of randomization واحد تخصیص؛ control group گروه کنترل؛ contamination آلودگی گروه؛ primary metric شاخص اصلی؛ guardrail شاخص حفاظتی؛ pre-registration پیش‌ثبت؛ novelty effect اثر تازگی است. اختلاف نرخ را بدون طراحی و مخرج تفسیر نکنید.
 
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Randomized price test — آزمون تصادفی قیمت: مقایسهٔ قیمت‌های تخصیص‌یافته برای برآورد اثر در جامعهٔ آزمون؛ آلودگی یا نابرابری گروه‌ها نتیجه را مخدوش می‌کند. Randomization unit — واحد تصادفی‌سازی: واحدی که قیمت به آن تخصیص می‌یابد؛ مشتری/جلسه/منطقه انتخاب‌های هم‌ارز نیستند. Guardrail metric — شاخص حفاظتی: سنجه‌ای برای پیامد ناخواسته مثل شکایت/مرجوعی؛ شاخص اصلی را جایگزین نمی‌کند.
+
 #### تمرین و بازخورد
 
 هدف آزمایش باید چه زمانی ثبت شود؟
@@ -1162,6 +1206,10 @@ Randomization تصادفی‌سازی؛ unit of randomization واحد تخصی�
 #### واژگان تلفیقی
 
 Price-brand fit تناسب قیمت و برند؛ net price قیمت خالص؛ contribution margin حاشیهٔ مشارکت؛ fairness guardrail شاخص حفاظتی انصاف؛ decision matrix ماتریس تصمیم؛ staged rollout عرضهٔ مرحله‌ای؛ learning agenda دستورکار یادگیری است. یک تصمیم خوب فقط بهترین میانگین مالی را دنبال نمی‌کند.
+
+#### اصطلاح‌های تخصصی و مرز مفهومی
+
+Contribution margin — حاشیهٔ مشارکت: درآمد منهای هزینه‌های متغیر مرتبط؛ با سود خالص یکی نیست. Price architecture — معماری قیمت: منطق سطوح، بسته و قواعد قیمت؛ تغییر یک پلن می‌تواند پلن دیگر را جابه‌جا کند. Fairness perception — ادراک انصاف: داوری مشتری دربارهٔ رویه و تفاوت قیمت؛ فقط هزینهٔ سازمان آن را تعیین نمی‌کند.
 
 #### تمرین و بازخورد
 

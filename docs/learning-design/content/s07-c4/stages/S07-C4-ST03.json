@@ -1,0 +1,1630 @@
+{
+  "id": "S07-C4-ST03",
+  "title": "پایش و بهبود",
+  "order": 3,
+  "color_token": "orange",
+  "legacy_research_topic_ids": [
+    "S07-M4"
+  ],
+  "level": "specialist",
+  "source_refs": [
+    "GOOGLE-ML-MONITORING",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AIRMF-PLAYBOOK",
+    "NIST-GENAI-PROFILE"
+  ],
+  "source_alignment": "Google production monitoring guidance and NIST AI RMF Measure/Manage; proxy metrics and thresholds scoped to application context.",
+  "lessons": [
+    {
+      "id": "S07-C4-ST03-L01",
+      "version": "1-draft",
+      "title": "تغییر داده و افت عملکرد",
+      "content_status": "draft",
+      "objective": "نشانه‌های تغییر توزیع داده و افت کیفیت مدل را از هم تفکیک کند و مسیر بررسی، هشدار و بازآموزی یا توقف پیشنهاد دهد.",
+      "learning_cards": [
+        {
+          "title": "Drift را به تغییر زمینه وصل کن",
+          "id": "S07-C4-ST03-L01-CARD01",
+          "text": "تغییر توزیع دادهٔ ورودی با گذر زمان data drift نامیده می‌شود؛ تغییر رابطهٔ ورودی و نتیجه می‌تواند افت کیفیت ایجاد کند. تغییر کاربر، فصل، سیاست یا محصول ممکن است دلیل زمینه‌ای باشد. هشدار آماری به‌تنهایی علت را مشخص نمی‌کند."
+        },
+        {
+          "title": "Skew با drift فرق دارد",
+          "id": "S07-C4-ST03-L01-CARD02",
+          "text": "training-serving skew یعنی ورودی یا تبدیل زمان آموزش با زمان سرویس متفاوت است؛ drift تغییرات محیطی یا داده در طول زمان است. هر دو ممکن است روی خروجی اثر بگذارند، اما محل بررسی متفاوت است. مثال و تعریف سازمانی را در runbook ثابت نگه دارید."
+        },
+        {
+          "title": "کیفیت واقعی را با دادهٔ نتیجه بسنج",
+          "id": "S07-C4-ST03-L01-CARD03",
+          "text": "در تولید برچسب درست ممکن است دیر برسد یا اصلاً ثبت نشود. از بازبینی انسانی نمونه‌ای، نتیجهٔ کسب‌وکار یا proxy معتبر استفاده کنید و محدودیت هرکدام را ثبت کنید. Google نمونه‌هایی از معیارهای جانشین مانند اقدام کاربر را برای پایش پیشنهاد می‌کند."
+        },
+        {
+          "title": "تغییر بی‌ضرر را از افت مهم جدا کن",
+          "id": "S07-C4-ST03-L01-CARD04",
+          "text": "توزیع داده ممکن است تغییر کند اما کیفیت کاربردی بماند؛ هشدار لازم نیست هر تغییری را توقف کند. با نمونهٔ برچسب‌خورده، sliceها، هزینهٔ خطا و نظر متخصص بررسی کنید آیا تغییر از آستانهٔ عملیاتی عبور کرده است."
+        },
+        {
+          "title": "آستانه و پنجرهٔ زمانی تعیین کن",
+          "id": "S07-C4-ST03-L01-CARD05",
+          "text": "آستانهٔ هشدار را به حجم نمونه، نوسان طبیعی و زمان رسیدگی پیوند دهید. برای دادهٔ کم‌حجم، یک روز غیرعادی ممکن است گمراه‌کننده باشد. روند، شدت، مدت و مقایسه با دورهٔ مشابه را در داشبورد نمایش دهید."
+        },
+        {
+          "title": "مدل پیر، ولی گاهی پایدار است",
+          "id": "S07-C4-ST03-L01-CARD06",
+          "text": "مدل ممکن است با تغییر محیط کهنه شود، اما نیاز به بازآموزی روزانه برای همهٔ کاربردها یکسان نیست. تغییرپذیری مسئله، هزینهٔ برچسب و ریسک مدل را بسنجید. retraining بدون ارزیابی می‌تواند نسخهٔ بدتر بسازد."
+        },
+        {
+          "title": "مداخله را مشخص کن",
+          "id": "S07-C4-ST03-L01-CARD07",
+          "text": "هشدار باید به مالک و اقدام پیوند بخورد: نمونه‌گیری بیشتر، بررسی داده، محدودکردن دامنه، بازآموزی، rollback یا خاموش‌کردن. زمان پاسخ و معیار پایان بررسی را از قبل بنویسید؛ داشبورد بدون تصمیم جریان کاری نیست."
+        },
+        {
+          "title": "هر آستانه باید دوباره ارزیابی شود",
+          "id": "S07-C4-ST03-L01-CARD08",
+          "text": "پس از تغییر داده، مدل یا سیاست، تعریف baseline و هشدارها را بازبینی کنید. NIST پایش پس از استقرار را همراه با پاسخ و مدیریت تغییر در چرخهٔ عمر قرار می‌دهد. اثربخشی هشدار را با رخدادهای واقعی و موارد ازدست‌رفته بسنجید."
+        },
+        {
+          "id": "S07-C4-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "تغییر توزیع (Data drift) تغییر ویژگی‌های ورودی است؛ افت عملکرد (Performance degradation) افزایش خطا در نتیجهٔ واقعی است. برای تشخیص دومی معمولاً به برچسب و نتیجه نیاز است. بازآموزی بدون تشخیص علت می‌تواند سوگیری یا نشت را تکرار کند."
+        },
+        {
+          "id": "S07-C4-ST03-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "تغییر توزیع داده یعنی الگوهای ورودی نسبت به دورهٔ مرجع عوض شده‌اند؛ افت عملکرد نشان می‌دهد کیفیت پیش‌بینی یا تصمیم پایین آمده است. تغییر ورودی همیشه به افت کیفیت نمی‌انجامد، و افت می‌تواند از برچسب، فرایند یا ابزار ثبت هم باشد. شاخص‌ها را در سطح ورودی، خروجی و پیامد بسنجید و با تأخیر برچسب واقعی تطبیق دهید. آستانهٔ هشدار را با هزینهٔ هشدار کاذب تنظیم کنید. بازآموزی فوری بدون تشخیص علت ممکن است خطا را تثبیت کند؛ گاهی محدودسازی یا توقف امن‌تر است."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST03-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "data drift به چه چیزی اشاره دارد؟",
+          "remediation_card_id": "S07-C4-ST03-L01-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST03-L01-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "تغییر داده یا محیط در طول زمان",
+              "feedback": "درست: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+            },
+            {
+              "id": "b",
+              "text": "تفاوت صرف نسخهٔ فونت",
+              "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+            },
+            {
+              "id": "c",
+              "text": "قطعاً بدترشدن همهٔ خروجی‌ها",
+              "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L01-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "training-serving skew چیست؟",
+          "remediation_card_id": "S07-C4-ST03-L01-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST03-L01-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "تفاوت داده یا تبدیل آموزش و سرویس",
+              "feedback": "درست: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+            },
+            {
+              "id": "b",
+              "text": "افزایش بودجهٔ سرور",
+              "feedback": "بازبینی: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+            },
+            {
+              "id": "c",
+              "text": "تغییر تعداد مدیران",
+              "feedback": "بازبینی: این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L01-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "این مورد اختلاف میان دو بخش چرخهٔ داده را نشان می‌دهد."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "برای کاربرد با برچسب دیررس چه کار می‌کنیم؟",
+          "remediation_card_id": "S07-C4-ST03-L01-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST03-L01-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "proxy معتبر و نمونه‌گیری/برچسب‌گذاری انسانی را با محدودیت ثبت می‌کنیم",
+              "feedback": "درست: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+            },
+            {
+              "id": "b",
+              "text": "هیچ معیاری لازم نیست",
+              "feedback": "بازبینی: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+            },
+            {
+              "id": "c",
+              "text": "خروجی مدل را حقیقت می‌گیریم",
+              "feedback": "بازبینی: کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L01-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "کیفیت زنده ممکن است مستقیم قابل مشاهده نباشد."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "هشدار drift باید به چه چیزی منجر شود؟",
+          "remediation_card_id": "S07-C4-ST03-L01-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST03-L01-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "مالک، بررسی و اقدام تعریف‌شده",
+              "feedback": "درست: پایش مؤثر به تصمیم و پاسخ وصل است."
+            },
+            {
+              "id": "b",
+              "text": "قطع همهٔ خدمات بدون معیار",
+              "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+            },
+            {
+              "id": "c",
+              "text": "فقط نمودار جدید",
+              "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L01-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "پایش مؤثر به تصمیم و پاسخ وصل است."
+        },
+        {
+          "id": "S07-C4-ST03-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نرخ خطا بالا رفته است. چگونه تغییر توزیع داده را از افت کیفیت مدل تفکیک کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ویژگی‌های ورودی و برچسب‌های واقعی و عملکرد را جدا پایش و علت را بررسی کنیم",
+              "feedback": "تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+            },
+            {
+              "id": "b",
+              "text": "هر دو را drift بنامیم و فوراً بازآموزی کنیم",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+            },
+            {
+              "id": "c",
+              "text": "هشدار را خاموش کنیم",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تغییر ورودی با افت رابطهٔ پیش‌بینی یکسان نیست؛ برچسب و عملکرد واقعی برای تشخیص لازم‌اند.",
+          "objective_id": "S07-C4-ST03-L01-OBJ01",
+          "equivalence_group": "S07-C4-ST03-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C4-ST03-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GOOGLE-ML-MONITORING",
+          "title": "Google ML Crash Course: Monitoring Pipelines",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "title": "Google for Developers: Productionization",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-AI-RMF-CORE",
+          "title": "NIST AI RMF Core: Measure and Manage",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "AI-monitoring-and-management-report",
+        "prompt": "برای کاربرد سپهر، «تغییر داده و افت عملکرد» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+        "expected_output": "طرح پایش داده و افت کیفیت با شاخص، آستانه و مالک",
+        "rubric": [
+          "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+          "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+          "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C4-ST01-L03",
+        "S07-C4-ST02-L01"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L01.json",
+      "order": 1,
+      "node_type": "lesson",
+      "source_refs": [
+        "GOOGLE-ML-MONITORING",
+        "GOOGLE-ML-PRODUCTIONIZATION",
+        "NIST-AI-RMF-CORE",
+        "NIST-GENAI-PROFILE"
+      ],
+      "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "AI-monitoring-dashboard-and-decision-brief",
+        "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «تغییر داده و افت عملکرد»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+            "caption": "نقشه را برای تحلیل «تغییر داده و افت عملکرد» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "تشخیص تغییر",
+          "تفسیر trade-off",
+          "کنترل نسخه",
+          "تصمیم مدیریتی"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "طرح پایش داده و افت کیفیت با شاخص، آستانه و مالک",
+      "selected_source_refs": [
+        {
+          "source_id": "GOOGLE-ML-MONITORING",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST03-L02",
+      "version": "1-draft",
+      "title": "پایش هزینه، کیفیت و زمان",
+      "content_status": "draft",
+      "objective": "هزینهٔ کل، کیفیت خدمت و تأخیر را بر یک واحد کاری مشترک پایش کند و trade-offهای بهبود را برای تصمیم مدیریتی تفسیر کند.",
+      "learning_cards": [
+        {
+          "title": "هزینه را به واحد ارزش وصل کن",
+          "id": "S07-C4-ST03-L02-CARD01",
+          "text": "هزینهٔ هر درخواست به‌تنهایی تصمیم‌ساز نیست. آن را به واحد کاری مانند درخواست حل‌شده، پیش‌نویس پذیرفته‌شده یا سفارش کامل‌شده وصل کنید. این کار امکان مقایسه با فرایند فعلی و ارزش کسب‌وکار را می‌دهد."
+        },
+        {
+          "title": "هزینهٔ واقعی فراتر از API است",
+          "id": "S07-C4-ST03-L02-CARD02",
+          "text": "هزینهٔ کل می‌تواند شامل مصرف مدل، جست‌وجو، نگهداری، مهندسی، ارزیابی، بازبینی انسانی، اصلاح خطا، آموزش و پشتیبانی باشد. اقلام را از هزینهٔ ثابت و متغیر جدا کنید و فرض حجم را ثبت کنید."
+        },
+        {
+          "title": "میانگین، tail latency را پنهان می‌کند",
+          "id": "S07-C4-ST03-L02-CARD03",
+          "text": "کاربر دیرترین موارد را هم تجربه می‌کند. زمان پاسخ را با percentileهایی مانند p50 و p95، صف بازبینی و زمان تکمیل کار بخوانید. معیار فنی latency و زمان end-to-end فرایند یکی نیستند."
+        },
+        {
+          "title": "کیفیت خدمت را با هزینهٔ کم نفروش",
+          "id": "S07-C4-ST03-L02-CARD04",
+          "text": "کاهش هزینه ممکن است با افزایش خطا، ارجاع یا شکایت همراه شود. معیار کیفیت، شدت خطا و هزینهٔ بازکاری را کنار مصرف و زمان ببینید. صرفه‌جویی خالص زمانی معنا دارد که پیامدهای انتقال‌یافته به تیم‌های دیگر ثبت شوند."
+        },
+        {
+          "title": "مقایسهٔ منصفانه به مخرج یکسان نیاز دارد",
+          "id": "S07-C4-ST03-L02-CARD05",
+          "text": "حجم و ترکیب درخواست، پیچیدگی، ساعت کاری، کانال و سطح تجربهٔ کارکنان را برای دو مسیر مقایسه کنید. هزینهٔ به ازای مورد آسان را با مورد پیچیده جمع نزنید. هرجا ممکن است گروه‌های مشابه یا طراحی آزمون کنترل‌شده بسازید."
+        },
+        {
+          "title": "مصرف مدل را کنترل عملیاتی کن",
+          "id": "S07-C4-ST03-L02-CARD06",
+          "text": "سقف، هشدار و محدودیت نرخ می‌توانند از جهش هزینه جلوگیری کنند. برای هر کار سقف توکن یا دفعات ابزار ممکن است trade-off کیفیت ایجاد کند؛ اثر را بسنجید. محدودیت هزینه نباید بی‌خبر کیفیت یا امنیت را خراب کند."
+        },
+        {
+          "title": "هزینهٔ خطا را هم وارد کن",
+          "id": "S07-C4-ST03-L02-CARD07",
+          "text": "پاسخ نادرست ممکن است هزینهٔ تماس مجدد، جبران، بررسی یا لطمهٔ اعتماد بسازد. هزینهٔ مورد را با سناریو و دادهٔ واقعی برآورد کنید و عدم‌قطعیت را گزارش دهید. نتیجهٔ یک پایلوت کوچک پیش‌بینی مالی قطعی برای کل سال نیست."
+        },
+        {
+          "title": "یک داشبورد، چند مخاطب",
+          "id": "S07-C4-ST03-L02-CARD08",
+          "text": "مدیر خدمت کیفیت و هزینهٔ هر کار را می‌خواهد؛ تیم فنی latency و خطا را؛ کارکنان بار صف و override را. مالک هر شاخص، بسامد، منبع داده، آستانه و اقدام را بنویسید تا گزارش به جلسهٔ تصمیم تبدیل شود."
+        },
+        {
+          "id": "S07-C4-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "تأخیر (Latency) مدت پاسخ، هزینه (Cost) منابع هر واحد کار و کیفیت (Quality) درستی/فایدهٔ نتیجه است. واحد سنجش مشترک برای مقایسه لازم است. هزینهٔ پایین‌تر با بازبینی یا دوباره‌کاری بیشتر ممکن است هزینهٔ کل را بالا ببرد."
+        },
+        {
+          "id": "S07-C4-ST03-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "هزینه، کیفیت و زمان باید بر واحد کاری قابل مقایسه محاسبه شوند؛ مثلاً هزینه و زمان برای هر درخواست تکمیل‌شده با کیفیت پذیرفته‌شده. هزینهٔ خام فراخوانی، هزینهٔ انسانی و تأخیر زیرسامانه‌ها را جا نگذارید. سریع‌ترشدن ممکن است با نرخ اصلاح بالاتر همراه شود. تفکیک میانگین از دنبالهٔ کند و زیرگروه‌های پرهزینه برای تجربهٔ کاربر مهم است. اگر حجم رشد کند، رفتار هزینه تغییر می‌کند. داشبورد باید روند، خط مبنا و guardrailها را نمایش دهد و مدیر را به اقدام مشخص مثل محدودسازی، بهینه‌سازی یا گسترش وصل کند."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST03-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "واحد مناسب برای هزینهٔ مقایسه‌ای چیست؟",
+          "remediation_card_id": "S07-C4-ST03-L02-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST03-L02-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "فقط هر فراخوان مدل",
+              "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+            },
+            {
+              "id": "b",
+              "text": "هزینه به ازای کار کامل‌شده و قابل‌قبول",
+              "feedback": "درست: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+            },
+            {
+              "id": "c",
+              "text": "تعداد ابزارها",
+              "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L02-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "b",
+          "explanation": "مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا p95 latency را کنار میانگین می‌خوانیم؟",
+          "remediation_card_id": "S07-C4-ST03-L02-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST03-L02-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "تا تجربهٔ موارد کندتر پنهان نشود",
+              "feedback": "درست: صدک‌ها tail تأخیر را نشان می‌دهند."
+            },
+            {
+              "id": "b",
+              "text": "چون میانگین همیشه غلط است",
+              "feedback": "بازبینی: صدک‌ها tail تأخیر را نشان می‌دهند."
+            },
+            {
+              "id": "c",
+              "text": "برای محاسبهٔ دقت مدل",
+              "feedback": "بازبینی: صدک‌ها tail تأخیر را نشان می‌دهند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L02-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "صدک‌ها tail تأخیر را نشان می‌دهند."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "هزینهٔ کل استقرار چه چیزهایی دارد؟",
+          "remediation_card_id": "S07-C4-ST03-L02-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST03-L02-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "مصرف مدل، نظارت، ارزیابی و اصلاح کار",
+              "feedback": "درست: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+            },
+            {
+              "id": "b",
+              "text": "فقط نرخ API",
+              "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+            },
+            {
+              "id": "c",
+              "text": "فقط هزینهٔ خرید لپ‌تاپ",
+              "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L02-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "صرفه‌جویی خالص چگونه سنجیده می‌شود؟",
+          "remediation_card_id": "S07-C4-ST03-L02-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST03-L02-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "با هزینه و کیفیت و بازکاری/پیامد در یک مقایسهٔ منصفانه",
+              "feedback": "درست: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+            },
+            {
+              "id": "b",
+              "text": "فقط با کاهش مصرف",
+              "feedback": "بازبینی: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+            },
+            {
+              "id": "c",
+              "text": "با حدس تیم فروش",
+              "feedback": "بازبینی: بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L02-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "بهینه‌سازی یک شاخص ممکن است هزینه را به جای دیگری منتقل کند."
+        },
+        {
+          "id": "S07-C4-ST03-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "نسخهٔ سریع‌تر ۲۰٪ هزینه را کم کرده اما خطا و زمان بازبینی را بالا برده است. شاخص مدیریتی مناسب چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "هزینه، کیفیت و تأخیر را به‌ازای واحد کار مشترک کنار هم بسنجیم",
+              "feedback": "مقایسه باید واحد کاری یکسان و کیفیت و زمان انسانی را هم دربرگیرد تا صرفه‌جویی کاذب نشود."
+            },
+            {
+              "id": "b",
+              "text": "فقط هزینهٔ API",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: مقایسه باید واحد کاری یکسان و کیفیت و زمان انسانی را هم دربرگیرد تا صرفه‌جویی کاذب نشود."
+            },
+            {
+              "id": "c",
+              "text": "تعداد توکن را معیار کیفیت بگیریم",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: مقایسه باید واحد کاری یکسان و کیفیت و زمان انسانی را هم دربرگیرد تا صرفه‌جویی کاذب نشود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مقایسه باید واحد کاری یکسان و کیفیت و زمان انسانی را هم دربرگیرد تا صرفه‌جویی کاذب نشود.",
+          "objective_id": "S07-C4-ST03-L02-OBJ01",
+          "equivalence_group": "S07-C4-ST03-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C4-ST03-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GOOGLE-ML-MONITORING",
+          "title": "Google ML Crash Course: Monitoring Pipelines",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "title": "Google for Developers: Productionization",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-AI-RMF-CORE",
+          "title": "NIST AI RMF Core: Measure and Manage",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "AI-monitoring-and-management-report",
+        "prompt": "برای کاربرد سپهر، «پایش هزینه، کیفیت و زمان» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+        "expected_output": "داشبورد هزینه-کیفیت-زمان و تعریف واحد تحلیل",
+        "rubric": [
+          "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+          "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+          "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C4-ST01-L03",
+        "S07-C4-ST02-L01"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L02.json",
+      "order": 2,
+      "node_type": "lesson",
+      "source_refs": [
+        "GOOGLE-ML-MONITORING",
+        "GOOGLE-ML-PRODUCTIONIZATION",
+        "NIST-AI-RMF-CORE",
+        "NIST-GENAI-PROFILE"
+      ],
+      "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "AI-monitoring-dashboard-and-decision-brief",
+        "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «پایش هزینه، کیفیت و زمان»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+            "caption": "نقشه را برای تحلیل «پایش هزینه، کیفیت و زمان» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "تشخیص تغییر",
+          "تفسیر trade-off",
+          "کنترل نسخه",
+          "تصمیم مدیریتی"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "داشبورد هزینه-کیفیت-زمان و تعریف واحد تحلیل",
+      "selected_source_refs": [
+        {
+          "source_id": "GOOGLE-ML-MONITORING",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST03-L03",
+      "version": "1-draft",
+      "title": "مقایسهٔ نسخه و کنترل تغییر",
+      "content_status": "draft",
+      "objective": "نسخهٔ جدید داده، prompt، مدل یا pipeline را به‌عنوان تغییر کنترل‌شده ارزیابی کند و تصمیم انتشار یا بازگشت را با ردپای قابل پیگیری ثبت کند.",
+      "learning_cards": [
+        {
+          "title": "نسخه فقط نام مدل نیست",
+          "id": "S07-C4-ST03-L03-CARD01",
+          "text": "خروجی ممکن است با تغییر prompt، دادهٔ بازیابی، تنظیمات، API، ابزار، UI یا سیاست عوض شود. نسخهٔ کل سامانه را به اجزای مهم بشکنید تا در رخداد مشخص شود چه چیزی تغییر کرده است."
+        },
+        {
+          "title": "تغییر را پیش از اجرا طبقه‌بندی کن",
+          "id": "S07-C4-ST03-L03-CARD02",
+          "text": "تغییر کوچک متن رابط با تغییر مدل، منبع داده یا مجوز عامل پیامد یکسان ندارد. ریسک، دامنهٔ آزمون و سطح تأیید را متناسب کنید. تغییرات فوری اضطراری هم باید ثبت و پس از آن بازبینی شوند."
+        },
+        {
+          "title": "مقایسه با کنترل نسخه انجام بده",
+          "id": "S07-C4-ST03-L03-CARD03",
+          "text": "نسخهٔ تازه را با دادهٔ آزمون ثابت و نیز نمونهٔ نمایندهٔ جدید بسنجید. نسخهٔ ثابت کمک می‌کند اثر تغییر را ببینید؛ نمونهٔ تازه نشان می‌دهد benchmark قدیمی هنوز با واقعیت سازگار است یا نه."
+        },
+        {
+          "title": "Regression یعنی توان قبلی را از دست نده",
+          "id": "S07-C4-ST03-L03-CARD04",
+          "text": "مدل ممکن است در قابلیت تازه بهتر و در قابلیت قدیمی بدتر شود. مجموعهٔ آزمون رگرسیون شامل نمونه‌های معمول، مرزی، حساس و موارد خطای گذشته باشد. آزمون رگرسیون ایمنی و کیفیت را مکمل می‌کند."
+        },
+        {
+          "title": "A/B را فقط با تخصیص روشن تفسیر کن",
+          "id": "S07-C4-ST03-L03-CARD05",
+          "text": "در مقایسهٔ آنلاین، تعیین گروه‌ها، مدت، معیار اصلی، معیارهای محافظ و قاعدهٔ توقف را پیشاپیش بنویسید. تغییر هم‌زمان قیمت، پیام یا نیروی پشتیبانی می‌تواند اثر را مخدوش کند."
+        },
+        {
+          "title": "مرجع بازگشت را نگه دار",
+          "id": "S07-C4-ST03-L03-CARD06",
+          "text": "برای هر انتشار artefactهای قبلی، سازگاری، config و migration داده را حفظ کنید. rollback نرم‌افزار کافی نیست اگر نسخهٔ قبلی با schema تازه کار نکند. طرح برگشت را در staging تمرین کنید."
+        },
+        {
+          "title": "تصمیم تغییر را مستند کن",
+          "id": "S07-C4-ST03-L03-CARD07",
+          "text": "چه کسی درخواست داد، چه مسئله‌ای حل می‌شود، چه شواهدی داریم، چه خطرهایی باقی است و چه کسانی تأیید کرده‌اند؟ این‌ها را در change record ثبت کنید. بدون دلیل و مسئول، تغییرات کوچک به زنجیره‌ای غیرقابل توضیح تبدیل می‌شوند."
+        },
+        {
+          "title": "مدیریت تغییر پس از انتشار ادامه دارد",
+          "id": "S07-C4-ST03-L03-CARD08",
+          "text": "در rollout، شاخص‌های کیفیت، drift، هزینه و شکایت را دنبال کنید. تغییر را می‌توان ادامه داد، مکث کرد، محدود کرد یا برگرداند. threshold و زمان مشاهده باید بر اساس کاربرد تعیین شود، نه فقط تقویم انتشار."
+        },
+        {
+          "id": "S07-C4-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "مدیریت تغییر (Change management) نسخهٔ prompt و مدل و داده و pipeline را ثبت و ارزیابی می‌کند. انتشار کنترل‌شده یک تغییر را قابل ردیابی می‌کند؛ تغییر هم‌زمان چند جزء علت افت را نامعلوم می‌گذارد. ماشهٔ بازگشت را پیشاپیش تعیین کنید."
+        },
+        {
+          "id": "S07-C4-ST03-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "تغییر نسخه می‌تواند در prompt، مدل، منبع بازیابی، داده یا pipeline رخ دهد و هرکدام کیفیت و ریسک را تغییر دهد. ثبت شناسهٔ نسخه و پیکربندی امکان بازتولید و مقایسه می‌دهد. تغییرات کوچک نیز ممکن است اثر ترکیبی بسازند، پس انتشار را کنترل‌شده و مرحله‌ای کنید. معیار پذیرش و سناریوی بازگشت را پیش از تغییر مشخص کنید. اگر مجموعه ارزیابی ثابت نماند، مقایسهٔ نسخه‌ها بی‌اعتبار می‌شود. تصمیم انتشار، مسئول تأیید، دامنهٔ rollout و نتیجهٔ پایش را در ردپای تغییر ثبت کنید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST03-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "برای ردیابی تغییر چه چیزی باید نسخه‌بندی شود؟",
+          "remediation_card_id": "S07-C4-ST03-L03-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST03-L03-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مدل و اجزای مهم داده، prompt، ابزار و تنظیمات",
+              "feedback": "درست: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+            },
+            {
+              "id": "b",
+              "text": "فقط نام پروژه",
+              "feedback": "بازبینی: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+            },
+            {
+              "id": "c",
+              "text": "فقط تاریخ جلسه",
+              "feedback": "بازبینی: رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L03-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "رفتار کل سامانه می‌تواند با چند جزء تغییر کند."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "آزمون رگرسیون چه هدفی دارد؟",
+          "remediation_card_id": "S07-C4-ST03-L03-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST03-L03-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "کشف افت قابلیت‌های قبلی پس از تغییر",
+              "feedback": "درست: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+            },
+            {
+              "id": "b",
+              "text": "تضمین بازارپذیری",
+              "feedback": "بازبینی: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+            },
+            {
+              "id": "c",
+              "text": "کاهش تعداد کاربران",
+              "feedback": "بازبینی: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L03-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "قبل از A/B چه چیزی را ثبت می‌کنیم؟",
+          "remediation_card_id": "S07-C4-ST03-L03-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST03-L03-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "گروه، معیار، مدت و قاعدهٔ توقف",
+              "feedback": "درست: طراحی پیشینی به تفسیر منصفانه کمک می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "فقط شعار محصول",
+              "feedback": "بازبینی: طراحی پیشینی به تفسیر منصفانه کمک می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "نتیجهٔ مورد انتظار قطعی",
+              "feedback": "بازبینی: طراحی پیشینی به تفسیر منصفانه کمک می‌کند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L03-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "طراحی پیشینی به تفسیر منصفانه کمک می‌کند."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه زمانی rollback عملی نیست؟",
+          "remediation_card_id": "S07-C4-ST03-L03-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST03-L03-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "وقتی داده یا وابستگی جدید با نسخهٔ قبلی سازگار نیست",
+              "feedback": "درست: سازگاری داده و سرویس باید پیشاپیش تمرین شود."
+            },
+            {
+              "id": "b",
+              "text": "وقتی گزارش داریم",
+              "feedback": "بازبینی: سازگاری داده و سرویس باید پیشاپیش تمرین شود."
+            },
+            {
+              "id": "c",
+              "text": "وقتی تغییر کوچک است",
+              "feedback": "بازبینی: سازگاری داده و سرویس باید پیشاپیش تمرین شود."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L03-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "سازگاری داده و سرویس باید پیشاپیش تمرین شود."
+        },
+        {
+          "id": "S07-C4-ST03-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "تغییر prompt و مدل و داده هم‌زمان منتشر شده و کیفیت افت کرده است. مشکل فرایند چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "تغییرها قابل انتساب نیستند؛ نسخه‌ها را جدا و کنترل‌شده ارزیابی کنیم",
+              "feedback": "تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "نسخه‌بندی نیاز نیست",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "بازگشت را تا پایان فصل عقب بیندازیم",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "تغییر کنترل‌شده و ردپا امکان پیدا کردن علت و تصمیم انتشار یا بازگشت را فراهم می‌کند.",
+          "objective_id": "S07-C4-ST03-L03-OBJ01",
+          "equivalence_group": "S07-C4-ST03-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C4-ST03-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GOOGLE-ML-MONITORING",
+          "title": "Google ML Crash Course: Monitoring Pipelines",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "title": "Google for Developers: Productionization",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-AI-RMF-CORE",
+          "title": "NIST AI RMF Core: Measure and Manage",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "AI-monitoring-and-management-report",
+        "prompt": "برای کاربرد سپهر، «مقایسهٔ نسخه و کنترل تغییر» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+        "expected_output": "فرم کنترل تغییر و گزارش مقایسهٔ نسخهٔ قبل/بعد",
+        "rubric": [
+          "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+          "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+          "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C4-ST01-L03",
+        "S07-C4-ST02-L01"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L03.json",
+      "order": 3,
+      "node_type": "lesson",
+      "source_refs": [
+        "GOOGLE-ML-MONITORING",
+        "GOOGLE-ML-PRODUCTIONIZATION",
+        "NIST-AI-RMF-CORE",
+        "NIST-GENAI-PROFILE"
+      ],
+      "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "AI-monitoring-dashboard-and-decision-brief",
+        "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «مقایسهٔ نسخه و کنترل تغییر»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+            "caption": "نقشه را برای تحلیل «مقایسهٔ نسخه و کنترل تغییر» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "تشخیص تغییر",
+          "تفسیر trade-off",
+          "کنترل نسخه",
+          "تصمیم مدیریتی"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "فرم کنترل تغییر و گزارش مقایسهٔ نسخهٔ قبل/بعد",
+      "selected_source_refs": [
+        {
+          "source_id": "GOOGLE-ML-MONITORING",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "S07-C4-ST03-L04",
+      "version": "1-draft",
+      "title": "گزارش تصمیم برای مدیریت",
+      "content_status": "draft",
+      "objective": "گزارش مدیریتی کوتاه و شواهدمحور برای ادامه، محدودکردن، اصلاح یا توقف سامانه تهیه کند و نتیجه را همراه دامنه و عدم‌قطعیت ارائه دهد.",
+      "learning_cards": [
+        {
+          "title": "گزارش مدیریتی، انبار نمودار نیست",
+          "id": "S07-C4-ST03-L04-CARD01",
+          "text": "گزارش باید به تصمیمی که اکنون لازم است پاسخ دهد: توسعه، محدودکردن، اصلاح، توقف یا جمع‌آوری دادهٔ بیشتر. مخاطب، دامنهٔ تصمیم و افق زمانی را در آغاز مشخص کنید."
+        },
+        {
+          "title": "ادعا را به شاهد قابل پیگیری وصل کن",
+          "id": "S07-C4-ST03-L04-CARD02",
+          "text": "هر ادعای کلیدی را با معیار، خط مبنا، دوره، جمعیت و نسخه پشتیبانی کنید. تفاوت میان نتیجهٔ مشاهده‌شده و تفسیر را روشن کنید. اگر داده ناقص است، آن را در گزارش پنهان نکنید."
+        },
+        {
+          "title": "چهار لایهٔ عملکرد را کنار هم نشان بده",
+          "id": "S07-C4-ST03-L04-CARD03",
+          "text": "کیفیت مدل، نتیجهٔ خدمت، هزینه/زمان و ریسک/اثر انسانی را در یک نمای متوازن بگذارید. شاخص‌ها trade-off دارند. برای مثال، سرعت بیشتر همراه با بار بازبینی و شکایت ممکن است بهبود واقعی نباشد."
+        },
+        {
+          "title": "دامنهٔ تعمیم را دقیق بنویس",
+          "id": "S07-C4-ST03-L04-CARD04",
+          "text": "بگویید گزارش دربارهٔ کدام گروه، وظیفه، بازه و نسخه است. نتیجهٔ پایلوت یک شعبه را به همهٔ کشورها تعمیم ندهید. مطالعهٔ بیرونی را به‌عنوان زمینه یا فرضیه بیاورید، نه نتیجهٔ سازمان خودتان."
+        },
+        {
+          "title": "عدم‌قطعیت، تصمیم را بهتر می‌کند",
+          "id": "S07-C4-ST03-L04-CARD05",
+          "text": "محدودیت نمونه، دادهٔ گمشده، خطای اندازه‌گیری و احتمال تغییر زمینه را توضیح دهید. ارائهٔ بازه یا سطح اطمینان کیفی از دقت کاذب بهتر است. مدیر می‌تواند با عدم‌قطعیت تصمیم مرحله‌ای بگیرد."
+        },
+        {
+          "title": "گزینه‌ها را با پیامد و برگشت‌پذیری بسنج",
+          "id": "S07-C4-ST03-L04-CARD06",
+          "text": "برای هر گزینهٔ مدیریتی منفعت مورد انتظار، هزینه، ریسک باقیمانده، ظرفیت تیم و امکان بازگشت را مقایسه کنید. گسترش تنها گزینه نیست؛ دامنهٔ محدود یا ادامهٔ آزمایش ممکن است ارزش یادگیری داشته باشد."
+        },
+        {
+          "title": "تصمیم‌گیر و بازبینی بعدی را ثبت کن",
+          "id": "S07-C4-ST03-L04-CARD07",
+          "text": "نام نقش صاحب تصمیم، دلیل، محدودیت‌ها، شرط توقف و تاریخ بازبینی بعدی را ثبت کنید. NIST مدیریت ریسک را مستمر و همراه با ارتباط مسئولیت‌ها و پاسخ به رخداد می‌داند."
+        },
+        {
+          "title": "یک صفحه، اما با پیوست شواهد",
+          "id": "S07-C4-ST03-L04-CARD08",
+          "text": "خلاصهٔ تصمیم را کوتاه نگه دارید و برای جزئیات version, dataset, rubric, slice, رخداد و اقتصاد واحد به پیوست قابل بررسی ارجاع دهید. این روش هم خوانایی برای مدیر می‌سازد و هم مسیر حسابرسی را حفظ می‌کند."
+        },
+        {
+          "id": "S07-C4-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "خلاصهٔ مدیریتی مدل باید تصمیم و معیار و نمونه و دامنه و محدودیت و عدم‌قطعیت را بیان کند. توصیه (Recommendation) باید به شاهد و شرط اجرا وصل باشد. ادامه و محدودسازی و اصلاح و توقف گزینه‌های تصمیم‌اند، نه فقط «موفق/ناموفق»."
+        },
+        {
+          "id": "S07-C4-ST03-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "گزارش مدیریت باید به تصمیم ادامه، محدودسازی، اصلاح یا توقف پاسخ دهد و شواهد را با دامنهٔ کاربرد توضیح دهد. یک عدد میانگین بدون حجم، دوره، خط مبنا و عدم قطعیت کافی نیست. کنار منفعت، کیفیت، هزینه، رخدادها، ریسک باقی‌مانده و تجربهٔ افراد متأثر را خلاصه کنید. تفکیک واقعیت مشاهده‌شده از برآورد و فرض مانع ادعای بیش از شواهد می‌شود. پیشنهاد را با شرط و موعد بازبینی همراه کنید. مدیر باید بداند اگر فرض کلیدی عوض شد یا guardrail نقض شد، اقدام بعدی چیست و چه کسی مسئول آن است."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "S07-C4-ST03-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "گزارش مدیریتی با چه چیزی شروع می‌شود؟",
+          "remediation_card_id": "S07-C4-ST03-L04-CARD01",
+          "variant": "A",
+          "id": "S07-C4-ST03-L04-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "تصمیم مورد نیاز و دامنهٔ آن",
+              "feedback": "درست: گزارش باید تصمیم‌ساز باشد."
+            },
+            {
+              "id": "b",
+              "text": "فهرست کامل نمودارها",
+              "feedback": "بازبینی: گزارش باید تصمیم‌ساز باشد."
+            },
+            {
+              "id": "c",
+              "text": "شرح معماری بدون مسئله",
+              "feedback": "بازبینی: گزارش باید تصمیم‌ساز باشد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L04-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "گزارش باید تصمیم‌ساز باشد."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "برای یک ادعا کدام زمینه لازم است؟",
+          "remediation_card_id": "S07-C4-ST03-L04-CARD02",
+          "variant": "A",
+          "id": "S07-C4-ST03-L04-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "معیار، خط مبنا، دوره، گروه و نسخه",
+              "feedback": "درست: دامنهٔ شاهد امکان تفسیر درست را می‌دهد."
+            },
+            {
+              "id": "b",
+              "text": "فقط درصد کلی",
+              "feedback": "بازبینی: دامنهٔ شاهد امکان تفسیر درست را می‌دهد."
+            },
+            {
+              "id": "c",
+              "text": "فقط نظر نویسنده",
+              "feedback": "بازبینی: دامنهٔ شاهد امکان تفسیر درست را می‌دهد."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L04-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "دامنهٔ شاهد امکان تفسیر درست را می‌دهد."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "پایلوت کوچک چه چیزی را به‌تنهایی ثابت نمی‌کند؟",
+          "remediation_card_id": "S07-C4-ST03-L04-CARD03",
+          "variant": "A",
+          "id": "S07-C4-ST03-L04-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "نتیجه برای همهٔ واحدها و دوره‌ها",
+              "feedback": "درست: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+            },
+            {
+              "id": "b",
+              "text": "نتیجه برای همان نمونه",
+              "feedback": "بازبینی: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+            },
+            {
+              "id": "c",
+              "text": "امکان یادگیری",
+              "feedback": "بازبینی: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L04-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+        },
+        {
+          "objective_id": "S07-C4-ST03-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه چیزی گزارش را به اقدام وصل می‌کند؟",
+          "remediation_card_id": "S07-C4-ST03-L04-CARD04",
+          "variant": "A",
+          "id": "S07-C4-ST03-L04-Q04",
+          "options": [
+            {
+              "id": "a",
+              "text": "صاحب تصمیم، شرط توقف و تاریخ بازبینی",
+              "feedback": "درست: مسئول و چرخهٔ بازبینی تصمیم را عملی می‌کند."
+            },
+            {
+              "id": "b",
+              "text": "رنگ بیشتر",
+              "feedback": "بازبینی: مسئول و چرخهٔ بازبینی تصمیم را عملی می‌کند."
+            },
+            {
+              "id": "c",
+              "text": "پنهان‌کردن عدم‌قطعیت",
+              "feedback": "بازبینی: مسئول و چرخهٔ بازبینی تصمیم را عملی می‌کند."
+            }
+          ],
+          "equivalence_group": "S07-C4-ST03-L04-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "مسئول و چرخهٔ بازبینی تصمیم را عملی می‌کند."
+        },
+        {
+          "id": "S07-C4-ST03-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "گزارش به مدیریت می‌گوید سامانه دقیق است ولی دامنه و عدم‌قطعیت ندارد. چه چیزی اضافه کنیم؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "معیار و نمونه و گروه‌ها و هزینه و ریسک و محدودیت و گزینهٔ ادامه/اصلاح/توقف",
+              "feedback": "گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+            },
+            {
+              "id": "b",
+              "text": "فقط رتبهٔ مدل",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+            },
+            {
+              "id": "c",
+              "text": "فقط توصیهٔ قطعی",
+              "feedback": "این پاسخ یک کنترل عملیاتی مهم را حذف می‌کند: گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "گزارش مدیریتی باید شواهد و دامنه و محدودیت را به تصمیم مرحله‌ای وصل کند.",
+          "objective_id": "S07-C4-ST03-L04-OBJ01",
+          "equivalence_group": "S07-C4-ST03-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "S07-C4-ST03-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GOOGLE-ML-MONITORING",
+          "title": "Google ML Crash Course: Monitoring Pipelines",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "title": "Google for Developers: Productionization",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "review_depth": "official_technical_education_reviewed",
+          "scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-AI-RMF-CORE",
+          "title": "NIST AI RMF Core: Measure and Manage",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "review_depth": "official_risk_framework_reviewed",
+          "scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "NIST-GENAI-PROFILE",
+          "title": "NIST AI 600-1: Generative AI Profile",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "review_depth": "official_risk_profile_reviewed",
+          "scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "AI-monitoring-and-management-report",
+        "prompt": "برای کاربرد سپهر، «گزارش تصمیم برای مدیریت» را با خط مبنا، واحد، آستانه، مالک، عدم‌قطعیت و اقدام مدیریتی طراحی کنید.",
+        "expected_output": "یادداشت یک‌صفحه‌ای تصمیم توسعه/اصلاح/توقف AI",
+        "rubric": [
+          "شاخص کیفیت و drift، منبع، دوره و آستانهٔ هشدار تعریف شده‌اند.",
+          "تفکیک زیرگروه و مسیر تشخیص علت از پیامد تصمیم روشن است.",
+          "مالک، escalation، مداخله و شرط بازگشت/توقف در گزارش آمده‌اند."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "S07-C4-ST01-L03",
+        "S07-C4-ST02-L01"
+      ],
+      "prerequisites_block_access": false,
+      "content_ref": "content/s07-c4/lessons/S07-C4-ST03-L04.json",
+      "order": 4,
+      "node_type": "lesson",
+      "source_refs": [
+        "GOOGLE-ML-MONITORING",
+        "GOOGLE-ML-PRODUCTIONIZATION",
+        "NIST-AI-RMF-CORE",
+        "NIST-GENAI-PROFILE"
+      ],
+      "source_scope": "راهنمای Google برای پایش ML و NIST AI RMF برای پایش و بهبود استفاده شده؛ proxy و آستانه‌ها به زمینه وابسته‌اند و باید با نتیجهٔ واقعی بررسی شوند. مثال سپهر ساختگی است.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "not_used; examples are explicitly fictional"
+      },
+      "media_plan": {
+        "type": "AI-monitoring-dashboard-and-decision-brief",
+        "purpose": "نمایش شاخص، آستانه، مالک و اقدام تصمیم‌ساز",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/ai-production-monitoring-dashboard.svg",
+            "alt_text": "نمودار آموزشی این مرحله برای «گزارش تصمیم برای مدیریت»: سامانهٔ مستقر به خط مبنا، آستانه و تصمیم مدیریتی قابل‌پیگیری نیاز دارد. تغییر داده، افت کیفیت را از تغییر توزیع و تغییر فرایند جدا کن.؛ واحد خدمت، هزینه، کیفیت و تأخیر را برای واحد کاری یکسان گزارش کن.؛ تغییر کنترل‌شده، نسخهٔ داده، مدل و prompt را ارزیابی و تصمیم انتشار را ثبت کن.؛ گزارش مدیریتی، ادامه، محدودسازی، اصلاح یا توقف را با دامنه و عدم‌قطعیت توضیح بده.",
+            "caption": "نقشه را برای تحلیل «گزارش تصمیم برای مدیریت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "تشخیص تغییر",
+          "تفسیر trade-off",
+          "کنترل نسخه",
+          "تصمیم مدیریتی"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 16,
+        "practice": 18
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت یک‌صفحه‌ای تصمیم توسعه/اصلاح/توقف AI",
+      "selected_source_refs": [
+        {
+          "source_id": "GOOGLE-ML-MONITORING",
+          "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "پایش schema، skew، drift، معیارهای جانشین، تأخیر و افت کیفیت؛ راهنمای فنی است.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GOOGLE-ML-PRODUCTIONIZATION",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_technical_education_reviewed",
+          "supports_scope": "logging، monitoring، alerting، deployment strategy و rollback.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-AIRMF-PLAYBOOK",
+          "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_framework_reviewed",
+          "supports_scope": "اندازه‌گیری و پایش ریسک، پاسخ رخداد و بهبود مستمر در زمینهٔ کاربرد؛ چارچوب داوطلبانه.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "NIST-GENAI-PROFILE",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+          "locator": "بخش مرتبط با پایش، کیفیت نسخه، تغییر یا مدیریت چرخهٔ عمر",
+          "review_depth": "official_risk_profile_reviewed",
+          "supports_scope": "ریسک‌ها و مدیریت چرخهٔ عمر GenAI؛ پیشنهادها به زمینه و سطح ریسک وابسته‌اند.",
+          "gap": "معیارهای جانشین و آستانه‌ها باید با داده و پیامد زمینهٔ سازمان اعتبارسنجی شوند.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ]
+    }
+  ],
+  "checkpoint": {
+    "id": "S07-C4-ST03-CP",
+    "node_type": "stage_checkpoint",
+    "item_count": 6,
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ01",
+        "type": "single_choice",
+        "prompt": "data drift به چه چیزی اشاره دارد؟",
+        "remediation_card_id": "S07-C4-ST03-L01-CARD01",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q01",
+        "options": [
+          {
+            "id": "a",
+            "text": "تغییر داده یا محیط در طول زمان",
+            "feedback": "درست: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+          },
+          {
+            "id": "b",
+            "text": "تفاوت صرف نسخهٔ فونت",
+            "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+          },
+          {
+            "id": "c",
+            "text": "قطعاً بدترشدن همهٔ خروجی‌ها",
+            "feedback": "بازبینی: drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q01-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "drift نشانهٔ تغییر است؛ علت و اثر باید جدا بررسی شوند."
+      },
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ02",
+        "type": "single_choice",
+        "prompt": "هشدار drift باید به چه چیزی منجر شود؟",
+        "remediation_card_id": "S07-C4-ST03-L01-CARD04",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q02",
+        "options": [
+          {
+            "id": "a",
+            "text": "مالک، بررسی و اقدام تعریف‌شده",
+            "feedback": "درست: پایش مؤثر به تصمیم و پاسخ وصل است."
+          },
+          {
+            "id": "b",
+            "text": "قطع همهٔ خدمات بدون معیار",
+            "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+          },
+          {
+            "id": "c",
+            "text": "فقط نمودار جدید",
+            "feedback": "بازبینی: پایش مؤثر به تصمیم و پاسخ وصل است."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q02-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پایش مؤثر به تصمیم و پاسخ وصل است."
+      },
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ03",
+        "type": "single_choice",
+        "prompt": "واحد مناسب برای هزینهٔ مقایسه‌ای چیست؟",
+        "remediation_card_id": "S07-C4-ST03-L02-CARD01",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q03",
+        "options": [
+          {
+            "id": "a",
+            "text": "فقط هر فراخوان مدل",
+            "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+          },
+          {
+            "id": "b",
+            "text": "هزینه به ازای کار کامل‌شده و قابل‌قبول",
+            "feedback": "درست: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+          },
+          {
+            "id": "c",
+            "text": "تعداد ابزارها",
+            "feedback": "بازبینی: مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q03-FAMILY",
+        "version": 1,
+        "correct_option_id": "b",
+        "explanation": "مخرج باید خروجی کسب‌وکار را بازتاب دهد."
+      },
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ04",
+        "type": "single_choice",
+        "prompt": "هزینهٔ کل استقرار چه چیزهایی دارد؟",
+        "remediation_card_id": "S07-C4-ST03-L02-CARD03",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q04",
+        "options": [
+          {
+            "id": "a",
+            "text": "مصرف مدل، نظارت، ارزیابی و اصلاح کار",
+            "feedback": "درست: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+          },
+          {
+            "id": "b",
+            "text": "فقط نرخ API",
+            "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+          },
+          {
+            "id": "c",
+            "text": "فقط هزینهٔ خرید لپ‌تاپ",
+            "feedback": "بازبینی: هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q04-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "هزینهٔ واقعی شامل عملیات انسانی و پشتیبانی هم هست."
+      },
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ05",
+        "type": "single_choice",
+        "prompt": "آزمون رگرسیون چه هدفی دارد؟",
+        "remediation_card_id": "S07-C4-ST03-L03-CARD02",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q05",
+        "options": [
+          {
+            "id": "a",
+            "text": "کشف افت قابلیت‌های قبلی پس از تغییر",
+            "feedback": "درست: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+          },
+          {
+            "id": "b",
+            "text": "تضمین بازارپذیری",
+            "feedback": "بازبینی: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+          },
+          {
+            "id": "c",
+            "text": "کاهش تعداد کاربران",
+            "feedback": "بازبینی: تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q05-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "تغییر تازه می‌تواند رفتارهای قبلی را خراب کند."
+      },
+      {
+        "objective_id": "S07-C4-ST03-CP-OBJ06",
+        "type": "single_choice",
+        "prompt": "پایلوت کوچک چه چیزی را به‌تنهایی ثابت نمی‌کند؟",
+        "remediation_card_id": "S07-C4-ST03-L04-CARD03",
+        "variant": "A",
+        "id": "S07-C4-ST03-CP-Q06",
+        "options": [
+          {
+            "id": "a",
+            "text": "نتیجه برای همهٔ واحدها و دوره‌ها",
+            "feedback": "درست: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+          },
+          {
+            "id": "b",
+            "text": "نتیجه برای همان نمونه",
+            "feedback": "بازبینی: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+          },
+          {
+            "id": "c",
+            "text": "امکان یادگیری",
+            "feedback": "بازبینی: تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+          }
+        ],
+        "equivalence_group": "S07-C4-ST03-CP-Q06-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "تعمیم فراتر از نمونه نیازمند شاهد تازه است."
+      }
+    ]
+  },
+  "tool_plan": {
+    "type": "AI-monitoring-dashboard-and-management-decision-brief",
+    "status": "planned_not_created"
+  }
+}

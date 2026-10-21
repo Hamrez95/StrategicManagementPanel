@@ -1,0 +1,312 @@
+{
+  "id": "S07-C2-ST01-L02",
+  "version": "1-draft",
+  "title": "معیار پایه پیش از AI",
+  "content_status": "draft",
+  "objective": "عملکرد روش فعلی را با تعریف و دادهٔ پایه اندازه‌گیری کند و مشخص سازد چه چیزی باید تغییر کند تا کاربرد AI ارزشمند باشد.",
+  "learning_cards": [
+    {
+      "title": "خط مبنا وضعیت موجود است",
+      "id": "S07-C2-ST01-L02-CARD01",
+      "text": "قبل از ابزار، زمان، کیفیت، هزینه، بار کار و پیامد کار فعلی را بسنجید. بدون خط مبنا نمی‌دانیم تغییر پس از AI بهبود است یا فقط فعالیت متفاوت."
+    },
+    {
+      "title": "تعریف شاخص را ثابت کنید",
+      "id": "S07-C2-ST01-L02-CARD02",
+      "text": "«زمان پاسخ» از دریافت درخواست تا پاسخ اول است یا حل نهایی؟ ساعت کاری محاسبه می‌شود یا زمان تقویمی؟ تعریف، منبع، دوره و موارد حذف را بنویسید تا پیش و پس قابل مقایسه باشد."
+    },
+    {
+      "title": "پراکندگی را ببینید",
+      "id": "S07-C2-ST01-L02-CARD03",
+      "text": "میانگین ممکن است چند پروندهٔ خیلی طولانی یا گروهی با خدمت ضعیف را پنهان کند. میانه، صدک‌ها، درصد حل در هدف و تفاوت زیرگروه‌ها را هم بررسی کنید."
+    },
+    {
+      "title": "کیفیت در کنار سرعت",
+      "id": "S07-C2-ST01-L02-CARD04",
+      "text": "اگر پاسخ سریع‌تر اما خطای حل، تماس دوباره یا شکایت بیشتر شود، شاخص زمان به‌تنهایی گمراه‌کننده است. معیار اصلی و guardrail را جدا کنید و پیامد مشتری را وارد کنید."
+    },
+    {
+      "title": "ظرفیت و حجم",
+      "id": "S07-C2-ST01-L02-CARD05",
+      "text": "تعداد پرونده در ساعت، صف و زمان اضافه‌کاری را ثبت کنید. کاهش زمان در سطح هر مورد ممکن است حجم کار را بالا ببرد و فرسودگی را بیشتر کند؛ ظرفیت کل و کیفیت هم اهمیت دارند."
+    },
+    {
+      "title": "نمونهٔ پایه و فصل",
+      "id": "S07-C2-ST01-L02-CARD06",
+      "text": "دورهٔ پایه باید به اندازهٔ کافی نمایندهٔ کار آینده باشد. فصل اوج، تغییر قیمت، کارمند جدید یا کمپین می‌تواند نتایج را تغییر دهد؛ شرایط هم‌زمان را ثبت کنید."
+    },
+    {
+      "title": "معیار پایه فقط عدد نیست",
+      "id": "S07-C2-ST01-L02-CARD07",
+      "text": "مصاحبهٔ کاربر، مشاهدهٔ فرایند، دلایل استثنا و هزینهٔ پنهان هم شواهد پایه‌اند. ثبت‌شدن چند دقیقه در سیستم به معنی تمام زمان واقعی کار نیست."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST01-L02-CARD08",
+      "text": "پیش از AI، زمان median پاسخ ۴۵ دقیقه، حل بی‌ارجاع ۷۲٪، تماس دوباره ۱۲٪ و شکایت ۳٪ ثبت می‌شود. اعداد نمونه‌اند؛ سپهر باید آن‌ها را از دادهٔ واقعی با تعریف ثابت استخراج کند."
+    },
+    {
+      "id": "S07-C2-ST01-L02-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "خط مبنا (Baseline) کیفیت و زمان روش فعلی پیش از AI است. تعریف واحد کار، نمونه و دوره باید ثابت بماند تا مقایسه معنا داشته باشد. بدون خط مبنا، نمی‌توان دانست بهبود از ابزار آمده یا تغییر حجم و فصل و ترکیب کار."
+    },
+    {
+      "id": "S07-C2-ST01-L02-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "معیار پایه تصویر وضعیت پیش از مداخله است: زمان انجام، هزینه، کیفیت، حجم، خطا و تجربهٔ کاربر باید با تعریف و بازهٔ روشن سنجیده شوند. بدون خط مبنا، مشاهدهٔ بهبود پس از ورود AI ممکن است از تغییر حجم یا فصل ناشی شده باشد. شاخص را در همان واحدی بسنجید که تصمیم می‌گیرد و کیفیت داده را ثبت کنید. فرض ثبات فرایند را بررسی کنید؛ اگر هم‌زمان سیاست یا نیروی انسانی تغییر کند، انتساب اثر دشوار می‌شود. خط مبنا همچنین نشان می‌دهد آیا روش فعلی از ابتدا قابل قبول بوده است یا نیاز به اصلاح فرایند پیش از مدل دارد."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "بدون خط مبنا چه چیزی دشوار است؟",
+      "remediation_card_id": "S07-C2-ST01-L02-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST01-L02-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "ساختن نمودار",
+          "feedback": "بازبینی: وضعیت موجود معیار مقایسه است."
+        },
+        {
+          "id": "b",
+          "text": "انتخاب نام پروژه",
+          "feedback": "بازبینی: وضعیت موجود معیار مقایسه است."
+        },
+        {
+          "id": "c",
+          "text": "تشخیص اینکه AI واقعاً تغییری ساخته",
+          "feedback": "درست: وضعیت موجود معیار مقایسه است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L02-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "وضعیت موجود معیار مقایسه است."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L02-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا تعریف شاخص را ثبت کنیم؟",
+      "remediation_card_id": "S07-C2-ST01-L02-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST01-L02-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "برای حذف استثنا",
+          "feedback": "بازبینی: تعریف متغیر تفسیر را تعیین می‌کند."
+        },
+        {
+          "id": "b",
+          "text": "تا پیش و پس قابل مقایسه باشد",
+          "feedback": "درست: تعریف متغیر تفسیر را تعیین می‌کند."
+        },
+        {
+          "id": "c",
+          "text": "برای اینکه عدد بزرگ شود",
+          "feedback": "بازبینی: تعریف متغیر تفسیر را تعیین می‌کند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L02-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "تعریف متغیر تفسیر را تعیین می‌کند."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "سرعت بهتر و شکایت بیشتر چه می‌گوید؟",
+      "remediation_card_id": "S07-C2-ST01-L02-CARD04",
+      "variant": "A",
+      "id": "S07-C2-ST01-L02-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "باید کیفیت و پیامد را نیز سنجید",
+          "feedback": "درست: یک شاخص می‌تواند هزینه را به شاخص دیگر منتقل کند."
+        },
+        {
+          "id": "b",
+          "text": "قطعاً موفقیت کامل",
+          "feedback": "بازبینی: یک شاخص می‌تواند هزینه را به شاخص دیگر منتقل کند."
+        },
+        {
+          "id": "c",
+          "text": "شکایت بی‌اهمیت است",
+          "feedback": "بازبینی: یک شاخص می‌تواند هزینه را به شاخص دیگر منتقل کند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L02-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "یک شاخص می‌تواند هزینه را به شاخص دیگر منتقل کند."
+    },
+    {
+      "objective_id": "S07-C2-ST01-L02-OBJ02",
+      "type": "single_choice",
+      "prompt": "برای مقایسهٔ پایه چه شرایطی مهم است؟",
+      "remediation_card_id": "S07-C2-ST01-L02-CARD06",
+      "variant": "A",
+      "id": "S07-C2-ST01-L02-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط عدد کل",
+          "feedback": "بازبینی: شرایط نمونه بر خط مبنا اثر می‌گذارند."
+        },
+        {
+          "id": "b",
+          "text": "رنگ داشبورد",
+          "feedback": "بازبینی: شرایط نمونه بر خط مبنا اثر می‌گذارند."
+        },
+        {
+          "id": "c",
+          "text": "نمونه، فصل و ترکیب کار",
+          "feedback": "درست: شرایط نمونه بر خط مبنا اثر می‌گذارند."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST01-L02-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "شرایط نمونه بر خط مبنا اثر می‌گذارند."
+    },
+    {
+      "id": "S07-C2-ST01-L02-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پیش از پایلوت AI، روش فعلی زمان رسیدگی را اندازه نگرفته است. چه کمبود داریم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خط مبنا با تعریف واحد و دادهٔ دوره‌ای",
+          "feedback": "بدون خط مبنا نمی‌توان اثر را به کاربرد تازه نسبت داد یا ارزش افزوده را سنجید."
+        },
+        {
+          "id": "b",
+          "text": "هدف مبهم کاهش زمان",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: بدون خط مبنا نمی‌توان اثر را به کاربرد تازه نسبت داد یا ارزش افزوده را سنجید."
+        },
+        {
+          "id": "c",
+          "text": "فقط شمار ابزارهای فعلی",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: بدون خط مبنا نمی‌توان اثر را به کاربرد تازه نسبت داد یا ارزش افزوده را سنجید."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "بدون خط مبنا نمی‌توان اثر را به کاربرد تازه نسبت داد یا ارزش افزوده را سنجید.",
+      "objective_id": "S07-C2-ST01-L02-OBJ01",
+      "equivalence_group": "S07-C2-ST01-L02-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST01-L02-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد."
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-task-value-cost-brief",
+    "prompt": "برای یک وظیفهٔ پشتیبانی سپهر، کاربر و تصمیم و خط مبنا، ارزش کیفیت/زمان، معیارهای زیان، هزینهٔ کامل، وابستگی و مجوز داده را تعریف کنید. گام‌های پردازش را نیز با مالک مشخص کنید.",
+    "expected_output": "برگهٔ مسئله و ارزش و هزینه برای تصمیم پایلوت",
+    "rubric": [
+      "وظیفه، کاربر، تصمیم و وضعیت پایه دقیق تعریف شده‌اند.",
+      "ارزش، هزینهٔ کل و شاخص کیفیت/زیان با واحد و فرض روشن‌اند.",
+      "وابستگی، مالک تصمیم و آزمون پایلوت با شرط ادامه/توقف مشخص است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST01-L02.json",
+  "order": 2,
+  "node_type": "lesson",
+  "source_refs": [
+    "NBER-GENAI-WORK-2025",
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PRODUCTIONIZATION",
+    "NIST-AI-RMF-MEASURE"
+  ],
+  "source_scope": "مطالعهٔ میدانی و منابع چارچوبی به زمینه محدودند؛ مثال سپهر ساختگی است.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work-customer-support"
+    ],
+    "real_case_status": "research_scope_reviewed; results_not_directly_generalizable"
+  },
+  "media_plan": {
+    "type": "AI-use-case-value-cost-map",
+    "purpose": "پیوند تصمیم و خط مبنا و کیفیت و هزینه و محدودیت",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-use-case-value-baseline.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «معیار پایه پیش از AI»: اول تصمیم و کاربر را بشناس؛ سپس ارزش، کیفیت، هزینه و محدودیت را بسنج. وظیفه و کاربر، تصمیم، نقش کاربر و پیامد خطا را مشخص کن.؛ خط مبنا، عملکرد فعلی انسان یا سامانه را پیش از پایلوت اندازه بگیر.؛ ارزش و کیفیت، زمان، دقت، دسترسی و نیاز به اصلاح را با هم ارزیابی کن.؛ هزینه و استقرار، مصرف، یکپارچه‌سازی، نظارت، امنیت و نگهداری را به واحد کار وصل کن.",
+        "caption": "نقشه را برای تحلیل «معیار پایه پیش از AI» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تعریف وظیفه",
+      "خط مبنا",
+      "ارزش کیفیت و زمان",
+      "هزینهٔ استقرار"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 16
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "برگهٔ ارزیابی وظیفه و ارزش AI"
+}

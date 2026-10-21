@@ -75,6 +75,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "NPV خالص ارزش فعلی؛ IRR نرخ بازده داخلی؛ mutually exclusive متقابلاً انحصاری؛ incremental cash flow جریان افزایشی؛ hurdle rate نرخ مانع؛ capital rationing محدودیت سرمایه؛ payback period دورهٔ بازگشت است. NPV تخمین مشروط ارزش افزوده است، نه تضمین نتیجه."
+        },
+        {
+          "id": "S02-C2-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Mutually exclusive projects (پروژه‌های متقابلاً انحصاری) هم‌زمان قابل‌انتخاب نیستند. NPV (ارزش فعلی خالص) ارزش افزودهٔ پولی را با نرخ سازگار می‌سنجد؛ IRR (نرخ بازده داخلی) ممکن است با تفاوت اندازه یا زمان‌بندی رتبه‌بندی گمراه‌کننده‌ای بدهد."
         }
       ],
       "questions": [
@@ -224,41 +230,53 @@
           "remediation_card_id": "S02-C2-ST03-L01-CARD06"
         }
       ],
+      "source_refs": [
+        "cfa-capital-budgeting",
+        "damodaran-inflation-valuation",
+        "damodaran-capital-budgeting",
+        "nist-genai-profile",
+        "nist-ai-rmf"
+      ],
       "source_links": [
         {
           "id": "cfa-capital-budgeting",
-          "title": "CFA Institute: Corporate Issuers curriculum—Capital Budgeting",
-          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
-          "scope": "مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "title": "CFA Institute 2026: Capital Investments and Capital Allocation",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation",
+          "scope": "برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.",
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-inflation-valuation",
           "title": "NYU Stern: Inflation and Valuation—DCF Inputs",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html",
           "scope": "سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-capital-budgeting",
           "title": "NYU Stern: Applied Corporate Finance—Investment Analysis Problems",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
           "scope": "NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک و اعتمادپذیری AI؛ به‌روزرسانی‌های جاری را در استفاده بررسی کنید.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -342,6 +360,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Nominal اسمی؛ real واقعی؛ purchasing power قدرت خرید؛ inflation pass-through انتقال تورم به قیمت؛ monetary erosion فرسایش پول؛ currency consistency سازگاری ارزی است. جریان و نرخ، ارز و تورم را با یک منطق و تاریخ هماهنگ کنید."
+        },
+        {
+          "id": "S02-C2-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Nominal cash flow (جریان نقد اسمی) تغییر سطح قیمت را در خود دارد؛ real cash flow (جریان نقد واقعی) قدرت خرید را ثابت نگه می‌دارد. رشد، مالیات و نرخ تنزیل را در یک مبنای تورمی سازگار محاسبه کن."
         }
       ],
       "questions": [
@@ -491,41 +515,53 @@
           "remediation_card_id": "S02-C2-ST03-L02-CARD06"
         }
       ],
+      "source_refs": [
+        "cfa-capital-budgeting",
+        "damodaran-inflation-valuation",
+        "damodaran-capital-budgeting",
+        "nist-genai-profile",
+        "nist-ai-rmf"
+      ],
       "source_links": [
         {
           "id": "cfa-capital-budgeting",
-          "title": "CFA Institute: Corporate Issuers curriculum—Capital Budgeting",
-          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
-          "scope": "مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "title": "CFA Institute 2026: Capital Investments and Capital Allocation",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation",
+          "scope": "برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.",
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-inflation-valuation",
           "title": "NYU Stern: Inflation and Valuation—DCF Inputs",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html",
           "scope": "سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-capital-budgeting",
           "title": "NYU Stern: Applied Corporate Finance—Investment Analysis Problems",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
           "scope": "NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک و اعتمادپذیری AI؛ به‌روزرسانی‌های جاری را در استفاده بررسی کنید.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -609,6 +645,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Forecast error خطای پیش‌بینی؛ MAE میانگین قدرمطلق خطا؛ MAPE درصد خطای مطلق؛ leakage نشت داده؛ drift تغییر توزیع؛ explainability توضیح‌پذیری؛ confabulation خروجی نادرست با اطمینان ظاهری است. دقت آماری را با ارزش و ایمنی تصمیم یکی نگیرید."
+        },
+        {
+          "id": "S02-C2-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "AI estimate (برآورد AI) خروجی مدل است و باید منشأ، بازهٔ داده، خطا و پایداری‌اش سنجیده شود. Drift (تغییر توزیع) و خطای متفاوت میان گروه‌ها می‌تواند ارزش پیش‌بینی را کم کند؛ امتیاز کلی این تفاوت را پنهان می‌کند."
         }
       ],
       "questions": [
@@ -758,41 +800,53 @@
           "remediation_card_id": "S02-C2-ST03-L03-CARD06"
         }
       ],
+      "source_refs": [
+        "cfa-capital-budgeting",
+        "damodaran-inflation-valuation",
+        "damodaran-capital-budgeting",
+        "nist-genai-profile",
+        "nist-ai-rmf"
+      ],
       "source_links": [
         {
           "id": "cfa-capital-budgeting",
-          "title": "CFA Institute: Corporate Issuers curriculum—Capital Budgeting",
-          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
-          "scope": "مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "title": "CFA Institute 2026: Capital Investments and Capital Allocation",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation",
+          "scope": "برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.",
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-inflation-valuation",
           "title": "NYU Stern: Inflation and Valuation—DCF Inputs",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html",
           "scope": "سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-capital-budgeting",
           "title": "NYU Stern: Applied Corporate Finance—Investment Analysis Problems",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
           "scope": "NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک و اعتمادپذیری AI؛ به‌روزرسانی‌های جاری را در استفاده بررسی کنید.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -876,6 +930,12 @@
           "type": "explanation",
           "title": "واژه‌های پرتکرار",
           "text": "Investment memo یادداشت سرمایه‌گذاری؛ valuation range دامنهٔ ارزش؛ key driver محرک کلیدی؛ downside risk ریسک نزولی؛ implied assumptions فرض‌های ضمنی؛ decision trigger ماشهٔ تصمیم است. مدیر باید بداند چه چیزی معلوم، برآوردی و نامعلوم است و چه نشانه‌ای توصیه را تغییر می‌دهد."
+        },
+        {
+          "id": "S02-C2-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌ها و مرز مفهومی",
+          "text": "Investment memo (یادداشت سرمایه‌گذاری) تصمیم، دامنهٔ ارزش، فرض‌ها و ریسک‌های مهم را برای گفت‌وگو روشن می‌کند. Recommendation (توصیه) باید محرک تغییر یا شرط بازنگری داشته باشد؛ یک عدد نقطه‌ای همهٔ عدم‌قطعیت را پوشش نمی‌دهد."
         }
       ],
       "questions": [
@@ -1025,41 +1085,53 @@
           "remediation_card_id": "S02-C2-ST03-L04-CARD06"
         }
       ],
+      "source_refs": [
+        "cfa-capital-budgeting",
+        "damodaran-inflation-valuation",
+        "damodaran-capital-budgeting",
+        "nist-genai-profile",
+        "nist-ai-rmf"
+      ],
       "source_links": [
         {
           "id": "cfa-capital-budgeting",
-          "title": "CFA Institute: Corporate Issuers curriculum—Capital Budgeting",
-          "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf",
-          "scope": "مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.",
-          "review_depth": "official_professional_curriculum_reviewed"
+          "title": "CFA Institute 2026: Capital Investments and Capital Allocation",
+          "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation",
+          "scope": "برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.",
+          "review_depth": "official_professional_curriculum_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-inflation-valuation",
           "title": "NYU Stern: Inflation and Valuation—DCF Inputs",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html",
           "scope": "سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "damodaran-capital-budgeting",
           "title": "NYU Stern: Applied Corporate Finance—Investment Analysis Problems",
           "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html",
           "scope": "NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.",
-          "review_depth": "official_university_course_material_reviewed"
+          "review_depth": "official_university_course_material_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
           "title": "NIST AI 600-1: Generative AI Profile",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
           "scope": "خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.",
-          "review_depth": "official_government_primary_document_reviewed"
+          "review_depth": "official_government_primary_document_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-ai-rmf",
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
           "scope": "چارچوب داوطلبانه برای شناسایی و مدیریت ریسک و اعتمادپذیری AI؛ به‌روزرسانی‌های جاری را در استفاده بررسی کنید.",
-          "review_depth": "official_government_framework_reviewed"
+          "review_depth": "official_government_framework_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {

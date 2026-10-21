@@ -1,0 +1,312 @@
+{
+  "id": "S07-C2-ST03-L01",
+  "version": "1-draft",
+  "title": "انتخاب پایلوت",
+  "content_status": "draft",
+  "objective": "یک کاربرد محدود و یادگیری‌پذیر را بر اساس مسئله، ارزش، امکان، ریسک و قابلیت بازگشت انتخاب کند و دامنهٔ پایلوت را طراحی کند.",
+  "learning_cards": [
+    {
+      "title": "پایلوت برای چه مجهولی است؟",
+      "id": "S07-C2-ST03-L01-CARD01",
+      "text": "پایلوت باید فرض مهمی را روشن کند، نه اینکه صرفاً اجرای ابزار را نمایش دهد. بنویسید چه چیزی دربارهٔ کیفیت، استفاده، ارزش، هزینه یا ریسک هنوز نمی‌دانیم."
+    },
+    {
+      "title": "معیار انتخاب کاربرد",
+      "id": "S07-C2-ST03-L01-CARD02",
+      "text": "میزان مسئله، تکرار، زمان فعلی، شواهد ارزش، دسترسی به داده، قابلیت ادغام، امکان نظارت و پیامد خطا را کنار هم قرار دهید. کاربرد پرحجم اما پراثر شاید پایلوت اول مناسبی نباشد."
+    },
+    {
+      "title": "دامنه و مرز پایلوت",
+      "id": "S07-C2-ST03-L01-CARD03",
+      "text": "واحد، کاربران، مدت، کانال، نسخه، داده و نوع تصمیم را محدود کنید. از ابتدا مشخص کنید ابزار فقط پیشنهاد می‌دهد یا عمل هم می‌کند؛ آزمون کوچک با اختیار کنترل‌شده، اثر را قابل بازبینی‌تر می‌سازد."
+    },
+    {
+      "title": "مالک و آمادگی عملیات",
+      "id": "S07-C2-ST03-L01-CARD04",
+      "text": "مالک کسب‌وکار، فنی، داده، امنیت و ارزیابی را نام ببرید. اگر کسی زمان بازبینی، پاسخ رخداد یا اصلاح فرایند ندارد، پایلوت آماده نیست—even اگر ابزار کار کند."
+    },
+    {
+      "title": "خط مبنا و معیار",
+      "id": "S07-C2-ST03-L01-CARD05",
+      "text": "خط مبنا، معیار اصلی، guardrail، آستانه، حجم نمونه و تاریخ بررسی را پیش از شروع ثبت کنید. تعریف «موفقیت» بعد از دیدن داده، انتخاب نتیجهٔ دلخواه را آسان می‌کند."
+    },
+    {
+      "title": "خطر و بازگشت",
+      "id": "S07-C2-ST03-L01-CARD06",
+      "text": "دادهٔ حساس، مشتری آسیب‌پذیر، تصمیم برگشت‌ناپذیر، خطای خاموش و وابستگی را شناسایی کنید. توقف سریع، بازگشت به روش قبلی، گزارش رخداد و مالک تصمیم باید آماده باشد."
+    },
+    {
+      "title": "پایلوت نماینده، نه دمو",
+      "id": "S07-C2-ST03-L01-CARD07",
+      "text": "مجموعه‌ای از کارهای واقعی و متنوع را انتخاب کنید؛ دموهای گزینشی احتمال موفقیت را بالا نشان می‌دهند اما عملکرد روزمره را نمی‌سنجند. کاربران باید با رضایت و انتظار درست وارد شوند."
+    },
+    {
+      "title": "مثال سپهر",
+      "id": "S07-C2-ST03-L01-CARD08",
+      "text": "پایلوت فقط اولویت‌بندی تیکت دیرکرد در دو تیم است؛ مدل اقدامی روی سفارش انجام نمی‌دهد. چهار هفته، روش فعلی به‌عنوان مقایسه، مالک پشتیبانی و معیارهای زمان، کیفیت، اعتراض و هزینه تعریف می‌شوند."
+    },
+    {
+      "id": "S07-C2-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "پایلوت (Pilot) آزمون محدود و برگشت‌پذیر برای یادگیری است. دامنه (Scope) کاربر و داده و مرحلهٔ فرایند را محدود می‌کند؛ معیار خروج مشخص می‌کند چه زمانی ادامه دهیم یا توقف کنیم. پایلوت بدون مسئول و خط مبنا، فقط نمایش ابزار است."
+    },
+    {
+      "id": "S07-C2-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "پایلوت خوب دامنهٔ محدود، کاربر مشخص، خط مبنا، معیار موفقیت، guardrail و مسیر توقف دارد. کاربرد باید به‌اندازه‌ای واقعی باشد که یادگیری انتقال‌پذیر دهد، اما پیامد خطا قابل مهار بماند. انتخاب مسئله صرفاً بر اساس جذابیت فناوری احتمالاً هزینهٔ یکپارچه‌سازی را نادیده می‌گیرد. پیش از شروع مالک داده و عملیات را تعیین کنید و فرض‌های اصلی را بنویسید. اگر پایلوت فقط با پشتیبانی غیرعادی تیم سازنده کار کند، آمادگی برای تولید را ثابت نمی‌کند. از ابتدا مشخص کنید چه شاهدی به گسترش، اصلاح یا توقف منتهی می‌شود."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "S07-C2-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "پایلوت خوب چه چیزی را می‌آزماید؟",
+      "remediation_card_id": "S07-C2-ST03-L01-CARD01",
+      "variant": "A",
+      "id": "S07-C2-ST03-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط اجرای دمو",
+          "feedback": "بازبینی: یادگیری هدف باید پیشاپیش تعریف شود."
+        },
+        {
+          "id": "b",
+          "text": "نام مدل",
+          "feedback": "بازبینی: یادگیری هدف باید پیشاپیش تعریف شود."
+        },
+        {
+          "id": "c",
+          "text": "فرض مهم و مجهول واقعی",
+          "feedback": "درست: یادگیری هدف باید پیشاپیش تعریف شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "یادگیری هدف باید پیشاپیش تعریف شود."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا کاربرد پراثر شاید پایلوت اول نباشد؟",
+      "remediation_card_id": "S07-C2-ST03-L01-CARD02",
+      "variant": "A",
+      "id": "S07-C2-ST03-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون ارزش ندارد",
+          "feedback": "بازبینی: امکان نظارت و برگشت‌پذیری باید سنجیده شود."
+        },
+        {
+          "id": "b",
+          "text": "پیامد خطا و کنترل می‌تواند پرریسک باشد",
+          "feedback": "درست: امکان نظارت و برگشت‌پذیری باید سنجیده شود."
+        },
+        {
+          "id": "c",
+          "text": "چون ابزار کار نمی‌کند",
+          "feedback": "بازبینی: امکان نظارت و برگشت‌پذیری باید سنجیده شود."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "امکان نظارت و برگشت‌پذیری باید سنجیده شود."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "اگر مالک پاسخ رخداد نداریم چه کنیم؟",
+      "remediation_card_id": "S07-C2-ST03-L01-CARD04",
+      "variant": "A",
+      "id": "S07-C2-ST03-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "آمادگی پایلوت را کامل کنیم",
+          "feedback": "درست: مالکیت عملیاتی شرط استفادهٔ مسئولانه است."
+        },
+        {
+          "id": "b",
+          "text": "بی‌مالک شروع کنیم",
+          "feedback": "بازبینی: مالکیت عملیاتی شرط استفادهٔ مسئولانه است."
+        },
+        {
+          "id": "c",
+          "text": "داده را حذف کنیم",
+          "feedback": "بازبینی: مالکیت عملیاتی شرط استفادهٔ مسئولانه است."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "مالکیت عملیاتی شرط استفادهٔ مسئولانه است."
+    },
+    {
+      "objective_id": "S07-C2-ST03-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "دموی گزینشی چه چیزی را نشان نمی‌دهد؟",
+      "remediation_card_id": "S07-C2-ST03-L01-CARD07",
+      "variant": "A",
+      "id": "S07-C2-ST03-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "توان ابزار در یک نمونه",
+          "feedback": "بازبینی: پایلوت نماینده با کار واقعی فرق دارد."
+        },
+        {
+          "id": "b",
+          "text": "رابط کاربری",
+          "feedback": "بازبینی: پایلوت نماینده با کار واقعی فرق دارد."
+        },
+        {
+          "id": "c",
+          "text": "عملکرد روزمره روی موارد متنوع",
+          "feedback": "درست: پایلوت نماینده با کار واقعی فرق دارد."
+        }
+      ],
+      "equivalence_group": "S07-C2-ST03-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "پایلوت نماینده با کار واقعی فرق دارد."
+    },
+    {
+      "id": "S07-C2-ST03-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام مورد برای پایلوت نخست مناسب‌تر است؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "کار محدود، قابل یادگیری و برگشت‌پذیر با ارزش قابل سنجش و ریسک مدیریت‌پذیر",
+          "feedback": "پایلوت نخست باید امکان یادگیری و بازگشت داشته باشد و دامنه و معیار روشن داشته باشد."
+        },
+        {
+          "id": "b",
+          "text": "تصمیم حساس و غیرقابل برگشت بدون خط مبنا",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: پایلوت نخست باید امکان یادگیری و بازگشت داشته باشد و دامنه و معیار روشن داشته باشد."
+        },
+        {
+          "id": "c",
+          "text": "کاربردی که داده و مالک ندارد",
+          "feedback": "این گزینه شرط اعتبار اندازه‌گیری را نادیده می‌گیرد: پایلوت نخست باید امکان یادگیری و بازگشت داشته باشد و دامنه و معیار روشن داشته باشد."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پایلوت نخست باید امکان یادگیری و بازگشت داشته باشد و دامنه و معیار روشن داشته باشد.",
+      "objective_id": "S07-C2-ST03-L01-OBJ01",
+      "equivalence_group": "S07-C2-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "S07-C2-ST03-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (2026 Initial Public Draft)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_initial_public_draft_reviewed",
+      "scope": "ارزیابی متناسب با کاربرد و اثر در محیط واقعی.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PIPELINES",
+      "title": "Google for Developers: ML Pipelines",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
+      "title": "Shifting Work Patterns with Generative AI (Microsoft Research, 2025)",
+      "url": "https://www.microsoft.com/en-us/research/publication/shifting-work-patterns-with-generative-ai/",
+      "review_depth": "primary_multifirm_field_experiment_reviewed",
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ.",
+      "previous_url": "https://www.nber.org/papers/w33795",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Microsoft Research باز شد و مشخصات و چکیدهٔ مطالعه دیده شد؛ متن کامل PDF در این گذر مرور نشد. پژوهش، آزمایش میدانی در ۶۶ شرکت با ۷٬۱۳۷ کارمند دانش‌محور را گزارش می‌کند. نشانی نسخهٔ کاری NBER در previous_url باقی است."
+    }
+  ],
+  "practice_activity": {
+    "type": "AI-pilot-prioritization-decision",
+    "prompt": "سه کاربرد سپهر را با ارزش، امکان، ریسک و اطمینان شواهد رتبه‌بندی کنید؛ برای کاربرد منتخب هزینهٔ هر کار کامل‌شده را بسنجید و شرط گسترش/اصلاح/توقف بنویسید.",
+    "expected_output": "سبد کاربرد AI و تصمیم مرحله‌ای پایلوت",
+    "rubric": [
+      "کاربردها با ارزش، ریسک، امکان آزمون و وابستگی اولویت‌بندی شده‌اند.",
+      "ظرفیت تیم و معیار مشترک انتخاب آشکارند.",
+      "سبد پایلوت دارای مالک، ترتیب، معیار گسترش/توقف و بازنگری است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [],
+  "prerequisites_block_access": false,
+  "content_ref": "content/s07-c2/lessons/S07-C2-ST03-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-TEVV-ATHLON-2026",
+    "GOOGLE-ML-PIPELINES",
+    "NIST-GENAI-PROFILE",
+    "NBER-SHIFTING-WORK-PATTERNS-2025"
+  ],
+  "source_scope": "چارچوب ارزیابی NIST نسخهٔ اولیه است؛ مثال ساختگی و نتایج مطالعات محدود به بافت‌اند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [
+      "generative-ai-at-work"
+    ],
+    "real_case_status": "research_scope_reviewed; limited_external_validity"
+  },
+  "media_plan": {
+    "type": "AI-portfolio-prioritization-and-scale-stop-scorecard",
+    "purpose": "مقایسهٔ ارزش، امکان، ریسک، هزینه و قواعد گسترش",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-pilot-prioritize-scale-stop.svg",
+        "alt_text": "نمودار آموزشی این مرحله برای «انتخاب پایلوت»: سبد AI را بر اساس ارزش، امکان، ریسک و قابلیت بازگشت مدیریت کن. انتخاب پایلوت، مسئلهٔ محدود و قابل‌آموزش با مالک روشن انتخاب کن.؛ اولویت و وزن، ارزش، امکان و ریسک را امتیاز بده؛ فرض و حساسیت وزن را آشکار کن.؛ هزینهٔ مقیاس، حجم، مصرف، ارزیابی و پشتیبانی را در اقتصاد واحد محاسبه کن.؛ توسعه یا توقف، آستانهٔ ادامه، اصلاح و توقف را قبل از نتیجه ثبت کن.",
+        "caption": "نقشه را برای تحلیل «انتخاب پایلوت» به‌کار ببر؛ فرض‌ها و محدودیت شواهد را ثبت کن."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "طراحی پایلوت",
+      "اولویت‌بندی",
+      "هزینهٔ مقیاس",
+      "تصمیم گسترش یا توقف"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 16,
+    "practice": 18
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "سبد AI با یادداشت تصمیم و معیار توقف"
+}

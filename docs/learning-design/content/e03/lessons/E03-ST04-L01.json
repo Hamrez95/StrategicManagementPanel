@@ -1,0 +1,377 @@
+{
+  "id": "E03-ST04-L01",
+  "version": "1-draft",
+  "title": "رقابت الگوریتمی",
+  "content_status": "draft",
+  "objective": "سازوکارهای کارایی و ریسک رقابت الگوریتمی را از هم جدا کند و از ادعای خودکار تبانی یا رقابت کامل پرهیز کند.",
+  "learning_cards": [
+    {
+      "id": "E03-ST04-L01-CARD01",
+      "title": "الگوریتم ابزار است",
+      "text": "الگوریتم قیمت می‌تواند موجودی و تقاضا را سریع‌تر تحلیل کند، قیمت را به‌روز کند و خطای دستی را کم کند. اثر آن به داده، هدف، قاعده، رقبا و اختیار انسان وابسته است؛ الگوریتم ذاتاً ضد یا موافق رقابت نیست."
+    },
+    {
+      "id": "E03-ST04-L01-CARD02",
+      "title": "پایش رقیب و واکنش سریع",
+      "text": "قیمت‌گذار خودکار ممکن است قیمت رقیب را دنبال کند و تغییر را در دقیقه‌ها اعمال کند. این سرعت می‌تواند تخفیف‌ها را هم سریع کند یا پاسخ رقبا را هماهنگ‌تر جلوه دهد. مشاهدهٔ قیمت موازی به‌تنهایی توافق را اثبات نمی‌کند."
+    },
+    {
+      "id": "E03-ST04-L01-CARD03",
+      "title": "سه سازوکار را تفکیک کن",
+      "text": "ادبیات سیاست رقابت میان الگوریتمی که توافق صریح را اجرا می‌کند، الگوریتم مشترک واسطه‌ای که هماهنگی را تسهیل می‌کند و تعامل خودآموز بدون توافق صریح فرق می‌گذارد. شواهد و مسئولیت در هر حالت متفاوت‌اند."
+    },
+    {
+      "id": "E03-ST04-L01-CARD04",
+      "title": "شواهد تبانی خودکار محدود است",
+      "text": "گزارش‌های رقابت‌پژوهی از ریسک بالقوه و تسهیل هماهنگی بحث می‌کنند؛ ادعای اینکه الگوریتم‌ها در همهٔ بازارها خودکار تبانی می‌کنند پشتوانهٔ قطعی ندارد. ساختار بازار، تعداد رقبا و شفافیت قیمت اهمیت دارند."
+    },
+    {
+      "id": "E03-ST04-L01-CARD05",
+      "title": "داده و مدل مشترک",
+      "text": "چند رقیب که از فروشنده یا مدل قیمت مشترک استفاده می‌کنند ممکن است داده و قواعد حساس مشترک داشته باشند. قرارداد، دسترسی، دیوار اطلاعاتی، ثبت تغییر و بازبینی استقلال تصمیم باید بررسی شود."
+    },
+    {
+      "id": "E03-ST04-L01-CARD06",
+      "title": "پایش رقابت در طراحی",
+      "text": "هدف قیمت، دادهٔ رقیب، محدودیت واکنش خودکار و مسئول بازبینی را مستند کنید. برای بازار متمرکز یا استفاده از اطلاعات حساس، پیش از اجرا بررسی رقابتی متخصص لازم است."
+    },
+    {
+      "id": "E03-ST04-L01-CARD07",
+      "title": "کارایی و پیامد مصرف‌کننده",
+      "text": "قیمت‌گذاری هوشمند می‌تواند کمبود را بهتر مدیریت یا تخفیف مرتبط ارائه کند؛ اما قیمت بالاتر، تبعیض، کاهش امکان مقایسه یا هماهنگی هم ممکن است رخ دهد. کارایی و رفاه را برای مشتریان و گروه‌ها بررسی کنید."
+    },
+    {
+      "id": "E03-ST04-L01-CARD08",
+      "title": "سناریوی سپهر",
+      "text": "اگر چند مؤسسه از یک ابزار برای قیمت دوره‌ها استفاده می‌کنند، تصمیم نباید با تبادل برنامهٔ قیمت آینده بین رقبا هماهنگ شود. سپهر سیاست داخلی مستقل، دادهٔ مجاز و ثبت منبع تصمیم خود را نگه می‌دارد و رفتار موازی را خودکار دلیل تبانی یا بی‌خطری نمی‌داند."
+    },
+    {
+      "id": "E03-ST04-L01-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "قیمت‌گذاری الگوریتمی (Algorithmic pricing) با داده یا قواعد خودکار پیشنهاد قیمت می‌دهد؛ این امر به‌تنهایی هماهنگی رقابتی یا بهینه‌بودن را تضمین نمی‌کند. پایش الگو (Monitoring) تغییرهای غیرعادی و اثر ظرفیت را می‌بیند. سیاست انسانی باید هدف، حد مجاز و مسیر توقف را تعیین کند."
+    },
+    {
+      "id": "E03-ST04-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "قیمت‌گذاری الگوریتمی می‌تواند دادهٔ رقبا و تقاضا را سریع واکنش دهد، اما هماهنگی ناخواسته، تبعیض یا نوسان قیمت نیز ممکن است رخ دهد. رفتار الگوریتم به هدف، داده و واکنش متقابل بازار وابسته است. پایش فقط عملکرد مدل خود کافی نیست؛ الگوی قیمت در بازار و پیامد مشتری را نیز بررسی کنید. فرض رقابت کامل یا استقلال الگوریتم‌ها ممکن است درست نباشد. سقف و محدودیت رفتار، ثبت نسخه و بازبینی تغییرات را تعریف کنید. کاربرد در بازار حساس نیازمند بررسی حقوقی و سیاستی متناسب است."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E03-ST04-L01-OBJ01",
+      "type": "single_choice",
+      "prompt": "افزایش سرعت واکنش قیمت الگوریتمی چه چیزی را ثابت نمی‌کند؟",
+      "remediation_card_id": "E03-ST04-L01-CARD01",
+      "variant": "A",
+      "id": "E03-ST04-L01-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "وجود توافق یا تبانی میان رقبا",
+          "feedback": "درست: قیمت موازی و سرعت به‌تنهایی رابطهٔ توافقی را اثبات نمی‌کنند."
+        },
+        {
+          "id": "b",
+          "text": "توان محاسبهٔ سریع‌تر",
+          "feedback": "بازبینی: قیمت موازی و سرعت به‌تنهایی رابطهٔ توافقی را اثبات نمی‌کنند."
+        },
+        {
+          "id": "c",
+          "text": "استفاده از داده",
+          "feedback": "بازبینی: قیمت موازی و سرعت به‌تنهایی رابطهٔ توافقی را اثبات نمی‌کنند."
+        }
+      ],
+      "equivalence_group": "E03-ST04-L01-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "قیمت موازی و سرعت به‌تنهایی رابطهٔ توافقی را اثبات نمی‌کنند."
+    },
+    {
+      "objective_id": "E03-ST04-L01-OBJ02",
+      "type": "single_choice",
+      "prompt": "چرا الگوریتم مشترک شخص ثالث می‌تواند نگرانی رقابتی بسازد؟",
+      "remediation_card_id": "E03-ST04-L01-CARD02",
+      "variant": "A",
+      "id": "E03-ST04-L01-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون همهٔ نرم‌افزارها غیرقانونی‌اند",
+          "feedback": "بازبینی: واسطهٔ مشترک و اطلاعات مشترک نیازمند ارزیابی رقابتی است."
+        },
+        {
+          "id": "b",
+          "text": "چون رقابت قیمت همیشه بد است",
+          "feedback": "بازبینی: واسطهٔ مشترک و اطلاعات مشترک نیازمند ارزیابی رقابتی است."
+        },
+        {
+          "id": "c",
+          "text": "ممکن است داده یا قواعد حساس میان رقبا را متمرکز یا هماهنگ کند",
+          "feedback": "درست: واسطهٔ مشترک و اطلاعات مشترک نیازمند ارزیابی رقابتی است."
+        }
+      ],
+      "equivalence_group": "E03-ST04-L01-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "واسطهٔ مشترک و اطلاعات مشترک نیازمند ارزیابی رقابتی است."
+    },
+    {
+      "objective_id": "E03-ST04-L01-OBJ03",
+      "type": "single_choice",
+      "prompt": "گزارش‌های OECD دربارهٔ رقابت الگوریتمی چه احتیاطی دارند؟",
+      "remediation_card_id": "E03-ST04-L01-CARD03",
+      "variant": "A",
+      "id": "E03-ST04-L01-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "هر الگوریتمی را بدون ریسک می‌دانند",
+          "feedback": "بازبینی: ریسک بالقوه با اثبات وقوع یکسان نیست."
+        },
+        {
+          "id": "b",
+          "text": "ریسک را تفکیک می‌کنند و شواهد/سازوکارها را زمینه‌مند می‌بینند",
+          "feedback": "درست: ریسک بالقوه با اثبات وقوع یکسان نیست."
+        },
+        {
+          "id": "c",
+          "text": "هر الگوریتمی را تبانی می‌نامند",
+          "feedback": "بازبینی: ریسک بالقوه با اثبات وقوع یکسان نیست."
+        }
+      ],
+      "equivalence_group": "E03-ST04-L01-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "ریسک بالقوه با اثبات وقوع یکسان نیست."
+    },
+    {
+      "objective_id": "E03-ST04-L01-OBJ04",
+      "type": "single_choice",
+      "prompt": "پیش از اتصال سپهر به مدل قیمت‌گذاری چه کاری مناسب است؟",
+      "remediation_card_id": "E03-ST04-L01-CARD04",
+      "variant": "A",
+      "id": "E03-ST04-L01-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "مستندسازی داده و هدف، کنترل استقلال تصمیم و بازبینی رقابتی متناسب",
+          "feedback": "درست: کنترل طراحی و پاسخ‌گویی امکان نظارت می‌دهد."
+        },
+        {
+          "id": "b",
+          "text": "اشتراک قیمت‌های آینده با رقبا",
+          "feedback": "بازبینی: کنترل طراحی و پاسخ‌گویی امکان نظارت می‌دهد."
+        },
+        {
+          "id": "c",
+          "text": "حذف ردپای تغییرات",
+          "feedback": "بازبینی: کنترل طراحی و پاسخ‌گویی امکان نظارت می‌دهد."
+        }
+      ],
+      "equivalence_group": "E03-ST04-L01-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "کنترل طراحی و پاسخ‌گویی امکان نظارت می‌دهد."
+    },
+    {
+      "id": "E03-ST04-L01-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دو رقیب از الگوریتم برای به‌روزرسانی قیمت استفاده می‌کنند. کدام فرض را باید کنار گذاشت؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اینکه الگوریتم خودبه‌خود رقابت را منصفانه یا قیمت را بهینه می‌کند",
+          "feedback": "خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        },
+        {
+          "id": "b",
+          "text": "نیاز به پایش الگو و سیاست تصمیم",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        },
+        {
+          "id": "c",
+          "text": "تأثیر ظرفیت و تقاضا",
+          "feedback": "این پاسخ یک پیش‌فرض مهم را نادیده می‌گیرد: خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خروجی قیمت‌گذار خودکار همچنان نیازمند ارزیابی رفتار بازار و ریسک و قواعد تصمیم است.",
+      "objective_id": "E03-ST04-L01-OBJ01",
+      "equivalence_group": "E03-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E03-ST04-L01-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "FTC-SURVEILLANCE-PRICING-2025",
+      "title": "FTC, Surveillance Pricing Study: Initial Findings",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer",
+      "review_depth": "primary_regulator_staff_study_initial_findings_reviewed",
+      "scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OECD-ALGORITHMIC-PRICING-G7-2025",
+      "title": "OECD, Algorithmic pricing and competition in G7 jurisdictions: Emerging trends and responses",
+      "url": "https://www.oecd.org/en/topics/sub-issues/competition-and-digital-economy.html",
+      "review_depth": "primary_intergovernmental_policy_synthesis_reviewed",
+      "scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OECD-AI-COMPETITION-2025",
+      "title": "OECD, Artificial intelligence and competitive dynamics in downstream markets",
+      "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-competitive-dynamics-in-downstream-markets_ccf0624a-en/full-report/component-6.html",
+      "review_depth": "primary_intergovernmental_report_reviewed",
+      "scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "JACR-DEMOGRAPHIC-PRICING-2024",
+      "title": "Demographic Pricing in the Digital Age: Fairness Perceptions in Algorithmic versus Human-Based Price Discrimination",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/729440",
+      "review_depth": "peer_reviewed_consumer_research_reviewed",
+      "scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "FTC-PRICING-RFI-2025",
+      "title": "FTC, Surveillance Pricing Update & The Work Ahead",
+      "url": "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2025/01/surveillance-pricing-update-work-ahead",
+      "review_depth": "primary_regulator_policy_context_reviewed",
+      "scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "algorithmic-pricing-fairness-decision",
+    "prompt": "برای سپهر «رقابت الگوریتمی» را در قیمت‌گذاری اشتراک بررسی کنید؛ هدف، داده، اثر گروهی و کنترل را مستند کنید.",
+    "expected_output": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی",
+    "rubric": [
+      "اثر الگوریتم قیمت بر مشتری و رقابت با زمینهٔ مشخص سنجیده شده است.",
+      "ادعای اقتصادی از شاهد، فرض و نگرانی سیاستی تفکیک شده است.",
+      "محدودیت، مسئول بازبینی و guardrail انصاف/رقابت برای تصمیم پیشنهاد شده است."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E03-ST01-L03",
+    "E03-ST03-L01"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/e03/lessons/E03-ST04-L01.json",
+  "order": 1,
+  "node_type": "lesson",
+  "source_refs": [
+    "FTC-SURVEILLANCE-PRICING-2025",
+    "OECD-ALGORITHMIC-PRICING-G7-2025",
+    "OECD-AI-COMPETITION-2025",
+    "JACR-DEMOGRAPHIC-PRICING-2024",
+    "FTC-PRICING-RFI-2025"
+  ],
+  "source_scope": "گزارش FTC یافتهٔ اولیه در بازار آمریکا؛ OECD synthesis سیاستی است؛ JACR مطالعهٔ ادراک مشتری است. هیچ‌کدام ارزیابی حقوقی یا اثبات وقوع تخلف در سپهر نیستند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-LEARNING",
+    "real_case_candidates": [],
+    "real_case_status": "fictional_example; no firm-specific claims"
+  },
+  "media_plan": {
+    "type": "algorithmic-competition-mechanism-map",
+    "purpose": "نمایش سازوکار ریسک و تصمیم چندمعیاره",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/algorithmic-pricing-guardrails.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «رقابت الگوریتمی»: مدل، داده، هدف و قواعد اجرا همگی می‌توانند نتیجهٔ قیمت را تغییر دهند. هدف و قید، هدف را شفاف کن؛ درآمد را همراه با حاشیه، دسترسی و تجربهٔ مشتری بسنج.؛ ویژگی و داده، منبع، تازگی و مجوز داده را بررسی کن؛ متغیر جانشین می‌تواند تبعیض بسازد.؛ آزمون پیش از اجرا، خطا، تفاوت بین گروه‌ها و واکنش رقبا را در محیط محدود بررسی کن.؛ پایش و پاسخ، تغییر قیمت، شکایت و رفتار غیرعادی را ثبت کن؛ مالک و آستانهٔ توقف داشته باش.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «رقابت الگوریتمی» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تحلیل رقابت",
+      "ارزیابی انصاف",
+      "کنترل مدل",
+      "تصمیم چندمعیاره"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 22,
+    "practice": 20
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "یادداشت تصمیم قیمت با اثر اقتصادی، انصاف، رقابت و بازبینی",
+  "selected_source_refs": [
+    {
+      "source_id": "FTC-SURVEILLANCE-PRICING-2025",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer",
+      "locator": "FTC surveillance pricing findings; OECD G7 algorithmic competition analysis; consumer fairness research on algorithmic versus human pricing",
+      "review_depth": "primary_regulator_staff_study_initial_findings_reviewed",
+      "supports_scope": "یافته‌های اولیه مطالعه بازار آمریکا درباره داده‌های مورد استفاده واسطه‌ها در قیمت/تخفیف فردی؛ نتیجهٔ اولیه و محدود به دامنهٔ بررسی است، قانون کلی یا شیوع همهٔ خرده‌فروشان نیست.",
+      "gap": "منابع رقابتی/تنظیمی عمدتاً آمریکا و OECD/G7 را پوشش می‌دهند و مشاوره حقوقی نیستند؛ یافتهٔ آزمایشی را به همه مشتریان تعمیم ندهید.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OECD-ALGORITHMIC-PRICING-G7-2025",
+      "url": "https://www.oecd.org/en/topics/sub-issues/competition-and-digital-economy.html",
+      "locator": "FTC surveillance pricing findings; OECD G7 algorithmic competition analysis; consumer fairness research on algorithmic versus human pricing",
+      "review_depth": "primary_intergovernmental_policy_synthesis_reviewed",
+      "supports_scope": "یادداشت OECD 2025 دربارهٔ استفاده و ریسک‌های رقابتی الگوریتم قیمت و پاسخ‌های G7؛ صفحهٔ موضوعی درگاه ارجاع است و جزئیات گزارش باید پیش از استفادهٔ نهایی خوانده شود.",
+      "gap": "منابع رقابتی/تنظیمی عمدتاً آمریکا و OECD/G7 را پوشش می‌دهند و مشاوره حقوقی نیستند؛ یافتهٔ آزمایشی را به همه مشتریان تعمیم ندهید.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OECD-AI-COMPETITION-2025",
+      "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-competitive-dynamics-in-downstream-markets_ccf0624a-en/full-report/component-6.html",
+      "locator": "FTC surveillance pricing findings; OECD G7 algorithmic competition analysis; consumer fairness research on algorithmic versus human pricing",
+      "review_depth": "primary_intergovernmental_report_reviewed",
+      "supports_scope": "بحث ریسک‌های رقابتی AI از جمله تبانی صریح تسهیل‌شده، هماهنگی hub-and-spoke و تبانی خودمختار الگوریتمی؛ دسته‌بندی ریسک به معنی اثبات وقوع در هر بازار نیست.",
+      "gap": "منابع رقابتی/تنظیمی عمدتاً آمریکا و OECD/G7 را پوشش می‌دهند و مشاوره حقوقی نیستند؛ یافتهٔ آزمایشی را به همه مشتریان تعمیم ندهید.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "JACR-DEMOGRAPHIC-PRICING-2024",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/729440",
+      "locator": "FTC surveillance pricing findings; OECD G7 algorithmic competition analysis; consumer fairness research on algorithmic versus human pricing",
+      "review_depth": "peer_reviewed_consumer_research_reviewed",
+      "supports_scope": "مطالعهٔ ادراک انصاف از قیمت‌گذاری جمعیت‌شناختی الگوریتمی در برابر انسانی؛ نتیجه وابسته به سناریو و طراحی مطالعه است.",
+      "gap": "منابع رقابتی/تنظیمی عمدتاً آمریکا و OECD/G7 را پوشش می‌دهند و مشاوره حقوقی نیستند؛ یافتهٔ آزمایشی را به همه مشتریان تعمیم ندهید.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "FTC-PRICING-RFI-2025",
+      "url": "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2025/01/surveillance-pricing-update-work-ahead",
+      "locator": "FTC surveillance pricing findings; OECD G7 algorithmic competition analysis; consumer fairness research on algorithmic versus human pricing",
+      "review_depth": "primary_regulator_policy_context_reviewed",
+      "supports_scope": "زمینهٔ بررسی FTC درباره منابع دادهٔ مستقیم، استنباطی و شخص ثالث؛ بازبینی در قلمرو آمریکا و نه نظر حقوقی جهانی.",
+      "gap": "منابع رقابتی/تنظیمی عمدتاً آمریکا و OECD/G7 را پوشش می‌دهند و مشاوره حقوقی نیستند؛ یافتهٔ آزمایشی را به همه مشتریان تعمیم ندهید.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

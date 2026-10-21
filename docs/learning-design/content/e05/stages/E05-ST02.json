@@ -1,0 +1,1483 @@
+{
+  "id": "E05-ST02",
+  "title": "اقلیم، اثر و گزارشگری",
+  "order": 2,
+  "color_token": "blue",
+  "legacy_research_topic_ids": [],
+  "level": "applied",
+  "source_refs": [
+    "GHG",
+    "ISSB",
+    "OECD-GOV"
+  ],
+  "source_alignment": "ترکیبی از پژوهش، استاندارد و راهنمای حرفه‌ای؛ محدودیت و حوزهٔ کاربرد در هر منبع درج شده است.",
+  "lessons": [
+    {
+      "id": "E05-ST02-L01",
+      "version": "1-draft",
+      "title": "مرز سنجش اثر",
+      "content_status": "draft",
+      "objective": "مرز گزارش تعیین می‌کند چه عملیات و نهادی داخل محاسبه قرار می‌گیرد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST02-L01-CARD01",
+          "title": "مرز سازمانی",
+          "text": "مرز گزارش تعیین می‌کند چه عملیات و نهادی داخل محاسبه قرار می‌گیرد."
+        },
+        {
+          "id": "E05-ST02-L01-CARD02",
+          "title": "اثر مستقیم و زنجیره‌ای",
+          "text": "اثر مستقیم سازمان را از اثر زنجیرهٔ ارزش تفکیک کند تا حذف ناخواسته رخ ندهد."
+        },
+        {
+          "id": "E05-ST02-L01-CARD03",
+          "title": "عملیات تحت کنترل",
+          "text": "مالکیت و کنترل عملیاتی در استانداردهای گزارش ممکن است مرزبندی متفاوت بسازند."
+        },
+        {
+          "id": "E05-ST02-L01-CARD04",
+          "title": "دوره و خط مبنا",
+          "text": "سال پایه، تغییر ساختاری و روش بازبیان را مستند کند."
+        },
+        {
+          "id": "E05-ST02-L01-CARD05",
+          "title": "مادی‌بودن",
+          "text": "مادی‌بودن به تصمیم و زمینه وابسته است؛ صرف شهرت موضوع دلیل حذف یا درج نیست."
+        },
+        {
+          "id": "E05-ST02-L01-CARD06",
+          "title": "داده و برآورد",
+          "text": "دادهٔ واقعی را از برآورد و proxy جدا نشان دهد."
+        },
+        {
+          "id": "E05-ST02-L01-CARD07",
+          "title": "عدم‌قطعیت",
+          "text": "دامنهٔ خطا و فرض‌های داده را کنار عدد گزارش کند."
+        },
+        {
+          "id": "E05-ST02-L01-CARD08",
+          "title": "نقشهٔ مرز",
+          "text": "نقشهٔ مرز، واحد، دوره، منبع و استثناهای سنجش را ثبت کند."
+        },
+        {
+          "id": "E05-ST02-L01-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "مرز سازمانی (Organizational boundary) تعیین می‌کند کدام واحد یا دارایی در اندازه‌گیری داخل است. مرز عملیاتی فعالیت‌های سنجش را مشخص می‌کند. تغییر مرز یا دوره می‌تواند روند را عوض کند؛ قبل از مقایسه گزارش‌ها، پوشش و روش را همسان کنید."
+        },
+        {
+          "id": "E05-ST02-L01-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "اندازه‌گیری اثر باید مرز سازمانی، زنجیرهٔ ارزش، جغرافیا، دوره و نوع پیامد را مشخص کند. انتشار مستقیم با انتشار تأمین‌کننده یا مصرف محصول یکسان نیست، اما محدودکردن مرز می‌تواند اثر واقعی را پنهان کند. روش محاسبه و دادهٔ برآوردی را ثبت کنید. فرض کامل‌بودن داده را نپذیرید و دامنهٔ عدم قطعیت را نشان دهید. تغییر مرز از سالی به سال دیگر مقایسه را دشوار می‌کند؛ تعدیل و بازبیان را توضیح دهید. عدد اثر زمانی معنادار است که دامنه و روش کنار آن خوانده شوند."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST02-L01-OBJ01",
+          "type": "single_choice",
+          "prompt": "مرز سازمانی چه اثری بر عدد نهایی دارد؟",
+          "remediation_card_id": "E05-ST02-L01-CARD01",
+          "variant": "A",
+          "id": "E05-ST02-L01-Q01",
+          "options": [
+            {
+              "id": "a",
+              "text": "مرز سازمانی",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L01-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L01-OBJ02",
+          "type": "single_choice",
+          "prompt": "چرا scope 3 ممکن است برآوردی باشد؟",
+          "remediation_card_id": "E05-ST02-L01-CARD02",
+          "variant": "A",
+          "id": "E05-ST02-L01-Q02",
+          "options": [
+            {
+              "id": "a",
+              "text": "زنجیرهٔ ارزش",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L01-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L01-OBJ03",
+          "type": "single_choice",
+          "prompt": "سال پایه چه زمانی باید بازبیان شود؟",
+          "remediation_card_id": "E05-ST02-L01-CARD03",
+          "variant": "A",
+          "id": "E05-ST02-L01-Q03",
+          "options": [
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "خط مبنا",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L01-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L01-OBJ04",
+          "type": "single_choice",
+          "prompt": "عدم‌قطعیت را چطور شفاف می‌کنیم؟",
+          "remediation_card_id": "E05-ST02-L01-CARD04",
+          "variant": "A",
+          "id": "E05-ST02-L01-Q04",
+          "options": [
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "برآورد و عدم‌قطعیت",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L01-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "id": "E05-ST02-L01-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "شرکت می‌خواهد اثر پایداری را گزارش کند. نخستین تصمیم اندازه‌گیری چیست؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "مرز سازمانی و عملیاتی و دوره و موضوع اثر را تعریف کند",
+              "feedback": "مرز سنجش تعیین می‌کند کدام فعالیت و اثر داخل محاسبه است؛ بدون آن مقایسه گمراه‌کننده می‌شود."
+            },
+            {
+              "id": "b",
+              "text": "فقط انتخاب رنگ نمودار",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: مرز سنجش تعیین می‌کند کدام فعالیت و اثر داخل محاسبه است؛ بدون آن مقایسه گمراه‌کننده می‌شود."
+            },
+            {
+              "id": "c",
+              "text": "فقط جمع‌آوری دادهٔ در دسترس",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: مرز سنجش تعیین می‌کند کدام فعالیت و اثر داخل محاسبه است؛ بدون آن مقایسه گمراه‌کننده می‌شود."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مرز سنجش تعیین می‌کند کدام فعالیت و اثر داخل محاسبه است؛ بدون آن مقایسه گمراه‌کننده می‌شود.",
+          "objective_id": "E05-ST02-L01-OBJ01",
+          "equivalence_group": "E05-ST02-L01-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E05-ST02-L01-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GHG",
+          "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+          "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "ISSB",
+          "title": "IFRS S1 and IFRS S2 Standards",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «مرز سنجش اثر» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+        "rubric": [
+          "پیامد هدف، مرز سیستم، خط پایه و افق زمانی تعریف شده‌اند.",
+          "شاخص و روش گردآوری به سازوکار اثر وصل‌اند و محدودیت انتساب روشن است.",
+          "گزارش نتیجه عدم‌قطعیت، پیامد ناخواسته و تصمیم اصلاحی را پوشش می‌دهد."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 1,
+      "node_type": "lesson",
+      "source_refs": [
+        "GHG",
+        "ISSB"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/sustainability-measurement-boundary.svg",
+            "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «مرز سنجش اثر»: عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی، واحد، مالکیت یا کنترل و دورهٔ گزارش را اعلام کن؛ تغییر مرز را توضیح بده.؛ دامنهٔ ۱ و ۲، انتشار مستقیم را از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب را مستند کن.؛ دامنهٔ ۳، زنجیرهٔ ارزش را بخش‌بندی کن؛ برآورد و دادهٔ اولیه را با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام، فرض، ضریب، پوشش و عدم‌قطعیت را گزارش کن؛ کاهش را با خط مبنای ثابت بسنج.",
+            "caption": "از نقشهٔ مرحله برای تحلیل «مرز سنجش اثر» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "مرز سازمانی",
+          "زنجیرهٔ ارزش",
+          "خط مبنا",
+          "برآورد و عدم‌قطعیت"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "GHG",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "ISSB",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST02-L01.json"
+    },
+    {
+      "id": "E05-ST02-L02",
+      "version": "1-draft",
+      "title": "انتشار، انرژی و زنجیرهٔ ارزش",
+      "content_status": "draft",
+      "objective": "دامنهٔ 1، 2 و 3 را در چارچوب GHG Protocol از هم تمیز دهد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST02-L02-CARD01",
+          "title": "سه دامنهٔ انتشار",
+          "text": "دامنهٔ 1، 2 و 3 را در چارچوب GHG Protocol از هم تمیز دهد."
+        },
+        {
+          "id": "E05-ST02-L02-CARD02",
+          "title": "تأمین‌کننده و محصول",
+          "text": "بخش بزرگی از اثر ممکن است بیرون مرز عملیات مستقیم و در زنجیرهٔ ارزش باشد."
+        },
+        {
+          "id": "E05-ST02-L02-CARD03",
+          "title": "واحد فعالیت",
+          "text": "فعالیت را با واحد مناسب مانند kWh، تن یا کیلومتر ثبت کند."
+        },
+        {
+          "id": "E05-ST02-L02-CARD04",
+          "title": "انرژی و بهره‌وری",
+          "text": "کاهش انرژی را با کیفیت خدمت، ظرفیت و اثر انتقال بار به زنجیره بسنجد."
+        },
+        {
+          "id": "E05-ST02-L02-CARD05",
+          "title": "عامل انتشار",
+          "text": "عامل انتشار، منبع و سال آن را ثبت کند؛ عامل قدیمی دقت کاذب می‌دهد."
+        },
+        {
+          "id": "E05-ST02-L02-CARD06",
+          "title": "دادهٔ اولیه و ثانویه",
+          "text": "دادهٔ اولیهٔ تأمین‌کننده دقیق‌تر می‌تواند باشد اما دستیابی و راستی‌آزمایی هزینه دارد."
+        },
+        {
+          "id": "E05-ST02-L02-CARD07",
+          "title": "شدت در برابر مقدار",
+          "text": "شدت انتشار به ازای محصول ممکن است کم شود درحالی‌که مقدار کل بالا می‌رود."
+        },
+        {
+          "id": "E05-ST02-L02-CARD08",
+          "title": "نقشهٔ کاهش",
+          "text": "اقدام کاهش را به مالک، هزینه، خط مبنا و معیار تحقق وصل کند."
+        },
+        {
+          "id": "E05-ST02-L02-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "Scope 1 انتشار مستقیم، Scope 2 انتشار مربوط به انرژی خریداری‌شده و Scope 3 دیگر انتشارهای زنجیرهٔ ارزش است. این طبقه‌بندی به مرز و روش حسابداری گازهای گلخانه‌ای وابسته است. برآورد Scope 3 معمولاً عدم‌قطعیت دادهٔ تامین‌کننده را دارد و باید تخمین را برچسب بزند."
+        },
+        {
+          "id": "E05-ST02-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "انتشار، انرژی و زنجیرهٔ ارزش در عملیات، خرید، حمل و مصرف محصول توزیع شده‌اند. کاهش در یک بخش ممکن است بار را به تأمین‌کننده یا مرحلهٔ دیگر منتقل کند؛ ارزیابی چرخهٔ عمر برای آشکارکردن این جابه‌جایی مفید است، اما به مرز و داده وابسته است. شدت انتشار را کنار مقدار مطلق ببینید، چون رشد حجم می‌تواند کاهش شدت را خنثی کند. فرض عامل انتشار و سال داده را ثبت کنید. اولویت اقدام باید بر اساس اثر، امکان و کنترل سازمان باشد و پیشرفت با همان روش سنجیده شود."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST02-L02-OBJ01",
+          "type": "single_choice",
+          "prompt": "scope 1 با scope 3 چه تفاوتی دارد؟",
+          "remediation_card_id": "E05-ST02-L02-CARD01",
+          "variant": "A",
+          "id": "E05-ST02-L02-Q01",
+          "options": [
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "دامنهٔ انتشار",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L02-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L02-OBJ02",
+          "type": "single_choice",
+          "prompt": "چرا شدت و مقدار مطلق را کنار هم می‌بینیم؟",
+          "remediation_card_id": "E05-ST02-L02-CARD02",
+          "variant": "A",
+          "id": "E05-ST02-L02-Q02",
+          "options": [
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "دادهٔ فعالیت",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L02-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L02-OBJ03",
+          "type": "single_choice",
+          "prompt": "عامل انتشار باید چه مشخصاتی داشته باشد؟",
+          "remediation_card_id": "E05-ST02-L02-CARD03",
+          "variant": "A",
+          "id": "E05-ST02-L02-Q03",
+          "options": [
+            {
+              "id": "a",
+              "text": "عامل انتشار",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L02-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L02-OBJ04",
+          "type": "single_choice",
+          "prompt": "کاهش در یک بخش چگونه می‌تواند به بخش دیگر منتقل شود؟",
+          "remediation_card_id": "E05-ST02-L02-CARD04",
+          "variant": "A",
+          "id": "E05-ST02-L02-Q04",
+          "options": [
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "شدت و مقدار مطلق",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L02-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "id": "E05-ST02-L02-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "شرکت انتشار مستقیم کمی دارد اما برق و زنجیرهٔ تأمین پراثر است. تحلیل محدود به کدام بخش ناکافی است؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "فقط انتشار عملیاتی مستقیم؛ دامنهٔ انرژی و زنجیرهٔ ارزش هم باید بررسی شود",
+              "feedback": "مرزهای انتشار و دادهٔ زنجیرهٔ ارزش، بخش مهم اثر را ممکن است بیرون از مرز مستقیم نشان دهند."
+            },
+            {
+              "id": "b",
+              "text": "دامنهٔ زنجیرهٔ ارزش",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: مرزهای انتشار و دادهٔ زنجیرهٔ ارزش، بخش مهم اثر را ممکن است بیرون از مرز مستقیم نشان دهند."
+            },
+            {
+              "id": "c",
+              "text": "مصرف انرژی",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: مرزهای انتشار و دادهٔ زنجیرهٔ ارزش، بخش مهم اثر را ممکن است بیرون از مرز مستقیم نشان دهند."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "مرزهای انتشار و دادهٔ زنجیرهٔ ارزش، بخش مهم اثر را ممکن است بیرون از مرز مستقیم نشان دهند.",
+          "objective_id": "E05-ST02-L02-OBJ01",
+          "equivalence_group": "E05-ST02-L02-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E05-ST02-L02-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "GHG",
+          "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+          "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "ISSB",
+          "title": "IFRS S1 and IFRS S2 Standards",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «انتشار، انرژی و زنجیرهٔ ارزش» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+        "rubric": [
+          "پیامد هدف، مرز سیستم، خط پایه و افق زمانی تعریف شده‌اند.",
+          "شاخص و روش گردآوری به سازوکار اثر وصل‌اند و محدودیت انتساب روشن است.",
+          "گزارش نتیجه عدم‌قطعیت، پیامد ناخواسته و تصمیم اصلاحی را پوشش می‌دهد."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 2,
+      "node_type": "lesson",
+      "source_refs": [
+        "GHG",
+        "ISSB"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/sustainability-measurement-boundary.svg",
+            "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «انتشار، انرژی و زنجیرهٔ ارزش»: عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی، واحد، مالکیت یا کنترل و دورهٔ گزارش را اعلام کن؛ تغییر مرز را توضیح بده.؛ دامنهٔ ۱ و ۲، انتشار مستقیم را از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب را مستند کن.؛ دامنهٔ ۳، زنجیرهٔ ارزش را بخش‌بندی کن؛ برآورد و دادهٔ اولیه را با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام، فرض، ضریب، پوشش و عدم‌قطعیت را گزارش کن؛ کاهش را با خط مبنای ثابت بسنج.",
+            "caption": "از نقشهٔ مرحله برای تحلیل «انتشار، انرژی و زنجیرهٔ ارزش» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "دامنهٔ انتشار",
+          "دادهٔ فعالیت",
+          "عامل انتشار",
+          "شدت و مقدار مطلق"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "GHG",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "ISSB",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST02-L02.json"
+    },
+    {
+      "id": "E05-ST02-L03",
+      "version": "1-draft",
+      "title": "ادعا در برابر دادهٔ گزارش",
+      "content_status": "draft",
+      "objective": "ادعای پایداری باید موضوع، مرز، دوره و مبنای مقایسهٔ روشن داشته باشد.",
+      "learning_cards": [
+        {
+          "id": "E05-ST02-L03-CARD01",
+          "title": "ادعا باید مرز داشته باشد",
+          "text": "ادعای پایداری باید موضوع، مرز، دوره و مبنای مقایسهٔ روشن داشته باشد."
+        },
+        {
+          "id": "E05-ST02-L03-CARD02",
+          "title": "هدف و مسیر",
+          "text": "هدف بدون خط مبنا، دامنه و مسیر اجرا برای سنجش پیشرفت کافی نیست."
+        },
+        {
+          "id": "E05-ST02-L03-CARD03",
+          "title": "دادهٔ قابل ردیابی",
+          "text": "هر عدد را به منبع، مالک، روش، نسخه و تغییرات محاسبه پیوند دهد."
+        },
+        {
+          "id": "E05-ST02-L03-CARD04",
+          "title": "پیشرفت واقعی",
+          "text": "پیشرفت را از تغییر مرز، تغییر ترکیب فروش و تغییر واقعی اثر تفکیک کند."
+        },
+        {
+          "id": "E05-ST02-L03-CARD05",
+          "title": "جبران و کاهش",
+          "text": "کاهش در زنجیره را از جبران انتشار جداگانه گزارش کند."
+        },
+        {
+          "id": "E05-ST02-L03-CARD06",
+          "title": "مقایسهٔ منصفانه",
+          "text": "مقایسهٔ دو دوره نیازمند روش سازگار یا توضیح تغییر روش است."
+        },
+        {
+          "id": "E05-ST02-L03-CARD07",
+          "title": "تضمین مستقل",
+          "text": "تضمین مستقل می‌تواند اعتماد را بالا ببرد اما دامنه و سطح اطمینان آن محدود است."
+        },
+        {
+          "id": "E05-ST02-L03-CARD08",
+          "title": "آزمون ادعا",
+          "text": "ادعای بازاریابی را به شواهد و محدودیت تطبیق دهد و زبان مبالغه‌آمیز را اصلاح کند."
+        },
+        {
+          "id": "E05-ST02-L03-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "دادهٔ فعالیت (Activity data) مقدار مصرف یا فعالیت را ثبت می‌کند؛ ضریب انتشار (Emission factor) آن را به برآورد انتشار تبدیل می‌کند. کیفیت گزارش به مرز، ضریب، سال، منبع و سهم تخمین وابسته است. رقم دقیق‌نما بدون روش و پوشش برای مقایسه کافی نیست."
+        },
+        {
+          "id": "E05-ST02-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "ادعای گزارش باید با داده، روش، دامنه و دورهٔ قابل راستی‌آزمایی پشتیبانی شود. سیاست اعلام‌شده با عملکرد تحقق‌یافته یکی نیست؛ هدف آینده نیز شاهد کاهش فعلی نیست. اطلاعات برآوردی، پوشش ناقص و تغییر روش را برچسب بزنید. اگر شاخص انتخابی فقط بخش بهبود‌یافته را نشان دهد، تصویر کلی منحرف می‌شود. اعتبارسنجی مستقل می‌تواند اطمینان را بالا ببرد اما محدودیت دامنهٔ تضمین باید خوانده شود. هر ادعا را به سند و مسئول داده پیوند دهید و از عبارت‌های مطلق فراتر از شواهد بپرهیزید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST02-L03-OBJ01",
+          "type": "single_choice",
+          "prompt": "چه اطلاعاتی یک ادعای «سبز» را قابل آزمون می‌کند؟",
+          "remediation_card_id": "E05-ST02-L03-CARD01",
+          "variant": "A",
+          "id": "E05-ST02-L03-Q01",
+          "options": [
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "مرز و دوره",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L03-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L03-OBJ02",
+          "type": "single_choice",
+          "prompt": "چرا تغییر مرز باید گزارش شود؟",
+          "remediation_card_id": "E05-ST02-L03-CARD02",
+          "variant": "A",
+          "id": "E05-ST02-L03-Q02",
+          "options": [
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "مسیر هدف",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L03-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L03-OBJ03",
+          "type": "single_choice",
+          "prompt": "offset چه تفاوتی با کاهش انتشار دارد؟",
+          "remediation_card_id": "E05-ST02-L03-CARD03",
+          "variant": "A",
+          "id": "E05-ST02-L03-Q03",
+          "options": [
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "ردیابی داده",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L03-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L03-OBJ04",
+          "type": "single_choice",
+          "prompt": "تضمین محدود چه چیزی را تضمین نمی‌کند؟",
+          "remediation_card_id": "E05-ST02-L03-CARD04",
+          "variant": "A",
+          "id": "E05-ST02-L03-Q04",
+          "options": [
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "دامنهٔ تضمین",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L03-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "id": "E05-ST02-L03-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "گزارش پایداری یک عدد دقیق می‌دهد ولی روش و مرز ندارد. چه نتیجه‌ای می‌توان گرفت؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "عدد به‌تنهایی برای مقایسه کافی نیست؛ روش، پوشش، تخمین و اطمینان لازم است",
+              "feedback": "عدد باید با مرز و روش و کیفیت داده تفسیر شود؛ برآورد دقیق‌نما می‌تواند عدم‌قطعیت بزرگی داشته باشد."
+            },
+            {
+              "id": "b",
+              "text": "دقت ظاهری یعنی داده کامل است",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: عدد باید با مرز و روش و کیفیت داده تفسیر شود؛ برآورد دقیق‌نما می‌تواند عدم‌قطعیت بزرگی داشته باشد."
+            },
+            {
+              "id": "c",
+              "text": "عدد را بدون منبع به روند چندساله تعمیم دهیم",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: عدد باید با مرز و روش و کیفیت داده تفسیر شود؛ برآورد دقیق‌نما می‌تواند عدم‌قطعیت بزرگی داشته باشد."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "عدد باید با مرز و روش و کیفیت داده تفسیر شود؛ برآورد دقیق‌نما می‌تواند عدم‌قطعیت بزرگی داشته باشد.",
+          "objective_id": "E05-ST02-L03-OBJ01",
+          "equivalence_group": "E05-ST02-L03-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E05-ST02-L03-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "ISSB",
+          "title": "IFRS S1 and IFRS S2 Standards",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GHG",
+          "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+          "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «ادعا در برابر دادهٔ گزارش» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+        "rubric": [
+          "پیامد هدف، مرز سیستم، خط پایه و افق زمانی تعریف شده‌اند.",
+          "شاخص و روش گردآوری به سازوکار اثر وصل‌اند و محدودیت انتساب روشن است.",
+          "گزارش نتیجه عدم‌قطعیت، پیامد ناخواسته و تصمیم اصلاحی را پوشش می‌دهد."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 3,
+      "node_type": "lesson",
+      "source_refs": [
+        "ISSB",
+        "GHG"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/sustainability-measurement-boundary.svg",
+            "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «ادعا در برابر دادهٔ گزارش»: عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی، واحد، مالکیت یا کنترل و دورهٔ گزارش را اعلام کن؛ تغییر مرز را توضیح بده.؛ دامنهٔ ۱ و ۲، انتشار مستقیم را از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب را مستند کن.؛ دامنهٔ ۳، زنجیرهٔ ارزش را بخش‌بندی کن؛ برآورد و دادهٔ اولیه را با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام، فرض، ضریب، پوشش و عدم‌قطعیت را گزارش کن؛ کاهش را با خط مبنای ثابت بسنج.",
+            "caption": "از نقشهٔ مرحله برای تحلیل «ادعا در برابر دادهٔ گزارش» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "مرز و دوره",
+          "مسیر هدف",
+          "ردیابی داده",
+          "دامنهٔ تضمین"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "ISSB",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GHG",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST02-L03.json"
+    },
+    {
+      "id": "E05-ST02-L04",
+      "version": "1-draft",
+      "title": "نقد گزارش پایداری شرکت",
+      "content_status": "draft",
+      "objective": "گزارش را بر مبنای تصمیم مورد نیاز بخواند، نه تعداد صفحه یا زیبایی نمودار.",
+      "learning_cards": [
+        {
+          "id": "E05-ST02-L04-CARD01",
+          "title": "گزارش را با سوال بخوان",
+          "text": "گزارش را بر مبنای تصمیم مورد نیاز بخواند، نه تعداد صفحه یا زیبایی نمودار."
+        },
+        {
+          "id": "E05-ST02-L04-CARD02",
+          "title": "تطبیق مادی‌بودن",
+          "text": "مادی‌بودن و گروه‌های ذی‌نفع را با فعالیت و ریسک شرکت تطبیق دهد."
+        },
+        {
+          "id": "E05-ST02-L04-CARD03",
+          "title": "کیفیت داده",
+          "text": "روش، پوشش و قابلیت اطمینان داده را کنار عدد ارزیابی کند."
+        },
+        {
+          "id": "E05-ST02-L04-CARD04",
+          "title": "هدف و عملکرد",
+          "text": "هدف را با خط مبنا، سرمایه‌گذاری و پیشرفت واقعی بسنجد."
+        },
+        {
+          "id": "E05-ST02-L04-CARD05",
+          "title": "حذف‌ها و استثنا",
+          "text": "استثناها و موضوعات غایب را بیابد؛ نبود افشا خودبه‌خود نبود اثر نیست."
+        },
+        {
+          "id": "E05-ST02-L04-CARD06",
+          "title": "روایت و عدد",
+          "text": "تناقض میان روایت مثبت و روند عددی را مشخص کند."
+        },
+        {
+          "id": "E05-ST02-L04-CARD07",
+          "title": "مقایسهٔ رقبا",
+          "text": "مقایسهٔ شرکت‌ها فقط با تعریف‌ها و مرزهای هم‌تراز معتبر است."
+        },
+        {
+          "id": "E05-ST02-L04-CARD08",
+          "title": "دفتر نقد گزارش",
+          "text": "نقد را با شاهد، پرسش باز و سطح اطمینان مستند سازد."
+        },
+        {
+          "id": "E05-ST02-L04-TERMS",
+          "type": "key_terms",
+          "title": "واژه‌ها و صورت‌بندی تخصصی",
+          "text": "گزارش پایداری (Sustainability report) ادعا و سنجه و مرز گزارش‌دهی را کنار هم می‌گذارد. شدت انتشار (Emissions intensity) نسبت انتشار به یک واحد خروجی است؛ کاهش شدت لزوماً انتشار کل را کم نمی‌کند اگر حجم رشد کند. روند را با سال پایه و تغییر پوشش تفسیر کنید."
+        },
+        {
+          "id": "E05-ST02-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "گزارش پایداری شرکت را با تعیین دامنه و دوره، روش، دادهٔ مستقل، هدف و نتیجه نقد کنید. بررسی کنید آیا شاخص مطلق و نسبی هر دو آمده‌اند و آیا تغییر مرز یا برآورد توضیح داده شده است. برجسته‌سازی یک برنامهٔ نمونه نمی‌گوید اثر کل عملیات چیست. ادعاهای آینده را با سرمایه‌گذاری و نقاط عطف بسنجید. منبع شرکتی برای فهم سیاست و دادهٔ خوداظهاری مفید است، اما تأیید مستقل همهٔ نتایج نیست. نتیجهٔ نقد را به قوت، خلأ و پرسش قابل پیگیری تقسیم کنید."
+        }
+      ],
+      "questions": [
+        {
+          "objective_id": "E05-ST02-L04-OBJ01",
+          "type": "single_choice",
+          "prompt": "چرا گزارش پرحجم الزاماً گزارش باکیفیت نیست؟",
+          "remediation_card_id": "E05-ST02-L04-CARD01",
+          "variant": "A",
+          "id": "E05-ST02-L04-Q01",
+          "options": [
+            {
+              "id": "b",
+              "text": "قیمت پیشنهادی فروشنده",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "میانگین صنعت بدون بررسی",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "تصمیم‌محوری",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L04-Q01-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L04-OBJ02",
+          "type": "single_choice",
+          "prompt": "چه چیزی موضوع مادی را برای کسب‌وکار مهم می‌کند؟",
+          "remediation_card_id": "E05-ST02-L04-CARD02",
+          "variant": "A",
+          "id": "E05-ST02-L04-Q02",
+          "options": [
+            {
+              "id": "b",
+              "text": "یک شاخص منفرد",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "c",
+              "text": "اظهار شفاهی بدون سند",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "مادی‌بودن",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L04-Q02-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L04-OBJ03",
+          "type": "single_choice",
+          "prompt": "چطور حذف افشا را بدون نتیجه‌گیری شتاب‌زده نقد می‌کنیم؟",
+          "remediation_card_id": "E05-ST02-L04-CARD03",
+          "variant": "A",
+          "id": "E05-ST02-L04-Q03",
+          "options": [
+            {
+              "id": "b",
+              "text": "نادیده‌گرفتن مجهول",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "شکاف افشا",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "c",
+              "text": "سپردن تصمیم قطعی به مدل",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L04-Q03-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "objective_id": "E05-ST02-L04-OBJ04",
+          "type": "single_choice",
+          "prompt": "چه شرطی مقایسهٔ دو شرکت را معتبرتر می‌کند؟",
+          "remediation_card_id": "E05-ST02-L04-CARD04",
+          "variant": "A",
+          "id": "E05-ST02-L04-Q04",
+          "options": [
+            {
+              "id": "c",
+              "text": "یک خروجی بدون ارجاع",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            },
+            {
+              "id": "a",
+              "text": "قابلیت مقایسه",
+              "feedback": "درست: تصمیم باید به فرض روشن و شاهد قابل بازبینی متصل باشد."
+            },
+            {
+              "id": "b",
+              "text": "حدس تیم معامله",
+              "feedback": "بازبینی: به فرض، شاهد و پیامد تصمیم برگرد."
+            }
+          ],
+          "equivalence_group": "E05-ST02-L04-Q04-FAMILY",
+          "version": 1,
+          "correct_option_id": "a",
+          "explanation": "انتخاب معتبر باید فرض، شاهد و پیامد تصمیم را آشکار کند."
+        },
+        {
+          "id": "E05-ST02-L04-Q05",
+          "version": 1,
+          "type": "single_choice",
+          "prompt": "برای نقد گزارش پایداری یک شرکت، کدام مقایسه کمک بیشتری می‌کند؟",
+          "options": [
+            {
+              "id": "a",
+              "text": "ادعا را به مرز سنجش، سری زمانی، روش و منبع داده و هدف اعلام‌شده وصل کنیم",
+              "feedback": "گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+            },
+            {
+              "id": "b",
+              "text": "فقط تصاویر و پیام‌های برند",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+            },
+            {
+              "id": "c",
+              "text": "یک شاخص را جدا از حوزهٔ اثر بررسی کنیم",
+              "feedback": "این گزینه یک بخش مهم اثر یا شواهد را حذف می‌کند: گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست."
+            }
+          ],
+          "correct_option_id": "a",
+          "explanation": "گزارش را باید با روش و مرز و روند و زمینه سنجید؛ طراحی بصری شاهد تحقق هدف نیست.",
+          "objective_id": "E05-ST02-L04-OBJ01",
+          "equivalence_group": "E05-ST02-L04-Q05-FAMILY",
+          "variant": "A",
+          "remediation_card_id": "E05-ST02-L04-CARD04",
+          "hint_used_may_not_count_as_independent": true
+        }
+      ],
+      "source_links": [
+        {
+          "id": "ISSB",
+          "title": "IFRS S1 and IFRS S2 Standards",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "GHG",
+          "title": "GHG Protocol, Corporate Value Chain (Scope 3) Standard",
+          "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "accessed_on": "2026-10-21"
+        },
+        {
+          "id": "OECD-GOV",
+          "title": "OECD Guidelines for Multinational Enterprises on Responsible Business Conduct",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "review_depth": "primary_or_authoritative_reference",
+          "scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+          "accessed_on": "2026-10-21"
+        }
+      ],
+      "practice_activity": {
+        "type": "decision-analysis",
+        "prompt": "برای سناریوی سپهر، تمرین «نقد گزارش پایداری شرکت» را با شواهد و فرض‌های ثبت‌شده انجام دهید.",
+        "expected_output": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+        "rubric": [
+          "پیامد هدف، مرز سیستم، خط پایه و افق زمانی تعریف شده‌اند.",
+          "شاخص و روش گردآوری به سازوکار اثر وصل‌اند و محدودیت انتساب روشن است.",
+          "گزارش نتیجه عدم‌قطعیت، پیامد ناخواسته و تصمیم اصلاحی را پوشش می‌دهد."
+        ],
+        "auto_grade": false
+      },
+      "review_status": "pending_expert_review",
+      "fresh_equivalent_variants": 0,
+      "prerequisites_suggested": [
+        "E04-ST01-L01"
+      ],
+      "prerequisites_block_access": false,
+      "order": 4,
+      "node_type": "lesson",
+      "source_refs": [
+        "ISSB",
+        "GHG",
+        "OECD-GOV"
+      ],
+      "source_scope": "مراجع حرفه‌ای، استانداردی و پژوهشی با دامنهٔ درج‌شده؛ تحلیل آموزشی است و جایگزین مشاورهٔ مالی/حقوقی نیست.",
+      "example_plan": {
+        "fictional_scenario": "SEPEHR-SERVICES",
+        "real_case_candidates": [],
+        "real_case_status": "fictional_example; no transaction-specific claims"
+      },
+      "media_plan": {
+        "type": "decision-workspace",
+        "purpose": "ثبت فرض‌ها و شواهد",
+        "production_status": "created",
+        "assets": [
+          {
+            "asset_ref": "content/media/sustainability-measurement-boundary.svg",
+            "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «نقد گزارش پایداری شرکت»: عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی، واحد، مالکیت یا کنترل و دورهٔ گزارش را اعلام کن؛ تغییر مرز را توضیح بده.؛ دامنهٔ ۱ و ۲، انتشار مستقیم را از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب را مستند کن.؛ دامنهٔ ۳، زنجیرهٔ ارزش را بخش‌بندی کن؛ برآورد و دادهٔ اولیه را با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام، فرض، ضریب، پوشش و عدم‌قطعیت را گزارش کن؛ کاهش را با خط مبنای ثابت بسنج.",
+            "caption": "از نقشهٔ مرحله برای تحلیل «نقد گزارش پایداری شرکت» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+          }
+        ]
+      },
+      "assessment_plan": {
+        "item_count": 4,
+        "targets": [
+          "تصمیم‌محوری",
+          "مادی‌بودن",
+          "شکاف افشا",
+          "قابلیت مقایسه"
+        ],
+        "item_bank_status": "authored_draft",
+        "feedback_required": true,
+        "fresh_equivalent_variants": 0
+      },
+      "suggested_minutes": {
+        "learning": 28,
+        "practice": 25
+      },
+      "notes_enabled": true,
+      "bookmarks_enabled": true,
+      "direct_entry_allowed": true,
+      "free_sample": false,
+      "legacy_lesson_ids": [],
+      "expected_artifact": "یادداشت تصمیم مستند",
+      "selected_source_refs": [
+        {
+          "source_id": "ISSB",
+          "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استانداردهای افشای پایداری؛ الزام حقوقی به پذیرش حوزهٔ قضایی بستگی دارد.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "GHG",
+          "url": "https://ghgprotocol.org/standards/scope-3-standard",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "استاندارد سنجش انتشار زنجیرهٔ ارزش؛ برآوردها عدم‌قطعیت دارند.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        },
+        {
+          "source_id": "OECD-GOV",
+          "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_81f92357-en.html",
+          "locator": "مفاهیم مرتبط با درس و حدود کاربرد منبع",
+          "review_depth": "primary_or_authoritative_reference",
+          "supports_scope": "راهنمای بین‌الدولی رفتار مسئولانه؛ ماهیت آن را با قانون محلی یکی نگیرید.",
+          "gap": "منبع به تنهایی ارزش یا تصمیم معاملهٔ واقعی را تعیین نمی‌کند؛ دادهٔ هدف و نظر متخصص لازم است.",
+          "coverage": "partial",
+          "publication_status": "open_reference_candidate",
+          "checked_at": "2026-10-19"
+        }
+      ],
+      "content_ref": "content/e05/lessons/E05-ST02-L04.json"
+    }
+  ],
+  "checkpoint": {
+    "id": "E05-ST02-CP",
+    "node_type": "stage_checkpoint",
+    "item_count": 6,
+    "bank_status": "authored_draft",
+    "unlocks_next_stage": false,
+    "questions": [
+      {
+        "objective_id": "E05-ST02-CP-OBJ01",
+        "type": "single_choice",
+        "prompt": "مرز سازمانی چه اثری بر عدد نهایی دارد؟",
+        "remediation_card_id": "E05-ST02-L01-CARD01",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q01",
+        "options": [
+          {
+            "id": "a",
+            "text": "مرز سازمانی",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q01-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST02-CP-OBJ02",
+        "type": "single_choice",
+        "prompt": "چرا شدت و مقدار مطلق را کنار هم می‌بینیم؟",
+        "remediation_card_id": "E05-ST02-L02-CARD02",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q02",
+        "options": [
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "دادهٔ فعالیت",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q02-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST02-CP-OBJ03",
+        "type": "single_choice",
+        "prompt": "offset چه تفاوتی با کاهش انتشار دارد؟",
+        "remediation_card_id": "E05-ST02-L03-CARD03",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q03",
+        "options": [
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "ردیابی داده",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q03-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST02-CP-OBJ04",
+        "type": "single_choice",
+        "prompt": "چه شرطی مقایسهٔ دو شرکت را معتبرتر می‌کند؟",
+        "remediation_card_id": "E05-ST02-L04-CARD04",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q04",
+        "options": [
+          {
+            "id": "a",
+            "text": "قابلیت مقایسه",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q04-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST02-CP-OBJ05",
+        "type": "single_choice",
+        "prompt": "مرز سازمانی چه اثری بر عدد نهایی دارد؟",
+        "remediation_card_id": "E05-ST02-L01-CARD05",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q05",
+        "options": [
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "a",
+            "text": "مرز سازمانی",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q05-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      },
+      {
+        "objective_id": "E05-ST02-CP-OBJ06",
+        "type": "single_choice",
+        "prompt": "چرا شدت و مقدار مطلق را کنار هم می‌بینیم؟",
+        "remediation_card_id": "E05-ST02-L02-CARD06",
+        "variant": "A",
+        "id": "E05-ST02-CP-Q06",
+        "options": [
+          {
+            "id": "a",
+            "text": "دادهٔ فعالیت",
+            "feedback": "درست: پاسخ به شواهد و فرض‌های ثبت‌شده متصل است."
+          },
+          {
+            "id": "b",
+            "text": "تصمیم قطعی بدون بررسی حساسیت",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          },
+          {
+            "id": "c",
+            "text": "یک عدد یا ادعا بدون منبع",
+            "feedback": "بازبینی: فرض و شاهد مرتبط را بررسی کنید."
+          }
+        ],
+        "equivalence_group": "E05-ST02-CP-Q06-FAMILY",
+        "version": 1,
+        "correct_option_id": "a",
+        "explanation": "پاسخ باید با فرض و شاهد درس قابل دفاع باشد."
+      }
+    ]
+  },
+  "tool_plan": {
+    "type": "decision-analysis-workbench",
+    "status": "planned_not_created"
+  }
+}

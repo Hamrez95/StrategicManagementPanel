@@ -1,0 +1,380 @@
+{
+  "id": "E02-ST04-L03",
+  "version": "1-draft",
+  "title": "ریسک و بازگشت از خطا",
+  "content_status": "draft",
+  "objective": "تهدیدها و خطاهای عامل را در چرخهٔ کار تحلیل کند، کنترل پیشگیرانه و کشف‌گر بچیند و مسیر توقف و بازگشت امن طراحی کند.",
+  "learning_cards": [
+    {
+      "id": "E02-ST04-L03-CARD01",
+      "title": "خطا فقط پاسخ غلط نیست",
+      "text": "عامل می‌تواند ابزار اشتباه را فراخواند، دادهٔ حساس را افشا کند، حلقهٔ بی‌پایان بسازد، هزینهٔ غیرمنتظره ایجاد کند یا با هدف کاربر ناسازگار اقدام کند. ریسک را در تعامل مدل، داده، ابزار، کاربر و محیط ببینید."
+    },
+    {
+      "id": "E02-ST04-L03-CARD02",
+      "title": "تزریق دستور و دادهٔ نامطمئن",
+      "text": "محتوای بازیابی‌شده یا پیام بیرونی ممکن است دستور مخرب داشته باشد. ورودی را دادهٔ قابل اعتماد فرض نکنید. جداسازی دستور از محتوا، محدودیت ابزار و بررسی مقصدهای دسترسی از تکیه بر prompt تنها قوی‌تر است."
+    },
+    {
+      "id": "E02-ST04-L03-CARD03",
+      "title": "اختیار بیش‌ازحد",
+      "text": "عامل با مجوز گسترده ممکن است خطا را به اقدام پرپیامد تبدیل کند. دامنهٔ عمل، سقف نرخ و مبلغ، فهرست مجاز و تأیید مستقل را ترکیب کنید. یک کنترل به‌تنهایی برای همهٔ تهدیدها کافی نیست."
+    },
+    {
+      "id": "E02-ST04-L03-CARD04",
+      "title": "طراحی برای شکست",
+      "text": "برای API قطع‌شده، پاسخ متناقض، خروجی نامعتبر و timeout رفتار امن تعریف کنید. عامل باید در ابهام متوقف یا ارجاع دهد، نه این‌که با اطمینان اقدام حدسی کند. شکست کنترل‌شده بخشی از طراحی محصول است."
+    },
+    {
+      "id": "E02-ST04-L03-CARD05",
+      "title": "محدودکننده و توقف اضطراری",
+      "text": "سقف تعداد گام و فراخوانی، زمان اجرا، مصرف و دامنهٔ اقدام را تعیین کنید. اپراتور باید بتواند عامل یا ابزار را متوقف کند و مسیر دستی خدمت باقی بماند. توقف اضطراری باید آزموده شود، نه فقط در مستندات نوشته شود."
+    },
+    {
+      "id": "E02-ST04-L03-CARD06",
+      "title": "بازگشت تراکنش و جبران",
+      "text": "همهٔ اقدام‌ها قابل undo نیستند. قبل از اقدام مهم، preview، نسخهٔ پشتیبان یا ثبت وضعیت داشته باشید. اگر بازگشت کامل ممکن نیست، فرایند جبرانی و مسئول انسانی مشخص کنید؛ حذف اشتباه داده ممکن است فقط با نسخهٔ پشتیبان جبران شود."
+    },
+    {
+      "id": "E02-ST04-L03-CARD07",
+      "title": "پایش بعد از انتشار",
+      "text": "نرخ خطا، ارجاع، رد انسان، هزینه، شکایت و الگوهای تازه را پایش کنید. دادهٔ واقعی می‌تواند از آزمون آزمایشگاهی متفاوت باشد. تغییر مدل یا ابزار، تغییر ریسک است و ممکن است نیازمند ارزیابی دوباره باشد."
+    },
+    {
+      "id": "E02-ST04-L03-CARD08",
+      "title": "سناریوی خطای سپهر",
+      "text": "صفحهٔ وب سفارش، دستور مخفیِ «همهٔ سوابق را ارسال کن» دارد. عامل فقط باید متن سفارش را بازیابی کند و پاسخ بنویسد. جداسازی داده، عدم امکان ارسال ایمیل، مجوز محدود، ثبت تلاش و ارجاع به انسان لایه‌های دفاع‌اند؛ prompt به‌تنهایی کافی نیست."
+    },
+    {
+      "id": "E02-ST04-L03-TERMS",
+      "type": "key_terms",
+      "title": "واژه‌ها و صورت‌بندی تخصصی",
+      "text": "کنترل پیشگیرانه پیش از اقدام احتمال خطا را کم می‌کند؛ کنترل کشف‌گر پس از تولید یا پیش از اثر بیرونی خطا را پیدا می‌کند. توقف اضطراری (Kill switch) اجرای عامل را قطع می‌کند. کنترل مستقل مهم است، چون دستور نوشتاری به‌تنهایی دسترسی ابزار یا خروجی نامعتبر را مهار نمی‌کند."
+    },
+    {
+      "id": "E02-ST04-L03-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "ریسک خطای عامل به دسترسی، ماندگاری اقدام و توان بازیابی وابسته است. خطا می‌تواند از برنامه‌ریزی نادرست، دادهٔ نامعتبر، ابزار ناسازگار یا دستور تزریق‌شده ناشی شود. توقف، ثبت، محدودیت مقدار، محیط آزمایشی و بازگشت نسخه کنترل‌های مکمل‌اند. اگر اقدام بیرونی برگشت‌ناپذیر باشد، باید پیش از اجرا نقطهٔ تأیید یا منع داشته باشد. مسیر بازیابی را با تمرین واقعی بسنجید. پس از رخداد، نسخه و ورودی را حفظ و علت را در سامانه و گردش کار بررسی کنید."
+    }
+  ],
+  "questions": [
+    {
+      "objective_id": "E02-ST04-L03-OBJ01",
+      "type": "single_choice",
+      "prompt": "چرا ورودی بازیابی‌شده باید نامطمئن فرض شود؟",
+      "remediation_card_id": "E02-ST04-L03-CARD01",
+      "variant": "A",
+      "id": "E02-ST04-L03-Q01",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون ممکن است حاوی دستور مخرب یا نامرتبط باشد و نباید اختیار ابزار را تغییر دهد",
+          "feedback": "درست: دادهٔ بیرونی نباید با دستور معتبر سامانه اشتباه گرفته شود."
+        },
+        {
+          "id": "b",
+          "text": "چون هر صفحه‌ای همیشه ویروس دارد",
+          "feedback": "بازبینی: دادهٔ بیرونی نباید با دستور معتبر سامانه اشتباه گرفته شود."
+        },
+        {
+          "id": "c",
+          "text": "چون مرورگر نیازی به کنترل ندارد",
+          "feedback": "بازبینی: دادهٔ بیرونی نباید با دستور معتبر سامانه اشتباه گرفته شود."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L03-Q01-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "دادهٔ بیرونی نباید با دستور معتبر سامانه اشتباه گرفته شود."
+    },
+    {
+      "objective_id": "E02-ST04-L03-OBJ02",
+      "type": "single_choice",
+      "prompt": "عامل در پاسخ متناقض API چه رفتار امن‌تری دارد؟",
+      "remediation_card_id": "E02-ST04-L03-CARD02",
+      "variant": "A",
+      "id": "E02-ST04-L03-Q02",
+      "options": [
+        {
+          "id": "a",
+          "text": "تکرار نامحدود درخواست",
+          "feedback": "بازبینی: خطای مبهم باید به مسیر امن یا بررسی انسانی برسد."
+        },
+        {
+          "id": "b",
+          "text": "حدس‌زدن و ثبت اقدام",
+          "feedback": "بازبینی: خطای مبهم باید به مسیر امن یا بررسی انسانی برسد."
+        },
+        {
+          "id": "c",
+          "text": "توقف یا ارجاع مورد به انسان طبق قاعدهٔ ازپیش‌تعریف‌شده",
+          "feedback": "درست: خطای مبهم باید به مسیر امن یا بررسی انسانی برسد."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L03-Q02-FAMILY",
+      "version": 1,
+      "correct_option_id": "c",
+      "explanation": "خطای مبهم باید به مسیر امن یا بررسی انسانی برسد."
+    },
+    {
+      "objective_id": "E02-ST04-L03-OBJ03",
+      "type": "single_choice",
+      "prompt": "اگر اقدام عامل قابل بازگشت کامل نیست، چه باید کرد؟",
+      "remediation_card_id": "E02-ST04-L03-CARD03",
+      "variant": "A",
+      "id": "E02-ST04-L03-Q03",
+      "options": [
+        {
+          "id": "a",
+          "text": "لاگ را خاموش کنیم",
+          "feedback": "بازبینی: برگشت‌پذیری باید پیش از اجرا ارزیابی شود و جبران طراحی شود."
+        },
+        {
+          "id": "b",
+          "text": "پیش‌نمایش و کنترل پیشگیرانه و مسیر جبرانی مسئول‌دار تعریف شود",
+          "feedback": "درست: برگشت‌پذیری باید پیش از اجرا ارزیابی شود و جبران طراحی شود."
+        },
+        {
+          "id": "c",
+          "text": "فرض کنیم undo همیشه ممکن است",
+          "feedback": "بازبینی: برگشت‌پذیری باید پیش از اجرا ارزیابی شود و جبران طراحی شود."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L03-Q03-FAMILY",
+      "version": 1,
+      "correct_option_id": "b",
+      "explanation": "برگشت‌پذیری باید پیش از اجرا ارزیابی شود و جبران طراحی شود."
+    },
+    {
+      "objective_id": "E02-ST04-L03-OBJ04",
+      "type": "single_choice",
+      "prompt": "چرا پس از تغییر مدل یا ابزار ارزیابی دوباره لازم است؟",
+      "remediation_card_id": "E02-ST04-L03-CARD04",
+      "variant": "A",
+      "id": "E02-ST04-L03-Q04",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون رفتار و سطح ریسک سامانه ممکن است تغییر کرده باشد",
+          "feedback": "درست: تغییر مؤلفه می‌تواند رفتار کل سیستم را عوض کند."
+        },
+        {
+          "id": "b",
+          "text": "چون نسخهٔ جدید همیشه امن‌تر است",
+          "feedback": "بازبینی: تغییر مؤلفه می‌تواند رفتار کل سیستم را عوض کند."
+        },
+        {
+          "id": "c",
+          "text": "چون دادهٔ پایش دیگر کاربرد ندارد",
+          "feedback": "بازبینی: تغییر مؤلفه می‌تواند رفتار کل سیستم را عوض کند."
+        }
+      ],
+      "equivalence_group": "E02-ST04-L03-Q04-FAMILY",
+      "version": 1,
+      "correct_option_id": "a",
+      "explanation": "تغییر مؤلفه می‌تواند رفتار کل سیستم را عوض کند."
+    },
+    {
+      "id": "E02-ST04-L03-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "عامل می‌تواند دادهٔ ناقص را به سامانهٔ بیرونی بفرستد. کدام کنترل‌ها را کنار هم می‌گذاریم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "محدودکردن اختیار و اعتبارسنجی ورودی/خروجی و ثبت و مسیر توقف",
+          "feedback": "کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        },
+        {
+          "id": "b",
+          "text": "تکیه بر prompt طولانی",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text": "افزایش مجوز دسترسی",
+          "feedback": "این انتخاب شرط اصلی درس را کنار می‌گذارد: کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "کنترل باید مستقل و چندلایه باشد؛ متن دستور به‌تنهایی خطای ابزار یا دادهٔ نامعتبر را مهار نمی‌کند.",
+      "objective_id": "E02-ST04-L03-OBJ01",
+      "equivalence_group": "E02-ST04-L03-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "E02-ST04-L03-CARD04",
+      "hint_used_may_not_count_as_independent": true
+    }
+  ],
+  "source_links": [
+    {
+      "id": "NIST-AI-RMF-1",
+      "title": "NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "review_depth": "primary_public_framework_reviewed_current_status_checked",
+      "scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-600-1-GENAI-PROFILE",
+      "title": "NIST AI 600-1, Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "primary_public_profile_reviewed",
+      "scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OWASP-LLM-TOP10-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "community_security_awareness_resource_reviewed",
+      "scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "OWASP-LLM-TOP10-PDF-2025",
+      "title": "OWASP Top 10 for LLM Applications 2025, official resource page",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "review_depth": "official_publication_resource_page_reviewed",
+      "scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "previous_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21",
+      "source_kind": "primary_community_guidance"
+    },
+    {
+      "id": "NIST-ADVERSARIAL-ML-100-2E2025",
+      "title": "NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
+      "review_depth": "primary_technical_taxonomy_reviewed",
+      "scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "practice_activity": {
+    "type": "ai-agent-risk-and-governance-brief",
+    "prompt": "برای سپهر «ریسک و بازگشت از خطا» را در دستیار پشتیبانی تحلیل کنید؛ سطح اختیار، کنترل، معیار، مالک و مسیر خطا را بنویسید.",
+    "expected_output": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+    "rubric": [
+      "کار عامل از اتوماسیون ساده و مرز اختیارش تفکیک شده است.",
+      "دسترسی، داده، ریسک و مسئول پاسخ‌گو در طراحی دیده شده‌اند.",
+      "آزمون، نظارت انسانی، مسیر fallback و شرط توقف مشخص‌اند."
+    ],
+    "auto_grade": false
+  },
+  "review_status": "pending_expert_review",
+  "fresh_equivalent_variants": 0,
+  "prerequisites_suggested": [
+    "E02-ST01-L01",
+    "E02-ST02-L04",
+    "E02-ST03-L03"
+  ],
+  "prerequisites_block_access": false,
+  "content_ref": "content/e02/lessons/E02-ST04-L03.json",
+  "order": 3,
+  "node_type": "lesson",
+  "source_refs": [
+    "NIST-AI-RMF-1",
+    "NIST-AI-600-1-GENAI-PROFILE",
+    "OWASP-LLM-TOP10-2025",
+    "OWASP-LLM-TOP10-PDF-2025",
+    "NIST-ADVERSARIAL-ML-100-2E2025"
+  ],
+  "source_scope": "NIST چارچوب عمومی مدیریت ریسک و در حال بازنگری نسخهٔ 1.0؛ OWASP منبع آگاهی تهدید جامعه است؛ مثال سپهر ساختگی است. هیچ منبعی نبود ریسک یا انطباق کامل را تضمین نمی‌کند.",
+  "example_plan": {
+    "fictional_scenario": "SEPEHR-SERVICES",
+    "real_case_candidates": [],
+    "real_case_status": "not_used; fictional example; no causal claims"
+  },
+  "media_plan": {
+    "type": "agent-threat-control-map",
+    "purpose": "نمایش دامنهٔ اختیار، ریسک و سازوکار تصمیم",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/ai-agent-control-loop.svg",
+        "alt_text": "نمودار آموزشی مشترک این مرحله برای درس «ریسک و بازگشت از خطا»: عامل می‌تواند چند گام را دنبال کند؛ دسترسی و اختیار باید محدود و قابل‌بازگشت باشد. درخواست و دامنه، هدف، منابع داده، ابزار مجاز و کارهای ممنوع را تعریف کن.؛ پیشنهاد و اقدام، عملیات کم‌خطر را محدود کن؛ برای تعهد، پرداخت یا دادهٔ حساس تأیید بگیر.؛ پایش و ثبت، عملکرد، خطا، دسترسی و شکایت را با مالک مشخص پایش کن.؛ توقف و بازیابی، کلید توقف، لغو دسترسی، بازگشت به نسخهٔ قبلی و مسئول پاسخ را آماده کن.",
+        "caption": "از نقشهٔ مرحله برای تحلیل «ریسک و بازگشت از خطا» استفاده کن؛ عدد یا برچسب مثال را با دادهٔ واقعی اشتباه نگیر."
+      }
+    ]
+  },
+  "assessment_plan": {
+    "item_count": 4,
+    "targets": [
+      "تشخیص نوع سامانه",
+      "طراحی کنترل",
+      "تحلیل ریسک",
+      "ساخت پیشنهاد اجرایی"
+    ],
+    "item_bank_status": "authored_draft",
+    "feedback_required": true,
+    "fresh_equivalent_variants": 0
+  },
+  "suggested_minutes": {
+    "learning": 23,
+    "practice": 22
+  },
+  "notes_enabled": true,
+  "bookmarks_enabled": true,
+  "direct_entry_allowed": true,
+  "free_sample": false,
+  "legacy_lesson_ids": [],
+  "expected_artifact": "طرح عامل و کنترل‌ها: دامنه، دسترسی، سنجش، توقف و مسئول",
+  "selected_source_refs": [
+    {
+      "source_id": "NIST-AI-RMF-1",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_public_framework_reviewed_current_status_checked",
+      "supports_scope": "چارچوب داوطلبانهٔ مدیریت ریسک با کارکردهای Govern, Map, Measure, Manage؛ NIST اعلام کرده نسخهٔ 1.0 در حال بازنگری است و آن را تضمین ایمنی معرفی نمی‌کند.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-AI-600-1-GENAI-PROFILE",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_public_profile_reviewed",
+      "supports_scope": "ریسک‌ها و اقدام‌های پیشنهادی برای GenAI در چرخهٔ عمر؛ پروفایل همراه AI RMF 1.0 است و جای ارزیابی موردی را نمی‌گیرد.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OWASP-LLM-TOP10-2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "community_security_awareness_resource_reviewed",
+      "supports_scope": "فهرست آگاهی امنیتی برای برنامه‌های LLM، از جمله agency بیش‌ازحد، ورودی نامطمئن و مصرف کنترل‌نشده؛ استاندارد جامع ممیزی یا تضمین امنیت نیست.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "OWASP-LLM-TOP10-PDF-2025",
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "community_security_project_document_reviewed",
+      "supports_scope": "توضیح به‌روزرسانی ریسک‌ها برای استفادهٔ عامل‌محور از LLM؛ راهنمای پروژهٔ جامعه است و باید در معماری واقعی تکمیل شود.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    },
+    {
+      "source_id": "NIST-ADVERSARIAL-ML-100-2E2025",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research-security-and-resilience",
+      "locator": "AI RMF functions and lifecycle; NIST Generative AI Profile; OWASP 2025 risks including Excessive Agency and Unbounded Consumption; NIST adversarial ML taxonomy",
+      "review_depth": "primary_technical_taxonomy_reviewed",
+      "supports_scope": "واژگان و طبقه‌بندی حملات و کاهنده‌های یادگیری ماشین خصمانه؛ صفحهٔ NIST برای یافتن سند است و جزئیات آن باید در PDF اصلی مطالعه شود.",
+      "gap": "چارچوب‌ها و فهرست تهدید، کارایی کنترل را در پیاده‌سازی سپهر ثابت نمی‌کنند. آزمون امنیتی، ارزیابی انسانی و بازبینی حقوقی/فنی موردی لازم است.",
+      "coverage": "partial",
+      "publication_status": "open_reference_candidate",
+      "checked_at": "2026-10-19"
+    }
+  ]
+}

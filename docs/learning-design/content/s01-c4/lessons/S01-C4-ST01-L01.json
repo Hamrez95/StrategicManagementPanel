@@ -58,6 +58,12 @@
       "type": "explanation",
       "title": "دفتر فرض",
       "text": "هر فرض را با درجهٔ اطمینان، مالک، منبع و تاریخ ثبت کنید. اختلاف متخصصان را پنهان نکنید؛ چه چیزی باعث اختلاف است و چه مشاهده‌ای می‌تواند آن را کمتر کند؟ این دفتر هنگام بازبینی مفید است."
+    },
+    {
+      "id": "S01-C4-ST01-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "Risk — ریسک: پیامدهای نامطمئن با احتمال قابل‌برآورد نسبی در مدل؛ احتمال برآوردشده همچنان وابسته به داده و افق است. Deep uncertainty — عدم‌قطعیت عمیق: اختلاف دربارهٔ مدل، پیامد یا احتمال‌ها؛ دقت اعشاری آن را رفع نمی‌کند. Knightian uncertainty — عدم‌قطعیت نایت: وضعیت‌هایی که احتمال قابل‌اتکای رخدادها در دسترس نیست؛ نباید با ریسک بیمه‌پذیر یکی شود."
     }
   ],
   "questions": [
@@ -207,42 +213,59 @@
       "remediation_card_id": "S01-C4-ST01-L01-CARD05"
     }
   ],
+  "source_refs": [
+    "oxford-scenarios",
+    "oxford-ospa",
+    "hbr-uncertainty",
+    "imf-ai-scenario",
+    "wef-risk-2026",
+    "oxford-handbook"
+  ],
   "source_links": [
     {
       "id": "oxford-scenarios",
-      "title": "Oxford Handbook of Strategy: Scenario Thinking and Strategic Modelling",
+      "title": "Coyle, Scenario Thinking and Strategic Modelling, Chapter 11 in The Oxford Handbook of Strategy (2009)",
       "url": "https://academic.oup.com/edited-volume/28097/chapter-abstract/212189665",
-      "scope": "سناریو برای تصور چند آینده و سنجش گزینه‌هاست، نه پیش‌بینی یک آینده."
+      "scope": "فصل راهبرد و سناریو؛ چکیده بر تفاوت سناریوسازی با پیش‌بینی یک آینده و سنجش گزینه‌ها در چند آینده تأکید می‌کند.",
+      "doi": "10.1093/oxfordhb/9780199275212.003.0011",
+      "checked_on": "2026-10-21",
+      "review_depth": "official_chapter_metadata_abstract_indexed_direct_fetch_failed",
+      "access_note": "نتیجهٔ نمایه‌شدهٔ Oxford Academic عنوان، نویسنده، DOI، صفحات و چکیده را نشان داد؛ واکشی مستقیم به CDN غیرقابل‌دسترسی هدایت شد، پس تاریخ دسترسی ثبت نشد."
     },
     {
       "id": "oxford-ospa",
       "title": "Ramírez & Wilkinson: Strategic Reframing—The Oxford Scenario Planning Approach",
       "url": "https://academic.oup.com/book/9616",
-      "scope": "سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه."
+      "scope": "سناریو به‌عنوان یادگیری، بازقاب‌بندی و کشف گزینه‌های تازه.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "hbr-uncertainty",
       "title": "HBR (2025): Make Better Strategic Decisions Amid Uncertainty",
       "url": "https://hbr.org/2025/10/make-better-strategic-decisions-amid-uncertainty",
-      "scope": "سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع."
+      "scope": "سوگیری تصمیم‌گیر و بررسی گزینه‌ها در تغییر سریع.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "imf-ai-scenario",
       "title": "IMF (2026): Global Economic and Financial Implications of AI—Scenario Planning Exercise",
       "url": "https://www.imf.org/en/publications/imf-notes/issues/2026/04/03/global-economic-and-financial-implications-of-artificial-intelligence-lessons-from-a-574924",
-      "scope": "تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست."
+      "scope": "تمرین سناریوسازی اقتصادی دربارهٔ پیامدهای AI؛ سناریو به معنای پیش‌بینی قطعی نیست.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "wef-risk-2026",
       "title": "World Economic Forum: Global Risks Report 2026",
       "url": "https://www.weforum.org/publications/global-risks-report-2026/in-full/global-risks-report-2026-chapter-2/",
-      "scope": "دیدگاه کارشناسان/مدیران دربارهٔ ریسک‌های جهانی و AI؛ پیمایش ادراک ریسک است."
+      "scope": "دیدگاه کارشناسان/مدیران دربارهٔ ریسک‌های جهانی و AI؛ پیمایش ادراک ریسک است.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-handbook",
       "title": "Oxford Saïd: The Strategist’s Handbook",
       "url": "https://academic.oup.com/book/46836",
-      "scope": "چارچوب فرایند، ابزار و تصمیم‌گیری در استراتژی؛ دسترسی به متن ممکن است محدود باشد."
+      "scope": "چارچوب فرایند، ابزار و تصمیم‌گیری در استراتژی؛ دسترسی به متن ممکن است محدود باشد.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {

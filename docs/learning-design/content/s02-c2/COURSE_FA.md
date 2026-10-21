@@ -44,6 +44,10 @@ FCFE از سود خالص، اقلام غیرنقدی، سرمایه‌گذار�
 
 DCF تنزیل جریان نقد؛ FCFF جریان آزاد بنگاه؛ FCFE جریان آزاد حقوق مالکانه؛ EV ارزش بنگاه؛ equity value ارزش حقوق مالکانه؛ NOPAT سود عملیاتی پس از مالیات؛ discount rate نرخ تنزیل است. جریان و نرخ باید از نظر ذی‌نفع، ارز و واقعی/اسمی سازگار باشند.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+FCFF (جریان نقد آزاد برای کل بنگاه) پس از نیازهای عملیاتی و سرمایه‌گذاری، وجه در دسترس تأمین‌کنندگان سرمایه را نشان می‌دهد؛ FCFE (جریان نقد آزاد صاحبان سهام) وجه باقی‌مانده برای سهام‌داران است. ارزش بنگاه را با ارزش حقوق مالکانه یکی نگیر.
+
 #### تمرین و بازخورد
 
 FCFF معمولاً چه چیزی می‌دهد؟
@@ -140,6 +144,10 @@ WACC میانگین موزون هزینهٔ بدهی پس از مالیات و �
 #### واژه‌های پرتکرار
 
 Risk-free rate نرخ بدون ریسک؛ beta بتا؛ ERP صرف ریسک بازار سهام؛ cost of equity هزینهٔ حقوق مالکانه؛ WACC میانگین موزون هزینهٔ سرمایه؛ nominal اسمی؛ real واقعی است. تاریخ، ارز، مالیات و نوع جریان را کنار هر نرخ ثبت کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Discount-rate consistency (سازگاری نرخ تنزیل) یعنی جریان و نرخ از نظر ارز، تورم و دریافت‌کننده هم‌خوان باشند. جریان اسمی را با نرخ اسمی و جریان واقعی را با نرخ واقعی تنزیل کن؛ ریسک و واحد را بی‌دلیل دوباره نشمار.
 
 #### تمرین و بازخورد
 
@@ -238,6 +246,10 @@ TV را با جریان نقد باثبات، حاشیه، سرمایه‌گذا
 
 Terminal value ارزش پایانی؛ stable growth رشد باثبات؛ perpetuity perpetuity/جریان دائمی؛ exit multiple مضرب خروج؛ terminal year سال انتهایی؛ reinvestment بازسرمایه‌گذاری است. TV را تخمین نقطه‌ای قطعی ندانید؛ سهم، فرض رشد و نرخ را با دامنه گزارش کنید.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Terminal value (ارزش پایانی) ارزش جریان‌های پس از دورهٔ پیش‌بینی را خلاصه می‌کند. Perpetual growth (رشد پایدار) باید با اقتصاد باثبات سازگار باشد؛ سهم بزرگ ارزش پایانی، حساسیت نتیجه به فرض‌های دوردست را بالا می‌برد.
+
 #### تمرین و بازخورد
 
 شرط مدل رشد پایدار چیست؟
@@ -334,6 +346,10 @@ AI می‌تواند سناریوهای فرضی و توضیح خلاف‌واق
 #### واژه‌های پرتکرار
 
 Sensitivity حساسیت؛ scenario سناریو؛ expected value ارزش مورد انتظار؛ range of value دامنهٔ ارزش؛ implied assumptions مفروضات ضمنی قیمت؛ real option اختیار واقعی است. به‌جای ادعای یک ارزش قطعی، دامنه، فرض، محرک تصمیم و دادهٔ لازم برای تنگ‌ترکردن دامنه را بیان کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Valuation range (دامنهٔ ارزش‌گذاری) حاصل تغییر مفروضات سازگار دربارهٔ رشد، حاشیه، سرمایه‌گذاری و نرخ است. سناریوها محدودهٔ وابستگی ارزش را نشان می‌دهند؛ میانگین چند مدل، قطعیت ایجاد نمی‌کند.
 
 #### تمرین و بازخورد
 
@@ -460,6 +476,10 @@ FCFF را با WACC و FCFE را با هزینهٔ حقوق مالکانه تن�
 
 Cost of capital هزینهٔ سرمایه؛ WACC میانگین موزون هزینهٔ سرمایه؛ cost of debt هزینهٔ بدهی؛ cost of equity هزینهٔ حقوق مالکانه؛ tax shield سپر مالیاتی؛ hurdle rate نرخ مانع است. WACC ابزار هماهنگی جریان و ریسک است، نه نرخ جادویی واحد برای هر طرح.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+WACC (میانگین موزون هزینهٔ سرمایه) هزینهٔ موردانتظار منابع بدهی و حقوق مالکانه را با وزن ساختار سرمایه ترکیب می‌کند. نرخ تنزیل باید با ریسک پروژه سازگار باشد؛ WACC شرکت برای هر پروژه مناسب نیست.
+
 #### تمرین و بازخورد
 
 WACC چه معنایی دارد؟
@@ -512,7 +532,7 @@ WACC را برای دو پروژهٔ دارای ریسک متفاوت محاسب
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Cost of Capital curriculum overview](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.
+- منبع [CFA Institute 2026: Cost of Capital: Advanced Topics](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/cost-capital-advanced-topics)؛ برنامهٔ درسی CFA 2026، Level II Corporate Issuers؛ متن کامل در Learning Ecosystem است، صفحهٔ عمومی معرفی و پیامدهای یادگیری را نشان می‌دهد.
 - منبع [CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples)؛ مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.
 - منبع [NYU Stern: Relative Valuation course materials](https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm)؛ درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.
@@ -557,6 +577,10 @@ DCF و مضاعف دو لنز با فرض‌های متفاوت‌اند. شکا
 #### واژه‌های پرتکرار
 
 Comparable company شرکت همتا؛ trading multiple مضاعف معاملاتی؛ P/E قیمت به سود؛ EV/EBITDA ارزش بنگاه به EBITDA؛ forward multiple مضاعف آینده‌نگر؛ dilution رقیق‌شدن؛ median میانه است. هر مضاعف را با تاریخ، صورت/مخرج و گروه مقایسه مستند کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Comparable companies (شرکت‌های قابل‌مقایسه) بنگاه‌هایی با محرک‌های اقتصادی نزدیک‌اند؛ valuation multiple (مضاعف ارزش‌گذاری) ارزش را به سنجه‌ای مانند سود یا فروش وصل می‌کند. تفاوت رشد، ریسک و حسابداری همتایان را از نتیجه حذف نکن.
 
 #### تمرین و بازخورد
 
@@ -610,7 +634,7 @@ EV/EBITDA را با چه چیزی تطبیق می‌دهیم؟
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Cost of Capital curriculum overview](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.
+- منبع [CFA Institute 2026: Cost of Capital: Advanced Topics](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/cost-capital-advanced-topics)؛ برنامهٔ درسی CFA 2026، Level II Corporate Issuers؛ متن کامل در Learning Ecosystem است، صفحهٔ عمومی معرفی و پیامدهای یادگیری را نشان می‌دهد.
 - منبع [CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples)؛ مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.
 - منبع [NYU Stern: Relative Valuation course materials](https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm)؛ درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.
@@ -655,6 +679,10 @@ EV/EBITDA را با چه چیزی تطبیق می‌دهیم؟
 #### واژه‌های پرتکرار
 
 Expected return بازده مورد انتظار؛ variance واریانس؛ standard deviation انحراف معیار؛ covariance کوواریانس؛ correlation همبستگی؛ diversification تنوع‌بخشی؛ Sharpe ratio نسبت شارپ است. رابطهٔ تاریخی دو دارایی قانون ثابت آینده نیست.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Portfolio return (بازده پرتفوی) به وزن دارایی‌ها وابسته است؛ portfolio risk (ریسک پرتفوی) علاوه بر ریسک هر دارایی، covariance (هم‌تغییری) آن‌ها را هم دارد. بازده گذشته تضمین بازده آینده نیست.
 
 #### تمرین و بازخورد
 
@@ -708,7 +736,7 @@ Expected return بازده مورد انتظار؛ variance واریانس؛ sta
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Cost of Capital curriculum overview](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.
+- منبع [CFA Institute 2026: Cost of Capital: Advanced Topics](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/cost-capital-advanced-topics)؛ برنامهٔ درسی CFA 2026، Level II Corporate Issuers؛ متن کامل در Learning Ecosystem است، صفحهٔ عمومی معرفی و پیامدهای یادگیری را نشان می‌دهد.
 - منبع [CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples)؛ مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.
 - منبع [NYU Stern: Relative Valuation course materials](https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm)؛ درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.
@@ -753,6 +781,10 @@ Expected return بازده مورد انتظار؛ variance واریانس؛ sta
 #### واژه‌های پرتکرار
 
 Idiosyncratic risk ریسک خاص؛ systematic risk ریسک سیستماتیک؛ correlation breakdown فروپاشی/تغییر رابطه؛ factor exposure مواجههٔ عاملی؛ rebalancing بازتوازن؛ tail risk ریسک دنباله‌ای است. تنوع را بر اساس منشأ ریسک بسنجید و برای رژیم‌های متفاوت برنامه داشته باشید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Diversification (تنوع‌بخشی) با ترکیب مواجهه‌های ناهمسان می‌تواند ریسک خاص دارایی را کاهش دهد. Correlation (همبستگی) در بحران و زمان تغییر می‌کند؛ کاهش ریسک تضمین‌شده نیست و ریسک مشترک باقی می‌ماند.
 
 #### تمرین و بازخورد
 
@@ -806,7 +838,7 @@ Idiosyncratic risk ریسک خاص؛ systematic risk ریسک سیستماتیک
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers—Cost of Capital curriculum overview](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ چارچوب مفهومی WACC و هزینهٔ بدهی/حقوق مالکانه؛ سند برنامهٔ درسی است و ممکن است نسخهٔ سال آن نیازمند تطبیق با 2026 باشد.
+- منبع [CFA Institute 2026: Cost of Capital: Advanced Topics](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/cost-capital-advanced-topics)؛ برنامهٔ درسی CFA 2026، Level II Corporate Issuers؛ متن کامل در Learning Ecosystem است، صفحهٔ عمومی معرفی و پیامدهای یادگیری را نشان می‌دهد.
 - منبع [CFA Institute 2026: Market-Based Valuation—Price and Enterprise Value Multiples](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples)؛ مضاعف‌های قیمت و ارزش بنگاه، انتخاب benchmark و پیوند مضاعف با بنیادها؛ دسترسی کامل ممکن است محدود باشد.
 - منبع [NYU Stern: Relative Valuation course materials](https://pages.stern.nyu.edu/adamodar/New_Home_Page/valuation/val.htm)؛ درس‌نامه‌ها، داده‌ها و کاربرگ‌های ارزش‌گذاری نسبی و مضاعف‌ها؛ داده‌های بازار باید برای تاریخ تصمیم به‌روز شوند.
 - منبع [CFA Institute 2026: Portfolio Risk and Return—Part I](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1)؛ بازده، واریانس، کوواریانس، همبستگی و تنوع‌بخشی؛ متن کامل ممکن است نیازمند دسترسی باشد.
@@ -880,6 +912,10 @@ IRR نرخی است که NPV را صفر می‌کند. این شاخص خلاص
 
 NPV خالص ارزش فعلی؛ IRR نرخ بازده داخلی؛ mutually exclusive متقابلاً انحصاری؛ incremental cash flow جریان افزایشی؛ hurdle rate نرخ مانع؛ capital rationing محدودیت سرمایه؛ payback period دورهٔ بازگشت است. NPV تخمین مشروط ارزش افزوده است، نه تضمین نتیجه.
 
+#### اصطلاح‌ها و مرز مفهومی
+
+Mutually exclusive projects (پروژه‌های متقابلاً انحصاری) هم‌زمان قابل‌انتخاب نیستند. NPV (ارزش فعلی خالص) ارزش افزودهٔ پولی را با نرخ سازگار می‌سنجد؛ IRR (نرخ بازده داخلی) ممکن است با تفاوت اندازه یا زمان‌بندی رتبه‌بندی گمراه‌کننده‌ای بدهد.
+
 #### تمرین و بازخورد
 
 NPV مثبت تحت چه شرطی معنا دارد؟
@@ -932,7 +968,7 @@ IRR چه نرخی است؟
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers curriculum—Capital Budgeting](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.
+- منبع [CFA Institute 2026: Capital Investments and Capital Allocation](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation)؛ برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.
 - منبع [NYU Stern: Inflation and Valuation—DCF Inputs](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html)؛ سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.
 - منبع [NYU Stern: Applied Corporate Finance—Investment Analysis Problems](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html)؛ NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.
 - منبع [NIST AI 600-1: Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.
@@ -977,6 +1013,10 @@ IRR چه نرخی است؟
 #### واژه‌های پرتکرار
 
 Nominal اسمی؛ real واقعی؛ purchasing power قدرت خرید؛ inflation pass-through انتقال تورم به قیمت؛ monetary erosion فرسایش پول؛ currency consistency سازگاری ارزی است. جریان و نرخ، ارز و تورم را با یک منطق و تاریخ هماهنگ کنید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Nominal cash flow (جریان نقد اسمی) تغییر سطح قیمت را در خود دارد؛ real cash flow (جریان نقد واقعی) قدرت خرید را ثابت نگه می‌دارد. رشد، مالیات و نرخ تنزیل را در یک مبنای تورمی سازگار محاسبه کن.
 
 #### تمرین و بازخورد
 
@@ -1030,7 +1070,7 @@ Nominal اسمی؛ real واقعی؛ purchasing power قدرت خرید؛ inflat
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers curriculum—Capital Budgeting](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.
+- منبع [CFA Institute 2026: Capital Investments and Capital Allocation](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation)؛ برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.
 - منبع [NYU Stern: Inflation and Valuation—DCF Inputs](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html)؛ سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.
 - منبع [NYU Stern: Applied Corporate Finance—Investment Analysis Problems](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html)؛ NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.
 - منبع [NIST AI 600-1: Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.
@@ -1075,6 +1115,10 @@ NIST AI RMF ویژگی‌هایی چون اعتبار، ایمنی، امنیت�
 #### واژه‌های پرتکرار
 
 Forecast error خطای پیش‌بینی؛ MAE میانگین قدرمطلق خطا؛ MAPE درصد خطای مطلق؛ leakage نشت داده؛ drift تغییر توزیع؛ explainability توضیح‌پذیری؛ confabulation خروجی نادرست با اطمینان ظاهری است. دقت آماری را با ارزش و ایمنی تصمیم یکی نگیرید.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+AI estimate (برآورد AI) خروجی مدل است و باید منشأ، بازهٔ داده، خطا و پایداری‌اش سنجیده شود. Drift (تغییر توزیع) و خطای متفاوت میان گروه‌ها می‌تواند ارزش پیش‌بینی را کم کند؛ امتیاز کلی این تفاوت را پنهان می‌کند.
 
 #### تمرین و بازخورد
 
@@ -1128,7 +1172,7 @@ NIST AI RMF چه چیزی نیست؟
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers curriculum—Capital Budgeting](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.
+- منبع [CFA Institute 2026: Capital Investments and Capital Allocation](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation)؛ برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.
 - منبع [NYU Stern: Inflation and Valuation—DCF Inputs](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html)؛ سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.
 - منبع [NYU Stern: Applied Corporate Finance—Investment Analysis Problems](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html)؛ NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.
 - منبع [NIST AI 600-1: Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.
@@ -1173,6 +1217,10 @@ DCF ارزش مبتنی بر جریان و فرض‌های درونی؛ مضاع
 #### واژه‌های پرتکرار
 
 Investment memo یادداشت سرمایه‌گذاری؛ valuation range دامنهٔ ارزش؛ key driver محرک کلیدی؛ downside risk ریسک نزولی؛ implied assumptions فرض‌های ضمنی؛ decision trigger ماشهٔ تصمیم است. مدیر باید بداند چه چیزی معلوم، برآوردی و نامعلوم است و چه نشانه‌ای توصیه را تغییر می‌دهد.
+
+#### اصطلاح‌ها و مرز مفهومی
+
+Investment memo (یادداشت سرمایه‌گذاری) تصمیم، دامنهٔ ارزش، فرض‌ها و ریسک‌های مهم را برای گفت‌وگو روشن می‌کند. Recommendation (توصیه) باید محرک تغییر یا شرط بازنگری داشته باشد؛ یک عدد نقطه‌ای همهٔ عدم‌قطعیت را پوشش نمی‌دهد.
 
 #### تمرین و بازخورد
 
@@ -1226,7 +1274,7 @@ Investment memo یادداشت سرمایه‌گذاری؛ valuation range دا�
 
 #### منابع
 
-- منبع [CFA Institute: Corporate Issuers curriculum—Capital Budgeting](https://www.cfainstitute.org/sites/default/files/-/media/documents/book/curriculum-update/2023-member-guide-refresher-readings.pdf)؛ مفاهیم NPV، IRR و بودجه‌بندی سرمایه؛ منبع رسمی برنامهٔ درسی و نسخهٔ سال آن باید در انتشار نهایی با آخرین curriculum کنترل شود.
+- منبع [CFA Institute 2026: Capital Investments and Capital Allocation](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/capital-investments-and-capital-allocation)؛ برنامهٔ درسی CFA 2026، Level I Corporate Issuers؛ شامل NPV، IRR، ROIC، تخصیص سرمایه و real options. صفحهٔ عمومی خلاصه و پیامدهای یادگیری را نشان می‌دهد؛ متن کامل در Learning Ecosystem است.
 - منبع [NYU Stern: Inflation and Valuation—DCF Inputs](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/dcfinput.html)؛ سازگاری جریان اسمی/واقعی و نرخ تنزیل، تورم و ارز در ارزش‌گذاری.
 - منبع [NYU Stern: Applied Corporate Finance—Investment Analysis Problems](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/AppldCF/derivn/ch5deriv.html)؛ NPV و IRR، جریان نقد واقعی/اسمی و نرخ سازگار؛ مثال‌های آموزشی دانشگاهی.
 - منبع [NIST AI 600-1: Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)؛ خطر confabulation و مدیریت ریسک استفاده از GenAI؛ مکمل چارچوب NIST AI RMF.

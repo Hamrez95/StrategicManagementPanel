@@ -224,18 +224,24 @@
           "remediation_card_id": "C06-ST03-L01-CARD07"
         }
       ],
+      "source_refs": [
+        "openstax-inventory",
+        "mit-inventory"
+      ],
       "source_links": [
         {
           "id": "openstax-inventory",
           "title": "OpenStax Principles of Finance 2e 19.5: Inventory Management",
           "url": "https://openstax.org/books/principles-finance-2e/pages/19-5-inventory-management",
-          "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی."
+          "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی.",
+          "accessed_on": "2026-10-20"
         },
         {
           "id": "mit-inventory",
           "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
           "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
-          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان."
+          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+          "accessed_on": "2026-10-20"
         }
       ],
       "practice_activity": {
@@ -318,6 +324,12 @@
           "type": "summary",
           "title": "جمع‌بندی",
           "text": "EOQ موازنهٔ هزینهٔ سفارش و نگهداری را در فرض‌های ساده می‌سنجد. فرمول را با واحدهای سازگار به‌کار ببرید و پیش از تبدیل نتیجه به سیاست، فرض‌ها و هزینه‌های حذف‌شده را بازبینی کنید."
+        },
+        {
+          "id": "C06-ST03-L02-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "مقدار سفارش اقتصادی میان هزینهٔ ثابت هر سفارش و هزینهٔ نگهداری موجودی مصالحه می‌سازد. مدل کلاسیک تقاضای نسبتاً پایدار، زمان تأمین معلوم، قیمت و هزینهٔ ثابت را فرض می‌کند؛ تخفیف پله‌ای، کمبود و عدم قطعیت ساده‌سازی نشده‌اند. حاصل فرمول نقطهٔ شروع تحلیل است، نه مقدار قطعی برای هر قلم. اگر تقاضا یا زمان تأمین نوسان کند، نقطهٔ سفارش و ذخیرهٔ اطمینان جداگانه لازم‌اند. هزینهٔ واقعی ثبت سفارش و نگهداری را برآورد کنید و با تحلیل حساسیت ببینید تغییر فرض‌ها چقدر تصمیم را عوض می‌کند."
         }
       ],
       "questions": [
@@ -467,18 +479,24 @@
           "remediation_card_id": "C06-ST03-L02-CARD07"
         }
       ],
+      "source_refs": [
+        "mit-inventory",
+        "openstax-inventory"
+      ],
       "source_links": [
         {
           "id": "mit-inventory",
           "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
           "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
-          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان."
+          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+          "accessed_on": "2026-10-20"
         },
         {
           "id": "openstax-inventory",
           "title": "OpenStax Principles of Finance 2e 19.5: Inventory Management",
           "url": "https://openstax.org/books/principles-finance-2e/pages/19-5-inventory-management",
-          "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی."
+          "scope": "موازنهٔ موجودی، سرمایه و تداوم فروش؛ منبع مقدماتی.",
+          "accessed_on": "2026-10-20"
         }
       ],
       "practice_activity": {
@@ -561,6 +579,12 @@
           "type": "summary",
           "title": "جمع‌بندی",
           "text": "ذخیرهٔ اطمینان با نوسان و هدف خدمت پیوند دارد، نه با حدس ثابت. محاسبهٔ σd√L به فرض زمان تأمین ثابت و تقاضای مستقل نیاز دارد؛ نقطهٔ سفارش را با واحد، موقعیت موجودی و هزینهٔ کمبود تفسیر کنید."
+        },
+        {
+          "id": "C06-ST03-L03-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "ذخیرهٔ اطمینان برای پوشش نوسان تقاضا یا زمان تأمین در سطح خدمت انتخاب‌شده به کار می‌رود. افزایش ذخیره احتمال کمبود را کم می‌کند اما سرمایه و خطر کهنگی را بالا می‌برد. مقدار مناسب به توزیع تقاضا، زمان تأمین، سطح خدمت و هزینهٔ پیامد کمبود بستگی دارد. فرمولی که نوسان‌ها را مستقل یا نرمال فرض می‌کند ممکن است در شوک‌ها ضعیف باشد. خطای پیش‌بینی و عملکرد واقعی را در پنجرهٔ زمانی مناسب بسنجید. اگر زمان تأمین ساختاری تغییر کرده، افزایش موجودی بدون اصلاح منبع مشکل را پنهان می‌کند."
         }
       ],
       "questions": [
@@ -710,18 +734,24 @@
           "remediation_card_id": "C06-ST03-L03-CARD07"
         }
       ],
+      "source_refs": [
+        "mit-inventory",
+        "mit-inventory-uncertainty"
+      ],
       "source_links": [
         {
           "id": "mit-inventory",
           "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
           "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
-          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان."
+          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+          "accessed_on": "2026-10-20"
         },
         {
           "id": "mit-inventory-uncertainty",
           "title": "MIT ESD.273J Logistics and Supply Chain Management: Stochastic Inventory Models",
           "url": "https://ocw.mit.edu/courses/esd-273j-logistics-and-supply-chain-management-fall-2009/34e5cfa83eac1bf9711374828c260a22_MITESD_273JF09_lec05.pdf",
-          "scope": "مدل‌های موجودی تصادفی و عدم‌قطعیت تقاضا."
+          "scope": "مدل‌های موجودی تصادفی و عدم‌قطعیت تقاضا.",
+          "accessed_on": "2026-10-20"
         }
       ],
       "practice_activity": {
@@ -804,6 +834,12 @@
           "type": "summary",
           "title": "جمع‌بندی",
           "text": "پیش‌بینی دقیق‌تر را با بهبود تصمیم موجودی یکی نگیرید. مدل را با مبنا و آزمون زمانی ارزیابی کنید؛ خطا را به هزینهٔ کمبود/نگهداری وصل کنید و محدودیت شواهد AI را آشکار کنید."
+        },
+        {
+          "id": "C06-ST03-L04-DEEP-REVIEW",
+          "type": "explanation",
+          "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+          "text": "برای پیش‌بینی AI ابتدا هدف تصمیم و افق زمانی را تعریف کنید؛ پیش‌بینی روزانهٔ SKU با برنامه‌ریزی ظرفیت فصلی معیار و دادهٔ یکسانی نمی‌خواهد. خط مبنای روش فعلی و خطای به تفکیک محصول و افق را نگه دارید. میانگین خطا می‌تواند کمبود اقلام حیاتی را پنهان کند؛ هزینهٔ خطای بیش‌برآورد و کم‌برآورد را جدا بسنجید. مدل در شوک یا تغییر تبلیغات ممکن است عقب بماند. پیش‌بینی را با قضاوت انسانی و دلیل override ثبت کنید و پس از تغییرات بازار، کالیبراسیون و روند خطا را دوباره بررسی کنید."
         }
       ],
       "questions": [
@@ -953,24 +989,38 @@
           "remediation_card_id": "C06-ST03-L04-CARD07"
         }
       ],
+      "source_refs": [
+        "ml-inventory-review-2025",
+        "ai-forecast-org-2025",
+        "mit-inventory"
+      ],
       "source_links": [
         {
           "id": "ml-inventory-review-2025",
           "title": "A systematic review of machine learning approaches in inventory control optimization (2025)",
-          "url": "https://doi.org/10.1016/j.jom.2025.100367",
-          "scope": "مرور نظام‌مند ۱۲۲ مقاله دربارهٔ پیوند پیش‌بینی و سیاست موجودی؛ مروری بر مطالعات است و تضمین عملکرد یک مدل مشخص نیست."
+          "url": "https://doi.org/10.1016/j.orp.2025.100367",
+          "scope": "مرور نظام‌مند ۱۲۲ مطالعه دربارهٔ سه شیوهٔ اتصال ML به کنترل موجودی؛ مرور، شکاف کاربرد واقعی و مقیاس‌پذیری را گزارش می‌کند و تضمین عملکرد مدل مشخص نیست.",
+          "doi": "10.1016/j.orp.2025.100367",
+          "checked_on": "2026-10-21",
+          "review_depth": "official_publisher_indexed_content_direct_fetch_failed",
+          "access_note": "نتیجهٔ نمایه‌شدهٔ ScienceDirect بخش‌های روش، نمونه و یافته‌های مرور را نشان داد؛ واکشی مستقیم DOI پاسخ ۴۰۳ داد، پس تاریخ دسترسی ثبت نشد."
         },
         {
           "id": "ai-forecast-org-2025",
           "title": "AI-enhanced demand forecasting: an organizational information processing view (2025)",
           "url": "https://doi.org/10.1108/IJPDLM-01-2025-0022",
-          "scope": "پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا؛ نقش فرایند و قابلیت سازمانی را بررسی می‌کند، قابل تعمیم بی‌قید نیست."
+          "scope": "پژوهش کنش‌محور با یک شرکت تولیدی ایتالیا دربارهٔ سامانهٔ پیش‌بینی تقاضای یادگیری عمیق و نقش فرایند و قابلیت سازمانی؛ دامنهٔ یک سازمان دارد.",
+          "doi": "10.1108/IJPDLM-01-2025-0022",
+          "checked_on": "2026-10-21",
+          "review_depth": "official_publisher_abstract_indexed_direct_fetch_failed",
+          "access_note": "نتیجهٔ نمایه‌شدهٔ ScienceDirect عنوان، چکیده و مشخصات جلد/شماره/صفحه را نشان داد؛ مسیر مستقیم DOI در ابزار قابل واکشی نبود، پس تاریخ دسترسی ثبت نشد."
         },
         {
           "id": "mit-inventory",
           "title": "MIT OCW ESD.260J Logistics Systems, Lecture 11: Inventory Management",
           "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/resources/lect11/",
-          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان."
+          "scope": "یادداشت درسی دربارهٔ مدیریت موجودی، تقاضای احتمالی و ذخیرهٔ اطمینان.",
+          "accessed_on": "2026-10-20"
         }
       ],
       "practice_activity": {

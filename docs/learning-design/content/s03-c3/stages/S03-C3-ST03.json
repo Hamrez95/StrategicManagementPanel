@@ -75,6 +75,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "Omnichannel تجربهٔ چندکانالهٔ پیوسته؛ multichannel چندکاناله؛ service blueprint نقشهٔ خدمت؛ handoff انتقال؛ first contact resolution حل در تماس نخست؛ identity resolution اتصال هویت؛ channel orchestration هماهنگی کانال‌ها است. «همه‌جا بودن» با «یکپارچه بودن» یکی نیست."
+        },
+        {
+          "id": "S03-C3-ST03-L01-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Omnichannel service — خدمت چندکانالهٔ یکپارچه: تداوم اطلاعات و کار مشتری میان کانال‌ها؛ همهٔ کانال‌ها الزاماً تجربهٔ یکسان ندارند. Handoff — تحویل بین کانال‌ها: انتقال زمینه و مسئولیت بدون تکرار کار مشتری؛ موفقیتش با دادهٔ عملیاتی سنجیده می‌شود. Channel optimization — بهینه‌سازی کانال: بهبود نتیجهٔ هر مسیر؛ بهبود محلی ممکن است تجربهٔ کل را بدتر کند."
         }
       ],
       "questions": [
@@ -224,41 +230,53 @@
           "remediation_card_id": "S03-C3-ST03-L01-CARD06"
         }
       ],
+      "source_refs": [
+        "NIST-AI-RMF",
+        "nist-genai-profile",
+        "mit-recommender-retail",
+        "mit-code-experiments",
+        "mit-cx-strategy"
+      ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF",
           "title": "NIST AI Risk Management Framework (AI RMF)",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
-          "scope": "چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.",
-          "review_depth": "official_framework_reviewed"
+          "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.",
+          "review_depth": "official_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
-          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1)",
+          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
-          "scope": "پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.",
-          "review_depth": "official_framework_profile_reviewed"
+          "scope": "پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.",
+          "review_depth": "official_framework_profile_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-recommender-retail",
           "title": "MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends",
           "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends",
-          "scope": "شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.",
-          "review_depth": "university_research_summary_reviewed"
+          "scope": "خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.",
+          "review_depth": "university_research_summary_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-code-experiments",
-          "title": "MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation",
+          "title": "MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation",
           "url": "https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/",
-          "scope": "اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.",
-          "review_depth": "official_university_research_event_reviewed"
+          "scope": "صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.",
+          "review_depth": "official_university_research_event_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-cx-strategy",
           "title": "MIT Sloan Executive Education: Breakthrough Customer Experience Strategy",
           "url": "https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html",
           "scope": "شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.",
-          "review_depth": "official_university_program_page_reviewed"
+          "review_depth": "official_university_program_page_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -342,6 +360,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "Recommender system سامانهٔ توصیه‌گر؛ ranking رتبه‌بندی؛ CTR نرخ کلیک؛ exposure نمایش؛ popularity bias سوگیری محبوبیت؛ exploration کاوش؛ generated content محتوای مولد؛ human escalation ارجاع انسانی است. کلیک بالاتر به‌تنهایی تجربهٔ بهتر را ثابت نمی‌کند."
+        },
+        {
+          "id": "S03-C3-ST03-L02-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Recommender system — سامانهٔ توصیه‌گر: رتبه‌بندی/پیشنهاد گزینه بر اساس داده و هدف؛ ارتباط بیشتر لزوماً منفعت مشتری نیست. Generative content — محتوای مولد: متن/تصویر ساخته‌شده توسط مدل؛ اصالت و دقت را باید کنترل کرد. Provenance — منشأ محتوا: امکان ردیابی منبع/نسخه/تولید؛ برچسب AI به‌تنهایی صحت محتوا را ثابت نمی‌کند."
         }
       ],
       "questions": [
@@ -491,41 +515,53 @@
           "remediation_card_id": "S03-C3-ST03-L02-CARD08"
         }
       ],
+      "source_refs": [
+        "NIST-AI-RMF",
+        "nist-genai-profile",
+        "mit-recommender-retail",
+        "mit-code-experiments",
+        "mit-cx-strategy"
+      ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF",
           "title": "NIST AI Risk Management Framework (AI RMF)",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
-          "scope": "چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.",
-          "review_depth": "official_framework_reviewed"
+          "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.",
+          "review_depth": "official_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
-          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1)",
+          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
-          "scope": "پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.",
-          "review_depth": "official_framework_profile_reviewed"
+          "scope": "پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.",
+          "review_depth": "official_framework_profile_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-recommender-retail",
           "title": "MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends",
           "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends",
-          "scope": "شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.",
-          "review_depth": "university_research_summary_reviewed"
+          "scope": "خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.",
+          "review_depth": "university_research_summary_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-code-experiments",
-          "title": "MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation",
+          "title": "MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation",
           "url": "https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/",
-          "scope": "اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.",
-          "review_depth": "official_university_research_event_reviewed"
+          "scope": "صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.",
+          "review_depth": "official_university_research_event_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-cx-strategy",
           "title": "MIT Sloan Executive Education: Breakthrough Customer Experience Strategy",
           "url": "https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html",
           "scope": "شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.",
-          "review_depth": "official_university_program_page_reviewed"
+          "review_depth": "official_university_program_page_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -609,6 +645,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "Purpose limitation محدودیت هدف؛ data minimization کمینه‌سازی؛ consent رضایت؛ inferred data دادهٔ استنباط‌شده؛ retention نگهداری؛ role-based access دسترسی نقش‌محور؛ data subject control اختیار صاحب داده؛ re-identification بازشناسایی است. دادهٔ مستعار را ناشناس کامل فرض نکنید."
+        },
+        {
+          "id": "S03-C3-ST03-L03-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Purpose limitation — محدودیت هدف: استفاده از داده فقط برای هدف مشخص و اعلام‌شده؛ رضایت کلی ممکن است کافی نباشد. Data minimization — کمینه‌سازی داده: دریافت دادهٔ لازم و متناسب؛ دادهٔ کمتر بدون طراحی درست تضمین حریم نیست. Privacy control — کنترل حریم خصوصی: امکان روشن برای مشاهده/اصلاح/حذف یا انتخاب؛ کنترل باید در عمل قابل‌استفاده باشد."
         }
       ],
       "questions": [
@@ -758,41 +800,53 @@
           "remediation_card_id": "S03-C3-ST03-L03-CARD02"
         }
       ],
+      "source_refs": [
+        "NIST-AI-RMF",
+        "nist-genai-profile",
+        "mit-recommender-retail",
+        "mit-code-experiments",
+        "mit-cx-strategy"
+      ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF",
           "title": "NIST AI Risk Management Framework (AI RMF)",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
-          "scope": "چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.",
-          "review_depth": "official_framework_reviewed"
+          "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.",
+          "review_depth": "official_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
-          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1)",
+          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
-          "scope": "پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.",
-          "review_depth": "official_framework_profile_reviewed"
+          "scope": "پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.",
+          "review_depth": "official_framework_profile_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-recommender-retail",
           "title": "MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends",
           "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends",
-          "scope": "شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.",
-          "review_depth": "university_research_summary_reviewed"
+          "scope": "خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.",
+          "review_depth": "university_research_summary_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-code-experiments",
-          "title": "MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation",
+          "title": "MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation",
           "url": "https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/",
-          "scope": "اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.",
-          "review_depth": "official_university_research_event_reviewed"
+          "scope": "صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.",
+          "review_depth": "official_university_research_event_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-cx-strategy",
           "title": "MIT Sloan Executive Education: Breakthrough Customer Experience Strategy",
           "url": "https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html",
           "scope": "شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.",
-          "review_depth": "official_university_program_page_reviewed"
+          "review_depth": "official_university_program_page_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {
@@ -876,6 +930,12 @@
           "type": "explanation",
           "title": "واژگان پرتکرار",
           "text": "A/B test آزمون A/B؛ treatment مداخله؛ randomization تصادفی‌سازی؛ exposure مواجهه؛ contamination آلودگی؛ incremental lift افزایش افزایشی؛ statistical power توان آماری؛ guardrail حفاظ؛ heterogeneous treatment effect ناهمگنی اثر است. افزایش فروش را فقط با مقایسهٔ معتبر به تجربه نسبت دهید."
+        },
+        {
+          "id": "S03-C3-ST03-L04-TERMS",
+          "type": "key_terms",
+          "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+          "text": "Incremental effect — اثر افزایشی: تفاوتی که مداخله در قیاس با حالت بدون آن ایجاد می‌کند؛ رشد هم‌زمان الزاماً اثر تغییر تجربه نیست. Holdout group — گروه نگه‌داشته‌شده: گروهی که مداخله دریافت نمی‌کند برای مقایسه؛ انتخاب غیرتصادفی ممکن است سوگیری دهد. Net revenue retention — نگهداشت خالص درآمد: تغییر درآمد گروه مشتریان موجود با ارتقا/کاهش/ریزش طبق تعریف؛ تعداد مشتری را نشان نمی‌دهد."
         }
       ],
       "questions": [
@@ -1025,41 +1085,53 @@
           "remediation_card_id": "S03-C3-ST03-L04-CARD08"
         }
       ],
+      "source_refs": [
+        "NIST-AI-RMF",
+        "nist-genai-profile",
+        "mit-recommender-retail",
+        "mit-code-experiments",
+        "mit-cx-strategy"
+      ],
       "source_links": [
         {
-          "id": "nist-ai-rmf-core",
+          "id": "NIST-AI-RMF",
           "title": "NIST AI Risk Management Framework (AI RMF)",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework",
-          "scope": "چارچوب داوطلبانه برای ملاحظات اعتمادپذیری در طراحی، استفاده و ارزیابی AI؛ شامل پایش و مدیریت ریسک در چرخهٔ عمر.",
-          "review_depth": "official_framework_reviewed"
+          "scope": "چارچوب داوطلبانهٔ مدیریت ریسک AI؛ صفحهٔ رسمی می‌گوید نسخهٔ 1.0 در حال بازنگری است و در آوریل ۲۰۲۶ یادداشت مفهومی پروفایل زیرساخت حیاتی منتشر شده، پس نسخه و زمان را در استفاده دوباره کنترل کنید.",
+          "review_depth": "official_framework_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "nist-genai-profile",
-          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1)",
+          "title": "NIST AI RMF: Generative AI Profile (NIST AI 600-1, July 2024)",
           "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
-          "scope": "پروفایل ریسک‌های هوش مصنوعی مولد، از جمله محتوای زیان‌بار، حریم خصوصی و پیکربندی تعامل انسان و AI؛ چارچوب داوطلبانه.",
-          "review_depth": "official_framework_profile_reviewed"
+          "scope": "پروفایل منتشرشده در ژوئیهٔ ۲۰۲۴ برای ریسک‌های هوش مصنوعی مولد؛ مکمل چارچوب داوطلبانه است و خودکار به‌روزرسانی نشده است.",
+          "review_depth": "official_framework_profile_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-recommender-retail",
           "title": "MIT Sloan: How a New Recommendation Model Can Help Retailers Predict Customer Trends",
           "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-a-new-mit-recommendation-model-can-help-retailers-predict-customer-trends",
-          "scope": "شرح پژوهش MIT دربارهٔ مدل توصیه و روند مشتری؛ ادعای سودآوری بالقوه وابسته به مدل، داده و زمینهٔ کاربرد است.",
-          "review_depth": "university_research_summary_reviewed"
+          "scope": "خلاصهٔ پژوهش مدل توصیه و هدف‌گیری ترویج؛ بهبود درآمد ۳ تا ۱۱ درصد در دادهٔ یک خرده‌فروش پوشاک، ۲۰ فروشگاه اوهایو و دورهٔ دوساله گزارش شده و نتیجه را نباید به فروشندگان دیگر تعمیم داد.",
+          "review_depth": "university_research_summary_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-code-experiments",
-          "title": "MIT Initiative on the Digital Economy: CODE@MIT 2026 Conference on Digital Experimentation",
+          "title": "MIT IDE: CODE@MIT 2026 Conference on Digital Experimentation",
           "url": "https://ide.mit.edu/events/2026-conference-on-digital-experimentation-mit-codemit/",
-          "scope": "اجتماع پژوهشی دربارهٔ آزمایش‌های تصادفی بزرگ‌مقیاس و تجربهٔ دیجیتال؛ صفحهٔ کنفرانس برای زمینهٔ روش‌شناختی، نه یک نتیجهٔ تجربی خاص.",
-          "review_depth": "official_university_research_event_reviewed"
+          "scope": "صفحهٔ کنفرانس برنامه‌ریزی‌شدهٔ ۱۳–۱۴ نوامبر ۲۰۲۶ دربارهٔ آزمایش دیجیتال؛ برنامه و چکیده‌های سخنرانی برای روندهای روش‌شناختی‌اند، نه نتایج منتشرشده یا محتوای یک درس.",
+          "review_depth": "official_university_research_event_page_reviewed",
+          "accessed_on": "2026-10-21"
         },
         {
           "id": "mit-cx-strategy",
           "title": "MIT Sloan Executive Education: Breakthrough Customer Experience Strategy",
           "url": "https://executive.mit.edu/course/breakthrough-customer-experience-cx-strategy/a056g00000URaahAAD.html",
           "scope": "شرح برنامهٔ حرفه‌ای دربارهٔ تجربهٔ مشتری، AI و آزمایش میدانی؛ صفحهٔ برنامه، نه متن کامل درس.",
-          "review_depth": "official_university_program_page_reviewed"
+          "review_depth": "official_university_program_page_reviewed",
+          "accessed_on": "2026-10-21"
         }
       ],
       "practice_activity": {

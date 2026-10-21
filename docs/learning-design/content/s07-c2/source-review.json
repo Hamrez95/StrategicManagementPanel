@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-21",
+  "course_id": "S07-C2",
+  "status": "targeted_source_review_for_all_three_stages; expert_review_pending",
+  "source_use_note": "معیارگذاری با راهنمای رسمی Google برای ML در تولید، هستهٔ NIST AI RMF و چارچوب ارزیابی NIST در ۲۰۲۶ همراه شده است. مطالعهٔ Brynjolfsson, Li & Raymond به پشتیبانی مشتری در یک شرکت مشخص مربوط است و اثر یکسان در وظایف دیگر را ثابت نمی‌کند. مرحلهٔ طراحی ارزیابی با راهنمای Google برای مجموعهٔ آزمون و پایش، پیش‌نویس چارچوب NIST TEVV و مطالعهٔ میدانی دستیار پشتیبانی مشتری مستند شده است. مطالعهٔ میدانی نمونهٔ ارزیابی است، نه معیار تضمینی برای سازمان سپهر. مرحلهٔ سبد کاربردها از راهنمای pipeline گوگل، NIST AI RMF/پیش‌نویس TEVV و مطالعهٔ چندشرکتی NBER استفاده می‌کند. مطالعهٔ چندشرکتی تغییر الگوی کار را سنجیده، نه هزینهٔ کامل یا سودآوری کاربرد خاص را.",
+  "sources": [
+    {
+      "id": "NBER-GENAI-WORK-2025",
+      "title": "Generative AI at Work (Quarterly Journal of Economics, 2025)",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658",
+      "review_depth": "primary_field_study_peer_reviewed_publication_record_reviewed",
+      "scope": "مطالعهٔ میدانی دستیار AI در پشتیبانی مشتری؛ نتیجه به شرکت، وظیفه و طراحی rollout وابسته است.",
+      "checked_on": "2026-10-21",
+      "access_note": "نسخهٔ نهایی داوری‌شده در Quarterly Journal of Economics از طریق Oxford Academic باز شد؛ مشخصات و چکیده و متن مقاله قابل مشاهده‌اند. مطالعه روی ۵٬۱۷۲ کارشناس پشتیبانی در یک شرکت انجام شده و تعمیم مستقیم آن به سایر مشاغل محدود است. نشانی نسخهٔ کاری NBER در previous_url حفظ شد.",
+      "previous_url": "https://www.nber.org/papers/w31161",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-TEVV-ATHLON-2026",
+      "title": "NIST TEVV-Athlon Framework for Evaluating AI Systems (Initial Public Draft, 2026)",
+      "url": "https://www.nist.gov/artificial-intelligence/ai-research/tevv-athlon-framework-evaluating-ai-systems",
+      "review_depth": "official_framework_initial_public_draft_reviewed",
+      "scope": "ارزیابی پیامد واقعی سیستم بر اساس اهداف و کاربرد.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PRODUCTIONIZATION",
+      "title": "Google for Developers: Productionization",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/production",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "خط مبنا، کیفیت در تولید، پایش و رخدادهای داده/مدل.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-AI-RMF-MEASURE",
+      "title": "NIST AI RMF Core: Measure",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "review_depth": "official_risk_framework_reviewed",
+      "scope": "معیارها، پیامدها و زمینهٔ استقرار.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-DATA-SPLIT",
+      "title": "Google ML Crash Course: Dividing Datasets",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "تقسیم داده، نمونهٔ آزمون نماینده و فرسودگی test set.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-MONITORING",
+      "title": "Google ML Crash Course: Production Monitoring Pipelines",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "پایش ورودی، عملکرد زنده، drift و بخش‌های داده.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "GOOGLE-ML-PIPELINES",
+      "title": "Google for Developers: ML Pipelines",
+      "url": "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+      "review_depth": "official_technical_education_reviewed",
+      "scope": "اعتبارسنجی مدل، نسخه و پایش pipeline.",
+      "checked_on": "2026-10-21",
+      "accessed_on": "2026-10-21"
+    },
+    {
+      "id": "NIST-GENAI-PROFILE",
+      "title": "NIST AI 600-1: Generative AI Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "review_depth": "official_risk_profile_reviewed",
+      "scope": "ریسک‌های AI مولد در طراحی، استفاده و پایش.",
+      "accessed_on": "2026-10-21",
+      "checked_on": "2026-10-21"
+    },
+    {
+      "id": "NBER-SHIFTING-WORK-PATTERNS-2025",
+      "title": "Shifting Work Patterns with Generative AI (Microsoft Research, 2025)",
+      "url": "https://www.microsoft.com/en-us/research/publication/shifting-work-patterns-with-generative-ai/",
+      "review_depth": "primary_multifirm_field_experiment_reviewed",
+      "scope": "آزمایش دسترسی AI در ۶۶ شرکت؛ تغییر الگوی کار، نه هزینهٔ کامل یا سود استارتاپ.",
+      "checked_on": "2026-10-21",
+      "access_note": "صفحهٔ رسمی Microsoft Research باز شد و مشخصات و چکیدهٔ مطالعه دیده شد؛ متن کامل PDF در این گذر مرور نشد. پژوهش، آزمایش میدانی در ۶۶ شرکت با ۷٬۱۳۷ کارمند دانش‌محور را گزارش می‌کند. نشانی نسخهٔ کاری NBER در previous_url باقی است.",
+      "previous_url": "https://www.nber.org/papers/w33795",
+      "accessed_on": "2026-10-21"
+    }
+  ],
+  "stage_notes": {
+    "S07-C2-ST01": {
+      "covered": [
+        "تعریف کاربر، کار و تصمیم",
+        "خط مبنا و شاخص‌های کیفیت",
+        "ارزش زمان و کیفیت برای ذی‌نفعان",
+        "هزینهٔ کل و آمادگی استقرار"
+      ],
+      "limits": [
+        "مثال سپهر و اعداد تمرینی ساختگی‌اند.",
+        "مطالعهٔ میدانی در یک شرکت و وظیفه انجام شده و تعمیم نیازمند آزمون محلی است.",
+        "قیمت اولیهٔ ابزار تمام هزینهٔ استقرار را نشان نمی‌دهد."
+      ]
+    },
+    "S07-C2-ST02": {
+      "covered": [
+        "مجموعهٔ آزمون نماینده و قفل‌شده",
+        "معیار اصلی و guardrail",
+        "تصادفی‌سازی و rollout مرحله‌ای",
+        "عدم قطعیت و تعمیم‌پذیری"
+      ],
+      "limits": [
+        "چارچوب NIST 2026 پیش‌نویس اولیه است.",
+        "آزمایش تصادفی همیشه از نظر اخلاقی یا عملی مناسب نیست.",
+        "مطالعهٔ یک شرکت اثر همگانی را اثبات نمی‌کند."
+      ]
+    },
+    "S07-C2-ST03": {
+      "covered": [
+        "دامنه و مالک پایلوت",
+        "رتبه‌بندی ارزش و ریسک",
+        "هزینهٔ کار کامل‌شده در حجم",
+        "شرط گسترش، تغییر یا توقف"
+      ],
+      "limits": [
+        "قیمت و مصرف ابزار تابع قرارداد و الگوی واقعی استفاده است.",
+        "مطالعات میدانی اثرها را در زمینهٔ خاص سنجیده‌اند.",
+        "آستانه‌های تمرین مثال‌اند و باید محلی تعریف شوند."
+      ]
+    }
+  }
+}

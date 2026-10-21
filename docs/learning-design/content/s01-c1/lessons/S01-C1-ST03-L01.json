@@ -98,6 +98,18 @@
       "type": "explanation",
       "title": "محدودیت و اقدام",
       "text": "EFE پیش‌بینی قطعی نیست؛ ۲٫۵۵ به‌تنهایی سرمایه‌گذاری را تعیین نمی‌کند. نتیجهٔ مفید مشخص می‌کند پاسخ کجا ضعیف است، چه فرضی نامطمئن است و چه داده یا آزمایشی تصمیم را بهتر می‌کند."
+    },
+    {
+      "id": "S01-C1-ST03-L01-TERMS",
+      "type": "key_terms",
+      "title": "اصطلاح‌های تخصصی و مرز مفهومی",
+      "text": "EFE matrix — ماتریس ارزیابی عوامل بیرونی: وزن اهمیت عوامل و ارزیابی پاسخ سازمان؛ امتیاز بالا کیفیت تحلیل محیط را تضمین نمی‌کند. Weight — وزن عامل: اهمیت نسبی عامل در چارچوب و بازهٔ تعریف‌شده؛ احتمال وقوع نیست. Response rating — امتیاز پاسخ: سنجش واکنش کنونی سازمان به عامل؛ با شدت یا احتمال تهدید اشتباه نشود."
+    },
+    {
+      "id": "S01-C1-ST03-L01-DEEP-REVIEW",
+      "type": "explanation",
+      "title": "توضیح عمیق‌تر: سازوکار، فرض و پیامد",
+      "text": "در ماتریس EFE ابتدا عوامل بیرونی فرصت و تهدید را از شواهد استخراج کنید، سپس اهمیت نسبی و پاسخ فعلی سازمان را طبق مقیاس تعریف‌شده امتیاز دهید. حاصل وزن‌دار فشرده‌سازی قضاوت‌هاست، نه اندازه‌گیری علمی قطعی. انتخاب عامل و وزن می‌تواند نتیجه را تغییر دهد؛ منبع و منطق هر امتیاز را ثبت کنید. اگر عامل مهم حذف شود، جمع نهایی ظاهر دقیق اما ناقص خواهد بود. تحلیل حساسیت و بازنگری مستقل کمک می‌کند مدیر به نمرهٔ کل به‌جای علت‌های راهبردی تکیه نکند."
     }
   ],
   "questions": [
@@ -247,12 +259,21 @@
       "remediation_card_id": "S01-C1-ST03-L01-CARD09"
     }
   ],
+  "source_refs": [
+    "pearson-david",
+    "oxford-swot",
+    "space-radder",
+    "oecd-ai",
+    "stanford-ai",
+    "oxford-tools"
+  ],
   "source_links": [
     {
       "id": "pearson-david",
       "title": "Pearson: David, David & David, Strategic Management, 17th ed.",
       "url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405",
-      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی."
+      "scope": "نسخهٔ رسمی ۲۰۲۴ و ساختار ارزیابی بیرونی/درونی و انتخاب ابزارها؛ متن کامل نیازمند دسترسی قانونی.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-swot",
@@ -270,19 +291,22 @@
       "id": "oecd-ai",
       "title": "OECD/BCG/INSEAD (2025), The Adoption of AI in Firms",
       "url": "https://www.oecd.org/en/publications/the-adoption-of-artificial-intelligence-in-firms_f9ef33c3-en/full-report.html",
-      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند."
+      "scope": "پیمایش پذیرش AI در سازمان‌ها و فرایندهای کاری؛ نتایج به نمونه و تعریف سنجه وابسته‌اند.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "stanford-ai",
       "title": "Stanford HAI, AI Index 2026: Economy",
       "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
-      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود."
+      "scope": "شاخص‌ها و پیمایش‌های استفادهٔ سازمانی AI در ۲۰۲۵؛ هنگام نقل، نمونه و تعریف شاخص بررسی شود.",
+      "accessed_on": "2026-10-20"
     },
     {
       "id": "oxford-tools",
       "title": "Oxford Academic: Strategy in 3D: Essential Tools",
       "url": "https://academic.oup.com/book/36951",
-      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی."
+      "scope": "هدف، فرایند و محدودیت ابزارهای تشخیص و انتخاب استراتژی.",
+      "accessed_on": "2026-10-20"
     }
   ],
   "practice_activity": {
@@ -302,5 +326,18 @@
   "review_status": "pending",
   "fresh_equivalent_variants": 0,
   "prerequisites_suggested": [],
-  "prerequisites_block_access": false
+  "prerequisites_block_access": false,
+  "media_plan": {
+    "type": "authored_diagram",
+    "purpose": "نمایش محاسبهٔ EFE با مثال همین درس",
+    "production_status": "created",
+    "assets": [
+      {
+        "asset_ref": "content/media/efe-ife-weighted-matrix.svg",
+        "alt_text": "جدول EFE سپهر با چهار عامل، وزن، امتیاز پاسخ و جمع وزنی ۲٫۵۵؛ همهٔ داده‌ها فرضی‌اند.",
+        "caption": "مجموع وزن‌ها ۱ است؛ نمرهٔ پاسخ را با خوب یا بد بودن عامل اشتباه نگیر.",
+        "source_url": "https://www.pearson.com/en-gb/subject-catalog/p/David-Strategic-Management-A-Competitive-Advantage-Approach-Concepts-and-Cases-Global-Edition-17th-Edition/P200000007136/9781292441405"
+      }
+    ]
+  }
 }
