@@ -1,0 +1,679 @@
+{
+  "id": "C04-FINAL",
+  "version": "1-review-selection",
+  "status": "review_selection_draft",
+  "unlocks_content": false,
+  "target_percent": 80,
+  "target_is_editorial_default": true,
+  "fresh_equivalent_variants": 0,
+  "reuses_existing_questions": true,
+  "description": "این مرور از سؤال‌های قبلی درس استفاده می‌کنه؛ سؤال تازه یا آزمون مستقل نیست.",
+  "covered_stage_ids": [
+    "C04-ST01",
+    "C04-ST02",
+    "C04-ST03",
+    "C04-ST04"
+  ],
+  "questions": [
+    {
+      "id": "C04-FINAL-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای خدمت B2B کدام مصاحبه می‌تونه شکاف بپوشاند؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "گفت‌وگو هم با تصمیم‌گیر و هم با کاربر روزمره",
+          "feedback": "در B2B تصمیم‌گیر دربارهٔ بودجه و خرید می‌دونه؛ کاربر روزانه هم جریان واقعی کار رو می‌شناسد. گفت‌وگو با هر دو شکاف رو کم می‌کنه."
+        },
+        {
+          "id": "b",
+          "text": "فقط مدیرعامل",
+          "feedback": "گفت‌وگو فقط با مدیرعامل می‌تونه مسئلهٔ کاربر روزمره رو جا بیندازد."
+        },
+        {
+          "id": "c",
+          "text": "فقط تیم فروش",
+          "feedback": "تیم فروش دید واسطه‌ای داره و جای شاهد مستقیم هر دو نقش رو نمی‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "در B2B تصمیم‌گیر دربارهٔ بودجه و خرید می‌دونه؛ کاربر روزانه هم جریان واقعی کار رو می‌شناسد. گفت‌وگو با هر دو شکاف رو کم می‌کنه.",
+      "objective_id": "C04-ST01-L01-OBJ1",
+      "equivalence_group": "C04-ST01-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST01-L01-CARD03",
+      "origin_lesson_id": "C04-ST01-L01",
+      "origin_question_id": "C04-ST01-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پاسخ‌دهنده رخداد قدیمی رو دقیق به یاد نداره. چه خطری هست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "سوگیری یادآوری",
+          "feedback": "فراموشی یا بازسازی نادقیق رخداد گذشته سوگیری یادآوریه. پرسش دربارهٔ نمونهٔ نزدیک یا مدرک رفتاری می‌تونه اون رو کم کنه."
+        },
+        {
+          "id": "b",
+          "text": "خطای تصادفی سیستم",
+          "feedback": "سؤال از خطای سامانه حرف نمی‌زند؛ مسئله دقت حافظهٔ پاسخ‌دهنده‌ست."
+        },
+        {
+          "id": "c",
+          "text": "رقیق‌شدن سهام",
+          "feedback": "رقیق‌شدن سهام موضوعی مالی و بی‌ربط به یادآوری رخداده."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فراموشی یا بازسازی نادقیق رخداد گذشته سوگیری یادآوریه. پرسش دربارهٔ نمونهٔ نزدیک یا مدرک رفتاری می‌تونه اون رو کم کنه.",
+      "objective_id": "C04-ST01-L02-OBJ1",
+      "equivalence_group": "C04-ST01-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST01-L02-CARD03",
+      "origin_lesson_id": "C04-ST01-L02",
+      "origin_question_id": "C04-ST01-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تفسیر در جدول یافته‌ها کجا قرار گیرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ستون جدا از شاهد خام",
+          "feedback": "شاهد خام و تفسیر پژوهشگر رو در ستون جدا نگه دار تا خواننده بتواند ببینه نتیجه از کدام داده آمده."
+        },
+        {
+          "id": "b",
+          "text": "درون نقل‌قول به شکل واقعیت",
+          "feedback": "قرار دادن برداشت درون نقل‌قول، تفسیر رو به‌جای گفتهٔ خام جا می‌زنه."
+        },
+        {
+          "id": "c",
+          "text": "حذف هر شاهد مخالف",
+          "feedback": "حذف شاهد مخالف سوگیری تأیید رو بیشتر می‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "شاهد خام و تفسیر پژوهشگر رو در ستون جدا نگه دار تا خواننده بتواند ببینه نتیجه از کدام داده آمده.",
+      "objective_id": "C04-ST01-L03-OBJ1",
+      "equivalence_group": "C04-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST01-L03-CARD03",
+      "origin_lesson_id": "C04-ST01-L03",
+      "origin_question_id": "C04-ST01-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پرسونای AI با مصاحبهٔ مشتری ناسازگاره. چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اختلاف رو ثبت و فرضیه رو با شواهد واقعی بازنگری کنیم",
+          "feedback": "اختلاف رو نگه دار، منبع هر شاهد رو مشخص کن و فرضیه رو با دادهٔ واقعی مشتری دوباره بررسی کن."
+        },
+        {
+          "id": "b",
+          "text": "مصاحبهٔ واقعی رو حذف کنیم",
+          "feedback": "حذف مصاحبه فقط برای هم‌خوان‌کردن پاسخ‌ها شاهد رو پنهان می‌کنه."
+        },
+        {
+          "id": "c",
+          "text": "prompt رو تا جواب دلخواه عوض کنیم",
+          "feedback": "تغییر prompt تا رسیدن به پاسخ دلخواه اعتبار رو کم می‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اختلاف رو نگه دار، منبع هر شاهد رو مشخص کن و فرضیه رو با دادهٔ واقعی مشتری دوباره بررسی کن.",
+      "objective_id": "C04-ST01-L04-OBJ1",
+      "equivalence_group": "C04-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST01-L04-CARD03",
+      "origin_lesson_id": "C04-ST01-L04",
+      "origin_question_id": "C04-ST01-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پیش از طراحی راه‌حل چه چیزی باید روشن بشه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "زمینه، مسئله، جایگزین و نتیجهٔ مطلوب",
+          "feedback": "پیش از ساخت، زمینه و مسئله رو همراه با جایگزین فعلی و نتیجهٔ مطلوب روشن کن؛ این کار مانع قفل‌شدن زودهنگام روی یک محصول می‌شه."
+        },
+        {
+          "id": "b",
+          "text": "نام کمپین",
+          "feedback": "نام کمپین پاسخ نمی‌ده مشتری چه مسئله‌ای داره یا امروز چه جایگزینی به کار می‌بره."
+        },
+        {
+          "id": "c",
+          "text": "رنگ لوگو",
+          "feedback": "هویت بصری مسئله و نتیجهٔ مطلوب رو روشن نمی‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "پیش از ساخت، زمینه و مسئله رو همراه با جایگزین فعلی و نتیجهٔ مطلوب روشن کن؛ این کار مانع قفل‌شدن زودهنگام روی یک محصول می‌شه.",
+      "objective_id": "C04-ST01-L01-OBJ1",
+      "equivalence_group": "C04-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST01-L01-CARD03",
+      "origin_lesson_id": "C04-ST01-L01",
+      "origin_question_id": "C04-ST01-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q06",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا «همهٔ افراد ۲۵ تا ۳۴ سال» لزوماً بخش خوبی نیست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون جمعیت‌شناسی هرگز کاربرد نداره",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "چون سن باید تفاوت مرتبط در نیاز یا پاسخ رو نشان بده",
+          "feedback": "این گزینه با تعریف و شاهدهای مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "چون بخش‌ها نباید قابل اندازه‌گیری باشن",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "جمعیت‌شناسی می‌تونه متغیر مفیدی باشه، اما ارتباطش با نیاز، دسترسی یا واکنش باید آزموده بشه.",
+      "objective_id": "C04-ST02-L01-OBJ1",
+      "equivalence_group": "C04-ST02-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST02-L01-CARD05",
+      "origin_lesson_id": "C04-ST02-L01",
+      "origin_question_id": "C04-ST02-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q07",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "SOM به چه پرسشی نزدیک‌تره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اندازهٔ همهٔ نیازهای ممکن در جهان",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "بخشی از بازار قابل خدمت که شرکت با فرض‌های صریح می‌تونه واقع‌بینانه هدف بگیره",
+          "feedback": "این گزینه با تعریف و شاهدهای مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ یک کمپین بازاریابی",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "SOM بر سهم/دامنهٔ قابل دستیابی تمرکز داره و به محصول، ظرفیت، کانال، رقابت و زمان وابسته‌ست.",
+      "objective_id": "C04-ST02-L02-OBJ1",
+      "equivalence_group": "C04-ST02-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST02-L02-CARD05",
+      "origin_lesson_id": "C04-ST02-L02",
+      "origin_question_id": "C04-ST02-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q08",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا باید گزینهٔ «هیچ کاری نکن» رو در مقایسه دید؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "چون همهٔ مشتری‌ها همین رو انتخاب می‌کنن",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "چون انجام‌ندادن یا ادامهٔ روش فعلی می‌تونه جایگزین واقعی مشتری باشه",
+          "feedback": "این گزینه با تعریف و شاهدهای مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "چون رقیب واقعی رو حذف می‌کنه",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "تصمیم مشتری ممکنه حفظ وضعیت موجود باشه، بنابراین مجموعهٔ جایگزین‌ها فقط برندهای مشابه نیست.",
+      "objective_id": "C04-ST02-L03-OBJ1",
+      "equivalence_group": "C04-ST02-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST02-L03-CARD05",
+      "origin_lesson_id": "C04-ST02-L03",
+      "origin_question_id": "C04-ST02-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q09",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام مورد نمونهٔ شاخص زیان در آزمون پیام بازاریابیه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط نرخ کلیک",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "شکایت، لغو یا تفاوت ناعادلانهٔ اثر میان گروه‌ها",
+          "feedback": "این گزینه با تعریف و شاهدهای مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "تعداد رنگ‌های صفحه",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "بهینه‌سازی پیام تنها برای نرخ کلیک می‌تونه هزینهٔ پنهان برای کاربر بسازه؛ پیامدهای منفی هم پایش بشن.",
+      "objective_id": "C04-ST02-L04-OBJ1",
+      "equivalence_group": "C04-ST02-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST02-L04-CARD05",
+      "origin_lesson_id": "C04-ST02-L04",
+      "origin_question_id": "C04-ST02-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q10",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "مدل زبانی از متن نظرات چند گروه می‌سازه. بهترین قدم بعدی چیه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نام بخش‌ها رو حقیقت قطعی فرض کنیم",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "تعریف و تفاوت بخش‌ها رو با دادهٔ واقعی، کیفیت نمونه و خطای دسته‌بندی بررسی کنیم",
+          "feedback": "این گزینه با تعریف و شاهدهای مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "فقط تعداد خوشه‌ها رو بیشتر کنیم",
+          "feedback": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "خوشه یا خلاصهٔ مدل فرضیهٔ تحلیله؛ تعریف بخش و کاربرد اون به اعتبارسنجی مستقل نیاز داره.",
+      "objective_id": "C04-ST02-L01-OBJ1",
+      "equivalence_group": "C04-ST02-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST02-L01-CARD08",
+      "origin_lesson_id": "C04-ST02-L01",
+      "origin_question_id": "C04-ST02-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q11",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "سپهر وعدهٔ پیشرفت عملی می‌ده اما فقط ویدیو می‌فروشه؛ چه باید بسنجه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "هم‌راستایی وعده با تمرین و شاهد",
+          "feedback": "این گزینه با مفهوم و شاهد مسئله سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "فقط رنگ برند",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "تعداد کاربرانی که صفحه رو دیده‌اند",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "وعدهٔ پیشرفت باید با اجزای تحویل و شواهد تجربه پشتیبانی بشه.",
+      "objective_id": "C04-ST03-L01-OBJ1",
+      "equivalence_group": "C04-ST03-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST03-L01-CARD05",
+      "origin_lesson_id": "C04-ST03-L01",
+      "origin_question_id": "C04-ST03-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q12",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام معیار رو کنار نرخ تبدیل ببینیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حاشیه و لغو/شکایت",
+          "feedback": "این گزینه با مفهوم و شاهد مسئله سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "فونت صفحه",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "نام مدیر",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "افزایش تبدیل ممکنه با افت حاشیه یا اعتماد همراه بشه.",
+      "objective_id": "C04-ST03-L02-OBJ1",
+      "equivalence_group": "C04-ST03-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST03-L02-CARD06",
+      "origin_lesson_id": "C04-ST03-L02",
+      "origin_question_id": "C04-ST03-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q13",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چند مسیر فروش چه چیزی رو ثابت نمی‌کنه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "وجود چند کانال",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "یکپارچگی تجربه",
+          "feedback": "این گزینه با مفهوم و شاهد مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "وجود تماس با مشتری",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "همه‌کاناله بودن به پیوستگی نیاز داره.",
+      "objective_id": "C04-ST03-L03-OBJ1",
+      "equivalence_group": "C04-ST03-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST03-L03-CARD05",
+      "origin_lesson_id": "C04-ST03-L03",
+      "origin_question_id": "C04-ST03-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q14",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کاربرد محتاطانهٔ مدل پیش‌بینی مرجوعی؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "محروم‌سازی خودکار",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "اولویت بررسی کیفیت/شرح کالا با بازبینی",
+          "feedback": "این گزینه با مفهوم و شاهد مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "اعلام علت قطعی",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "پیش‌بینی همبستگیه و به تنهایی علت رو ثابت نمی‌کنه.",
+      "objective_id": "C04-ST03-L04-OBJ1",
+      "equivalence_group": "C04-ST03-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST03-L04-CARD06",
+      "origin_lesson_id": "C04-ST03-L04",
+      "origin_question_id": "C04-ST03-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q15",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام مورد تجربهٔ خدمت رو بهتر ارزیابی می‌کنه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فقط بازدید تبلیغ",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "نقاط تماس، مانع استفاده، پشتیبانی و ریزش",
+          "feedback": "این گزینه با مفهوم و شاهد مسئله سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "فقط تعداد ویژگی‌ها",
+          "feedback": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "مشاهدهٔ تعامل و استفاده فراتر از شمارش ویژگی‌هاست.",
+      "objective_id": "C04-ST03-L01-OBJ1",
+      "equivalence_group": "C04-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST03-L01-CARD06",
+      "origin_lesson_id": "C04-ST03-L01",
+      "origin_question_id": "C04-ST03-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q16",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام ترکیب نشانهٔ کامل‌تری از حفظه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "بازگشت روزانه به هر قیمت",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        },
+        {
+          "id": "b",
+          "text": "رفتار استفاده/خرید مجدد همراه با تجربه و هزینهٔ خدمت",
+          "feedback": "این گزینه با منطق و شواهد درس سازگاره."
+        },
+        {
+          "id": "c",
+          "text": "لایک شبکهٔ اجتماعی تنها",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation": "حفظ معنادار باید با رفتار ارزشمند و کیفیت رابطه سنجیده بشه.",
+      "objective_id": "C04-ST04-L01-OBJ1",
+      "equivalence_group": "C04-ST04-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST04-L01-CARD06",
+      "origin_lesson_id": "C04-ST04-L01",
+      "origin_question_id": "C04-ST04-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q17",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "دورهٔ بازگشت CAC چیه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "زمان تا جبران هزینه از حاشیهٔ تجمعی مشتری",
+          "feedback": "این گزینه با منطق و شواهد درس سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "زمان تا دیده‌شدن تبلیغ",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "مدت قرارداد با آژانس",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دورهٔ بازگشت با زمان لازم برای پوشش CAC از جریان حاشیه مرتبطه.",
+      "objective_id": "C04-ST04-L02-OBJ1",
+      "equivalence_group": "C04-ST04-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST04-L02-CARD06",
+      "origin_lesson_id": "C04-ST04-L02",
+      "origin_question_id": "C04-ST04-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q18",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام شاخص زیان مناسبه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لغو، شکایت یا تفاوت نامتوازن نتیجه میان گروه‌ها",
+          "feedback": "این گزینه با منطق و شواهد درس سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "تعداد نمودارها",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "رنگ دکمه",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "شاخص زیان پیامد منفی یا توزیع نابرابر اثر رو پایش می‌کنه.",
+      "objective_id": "C04-ST04-L03-OBJ1",
+      "equivalence_group": "C04-ST04-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST04-L03-CARD07",
+      "origin_lesson_id": "C04-ST04-L03",
+      "origin_question_id": "C04-ST04-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q19",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "داشبورد یک عدد رو پس از تغییر روش محاسبه نشان می‌ده؛ چه باید کرد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تغییر تعریف و دوره رو مستند و مقایسهٔ تاریخی رو تعدیل کرد",
+          "feedback": "این گزینه با منطق و شواهد درس سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "اون رو رشد واقعی نامید",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "منبع رو حذف کرد",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تغییر سنجه می‌تونه تغییر ظاهری ایجاد کنه و باید قابل ردیابی بمونه.",
+      "objective_id": "C04-ST04-L04-OBJ1",
+      "equivalence_group": "C04-ST04-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST04-L04-CARD06",
+      "origin_lesson_id": "C04-ST04-L04",
+      "origin_question_id": "C04-ST04-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C04-FINAL-Q20",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "قیف عمدتاً برای چه کاری مفیده؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "یافتن مرحلهٔ افت و طرح پرسش بعدی",
+          "feedback": "این گزینه با منطق و شواهد درس سازگاره."
+        },
+        {
+          "id": "b",
+          "text": "اثبات علت قطعی افت",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "جایگزینی با گفت‌وگوی مشتری",
+          "feedback": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "قیف تشخیص و اولویت‌بندی می‌کنه؛ علت و راه‌حل رو به‌تنهایی ثابت نمی‌کنه.",
+      "objective_id": "C04-ST04-L01-OBJ1",
+      "equivalence_group": "C04-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C04-ST04-L01-CARD02",
+      "origin_lesson_id": "C04-ST04-L01",
+      "origin_question_id": "C04-ST04-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    }
+  ]
+}

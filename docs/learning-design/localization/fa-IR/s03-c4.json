@@ -2,7 +2,8 @@
   "locale": "fa-IR",
   "documents": {
     "content/s03-c4/lessons/S03-C4-ST01-L01.json": {
-      "source_revision": "87aabbca5132df0aadd61037ad0fd16ec070a8bcfb41668a3519c953d457f743",
+      "source_revision": "3501f94158767e977d5e666863a7f03883b7da715d200285f86c4c613caf6769",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -59,11 +60,6 @@
           "text": "۱٬۰۰۰ بازدید",
           "source_hash": "8725d201677e4eba2a02144a8bb2a39e6c343330770486f9b719fad3342f49d9"
         },
-        "/learning_cards/S03-C4-ST01-L01-CARD02/table/rows/0/2": {
-          "pointer": "/learning_cards/1/table/rows/0/2",
-          "text": "۱۰۰ ÷ ۱٬۰۰۰ = ۱۰٪",
-          "source_hash": "1a613a2fb7bbda5b845a1dba998e692dd4fdfd2cb8e73a240e4586e7c6948f99"
-        },
         "/learning_cards/S03-C4-ST01-L01-CARD03/title": {
           "pointer": "/learning_cards/2/title",
           "text": "گروه هم‌دوره یا cohort",
@@ -101,13 +97,13 @@
         },
         "/learning_cards/S03-C4-ST01-L01-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "نمودار retention می‌تونه سهم cohort فعال در هر دوره رو نشان بده. سانسور زمانی مهمه: cohort تازه هنوز فرصت تجربهٔ هفته‌های بعد رو نداشته و نباید با cohort بالغ مقایسهٔ ساده بشه. زمان مشاهده و تعریف «فعال» رو نشان دهید.",
-          "source_hash": "ac0f94307839ef370db5e27028e7a9f17074762581a8ba6c50fc4d68445f7878"
+          "text": "نمودار retention می‌تونه سهم cohort فعال در هر دوره رو نشان بده. سانسور زمانی مهمه: cohort تازه هنوز فرصت تجربهٔ هفته‌های بعد رو نداشته و نباید با cohort بالغ مقایسهٔ ساده بشه. زمان مشاهده و تعریف «فعال» رو نشان بده.",
+          "source_hash": "99d7a3729c6a4a10394e14b2f028511b75abceec18e68e141a6d8fa07933e66b"
         },
         "/learning_cards/S03-C4-ST01-L01-CARD07/title": {
           "pointer": "/learning_cards/6/title",
-          "text": "قیف خطی علت رو نمی‌گوید",
-          "source_hash": "53514e410f03f05abeb736f463a39c5d970d6b407c1215cf90a94ecec9b2f490"
+          "text": "قیف خطی علت رو نمی‌گه",
+          "source_hash": "9bc11fc9e00fd95800e3d4b0ecdd7d062544f963399c71c9c96bd65150e2f5b5"
         },
         "/learning_cards/S03-C4-ST01-L01-CARD07/text": {
           "pointer": "/learning_cards/6/text",
@@ -306,8 +302,8 @@
         },
         "/questions/S03-C4-ST01-L01-Q05/prompt": {
           "pointer": "/questions/4/prompt",
-          "text": "افت قیف چه چیزی رو به‌تنهایی نمی‌گوید؟",
-          "source_hash": "5b14087616e82a36353ea657a0b1a352a2221da7c4f395ad11d6c8579b4e5f37"
+          "text": "افت قیف چه چیزی رو به‌تنهایی نمی‌گه؟",
+          "source_hash": "3aac8aa65849a4c403a99a30a42093611f673292624caab7cb526fd18665b3ff"
         },
         "/questions/S03-C4-ST01-L01-Q05/options/a/text": {
           "pointer": "/questions/4/options/0/text",
@@ -348,6 +344,11 @@
           "pointer": "/practice_activity/prompt",
           "text": "برای سرویس اشتراکی آموزش، قیف ثبت‌نام تا تمدید رو با رویداد و مخرج هر گام تعریف کن. cohortهای جذب ماهانه و کانال‌های متفاوت رو برای حفظ روز ۷، روز ۳۰ و تمدید مقایسه کن؛ cohort تازه رو با پنجرهٔ مشاهدهٔ ناتمام اشتباه نگیر و دو فرضیهٔ علت افت پیشنهاد بده.",
           "source_hash": "78042a247e4dea8165f59a3963efbeb6e4135a288c5408b0e9f4b3362ae6028f"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ اقتصاد cohort و رشد سپهر؛ کسب‌وکار و داده‌ها ساختگی‌اند.",
+          "source_hash": "fb57b493e898f4c558eca54a4a5f72871017a36608d097ff0b9b3598a07d5706"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -393,11 +394,17 @@
           "pointer": "/media_plan/assets/0/caption",
           "text": "از قیف برای یافتن مرحلهٔ افت استفاده کن؛ علت رو با پژوهش یا آزمایش بررسی کن.",
           "source_hash": "7426f3ee58826a8c5e020781f3db941384110855140dece469dfe2c6192cf843"
+        },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "قیف پنج مرحله‌ای آگاهی، ورود، فعال‌سازی، تبدیل و حفظ؛ افت نرخ محل بررسیه و به‌تنهایی علت رو مشخص نمی‌کنه.",
+          "source_hash": "cb7d55ee20a7ebe0476bb2ea8362a6c6ac20f5f56a3f1a468131f88f886de07c"
         }
       }
     },
     "content/s03-c4/lessons/S03-C4-ST01-L02.json": {
-      "source_revision": "3abdbf732503d4e8bd2fccd304f4a37b9f194bfbb5e1283be8b1b38b794d23d2",
+      "source_revision": "6e40fb9a0f846e69c0c33110f60d239882d639548a8cbedbcbe26f7d08000296",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -436,8 +443,8 @@
         },
         "/learning_cards/S03-C4-ST01-L02-CARD03/text": {
           "pointer": "/learning_cards/2/text",
-          "text": "CAC ترکیبی همهٔ هزینه‌ها و مشتریان تازه رو جمع می‌کنه؛ CAC کانال تلاش می‌کنه هر کانال رو جدا بسنجه. هم‌پوشانی چند تماس، معرفی دهان‌به‌دهان و تبلیغ برند انتساب رو دشوار می‌کنه. مدل آخرین کلیک واقعیت کامل ایجاد تقاضا رو نمی‌بیند.",
-          "source_hash": "6616dbd6b68250864193744036452855ed08967238b75c7a4eb92731aa0f85bc"
+          "text": "CAC ترکیبی همهٔ هزینه‌ها و مشتریان تازه رو جمع می‌کنه؛ CAC کانال تلاش می‌کنه هر کانال رو جدا بسنجه. هم‌پوشانی چند تماس، معرفی دهان‌به‌دهان و تبلیغ برند انتساب رو دشوار می‌کنه. مدل آخرین کلیک واقعیت کامل ایجاد تقاضا رو نمی‌بینه.",
+          "source_hash": "26052f02096a0e31ac042246d657108cb35a07c1d72da5093d4d6d16c874346d"
         },
         "/learning_cards/S03-C4-ST01-L02-CARD04/title": {
           "pointer": "/learning_cards/3/title",
@@ -446,8 +453,8 @@
         },
         "/learning_cards/S03-C4-ST01-L02-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "در سازمان B2B، حساب جدید، قرارداد جدید یا صندلی افزوده سه شمارش متفاوت‌اند. در اشتراک، کاربر آزمایشی با مشتری پرداخت‌کننده فرق داره. تعریف رو به مسئله و واحد اقتصاد وصل کن و تبدیل از trial رو جدا گزارش دهید.",
-          "source_hash": "eddf9842a49436fd9877c832df03bdefae181537e12d872bbe1cf22fdf4b0f59"
+          "text": "در سازمان B2B، حساب جدید، قرارداد جدید یا صندلی افزوده سه شمارش متفاوت‌اند. در اشتراک، کاربر آزمایشی با مشتری پرداخت‌کننده فرق داره. تعریف رو به مسئله و واحد اقتصاد وصل کن و تبدیل از trial رو جدا گزارش بده.",
+          "source_hash": "0f57d206fc18bf22e15182380ce4227960b9bfa0ab8037acd77879dd132d2221"
         },
         "/learning_cards/S03-C4-ST01-L02-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -714,6 +721,11 @@
           "text": "گزارش بازاریابی CAC رو ۱۲۰ هزار و مالی ۱۹۰ هزار تومان اعلام می‌کنه. جدول آشتی اعداد بساز: هزینهٔ رسانه، نیروی فروش، ابزار، تخفیف، مشتری جدید، حساب/کاربر و پنجرهٔ تبدیل رو تعریف کن. بگو برای تصمیم افزایش بودجه کدام CAC و کدام شاخص کیفیت cohort لازمه.",
           "source_hash": "856780bf519f4b79b03da973ed98604902ce88a1f64d8ea156b4600f3415b983"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ اقتصاد cohort و رشد سپهر؛ کسب‌وکار و داده‌ها ساختگی‌اند.",
+          "source_hash": "fb57b493e898f4c558eca54a4a5f72871017a36608d097ff0b9b3598a07d5706"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "یک جواب یگانه نیست؛ فرض و دورهٔ بازپرداخت رو آشکار بنویس.",
@@ -747,7 +759,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST01-L03.json": {
-      "source_revision": "7e23871b27f8dcc0f0e4d874657edaeeef271496ce72fdfd2c25fdad2af0a85f",
+      "source_revision": "1ed85e256d7aa1c58a586494b744994c04487d3360c081e3a8af063ff868f480",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -816,8 +829,8 @@
         },
         "/learning_cards/S03-C4-ST01-L03-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "هیچ‌کس آیندهٔ دقیق مشتری رو نمی‌دونه. سناریوهای حفظ، قیمت، حاشیه، هزینهٔ خدمت و تخفیف بساز و دامنهٔ نتیجه رو نشان دهید. عدد واحد با دو رقم اعشار قطعیت کاذب میاره.",
-          "source_hash": "25bd95b7e586345dfdb80c4e2e3fc55204f7f40bc039cdb592ad0209a6cff9fc"
+          "text": "هیچ‌کس آیندهٔ دقیق مشتری رو نمی‌دونه. سناریوهای حفظ، قیمت، حاشیه، هزینهٔ خدمت و تخفیف بساز و دامنهٔ نتیجه رو نشان بده. عدد واحد با دو رقم اعشار قطعیت کاذب میاره.",
+          "source_hash": "31aae5e20840920e03269522485c480207a3c7161dcd4205ccf85009f614473e"
         },
         "/learning_cards/S03-C4-ST01-L03-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -1064,6 +1077,11 @@
           "text": "برای دو cohort یک سرویس SaaS، درآمد ماهانهٔ ۲۵۰ هزار و ۴۰۰ هزار تومانه اما حاشیه و حفظ متفاوت دارن. فرمول LTV رو با حاشیهٔ مشارکت، هزینهٔ خدمت، حفظ و نرخ تنزیل تعریف کن؛ سناریوی پایه/بدبینانه بساز و دورهٔ بازپرداخت CAC و محدودیت cohort بالغ رو گزارش بده.",
           "source_hash": "3e5c8c656f123a199f321773e6826c67403966d29e80124a11aadcf4b19bd9fa"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ اقتصاد cohort و رشد سپهر؛ کسب‌وکار و داده‌ها ساختگی‌اند.",
+          "source_hash": "fb57b493e898f4c558eca54a4a5f72871017a36608d097ff0b9b3598a07d5706"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "یک جواب یگانه نیست؛ فرض و دورهٔ بازپرداخت رو آشکار بنویس.",
@@ -1097,7 +1115,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST01-L04.json": {
-      "source_revision": "760611f70ecee58f880b5f757682a3abd2d11590a71551bdd6a16f72115b58d6",
+      "source_revision": "2cd87a17de33f52fed35031bab4495033ef2b525931241478aca42682f6f536e",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1126,8 +1145,8 @@
         },
         "/learning_cards/S03-C4-ST01-L04-CARD02/text": {
           "pointer": "/learning_cards/1/text",
-          "text": "اگر هر مشتری با تخفیف عمیق و تبلیغ گران جذب بشه، بعد ریزش کنه یا هزینهٔ خدمت بالا باشه، حجم بالا الزاماً ارزش نمی‌سازد. نشانه‌ها رو در سطح cohort ببین و کانال یا کمپین رو در هزینهٔ کامل بسنج.",
-          "source_hash": "d77c19a3e800278d7476ac6b50262b511651427fadb729e23766e584196aeaec"
+          "text": "اگر هر مشتری با تخفیف عمیق و تبلیغ گران جذب بشه، بعد ریزش کنه یا هزینهٔ خدمت بالا باشه، حجم بالا الزاماً ارزش نمی‌سازه. نشانه‌ها رو در سطح cohort ببین و کانال یا کمپین رو در هزینهٔ کامل بسنج.",
+          "source_hash": "eaefcceedcbdaa7c5433bf60c704c7cbf9b589981120367ecb8f517e213e782f"
         },
         "/learning_cards/S03-C4-ST01-L04-CARD03/title": {
           "pointer": "/learning_cards/2/title",
@@ -1146,8 +1165,8 @@
         },
         "/learning_cards/S03-C4-ST01-L04-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "میانگین کل CAC یا LTV با تغییر سهم کانال‌ها عوض می‌شه؛ این تغییر ممکنه از ترکیب بیاید نه بهبود عملکرد هر کانال. مقایسه رو درون کانال و بعد در کل پرتفوی انجام دهید، با وزن‌دهی روشن.",
-          "source_hash": "34794e061c3a6f5fb8bcd8ec3dba5e47a6ed7ddac54592fd054ec185710b7071"
+          "text": "میانگین کل CAC یا LTV با تغییر سهم کانال‌ها عوض می‌شه؛ این تغییر ممکنه از ترکیب بیاید نه بهبود عملکرد هر کانال. مقایسه رو درون کانال و بعد در کل پرتفوی انجام بده، با وزن‌دهی روشن.",
+          "source_hash": "4793be9249731f29f07749768065d7a95f5af210260aeed38e582387c7896241"
         },
         "/learning_cards/S03-C4-ST01-L04-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -1414,6 +1433,11 @@
           "text": "پلتفرم سپهر تعداد مشتری رو ۴۰٪ رشد داده اما CAC دو برابر، حاشیهٔ مشتری جدید کمتر و پشتیبانی کندتر شده. داشبورد رشد سالم طراحی کن: cohort و کانال، CAC، دورهٔ بازپرداخت، LTV سناریویی، ظرفیت پشتیبانی و شرط ادامه یا کاهش بودجه رو مشخص کن.",
           "source_hash": "572ab69b6205046191cb527737086b963762d72a2e0e5db300a7798e0c9f6ba1"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ اقتصاد cohort و رشد سپهر؛ کسب‌وکار و داده‌ها ساختگی‌اند.",
+          "source_hash": "fb57b493e898f4c558eca54a4a5f72871017a36608d097ff0b9b3598a07d5706"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "یک جواب یگانه نیست؛ فرض و دورهٔ بازپرداخت رو آشکار بنویس.",
@@ -1447,7 +1471,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST02-L01.json": {
-      "source_revision": "4f76baa42c78c058ea7d7d7393f0a2b6613709bb2bb8283d5fc24625592453dd",
+      "source_revision": "5916d1570005efc8f57ae8fede904285cc6ebb4005153ccee49156d7b8f626b6",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1456,8 +1481,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "فرضیهٔ رشد رو به مداخله، گروه، شاخص اصلی، فرض سازوکار و پیامد حفاظتی تبدیل کنه و تشخیص بده کدام سنجش علّی یا اکتشافیه.",
-          "source_hash": "697f0c96fab18b784efdfc5358b27dde66ff3d4898738dc0c3be50401b576020"
+          "text": "در این درس یاد می‌گیری فرضیهٔ رشد رو به مداخله، گروه، شاخص اصلی، فرض سازوکار و معیار حفاظتی وصل کنی و سنجش علّی رو از سنجش اکتشافی تشخیص بدی.",
+          "source_hash": "eeb1973aec38fde91f697058a62e45be0db2b77289f67a570b81b1d2316e118c"
         },
         "/learning_cards/S03-C4-ST02-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -1476,8 +1501,8 @@
         },
         "/learning_cards/S03-C4-ST02-L01-CARD02/text": {
           "pointer": "/learning_cards/1/text",
-          "text": "اگر هم‌زمان متن، قیمت، کانال و طراحی رو تغییر دهید، نمی‌دانید چه چیزی نتیجه رو ساخته‌ست. برای آزمون اول، مداخله رو به نسخهٔ قابل‌مشاهده تعریف کن؛ چندعاملی‌بودن رو با طراحی متناسب انجام دهید، نه با تغییرات نامشخص.",
-          "source_hash": "3f68eee7955114d8070791b69f8871504c7bcd63daf7c7cf4cfaa4eb3f11ed26"
+          "text": "اگر هم‌زمان متن، قیمت، کانال و طراحی رو تغییر بده، نمی‌دانید چه چیزی نتیجه رو ساخته‌ست. برای آزمون اول، مداخله رو به نسخهٔ قابل‌مشاهده تعریف کن؛ چندعاملی‌بودن رو با طراحی متناسب انجام بده، نه با تغییرات نامشخص.",
+          "source_hash": "4ab47244728bd293e0331bb4bd6d5b4671eec062ae58fc6a0f623a2ba0d05389"
         },
         "/learning_cards/S03-C4-ST02-L01-CARD03/title": {
           "pointer": "/learning_cards/2/title",
@@ -1764,6 +1789,11 @@
           "text": "نرخ فعال‌سازی یک اپ مدیریت هزینه ۲۲٪ است. فرضیه بساز که تغییر یک پیام راه‌اندازی چطور و برای چه cohortی رفتار رو تغییر می‌ده؛ شاخص اصلی، حفاظ، پنجره، واحد تخصیص و معیار ادامه/توقف رو پیش از اجرا ثبت کن.",
           "source_hash": "21d8e2a6e4ff0dee1aa5fdfcd784db95b95f029b838785630672e1e4aa34a15c"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پروتکل آزمایش رشد سپهر؛ داده‌ها و سازمان ساختگی‌اند.",
+          "source_hash": "4a417b19befe9fa98697bea6c80f59c0fff4466254dc8beae8fe9586b7b2a06b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "راه‌حل واحد نیست؛ اعتبار طراحی، محدودیت داده و تصمیم بعدی رو آشکار ساز.",
@@ -1797,7 +1827,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST02-L02.json": {
-      "source_revision": "50a219f55537433d3147cd43f20327f9069178863c82b4f6952cc022bfd7f1ca",
+      "source_revision": "93bcc7096bb7971cd58a283cc9f55f910a3892c85237a9b6cbe7e36cd5664ff5",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1856,8 +1887,8 @@
         },
         "/learning_cards/S03-C4-ST02-L02-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "نمونهٔ بزرگ‌تر همیشه از نظر هزینه و ریسک مناسب‌تر نیست. حداقل اثر تجاری مهم، نرخ پایه، پراکندگی، خوشه‌بندی و مدت رو لحاظ کن. توان پایین باعث می‌شه اثر مفید دیده نشود؛ نتیجهٔ منفی رو با بازه و امکان اثرهای سازگار گزارش دهید.",
-          "source_hash": "ea0777e8ff89739ef91461ab45907100d0a834d1a4060dbc5f7f6cccf50c1c90"
+          "text": "نمونهٔ بزرگ‌تر همیشه از نظر هزینه و ریسک مناسب‌تر نیست. حداقل اثر تجاری مهم، نرخ پایه، پراکندگی، خوشه‌بندی و مدت رو لحاظ کن. توان پایین باعث می‌شه اثر مفید دیده نشود؛ نتیجهٔ منفی رو با بازه و امکان اثرهای سازگار گزارش بده.",
+          "source_hash": "0979d9e8cc372adf996587fa874a627dd6154ea3866ec317a5490d6aed44a871"
         },
         "/learning_cards/S03-C4-ST02-L02-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -1976,8 +2007,8 @@
         },
         "/questions/S03-C4-ST02-L02-Q02/options/c/text": {
           "pointer": "/questions/1/options/2/text",
-          "text": "سرایت رو از بین می‌برد",
-          "source_hash": "eb079407cbe19c13a5da86c586a9973a95d0fb315dd2a074640b66d2d625dfbe"
+          "text": "سرایت رو از بین می‌بره",
+          "source_hash": "2b6b59dcbd0d07235ff311c3b09dfbad6fa17d76f815a7951f334c4d075fd7a7"
         },
         "/questions/S03-C4-ST02-L02-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/2/feedback",
@@ -1991,8 +2022,8 @@
         },
         "/questions/S03-C4-ST02-L02-Q03/prompt": {
           "pointer": "/questions/2/prompt",
-          "text": "تحلیل intention-to-treat افراد رو بر چه اساس می‌سنجد؟",
-          "source_hash": "8d78ebca21aa73029e427112946b73fe03687471d7388bcf1796207cd768320a"
+          "text": "تحلیل intention-to-treat افراد رو بر چه اساس می‌سنجه؟",
+          "source_hash": "06cce5cd929e73b0426b59fa858a1c69a65544735793845089f524e95191e031"
         },
         "/questions/S03-C4-ST02-L02-Q03/options/a/text": {
           "pointer": "/questions/2/options/0/text",
@@ -2114,6 +2145,11 @@
           "text": "تیم می‌خواد در اپ سازمانی ویژگی جدید رو بیازماید، ولی چند کاربر یک شرکت حساب مشترک دارن. واحد تخصیص، گروه کنترل، خطر سرایت، مدت، حداقل اثر ارزشمند و روش تحلیل رو طراحی کن؛ توضیح بده اگر بعضی حساب‌های treatment ویژگی رو باز نکنند چه می‌کنی.",
           "source_hash": "bcedca7ea83da6d042548b5e90d80c18f494705c943ab1e80391dc9ab32102df"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پروتکل آزمایش رشد سپهر؛ داده‌ها و سازمان ساختگی‌اند.",
+          "source_hash": "4a417b19befe9fa98697bea6c80f59c0fff4466254dc8beae8fe9586b7b2a06b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "راه‌حل واحد نیست؛ اعتبار طراحی، محدودیت داده و تصمیم بعدی رو آشکار ساز.",
@@ -2147,7 +2183,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST02-L03.json": {
-      "source_revision": "ff0bc716b08a27957044d681e22425e1adfb86b3fe977a03264be7cdb58ac6ed",
+      "source_revision": "1c0b9386e8616b1da349780b7d1cdeb85b391c46aa69766431d4e804c4a2a217",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2196,8 +2233,8 @@
         },
         "/learning_cards/S03-C4-ST02-L03-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "Incrementality می‌پرسد تبلیغ یا مداخله چه تبدیل یا سودی فراتر از حالت بدون اون ایجاد کرد. گروه کنترل، ghost ads، آزمایش جغرافیایی یا روش شبه‌آزمایشی می‌تونه کمک کنه؛ اعتبار هر روش به تخصیص، فرض و کیفیت داده بستگی داره.",
-          "source_hash": "c2d0ad3dc9cf20d8fedbae71dfd0f880a5fd8b37eefdaae24b95063d79114e26"
+          "text": "Incrementality می‌پرسه تبلیغ یا مداخله چه تبدیل یا سودی فراتر از حالت بدون اون ایجاد کرد. گروه کنترل، ghost ads، آزمایش جغرافیایی یا روش شبه‌آزمایشی می‌تونه کمک کنه؛ اعتبار هر روش به تخصیص، فرض و کیفیت داده بستگی داره.",
+          "source_hash": "779d1c9077159a2b83832e6122498f1b618301087b4c0adf6f40cb549132c939"
         },
         "/learning_cards/S03-C4-ST02-L03-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -2226,8 +2263,8 @@
         },
         "/learning_cards/S03-C4-ST02-L03-CARD07/text": {
           "pointer": "/learning_cards/6/text",
-          "text": "ROAS درآمد منتسب به هزینه رو می‌سنجد. بازده افزایشی باید با فروش اضافه، حاشیه و هزینهٔ کل مقایسه بشه؛ تبلیغ می‌تونه فروش ارگانیک رو جابه‌جا یا cannibalize کنه. بودجه رو با سود افزایشی و عدم‌قطعیت ارزیابی کن.",
-          "source_hash": "1e58a1359df72e480e0a6b41a1b2df3d517296a78872f101551e2b1638d050df"
+          "text": "ROAS درآمد منتسب به هزینه رو می‌سنجه. بازده افزایشی باید با فروش اضافه، حاشیه و هزینهٔ کل مقایسه بشه؛ تبلیغ می‌تونه فروش ارگانیک رو جابه‌جا یا cannibalize کنه. بودجه رو با سود افزایشی و عدم‌قطعیت ارزیابی کن.",
+          "source_hash": "1a323cad13c963c95a8672d3c6ef2c9d2af99a3167d7907bb03ccb43d98cca8a"
         },
         "/learning_cards/S03-C4-ST02-L03-CARD08/title": {
           "pointer": "/learning_cards/7/title",
@@ -2301,8 +2338,8 @@
         },
         "/questions/S03-C4-ST02-L03-Q02/prompt": {
           "pointer": "/questions/1/prompt",
-          "text": "افزایشی بودن چه می‌پرسد؟",
-          "source_hash": "344d4b5a72be524b5d747b39fdb330d06787ccff2a0a96f14c5c0074cf80e1b6"
+          "text": "افزایشی بودن چه می‌پرسه؟",
+          "source_hash": "1e800d2434bdc7bd95822eab39dcda9bf112ba3d158e8268a35427cc23524164"
         },
         "/questions/S03-C4-ST02-L03-Q02/options/a/text": {
           "pointer": "/questions/1/options/0/text",
@@ -2464,6 +2501,11 @@
           "text": "داشبورد آخرین‌کلیک می‌گه شبکهٔ اجتماعی ۵۰٪ فروش رو ساخته و بودجه باید دو برابر بشه. نقد کن و برنامهٔ سنجش افزایشی پیشنهاد بده: واحد کنترل، پنجره، فروش ارگانیک، حاشیه و کانال‌های هم‌پوشان رو وارد کن؛ کاربرد انتساب، آزمایش و MMM رو تفکیک کن.",
           "source_hash": "7f39cbdd552fe0dd370591315180164cc147b6a3d4774e7d93ef6ab8d2b30117"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پروتکل آزمایش رشد سپهر؛ داده‌ها و سازمان ساختگی‌اند.",
+          "source_hash": "4a417b19befe9fa98697bea6c80f59c0fff4466254dc8beae8fe9586b7b2a06b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "راه‌حل واحد نیست؛ اعتبار طراحی، محدودیت داده و تصمیم بعدی رو آشکار ساز.",
@@ -2497,7 +2539,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST02-L04.json": {
-      "source_revision": "4413ec4693f932f22c00cc4d6860cec97002664e86c85c170c27f1e60099bc37",
+      "source_revision": "18fd1d1c6ee2bc395505828742a471a4adb822dffd3380a56190595f7aa30bda",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2506,8 +2549,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "اثر کمپین بهینه‌شده یا تولیدشده با AI رو از کیفیت خروجی مدل جدا کنه و برای تخصیص، خط پایه، شاخص افزایشی، حریم خصوصی و نظارت انسانی طرح ارزیابی بچیند.",
-          "source_hash": "175d8796fe24c2cb6cb518abf839a2c4770c8dd4b1989ceaa2bba070c9830023"
+          "text": "در این درس یاد می‌گیری اثر کمپینِ بهینه‌شده یا تولیدشده با AI رو از کیفیت خروجی مدل جدا کنی و برای تخصیص، خط پایه، اثر افزایشی، حریم خصوصی و نظارت انسانی طرح ارزیابی بنویسی.",
+          "source_hash": "f4e0aa664034bce4291f0ae3b8b7401baea07e686e032ad741cdfd24b9f12695"
         },
         "/learning_cards/S03-C4-ST02-L04-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -2516,8 +2559,8 @@
         },
         "/learning_cards/S03-C4-ST02-L04-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "مدل ممکنه مخاطب، زمان، پیشنهاد، متن و تصویر رو هم‌زمان تغییر بده. افزایش فروش نمی‌گوید آیا هدف‌گیری، تخفیف، خلاقه یا فصل مؤثر بوده. مداخله رو به اجزای قابل‌سنجش تقسیم یا طراحی عاملی مناسب به‌کار ببرید.",
-          "source_hash": "b3fb47db2d121a5ae13d615a25e897802facee9ff63ba0be1f8b6d83a375e777"
+          "text": "مدل ممکنه مخاطب، زمان، پیشنهاد، متن و تصویر رو هم‌زمان تغییر بده. افزایش فروش نمی‌گه آیا هدف‌گیری، تخفیف، خلاقه یا فصل مؤثر بوده. مداخله رو به اجزای قابل‌سنجش تقسیم یا طراحی عاملی مناسب به‌کار ببرید.",
+          "source_hash": "84c5699cd75bda9af1be07c562c2a6aa2532e26214abd97e8e22714fddf42ff4"
         },
         "/learning_cards/S03-C4-ST02-L04-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -2814,6 +2857,11 @@
           "text": "یک ابزار AI مخاطب و متن کمپین اشتراک سپهر رو بهینه کرده و خرید منتسب ۲۰٪ بالا رفته. طراحی ارزیابی بنویس که اثر هدف‌گیری رو از خلاقه و تخفیف جدا کنه، گروه holdout، حاشیهٔ افزایشی، شکایت/لغو، هزینهٔ تولید AI و کنترل ادعاهای محتوایی رو پوشش بده.",
           "source_hash": "20c6405e45c18234eb38386c984b0e22aa43e09b13ad3caf98983843c90a06e5"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پروتکل آزمایش رشد سپهر؛ داده‌ها و سازمان ساختگی‌اند.",
+          "source_hash": "4a417b19befe9fa98697bea6c80f59c0fff4466254dc8beae8fe9586b7b2a06b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "راه‌حل واحد نیست؛ اعتبار طراحی، محدودیت داده و تصمیم بعدی رو آشکار ساز.",
@@ -2847,7 +2895,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST03-L01.json": {
-      "source_revision": "c768e4d1efa18fd20f16a0368f62f63710a7cf7da176a805edfc068ae6d3c547",
+      "source_revision": "cda668f7e6c5295b2e9493700d42a229b1ae72afcdd2d48b2cefc748fe8915eb",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2856,8 +2905,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "در شرایط محدودیت بودجه و زمان، آزمایش‌ها رو با پیوند تصمیم راهبردی، ارزش یادگیری، امکان اجرا، ریسک و هزینهٔ فرصت رتبه‌بندی کنه؛ امتیازهای اولویت رو حقیقت آماری تلقی نکند.",
-          "source_hash": "b8f048904d1817ea32f50e73700726a1d15998ec4e0ac59431df0608b86afc9c"
+          "text": "در این درس یاد می‌گیری با توجه به محدودیت بودجه و زمان، آزمایش‌ها رو بر اساس تصمیم راهبردی، ارزش یادگیری، امکان اجرا، ریسک و هزینهٔ فرصت رتبه‌بندی کنی و امتیاز اولویت رو حقیقت آماری حساب نکنی.",
+          "source_hash": "0e211bbe2bd89aa0ab17993a51f49d65af2f60104ee25b204620863ad2cd4707"
         },
         "/learning_cards/S03-C4-ST03-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -2936,8 +2985,8 @@
         },
         "/learning_cards/S03-C4-ST03-L01-CARD08/text": {
           "pointer": "/learning_cards/7/text",
-          "text": "هر آزمایش رشد باید بررسی کنه آیا پیام، قیمت یا الگوریتم به گروهی از مشتریان آسیب نامتناسب می‌زند، دسترسی رو محدود می‌کنه یا شکایت و لغو رو بالا می‌برد. ارزش بالقوه رو با حفاظ‌های تجربه، حریم خصوصی و اعتماد بسنج. رشد کوتاه‌مدت که اعتماد رو می‌فرساید ممکنه ارزش بلندمدت رو کاهش بده.",
-          "source_hash": "84b3e2988bae83d843232ca8d048530fc8845e0c61a38b04290c072557bfc288"
+          "text": "هر آزمایش رشد باید بررسی کنه آیا پیام، قیمت یا الگوریتم به گروهی از مشتریان آسیب نامتناسب می‌زنه، دسترسی رو محدود می‌کنه یا شکایت و لغو رو بالا می‌بره. ارزش بالقوه رو با حفاظ‌های تجربه، حریم خصوصی و اعتماد بسنج. رشد کوتاه‌مدت که اعتماد رو می‌فرساید ممکنه ارزش بلندمدت رو کاهش بده.",
+          "source_hash": "dc16e6ef5330cd712f4477e2383dd5f39f1b2ec715f0083eb8c7332998c0045c"
         },
         "/learning_cards/S03-C4-ST03-L01-CARD09/title": {
           "pointer": "/learning_cards/8/title",
@@ -2946,8 +2995,8 @@
         },
         "/learning_cards/S03-C4-ST03-L01-CARD09/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "برای هر ایده ثبت کن: مسئله و گروه، تصمیم مورد انتظار، اثر بالقوه، شواهد و عدم‌قطعیت، هزینه و زمان، سنجهٔ اصلی و حفاظ، ریسک و شرط توقف. بعد ظرفیت دوره رو مشخص کن و بگو چه ایده‌ای به تعویق می‌افتد. این برگه مبنای بازبینی هفتگیه، نه قرارداد تغییرناپذیر.",
-          "source_hash": "7e45e6a9216a6251644d7aa1e01e4c34f3bdeee03056e01d38e31fa4c7775183"
+          "text": "برای هر ایده ثبت کن: مسئله و گروه، تصمیم مورد انتظار، اثر بالقوه، شواهد و عدم‌قطعیت، هزینه و زمان، سنجهٔ اصلی و حفاظ، ریسک و شرط توقف. بعد ظرفیت دوره رو مشخص کن و بگو چه ایده‌ای به تعویق می‌افته. این برگه مبنای بازبینی هفتگیه، نه قرارداد تغییرناپذیر.",
+          "source_hash": "e0688d6e4f1dd238fd047dee378048bdc1bfe665b3492f1d10592fccd3f50f58"
         },
         "/learning_cards/S03-C4-ST03-L01-TERMS/title": {
           "pointer": "/learning_cards/9/title",
@@ -3164,6 +3213,11 @@
           "text": "برای کسب‌وکار ساختگی «سپهر»، اولویت‌بندی سبد آزمایش‌ها رو به یک تصمیم عملی تبدیل کن. فرض‌ها، دوره و مخرج داده، سنجهٔ اقتصادی، پیامد جانبی و شرط ادامه/توقف رو بنویس. از آمار فرضی به‌عنوان واقعیت بازار استفاده نکن.",
           "source_hash": "72aca3122087c14b1092ebb3ebb179ab1a9919c9fe9ffe336b8b0500ed0634ac"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "کاربرگ تصمیم رشد سپهر؛ شرکت، داده‌ها و اعداد مورد استفادهٔ یادگیرنده ساختگی‌اند.",
+          "source_hash": "5b9706f9e9ae5b9c4e4750e8773323c906837e2f247c530db924beb9be89df9a"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "ابتدا مسئله و گروه رو تعریف کن؛ بعد شاخص و حفاظ رو پیش از اجرا مشخص کن؛ داده رو با دامنه و پنجره بخوان؛ در پایان تصمیم مشروط و محدودیت رو ثبت کن.",
@@ -3197,7 +3251,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST03-L02.json": {
-      "source_revision": "bb8576a508ab21b4f239394e92a49e5fb6e9d7fc375fb561277d34e307997335",
+      "source_revision": "309011fe72aa6ce2f89d64511964d2f50fd056465294adb6b319f70ca0ec4e2a",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3226,8 +3281,8 @@
         },
         "/learning_cards/S03-C4-ST03-L02-CARD02/text": {
           "pointer": "/learning_cards/1/text",
-          "text": "بازده میانگین می‌گه کل نتیجه نسبت به کل خرج تا امروز چه بوده؛ بازده حاشیه‌ای می‌پرسد دلار یا واحد بعدی چه نتیجهٔ افزوده‌ای می‌ده. تصمیم گسترش باید به بازده حاشیه‌ای نزدیک باشه، چون بودجهٔ تازه با میانگین تاریخی تضمین نمی‌شه. معیار رو با حاشیهٔ مشارکت و هزینهٔ افزایشی بسنج.",
-          "source_hash": "4e5eef1ab3c7715418b0d7bd78f6126834b21117873bf8a0a3bc280495bd7e08"
+          "text": "بازده میانگین می‌گه کل نتیجه نسبت به کل خرج تا امروز چه بوده؛ بازده حاشیه‌ای می‌پرسه دلار یا واحد بعدی چه نتیجهٔ افزوده‌ای می‌ده. تصمیم گسترش باید به بازده حاشیه‌ای نزدیک باشه، چون بودجهٔ تازه با میانگین تاریخی تضمین نمی‌شه. معیار رو با حاشیهٔ مشارکت و هزینهٔ افزایشی بسنج.",
+          "source_hash": "594742149edbd915c36095f0d604228c6ab2c8bc35f668718aa63d27000c09e9"
         },
         "/learning_cards/S03-C4-ST03-L02-CARD03/title": {
           "pointer": "/learning_cards/2/title",
@@ -3514,6 +3569,11 @@
           "text": "برای کسب‌وکار ساختگی «سپهر»، مقیاس‌دادن و افت بازده رو به یک تصمیم عملی تبدیل کن. فرض‌ها، دوره و مخرج داده، سنجهٔ اقتصادی، پیامد جانبی و شرط ادامه/توقف رو بنویس. از آمار فرضی به‌عنوان واقعیت بازار استفاده نکن.",
           "source_hash": "58c1252452ebbffec8c8d88db3a0ccbb35c13508b75e6a31169a9e0af3effa3f"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "کاربرگ تصمیم رشد سپهر؛ شرکت، داده‌ها و اعداد مورد استفادهٔ یادگیرنده ساختگی‌اند.",
+          "source_hash": "5b9706f9e9ae5b9c4e4750e8773323c906837e2f247c530db924beb9be89df9a"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "ابتدا مسئله و گروه رو تعریف کن؛ بعد شاخص و حفاظ رو پیش از اجرا مشخص کن؛ داده رو با دامنه و پنجره بخوان؛ در پایان تصمیم مشروط و محدودیت رو ثبت کن.",
@@ -3547,7 +3607,8 @@
       }
     },
     "content/s03-c4/lessons/S03-C4-ST03-L03.json": {
-      "source_revision": "02c4d691b6229312527b0b8bb53f8e594a06a4911c74d0924f957dd6b03aaaf1",
+      "source_revision": "e0c80fe8f7b2bf8aa097b1a1cdc340a9bfc0b3db072cfb32533b464ea7a4485c",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3616,8 +3677,8 @@
         },
         "/learning_cards/S03-C4-ST03-L03-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "آزمایش می‌تونه نشان بده مداخله رفتار رو تغییر داده؛ CLV می‌سنجد رابطهٔ مشتری احتمالاً چقدر ارزش داره. کمپین ممکنه مشتری اضافه کنه اما cohort کم‌ارزش یا پرهزینه بیاورد؛ یا مشتری باارزش باشه اما تبلیغ علت جذبش نبوده باشه. این پرسش‌ها رو با ابزارهای جدا جواب دهید.",
-          "source_hash": "c0debf793a2f1cc2b0c27224c62e991ea7f5046ce2e2292c7fa31d069d18e00d"
+          "text": "آزمایش می‌تونه نشان بده مداخله رفتار رو تغییر داده؛ CLV می‌سنجه رابطهٔ مشتری احتمالاً چقدر ارزش داره. کمپین ممکنه مشتری اضافه کنه اما cohort کم‌ارزش یا پرهزینه بیاورد؛ یا مشتری باارزش باشه اما تبلیغ علت جذبش نبوده باشه. این پرسش‌ها رو با ابزارهای جدا جواب بده.",
+          "source_hash": "87c21eeba0aa391757be86f20568a1bdd8df733b4a4752318e3f0c628d45d3fa"
         },
         "/learning_cards/S03-C4-ST03-L03-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -3646,8 +3707,8 @@
         },
         "/learning_cards/S03-C4-ST03-L03-CARD09/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "برای هر cohort زمان جذب، منبع، تعداد اولیه، فعال‌سازی، حفظ دوره‌ای، خرید تکراری، حاشیهٔ تجمعی و payback رو نمایش دهید. کنار عدد تعریف و پنجره رو بذار. نمودار باید به تصمیم وصل باشه: کدام کانال توسعه یابد، کدام پیام عوض بشه یا کدام داده هنوز برای تصمیم کافی نیست؟",
-          "source_hash": "44b9f1313122e2329f2aa443217dd41122721d7987dcf7e754793085c0827c01"
+          "text": "برای هر cohort زمان جذب، منبع، تعداد اولیه، فعال‌سازی، حفظ دوره‌ای، خرید تکراری، حاشیهٔ تجمعی و payback رو نمایش بده. کنار عدد تعریف و پنجره رو بذار. نمودار باید به تصمیم وصل باشه: کدام کانال توسعه یابد، کدام پیام عوض بشه یا کدام داده هنوز برای تصمیم کافی نیست؟",
+          "source_hash": "d2efcf220de9e22cef3ea30d0f0f67c394ed676a5e9e2fdb1a3d7b3673730d5b"
         },
         "/learning_cards/S03-C4-ST03-L03-TERMS/title": {
           "pointer": "/learning_cards/9/title",
@@ -3864,6 +3925,11 @@
           "text": "برای کسب‌وکار ساختگی «سپهر»، حفظ کیفیت مشتری و cohort رو به یک تصمیم عملی تبدیل کن. فرض‌ها، دوره و مخرج داده، سنجهٔ اقتصادی، پیامد جانبی و شرط ادامه/توقف رو بنویس. از آمار فرضی به‌عنوان واقعیت بازار استفاده نکن.",
           "source_hash": "9dde625e6139cb8398e9459fad2205c804b9da4a93590ac385602a8dd46ecf8e"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "کاربرگ تصمیم رشد سپهر؛ شرکت، داده‌ها و اعداد مورد استفادهٔ یادگیرنده ساختگی‌اند.",
+          "source_hash": "5b9706f9e9ae5b9c4e4750e8773323c906837e2f247c530db924beb9be89df9a"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "ابتدا مسئله و گروه رو تعریف کن؛ بعد شاخص و حفاظ رو پیش از اجرا مشخص کن؛ داده رو با دامنه و پنجره بخوان؛ در پایان تصمیم مشروط و محدودیت رو ثبت کن.",
@@ -3898,6 +3964,7 @@
     },
     "content/s03-c4/lessons/S03-C4-ST03-L04.json": {
       "source_revision": "a6527c163438aa27628c1b167c8190be396b48232a10b2cc2bdc0af870d302d0",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4214,6 +4281,11 @@
           "text": "برای کسب‌وکار ساختگی «سپهر»، برنامهٔ رشد و شرط توقف رو به یک تصمیم عملی تبدیل کن. فرض‌ها، دوره و مخرج داده، سنجهٔ اقتصادی، پیامد جانبی و شرط ادامه/توقف رو بنویس. از آمار فرضی به‌عنوان واقعیت بازار استفاده نکن.",
           "source_hash": "d5a8a522235d8cfdef45aeac160e86c3c4053cae69c1c930d1fd7996e254e8b4"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "کاربرگ تصمیم رشد سپهر؛ شرکت، داده‌ها و اعداد مورد استفادهٔ یادگیرنده ساختگی‌اند.",
+          "source_hash": "5b9706f9e9ae5b9c4e4750e8773323c906837e2f247c530db924beb9be89df9a"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "ابتدا مسئله و گروه رو تعریف کن؛ بعد شاخص و حفاظ رو پیش از اجرا مشخص کن؛ داده رو با دامنه و پنجره بخوان؛ در پایان تصمیم مشروط و محدودیت رو ثبت کن.",
@@ -4248,6 +4320,9 @@
     },
     "content/s03-c4/stages/S03-C4-ST01.json": {
       "source_revision": "b417d22b0746f4f7d05869c66f2c4fa6b0ef1a930a538a127342c4d15c3850f1",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4518,6 +4593,9 @@
     },
     "content/s03-c4/stages/S03-C4-ST02.json": {
       "source_revision": "e9edc83d2fde861bde7f9c024b3287a00bbc418dcc75412f0970fd52ce72b2c7",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4787,7 +4865,10 @@
       }
     },
     "content/s03-c4/stages/S03-C4-ST03.json": {
-      "source_revision": "045c64e0b277a5dc94888a6c7062ca6be174bbe88949108bb1a5f757c8e53456",
+      "source_revision": "ebe0c7377eac1b622d6820f077444832e4502cec62df391882fe2141b975391c",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4921,8 +5002,8 @@
         },
         "/checkpoint/questions/S03-C4-ST03-CP-Q04/options/a/text": {
           "pointer": "/checkpoint/questions/3/options/0/text",
-          "text": "CLV ارزش پیش‌بینی‌شدهٔ رابطه رو می‌سنجد؛ آزمایش اثر مداخله رو.",
-          "source_hash": "1be9620298537f1545c8cb4ba486707a7c630b35dfe20f739f8087c1fb1cba22"
+          "text": "CLV ارزش پیش‌بینی‌شدهٔ رابطه رو می‌سنجه؛ آزمایش اثر مداخله رو.",
+          "source_hash": "9b7fe6d34dd522849cf4dc327550523f49f729bad4f4a9d93a0cdb29506dd95d"
         },
         "/checkpoint/questions/S03-C4-ST03-CP-Q04/options/a/feedback": {
           "pointer": "/checkpoint/questions/3/options/0/feedback",
@@ -5053,6 +5134,617 @@
           "pointer": "/tool_plan/3/title",
           "text": "برنامهٔ رشد دوره‌ای با مالک، حفاظ و قاعدهٔ توقف",
           "source_hash": "a682cd9cd88b0279522fad3c5a83286a6654a2e64c85008e8ded7586111bd7a2"
+        }
+      }
+    },
+    "content/s03-c4/final-assessment.json": {
+      "source_revision": "fde2ff5db10ef0c36f538f1a2a4a1b9877853eebfc59de72355c6879a903c2a3",
+      "revision_excluded_fields": [],
+      "messages": {
+        "/description": {
+          "pointer": "/description",
+          "text": "این مرور از سؤال‌های قبلی درس استفاده می‌کنه؛ سؤال تازه یا آزمون مستقل نیست.",
+          "source_hash": "47f3397328448fe4b4922b33460f87ccef5c78f12a96f07d18837b89f56ed7f4"
+        },
+        "/questions/S03-C4-FINAL-Q01/prompt": {
+          "pointer": "/questions/0/prompt",
+          "text": "cohort تازه چرا با cohort بالغ مستقیم مقایسه نمی‌شه؟",
+          "source_hash": "a0aea7f5beb906d9e9fbb333f18edcc8834487f8a8d2adb2785dfe7b583dc35b"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/a/text": {
+          "pointer": "/questions/0/options/0/text",
+          "text": "هنوز فرصت مشاهدهٔ دوره‌های بعد رو نداشته‌ست",
+          "source_hash": "12abe0032c7ef3576e41ed763a4e39a39f7a4d9488a438f383410117767191a8"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/a/feedback": {
+          "pointer": "/questions/0/options/0/feedback",
+          "text": "هنوز فرصت مشاهدهٔ دوره‌های بعد رو نداشته‌ست.",
+          "source_hash": "ede0a6bbe78c88f621b753a3698abce66a9a2234407674868532f5c43ca4016f"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/b/text": {
+          "pointer": "/questions/0/options/1/text",
+          "text": "چون نرخ نداره",
+          "source_hash": "f7e1ace8957b86b4cb610438d2c2b8698e1e10c006d7cf2f4b773dba6dad3894"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/b/feedback": {
+          "pointer": "/questions/0/options/1/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/c/text": {
+          "pointer": "/questions/0/options/2/text",
+          "text": "چون دادهٔ زمانی بی‌استفاده‌ست",
+          "source_hash": "ffb5fe2880c1a1a7ad60089ecf3b2a8b11ce5a57efdc26c8f54f4b84cf534c2c"
+        },
+        "/questions/S03-C4-FINAL-Q01/options/c/feedback": {
+          "pointer": "/questions/0/options/2/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q01/explanation": {
+          "pointer": "/questions/0/explanation",
+          "text": "هنوز فرصت مشاهدهٔ دوره‌های بعد رو نداشته‌ست.",
+          "source_hash": "ede0a6bbe78c88f621b753a3698abce66a9a2234407674868532f5c43ca4016f"
+        },
+        "/questions/S03-C4-FINAL-Q02/prompt": {
+          "pointer": "/questions/1/prompt",
+          "text": "CAC پایین چه چیزی رو به تنهایی ثابت نمی‌کنه؟",
+          "source_hash": "a4aa02b8e047779059c68d81846336c44daf179ad532e386824df23a7be4e694"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/a/text": {
+          "pointer": "/questions/1/options/0/text",
+          "text": "ارزش و نگهداشت بالای مشتریان جذب‌شده رو",
+          "source_hash": "62614805928168d51769bc9f6aa0c03a9e1256969a9ce317a93679309d05b76b"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/a/feedback": {
+          "pointer": "/questions/1/options/0/feedback",
+          "text": "ارزش و نگهداشت بالای مشتریان جذب‌شده رو.",
+          "source_hash": "f50b329b85f45ce21abc46ae28216eae551675fbe10bbb1a1b43122f6ef55cc6"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/b/text": {
+          "pointer": "/questions/1/options/1/text",
+          "text": "هزینهٔ جذب کمتر",
+          "source_hash": "8c77338a2b008e392c35a9b4cb829328d84014b3ec605df1fa20592f1d8e95bc"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/b/feedback": {
+          "pointer": "/questions/1/options/1/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/c/text": {
+          "pointer": "/questions/1/options/2/text",
+          "text": "وجود یک کانال",
+          "source_hash": "e7324d42367d3a3a0b21ca6e5292dd59b7165054deac4f5ab0eb3fd872a96338"
+        },
+        "/questions/S03-C4-FINAL-Q02/options/c/feedback": {
+          "pointer": "/questions/1/options/2/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q02/explanation": {
+          "pointer": "/questions/1/explanation",
+          "text": "ارزش و نگهداشت بالای مشتریان جذب‌شده رو.",
+          "source_hash": "f50b329b85f45ce21abc46ae28216eae551675fbe10bbb1a1b43122f6ef55cc6"
+        },
+        "/questions/S03-C4-FINAL-Q03/prompt": {
+          "pointer": "/questions/2/prompt",
+          "text": "نرخ حفظ ثابت در مدل ساده چه فرضی داره؟",
+          "source_hash": "144daee9b5ebbc29ec2c58ab78417e6721d1df8423f5357f7e26c1d3c25925c9"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/a/text": {
+          "pointer": "/questions/2/options/0/text",
+          "text": "رفتار آینده در طول دوره نسبتاً پایدار می‌مونه",
+          "source_hash": "68719d358cbee0fee93917f482aba14927793850b1ee0d47317f363a3671d360"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/a/feedback": {
+          "pointer": "/questions/2/options/0/feedback",
+          "text": "رفتار آینده در طول دوره نسبتاً پایدار می‌مونه.",
+          "source_hash": "37c0800368e81339ccbf850fc679aa756cdae57aff34bdd0714d2f72614fef85"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/b/text": {
+          "pointer": "/questions/2/options/1/text",
+          "text": "هیچ مشتری نمی‌ریزد",
+          "source_hash": "e6d4c94cdde838600e0358c9baf83e39d5dff18a980d156ecd5a70ffe6c4e574"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/b/feedback": {
+          "pointer": "/questions/2/options/1/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/c/text": {
+          "pointer": "/questions/2/options/2/text",
+          "text": "قیمت صفره",
+          "source_hash": "0d973bd9b50fefa5c89130d73c95b0f6ec53f720bc4330cbf3cf4979c64ca430"
+        },
+        "/questions/S03-C4-FINAL-Q03/options/c/feedback": {
+          "pointer": "/questions/2/options/2/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q03/explanation": {
+          "pointer": "/questions/2/explanation",
+          "text": "رفتار آینده در طول دوره نسبتاً پایدار می‌مونه.",
+          "source_hash": "37c0800368e81339ccbf850fc679aa756cdae57aff34bdd0714d2f72614fef85"
+        },
+        "/questions/S03-C4-FINAL-Q04/prompt": {
+          "pointer": "/questions/3/prompt",
+          "text": "افزایش فروش هنگام کمپین چه چیزی رو باید بررسی کنه؟",
+          "source_hash": "a3132336cd6bc5728039483472ca818858046966f4a352101e3fd6ee7a953774"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/a/text": {
+          "pointer": "/questions/3/options/0/text",
+          "text": "آیا فقط زمان خرید جابه‌جا شده",
+          "source_hash": "2287471758ab232f4ff913ef3f90d0cdfb48455089c2a4783eb4d492baa4abe9"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/a/feedback": {
+          "pointer": "/questions/3/options/0/feedback",
+          "text": "آیا فقط زمان خرید جابه‌جا شده.",
+          "source_hash": "5d9975c310b7829a794784183ce035043cedf952a073e989db6d975013da3ac8"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/b/text": {
+          "pointer": "/questions/3/options/1/text",
+          "text": "رنگ تبلیغ",
+          "source_hash": "a0b8b322be3ddcb4af1baf13728aa91a55f4239e6575521f50c9df380c748464"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/b/feedback": {
+          "pointer": "/questions/3/options/1/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/c/text": {
+          "pointer": "/questions/3/options/2/text",
+          "text": "تعداد اسلاید",
+          "source_hash": "227e03e29e1ae9f3fe9dac82480c43e1d8cbaf8ff6c2ee77ebb95e7791822c0e"
+        },
+        "/questions/S03-C4-FINAL-Q04/options/c/feedback": {
+          "pointer": "/questions/3/options/2/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q04/explanation": {
+          "pointer": "/questions/3/explanation",
+          "text": "آیا فقط زمان خرید جابه‌جا شده.",
+          "source_hash": "5d9975c310b7829a794784183ce035043cedf952a073e989db6d975013da3ac8"
+        },
+        "/questions/S03-C4-FINAL-Q05/prompt": {
+          "pointer": "/questions/4/prompt",
+          "text": "افت قیف چه چیزی رو به‌تنهایی نمی‌گه؟",
+          "source_hash": "3aac8aa65849a4c403a99a30a42093611f673292624caab7cb526fd18665b3ff"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/a/text": {
+          "pointer": "/questions/4/options/0/text",
+          "text": "علت رهاکردن یا بهترین اصلاح رو",
+          "source_hash": "056189cc07b1278ad83fa5f5766b334ad54d2f56d4cd0b10f6ae0b65efa1225f"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/a/feedback": {
+          "pointer": "/questions/4/options/0/feedback",
+          "text": "علت رهاکردن یا بهترین اصلاح رو.",
+          "source_hash": "bfb6388240ce6bd4b8fc872284c8d36426ed1cc1a140af64ad0e0dd86b336d16"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/b/text": {
+          "pointer": "/questions/4/options/1/text",
+          "text": "مرحلهٔ افت",
+          "source_hash": "0ee98ce0be8895a0536cff6712d94d6087aa60cf914b9de31acd5b8ca6feda35"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/b/feedback": {
+          "pointer": "/questions/4/options/1/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/c/text": {
+          "pointer": "/questions/4/options/2/text",
+          "text": "نرخ تعریف‌شده",
+          "source_hash": "16bb37c6bfc9132fc2a7256f4f47ad261f04fe8abb1beb364aca65e2bea9e806"
+        },
+        "/questions/S03-C4-FINAL-Q05/options/c/feedback": {
+          "pointer": "/questions/4/options/2/feedback",
+          "text": "مخرج، حاشیه و دورهٔ مشاهده رو کنار هم بسنج.",
+          "source_hash": "9a3059256dbbc69368a5c372de6b16ae2cc43d7d9c996e37db099fdd9e9e9314"
+        },
+        "/questions/S03-C4-FINAL-Q05/explanation": {
+          "pointer": "/questions/4/explanation",
+          "text": "علت رهاکردن یا بهترین اصلاح رو.",
+          "source_hash": "bfb6388240ce6bd4b8fc872284c8d36426ed1cc1a140af64ad0e0dd86b336d16"
+        },
+        "/questions/S03-C4-FINAL-Q06/prompt": {
+          "pointer": "/questions/5/prompt",
+          "text": "نتیجه‌ای که پس از جست‌وجوی ده‌ها زیرگروه پیدا شد چه نوعیه؟",
+          "source_hash": "9cb22e336e65edf7e108feb8c48f3a20070922a2753071283ce8d646af6f4091"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/a/text": {
+          "pointer": "/questions/5/options/0/text",
+          "text": "اکتشافی و نیازمند تأیید مستقل",
+          "source_hash": "261c4860856371f265abb873e097d96f71cee48d79d33b06802795a9ddbd58b8"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/a/feedback": {
+          "pointer": "/questions/5/options/0/feedback",
+          "text": "اکتشافی و نیازمند تأیید مستقل.",
+          "source_hash": "8210e0034fc4dcc93fd836811428c4f2764972adcb8557ab68176a66c2f20d91"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/b/text": {
+          "pointer": "/questions/5/options/1/text",
+          "text": "قطعی برای همه",
+          "source_hash": "187ed7ab6c4902d2ef9716f969bf320976be60f48039b4a3010167cb0ca46252"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/b/feedback": {
+          "pointer": "/questions/5/options/1/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/c/text": {
+          "pointer": "/questions/5/options/2/text",
+          "text": "بی‌نیاز از تکرار",
+          "source_hash": "0648c1679a005113cf0514561422df846e88714e79635711d7f2ff5d35d45cd2"
+        },
+        "/questions/S03-C4-FINAL-Q06/options/c/feedback": {
+          "pointer": "/questions/5/options/2/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q06/explanation": {
+          "pointer": "/questions/5/explanation",
+          "text": "اکتشافی و نیازمند تأیید مستقل.",
+          "source_hash": "8210e0034fc4dcc93fd836811428c4f2764972adcb8557ab68176a66c2f20d91"
+        },
+        "/questions/S03-C4-FINAL-Q07/prompt": {
+          "pointer": "/questions/6/prompt",
+          "text": "چرا حذف کاربران استفاده‌نکرده می‌تونه سوگیری بسازه؟",
+          "source_hash": "a8158ddf39676900b83f29e9c53dccce46eeb74521861e9cfe9f8e16c67445c1"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/a/text": {
+          "pointer": "/questions/6/options/0/text",
+          "text": "استفاده بعد از تخصیص خودش انتخاب‌شده‌ست",
+          "source_hash": "00b5f996dac2b6ef1272a7317fa3fa50cb5e9f0157fcadf57a160b682b74a424"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/a/feedback": {
+          "pointer": "/questions/6/options/0/feedback",
+          "text": "استفاده بعد از تخصیص خودش انتخاب‌شده‌ست.",
+          "source_hash": "5328004721ab35c6a3c60276ac7c60bd165e69b3029d2149296537e021e02e90"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/b/text": {
+          "pointer": "/questions/6/options/1/text",
+          "text": "چون تخصیص ثابته",
+          "source_hash": "a8e8740980eb3b7506806cca26d443dcaab3fc39baeb52b3c679224e6dedc224"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/b/feedback": {
+          "pointer": "/questions/6/options/1/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/c/text": {
+          "pointer": "/questions/6/options/2/text",
+          "text": "چون دادهٔ ناقص نداریم",
+          "source_hash": "6e4041b1df1d16dc7565d3786a622ed0059df90e16d417b9cd110439b4b878c5"
+        },
+        "/questions/S03-C4-FINAL-Q07/options/c/feedback": {
+          "pointer": "/questions/6/options/2/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q07/explanation": {
+          "pointer": "/questions/6/explanation",
+          "text": "استفاده بعد از تخصیص خودش انتخاب‌شده‌ست.",
+          "source_hash": "5328004721ab35c6a3c60276ac7c60bd165e69b3029d2149296537e021e02e90"
+        },
+        "/questions/S03-C4-FINAL-Q08/prompt": {
+          "pointer": "/questions/7/prompt",
+          "text": "ROAS چه چیزی رو ممکنه جا بیندازد؟",
+          "source_hash": "ebba5c5485d330f0c6c774211018f160a360a1b1b5a1314e6d7c3323febf3b11"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/a/text": {
+          "pointer": "/questions/7/options/0/text",
+          "text": "فروش جابه‌جا‌شده، حاشیه و اثر افزایشی واقعی",
+          "source_hash": "d7410a0143e9bf9be4895d37bee23fe68f3792a65d54f1d319ee47b5e01bf98c"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/a/feedback": {
+          "pointer": "/questions/7/options/0/feedback",
+          "text": "فروش جابه‌جا‌شده، حاشیه و اثر افزایشی واقعی.",
+          "source_hash": "4d0dce30139ef5ea47cfa55f918766af33fa2d3521b175d1a1fd289760ec43ce"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/b/text": {
+          "pointer": "/questions/7/options/1/text",
+          "text": "هزینهٔ تبلیغ",
+          "source_hash": "6e78b465cef7856cf8b50c23d879d987a89484c1ffbde4ccc846ab3a9949c249"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/b/feedback": {
+          "pointer": "/questions/7/options/1/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/c/text": {
+          "pointer": "/questions/7/options/2/text",
+          "text": "درآمد منتسب",
+          "source_hash": "d804e76563c73131c881b00bf9ee77223cb258caa78f9ee3583ba81e44787716"
+        },
+        "/questions/S03-C4-FINAL-Q08/options/c/feedback": {
+          "pointer": "/questions/7/options/2/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q08/explanation": {
+          "pointer": "/questions/7/explanation",
+          "text": "فروش جابه‌جا‌شده، حاشیه و اثر افزایشی واقعی.",
+          "source_hash": "4d0dce30139ef5ea47cfa55f918766af33fa2d3521b175d1a1fd289760ec43ce"
+        },
+        "/questions/S03-C4-FINAL-Q09/prompt": {
+          "pointer": "/questions/8/prompt",
+          "text": "معیار موفقیت تجاری کدام نزدیک‌تره؟",
+          "source_hash": "8610ac0628d3b6a051a1de8ccd6cbf123b466fb567a50c7df8eb425aa53d648e"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/a/text": {
+          "pointer": "/questions/8/options/0/text",
+          "text": "حاشیهٔ افزایشی پس از هزینهٔ کل و پیامدها",
+          "source_hash": "e932c2c9a8c42d8912e076bd1fc1979f6e316cd8216cfa3f5e306816108f7cc9"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/a/feedback": {
+          "pointer": "/questions/8/options/0/feedback",
+          "text": "حاشیهٔ افزایشی پس از هزینهٔ کل و پیامدها.",
+          "source_hash": "a58616e99f88343d9fc46bb40f26ce31eece9a6e903a8b7c6e293efd1de7a2cd"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/b/text": {
+          "pointer": "/questions/8/options/1/text",
+          "text": "تعداد متن تولیدشده",
+          "source_hash": "bf5e2212b8c0e0a48e6fb3e4d84e73fb1b2b54d6094181b03d525442c3d55347"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/b/feedback": {
+          "pointer": "/questions/8/options/1/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/c/text": {
+          "pointer": "/questions/8/options/2/text",
+          "text": "CTR به‌تنهایی",
+          "source_hash": "3847460131b5db6633b6994381f65acc0c7acc426fe61009caea94b668b89fe8"
+        },
+        "/questions/S03-C4-FINAL-Q09/options/c/feedback": {
+          "pointer": "/questions/8/options/2/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q09/explanation": {
+          "pointer": "/questions/8/explanation",
+          "text": "حاشیهٔ افزایشی پس از هزینهٔ کل و پیامدها.",
+          "source_hash": "a58616e99f88343d9fc46bb40f26ce31eece9a6e903a8b7c6e293efd1de7a2cd"
+        },
+        "/questions/S03-C4-FINAL-Q10/prompt": {
+          "pointer": "/questions/9/prompt",
+          "text": "چرا پروتکل پیش از آزمایش نوشته می‌شه؟",
+          "source_hash": "f8677d17825f8f392f6b1dcb80ee67cac733e1e536e9ad3ad4cbd44993bb305e"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/a/text": {
+          "pointer": "/questions/9/options/0/text",
+          "text": "تا تصمیم ادامه و توقف پس از نتیجه جابه‌جا نشود",
+          "source_hash": "9c0df6bd9f94ee44806edff3a071c3e83a9251c5116fae099269a6850ea91e99"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/a/feedback": {
+          "pointer": "/questions/9/options/0/feedback",
+          "text": "تا تصمیم ادامه و توقف پس از نتیجه جابه‌جا نشود.",
+          "source_hash": "8f5e7b0461dc5c2578ae67fb33518afe3cf78c6ea35833c81ba48b2f9fa282ec"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/b/text": {
+          "pointer": "/questions/9/options/1/text",
+          "text": "تا اثر مثبت بشه",
+          "source_hash": "c6b8e437589e81c98970beb5f59b9956450aaae5548488e8b13ec867a5d5121a"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/b/feedback": {
+          "pointer": "/questions/9/options/1/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/c/text": {
+          "pointer": "/questions/9/options/2/text",
+          "text": "برای حذف حفاظ",
+          "source_hash": "9db1b4e6c65d6d59527f9d1476508cfdfb4b904b410820755e180162204bb156"
+        },
+        "/questions/S03-C4-FINAL-Q10/options/c/feedback": {
+          "pointer": "/questions/9/options/2/feedback",
+          "text": "انتساب رو از اثر افزایشی و پیش‌بینی جدا کن.",
+          "source_hash": "0afb1ddf802ec6f408144fe892d3a0b7f8c7ef8996d8d8989f659fb4162b48d2"
+        },
+        "/questions/S03-C4-FINAL-Q10/explanation": {
+          "pointer": "/questions/9/explanation",
+          "text": "تا تصمیم ادامه و توقف پس از نتیجه جابه‌جا نشود.",
+          "source_hash": "8f5e7b0461dc5c2578ae67fb33518afe3cf78c6ea35833c81ba48b2f9fa282ec"
+        },
+        "/questions/S03-C4-FINAL-Q11/prompt": {
+          "pointer": "/questions/10/prompt",
+          "text": "چه چیزی رو باید به هزینهٔ اجرا افزود؟",
+          "source_hash": "8f6bd00c1f880bb1009b92d3ebf2a223efb51d0b563e742a954a934feafcc2eb"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/a/text": {
+          "pointer": "/questions/10/options/0/text",
+          "text": "زمان تیم، فرصت ازدست‌رفته، وابستگی و هزینهٔ تجربه یا پشتیبانی.",
+          "source_hash": "1635b6682cd86d11c6521547638deb12e2a8c8eefd57b5b9351a6909f1f19d49"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/a/feedback": {
+          "pointer": "/questions/10/options/0/feedback",
+          "text": "زمان تیم، فرصت ازدست‌رفته، وابستگی و هزینهٔ تجربه یا پشتیبانی.",
+          "source_hash": "1635b6682cd86d11c6521547638deb12e2a8c8eefd57b5b9351a6909f1f19d49"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/b/text": {
+          "pointer": "/questions/10/options/1/text",
+          "text": "فقط خرید رسانه و تخفیف.",
+          "source_hash": "72ff33bdfb1f59efb3231283c9625d6bd7a6ca7a64288f19d8c3cdc5c4d6495c"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/b/feedback": {
+          "pointer": "/questions/10/options/1/feedback",
+          "text": "هزینهٔ واقعی و ظرفیت اجرا گسترده‌تر از خرج مستقیمه.",
+          "source_hash": "9c009115739e070343d38e1d68818e75ff393d296a9543bd305287798cfe0f04"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/c/text": {
+          "pointer": "/questions/10/options/2/text",
+          "text": "یک پاسخ قابل‌دفاع فقط با دیدن عدد کل و بدون ثبت فرض یا محدودیت انتخاب می‌شه.",
+          "source_hash": "4742bedba481628cdcdbb439739b66fbbf447c485605178ffd6c36b31ea9ecd3"
+        },
+        "/questions/S03-C4-FINAL-Q11/options/c/feedback": {
+          "pointer": "/questions/10/options/2/feedback",
+          "text": "هزینهٔ واقعی و ظرفیت اجرا گسترده‌تر از خرج مستقیمه.",
+          "source_hash": "9c009115739e070343d38e1d68818e75ff393d296a9543bd305287798cfe0f04"
+        },
+        "/questions/S03-C4-FINAL-Q11/explanation": {
+          "pointer": "/questions/10/explanation",
+          "text": "هزینهٔ واقعی و ظرفیت اجرا گسترده‌تر از خرج مستقیمه.",
+          "source_hash": "9c009115739e070343d38e1d68818e75ff393d296a9543bd305287798cfe0f04"
+        },
+        "/questions/S03-C4-FINAL-Q12/prompt": {
+          "pointer": "/questions/11/prompt",
+          "text": "افت کیفیت cohort تازه رو چطور تشخیص دهیم؟",
+          "source_hash": "12bab20f84213e921be3a09d1f71448379af6cce9357a917f1ce024219cf7565"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/a/text": {
+          "pointer": "/questions/11/options/0/text",
+          "text": "مقایسهٔ cohortهای هم‌سن با تعریف و پنجرهٔ یکسان، به تفکیک کانال و پیشنهاد.",
+          "source_hash": "dcdd313556212151ea464cca69a7a63de604ac22b7067b54d1d3165ec83e54a9"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/a/feedback": {
+          "pointer": "/questions/11/options/0/feedback",
+          "text": "مقایسهٔ cohortهای هم‌سن با تعریف و پنجرهٔ یکسان، به تفکیک کانال و پیشنهاد.",
+          "source_hash": "dcdd313556212151ea464cca69a7a63de604ac22b7067b54d1d3165ec83e54a9"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/b/text": {
+          "pointer": "/questions/11/options/1/text",
+          "text": "مقایسهٔ ثبت‌نام کل ماه جاری با درآمد کل سال قبل.",
+          "source_hash": "9b3c11f7db75c5bd746bcf591cecbc513e0f155c0379daef88aba0d0ea1d244a"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/b/feedback": {
+          "pointer": "/questions/11/options/1/feedback",
+          "text": "مخرج، سن cohort و رخداد باید هم‌تراز باشن.",
+          "source_hash": "d2791c0bcab39379412382dc73c4390db4f3656bb5d7326eec4698f1ffb9de5c"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/c/text": {
+          "pointer": "/questions/11/options/2/text",
+          "text": "یک پاسخ قابل‌دفاع فقط با دیدن عدد کل و بدون ثبت فرض یا محدودیت انتخاب می‌شه.",
+          "source_hash": "4742bedba481628cdcdbb439739b66fbbf447c485605178ffd6c36b31ea9ecd3"
+        },
+        "/questions/S03-C4-FINAL-Q12/options/c/feedback": {
+          "pointer": "/questions/11/options/2/feedback",
+          "text": "مخرج، سن cohort و رخداد باید هم‌تراز باشن.",
+          "source_hash": "d2791c0bcab39379412382dc73c4390db4f3656bb5d7326eec4698f1ffb9de5c"
+        },
+        "/questions/S03-C4-FINAL-Q12/explanation": {
+          "pointer": "/questions/11/explanation",
+          "text": "مخرج، سن cohort و رخداد باید هم‌تراز باشن.",
+          "source_hash": "d2791c0bcab39379412382dc73c4390db4f3656bb5d7326eec4698f1ffb9de5c"
+        },
+        "/questions/S03-C4-FINAL-Q13/prompt": {
+          "pointer": "/questions/12/prompt",
+          "text": "cohort تازه با پنجره تمدید ناتمام رو چطور گزارش می‌کنیم؟",
+          "source_hash": "d308b24ac3bcf278dc56d5a1d803eddfea52a9115facf76749cbef63533d66f2"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/a/text": {
+          "pointer": "/questions/12/options/0/text",
+          "text": "به‌عنوان مشاهدهٔ موقت با پنجرهٔ ناتمام، نه نرخ نهایی قطعی.",
+          "source_hash": "e129ac6b61377fa6989abfc8c7fa0b35b36d92def66cbeb6f251036e4ca6f990"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/a/feedback": {
+          "pointer": "/questions/12/options/0/feedback",
+          "text": "به‌عنوان مشاهدهٔ موقت با پنجرهٔ ناتمام، نه نرخ نهایی قطعی.",
+          "source_hash": "e129ac6b61377fa6989abfc8c7fa0b35b36d92def66cbeb6f251036e4ca6f990"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/b/text": {
+          "pointer": "/questions/12/options/1/text",
+          "text": "با جایگزین‌کردن ماه‌های آینده از حدس و پنهان‌کردن پیش‌بینی.",
+          "source_hash": "fc3a4b6c5347384fcc6379bd323059f03ae169b7be498542fa5f11179715af46"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/b/feedback": {
+          "pointer": "/questions/12/options/1/feedback",
+          "text": "واقعیت مشاهده‌شده رو از پیش‌بینی جدا کن.",
+          "source_hash": "2ee4ac3f6d88ee4ac00e928efb9782e9152fb1826427d9b8de4285f340248b49"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/c/text": {
+          "pointer": "/questions/12/options/2/text",
+          "text": "یک پاسخ قابل‌دفاع فقط با دیدن عدد کل و بدون ثبت فرض یا محدودیت انتخاب می‌شه.",
+          "source_hash": "4742bedba481628cdcdbb439739b66fbbf447c485605178ffd6c36b31ea9ecd3"
+        },
+        "/questions/S03-C4-FINAL-Q13/options/c/feedback": {
+          "pointer": "/questions/12/options/2/feedback",
+          "text": "واقعیت مشاهده‌شده رو از پیش‌بینی جدا کن.",
+          "source_hash": "2ee4ac3f6d88ee4ac00e928efb9782e9152fb1826427d9b8de4285f340248b49"
+        },
+        "/questions/S03-C4-FINAL-Q13/explanation": {
+          "pointer": "/questions/12/explanation",
+          "text": "واقعیت مشاهده‌شده رو از پیش‌بینی جدا کن.",
+          "source_hash": "2ee4ac3f6d88ee4ac00e928efb9782e9152fb1826427d9b8de4285f340248b49"
+        },
+        "/questions/S03-C4-FINAL-Q14/prompt": {
+          "pointer": "/questions/13/prompt",
+          "text": "خروجی مدل AI در برنامه چه جایگاهی داره؟",
+          "source_hash": "1c018d37e571027f524e858c17fa99b55e25dc206f1253202ca3c69b8217b5d8"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/a/text": {
+          "pointer": "/questions/13/options/0/text",
+          "text": "فرض یا تصمیم پیشنهادی که باید با پیامد واقعی، مقایسه و نظارت سنجیده بشه.",
+          "source_hash": "f102ef19d0a19c4ad294810dfc260b0c3bbd4351b60702d94af1c1d30ed3c14c"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/a/feedback": {
+          "pointer": "/questions/13/options/0/feedback",
+          "text": "فرض یا تصمیم پیشنهادی که باید با پیامد واقعی، مقایسه و نظارت سنجیده بشه.",
+          "source_hash": "f102ef19d0a19c4ad294810dfc260b0c3bbd4351b60702d94af1c1d30ed3c14c"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/b/text": {
+          "pointer": "/questions/13/options/1/text",
+          "text": "اثبات اینکه مشتری به علت مدل خرید کرده.",
+          "source_hash": "2b885738b5b8adb5ff960b7c2751c4edd95759e6a386eb5394120dce4315ade7"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/b/feedback": {
+          "pointer": "/questions/13/options/1/feedback",
+          "text": "پیش‌بینی و توصیه با اثر علّی یکی نیستن.",
+          "source_hash": "0fc55aeb34b9e72d085fffb771808e38402965d0fb91e0d0e7878dc49d8fbf51"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/c/text": {
+          "pointer": "/questions/13/options/2/text",
+          "text": "یک پاسخ قابل‌دفاع فقط با دیدن عدد کل و بدون ثبت فرض یا محدودیت انتخاب می‌شه.",
+          "source_hash": "4742bedba481628cdcdbb439739b66fbbf447c485605178ffd6c36b31ea9ecd3"
+        },
+        "/questions/S03-C4-FINAL-Q14/options/c/feedback": {
+          "pointer": "/questions/13/options/2/feedback",
+          "text": "پیش‌بینی و توصیه با اثر علّی یکی نیستن.",
+          "source_hash": "0fc55aeb34b9e72d085fffb771808e38402965d0fb91e0d0e7878dc49d8fbf51"
+        },
+        "/questions/S03-C4-FINAL-Q14/explanation": {
+          "pointer": "/questions/13/explanation",
+          "text": "پیش‌بینی و توصیه با اثر علّی یکی نیستن.",
+          "source_hash": "0fc55aeb34b9e72d085fffb771808e38402965d0fb91e0d0e7878dc49d8fbf51"
+        },
+        "/questions/S03-C4-FINAL-Q15/prompt": {
+          "pointer": "/questions/14/prompt",
+          "text": "چرا حفاظ‌های تجربه لازم‌اند؟",
+          "source_hash": "51ea7973ec4fd74a121428c6c86ef263e11f00d3b85f18f3b157dab66835541d"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/a/text": {
+          "pointer": "/questions/14/options/0/text",
+          "text": "برای دیدن آسیبی که رشد کوتاه‌مدت ممکنه به شکایت، لغو یا اعتماد وارد کنه.",
+          "source_hash": "09c48f71e09099623f5dbce227447c991bd0549323beb33f9f7e52da0c600e23"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/a/feedback": {
+          "pointer": "/questions/14/options/0/feedback",
+          "text": "برای دیدن آسیبی که رشد کوتاه‌مدت ممکنه به شکایت، لغو یا اعتماد وارد کنه.",
+          "source_hash": "09c48f71e09099623f5dbce227447c991bd0549323beb33f9f7e52da0c600e23"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/b/text": {
+          "pointer": "/questions/14/options/1/text",
+          "text": "برای اینکه شاخص اصلی رو پس از مشاهده نتیجه عوض کنیم.",
+          "source_hash": "ea7ba1704e70dc454c0b58b25e46cd9cd551e169f942996f09f154d03188676d"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/b/feedback": {
+          "pointer": "/questions/14/options/1/feedback",
+          "text": "حفاظ‌ها از ابتدا برای تشخیص trade-off تعریف می‌شن.",
+          "source_hash": "4c95183fd39dac9a7e4fed9982c6bf40ba39e42d2e476201d20e26c6c1500049"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/c/text": {
+          "pointer": "/questions/14/options/2/text",
+          "text": "یک پاسخ قابل‌دفاع فقط با دیدن عدد کل و بدون ثبت فرض یا محدودیت انتخاب می‌شه.",
+          "source_hash": "4742bedba481628cdcdbb439739b66fbbf447c485605178ffd6c36b31ea9ecd3"
+        },
+        "/questions/S03-C4-FINAL-Q15/options/c/feedback": {
+          "pointer": "/questions/14/options/2/feedback",
+          "text": "حفاظ‌ها از ابتدا برای تشخیص trade-off تعریف می‌شن.",
+          "source_hash": "4c95183fd39dac9a7e4fed9982c6bf40ba39e42d2e476201d20e26c6c1500049"
+        },
+        "/questions/S03-C4-FINAL-Q15/explanation": {
+          "pointer": "/questions/14/explanation",
+          "text": "حفاظ‌ها از ابتدا برای تشخیص trade-off تعریف می‌شن.",
+          "source_hash": "4c95183fd39dac9a7e4fed9982c6bf40ba39e42d2e476201d20e26c6c1500049"
         }
       }
     }

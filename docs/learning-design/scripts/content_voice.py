@@ -13,7 +13,7 @@ SKIP = {'source_refs', 'source_links', 'source_index', 'source_url', 'url', 'doi
         'review_status', 'source_alignment', 'source_support', 'evidence_map'}
 VISIBLE = {'text', 'title', 'prompt', 'explanation', 'feedback', 'objective',
            'solution', 'criterion', 'definition', 'alt_text', 'caption', 'purpose',
-           'expected_artifact', 'instructions', 'alt', 'label', 'description'}
+           'expected_artifact', 'expected_output', 'long_description', 'instructions', 'alt', 'label', 'description'}
 LISTS = {'rubric', 'elements', 'columns', 'rows', 'success_criteria'}
 PROTECT = re.compile(r'`[^`]*`|«[^»]*»|https?://\S+|\{\{?[^{}]+\}\}?')
 WORDS = {
@@ -50,6 +50,18 @@ WORDS = {
     'چیست':'چیه', 'چگونه':'چطور', 'نخست':'اول', 'سپس':'بعد',
     'به‌تنهایی':'به‌تنهایی', 'مذکور':'این', 'گاهاً':'گاهی',
 }
+# Reviewed finite forms; ambiguous past-tense forms such as می‌خرید stay contextual.
+WORDS.update({
+    'دهید':'بده', 'بدانید':'بدون', 'سازید':'بساز',
+    'می‌سنجد':'می‌سنجه', 'نمی‌سنجد':'نمی‌سنجه', 'می‌سنجند':'می‌سنجن',
+    'می‌برد':'می‌بره', 'نمی‌برد':'نمی‌بره', 'می‌برند':'می‌برن',
+    'نمی‌سازد':'نمی‌سازه', 'می‌اندازد':'می‌ندازه', 'می‌پرسد':'می‌پرسه',
+    'می‌آزماید':'آزمایش می‌کنه', 'نمی‌گوید':'نمی‌گه', 'می‌دارد':'می‌داره',
+    'می‌زند':'می‌زنه', 'می‌پذیرد':'می‌پذیره', 'نمی‌بیند':'نمی‌بینه',
+    'می‌رساند':'می‌رسونه', 'می‌خرد':'می‌خره', 'می‌کشد':'می‌کشه',
+    'می‌افتد':'می‌افته', 'نمی‌آورد':'نمیاره', 'نمی‌آید':'نمیاد',
+    'می‌پوشاند':'می‌پوشونه', 'می‌فروشد':'می‌فروشه', 'می‌بندد':'می‌بنده',
+})
 TOKEN = re.compile(r'(?<![\w\u200c])(' + '|'.join(map(re.escape, sorted(WORDS,key=len,reverse=True))) + r')(?![\w\u200c])')
 PERFECT = re.compile(r'(?<![آ-ی\u200c])(شده|کرده|داده|گرفته|رفته|داشته|بوده|آمده|نوشته) است(?![آ-ی\u200c])')
 COPULA = re.compile(r'(?<![آ-ی\u200c])([آ-ی][آ-ی\u200c]+) است(?![آ-ی\u200c])')
@@ -67,6 +79,10 @@ def _segment(t):
     t=TOKEN.sub(lambda m:WORDS[m[0]],t)
     t=t.replace(' — ','؛ ').replace(' – ','؛ ')
     return t
+
+def has_arabic_letters(text):
+    # Decimal separators and Arabic digits are not evidence of RTL prose.
+    return any('\u0600' <= char <= '\u06ff' and char.isalpha() for char in str(text))
 
 def voice(t):
     if not isinstance(t,str) or not re.search('[آ-ی]',t):return t

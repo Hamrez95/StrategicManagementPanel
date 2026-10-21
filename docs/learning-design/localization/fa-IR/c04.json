@@ -2,7 +2,8 @@
   "locale": "fa-IR",
   "documents": {
     "content/c04/lessons/C04-ST01-L01.json": {
-      "source_revision": "bc2994d9a02136e824ff7c47a1ce5baa009f955c01b8da238bb201d39f66bb62",
+      "source_revision": "8c4b7fc3ad4b8cde6706a6b08d5bd212f035ad8e4f4476909b694246e6e3dac6",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -111,8 +112,8 @@
         },
         "/learning_cards/C04-ST01-L01-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "یک مدیر منابع انسانی خدمت یادگیری سپهر رو می‌خرد، اما کارمند از اون استفاده می‌کنه. مدیر ممکنه به گزارش‌پذیری نیاز داشته باشه و کارمند به تمرین کوتاه. اگر فقط با خریدار گفت‌وگو کنیم، اصطکاک استفاده رو از دست می‌دهیم. مثال فرضیه.",
-          "source_hash": "318f4b20ac81807d10d232ebe6af98799b477081a177059fb73f917531d0f2cb"
+          "text": "یک مدیر منابع انسانی خدمت یادگیری سپهر رو می‌خره، اما کارمند از اون استفاده می‌کنه. مدیر ممکنه به گزارش‌پذیری نیاز داشته باشه و کارمند به تمرین کوتاه. اگر فقط با خریدار گفت‌وگو کنیم، اصطکاک استفاده رو از دست می‌دهیم. مثال فرضیه.",
+          "source_hash": "01a6298c48cbe47f55ff303853c15b1d5d28d81e559ab3d21387c1bc08ed12c1"
         },
         "/learning_cards/C04-ST01-L01-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -196,8 +197,8 @@
         },
         "/questions/C04-ST01-L01-Q01/prompt": {
           "pointer": "/questions/0/prompt",
-          "text": "سازمان یک دوره رو می‌خرد و کارکنان از اون استفاده می‌کنن. چه باید جدا بشه؟",
-          "source_hash": "306df85b78087dd55cca86c393ef6a46eadd765aa26ef73149eeb4b9e6aa665f"
+          "text": "سازمان یک دوره رو می‌خره و کارکنان از اون استفاده می‌کنن. چه باید جدا بشه؟",
+          "source_hash": "472280ab5035d5e1687a0bac18586635cca3bdd5d89b1729f68ba32dfbcc4a89"
         },
         "/questions/C04-ST01-L01-Q01/options/a/text": {
           "pointer": "/questions/0/options/0/text",
@@ -216,8 +217,8 @@
         },
         "/questions/C04-ST01-L01-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
-          "text": "قیمت و هزینه مهم‌اند، اما سؤال نقش‌های متفاوت در خرید سازمانی رو می‌سنجد.",
-          "source_hash": "57d463e3bc748b744a636c11e43406f66cb187a00f06373cf5a7e56e1936d0fe"
+          "text": "قیمت و هزینه مهم‌اند، اما سؤال نقش‌های متفاوت در خرید سازمانی رو می‌سنجه.",
+          "source_hash": "368daf3c09786ef088d40a92780b63f393fe5cb724582d603f5b779fa18a20fe"
         },
         "/questions/C04-ST01-L01-Q01/options/c/text": {
           "pointer": "/questions/0/options/2/text",
@@ -376,8 +377,8 @@
         },
         "/questions/C04-ST01-L01-Q05/options/b/feedback": {
           "pointer": "/questions/4/options/1/feedback",
-          "text": "نام کمپین پاسخ نمی‌ده مشتری چه مسئله‌ای داره یا امروز چه جایگزینی به کار می‌برد.",
-          "source_hash": "776d4e9789b617b2925b2ef29a6a067e2e8294d064d655016c4de1e04c5fcb2a"
+          "text": "نام کمپین پاسخ نمی‌ده مشتری چه مسئله‌ای داره یا امروز چه جایگزینی به کار می‌بره.",
+          "source_hash": "65528be38c599bbf09e10be15d96eea4cd28b5dec0f7ac6edab85c726bd02c6c"
         },
         "/questions/C04-ST01-L01-Q05/options/c/text": {
           "pointer": "/questions/4/options/2/text",
@@ -398,6 +399,11 @@
           "pointer": "/practice_activity/prompt",
           "text": "فهرست نقش خریدار/کاربر و مسئلهٔ هرکدام رو برای یک خدمت انتخابی بساز.",
           "source_hash": "958266adc49cc98d81dc2ee1023de3a52b02ca68240e64e3c452b07fd58d6588"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پاسخ کاربردی",
+          "source_hash": "a3e2b4e8de0be8a465b70d6e410f11ffc6ade3b7f4cc44f7a22426c2315fd25e"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -433,11 +439,17 @@
           "pointer": "/media_plan/assets/0/caption",
           "text": "نقش و مسئلهٔ هر مشارکت‌کننده رو پیش از طراحی پیشنهاد جداگانه ثبت کن.",
           "source_hash": "8a35ca070216b9beb12d75df8e68609acd71aeedd6b20d4195a582c053010430"
+        },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "مدیر منابع انسانی ممکنه تصمیم‌گیر و خریدار سازمانی باشه، شرکت پرداخت کنه و کارمند استفاده‌کننده باشه. مدیر به گزارش‌پذیری و کارمند به تمرین کوتاه نیاز داره. این نقش‌ها در سناریوی فرضی سپهر ممکنه در یک نفر هم جمع بشن.",
+          "source_hash": "2b9fec95975783a57a8356411fd3afe3c754497ade0e15f56b09ac181d2508f9"
         }
       }
     },
     "content/c04/lessons/C04-ST01-L02.json": {
-      "source_revision": "4c724e41f36b995b9a37ef45861ee3c494d8f53471694081170068d6c0968d8d",
+      "source_revision": "46b223f864a4994bfac4a8f0027546074ab5e0fd27c5eb7f554d36c520341238",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -774,6 +786,11 @@
           "text": "راهنمای ۵ پرسشی برای فهم تجربهٔ اخیر مشتری بنویس و سؤال‌های القایی رو حذف کن.",
           "source_hash": "55e6ad60ffd7fc6c341a88f7f1380c925707bf34ea2d4d5deaf218d897803f5c"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پاسخ کاربردی",
+          "source_hash": "a3e2b4e8de0be8a465b70d6e410f11ffc6ade3b7f4cc44f7a22426c2315fd25e"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید نقش‌ها/شاهدها رو از فرض و راه‌حل جدا کنه و اقدام آزمون‌پذیر داشته باشه.",
@@ -797,7 +814,8 @@
       }
     },
     "content/c04/lessons/C04-ST01-L03.json": {
-      "source_revision": "d63ea43723cb29859b00ac279329f4ba63bc7b2a19f1204390e0456d196dd35a",
+      "source_revision": "e2175e2674ccdb5f758e15a5e764199a25afe12a8bb2c9f61a75558d3410ff3c",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -866,8 +884,8 @@
         },
         "/learning_cards/C04-ST01-L03-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "پژوهش یک چرخهٔ یادگیریه: فرضیه، روش، نمونه، جمع‌آوری و تحلیل. خروجی گزارش باید محدودیت رو نشان بده. کمی‌سازی مصاحبه بدون طرح نمونه/تعریف متغیر، عدد علمی نمی‌سازد.",
-          "source_hash": "587396a90761598544481a7910557d577a177d5cfa58b9d5b619c99a76980233"
+          "text": "پژوهش یک چرخهٔ یادگیریه: فرضیه، روش، نمونه، جمع‌آوری و تحلیل. خروجی گزارش باید محدودیت رو نشان بده. کمی‌سازی مصاحبه بدون طرح نمونه/تعریف متغیر، عدد علمی نمی‌سازه.",
+          "source_hash": "662f28365db4ad03e1a7182ed3d65d08c6ccf50245aa77407a167e092490f899"
         },
         "/learning_cards/C04-ST01-L03-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -966,8 +984,8 @@
         },
         "/questions/C04-ST01-L03-Q01/options/c/text": {
           "pointer": "/questions/0/options/2/text",
-          "text": "بازار قطعاً ابزار می‌خرد",
-          "source_hash": "70559e853196aeb5c4ab76a4a4d238ed8a4ba7954c550f90007c65d97367f2dc"
+          "text": "بازار قطعاً ابزار می‌خره",
+          "source_hash": "02ee6e1230d8d5c7b7a9c1f26984fd61c100eb01e7bc5f7d4d799e17d7979b1e"
         },
         "/questions/C04-ST01-L03-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -1011,8 +1029,8 @@
         },
         "/questions/C04-ST01-L03-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/2/feedback",
-          "text": "عدد بدون تعریف متغیر و مشاهده، آزمون روشن نمی‌سازد.",
-          "source_hash": "2673a1c4bbd0935d8af67e05840ab0291a58a3f677c1aa61abaf41fe772d9032"
+          "text": "عدد بدون تعریف متغیر و مشاهده، آزمون روشن نمی‌سازه.",
+          "source_hash": "9d2f3391cd889ee613a82777132fcd144ed99cb20e2ec6e212b9e74d5a3618c2"
         },
         "/questions/C04-ST01-L03-Q02/explanation": {
           "pointer": "/questions/1/explanation",
@@ -1081,8 +1099,8 @@
         },
         "/questions/C04-ST01-L03-Q04/options/b/feedback": {
           "pointer": "/questions/3/options/1/feedback",
-          "text": "قرار دادن برداشت درون نقل‌قول، تفسیر رو به‌جای گفتهٔ خام جا می‌زند.",
-          "source_hash": "9aed58898a33efd4810a5a04353cf190e4e7b8c277499c5425d0bbd2b589912c"
+          "text": "قرار دادن برداشت درون نقل‌قول، تفسیر رو به‌جای گفتهٔ خام جا می‌زنه.",
+          "source_hash": "c1bb813aec6155cb5f0039702e6149c8999e100b7bcd986e779ac42f9a2851d4"
         },
         "/questions/C04-ST01-L03-Q04/options/c/text": {
           "pointer": "/questions/3/options/2/text",
@@ -1141,8 +1159,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "سه مشاهده رو در ستون‌های شاهد، تفسیر، فرضیهٔ ردشدنی و آزمون بعدی قرار دهید.",
-          "source_hash": "e217f0057c0d637a2bc16a2f9c299fd0dae996f4fb4e65013022e0b4057448ee"
+          "text": "سه مشاهده رو در ستون‌های شاهد، تفسیر، فرضیهٔ ردشدنی و آزمون بعدی قرار بده.",
+          "source_hash": "043517d6e4b7c60043788518820a397f871778c63ab758b4926605419a3d1910"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پاسخ کاربردی",
+          "source_hash": "a3e2b4e8de0be8a465b70d6e410f11ffc6ade3b7f4cc44f7a22426c2315fd25e"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -1167,7 +1190,8 @@
       }
     },
     "content/c04/lessons/C04-ST01-L04.json": {
-      "source_revision": "652bf5a6d4dfb0aecb7a2938218fc675950554d493d41d6c844750b7e14c644b",
+      "source_revision": "27ce85d6b06be14953811affb167c194be668dab4aecdb511489c126a2bc4bdf",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1371,8 +1395,8 @@
         },
         "/questions/C04-ST01-L04-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/2/feedback",
-          "text": "مدل اندازهٔ بازار یا نرخ تبدیل واقعی رو نمی‌سنجد.",
-          "source_hash": "83f0f148601e627a06488d87508be23a95cbf02e5a90bc23862ead347ff726f0"
+          "text": "مدل اندازهٔ بازار یا نرخ تبدیل واقعی رو نمی‌سنجه.",
+          "source_hash": "6d17d61ecdf8b750356322ca59ed78133e56995b58740f6050832629a6eb79de"
         },
         "/questions/C04-ST01-L04-Q02/explanation": {
           "pointer": "/questions/1/explanation",
@@ -1491,8 +1515,8 @@
         },
         "/questions/C04-ST01-L04-Q05/options/c/feedback": {
           "pointer": "/questions/4/options/2/feedback",
-          "text": "پرسونای خیالی نمونهٔ بازار به حساب نمی‌آید.",
-          "source_hash": "a3c287adca8343e25a23d8094bce8ececeb8899a726198901faa46b24909d787"
+          "text": "پرسونای خیالی نمونهٔ بازار به حساب نمیاد.",
+          "source_hash": "686075f6e08f445af932aa6a5c95da02936a7d905d974006227bb0f6b7b39d54"
         },
         "/questions/C04-ST01-L04-Q05/explanation": {
           "pointer": "/questions/4/explanation",
@@ -1503,6 +1527,11 @@
           "pointer": "/practice_activity/prompt",
           "text": "پرسونای AI بساز؛ دو ادعای اون رو به روش آزمون با مشتری واقعی و یک محدودیت مرتبط کن.",
           "source_hash": "06704685c77ea95346da829b632c145352b09a9c297601888c7b86ccfd715b60"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "پاسخ کاربردی",
+          "source_hash": "a3e2b4e8de0be8a465b70d6e410f11ffc6ade3b7f4cc44f7a22426c2315fd25e"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -1528,6 +1557,7 @@
     },
     "content/c04/lessons/C04-ST02-L01.json": {
       "source_revision": "5047d04e4c624469250bf3f2326b63e554bb754616780d121cd15d2f31a6d409",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1894,6 +1924,11 @@
           "text": "برای یک محصول یا خدمت انتخابی، دو بخش احتمالی رو با نیاز/موقعیت یا رفتار تعریف کن. برای هرکدام قاعدهٔ شناسایی، شاهد موجود، یک دادهٔ مفقود و بررسی پنج‌گانهٔ ADAMS رو بنویس؛ یک ویژگی حساس رو که نباید بی‌دلیل مبنای هدف‌گیری بشه هم مشخص کن.",
           "source_hash": "c09ac45ca7eb9378fef0665c1f3ad24acbd9923810b0b331e64b5100b0f6a8c0"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ نمونه باید دو گروه رو با موقعیت و نیاز قابل مشاهده تعریف کنه، صرفاً به سن/نام نقش تکیه نکند، دسترسی و اندازه رو با بازه یا منبع شفاف ثبت کنه و توضیح بده چه تصمیمی برای هر گروه فرق می‌کنه.",
@@ -1917,7 +1952,8 @@
       }
     },
     "content/c04/lessons/C04-ST02-L02.json": {
-      "source_revision": "8e84c4dac991fb59671fedfec42a75644d0587765967e130fc2a89b3656b47d0",
+      "source_revision": "1f1db4a84cacc405ab21ca7ff2115c417fe061e30d403249b462eb8201cf82f7",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1936,8 +1972,8 @@
         },
         "/learning_cards/C04-ST02-L02-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "پس از شناسایی چند بخش، وسوسه می‌شویم هرکدام رو که بزرگ‌تر به نظر می‌رسه هدف بگیریم. اندازهٔ بازار به تنهایی نمی‌گوید شرکت می‌تونه اون رو برنده بشه: باید نیاز رو خدمت بده، قابل دسترسی باشه و هزینه و ریسک رو تاب بیاورد.",
-          "source_hash": "7ef5302bddbd62eb2d3024cba00f3f1d4845b4c55f9d54ad8a8dd6a94aaafc33"
+          "text": "پس از شناسایی چند بخش، وسوسه می‌شویم هرکدام رو که بزرگ‌تر به نظر می‌رسه هدف بگیریم. اندازهٔ بازار به تنهایی نمی‌گه شرکت می‌تونه اون رو برنده بشه: باید نیاز رو خدمت بده، قابل دسترسی باشه و هزینه و ریسک رو تاب بیاورد.",
+          "source_hash": "89587a3809d167bb3edfb4df97bd7f796fac58e9fffd69317d3c92f3054c0d08"
         },
         "/learning_cards/C04-ST02-L02-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -1966,8 +2002,8 @@
         },
         "/learning_cards/C04-ST02-L02-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "سپهر دو بازار رو می‌سنجد: مدیران تازه‌منصوب و برنامه‌های سازمانی منابع انسانی. یک نسخهٔ اولیهٔ ماتریس با امتیاز ۱ تا ۵ می‌تونه نشان بده کدام فرضیه به بررسی نیاز داره؛ امتیازها رو با شاهد و وزن توضیح می‌دهیم، نه اینکه ۴٫۲ رو پیش‌بینی دقیق سود بدانیم. بازار سازمانی شاید درآمد قراردادی بزرگ‌تری داشته باشه اما چرخهٔ فروش، سفارشی‌سازی و زمان استقرار هم طولانی‌تر باشه.",
-          "source_hash": "b2df9992569dd5e2e1e1dd1a053a9ac7ee23e287810046c0ac21f334b160ba59"
+          "text": "سپهر دو بازار رو می‌سنجه: مدیران تازه‌منصوب و برنامه‌های سازمانی منابع انسانی. یک نسخهٔ اولیهٔ ماتریس با امتیاز ۱ تا ۵ می‌تونه نشان بده کدام فرضیه به بررسی نیاز داره؛ امتیازها رو با شاهد و وزن توضیح می‌دهیم، نه اینکه ۴٫۲ رو پیش‌بینی دقیق سود بدانیم. بازار سازمانی شاید درآمد قراردادی بزرگ‌تری داشته باشه اما چرخهٔ فروش، سفارشی‌سازی و زمان استقرار هم طولانی‌تر باشه.",
+          "source_hash": "a487b8e0e69d3cae400151a9bce85facb1d38236091239a7a2061ab524a02d93"
         },
         "/learning_cards/C04-ST02-L02-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -1986,8 +2022,8 @@
         },
         "/learning_cards/C04-ST02-L02-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "بازاریابی نامتمایز یک پیشنهاد کلی رو برای بازار گسترده به کار می‌برد؛ متمایز چند بخش رو با پیشنهادهای جدا خدمت می‌ده؛ متمرکز بر یک بخش یا niche متمرکز می‌شه؛ خردبازاریابی پیشنهاد رو برای گروه‌های بسیار کوچک یا افراد سازگار می‌کنه. هرچه شخصی‌سازی بیشتر بشه، نیاز داده و توان اجرا و نیز خطر آسیب به حریم خصوصی بیشتر می‌شه.",
-          "source_hash": "c52c72fc31525c686cd82d9579e4e8559f203c1bdbb80b76649d646a7ea2b986"
+          "text": "بازاریابی نامتمایز یک پیشنهاد کلی رو برای بازار گسترده به کار می‌بره؛ متمایز چند بخش رو با پیشنهادهای جدا خدمت می‌ده؛ متمرکز بر یک بخش یا niche متمرکز می‌شه؛ خردبازاریابی پیشنهاد رو برای گروه‌های بسیار کوچک یا افراد سازگار می‌کنه. هرچه شخصی‌سازی بیشتر بشه، نیاز داده و توان اجرا و نیز خطر آسیب به حریم خصوصی بیشتر می‌شه.",
+          "source_hash": "e8194ddfcb27eaa64ccf71280ca92aa30543ea491db74c88c6f3fb3df090a898"
         },
         "/learning_cards/C04-ST02-L02-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -2299,6 +2335,11 @@
           "text": "برای دو بخش تمرینی، ماتریس انتخابی با چهار معیار بساز: اندازه/روند، رقابت و هزینهٔ جذب، تناسب با توان شرکت و ریسک اخلاقی. برای هر نمره یک شاهد یا برچسب «فرض» بذار؛ بعد تصمیم رو به صورت هدف‌گیری، آزمایش کوچک یا تعویق و معیار بازنگری بنویس.",
           "source_hash": "c0e59ef5f1d947b4be9e36382165ed919f565ae62e3cbbaeebe4620d71d1b3b9"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ خوب نشان می‌ده انتخاب تنها از اندازهٔ TAM نیامده، تفاوت جذابیت بیرونی با تناسب درونی رو می‌شناسد و برای عدم‌قطعیت، آزمایش و نقطهٔ بازنگری داره.",
@@ -2322,7 +2363,8 @@
       }
     },
     "content/c04/lessons/C04-ST02-L03.json": {
-      "source_revision": "463a5c8d2825054425ca2a50d37f7bd45b2922b51e82d3a392842d3e13b84649",
+      "source_revision": "dd2342811b20683d60c2d5eba533e3f45762bdf1fafe04b5292e0990aed77f04",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2391,8 +2433,8 @@
         },
         "/learning_cards/C04-ST02-L03-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "نقشهٔ ادراکی دو بُعد مهم از نگاه مشتری رو نمایش می‌ده؛ مانند «تمرین عملی تا محتوای نظری» و «کم‌هزینه تا همراهی نزدیک». محور باید از دادهٔ مشتری و انتخاب معیارهای مهم به دست آید. جای نقطه‌ها تخمینه، نه مشخصهٔ فنی قطعی. نقشه می‌تونه شکاف ادراک رو نشان بده، اما اندازهٔ تقاضا یا سود رو به تنهایی نمی‌گوید.",
-          "source_hash": "b46d996f6690382cb4bd7505d81ac22488ec5b8732db86ee7a0ee31411693524"
+          "text": "نقشهٔ ادراکی دو بُعد مهم از نگاه مشتری رو نمایش می‌ده؛ مانند «تمرین عملی تا محتوای نظری» و «کم‌هزینه تا همراهی نزدیک». محور باید از دادهٔ مشتری و انتخاب معیارهای مهم به دست آید. جای نقطه‌ها تخمینه، نه مشخصهٔ فنی قطعی. نقشه می‌تونه شکاف ادراک رو نشان بده، اما اندازهٔ تقاضا یا سود رو به تنهایی نمی‌گه.",
+          "source_hash": "f04692d722d9ec0436ba8938b1cc29f12f8708b5024056289750e70bc667c5f5"
         },
         "/learning_cards/C04-ST02-L03-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -2576,8 +2618,8 @@
         },
         "/questions/C04-ST02-L03-Q02/explanation": {
           "pointer": "/questions/1/explanation",
-          "text": "صفت کلی به مشتری نمی‌گوید برای چه نیازی، نسبت به کدام گزینه و با چه شواهدی بهتره.",
-          "source_hash": "c5c38184520517e2b2aa7b18a76be2326731d31f802a77607ae0e863c0f8e95f"
+          "text": "صفت کلی به مشتری نمی‌گه برای چه نیازی، نسبت به کدام گزینه و با چه شواهدی بهتره.",
+          "source_hash": "26f60b2d0ab38a262f976861677cd93e34eab4eca0c3a630e52d265033705bba"
         },
         "/questions/C04-ST02-L03-Q03/prompt": {
           "pointer": "/questions/2/prompt",
@@ -2701,8 +2743,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای خدمت منتخب خود یک بیانیهٔ جایگاه چهارقسمتی بنویس: بخش/موقعیت، دستهٔ مقایسه، منفعت مهم، دلیل باور. سه جایگزین واقعی مشتری از جمله حفظ روش فعلی فهرست کن و دو محور نقشهٔ ادراکی رو با منبع دادهٔ لازم پیشنهاد دهید.",
-          "source_hash": "1a7b60b49bd168d2bb8d7ee88ea1602288c2b470922711ab7b634547c3b7bbfb"
+          "text": "برای خدمت منتخب خود یک بیانیهٔ جایگاه چهارقسمتی بنویس: بخش/موقعیت، دستهٔ مقایسه، منفعت مهم، دلیل باور. سه جایگزین واقعی مشتری از جمله حفظ روش فعلی فهرست کن و دو محور نقشهٔ ادراکی رو با منبع دادهٔ لازم پیشنهاد بده.",
+          "source_hash": "9f546e40ae2c2aab771d3b373207f001d0bfbffe0e9f1aaa53ac591d9593f0c3"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -2727,7 +2774,8 @@
       }
     },
     "content/c04/lessons/C04-ST02-L04.json": {
-      "source_revision": "ac6e423c18b1be2cdc323c945db487ea2170e415a3336d6b8ff789e4b55854e9",
+      "source_revision": "9a2b8d72d4877529415077b3b33d7252fdb9d2c2e09eff8865c0d19c0f38c197",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2796,8 +2844,8 @@
         },
         "/learning_cards/C04-ST02-L04-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "مدل می‌تونه متن بازخورد رو خلاصه کنه، شباهت واژگان رو بیابد یا برای دسته‌بندی اولیه پیشنهاد بسازه. خطای نمونه، حذف گروه کم‌نماینده، سوگیری تاریخی و تغییر رفتار در زمان ممکنه نتیجه رو منحرف کنن. مطالعهٔ Li, Liu و Yu (۲۰۲۵) یک workflow مشخص بخش‌بندی مصرف‌کننده با دادهٔ نظرسنجی و مدل زبانی رو می‌آزماید؛ نتیجهٔ همان طرح رو نمی‌شه تضمین عمومی یا دلیل جایگزینی مصاحبه و آزمون انسانی دانست. پژوهش Nature Human Behaviour در ۲۰۲۶ نیز نشان می‌ده پاسخ‌های LLM در مطالعهٔ ترجیحات اقتصادی میان ۷۴ کشور proxy ضعیفی برای پاسخ انسان بوده‌اند؛ این هشدار محدود به قلمرو مطالعه‌ست.",
-          "source_hash": "176c6ecdd3b3370870c12c6026780a5751fac574a637658a491a17b07bafb9d7"
+          "text": "مدل می‌تونه متن بازخورد رو خلاصه کنه، شباهت واژگان رو بیابد یا برای دسته‌بندی اولیه پیشنهاد بسازه. خطای نمونه، حذف گروه کم‌نماینده، سوگیری تاریخی و تغییر رفتار در زمان ممکنه نتیجه رو منحرف کنن. مطالعهٔ Li, Liu و Yu (۲۰۲۵) یک workflow مشخص بخش‌بندی مصرف‌کننده با دادهٔ نظرسنجی و مدل زبانی رو آزمایش می‌کنه؛ نتیجهٔ همان طرح رو نمی‌شه تضمین عمومی یا دلیل جایگزینی مصاحبه و آزمون انسانی دانست. پژوهش Nature Human Behaviour در ۲۰۲۶ نیز نشان می‌ده پاسخ‌های LLM در مطالعهٔ ترجیحات اقتصادی میان ۷۴ کشور proxy ضعیفی برای پاسخ انسان بوده‌اند؛ این هشدار محدود به قلمرو مطالعه‌ست.",
+          "source_hash": "1ee81faa907bcf27da1cd7d7575582f8959aad2ba47caa818be96c454be97826"
         },
         "/learning_cards/C04-ST02-L04-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -2806,8 +2854,8 @@
         },
         "/learning_cards/C04-ST02-L04-CARD07/text": {
           "pointer": "/learning_cards/6/text",
-          "text": "اعتبار سازه (Construct validity): آیا شاخص همان مفهومی رو می‌سنجد که ادعا می‌کنیم؟؛ خط پایه (Baseline): وضعیت پیش از اقدام؛ شاخص زیان (Harm metric): پیامدی که نمی‌خواهیم قربانی رشد بشه؛ نمایندگی نمونه (Sample representativeness): میزان بازتاب گروه مورد نظر؛ آزمون بیرونی (External validation): سنجش روی داده/بازهٔ جدا؛ خطای بخش‌بندی: قرارگرفتن مشتری در گروه نامرتبط.",
-          "source_hash": "71bb0a8131bf46e262f9f461973279dc64d0d53e5c455309c5c8c37287da6a31"
+          "text": "اعتبار سازه (Construct validity): آیا شاخص همان مفهومی رو می‌سنجه که ادعا می‌کنیم؟؛ خط پایه (Baseline): وضعیت پیش از اقدام؛ شاخص زیان (Harm metric): پیامدی که نمی‌خواهیم قربانی رشد بشه؛ نمایندگی نمونه (Sample representativeness): میزان بازتاب گروه مورد نظر؛ آزمون بیرونی (External validation): سنجش روی داده/بازهٔ جدا؛ خطای بخش‌بندی: قرارگرفتن مشتری در گروه نامرتبط.",
+          "source_hash": "b59948137330e8044d1746ad4b17152a9220f507f35e421b2760da064272d788"
         },
         "/learning_cards/C04-ST02-L04-CARD08/title": {
           "pointer": "/learning_cards/7/title",
@@ -3109,6 +3157,11 @@
           "text": "ادعای تمایز یک پیشنهاد رو انتخاب کن. اون رو به فرضیهٔ «برای چه کسی/کدام موقعیت/در برابر چه گزینه‌ای/چه نتیجه‌ای/در چه بازه‌ای» تبدیل کن. یک شاخص اصلی، یک شاخص زیان، روش مقایسه، گروهی که احتمال کم‌نمایی داره و محدودیت تعمیم رو ثبت کن. اگر AI در تحلیل به کار می‌ره، بنویس چه چیزی رو انسان مستقل بازبینی می‌کنه.",
           "source_hash": "ae8d94883c9b335a1bf879efc6e394df27ea060b1af995b733e39516e11eb25e"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ کامل فرضیهٔ ابطال‌پذیر، مقایسهٔ قابل دفاع، معیار زیان و برنامهٔ سنجش کیفیت نمونه رو مشخص می‌کنه و خروجی AI رو پیشنهادِ نیازمند اعتبارسنجی می‌دونه.",
@@ -3132,7 +3185,8 @@
       }
     },
     "content/c04/lessons/C04-ST03-L01.json": {
-      "source_revision": "30a3b4187a8ce4c92a5e54ffcc30881c5933cf0306d7f630bad1cfb5ed8fa5ae",
+      "source_revision": "6f2914115d0e0a4a2c73af6d776224f64e57816ea0ec57e5bf4602e227e4b5c2",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3361,8 +3415,8 @@
         },
         "/questions/C04-ST03-L01-Q03/options/b/text": {
           "pointer": "/questions/2/options/1/text",
-          "text": "چون مشتری صفحه رو نمی‌بیند",
-          "source_hash": "851728796c5de8a46a20a3072d0fcd1b2aa5ed8912b48feeca0c79def6365a3e"
+          "text": "چون مشتری صفحه رو نمی‌بینه",
+          "source_hash": "10f7c65aea43bf2120e56bbba3720177b1dd12a8ecc5f9af995c81ee12cf60e4"
         },
         "/questions/C04-ST03-L01-Q03/options/b/feedback": {
           "pointer": "/questions/2/options/1/feedback",
@@ -3386,8 +3440,8 @@
         },
         "/questions/C04-ST03-L01-Q04/prompt": {
           "pointer": "/questions/3/prompt",
-          "text": "سپهر وعدهٔ پیشرفت عملی می‌ده اما فقط ویدیو می‌فروشد؛ چه باید بسنجه؟",
-          "source_hash": "578fa63da86a68b7050e617194b65c8db7a30b33bacd0439e0e2dee1b6781208"
+          "text": "سپهر وعدهٔ پیشرفت عملی می‌ده اما فقط ویدیو می‌فروشه؛ چه باید بسنجه؟",
+          "source_hash": "c3e3a6d6632ad0c431f3dc88eb714b428cd890597e3c9368bd7f6581da93f36c"
         },
         "/questions/C04-ST03-L01-Q04/options/a/text": {
           "pointer": "/questions/3/options/0/text",
@@ -3469,6 +3523,11 @@
           "text": "برای یک خدمت، منفعت هسته‌ای، پیشنهاد واقعی، دو خدمت مکمل و پنج نقطهٔ تماس بنویس؛ برای هر تماس یک مانع و یک شاخص مشاهده‌پذیر پیشنهاد کن.",
           "source_hash": "4c105cf27691755b83b5992aff38b1a15d3337a1a5fe35ef0a382ddb48229c03"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ منفعت رو از ویژگی جدا می‌کنه و برای هر وعده نشان می‌ده چه جزء واقعی اون رو تحویل می‌ده.",
@@ -3492,7 +3551,8 @@
       }
     },
     "content/c04/lessons/C04-ST03-L02.json": {
-      "source_revision": "5dd60998b9afcbdb2fdd909f05526a872951f57fdeef1f1d765d5612c5c1efe9",
+      "source_revision": "0d448af313119320eaf21090106ae7db15d071c2140f3d4dcd16cb5ba74d23bd",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3506,8 +3566,8 @@
         },
         "/learning_cards/C04-ST03-L02-CARD01/title": {
           "pointer": "/learning_cards/0/title",
-          "text": "تخفیف فروش رو بالا می‌برد؛ سود رو لزوماً نه",
-          "source_hash": "9d98f68441da45e8fe980ce2bf8956c5687160a3f120e7039e6e035cd5657379"
+          "text": "تخفیف فروش رو بالا می‌بره؛ سود رو لزوماً نه",
+          "source_hash": "12548fa076a6ec94289c58576c5328e6ac3fbc46444a6a4e63a53239965a757d"
         },
         "/learning_cards/C04-ST03-L02-CARD01/text": {
           "pointer": "/learning_cards/0/text",
@@ -3634,50 +3694,25 @@
           "text": "قیمت ۱۰۰ و هزینهٔ متغیر ۶۰؛ حاشیهٔ مشارکت؟",
           "source_hash": "6c80ae709f1d7fe9e90ede6811216a51acd898b130fab346df8a614e1157d582"
         },
-        "/questions/C04-ST03-L02-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "۴۰",
-          "source_hash": "e1e4b7835750864774b5896c6a765bcec6707a7bed6060af830c237f8b3fb4cc"
-        },
         "/questions/C04-ST03-L02-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
           "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
-        },
-        "/questions/C04-ST03-L02-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "۶۰",
-          "source_hash": "7a9d132a259bb467f7354a35d9c9e9e0bd498718c91f5d061ad1517b201f161e"
         },
         "/questions/C04-ST03-L02-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
           "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
         },
-        "/questions/C04-ST03-L02-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "۱۰۰",
-          "source_hash": "5e843d61ce8aca7502077c0ed464d3f928e13ef536b67b5cd8b937e3110f5a42"
-        },
         "/questions/C04-ST03-L02-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
           "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
           "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
         },
-        "/questions/C04-ST03-L02-Q01/explanation": {
-          "pointer": "/questions/0/explanation",
-          "text": "۱۰۰−۶۰=۴۰.",
-          "source_hash": "d8564f5b1d32dcbc6ef49286afa0d42d95c5e9f47e602d8a98f9e621e78a5d36"
-        },
         "/questions/C04-ST03-L02-Q02/prompt": {
           "pointer": "/questions/1/prompt",
           "text": "حاشیه از ۴۰ به ۳۰ افت کرده؛ برای حفظ حاشیهٔ کل چه رشد حجمی لازمه؟",
           "source_hash": "6c08dcc54dc56e18b1b72ffe0d2d777dcd8e44d1835cc6d95457c2eda2c40f7b"
-        },
-        "/questions/C04-ST03-L02-Q02/options/a/text": {
-          "pointer": "/questions/1/options/0/text",
-          "text": "۱۰٪",
-          "source_hash": "f2378c9c4abae1481c559975bd7139c62d2053278b098a0e0a90a381619499ab"
         },
         "/questions/C04-ST03-L02-Q02/options/a/feedback": {
           "pointer": "/questions/1/options/0/feedback",
@@ -3693,11 +3728,6 @@
           "pointer": "/questions/1/options/1/feedback",
           "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
           "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
-        },
-        "/questions/C04-ST03-L02-Q02/options/c/text": {
-          "pointer": "/questions/1/options/2/text",
-          "text": "۴۰٪",
-          "source_hash": "7693d670837d327033e8fbe1e7b17a96a6762893c282f18f12d1568aede1bbc1"
         },
         "/questions/C04-ST03-L02-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/2/feedback",
@@ -3746,8 +3776,8 @@
         },
         "/questions/C04-ST03-L02-Q03/explanation": {
           "pointer": "/questions/2/explanation",
-          "text": "سیاست کامل هدف، تقاضا، هزینه و محیط رو پیش از تاکتیک می‌سنجد.",
-          "source_hash": "16d7d65914cfc9818327b2a96913392629bc8e640816c62600ab9e20236395ad"
+          "text": "سیاست کامل هدف، تقاضا، هزینه و محیط رو پیش از تاکتیک می‌سنجه.",
+          "source_hash": "e08fa6c3452d26e9b68bca199ad52dce9ae09d0b06f624648e1fb9eef694bb10"
         },
         "/questions/C04-ST03-L02-Q04/prompt": {
           "pointer": "/questions/3/prompt",
@@ -3834,6 +3864,11 @@
           "text": "یک قیمت و تخفیف برای پیشنهاد فرضی تعیین کن. هزینهٔ متغیر، حاشیهٔ قبل و بعد و حجم لازم برای جبران رو محاسبه کن؛ هدف و شاخص اعتماد یا لغو رو نیز مشخص کن.",
           "source_hash": "f2c1b1b6eec34622c3b8ec3c87aec194048190a7540268b85778fb3105a0b6b0"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "واحد و دوره ثابت باشن؛ حاشیه و حجم لازم درست محاسبه بشه و فرض‌ها با نتیجهٔ واقعی اشتباه نشوند.",
@@ -3857,7 +3892,8 @@
       }
     },
     "content/c04/lessons/C04-ST03-L03.json": {
-      "source_revision": "395f670e1dbb9f4cdc7c55f883f60768424432c77f985774822367644aca74e0",
+      "source_revision": "1d643c4ec112563d4a6e014f167ad86123a7de67c2adfff329127b1716b890bd",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3886,8 +3922,8 @@
         },
         "/learning_cards/C04-ST03-L03-CARD02/text": {
           "pointer": "/learning_cards/1/text",
-          "text": "در کانال مستقیم شرکت به مشتری می‌فروشد؛ کانال غیرمستقیم یک یا چند واسطه مانند فروشگاه، پلتفرم یا نماینده داره. واسطه ممکنه پوشش، تخصص، اعتبار یا خدمت محلی فراهم کنه؛ در برابر، حاشیه و دسترسی مستقیم به داده کمتر می‌شه.",
-          "source_hash": "b4865e7dce32e98ace821e84f650501dba63a14520ca3f203ffe346e5fa837cc"
+          "text": "در کانال مستقیم شرکت به مشتری می‌فروشه؛ کانال غیرمستقیم یک یا چند واسطه مانند فروشگاه، پلتفرم یا نماینده داره. واسطه ممکنه پوشش، تخصص، اعتبار یا خدمت محلی فراهم کنه؛ در برابر، حاشیه و دسترسی مستقیم به داده کمتر می‌شه.",
+          "source_hash": "b94229f9531fc905ac93789f6ebfb1e56a5247554ea781fea8c01c852c0f3b23"
         },
         "/learning_cards/C04-ST03-L03-CARD03/title": {
           "pointer": "/learning_cards/2/title",
@@ -3916,8 +3952,8 @@
         },
         "/learning_cards/C04-ST03-L03-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "چندکاناله یعنی بیش از یک مسیر فروش یا ارتباط. همه‌کاناله یعنی اطلاعات و تجربه در مسیرها تا حد لازم پیوسته باشه؛ مشتری بتواند از سایت شروع کنه و از پشتیبانی ادامه بده. صرف داشتن وب‌سایت و شبکهٔ اجتماعی تجربهٔ یکپارچه نمی‌سازد.",
-          "source_hash": "fd8a46b29b3bf0bf1aa22e40aa7a21b015b0f7469ea6beccbc94b094c2e8b359"
+          "text": "چندکاناله یعنی بیش از یک مسیر فروش یا ارتباط. همه‌کاناله یعنی اطلاعات و تجربه در مسیرها تا حد لازم پیوسته باشه؛ مشتری بتواند از سایت شروع کنه و از پشتیبانی ادامه بده. صرف داشتن وب‌سایت و شبکهٔ اجتماعی تجربهٔ یکپارچه نمی‌سازه.",
+          "source_hash": "e8bad5e6c6a8ade7acd94811a9941f7c1709d448547ee6c464fa262770085a71"
         },
         "/learning_cards/C04-ST03-L03-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -4224,6 +4260,11 @@
           "text": "برای محصولی مسیر مستقیم و مسیر واسطه‌ای رسم کن. وظایف، هزینه، کیفیت تجربه، داده و تعارض احتمالی رو بنویس و یک مدل مناسب پیشنهاد کن.",
           "source_hash": "b2974dd5a10d45d128dbba810a8b928a1302c239a4b16eafc2d6d7a47f41e0cd"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ وظایف و نقش واسطه رو توضیح می‌ده و قواعد انتساب فروش و حل تعارض رو پیش از اجرا مطرح می‌کنه.",
@@ -4247,7 +4288,8 @@
       }
     },
     "content/c04/lessons/C04-ST03-L04.json": {
-      "source_revision": "646d68d25b2dab2c8958ba7616a43cc1bb3eabc4fe9fccd6a1602fee8b632ca6",
+      "source_revision": "73fa727f3ae8aba19c3960a329ea5c9c988abec86847976510073d04f440d8cb",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4306,8 +4348,8 @@
         },
         "/learning_cards/C04-ST03-L04-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "سیاست سخت می‌تونه خرید رو دشوار کنه یا مشکل کیفیت رو پنهان سازد؛ سیاست بی‌قید هم هزینه و سوءاستفاده رو بالا می‌برد. هزینهٔ برگشت رو کنار اصطکاک مشتری، کیفیت محصول، دلیل بازگشت و خرید مجدد ببین. هدف شناخت و کاهش علت‌های قابل اصلاحه.",
-          "source_hash": "2400c92cd61b027569691f8a72c3d61b4a64cc3edb08ba53dc211413c59fa60a"
+          "text": "سیاست سخت می‌تونه خرید رو دشوار کنه یا مشکل کیفیت رو پنهان سازد؛ سیاست بی‌قید هم هزینه و سوءاستفاده رو بالا می‌بره. هزینهٔ برگشت رو کنار اصطکاک مشتری، کیفیت محصول، دلیل بازگشت و خرید مجدد ببین. هدف شناخت و کاهش علت‌های قابل اصلاحه.",
+          "source_hash": "01737b8444000fbae89ca17c213b6ea72f1f65a3d84bd5329c19ec7741d9d504"
         },
         "/learning_cards/C04-ST03-L04-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -4364,11 +4406,6 @@
           "text": "واحد پول",
           "source_hash": "d96b97816e536a8a72f7b7bf56f88e1fec7eaf7bb4a7ceefe2433bbb216595f0"
         },
-        "/learning_cards/C04-ST03-L04-CARD08/table/rows/0/2": {
-          "pointer": "/learning_cards/7/table/rows/0/2",
-          "text": "۱۰۰",
-          "source_hash": "5e843d61ce8aca7502077c0ed464d3f928e13ef536b67b5cd8b937e3110f5a42"
-        },
         "/learning_cards/C04-ST03-L04-CARD08/table/rows/1/0": {
           "pointer": "/learning_cards/7/table/rows/1/0",
           "text": "بهای محصول/آماده‌سازی",
@@ -4378,11 +4415,6 @@
           "pointer": "/learning_cards/7/table/rows/1/1",
           "text": "واحد پول",
           "source_hash": "d96b97816e536a8a72f7b7bf56f88e1fec7eaf7bb4a7ceefe2433bbb216595f0"
-        },
-        "/learning_cards/C04-ST03-L04-CARD08/table/rows/1/2": {
-          "pointer": "/learning_cards/7/table/rows/1/2",
-          "text": "−۴۵",
-          "source_hash": "b651fd793ab8c22c4054a03592c3aa6e226ea0030d33b29cb076f84280b2af13"
         },
         "/learning_cards/C04-ST03-L04-CARD08/table/rows/2/0": {
           "pointer": "/learning_cards/7/table/rows/2/0",
@@ -4394,11 +4426,6 @@
           "text": "واحد پول",
           "source_hash": "d96b97816e536a8a72f7b7bf56f88e1fec7eaf7bb4a7ceefe2433bbb216595f0"
         },
-        "/learning_cards/C04-ST03-L04-CARD08/table/rows/2/2": {
-          "pointer": "/learning_cards/7/table/rows/2/2",
-          "text": "−۱۲",
-          "source_hash": "ce9fbc833bf91fdbb515066d36a2b7bd39d0b646412ce4b75698f756e17d1e9c"
-        },
         "/learning_cards/C04-ST03-L04-CARD08/table/rows/3/0": {
           "pointer": "/learning_cards/7/table/rows/3/0",
           "text": "هزینهٔ مورد انتظار برگشت",
@@ -4409,11 +4436,6 @@
           "text": "واحد پول",
           "source_hash": "d96b97816e536a8a72f7b7bf56f88e1fec7eaf7bb4a7ceefe2433bbb216595f0"
         },
-        "/learning_cards/C04-ST03-L04-CARD08/table/rows/3/2": {
-          "pointer": "/learning_cards/7/table/rows/3/2",
-          "text": "−۵",
-          "source_hash": "172c3e77afa6672a00f382c1ea2ae78ab399f4565ea28e0440294d17daf1f950"
-        },
         "/learning_cards/C04-ST03-L04-CARD08/table/rows/4/0": {
           "pointer": "/learning_cards/7/table/rows/4/0",
           "text": "مشارکت پیش از هزینهٔ ثابت/جذب",
@@ -4423,11 +4445,6 @@
           "pointer": "/learning_cards/7/table/rows/4/1",
           "text": "واحد پول",
           "source_hash": "d96b97816e536a8a72f7b7bf56f88e1fec7eaf7bb4a7ceefe2433bbb216595f0"
-        },
-        "/learning_cards/C04-ST03-L04-CARD08/table/rows/4/2": {
-          "pointer": "/learning_cards/7/table/rows/4/2",
-          "text": "۳۸",
-          "source_hash": "e5c61b923b0e43425b694a2c3d3da6ff01faf67b779b240cb5e8ba8fefd55941"
         },
         "/learning_cards/C04-ST03-L04-CARD09/title": {
           "pointer": "/learning_cards/8/title",
@@ -4444,30 +4461,15 @@
           "text": "دریافتی ۱۰۰ و هزینه‌های ۴۵، ۱۲ و ۵؛ مشارکت ساده؟",
           "source_hash": "9357f56c0ba1430b810fc1ce6d4a052f70d51c07b6e9c632d08e9fd308d473d6"
         },
-        "/questions/C04-ST03-L04-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "۳۸",
-          "source_hash": "e5c61b923b0e43425b694a2c3d3da6ff01faf67b779b240cb5e8ba8fefd55941"
-        },
         "/questions/C04-ST03-L04-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
           "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
         },
-        "/questions/C04-ST03-L04-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "۵۰",
-          "source_hash": "6801fa46a761c2d5a2914c8725813c556838ec232e18cecf1d4f6adb2faf8fe6"
-        },
         "/questions/C04-ST03-L04-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
           "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
-        },
-        "/questions/C04-ST03-L04-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "۶۲",
-          "source_hash": "7e2033bcdb28f6aaf2bb89dadcf4b811c2368494ca8d7958289fc1d7ed926bf2"
         },
         "/questions/C04-ST03-L04-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -4644,6 +4646,11 @@
           "text": "برای سفارش اینترنتی، دریافتی و هزینهٔ متغیر کالا، پرداخت، آماده‌سازی، ارسال و برگشت رو محاسبه کن. مخرج نرخ مرجوعی و بازه رو تعریف و علت‌های بازگشت رو دسته‌بندی کن؛ یک اقدام مرتبط با علت بنویس.",
           "source_hash": "ac4f8d09431599626482883d15ba3a86ebe50926f984af79e6eaa88ef0dac141"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت تصمیم بازاریابی",
+          "source_hash": "7745f42f5f39138039273c5fad89414d84456755eef533a41fe7b1555163f6ed"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ مشارکت رو با سود خالص اشتباه نمی‌گیره، مخرج و دوره رو روشن می‌کنه و اصلاح رو به علت واقعی وصل می‌کنه.",
@@ -4667,7 +4674,8 @@
       }
     },
     "content/c04/lessons/C04-ST04-L01.json": {
-      "source_revision": "67db3488352f45efe27e2d5d32396ab7df4715b728aaa9503d4039fe4479467f",
+      "source_revision": "040dd03dbdae93e80c0fe374319bb2c68e00e952a878d346ad273267b20144d2",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4804,30 +4812,15 @@
           "text": "از ۱۰۰۰ بازدید، ۱۰۰ شروع نمونه و ۲۰ خرید ثبت شده؛ نرخ خرید از بازدید؟",
           "source_hash": "80d697c796774762b55cf0ca8714b9686b3e9febee3a28e87627a3044cfc76fb"
         },
-        "/questions/C04-ST04-L01-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "۲٪",
-          "source_hash": "1adcbb920f369756f4cb7357cde8317634d1f79f2822f53f962ce8c5466792ed"
-        },
         "/questions/C04-ST04-L01-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "این گزینه با منطق و شواهد درس سازگاره.",
           "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
         },
-        "/questions/C04-ST04-L01-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "۱۰٪",
-          "source_hash": "f2378c9c4abae1481c559975bd7139c62d2053278b098a0e0a90a381619499ab"
-        },
         "/questions/C04-ST04-L01-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
           "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
-        },
-        "/questions/C04-ST04-L01-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "۲۰٪",
-          "source_hash": "c8bb351d7d633e74375eeb06c462b50b8a4c29320e2264a1f2b9ec34972ac6a4"
         },
         "/questions/C04-ST04-L01-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -5004,10 +4997,15 @@
           "text": "برای محصولی قیف چهارمرحله‌ای بساز. برای هر مرحله شمارش، مخرج، زمان و شاخص عبور رو بنویس؛ یک شاخص حفظ متناسب با چرخهٔ خرید تعریف کن و یک عامل مخدوش‌کننده رو یادداشت کن.",
           "source_hash": "283e2c6b2cd499f6189ae8a7ee542542da6de38b097c3a5fe01e37d48cde5303"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت رشد و سنجش",
+          "source_hash": "efdfc7cf9e30b38cf8dcecf81dd4bfba0f763da77ea1f59e402c4769f6c5952b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
-          "text": "پاسخ نرخ‌ها رو با مخرج مشخص محاسبه می‌کنه، ریزش رو با چرخهٔ محصول تعریف می‌کنه و از همبستگی ادعای علت نمی‌سازد.",
-          "source_hash": "68fa09bb9ef1f38de59cbcb34f98f70bc4ccc7be84d2492ee89d4f9b1d9b3457"
+          "text": "پاسخ نرخ‌ها رو با مخرج مشخص محاسبه می‌کنه، ریزش رو با چرخهٔ محصول تعریف می‌کنه و از همبستگی ادعای علت نمی‌سازه.",
+          "source_hash": "071a46acd2f002711977e636f5280d4fd468811104bd6c33af143af1269d65e6"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -5027,7 +5025,8 @@
       }
     },
     "content/c04/lessons/C04-ST04-L02.json": {
-      "source_revision": "702bcba7ad87a1b92b1b8ac7f9c4c6bc6467ecc33110f6431855520042a39294",
+      "source_revision": "0a7008d3fec28ccd3f2fa4930217cb185f4e64419f280aa6d61f26e03ba21844",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5046,8 +5045,8 @@
         },
         "/learning_cards/C04-ST04-L02-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "تعداد مشتری و درآمد فروش به تنهایی نمی‌گوید جذب اقتصادی بوده. باید هزینهٔ جذب رو با تعریف روشن خرج و مشتری جدید سنجید و اون رو با حاشیهٔ مورد انتظار، نگهداشت و هزینهٔ خدمت مقایسه کرد.",
-          "source_hash": "c7ccccb2053f45f8fba400e6bbae548eb0e353342c8dab7bd7377de91cd7fdd7"
+          "text": "تعداد مشتری و درآمد فروش به تنهایی نمی‌گه جذب اقتصادی بوده. باید هزینهٔ جذب رو با تعریف روشن خرج و مشتری جدید سنجید و اون رو با حاشیهٔ مورد انتظار، نگهداشت و هزینهٔ خدمت مقایسه کرد.",
+          "source_hash": "f392b47259a58f95b2f928a3a9e7d42d878dd0bbb06824bc21a1c2cfdf2a5e0b"
         },
         "/learning_cards/C04-ST04-L02-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -5066,8 +5065,8 @@
         },
         "/learning_cards/C04-ST04-L02-CARD03/text": {
           "pointer": "/learning_cards/2/text",
-          "text": "مشخص کن CAC شامل تبلیغ تنهاست یا حقوق فروش، ابزار و آژانس هم هست؛ مشتری جدید پرداخت‌کننده رو چطور می‌شمارید؛ خرید یک‌باره یا تکراریه؛ و حاشیهٔ سود ناخالص چقدره. CAC ترکیبی می‌تونه تفاوت کانال‌ها یا گروه‌ها رو پنهان کنه؛ برش کانالی رو با نمونهٔ کافی و تعریف ثابت گزارش دهید.",
-          "source_hash": "be25d5274d54179394debd904e22d28e791238b1d384f8c3bb5fc121d4dee35c"
+          "text": "مشخص کن CAC شامل تبلیغ تنهاست یا حقوق فروش، ابزار و آژانس هم هست؛ مشتری جدید پرداخت‌کننده رو چطور می‌شمارید؛ خرید یک‌باره یا تکراریه؛ و حاشیهٔ سود ناخالص چقدره. CAC ترکیبی می‌تونه تفاوت کانال‌ها یا گروه‌ها رو پنهان کنه؛ برش کانالی رو با نمونهٔ کافی و تعریف ثابت گزارش بده.",
+          "source_hash": "a03b00dd2bcc857a36486eae8e4de85ee43c7febb75e25f4e766d4f8273ad7c5"
         },
         "/learning_cards/C04-ST04-L02-CARD04/title": {
           "pointer": "/learning_cards/3/title",
@@ -5086,8 +5085,8 @@
         },
         "/learning_cards/C04-ST04-L02-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "اگر ماندگاری، حاشیه یا انتساب هزینه نادرست برآورد بشه، نسبت LTV/CAC گمراه‌کننده‌ست. جریان نقد در طول زمان، تخفیف و هزینهٔ پشتیبانی، دورهٔ بازگشت هزینه و ریسک اینکه مشتری اصلاً باقی نماند رو هم بسنج. یک مقدار میانگین تفاوت گروه‌ها رو می‌پوشاند.",
-          "source_hash": "921b09443832c43e67247cca1b677b94c1853470c3b1b7a1991e10f9c86d8c6c"
+          "text": "اگر ماندگاری، حاشیه یا انتساب هزینه نادرست برآورد بشه، نسبت LTV/CAC گمراه‌کننده‌ست. جریان نقد در طول زمان، تخفیف و هزینهٔ پشتیبانی، دورهٔ بازگشت هزینه و ریسک اینکه مشتری اصلاً باقی نماند رو هم بسنج. یک مقدار میانگین تفاوت گروه‌ها رو می‌پوشونه.",
+          "source_hash": "b05e9d35ba736bb334131d4e50f53f979416ed1efed628c05b1f4664bc302079"
         },
         "/learning_cards/C04-ST04-L02-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -5153,11 +5152,6 @@
           "pointer": "/learning_cards/7/table/rows/1/0",
           "text": "مشتری جدید پرداخت‌کننده",
           "source_hash": "f9cdab57b497919defc30e74550b33be1cf26cb366fbb443d1109a5aee5001a3"
-        },
-        "/learning_cards/C04-ST04-L02-CARD08/table/rows/1/1": {
-          "pointer": "/learning_cards/7/table/rows/1/1",
-          "text": "۱۲۰",
-          "source_hash": "c0ad739b971b616822c26424823257043e09486be164d85c67c5a137003d00e8"
         },
         "/learning_cards/C04-ST04-L02-CARD08/table/rows/1/2": {
           "pointer": "/learning_cards/7/table/rows/1/2",
@@ -5253,11 +5247,6 @@
           "pointer": "/questions/0/options/2/feedback",
           "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
           "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
-        },
-        "/questions/C04-ST04-L02-Q01/explanation": {
-          "pointer": "/questions/0/explanation",
-          "text": "۱۲٬۰۰۰٬۰۰۰÷۱۲۰=۱۰۰٬۰۰۰.",
-          "source_hash": "71012ce76d4d79b7aa3cc3670250af5d81559b70c153f4d9608ce26f4f8dca85"
         },
         "/questions/C04-ST04-L02-Q02/prompt": {
           "pointer": "/questions/1/prompt",
@@ -5421,8 +5410,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای یک مدل کسب‌وکار CAC و ارزش رابطهٔ ساده رو با دوره، دامنهٔ هزینه، شمار مشتری جدید، حاشیه و نگهداشت فرضی محاسبه کن. یک سناریوی بدبینانه برای حفظ یا هزینهٔ خدمت بساز و دورهٔ بازگشت رو شرح دهید.",
-          "source_hash": "be0b88ad1078173b7d49c1bddb60d118990f1926ad459d8d9a281b3b869aaa57"
+          "text": "برای یک مدل کسب‌وکار CAC و ارزش رابطهٔ ساده رو با دوره، دامنهٔ هزینه، شمار مشتری جدید، حاشیه و نگهداشت فرضی محاسبه کن. یک سناریوی بدبینانه برای حفظ یا هزینهٔ خدمت بساز و دورهٔ بازگشت رو شرح بده.",
+          "source_hash": "30d608fb721307547e90714264d8507b0568bfc6c6fdea1b4ea587032484de6a"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت رشد و سنجش",
+          "source_hash": "efdfc7cf9e30b38cf8dcecf81dd4bfba0f763da77ea1f59e402c4769f6c5952b"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -5447,7 +5441,8 @@
       }
     },
     "content/c04/lessons/C04-ST04-L03.json": {
-      "source_revision": "b9b9c48413059854ac81f47e09d9a089abe1719a3a356afdcf9da53829a1eea1",
+      "source_revision": "9a77a8fa0e0dc31aefbd3ee4acec79fb26da77b5203110f350910adacf9bc62b",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5466,8 +5461,8 @@
         },
         "/learning_cards/C04-ST04-L03-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "فروش ممکنه بعد از کمپین بیشتر بشه اما فصل، قیمت، رقبا یا کانال هم تغییر کرده باشن. آزمایش خوب می‌پرسد چه اتفاقی افتاد، چه کسی در معرض اقدام بود و با چه وضعیت مقایسه‌ای اثر رو جدا می‌کنیم.",
-          "source_hash": "2953f02688b623aeb66db5c249cbcb568dbae1f6536f6714c6b268093f5d6748"
+          "text": "فروش ممکنه بعد از کمپین بیشتر بشه اما فصل، قیمت، رقبا یا کانال هم تغییر کرده باشن. آزمایش خوب می‌پرسه چه اتفاقی افتاد، چه کسی در معرض اقدام بود و با چه وضعیت مقایسه‌ای اثر رو جدا می‌کنیم.",
+          "source_hash": "423b1ff61010a11a0140f3ecf8619bd63bec2a68ed711e199a161274f39c8c67"
         },
         "/learning_cards/C04-ST04-L03-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -5486,8 +5481,8 @@
         },
         "/learning_cards/C04-ST04-L03-CARD03/text": {
           "pointer": "/learning_cards/2/text",
-          "text": "یک متغیر رو تغییر دهید؛ گروه‌ها رو تا حد ممکن تصادفی و هم‌زمان تخصیص دهید؛ معیار اصلی رو پیش از شروع تعیین کن؛ اندازهٔ نمونه و مدت کافی رو با متخصص تحلیل برآورد کن؛ و معیارهای زیان مانند لغو، شکایت یا نابرابری اثر رو پایش کن. چندین معیار پسینی خطر انتخاب نتیجهٔ دلخواه رو بالا می‌برد.",
-          "source_hash": "5a953c58988a2060eb814e08a5af16c3e102f0529b39e1d87182939edcecca8f"
+          "text": "یک متغیر رو تغییر بده؛ گروه‌ها رو تا حد ممکن تصادفی و هم‌زمان تخصیص بده؛ معیار اصلی رو پیش از شروع تعیین کن؛ اندازهٔ نمونه و مدت کافی رو با متخصص تحلیل برآورد کن؛ و معیارهای زیان مانند لغو، شکایت یا نابرابری اثر رو پایش کن. چندین معیار پسینی خطر انتخاب نتیجهٔ دلخواه رو بالا می‌بره.",
+          "source_hash": "2a29947435b8d74d54ae489f58b6b77fe6b30330893b7d20ecf7e03ade462662"
         },
         "/learning_cards/C04-ST04-L03-CARD04/title": {
           "pointer": "/learning_cards/3/title",
@@ -5506,8 +5501,8 @@
         },
         "/learning_cards/C04-ST04-L03-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "مدل ممکنه افرادی رو که احتمال خرید بالاتری دارن پیدا کنه. این «پیش‌بینی پاسخ» است؛ «اثر اقدام» می‌پرسد آیا تبلیغ باعث خرید شد، در مقایسه با حالتی که همان فرد تبلیغ رو ندید. هدف‌گیری فقط مشتریان آمادهٔ خرید ممکنه فروش منتسب رو بالا نشان بده بدون اینکه فروش افزایشی بسازه.",
-          "source_hash": "e25dbbf3df330caafd45b65377ea7278f098750a882bff3464eb5b67a34520aa"
+          "text": "مدل ممکنه افرادی رو که احتمال خرید بالاتری دارن پیدا کنه. این «پیش‌بینی پاسخ» است؛ «اثر اقدام» می‌پرسه آیا تبلیغ باعث خرید شد، در مقایسه با حالتی که همان فرد تبلیغ رو ندید. هدف‌گیری فقط مشتریان آمادهٔ خرید ممکنه فروش منتسب رو بالا نشان بده بدون اینکه فروش افزایشی بسازه.",
+          "source_hash": "f217a93626bd0ccd5f2e17207a91945d3884d1c43298cdf748c0df48f5aa0cc5"
         },
         "/learning_cards/C04-ST04-L03-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -5789,6 +5784,11 @@
           "text": "برای یک کمپین فرضی، فرضیه، جمعیت، نسخهٔ مداخله و کنترل، معیار اصلی، شاخص زیان، بازهٔ سنجش و قاعدهٔ تصمیم رو بنویس. اگر AI استفاده می‌شه، هزینهٔ بازبینی، کیفیت و حریم خصوصی رو هم وارد طرح کن.",
           "source_hash": "82256bbb1958c059bee8fa28fb3ca045d12e4eea913458a6827908319c4d2def"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت رشد و سنجش",
+          "source_hash": "efdfc7cf9e30b38cf8dcecf81dd4bfba0f763da77ea1f59e402c4769f6c5952b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "طرح باید اثر افزایشی رو از کلیک/همبستگی جدا کنه، تخصیص و معیار رو پیشاپیش تعیین کنه و برای آسیب یا عدم‌قطعیت شاخص و قاعده داشته باشه.",
@@ -5812,7 +5812,8 @@
       }
     },
     "content/c04/lessons/C04-ST04-L04.json": {
-      "source_revision": "e888105c70cc4f1b0c7d13b93d4f3a571baffc07dd5bc83c6970a09237968865",
+      "source_revision": "04a7d3f85f3472412c1143bc80e4e800b070e6268ebd400f24831024b1759cbd",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6081,8 +6082,8 @@
         },
         "/questions/C04-ST04-L04-Q03/options/c/text": {
           "pointer": "/questions/2/options/2/text",
-          "text": "همیشه اثر همهٔ کانال‌ها رو می‌سنجد",
-          "source_hash": "ac2f536790417d3926b62ba55e6c7c2c381e0400588346ea0bb091273f795d09"
+          "text": "همیشه اثر همهٔ کانال‌ها رو می‌سنجه",
+          "source_hash": "8a6953162a0256eacbdaba2192e3bffc6839fbd512fd0370d6eaff1dbb780e9a"
         },
         "/questions/C04-ST04-L04-Q03/options/c/feedback": {
           "pointer": "/questions/2/options/2/feedback",
@@ -6179,10 +6180,15 @@
           "text": "یک ادعای رشد واقعی یا فرضی انتخاب کن. اون رو در قالب ادعا، شاخص و منبع، مقایسه، هزینه/زیان، محدودیت تعمیم و تصمیم بعدی بازنویسی کن. اگر AI نقش داره، اثرش رو از هم‌زمانی و محتوای انسانی جدا کن.",
           "source_hash": "130b124335c23ca8d2abccf57c85d12e627d68aea343cbfd5a26ae8800180403"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "یادداشت رشد و سنجش",
+          "source_hash": "efdfc7cf9e30b38cf8dcecf81dd4bfba0f763da77ea1f59e402c4769f6c5952b"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
-          "text": "پاسخ مشاهده رو از علیت تفکیک می‌کنه، شاخص و مخرج رو تعریف می‌کنه و هزینه/تجربه/دامنهٔ تعمیم رو قبل از تصمیم می‌سنجد.",
-          "source_hash": "c1d4ca745160b4e14fd64c2067dd9214ba1abc077c63b767c326485f3124d5f5"
+          "text": "پاسخ مشاهده رو از علیت تفکیک می‌کنه، شاخص و مخرج رو تعریف می‌کنه و هزینه/تجربه/دامنهٔ تعمیم رو قبل از تصمیم می‌سنجه.",
+          "source_hash": "589d6edffaa56683802f3bb3bab79d8bfe3478974b043875842e54fa1c0c8361"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -6202,7 +6208,10 @@
       }
     },
     "content/c04/stages/C04-ST01.json": {
-      "source_revision": "cc23ce3b7c3576e0aff588bd03e509890ae10b4957683d84bd67421ca443afcd",
+      "source_revision": "b3e80b36b1375adbe5f13b81f97d3fa3014ebd685e5603bcb9a912c3f1d8fdd7",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6221,8 +6230,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q01/options/a/feedback": {
           "pointer": "/checkpoint/questions/0/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q01/options/b/text": {
           "pointer": "/checkpoint/questions/0/options/1/text",
@@ -6261,8 +6270,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q02/options/a/feedback": {
           "pointer": "/checkpoint/questions/1/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q02/options/b/text": {
           "pointer": "/checkpoint/questions/1/options/1/text",
@@ -6301,8 +6310,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q03/options/a/feedback": {
           "pointer": "/checkpoint/questions/2/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q03/options/b/text": {
           "pointer": "/checkpoint/questions/2/options/1/text",
@@ -6341,8 +6350,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q04/options/a/feedback": {
           "pointer": "/checkpoint/questions/3/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q04/options/b/text": {
           "pointer": "/checkpoint/questions/3/options/1/text",
@@ -6381,8 +6390,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q05/options/a/feedback": {
           "pointer": "/checkpoint/questions/4/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q05/options/b/text": {
           "pointer": "/checkpoint/questions/4/options/1/text",
@@ -6421,8 +6430,8 @@
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q06/options/a/feedback": {
           "pointer": "/checkpoint/questions/5/options/0/feedback",
-          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجد.",
-          "source_hash": "30e426d2e2fa39c1ef2b5ed644469b1aaefc8b2e3f1c3a39a491c4ce00d1eec5"
+          "text": "این پاسخ مسئله رو با شاهد و مرز مناسب می‌سنجه.",
+          "source_hash": "a42fbefc32bd892e098bb28efd4141c7c586f33653f7ef37f9c560c707abb47a"
         },
         "/checkpoint/questions/C04-ST01-CHECK-Q06/options/b/text": {
           "pointer": "/checkpoint/questions/5/options/1/text",
@@ -6462,7 +6471,10 @@
       }
     },
     "content/c04/stages/C04-ST02.json": {
-      "source_revision": "e12204224b65c5c283909721af422520f7250121e6f9b2af471e01dffbbbf92c",
+      "source_revision": "674f96580f22a0e36330243d8c341ef10f01ac4c3baccf579bc85dc6cdeb9f74",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6586,8 +6598,8 @@
         },
         "/checkpoint/questions/C04-ST02-CHECK-Q03/explanation": {
           "pointer": "/checkpoint/questions/2/explanation",
-          "text": "جذابیت بازار بدون تناسب توان و برنامهٔ اجرایی انتخاب پایدار نمی‌سازد.",
-          "source_hash": "590d78665a8b4760c9e35012a3b28f061643731b9b65120dfdfec8f04cc9ffec"
+          "text": "جذابیت بازار بدون تناسب توان و برنامهٔ اجرایی انتخاب پایدار نمی‌سازه.",
+          "source_hash": "fe1479b80586242e6bbd375447791a39be5367258cc9d1fb6eaa30f6769f62ea"
         },
         "/checkpoint/questions/C04-ST02-CHECK-Q04/prompt": {
           "pointer": "/checkpoint/questions/3/prompt",
@@ -6732,7 +6744,10 @@
       }
     },
     "content/c04/stages/C04-ST03.json": {
-      "source_revision": "a91059b83f7e663b58f3c8338a75d43fc9796a71eaf11666363b406993571143",
+      "source_revision": "099606343e090863d5df76ce69dae05773634edc8cf8991776e90ed537c6c67e",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6744,30 +6759,15 @@
           "text": "قیمت ۱۰۰ و هزینهٔ متغیر ۶۰ است؛ حاشیهٔ مشارکت؟",
           "source_hash": "46471429ddbff6aa9c21ab4b19254795a3d4881d5ac77a2d3488b4a93a94083b"
         },
-        "/checkpoint/questions/C04-ST03-CHECK-Q01/options/a/text": {
-          "pointer": "/checkpoint/questions/0/options/0/text",
-          "text": "۴۰",
-          "source_hash": "e1e4b7835750864774b5896c6a765bcec6707a7bed6060af830c237f8b3fb4cc"
-        },
         "/checkpoint/questions/C04-ST03-CHECK-Q01/options/a/feedback": {
           "pointer": "/checkpoint/questions/0/options/0/feedback",
           "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
           "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
         },
-        "/checkpoint/questions/C04-ST03-CHECK-Q01/options/b/text": {
-          "pointer": "/checkpoint/questions/0/options/1/text",
-          "text": "۶۰",
-          "source_hash": "7a9d132a259bb467f7354a35d9c9e9e0bd498718c91f5d061ad1517b201f161e"
-        },
         "/checkpoint/questions/C04-ST03-CHECK-Q01/options/b/feedback": {
           "pointer": "/checkpoint/questions/0/options/1/feedback",
           "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
           "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
-        },
-        "/checkpoint/questions/C04-ST03-CHECK-Q01/options/c/text": {
-          "pointer": "/checkpoint/questions/0/options/2/text",
-          "text": "۱۰۰",
-          "source_hash": "5e843d61ce8aca7502077c0ed464d3f928e13ef536b67b5cd8b937e3110f5a42"
         },
         "/checkpoint/questions/C04-ST03-CHECK-Q01/options/c/feedback": {
           "pointer": "/checkpoint/questions/0/options/2/feedback",
@@ -6816,8 +6816,8 @@
         },
         "/checkpoint/questions/C04-ST03-CHECK-Q02/explanation": {
           "pointer": "/checkpoint/questions/1/explanation",
-          "text": "منفعت هسته‌ای نتیجه‌ایه که مشتری برای اون پیشنهاد رو می‌خرد.",
-          "source_hash": "e085d2f2f51854640f8637d3be4ddb8c4540cdf65df14a628ac084c309242908"
+          "text": "منفعت هسته‌ای نتیجه‌ایه که مشتری برای اون پیشنهاد رو می‌خره.",
+          "source_hash": "38cb31352e98112877cd6919b7a0f1fc362ea9c025192461782beffa1e0b9adc"
         },
         "/checkpoint/questions/C04-ST03-CHECK-Q03/prompt": {
           "pointer": "/checkpoint/questions/2/prompt",
@@ -7002,7 +7002,10 @@
       }
     },
     "content/c04/stages/C04-ST04.json": {
-      "source_revision": "0b471e07f627a24e3c9ca76499c8616bbeee03ae6c32d2b7529543324622f709",
+      "source_revision": "f27d2404e1f79bcddaf9df03fb111ec5e7a84cc6fe32d60a93e9855769844cf1",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -7011,8 +7014,8 @@
         },
         "/checkpoint/questions/C04-ST04-CHECK-Q01/prompt": {
           "pointer": "/checkpoint/questions/0/prompt",
-          "text": "کدام نرخ، تبدیل از نمونه به خرید رو می‌سنجد؟",
-          "source_hash": "bf79c2af966765072b9d3a278a63d6bb03bb338bfe7e0e56a88cd97eefe34770"
+          "text": "کدام نرخ، تبدیل از نمونه به خرید رو می‌سنجه؟",
+          "source_hash": "472396418af304ecbd4b9336a23a9e6467ce489df57863308524dd849b5ddae7"
         },
         "/checkpoint/questions/C04-ST04-CHECK-Q01/options/a/text": {
           "pointer": "/checkpoint/questions/0/options/0/text",
@@ -7268,6 +7271,817 @@
           "pointer": "/tool_plan/3/title",
           "text": "کارت شواهد و محدودیت ادعای رشد",
           "source_hash": "8e13ea1c4b2e6441320a5656e3b61bc4262b7b90ea122cdf4e0a22c3eba4e7fe"
+        }
+      }
+    },
+    "content/c04/final-assessment.json": {
+      "source_revision": "c26af4d750f33b02df75014dd0e52cd56c20bc7e5eff1c586061cbd2ed20263f",
+      "revision_excluded_fields": [],
+      "messages": {
+        "/description": {
+          "pointer": "/description",
+          "text": "این مرور از سؤال‌های قبلی درس استفاده می‌کنه؛ سؤال تازه یا آزمون مستقل نیست.",
+          "source_hash": "47f3397328448fe4b4922b33460f87ccef5c78f12a96f07d18837b89f56ed7f4"
+        },
+        "/questions/C04-FINAL-Q01/prompt": {
+          "pointer": "/questions/0/prompt",
+          "text": "برای خدمت B2B کدام مصاحبه می‌تونه شکاف بپوشاند؟",
+          "source_hash": "5419a606148c8d543a465353f68b316d39fdf32d1d0035b816d92ba7b51c4881"
+        },
+        "/questions/C04-FINAL-Q01/options/a/text": {
+          "pointer": "/questions/0/options/0/text",
+          "text": "گفت‌وگو هم با تصمیم‌گیر و هم با کاربر روزمره",
+          "source_hash": "75beecb0d153cf05c0c19541b80e5c7549a51ebf2e106d9cc3648326104ee770"
+        },
+        "/questions/C04-FINAL-Q01/options/a/feedback": {
+          "pointer": "/questions/0/options/0/feedback",
+          "text": "در B2B تصمیم‌گیر دربارهٔ بودجه و خرید می‌دونه؛ کاربر روزانه هم جریان واقعی کار رو می‌شناسد. گفت‌وگو با هر دو شکاف رو کم می‌کنه.",
+          "source_hash": "c2ba3f129d0ab230fe6bde45fb0efc0a4329358785d79bb9208ec8779da13d71"
+        },
+        "/questions/C04-FINAL-Q01/options/b/text": {
+          "pointer": "/questions/0/options/1/text",
+          "text": "فقط مدیرعامل",
+          "source_hash": "fbdfc5d1186bfd3dbe04833609692056e565d5a9b80ae3da6387c313607c197f"
+        },
+        "/questions/C04-FINAL-Q01/options/b/feedback": {
+          "pointer": "/questions/0/options/1/feedback",
+          "text": "گفت‌وگو فقط با مدیرعامل می‌تونه مسئلهٔ کاربر روزمره رو جا بیندازد.",
+          "source_hash": "ff12446cea1c0cb58e10e4a39e8abf4d506882a4698090f909de8b47cc293280"
+        },
+        "/questions/C04-FINAL-Q01/options/c/text": {
+          "pointer": "/questions/0/options/2/text",
+          "text": "فقط تیم فروش",
+          "source_hash": "5f0296e10972331e0377b611cda17d13bfcb45c0c3c865bde4565472fb271c10"
+        },
+        "/questions/C04-FINAL-Q01/options/c/feedback": {
+          "pointer": "/questions/0/options/2/feedback",
+          "text": "تیم فروش دید واسطه‌ای داره و جای شاهد مستقیم هر دو نقش رو نمی‌گیره.",
+          "source_hash": "ab2ed10c26d56a5842ec655b5adced848d8637ff1b52f0aaf72d274d6b7bbbbe"
+        },
+        "/questions/C04-FINAL-Q01/explanation": {
+          "pointer": "/questions/0/explanation",
+          "text": "در B2B تصمیم‌گیر دربارهٔ بودجه و خرید می‌دونه؛ کاربر روزانه هم جریان واقعی کار رو می‌شناسد. گفت‌وگو با هر دو شکاف رو کم می‌کنه.",
+          "source_hash": "c2ba3f129d0ab230fe6bde45fb0efc0a4329358785d79bb9208ec8779da13d71"
+        },
+        "/questions/C04-FINAL-Q02/prompt": {
+          "pointer": "/questions/1/prompt",
+          "text": "پاسخ‌دهنده رخداد قدیمی رو دقیق به یاد نداره. چه خطری هست؟",
+          "source_hash": "105d6c90f5142a2575ce21b76b0eb537d23353afcc1332612c54abf79d49a867"
+        },
+        "/questions/C04-FINAL-Q02/options/a/text": {
+          "pointer": "/questions/1/options/0/text",
+          "text": "سوگیری یادآوری",
+          "source_hash": "1ebed6ade6b683c0c92b4e0e7ffd15d7e48180eaf3bc62d0b1902900bc163f99"
+        },
+        "/questions/C04-FINAL-Q02/options/a/feedback": {
+          "pointer": "/questions/1/options/0/feedback",
+          "text": "فراموشی یا بازسازی نادقیق رخداد گذشته سوگیری یادآوریه. پرسش دربارهٔ نمونهٔ نزدیک یا مدرک رفتاری می‌تونه اون رو کم کنه.",
+          "source_hash": "78fa5aa649a4ed6852dbad3bc9dfa871878a6fb4f11af0996b910e8b8934698d"
+        },
+        "/questions/C04-FINAL-Q02/options/b/text": {
+          "pointer": "/questions/1/options/1/text",
+          "text": "خطای تصادفی سیستم",
+          "source_hash": "a32cc5e1e1ef70014cfb6e9609e9e11e4016948707f4803843979dd2d7c54f38"
+        },
+        "/questions/C04-FINAL-Q02/options/b/feedback": {
+          "pointer": "/questions/1/options/1/feedback",
+          "text": "سؤال از خطای سامانه حرف نمی‌زند؛ مسئله دقت حافظهٔ پاسخ‌دهنده‌ست.",
+          "source_hash": "49fa4137750f2bf16cf1d1103e80f34fa396a242aa0727f88e1078e44eb4746c"
+        },
+        "/questions/C04-FINAL-Q02/options/c/text": {
+          "pointer": "/questions/1/options/2/text",
+          "text": "رقیق‌شدن سهام",
+          "source_hash": "770ab345720f97e597db23d4f3b83d4e80173662ff7a2218931d58403ddee63b"
+        },
+        "/questions/C04-FINAL-Q02/options/c/feedback": {
+          "pointer": "/questions/1/options/2/feedback",
+          "text": "رقیق‌شدن سهام موضوعی مالی و بی‌ربط به یادآوری رخداده.",
+          "source_hash": "959626781826e1cd230591c6b867172c49be94774d8584ac49bbde013d619005"
+        },
+        "/questions/C04-FINAL-Q02/explanation": {
+          "pointer": "/questions/1/explanation",
+          "text": "فراموشی یا بازسازی نادقیق رخداد گذشته سوگیری یادآوریه. پرسش دربارهٔ نمونهٔ نزدیک یا مدرک رفتاری می‌تونه اون رو کم کنه.",
+          "source_hash": "78fa5aa649a4ed6852dbad3bc9dfa871878a6fb4f11af0996b910e8b8934698d"
+        },
+        "/questions/C04-FINAL-Q03/prompt": {
+          "pointer": "/questions/2/prompt",
+          "text": "تفسیر در جدول یافته‌ها کجا قرار گیرد؟",
+          "source_hash": "e6babd94a84a1ce3a2d672b3fe1580a9d08b79266cd6b4c7f747e03e44ae0156"
+        },
+        "/questions/C04-FINAL-Q03/options/a/text": {
+          "pointer": "/questions/2/options/0/text",
+          "text": "ستون جدا از شاهد خام",
+          "source_hash": "b5ecaca5f41d8ed15d9c315f94c13f426cda22d65d535b1a3a4b4b222ac2d38e"
+        },
+        "/questions/C04-FINAL-Q03/options/a/feedback": {
+          "pointer": "/questions/2/options/0/feedback",
+          "text": "شاهد خام و تفسیر پژوهشگر رو در ستون جدا نگه دار تا خواننده بتواند ببینه نتیجه از کدام داده آمده.",
+          "source_hash": "69500f9d01a06b56b63daee9fc97d311445a1e240bb1a74a4c59944ddba62526"
+        },
+        "/questions/C04-FINAL-Q03/options/b/text": {
+          "pointer": "/questions/2/options/1/text",
+          "text": "درون نقل‌قول به شکل واقعیت",
+          "source_hash": "e4214ca6d2c576bae25b7e3cb085d71610744a6f90e503e2067e813a572019de"
+        },
+        "/questions/C04-FINAL-Q03/options/b/feedback": {
+          "pointer": "/questions/2/options/1/feedback",
+          "text": "قرار دادن برداشت درون نقل‌قول، تفسیر رو به‌جای گفتهٔ خام جا می‌زنه.",
+          "source_hash": "c1bb813aec6155cb5f0039702e6149c8999e100b7bcd986e779ac42f9a2851d4"
+        },
+        "/questions/C04-FINAL-Q03/options/c/text": {
+          "pointer": "/questions/2/options/2/text",
+          "text": "حذف هر شاهد مخالف",
+          "source_hash": "8462fc08cfb363ee8620569841e656bfb9b867f0af470051de6e6e482322f507"
+        },
+        "/questions/C04-FINAL-Q03/options/c/feedback": {
+          "pointer": "/questions/2/options/2/feedback",
+          "text": "حذف شاهد مخالف سوگیری تأیید رو بیشتر می‌کنه.",
+          "source_hash": "327c9e7670e1e5c2d44e9667bb8dda4f397959b414b86f2c9cef5e7eb4a6f57b"
+        },
+        "/questions/C04-FINAL-Q03/explanation": {
+          "pointer": "/questions/2/explanation",
+          "text": "شاهد خام و تفسیر پژوهشگر رو در ستون جدا نگه دار تا خواننده بتواند ببینه نتیجه از کدام داده آمده.",
+          "source_hash": "69500f9d01a06b56b63daee9fc97d311445a1e240bb1a74a4c59944ddba62526"
+        },
+        "/questions/C04-FINAL-Q04/prompt": {
+          "pointer": "/questions/3/prompt",
+          "text": "پرسونای AI با مصاحبهٔ مشتری ناسازگاره. چه کنیم؟",
+          "source_hash": "f4803469a84d054e19002b0c7d040c0883d3d560a5de8044190a2b11311da88f"
+        },
+        "/questions/C04-FINAL-Q04/options/a/text": {
+          "pointer": "/questions/3/options/0/text",
+          "text": "اختلاف رو ثبت و فرضیه رو با شواهد واقعی بازنگری کنیم",
+          "source_hash": "4450c00f65a9412ef10fc11cce92de470d35cf5a913d9e9d80473abe1ed6d2c7"
+        },
+        "/questions/C04-FINAL-Q04/options/a/feedback": {
+          "pointer": "/questions/3/options/0/feedback",
+          "text": "اختلاف رو نگه دار، منبع هر شاهد رو مشخص کن و فرضیه رو با دادهٔ واقعی مشتری دوباره بررسی کن.",
+          "source_hash": "adc6642a23c5fa96d829c26a7e9ea75cb5f081607d0aa7152be9ab8f1eaf700a"
+        },
+        "/questions/C04-FINAL-Q04/options/b/text": {
+          "pointer": "/questions/3/options/1/text",
+          "text": "مصاحبهٔ واقعی رو حذف کنیم",
+          "source_hash": "a063fd0eda39c3dc78e59a2641e8d92c8ac519da7fe879f15e5e5046f50ae798"
+        },
+        "/questions/C04-FINAL-Q04/options/b/feedback": {
+          "pointer": "/questions/3/options/1/feedback",
+          "text": "حذف مصاحبه فقط برای هم‌خوان‌کردن پاسخ‌ها شاهد رو پنهان می‌کنه.",
+          "source_hash": "6981856da36a0ac1367b076540451b2b86afc5774a794d21bdfd3deaf4086e0b"
+        },
+        "/questions/C04-FINAL-Q04/options/c/text": {
+          "pointer": "/questions/3/options/2/text",
+          "text": "prompt رو تا جواب دلخواه عوض کنیم",
+          "source_hash": "5971445e351a63587905a731b7fbc1ac8ceef8cf77b865561ef51479a2d8fd9a"
+        },
+        "/questions/C04-FINAL-Q04/options/c/feedback": {
+          "pointer": "/questions/3/options/2/feedback",
+          "text": "تغییر prompt تا رسیدن به پاسخ دلخواه اعتبار رو کم می‌کنه.",
+          "source_hash": "7dfc3481705aaec31ddac0464785be8938675148fa82403160b272fc02b11941"
+        },
+        "/questions/C04-FINAL-Q04/explanation": {
+          "pointer": "/questions/3/explanation",
+          "text": "اختلاف رو نگه دار، منبع هر شاهد رو مشخص کن و فرضیه رو با دادهٔ واقعی مشتری دوباره بررسی کن.",
+          "source_hash": "adc6642a23c5fa96d829c26a7e9ea75cb5f081607d0aa7152be9ab8f1eaf700a"
+        },
+        "/questions/C04-FINAL-Q05/prompt": {
+          "pointer": "/questions/4/prompt",
+          "text": "پیش از طراحی راه‌حل چه چیزی باید روشن بشه؟",
+          "source_hash": "97bbbb0ada644b3c08157119606c4535be270490423d580e469ece1c69685149"
+        },
+        "/questions/C04-FINAL-Q05/options/a/text": {
+          "pointer": "/questions/4/options/0/text",
+          "text": "زمینه، مسئله، جایگزین و نتیجهٔ مطلوب",
+          "source_hash": "8620996f06f5bf0ac255855b99c68650fae9352f7dbd3e06c4b0ec4ba38cea72"
+        },
+        "/questions/C04-FINAL-Q05/options/a/feedback": {
+          "pointer": "/questions/4/options/0/feedback",
+          "text": "پیش از ساخت، زمینه و مسئله رو همراه با جایگزین فعلی و نتیجهٔ مطلوب روشن کن؛ این کار مانع قفل‌شدن زودهنگام روی یک محصول می‌شه.",
+          "source_hash": "19f1e1a0730307cd11dcda89cd76f96a61bfb0f3f4aa81d225355be20ee45cfa"
+        },
+        "/questions/C04-FINAL-Q05/options/b/text": {
+          "pointer": "/questions/4/options/1/text",
+          "text": "نام کمپین",
+          "source_hash": "7161614cf28bfb65dd90c0ef5b6cced0f9bca8642c33c17e987e8e48f3759df6"
+        },
+        "/questions/C04-FINAL-Q05/options/b/feedback": {
+          "pointer": "/questions/4/options/1/feedback",
+          "text": "نام کمپین پاسخ نمی‌ده مشتری چه مسئله‌ای داره یا امروز چه جایگزینی به کار می‌بره.",
+          "source_hash": "65528be38c599bbf09e10be15d96eea4cd28b5dec0f7ac6edab85c726bd02c6c"
+        },
+        "/questions/C04-FINAL-Q05/options/c/text": {
+          "pointer": "/questions/4/options/2/text",
+          "text": "رنگ لوگو",
+          "source_hash": "7622e10b295ee3b3ceacadaf7c7a954f526900cc365d6b48fe81744cc78c221a"
+        },
+        "/questions/C04-FINAL-Q05/options/c/feedback": {
+          "pointer": "/questions/4/options/2/feedback",
+          "text": "هویت بصری مسئله و نتیجهٔ مطلوب رو روشن نمی‌کنه.",
+          "source_hash": "f9edd6b57f587388ba2f05622053cd7a3221705042d2e93f3ccb7dd3f61e4c4c"
+        },
+        "/questions/C04-FINAL-Q05/explanation": {
+          "pointer": "/questions/4/explanation",
+          "text": "پیش از ساخت، زمینه و مسئله رو همراه با جایگزین فعلی و نتیجهٔ مطلوب روشن کن؛ این کار مانع قفل‌شدن زودهنگام روی یک محصول می‌شه.",
+          "source_hash": "19f1e1a0730307cd11dcda89cd76f96a61bfb0f3f4aa81d225355be20ee45cfa"
+        },
+        "/questions/C04-FINAL-Q06/prompt": {
+          "pointer": "/questions/5/prompt",
+          "text": "چرا «همهٔ افراد ۲۵ تا ۳۴ سال» لزوماً بخش خوبی نیست؟",
+          "source_hash": "96d402aa0feabfefcd72d1eafd05c7f4732c7ca170bc41c3fc8856c330855385"
+        },
+        "/questions/C04-FINAL-Q06/options/a/text": {
+          "pointer": "/questions/5/options/0/text",
+          "text": "چون جمعیت‌شناسی هرگز کاربرد نداره",
+          "source_hash": "fde23b17828053eac351a64667e40d999f6666e7f139650fcdd4e268d9a304a6"
+        },
+        "/questions/C04-FINAL-Q06/options/a/feedback": {
+          "pointer": "/questions/5/options/0/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q06/options/b/text": {
+          "pointer": "/questions/5/options/1/text",
+          "text": "چون سن باید تفاوت مرتبط در نیاز یا پاسخ رو نشان بده",
+          "source_hash": "55ae9e3f30934de9bb3b58878b77e474892869395fb6360be551714a1f3c7ce6"
+        },
+        "/questions/C04-FINAL-Q06/options/b/feedback": {
+          "pointer": "/questions/5/options/1/feedback",
+          "text": "این گزینه با تعریف و شاهدهای مسئله سازگاره.",
+          "source_hash": "a746b7e226377afa7dd4eb3a3bbc3ff7fad2dc8bd6de0e730288a6d69a53aa76"
+        },
+        "/questions/C04-FINAL-Q06/options/c/text": {
+          "pointer": "/questions/5/options/2/text",
+          "text": "چون بخش‌ها نباید قابل اندازه‌گیری باشن",
+          "source_hash": "0518bae1b519605e9b18c374559dc78a886078d87dd47f5f9a135a4fcfc9f5d0"
+        },
+        "/questions/C04-FINAL-Q06/options/c/feedback": {
+          "pointer": "/questions/5/options/2/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q06/explanation": {
+          "pointer": "/questions/5/explanation",
+          "text": "جمعیت‌شناسی می‌تونه متغیر مفیدی باشه، اما ارتباطش با نیاز، دسترسی یا واکنش باید آزموده بشه.",
+          "source_hash": "6437090a40c7554153663852716d7698bfffff098738b1080562297b54908cce"
+        },
+        "/questions/C04-FINAL-Q07/prompt": {
+          "pointer": "/questions/6/prompt",
+          "text": "SOM به چه پرسشی نزدیک‌تره؟",
+          "source_hash": "187ea769e38d94fd4a9e3ec789200966103af25ace048c884b93bbc22109cb06"
+        },
+        "/questions/C04-FINAL-Q07/options/a/text": {
+          "pointer": "/questions/6/options/0/text",
+          "text": "اندازهٔ همهٔ نیازهای ممکن در جهان",
+          "source_hash": "b00ccf54eb9588f1cd4cdad3d538d875168c4cca1881b6b58e09da5debada9b0"
+        },
+        "/questions/C04-FINAL-Q07/options/a/feedback": {
+          "pointer": "/questions/6/options/0/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q07/options/b/text": {
+          "pointer": "/questions/6/options/1/text",
+          "text": "بخشی از بازار قابل خدمت که شرکت با فرض‌های صریح می‌تونه واقع‌بینانه هدف بگیره",
+          "source_hash": "e5964ab9e8d6644a29d713e17d3118c29a03faba983fa846cf128cd9f7e111b5"
+        },
+        "/questions/C04-FINAL-Q07/options/b/feedback": {
+          "pointer": "/questions/6/options/1/feedback",
+          "text": "این گزینه با تعریف و شاهدهای مسئله سازگاره.",
+          "source_hash": "a746b7e226377afa7dd4eb3a3bbc3ff7fad2dc8bd6de0e730288a6d69a53aa76"
+        },
+        "/questions/C04-FINAL-Q07/options/c/text": {
+          "pointer": "/questions/6/options/2/text",
+          "text": "هزینهٔ یک کمپین بازاریابی",
+          "source_hash": "96c4de8aeb97a255da84fbf3e707ef1c76309a77bbdc59f53344f66c794f5e89"
+        },
+        "/questions/C04-FINAL-Q07/options/c/feedback": {
+          "pointer": "/questions/6/options/2/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q07/explanation": {
+          "pointer": "/questions/6/explanation",
+          "text": "SOM بر سهم/دامنهٔ قابل دستیابی تمرکز داره و به محصول، ظرفیت، کانال، رقابت و زمان وابسته‌ست.",
+          "source_hash": "525bb528c8faf34a7fed039541641c268f2ecbe8c301871e6e6a2de6bdca5f46"
+        },
+        "/questions/C04-FINAL-Q08/prompt": {
+          "pointer": "/questions/7/prompt",
+          "text": "چرا باید گزینهٔ «هیچ کاری نکن» رو در مقایسه دید؟",
+          "source_hash": "86691e8ab06a3c004e1f38dc45dd7b652cf2825c673905b200cfd4f1552f59b1"
+        },
+        "/questions/C04-FINAL-Q08/options/a/text": {
+          "pointer": "/questions/7/options/0/text",
+          "text": "چون همهٔ مشتری‌ها همین رو انتخاب می‌کنن",
+          "source_hash": "614bd3cb61a0f9ee39131dbcfc3e44e90ead9c50838c3fbf5c620bf1c46f5193"
+        },
+        "/questions/C04-FINAL-Q08/options/a/feedback": {
+          "pointer": "/questions/7/options/0/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q08/options/b/text": {
+          "pointer": "/questions/7/options/1/text",
+          "text": "چون انجام‌ندادن یا ادامهٔ روش فعلی می‌تونه جایگزین واقعی مشتری باشه",
+          "source_hash": "01815a438c5d155973cbcf06d6c9cb2ddae1586a422a01d6e9a202a2d4cc3246"
+        },
+        "/questions/C04-FINAL-Q08/options/b/feedback": {
+          "pointer": "/questions/7/options/1/feedback",
+          "text": "این گزینه با تعریف و شاهدهای مسئله سازگاره.",
+          "source_hash": "a746b7e226377afa7dd4eb3a3bbc3ff7fad2dc8bd6de0e730288a6d69a53aa76"
+        },
+        "/questions/C04-FINAL-Q08/options/c/text": {
+          "pointer": "/questions/7/options/2/text",
+          "text": "چون رقیب واقعی رو حذف می‌کنه",
+          "source_hash": "3bd1346e2ea891f4cec3cac9710353396757c72fa3effd911440769a0587ee66"
+        },
+        "/questions/C04-FINAL-Q08/options/c/feedback": {
+          "pointer": "/questions/7/options/2/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q08/explanation": {
+          "pointer": "/questions/7/explanation",
+          "text": "تصمیم مشتری ممکنه حفظ وضعیت موجود باشه، بنابراین مجموعهٔ جایگزین‌ها فقط برندهای مشابه نیست.",
+          "source_hash": "8f3bd684af53376ae90f030925058ebb1a0d44baedcc53334c6ac60f7d97d7ff"
+        },
+        "/questions/C04-FINAL-Q09/prompt": {
+          "pointer": "/questions/8/prompt",
+          "text": "کدام مورد نمونهٔ شاخص زیان در آزمون پیام بازاریابیه؟",
+          "source_hash": "06950f9578a5dd65d24cb596b52935b74905870f0117944351ef683975982c97"
+        },
+        "/questions/C04-FINAL-Q09/options/a/text": {
+          "pointer": "/questions/8/options/0/text",
+          "text": "فقط نرخ کلیک",
+          "source_hash": "50ce82bdf96fa91f1a5637e804907dc3e21bb6089075c5d58d65262363faf758"
+        },
+        "/questions/C04-FINAL-Q09/options/a/feedback": {
+          "pointer": "/questions/8/options/0/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q09/options/b/text": {
+          "pointer": "/questions/8/options/1/text",
+          "text": "شکایت، لغو یا تفاوت ناعادلانهٔ اثر میان گروه‌ها",
+          "source_hash": "f8f707de47384ba4cfc58e019d67b8782225ee33257f2f07c8a80e4bdb359fe4"
+        },
+        "/questions/C04-FINAL-Q09/options/b/feedback": {
+          "pointer": "/questions/8/options/1/feedback",
+          "text": "این گزینه با تعریف و شاهدهای مسئله سازگاره.",
+          "source_hash": "a746b7e226377afa7dd4eb3a3bbc3ff7fad2dc8bd6de0e730288a6d69a53aa76"
+        },
+        "/questions/C04-FINAL-Q09/options/c/text": {
+          "pointer": "/questions/8/options/2/text",
+          "text": "تعداد رنگ‌های صفحه",
+          "source_hash": "dffcb8baf05bad86ffbf1f288489e2e7e940afd3f3026e9385d9a57c38fccf26"
+        },
+        "/questions/C04-FINAL-Q09/options/c/feedback": {
+          "pointer": "/questions/8/options/2/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q09/explanation": {
+          "pointer": "/questions/8/explanation",
+          "text": "بهینه‌سازی پیام تنها برای نرخ کلیک می‌تونه هزینهٔ پنهان برای کاربر بسازه؛ پیامدهای منفی هم پایش بشن.",
+          "source_hash": "271c4351f23c696295278aae8f0a7fadbf9c08e3ecb600a21a8bd485ef27d412"
+        },
+        "/questions/C04-FINAL-Q10/prompt": {
+          "pointer": "/questions/9/prompt",
+          "text": "مدل زبانی از متن نظرات چند گروه می‌سازه. بهترین قدم بعدی چیه؟",
+          "source_hash": "89edc5e30bbdf3e30967c28e89140f15d11b8cf0ea3eec255516f807b8d297af"
+        },
+        "/questions/C04-FINAL-Q10/options/a/text": {
+          "pointer": "/questions/9/options/0/text",
+          "text": "نام بخش‌ها رو حقیقت قطعی فرض کنیم",
+          "source_hash": "af24513fa53b71bb16f79c8a9aa69098831ff6def1e005f330dfee2b9b5dc713"
+        },
+        "/questions/C04-FINAL-Q10/options/a/feedback": {
+          "pointer": "/questions/9/options/0/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q10/options/b/text": {
+          "pointer": "/questions/9/options/1/text",
+          "text": "تعریف و تفاوت بخش‌ها رو با دادهٔ واقعی، کیفیت نمونه و خطای دسته‌بندی بررسی کنیم",
+          "source_hash": "f890d33ce1404a330fb3ec9bd3ee30d33be578d30ff2b4626c1b3c668c78182d"
+        },
+        "/questions/C04-FINAL-Q10/options/b/feedback": {
+          "pointer": "/questions/9/options/1/feedback",
+          "text": "این گزینه با تعریف و شاهدهای مسئله سازگاره.",
+          "source_hash": "a746b7e226377afa7dd4eb3a3bbc3ff7fad2dc8bd6de0e730288a6d69a53aa76"
+        },
+        "/questions/C04-FINAL-Q10/options/c/text": {
+          "pointer": "/questions/9/options/2/text",
+          "text": "فقط تعداد خوشه‌ها رو بیشتر کنیم",
+          "source_hash": "192e56bcf7f606248c5c873a578219fd4859949ffd4edc52974bc868a20c7ad8"
+        },
+        "/questions/C04-FINAL-Q10/options/c/feedback": {
+          "pointer": "/questions/9/options/2/feedback",
+          "text": "این گزینه یک تفاوت مهم رو نادیده می‌گیره یا بیش از شواهد نتیجه می‌گیره.",
+          "source_hash": "58c6e2a5b3693122e6c92dac730a1e5eb49636cac3cac4dfca972313df1fa3d4"
+        },
+        "/questions/C04-FINAL-Q10/explanation": {
+          "pointer": "/questions/9/explanation",
+          "text": "خوشه یا خلاصهٔ مدل فرضیهٔ تحلیله؛ تعریف بخش و کاربرد اون به اعتبارسنجی مستقل نیاز داره.",
+          "source_hash": "707ae4fc6761a04c386edf1b1f47411057f70b2c09973833f1b749273c3b9e89"
+        },
+        "/questions/C04-FINAL-Q11/prompt": {
+          "pointer": "/questions/10/prompt",
+          "text": "سپهر وعدهٔ پیشرفت عملی می‌ده اما فقط ویدیو می‌فروشه؛ چه باید بسنجه؟",
+          "source_hash": "c3e3a6d6632ad0c431f3dc88eb714b428cd890597e3c9368bd7f6581da93f36c"
+        },
+        "/questions/C04-FINAL-Q11/options/a/text": {
+          "pointer": "/questions/10/options/0/text",
+          "text": "هم‌راستایی وعده با تمرین و شاهد",
+          "source_hash": "f9fb1c96b31f607e4fac1ad6279868e5b84691310e5d8aea1bb9899571058b5e"
+        },
+        "/questions/C04-FINAL-Q11/options/a/feedback": {
+          "pointer": "/questions/10/options/0/feedback",
+          "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
+          "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
+        },
+        "/questions/C04-FINAL-Q11/options/b/text": {
+          "pointer": "/questions/10/options/1/text",
+          "text": "فقط رنگ برند",
+          "source_hash": "baddabd9a98a24974ff8fc1f6e0cf66bbd9bd6679940305daa9b7146d3320bf4"
+        },
+        "/questions/C04-FINAL-Q11/options/b/feedback": {
+          "pointer": "/questions/10/options/1/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q11/options/c/text": {
+          "pointer": "/questions/10/options/2/text",
+          "text": "تعداد کاربرانی که صفحه رو دیده‌اند",
+          "source_hash": "9776460f71ea88f37d0b85457e3d88fecc3d3aff7f933259f41f6f7faa1de77d"
+        },
+        "/questions/C04-FINAL-Q11/options/c/feedback": {
+          "pointer": "/questions/10/options/2/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q11/explanation": {
+          "pointer": "/questions/10/explanation",
+          "text": "وعدهٔ پیشرفت باید با اجزای تحویل و شواهد تجربه پشتیبانی بشه.",
+          "source_hash": "75bce38ed1b3f9864b25e536ee94781b89ac00c4ff78936905d7d03cf820222f"
+        },
+        "/questions/C04-FINAL-Q12/prompt": {
+          "pointer": "/questions/11/prompt",
+          "text": "کدام معیار رو کنار نرخ تبدیل ببینیم؟",
+          "source_hash": "9742c15303b7fa50a8937668256cfad45b4753f9516dad2510981e128cba5cab"
+        },
+        "/questions/C04-FINAL-Q12/options/a/text": {
+          "pointer": "/questions/11/options/0/text",
+          "text": "حاشیه و لغو/شکایت",
+          "source_hash": "8b70f1cacc02378d07a1e9318d82de0c59b9afc9305dfd4aeaed4743f3ea15a1"
+        },
+        "/questions/C04-FINAL-Q12/options/a/feedback": {
+          "pointer": "/questions/11/options/0/feedback",
+          "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
+          "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
+        },
+        "/questions/C04-FINAL-Q12/options/b/text": {
+          "pointer": "/questions/11/options/1/text",
+          "text": "فونت صفحه",
+          "source_hash": "73043831a69dbf5ca06f23cfc632b624726323208d4337c4b2bae4c0b1cfa2e9"
+        },
+        "/questions/C04-FINAL-Q12/options/b/feedback": {
+          "pointer": "/questions/11/options/1/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q12/options/c/text": {
+          "pointer": "/questions/11/options/2/text",
+          "text": "نام مدیر",
+          "source_hash": "00718426c10b83fbc19b3bfd6c2a3a5d1f9de25664d58d2b6f6e6ef6e8f5d9fa"
+        },
+        "/questions/C04-FINAL-Q12/options/c/feedback": {
+          "pointer": "/questions/11/options/2/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q12/explanation": {
+          "pointer": "/questions/11/explanation",
+          "text": "افزایش تبدیل ممکنه با افت حاشیه یا اعتماد همراه بشه.",
+          "source_hash": "2423d135b27cb31a8fdd0ac7a566d991faa407c277600a20f5c7f0597fb5f99a"
+        },
+        "/questions/C04-FINAL-Q13/prompt": {
+          "pointer": "/questions/12/prompt",
+          "text": "چند مسیر فروش چه چیزی رو ثابت نمی‌کنه؟",
+          "source_hash": "025ec79e592608ed5aafb58842b6d32a3f1b7bab2a82e4db43e02f81624b82af"
+        },
+        "/questions/C04-FINAL-Q13/options/a/text": {
+          "pointer": "/questions/12/options/0/text",
+          "text": "وجود چند کانال",
+          "source_hash": "3a31d595bec0010a980c1b71a185bd1f2e01fa7a24a20f79ccf1cb42680b7f4c"
+        },
+        "/questions/C04-FINAL-Q13/options/a/feedback": {
+          "pointer": "/questions/12/options/0/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q13/options/b/text": {
+          "pointer": "/questions/12/options/1/text",
+          "text": "یکپارچگی تجربه",
+          "source_hash": "0ac91db091de5347101a3b65b787280edd0fb6cf27dbc4f60a850b2cefe3e89b"
+        },
+        "/questions/C04-FINAL-Q13/options/b/feedback": {
+          "pointer": "/questions/12/options/1/feedback",
+          "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
+          "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
+        },
+        "/questions/C04-FINAL-Q13/options/c/text": {
+          "pointer": "/questions/12/options/2/text",
+          "text": "وجود تماس با مشتری",
+          "source_hash": "f65bf035764e59e09c464878eb5fe6f99987f0cdf50dcee1db742dbd3f8bcdf4"
+        },
+        "/questions/C04-FINAL-Q13/options/c/feedback": {
+          "pointer": "/questions/12/options/2/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q13/explanation": {
+          "pointer": "/questions/12/explanation",
+          "text": "همه‌کاناله بودن به پیوستگی نیاز داره.",
+          "source_hash": "c5e9baa4007796cd3df7d3e71897bdb978ad2d5f2269e762012fc105fc7c4a28"
+        },
+        "/questions/C04-FINAL-Q14/prompt": {
+          "pointer": "/questions/13/prompt",
+          "text": "کاربرد محتاطانهٔ مدل پیش‌بینی مرجوعی؟",
+          "source_hash": "2ee5b8ca394122657ae42e79d723dff33979b559f9bbbdfc7d8574d05dd0ea4c"
+        },
+        "/questions/C04-FINAL-Q14/options/a/text": {
+          "pointer": "/questions/13/options/0/text",
+          "text": "محروم‌سازی خودکار",
+          "source_hash": "beccaa185b26740643fa570cd485d59238a22846eb4089059c90432a37ddd88f"
+        },
+        "/questions/C04-FINAL-Q14/options/a/feedback": {
+          "pointer": "/questions/13/options/0/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q14/options/b/text": {
+          "pointer": "/questions/13/options/1/text",
+          "text": "اولویت بررسی کیفیت/شرح کالا با بازبینی",
+          "source_hash": "219416781b5212525f4ca209ce0c256343e47625c2ca284cc2777158b53717ef"
+        },
+        "/questions/C04-FINAL-Q14/options/b/feedback": {
+          "pointer": "/questions/13/options/1/feedback",
+          "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
+          "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
+        },
+        "/questions/C04-FINAL-Q14/options/c/text": {
+          "pointer": "/questions/13/options/2/text",
+          "text": "اعلام علت قطعی",
+          "source_hash": "6bf1f9099b6c456e14f9336ac71933f07004ce7730086b0c0d5a2a96210f4d61"
+        },
+        "/questions/C04-FINAL-Q14/options/c/feedback": {
+          "pointer": "/questions/13/options/2/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q14/explanation": {
+          "pointer": "/questions/13/explanation",
+          "text": "پیش‌بینی همبستگیه و به تنهایی علت رو ثابت نمی‌کنه.",
+          "source_hash": "afbe42b90c45543b864a73a6a9843454cb19f46c431a3236d50b3251d4ff6cc4"
+        },
+        "/questions/C04-FINAL-Q15/prompt": {
+          "pointer": "/questions/14/prompt",
+          "text": "کدام مورد تجربهٔ خدمت رو بهتر ارزیابی می‌کنه؟",
+          "source_hash": "4a6b04667efbfeacca074728e2ecab63ed7fc848bcc56e8a9460b807e75388ff"
+        },
+        "/questions/C04-FINAL-Q15/options/a/text": {
+          "pointer": "/questions/14/options/0/text",
+          "text": "فقط بازدید تبلیغ",
+          "source_hash": "759beff66f3e031c7fe201a921ea61ccb3e13cb762fb83ef560fa553e6ff35c0"
+        },
+        "/questions/C04-FINAL-Q15/options/a/feedback": {
+          "pointer": "/questions/14/options/0/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q15/options/b/text": {
+          "pointer": "/questions/14/options/1/text",
+          "text": "نقاط تماس، مانع استفاده، پشتیبانی و ریزش",
+          "source_hash": "2b5e8c0aff0cc1372313dee991a42fe1b0de0784ca53c974b085661faf0eb382"
+        },
+        "/questions/C04-FINAL-Q15/options/b/feedback": {
+          "pointer": "/questions/14/options/1/feedback",
+          "text": "این گزینه با مفهوم و شاهد مسئله سازگاره.",
+          "source_hash": "c728c32eb58e0ce4f20621d01f56e85a10dec30932440e5d699acb700daeaf0c"
+        },
+        "/questions/C04-FINAL-Q15/options/c/text": {
+          "pointer": "/questions/14/options/2/text",
+          "text": "فقط تعداد ویژگی‌ها",
+          "source_hash": "78f5dc1d7f61a69b633541c1ea97d18ffc0aeac8bf91cb57257c6a9e5f913467"
+        },
+        "/questions/C04-FINAL-Q15/options/c/feedback": {
+          "pointer": "/questions/14/options/2/feedback",
+          "text": "این گزینه یکی از نقش‌ها، هزینه‌ها یا فرض‌های مهم رو نادیده می‌گیره.",
+          "source_hash": "8f8c4434624878a158d0a6297ed5951c5c85c76560b5a2b2db0b275c52403a8e"
+        },
+        "/questions/C04-FINAL-Q15/explanation": {
+          "pointer": "/questions/14/explanation",
+          "text": "مشاهدهٔ تعامل و استفاده فراتر از شمارش ویژگی‌هاست.",
+          "source_hash": "9f059ca37fe7be45ee9e02331457f34349b00c92afbc2083ce62199b2ef1cc89"
+        },
+        "/questions/C04-FINAL-Q16/prompt": {
+          "pointer": "/questions/15/prompt",
+          "text": "کدام ترکیب نشانهٔ کامل‌تری از حفظه؟",
+          "source_hash": "0b7ff6d918372c5d9b74821fc5022a4997f81302784977328ed0316512430ee6"
+        },
+        "/questions/C04-FINAL-Q16/options/a/text": {
+          "pointer": "/questions/15/options/0/text",
+          "text": "بازگشت روزانه به هر قیمت",
+          "source_hash": "9c99ef6c9db10cb81d0308433f8ab245d55d46712689920de00b950a6bb1717f"
+        },
+        "/questions/C04-FINAL-Q16/options/a/feedback": {
+          "pointer": "/questions/15/options/0/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q16/options/b/text": {
+          "pointer": "/questions/15/options/1/text",
+          "text": "رفتار استفاده/خرید مجدد همراه با تجربه و هزینهٔ خدمت",
+          "source_hash": "f6c19c7082d37c2a2e61e871052574f7a96ebbcad07a31f844d16aeab6b65120"
+        },
+        "/questions/C04-FINAL-Q16/options/b/feedback": {
+          "pointer": "/questions/15/options/1/feedback",
+          "text": "این گزینه با منطق و شواهد درس سازگاره.",
+          "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
+        },
+        "/questions/C04-FINAL-Q16/options/c/text": {
+          "pointer": "/questions/15/options/2/text",
+          "text": "لایک شبکهٔ اجتماعی تنها",
+          "source_hash": "cbc9d976b13955798a439834017b9a41daf60c412c51b9ddf5a079c15a6c94a5"
+        },
+        "/questions/C04-FINAL-Q16/options/c/feedback": {
+          "pointer": "/questions/15/options/2/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q16/explanation": {
+          "pointer": "/questions/15/explanation",
+          "text": "حفظ معنادار باید با رفتار ارزشمند و کیفیت رابطه سنجیده بشه.",
+          "source_hash": "a4a62c0a04c2208b0ae1dcf724e425c0a03d7c2900fe9d46e13d1c39f1f0ff31"
+        },
+        "/questions/C04-FINAL-Q17/prompt": {
+          "pointer": "/questions/16/prompt",
+          "text": "دورهٔ بازگشت CAC چیه؟",
+          "source_hash": "e7c8c6381ca09b7c456d1a6f05f9c048f1bb6e0ff7ec9709dd09b57b7d5f57a2"
+        },
+        "/questions/C04-FINAL-Q17/options/a/text": {
+          "pointer": "/questions/16/options/0/text",
+          "text": "زمان تا جبران هزینه از حاشیهٔ تجمعی مشتری",
+          "source_hash": "1e7db9fa58fb58a0864d41d33fc1886f2f7a2e6a93044930a20d87ec73df7386"
+        },
+        "/questions/C04-FINAL-Q17/options/a/feedback": {
+          "pointer": "/questions/16/options/0/feedback",
+          "text": "این گزینه با منطق و شواهد درس سازگاره.",
+          "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
+        },
+        "/questions/C04-FINAL-Q17/options/b/text": {
+          "pointer": "/questions/16/options/1/text",
+          "text": "زمان تا دیده‌شدن تبلیغ",
+          "source_hash": "476f36f00e74b3eff3e5ee434eca7d49aab2db0ad484d3b976a65b8a3b4a6b5c"
+        },
+        "/questions/C04-FINAL-Q17/options/b/feedback": {
+          "pointer": "/questions/16/options/1/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q17/options/c/text": {
+          "pointer": "/questions/16/options/2/text",
+          "text": "مدت قرارداد با آژانس",
+          "source_hash": "7579b997f3b54f436201a9190e9fc7887a43661282f4c9b5df722605f03be7f9"
+        },
+        "/questions/C04-FINAL-Q17/options/c/feedback": {
+          "pointer": "/questions/16/options/2/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q17/explanation": {
+          "pointer": "/questions/16/explanation",
+          "text": "دورهٔ بازگشت با زمان لازم برای پوشش CAC از جریان حاشیه مرتبطه.",
+          "source_hash": "5f189fbabb387c7485a94197f22ca572011f809958abc7f6645b4e0b0827f1b7"
+        },
+        "/questions/C04-FINAL-Q18/prompt": {
+          "pointer": "/questions/17/prompt",
+          "text": "کدام شاخص زیان مناسبه؟",
+          "source_hash": "75a7dab17a985f40834f381d941c205e43b2661abfff44447cf64189080ebb96"
+        },
+        "/questions/C04-FINAL-Q18/options/a/text": {
+          "pointer": "/questions/17/options/0/text",
+          "text": "لغو، شکایت یا تفاوت نامتوازن نتیجه میان گروه‌ها",
+          "source_hash": "8445eac2a256212cbbc438e5759a627714a16db773e6e2f7ba0a0d1d0b2ba65b"
+        },
+        "/questions/C04-FINAL-Q18/options/a/feedback": {
+          "pointer": "/questions/17/options/0/feedback",
+          "text": "این گزینه با منطق و شواهد درس سازگاره.",
+          "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
+        },
+        "/questions/C04-FINAL-Q18/options/b/text": {
+          "pointer": "/questions/17/options/1/text",
+          "text": "تعداد نمودارها",
+          "source_hash": "6747e6e33589aa68a0ca6f72a0d5f4ec464df1b507ca87ca03d976f45035c4b6"
+        },
+        "/questions/C04-FINAL-Q18/options/b/feedback": {
+          "pointer": "/questions/17/options/1/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q18/options/c/text": {
+          "pointer": "/questions/17/options/2/text",
+          "text": "رنگ دکمه",
+          "source_hash": "6c0240a2190b4085fb8ee5e3e0f41f9293618afc422b42433dc38df951cd08f5"
+        },
+        "/questions/C04-FINAL-Q18/options/c/feedback": {
+          "pointer": "/questions/17/options/2/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q18/explanation": {
+          "pointer": "/questions/17/explanation",
+          "text": "شاخص زیان پیامد منفی یا توزیع نابرابر اثر رو پایش می‌کنه.",
+          "source_hash": "9c9f4c603406dcfc7963e101b4b2ed16b1b101ef665048762aae8732c392f6e3"
+        },
+        "/questions/C04-FINAL-Q19/prompt": {
+          "pointer": "/questions/18/prompt",
+          "text": "داشبورد یک عدد رو پس از تغییر روش محاسبه نشان می‌ده؛ چه باید کرد؟",
+          "source_hash": "f7c15f2cc7a0cc24c9821e8c55b54abd3d741f54ecac1b94f25ef6af856c7507"
+        },
+        "/questions/C04-FINAL-Q19/options/a/text": {
+          "pointer": "/questions/18/options/0/text",
+          "text": "تغییر تعریف و دوره رو مستند و مقایسهٔ تاریخی رو تعدیل کرد",
+          "source_hash": "6328e7ff834e959ab98450bc65b5b5668cdd3ec40f8e035d499287077f59b317"
+        },
+        "/questions/C04-FINAL-Q19/options/a/feedback": {
+          "pointer": "/questions/18/options/0/feedback",
+          "text": "این گزینه با منطق و شواهد درس سازگاره.",
+          "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
+        },
+        "/questions/C04-FINAL-Q19/options/b/text": {
+          "pointer": "/questions/18/options/1/text",
+          "text": "اون رو رشد واقعی نامید",
+          "source_hash": "6c4c4fd0e2d1cfe95ecafe6c7a1fc67b72e0b04259d2036f3d47d0599bbfa526"
+        },
+        "/questions/C04-FINAL-Q19/options/b/feedback": {
+          "pointer": "/questions/18/options/1/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q19/options/c/text": {
+          "pointer": "/questions/18/options/2/text",
+          "text": "منبع رو حذف کرد",
+          "source_hash": "47ffe30f6752adb9befbcbaef8cd5a743c4b7e407448f5d9a163d3d75c1aee41"
+        },
+        "/questions/C04-FINAL-Q19/options/c/feedback": {
+          "pointer": "/questions/18/options/2/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q19/explanation": {
+          "pointer": "/questions/18/explanation",
+          "text": "تغییر سنجه می‌تونه تغییر ظاهری ایجاد کنه و باید قابل ردیابی بمونه.",
+          "source_hash": "f9ec3b5640ec0024a882dbd08f5392b355f13fd7d20f4830326d08db1f14b888"
+        },
+        "/questions/C04-FINAL-Q20/prompt": {
+          "pointer": "/questions/19/prompt",
+          "text": "قیف عمدتاً برای چه کاری مفیده؟",
+          "source_hash": "bda7b3f8a1d1ae0b7476245d669b925dd227b361433ac53e0cc94fd5a2ad3ed5"
+        },
+        "/questions/C04-FINAL-Q20/options/a/text": {
+          "pointer": "/questions/19/options/0/text",
+          "text": "یافتن مرحلهٔ افت و طرح پرسش بعدی",
+          "source_hash": "8440ee592612b5140e0bbdb57361df48fa2425bf56f5947ae7a0c09fb788f785"
+        },
+        "/questions/C04-FINAL-Q20/options/a/feedback": {
+          "pointer": "/questions/19/options/0/feedback",
+          "text": "این گزینه با منطق و شواهد درس سازگاره.",
+          "source_hash": "e25119e0b69e968da339d74e243343303c34804dd352e48460eaa072e355c8f9"
+        },
+        "/questions/C04-FINAL-Q20/options/b/text": {
+          "pointer": "/questions/19/options/1/text",
+          "text": "اثبات علت قطعی افت",
+          "source_hash": "9f4bbe9172095706dee1f23d10edb49f717de0fa9ec3eb659ce4a298dbac0c58"
+        },
+        "/questions/C04-FINAL-Q20/options/b/feedback": {
+          "pointer": "/questions/19/options/1/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q20/options/c/text": {
+          "pointer": "/questions/19/options/2/text",
+          "text": "جایگزینی با گفت‌وگوی مشتری",
+          "source_hash": "429b65bab3a2c62ce9a5f1f1b704fd07d05dd10995c2a0a023a09ddfd2ef1525"
+        },
+        "/questions/C04-FINAL-Q20/options/c/feedback": {
+          "pointer": "/questions/19/options/2/feedback",
+          "text": "این گزینه تعریف شاخص یا محدودیت استنتاج رو نادیده می‌گیره.",
+          "source_hash": "77b4b0b5b8cfb9ea60e8f174bbf6391656eb8935abf9ff61221abfae218c9428"
+        },
+        "/questions/C04-FINAL-Q20/explanation": {
+          "pointer": "/questions/19/explanation",
+          "text": "قیف تشخیص و اولویت‌بندی می‌کنه؛ علت و راه‌حل رو به‌تنهایی ثابت نمی‌کنه.",
+          "source_hash": "7b452e1cbddb2272f667f5dcdd5e5c3c3edb75eb663585d16ab16dfb58a0634e"
         }
       }
     }

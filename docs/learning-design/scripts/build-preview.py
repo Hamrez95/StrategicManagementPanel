@@ -13,7 +13,12 @@ for p in sorted((ROOT/'content').glob('*/course.v1.json')):
         stage=read(p.parent/'stages'/f"{st['id']}.json")
         stage['lessons']=[read(p.parent/'lessons'/f"{l['id']}.json") for l in stage['lessons']]
         bundle['stages'][i]=stage;write(p.parent/'stages'/f"{st['id']}.json",stage)
-    if bundle.get('final_assessment'):bundle['final_assessment']=read(p.parent/'final-assessment.json')
+    if (p.parent/'final-assessment.json').exists():bundle['final_assessment']=read(p.parent/'final-assessment.json')
+    bundle['status']='draft_complete_pending_review'
+    bundle['stages_completed_draft']=len(bundle['stages'])
+    if 'current_stage' in bundle:bundle['current_stage']=None
+    if isinstance(bundle.get('scope'),str):bundle['scope']=bundle['scope'].replace('stage 1 of 4 only','all 4 stages drafted')
+    bundle['assessment_summary']={'lesson_items':sum(len(l['questions']) for st in bundle['stages'] for l in st['lessons']),'stage_review_items':sum(len(st['checkpoint']['questions']) for st in bundle['stages']),'final_items':len((bundle.get('final_assessment') or {}).get('questions',[])),'fresh_equivalent_variants':0}
     write(p,bundle)
     lines=[f"# {bundle['title']}؛ نسخهٔ نخست",'',
            'وضعیت: پیش‌نویس تألیفی؛ بازبینی متخصص، بانک سؤال هم‌ارز و بررسی با یادگیرنده هنوز کامل نیست. فایل‌های درس‌نامه مرجع محتوا هستند؛ این سند برای مطالعه و بازبینی ساخته شده است.','']
@@ -49,6 +54,29 @@ for c in catalog['courses']:
     slim['final_assessment']=c.get('final_assessment');courses.append(slim)
 view={'paths':catalog['paths'],'counts':catalog['counts'],'courses':courses}
 bundles={'courses':[json.loads(p.read_text(encoding='utf-8')) for p in sorted((ROOT/'content').glob('*/course.v1.json'))]}
+# Delivery inventories follow actual authored files, not old manual progress counts.
+by_id={b['id']:b for b in bundles['courses']}
+inventory=[]
+for course in catalog['courses']:
+    b=by_id.get(course['id'])
+    if not b:continue
+    final=b.get('final_assessment') or {};qcount=len(final.get('questions',[]))
+    if course.get('final_assessment'):
+        plan=course['final_assessment'];old=plan.get('item_count',plan.get('question_count'))
+        if old is not None and old!=qcount:plan.setdefault('planned_item_count',old)
+        plan.update(item_count=qcount,question_count=qcount,content_ref=f"content/{b['id'].lower()}/final-assessment.json",bank_status=final.get('status','not_authored'),reuses_existing_questions=bool(final.get('reuses_existing_questions')))
+        if 'status' in plan:plan['status']=final.get('status','not_authored')
+    inventory.append({'id':b['id'],'bundle':f"{b['id'].lower()}/course.v1.json",'status':'draft_complete_pending_review','lessons':sum(len(st['lessons']) for st in b['stages']),'questions':sum(b['assessment_summary'][k] for k in ('lesson_items','stage_review_items','final_items')),'lesson_questions':b['assessment_summary']['lesson_items'],'stage_review_questions':b['assessment_summary']['stage_review_items'],'final_questions':qcount,'final_reuses_existing_questions':bool(final.get('reuses_existing_questions')),'production_ready':False})
+manifest={'schema_version':'1.2','canonical_storage':'Individual lessons, stage checkpoints and final-assessment JSON are canonical; course bundles are generated.','status':'draft_text_complete_review_pending','courses':inventory,'remaining_curriculum_lesson_outlines_excluding_bridge':0,'remaining_bridge_outlines':0,'answer_keys_are_public_only_for_editor_review':True,'production_import':'Import validated stable IDs; never expose answer keys before submission. Reused final practice is not fresh assessment evidence.'}
+write(ROOT/'content/manifest.json',manifest)
+digits=str.maketrans('0123456789','۰۱۲۳۴۵۶۷۸۹')
+board=['# برد جاری تولید و بازبینی محتوا','','پیش‌نویس همهٔ ۵۹۲ درس‌نامه نوشته شده. بازبینی الگوهای مشترک انجام شده؛ بررسی علمی تک‌تک ادعاها، سؤال هم‌ارز تازه و پایلوت یادگیرنده هنوز کامل نیست. تاریخچهٔ مراحل قدیمی در Git باقیه.','','| تسک | درس | درس‌نامه | نگارش | مرور پایانی | انتشار |','|---|---|---|---|---|---|']
+for item in inventory:
+    b=by_id[item['id']];final='مرور با سؤال‌های قبلی' if item['final_reuses_existing_questions'] else 'بانک پایانی موجود' if item['final_questions'] else 'در طرح لازم نیست'
+    board.append(f"| `AUTHOR-{item['id']}` | {b['title']} | {str(item['lessons']).translate(digits)} | done | {final} | pending_review |")
+board+=['','## کارهای باقی‌مونده','','- بازبینی تخصصی ادعاهای حساس و استثناهای دسترسی منبع؛ گزارش اصلی در [وضعیت بازبینی](QUALITY_REVIEW_FA.md).','- سؤال‌های هم‌ارز تازه و ارزیابی با یادگیرنده. مرور با سؤال تکراری، اثبات تسلط مستقل نیست.','- ترجمهٔ واقعی و اتصال زبان‌ها در مرحلهٔ بعد؛ بستهٔ ترجمه و فونت مرکزی آماده شده.','- انتقال به فرانت اصلی بعد از تأیید مرحلهٔ محتوا؛ این برد پایان انتشار رو اعلام نمی‌کنه.','']
+(ROOT/'AUTHORING_WORKBOARD.md').write_text('\n'.join(board),encoding='utf-8')
+
 authored_ids={l['id'] for b in bundles['courses'] for s in b['stages'] for l in s['lessons']}
 progress={'schema_version':'1.0','scope':'All curriculum lessons including optional preparation','lessons':[]}
 for c in catalog['courses']:
@@ -61,6 +89,10 @@ for c in catalog['courses']:
 progress['counts']={'total':len(progress['lessons']),'draft_done':len(authored_ids),'todo':len(progress['lessons'])-len(authored_ids),'production_ready':0}
 write(ROOT/'content/authoring-progress.json',progress)
 (ROOT/'catalog.v1.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+for course in view['courses']:
+    source=next(c for c in catalog['courses'] if c['id']==course['id'])
+    if source.get('final_assessment'):course['final_assessment']=source['final_assessment']
+
 def payload(value):return json.dumps(value,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 page=ROOT/'curriculum-explorer.html';text=page.read_text(encoding='utf-8')
 text=re.sub(r'(<script id="catalogData" type="application/json">).*?(</script>)',lambda m:m[1]+payload(view)+m[2],text,flags=re.S,count=1)

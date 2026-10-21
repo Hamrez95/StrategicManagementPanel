@@ -2,7 +2,8 @@
   "locale": "fa-IR",
   "documents": {
     "content/e05/lessons/E05-ST01-L01.json": {
-      "source_revision": "11ee50666a9519a9a8e28a99721244ed78d2a4507521dff200df6d58caffc435",
+      "source_revision": "63211157dcc194c4a83a503d7ee9883ae8fec08090b88345dbcd741371f30d80",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -11,8 +12,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "هدف شرکت تعیین می‌کنه سازمان برای چه کسانی و با چه قیدهایی ارزش می‌سازه.",
-          "source_hash": "6e87e27ecdcf9d756581d9b5c713c4a1354644070fe2f146486e2ea1e6ce0ae0"
+          "text": "در این درس یاد می‌گیری توضیح بدی هدف شرکت چطور گروه‌های دریافت‌کنندهٔ ارزش و قیدهای خلق ارزش رو مشخص می‌کنه.",
+          "source_hash": "38fb6ad956643b10677c06a575dad7af9c1af66baebffd1e2a8e6368222f56d9"
         },
         "/learning_cards/E05-ST01-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -71,8 +72,8 @@
         },
         "/learning_cards/E05-ST01-L01-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "شاخص مالی رو با کیفیت، ریسک و اثر اجتماعی مکمل کن؛ یک عدد همهٔ ارزش رو نمی‌سنجد.",
-          "source_hash": "5fd81b0f9c1a44e5d76955e996922e88c1d0859cc536e54d18e455461e9fbc88"
+          "text": "شاخص مالی رو با کیفیت، ریسک و اثر اجتماعی مکمل کن؛ یک عدد همهٔ ارزش رو نمی‌سنجه.",
+          "source_hash": "ac0efdaf4edaf01f5c1db085edbd4974771d5698a845a20f9cc62825b668627c"
         },
         "/learning_cards/E05-ST01-L01-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -101,8 +102,8 @@
         },
         "/learning_cards/E05-ST01-L01-TERMS/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "ذی‌نفع (Stakeholder) گروهیه که بر تصمیم اثر می‌ذاره یا از اون اثر می‌پذیرد؛ سهام‌دار فقط یکی از گروه‌هاست. هدف شرکت و ارزش بلندمدت باید با افق و پیامد سنجیده بشن. شناسایی ذی‌نفع، به‌خودی‌خود اولویت یا حق تصمیم رو تعیین نمی‌کنه.",
-          "source_hash": "7645ca3f22d5137829499daadefcc88aa219fd1bf5f4ef611fbe51198ca8634e"
+          "text": "ذی‌نفع (Stakeholder) گروهیه که بر تصمیم اثر می‌ذاره یا از اون اثر می‌پذیره؛ سهام‌دار فقط یکی از گروه‌هاست. هدف شرکت و ارزش بلندمدت باید با افق و پیامد سنجیده بشن. شناسایی ذی‌نفع، به‌خودی‌خود اولویت یا حق تصمیم رو تعیین نمی‌کنه.",
+          "source_hash": "60e104a819156eebcf6c7d75e58eea0b307e103245174e70033c4c148bf19d0a"
         },
         "/learning_cards/E05-ST01-L01-DEEP-REVIEW/title": {
           "pointer": "/learning_cards/9/title",
@@ -316,8 +317,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «هدف شرکت و ذی‌نفعان» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "01df2d8bc50e81229ec6ca9cd892e4bdeec6a91a8f165021857ebe49ca9b493e"
+          "text": "برای سناریوی سپهر، تمرین «هدف شرکت و ذی‌نفعان» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "a247f3563835596fd2d410329224644950dfe2e47792c6c6184ac767bb034b01"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -349,6 +355,11 @@
           "text": "خلاصهٔ مرحله: ذی‌نفعان و افق ارزش. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5b277272f56053e83ba0ead7a81c8b58f41c5e790edaf2c5ff8ee564bc7e5c5"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم مدیریتی می‌تونه منافع کوتاه‌مدت و پیامدهای بلندمدت رو متفاوت توزیع کنه. تصمیم و دامنه: موضوع، دورهٔ زمانی و مرز سازمان رو روشن کن؛ چه چیزی داخل سنجشه؟؛ ذی‌نفع و اثر: کارکنان، مشتری، تأمین‌کننده، جامعه و سرمایه‌گذار رو با پیامد واقعی مرتبط کن.؛ مبادله و اختیار: چه کسی سود می‌بره و چه کسی هزینه می‌ده؟ اختیار تصمیم و صدای ذی‌نفع رو بنویس.؛ تعهد و پیگیری: هدف، شاخص، مالک و زمان بازبینی رو ثبت کن؛ ادعا رو به شاهد وصل نگه دار.",
+          "source_hash": "92b89cc2ad661f0edd18811916a84824d01a23cd3e50058d63e47bcf7544a611"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -357,7 +368,8 @@
       }
     },
     "content/e05/lessons/E05-ST01-L02.json": {
-      "source_revision": "92fa1499add804af10f102b5928543fbc0042023bd760414f9ab90681a4cf082",
+      "source_revision": "550ccc57c77e946c86cbe4b069b56f781a1820daef1010cff4ac7c8931a0bf34",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -366,8 +378,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "منافع متفاوت میان مالکان، مدیران، کارکنان و جامعه بر تصمیم اثر می‌ذاره.",
-          "source_hash": "282c457586024d1946818973dbf5ba72e7923d185f41ebd625dc219bc81e09c8"
+          "text": "در این درس یاد می‌گیری اثر منافع متفاوت مالکان، مدیران، کارکنان و جامعه رو روی تصمیم بررسی کنی.",
+          "source_hash": "59766a1c6bf495cc7f25fb708cb7041c731886857f81b3634e595de30d3f25e9"
         },
         "/learning_cards/E05-ST01-L02-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -416,8 +428,8 @@
         },
         "/learning_cards/E05-ST01-L02-CARD05/text": {
           "pointer": "/learning_cards/4/text",
-          "text": "ارزیابی کنه چه کسی منفعت می‌برد، چه کسی هزینه می‌ده و در چه زمانی.",
-          "source_hash": "dd94c6ed85e501f122c399436bb237cb6a706ecfb7556448e0e5c9179e3e3333"
+          "text": "ارزیابی کنه چه کسی منفعت می‌بره، چه کسی هزینه می‌ده و در چه زمانی.",
+          "source_hash": "ec522c06331b08d8f642e03b2c4815f4efe6446e35a490706d7f597aca5b1224"
         },
         "/learning_cards/E05-ST01-L02-CARD06/title": {
           "pointer": "/learning_cards/5/title",
@@ -456,8 +468,8 @@
         },
         "/learning_cards/E05-ST01-L02-TERMS/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "ماتریس ذی‌نفعان اثر و اختیار یا مشروعیت مطالبه رو جدا می‌سنجد. تعارض منافع یعنی دو هدف یا حق با هم برخورد دارن؛ اون رو با حذف صدای گروه ضعیف حل‌شده فرض نکن. پاسخ‌گویی (Accountability) باید صاحب تصمیم و دلیل و مسیر اعتراض رو روشن کنه.",
-          "source_hash": "1ed7c252cc74c75522dbfb8e38dccabaf0eb8b532cbac51eeb2a99f95d21bc38"
+          "text": "ماتریس ذی‌نفعان اثر و اختیار یا مشروعیت مطالبه رو جدا می‌سنجه. تعارض منافع یعنی دو هدف یا حق با هم برخورد دارن؛ اون رو با حذف صدای گروه ضعیف حل‌شده فرض نکن. پاسخ‌گویی (Accountability) باید صاحب تصمیم و دلیل و مسیر اعتراض رو روشن کنه.",
+          "source_hash": "084327b31292f3d6076bbb17cc5e2326018dc7ba05a7fefcbc21190534cab268"
         },
         "/learning_cards/E05-ST01-L02-DEEP-REVIEW/title": {
           "pointer": "/learning_cards/9/title",
@@ -671,8 +683,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «منافع متعارض و اختیار» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "c946e5241cadd4a28bc8545fa22d56bed2152eb5db99eda55429ea57214f75b3"
+          "text": "برای سناریوی سپهر، تمرین «منافع متعارض و اختیار» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "de0f1b3f53f17cb642b9d10a1f857c5a9d3364a3c80b0700043d1797f3ea73e4"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -704,6 +721,11 @@
           "text": "خلاصهٔ مرحله: ذی‌نفعان و افق ارزش. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5b277272f56053e83ba0ead7a81c8b58f41c5e790edaf2c5ff8ee564bc7e5c5"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم مدیریتی می‌تونه منافع کوتاه‌مدت و پیامدهای بلندمدت رو متفاوت توزیع کنه. تصمیم و دامنه: موضوع، دورهٔ زمانی و مرز سازمان رو روشن کن؛ چه چیزی داخل سنجشه؟؛ ذی‌نفع و اثر: کارکنان، مشتری، تأمین‌کننده، جامعه و سرمایه‌گذار رو با پیامد واقعی مرتبط کن.؛ مبادله و اختیار: چه کسی سود می‌بره و چه کسی هزینه می‌ده؟ اختیار تصمیم و صدای ذی‌نفع رو بنویس.؛ تعهد و پیگیری: هدف، شاخص، مالک و زمان بازبینی رو ثبت کن؛ ادعا رو به شاهد وصل نگه دار.",
+          "source_hash": "92b89cc2ad661f0edd18811916a84824d01a23cd3e50058d63e47bcf7544a611"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -712,7 +734,8 @@
       }
     },
     "content/e05/lessons/E05-ST01-L03.json": {
-      "source_revision": "1bf8d5c7c0b55aa3e5119929167776e58462cfcb3b7655b8cd37b66d29f22cd2",
+      "source_revision": "6d49ce248b6457d4eda58381139157d528d57bb1b7d9a52f76085cac8f062cb3",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -721,8 +744,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "ارزش رو پیش از انتخاب KPI تعریف کنه: برای چه گروه، در چه افق و با چه پیامدی؟",
-          "source_hash": "6ac554ee94779d42f2af15501af62249edce89c9df3232bd8f5e8f0d51377db6"
+          "text": "در این درس یاد می‌گیری پیش از انتخاب KPI مشخص کنی ارزش برای چه گروهی، در چه افقی و با چه پیامدی تعریف می‌شه.",
+          "source_hash": "6976ecae0318e78a42cfb099b8154b20648fa16c0e3bed2c768efe36ba7e6593"
         },
         "/learning_cards/E05-ST01-L03-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -761,8 +784,8 @@
         },
         "/learning_cards/E05-ST01-L03-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "میانگین مثبت ممکنه زیان شدید یک گروه رو پنهان کنه؛ توزیع پیامد رو نشان دهید.",
-          "source_hash": "14e3aef31f200d0759282d8c8475f72c18ff11c389c3d93a10868f4e34a6ff5f"
+          "text": "میانگین مثبت ممکنه زیان شدید یک گروه رو پنهان کنه؛ توزیع پیامد رو نشان بده.",
+          "source_hash": "4eec6d4bbd5cda99dd7221315903025d7d5e426bab859abb89a2a2f09d4af49e"
         },
         "/learning_cards/E05-ST01-L03-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -1026,8 +1049,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «تعریف ارزش در افق‌های متفاوت» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "c4a7fde8497082b82c763428520947986e507f1069e52a1ec4bb72783e833a86"
+          "text": "برای سناریوی سپهر، تمرین «تعریف ارزش در افق‌های متفاوت» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "959e89bfb95c43454d8783e8271e44a707bf82e44cc36173a374efb215f2d3f4"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -1059,6 +1087,11 @@
           "text": "خلاصهٔ مرحله: ذی‌نفعان و افق ارزش. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5b277272f56053e83ba0ead7a81c8b58f41c5e790edaf2c5ff8ee564bc7e5c5"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم مدیریتی می‌تونه منافع کوتاه‌مدت و پیامدهای بلندمدت رو متفاوت توزیع کنه. تصمیم و دامنه: موضوع، دورهٔ زمانی و مرز سازمان رو روشن کن؛ چه چیزی داخل سنجشه؟؛ ذی‌نفع و اثر: کارکنان، مشتری، تأمین‌کننده، جامعه و سرمایه‌گذار رو با پیامد واقعی مرتبط کن.؛ مبادله و اختیار: چه کسی سود می‌بره و چه کسی هزینه می‌ده؟ اختیار تصمیم و صدای ذی‌نفع رو بنویس.؛ تعهد و پیگیری: هدف، شاخص، مالک و زمان بازبینی رو ثبت کن؛ ادعا رو به شاهد وصل نگه دار.",
+          "source_hash": "92b89cc2ad661f0edd18811916a84824d01a23cd3e50058d63e47bcf7544a611"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -1067,7 +1100,8 @@
       }
     },
     "content/e05/lessons/E05-ST01-L04.json": {
-      "source_revision": "6a04b1c0374fb0c493f30feb0b9502290724339c1246e8f48a6f51e044b32db3",
+      "source_revision": "2cac033c9ca2ef6bc106ccbdad5f6ad75910f62074c3c24f7c3ad79ef927a7da",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1176,8 +1210,8 @@
         },
         "/learning_cards/E05-ST01-L04-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "کیس مسئولیت رو با تصمیم، گزینه‌های در دسترس، شواهد زمان تصمیم و گروه‌های متأثر تحلیل کن. نتیجهٔ بد به‌تنهایی بی‌مسئولیتی رو ثابت نمی‌کنه و نتیجهٔ خوب نیز فرایند رو توجیه نمی‌کنه. تصمیم‌گیر چه چیزی می‌دانست، چه چیزی باید می‌دانست و چه محدودیت‌هایی داشت؟ صدای افراد متأثر و سند مستقل رو از روایت سازمان جدا کن. فرض‌های اخلاقی رو روشن سازید و گزینهٔ کم‌زیان‌تر رو مقایسه کن. نتیجه رو با محدودیت شواهد بیان کن، نه حکم قطعی پس از وقوع.",
-          "source_hash": "9012e8fd42f685ef22cd130f48a938f1b8698f4dc809952f114eb2c8b17613b1"
+          "text": "کیس مسئولیت رو با تصمیم، گزینه‌های در دسترس، شواهد زمان تصمیم و گروه‌های متأثر تحلیل کن. نتیجهٔ بد به‌تنهایی بی‌مسئولیتی رو ثابت نمی‌کنه و نتیجهٔ خوب نیز فرایند رو توجیه نمی‌کنه. تصمیم‌گیر چه چیزی می‌دانست، چه چیزی باید می‌دانست و چه محدودیت‌هایی داشت؟ صدای افراد متأثر و سند مستقل رو از روایت سازمان جدا کن. فرض‌های اخلاقی رو روشن بساز و گزینهٔ کم‌زیان‌تر رو مقایسه کن. نتیجه رو با محدودیت شواهد بیان کن، نه حکم قطعی پس از وقوع.",
+          "source_hash": "9222d038896bd73b08d5dcb1843276a343267e71f509af7e3f86c2765192d365"
         },
         "/questions/E05-ST01-L04-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -1381,8 +1415,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «کیس مسئولیت و تصمیم» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "0e11f00a757bec94229d1f6b577ee321ce03b5e1c2f6e1e02d78d00d753ce047"
+          "text": "برای سناریوی سپهر، تمرین «کیس مسئولیت و تصمیم» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "e465fa4bedeaab2a45c18ea6f8614dfbc888a0d587a7149fe0804f5511f0a5d6"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -1414,6 +1453,11 @@
           "text": "خلاصهٔ مرحله: ذی‌نفعان و افق ارزش. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5b277272f56053e83ba0ead7a81c8b58f41c5e790edaf2c5ff8ee564bc7e5c5"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم مدیریتی می‌تونه منافع کوتاه‌مدت و پیامدهای بلندمدت رو متفاوت توزیع کنه. تصمیم و دامنه: موضوع، دورهٔ زمانی و مرز سازمان رو روشن کن؛ چه چیزی داخل سنجشه؟؛ ذی‌نفع و اثر: کارکنان، مشتری، تأمین‌کننده، جامعه و سرمایه‌گذار رو با پیامد واقعی مرتبط کن.؛ مبادله و اختیار: چه کسی سود می‌بره و چه کسی هزینه می‌ده؟ اختیار تصمیم و صدای ذی‌نفع رو بنویس.؛ تعهد و پیگیری: هدف، شاخص، مالک و زمان بازبینی رو ثبت کن؛ ادعا رو به شاهد وصل نگه دار.",
+          "source_hash": "92b89cc2ad661f0edd18811916a84824d01a23cd3e50058d63e47bcf7544a611"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -1422,7 +1466,8 @@
       }
     },
     "content/e05/lessons/E05-ST02-L01.json": {
-      "source_revision": "8fc848ce467d59b5fa23efabcebf8c325007030f8feee27d7ce72f35fa9169c4",
+      "source_revision": "d4900731ea3c6f70b408f9bd93d8213a93fed022339939498f14f8a1df678092",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1431,8 +1476,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "مرز گزارش تعیین می‌کنه چه عملیات و نهادی داخل محاسبه قرار می‌گیره.",
-          "source_hash": "1930f1d88afeee10f54cceb9b736d114d16a611cade5200d8bf454d1f4c51255"
+          "text": "در این درس یاد می‌گیری مرز گزارش رو مشخص کنی و توضیح بدی کدام عملیات و نهادها داخل محاسبه قرار می‌گیرن.",
+          "source_hash": "1f86280627e967996d874148cd039d6f1149db777579a8ee2871e92f958d61c3"
         },
         "/learning_cards/E05-ST02-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -1531,8 +1576,8 @@
         },
         "/learning_cards/E05-ST02-L01-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "اندازه‌گیری اثر باید مرز سازمانی، زنجیرهٔ ارزش، جغرافیا، دوره و نوع پیامد رو مشخص کنه. انتشار مستقیم با انتشار تأمین‌کننده یا مصرف محصول یکسان نیست، اما محدودکردن مرز می‌تونه اثر واقعی رو پنهان کنه. روش محاسبه و دادهٔ برآوردی رو ثبت کن. فرض کامل‌بودن داده رو نپذیرید و دامنهٔ عدم قطعیت رو نشان دهید. تغییر مرز از سالی به سال دیگر مقایسه رو دشوار می‌کنه؛ تعدیل و بازبیان رو توضیح دهید. عدد اثر زمانی معناداره که دامنه و روش کنار اون خوانده بشن.",
-          "source_hash": "ad799e8f1a568a9fde9eb728d55b46aed9b6f2a2f56c874882989b690ad2b5d1"
+          "text": "اندازه‌گیری اثر باید مرز سازمانی، زنجیرهٔ ارزش، جغرافیا، دوره و نوع پیامد رو مشخص کنه. انتشار مستقیم با انتشار تأمین‌کننده یا مصرف محصول یکسان نیست، اما محدودکردن مرز می‌تونه اثر واقعی رو پنهان کنه. روش محاسبه و دادهٔ برآوردی رو ثبت کن. فرض کامل‌بودن داده رو نپذیرید و دامنهٔ عدم قطعیت رو نشان بده. تغییر مرز از سالی به سال دیگر مقایسه رو دشوار می‌کنه؛ تعدیل و بازبیان رو توضیح بده. عدد اثر زمانی معناداره که دامنه و روش کنار اون خوانده بشن.",
+          "source_hash": "24d1551909a486b44e7389216b4492b257d84e0f77b4023cec7f37d0c2824412"
         },
         "/questions/E05-ST02-L01-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -1736,8 +1781,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «مرز سنجش اثر» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "8a0c6ac8dab335061099247479ffa98ede5af64b1a59d6db77e36519ea25c76c"
+          "text": "برای سناریوی سپهر، تمرین «مرز سنجش اثر» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "dac10c4d5205cc4022c06e22b2f36ea77379752be93cac8b6b4491d78a524d03"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -1769,6 +1819,11 @@
           "text": "خلاصهٔ مرحله: مرز سنجش اثر زیست‌محیطی. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "019871242a8f88f8e2f183d7a53f4b9ad79c698795f2f9602ee0962e6609a11e"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی: واحد، مالکیت یا کنترل و دورهٔ گزارش رو اعلام کن؛ تغییر مرز رو توضیح بده.؛ دامنهٔ ۱ و ۲: انتشار مستقیم رو از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب رو مستند کن.؛ دامنهٔ ۳: زنجیرهٔ ارزش رو بخش‌بندی کن؛ برآورد و دادهٔ اولیه رو با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام: فرض، ضریب، پوشش و عدم‌قطعیت رو گزارش کن؛ کاهش رو با خط مبنای ثابت بسنج.",
+          "source_hash": "be6112e0956f313b3a02fdec75c9674bb7b534d6c7b36d1744c70446da90b29a"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -1777,7 +1832,8 @@
       }
     },
     "content/e05/lessons/E05-ST02-L02.json": {
-      "source_revision": "537bb536080d5b0ecd67712a4e3f19bad1ac8e4587357d2e8d58ac4b72ddcfe9",
+      "source_revision": "5437a7e40db1711c2698d96c4e347f84eadea32e73ea65b76f75c02e3d88d2ba",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2091,8 +2147,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «انتشار، انرژی و زنجیرهٔ ارزش» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "ecdb21508e93ba6bf3ed8cde9c99d23de59ccb4282bfbc00de5f13ec8a3bf2f5"
+          "text": "برای سناریوی سپهر، تمرین «انتشار، انرژی و زنجیرهٔ ارزش» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "46a878529a2108e9e40b533af9bf0028c332fd8a4cea1c585d8690b01265e485"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -2124,6 +2185,11 @@
           "text": "خلاصهٔ مرحله: مرز سنجش اثر زیست‌محیطی. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "019871242a8f88f8e2f183d7a53f4b9ad79c698795f2f9602ee0962e6609a11e"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی: واحد، مالکیت یا کنترل و دورهٔ گزارش رو اعلام کن؛ تغییر مرز رو توضیح بده.؛ دامنهٔ ۱ و ۲: انتشار مستقیم رو از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب رو مستند کن.؛ دامنهٔ ۳: زنجیرهٔ ارزش رو بخش‌بندی کن؛ برآورد و دادهٔ اولیه رو با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام: فرض، ضریب، پوشش و عدم‌قطعیت رو گزارش کن؛ کاهش رو با خط مبنای ثابت بسنج.",
+          "source_hash": "be6112e0956f313b3a02fdec75c9674bb7b534d6c7b36d1744c70446da90b29a"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -2132,7 +2198,8 @@
       }
     },
     "content/e05/lessons/E05-ST02-L03.json": {
-      "source_revision": "17ae77f8006ce3ff7c417317cac539aed39836e4d9d6370388682837cf2b14b1",
+      "source_revision": "c8970446f2c0f5a5dd31d1cb59ed7a1c247812570924ae26f380b7288e8036c1",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2141,8 +2208,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "ادعای پایداری باید موضوع، مرز، دوره و مبنای مقایسهٔ روشن داشته باشه.",
-          "source_hash": "d6db8ed12e89ae64c6485819b7a3a044b02f66494507402597a45ff3d9c8dafe"
+          "text": "در این درس یاد می‌گیری ادعای پایداری رو با توجه به موضوع، مرز، دوره و مبنای مقایسه بررسی کنی.",
+          "source_hash": "0583b6d65aaa5fde3d1959204f57280bc238fe5e7759b7c83f80456775868431"
         },
         "/learning_cards/E05-ST02-L03-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -2241,8 +2308,8 @@
         },
         "/learning_cards/E05-ST02-L03-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "ادعای گزارش باید با داده، روش، دامنه و دورهٔ قابل راستی‌آزمایی پشتیبانی بشه. سیاست اعلام‌شده با عملکرد تحقق‌یافته یکی نیست؛ هدف آینده نیز شاهد کاهش فعلی نیست. اطلاعات برآوردی، پوشش ناقص و تغییر روش رو برچسب بزنید. اگر شاخص انتخابی فقط بخش بهبود‌یافته رو نشان بده، تصویر کلی منحرف می‌شه. اعتبارسنجی مستقل می‌تونه اطمینان رو بالا ببرد اما محدودیت دامنهٔ تضمین باید خوانده بشه. هر ادعا رو به سند و مسئول داده پیوند دهید و از عبارت‌های مطلق فراتر از شواهد بپرهیزید.",
-          "source_hash": "383ede76841c8cf417da15dd7fb2a86f5c7de42b267afe68a4d4398efa8c7ede"
+          "text": "ادعای گزارش باید با داده، روش، دامنه و دورهٔ قابل راستی‌آزمایی پشتیبانی بشه. سیاست اعلام‌شده با عملکرد تحقق‌یافته یکی نیست؛ هدف آینده نیز شاهد کاهش فعلی نیست. اطلاعات برآوردی، پوشش ناقص و تغییر روش رو برچسب بزنید. اگر شاخص انتخابی فقط بخش بهبود‌یافته رو نشان بده، تصویر کلی منحرف می‌شه. اعتبارسنجی مستقل می‌تونه اطمینان رو بالا ببرد اما محدودیت دامنهٔ تضمین باید خوانده بشه. هر ادعا رو به سند و مسئول داده پیوند بده و از عبارت‌های مطلق فراتر از شواهد بپرهیزید.",
+          "source_hash": "bb9516be034ff0734c159cc80819918b0d9cc8c4f76f29327846eefdacfd4ca1"
         },
         "/questions/E05-ST02-L03-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -2446,8 +2513,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «ادعا در برابر دادهٔ گزارش» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "39d04e4b9920767b6b0d0fb5674f0177fdb5a73f0134f839400d9a60d7383bee"
+          "text": "برای سناریوی سپهر، تمرین «ادعا در برابر دادهٔ گزارش» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "322f2f53cc59e6b05d98eeb4fd01f1f6bb83d367476b3f118943e09ed85dc45d"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -2479,6 +2551,11 @@
           "text": "خلاصهٔ مرحله: مرز سنجش اثر زیست‌محیطی. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "019871242a8f88f8e2f183d7a53f4b9ad79c698795f2f9602ee0962e6609a11e"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی: واحد، مالکیت یا کنترل و دورهٔ گزارش رو اعلام کن؛ تغییر مرز رو توضیح بده.؛ دامنهٔ ۱ و ۲: انتشار مستقیم رو از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب رو مستند کن.؛ دامنهٔ ۳: زنجیرهٔ ارزش رو بخش‌بندی کن؛ برآورد و دادهٔ اولیه رو با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام: فرض، ضریب، پوشش و عدم‌قطعیت رو گزارش کن؛ کاهش رو با خط مبنای ثابت بسنج.",
+          "source_hash": "be6112e0956f313b3a02fdec75c9674bb7b534d6c7b36d1744c70446da90b29a"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -2487,7 +2564,8 @@
       }
     },
     "content/e05/lessons/E05-ST02-L04.json": {
-      "source_revision": "d67808e25d355def1746b022f7b7f4f18c2b27bb766b9ae3523256fdab68620a",
+      "source_revision": "c822c011a02efb60be502977b9d6a1535f18fa882feddf91ecc147f7641d5fba",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2496,8 +2574,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "گزارش رو بر مبنای تصمیم مورد نیاز بخواند، نه تعداد صفحه یا زیبایی نمودار.",
-          "source_hash": "791814aa0a622bbe4fd00282080213410b52eccb159c918066dffca978e009f9"
+          "text": "در این درس یاد می‌گیری گزارش رو بر اساس تصمیم موردنیاز بخونی و تعداد صفحه یا زیبایی نمودار رو معیار کیفیت قرار ندی.",
+          "source_hash": "f14dd29013c21d88599616358dfd98415680a7467948f66139f80a1afacdd4c8"
         },
         "/learning_cards/E05-ST02-L04-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -2596,8 +2674,8 @@
         },
         "/learning_cards/E05-ST02-L04-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "گزارش پایداری شرکت رو با تعیین دامنه و دوره، روش، دادهٔ مستقل، هدف و نتیجه نقد کن. بررسی کن آیا شاخص مطلق و نسبی هر دو آمده‌اند و آیا تغییر مرز یا برآورد توضیح داده شده. برجسته‌سازی یک برنامهٔ نمونه نمی‌گوید اثر کل عملیات چیه. ادعاهای آینده رو با سرمایه‌گذاری و نقاط عطف بسنج. منبع شرکتی برای فهم سیاست و دادهٔ خوداظهاری مفیده، اما تأیید مستقل همهٔ نتایج نیست. نتیجهٔ نقد رو به قوت، خلأ و پرسش قابل پیگیری تقسیم کن.",
-          "source_hash": "b72668dc9c71c2b15d4d8813414ed1d52e9df6f5a771500ba127b1a5b8ec4dfb"
+          "text": "گزارش پایداری شرکت رو با تعیین دامنه و دوره، روش، دادهٔ مستقل، هدف و نتیجه نقد کن. بررسی کن آیا شاخص مطلق و نسبی هر دو آمده‌اند و آیا تغییر مرز یا برآورد توضیح داده شده. برجسته‌سازی یک برنامهٔ نمونه نمی‌گه اثر کل عملیات چیه. ادعاهای آینده رو با سرمایه‌گذاری و نقاط عطف بسنج. منبع شرکتی برای فهم سیاست و دادهٔ خوداظهاری مفیده، اما تأیید مستقل همهٔ نتایج نیست. نتیجهٔ نقد رو به قوت، خلأ و پرسش قابل پیگیری تقسیم کن.",
+          "source_hash": "972bfb808ec45f9d807f417c4342c3d97b4b16e642146b6c86fc382f98c350ad"
         },
         "/questions/E05-ST02-L04-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -2801,8 +2879,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «نقد گزارش پایداری شرکت» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "60016e747c71926046facf547e6f08f7492c7a44d763d7a16868ce739edf7425"
+          "text": "برای سناریوی سپهر، تمرین «نقد گزارش پایداری شرکت» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "40123243d2f32d65511c7e1390890ea1a88d38d7b1abd6fa50286c301c5349d5"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -2834,6 +2917,11 @@
           "text": "خلاصهٔ مرحله: مرز سنجش اثر زیست‌محیطی. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "019871242a8f88f8e2f183d7a53f4b9ad79c698795f2f9602ee0962e6609a11e"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "عدد انتشار بدون مرز، دوره، داده و روش محاسبه قابل مقایسه نیست. مرز سازمانی: واحد، مالکیت یا کنترل و دورهٔ گزارش رو اعلام کن؛ تغییر مرز رو توضیح بده.؛ دامنهٔ ۱ و ۲: انتشار مستقیم رو از انرژی خریداری‌شده جدا ثبت کن؛ فعالیت و ضریب رو مستند کن.؛ دامنهٔ ۳: زنجیرهٔ ارزش رو بخش‌بندی کن؛ برآورد و دادهٔ اولیه رو با سطح کیفیت نشان بده.؛ عدم‌قطعیت و اقدام: فرض، ضریب، پوشش و عدم‌قطعیت رو گزارش کن؛ کاهش رو با خط مبنای ثابت بسنج.",
+          "source_hash": "be6112e0956f313b3a02fdec75c9674bb7b534d6c7b36d1744c70446da90b29a"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -2842,7 +2930,8 @@
       }
     },
     "content/e05/lessons/E05-ST03-L01.json": {
-      "source_revision": "e242d1c8fb93eb75bb33bda8064134cc506c8bba3dd1d1eabca4c9d0c7d622bd",
+      "source_revision": "196be856a2f610b106736cc0738dc27b66ebd6c806f219ff153f985cd59a3221",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2851,8 +2940,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "نهادها قواعد رسمی و غیررسمی‌ای هستن که تعامل و مبادله رو شکل می‌دن.",
-          "source_hash": "1f1ed671bf0f66ee8fa1c58d7c132d83ecc92c1f13a29e2f2265bbd050103c0b"
+          "text": "در این درس یاد می‌گیری نقش قواعد رسمی و غیررسمی نهادها رو در شکل‌گیری تعامل و مبادله توضیح بدی.",
+          "source_hash": "8a2499a113dfbaa17f66bca97475dd415f30e06010e699e5fb13a6f145529867"
         },
         "/learning_cards/E05-ST03-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -3156,8 +3245,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «دولت، نهاد و بنگاه» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "197c2ea79b4c71253407ad1c8df76ac4b55c96560b25e8f266f506847d0ce968"
+          "text": "برای سناریوی سپهر، تمرین «دولت، نهاد و بنگاه» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "d7bc46b6fff4a784675184b3c75769d7462ac99254f9aa039b02ba3bbb9a83ba"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -3189,6 +3283,11 @@
           "text": "خلاصهٔ مرحله: راهبرد غیربازاری و مشروعیت. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "46c354f9a625db734ee50c3f1de35dd3abb25f9c98a8cd49ab1a700e2e680df8"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم بیرون از بازار به نهادها، ذی‌نفعان، قواعد و اعتماد عمومی وابسته‌ست. مسئله و نهاد: موضوع عمومی و اختیار رسمی رو شناسایی کن؛ مقررهٔ جاری رو از تحلیل عمومی جدا کن.؛ ذی‌نفع و موضع: اثر، منفعت و میزان صدای گروه‌ها رو ثبت کن؛ مخالف رو فقط مانع فرض نکن.؛ پاسخ و ائتلاف: اقدام شفاف، گفت‌وگو و تعهد قابل‌سنجش رو بسنج؛ تعارض منافع رو آشکار کن.؛ مشروعیت و یادگیری: بازخورد و پیامد ناخواسته رو پایش کن؛ موضع رو با شواهد جدید بازنگری کن.",
+          "source_hash": "36b506338d7a1d3eecc249b2482dc00e7f8e64e38e91ad65adc8cadb5e46765b"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -3197,7 +3296,8 @@
       }
     },
     "content/e05/lessons/E05-ST03-L02.json": {
-      "source_revision": "f6d44b55b2a4bded8ace434709522152dc454516f9ad476a9f4f96a1d767dea8",
+      "source_revision": "5bc561bd4e7252aa96a9152b51c06243881cae7151a0bc002700003859f7653e",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3206,8 +3306,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "استراتژی غیربازاری، تعامل سازمان با دولت، نهاد و جامعه برای اثرگذاری بر محیط کسب‌وکاره.",
-          "source_hash": "c87774499b2e195c05abb85a19350ac84fa90c0eb281530ab3f49b35680ecb49"
+          "text": "در این درس یاد می‌گیری استراتژی غیربازاری رو به تعامل سازمان با دولت، نهادها و جامعه برای اثرگذاری بر محیط کسب‌وکار وصل کنی.",
+          "source_hash": "a5b37e091b00e0021f7feeabd55e9badc53c9464044e21f51e618ab9caf2fee4"
         },
         "/learning_cards/E05-ST03-L02-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -3511,8 +3611,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «استراتژی غیربازاری» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "8a0d28b82a062283c262eb756b8a6380feff330b8c1710ff17c2fe92b73b8490"
+          "text": "برای سناریوی سپهر، تمرین «استراتژی غیربازاری» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "a271913a9e252033e2d9875edb5a5268bc7199d562cca94edf81281821e8571f"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -3544,6 +3649,11 @@
           "text": "خلاصهٔ مرحله: راهبرد غیربازاری و مشروعیت. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "46c354f9a625db734ee50c3f1de35dd3abb25f9c98a8cd49ab1a700e2e680df8"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم بیرون از بازار به نهادها، ذی‌نفعان، قواعد و اعتماد عمومی وابسته‌ست. مسئله و نهاد: موضوع عمومی و اختیار رسمی رو شناسایی کن؛ مقررهٔ جاری رو از تحلیل عمومی جدا کن.؛ ذی‌نفع و موضع: اثر، منفعت و میزان صدای گروه‌ها رو ثبت کن؛ مخالف رو فقط مانع فرض نکن.؛ پاسخ و ائتلاف: اقدام شفاف، گفت‌وگو و تعهد قابل‌سنجش رو بسنج؛ تعارض منافع رو آشکار کن.؛ مشروعیت و یادگیری: بازخورد و پیامد ناخواسته رو پایش کن؛ موضع رو با شواهد جدید بازنگری کن.",
+          "source_hash": "36b506338d7a1d3eecc249b2482dc00e7f8e64e38e91ad65adc8cadb5e46765b"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -3552,7 +3662,8 @@
       }
     },
     "content/e05/lessons/E05-ST03-L03.json": {
-      "source_revision": "141ae72692c01c5306c1ffdc6aaf88beecd0e2d32c9969756fd4e19fb4d4fa15",
+      "source_revision": "cb1c15d9660ac9d59951d737c1f59cbbaeba832e08ea48b981a598aed0262abf",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3561,8 +3672,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "ائتلاف منابع، دانش و مشروعیت رو گرد میاره اما هزینهٔ هماهنگی داره.",
-          "source_hash": "2bb7a86d6df7baa108c2d3c99e9f64b39388a1d5bc09bdb9f1c2e008e41d7060"
+          "text": "در این درس یاد می‌گیری منابع، دانش و مشروعیت حاصل از ائتلاف رو در کنار هزینهٔ هماهنگی اون بررسی کنی.",
+          "source_hash": "bf1a58e50a4dfa5273238e9d75df614f6d1a2cc18adeb3510a87289dc42b308b"
         },
         "/learning_cards/E05-ST03-L03-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -3866,8 +3977,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «ائتلاف و مشروعیت» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "a26325963715b412cc2c734145439e1be69e29bd5ed51227dd89822a285683b2"
+          "text": "برای سناریوی سپهر، تمرین «ائتلاف و مشروعیت» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "657ba348711af8d88a01417b9c197a67c746f8fa29923e8e6d92ec34b3761898"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -3899,6 +4015,11 @@
           "text": "خلاصهٔ مرحله: راهبرد غیربازاری و مشروعیت. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "46c354f9a625db734ee50c3f1de35dd3abb25f9c98a8cd49ab1a700e2e680df8"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم بیرون از بازار به نهادها، ذی‌نفعان، قواعد و اعتماد عمومی وابسته‌ست. مسئله و نهاد: موضوع عمومی و اختیار رسمی رو شناسایی کن؛ مقررهٔ جاری رو از تحلیل عمومی جدا کن.؛ ذی‌نفع و موضع: اثر، منفعت و میزان صدای گروه‌ها رو ثبت کن؛ مخالف رو فقط مانع فرض نکن.؛ پاسخ و ائتلاف: اقدام شفاف، گفت‌وگو و تعهد قابل‌سنجش رو بسنج؛ تعارض منافع رو آشکار کن.؛ مشروعیت و یادگیری: بازخورد و پیامد ناخواسته رو پایش کن؛ موضع رو با شواهد جدید بازنگری کن.",
+          "source_hash": "36b506338d7a1d3eecc249b2482dc00e7f8e64e38e91ad65adc8cadb5e46765b"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -3907,7 +4028,8 @@
       }
     },
     "content/e05/lessons/E05-ST03-L04.json": {
-      "source_revision": "9dfa8a7e144e617abe4aee5ecf3382cb10f2b12a1ecb941c2919ffca2b5c277e",
+      "source_revision": "95c41b335105dca6b0dc3911927f8e023afea8bb0b9d8e0476969c6c22b61d73",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4221,8 +4343,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «تصمیم در محیط نهادی متفاوت» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "4a9f80f24a93269a284992563edc3fefbb3d21721352afc3ef0bbb788dbdffa9"
+          "text": "برای سناریوی سپهر، تمرین «تصمیم در محیط نهادی متفاوت» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "b186cae53f2ecff725362bb007a23b1765ea28c10bd3925a6388da3c7aa6f7c9"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -4254,6 +4381,11 @@
           "text": "خلاصهٔ مرحله: راهبرد غیربازاری و مشروعیت. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "46c354f9a625db734ee50c3f1de35dd3abb25f9c98a8cd49ab1a700e2e680df8"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "تصمیم بیرون از بازار به نهادها، ذی‌نفعان، قواعد و اعتماد عمومی وابسته‌ست. مسئله و نهاد: موضوع عمومی و اختیار رسمی رو شناسایی کن؛ مقررهٔ جاری رو از تحلیل عمومی جدا کن.؛ ذی‌نفع و موضع: اثر، منفعت و میزان صدای گروه‌ها رو ثبت کن؛ مخالف رو فقط مانع فرض نکن.؛ پاسخ و ائتلاف: اقدام شفاف، گفت‌وگو و تعهد قابل‌سنجش رو بسنج؛ تعارض منافع رو آشکار کن.؛ مشروعیت و یادگیری: بازخورد و پیامد ناخواسته رو پایش کن؛ موضع رو با شواهد جدید بازنگری کن.",
+          "source_hash": "36b506338d7a1d3eecc249b2482dc00e7f8e64e38e91ad65adc8cadb5e46765b"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -4262,7 +4394,8 @@
       }
     },
     "content/e05/lessons/E05-ST04-L01.json": {
-      "source_revision": "dfc60a7156c6cc186ed5b4cdcf15a332251b8ecf65ec5c857df9423ebe9c95ad",
+      "source_revision": "3087ebe79994dd3759ed44eb0e3c2c6bd218f3c23f9a08d9ce1c265fb338b477",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4271,8 +4404,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "هر سامانهٔ AI باید مالک کسب‌وکار، مالک فنی و مسیر پاسخ‌گویی روشن داشته باشه.",
-          "source_hash": "31677db306e444c126270938051e1d076c4168503783a13ff9b175501ab6e5d7"
+          "text": "در این درس یاد می‌گیری برای سامانهٔ AI، مالک کسب‌وکار، مالک فنی و مسیر پاسخ‌گویی روشن مشخص کنی.",
+          "source_hash": "e241f8356adccedbc98720ea0875340a5a2e67068c017253a6b0377135037a64"
         },
         "/learning_cards/E05-ST04-L01-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -4371,8 +4504,8 @@
         },
         "/learning_cards/E05-ST04-L01-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "نقش مسئول در سامانهٔ AI باید بر اساس نوع تصمیم و پیامد خطا تعریف بشه. سازنده، مالک داده، بهره‌بردار و تصمیم‌گیر ممکنه مسئولیت‌های متفاوت داشته باشن؛ عنوان «انسان در حلقه» بدون اختیار و زمان کافی مسئولیت واقعی نمی‌سازد. مسیر اعتراض، اصلاح و توقف رو تعیین کن. اگر خروجی بر استخدام، اعتبار یا دسترسی اثر داره، مسئول نهایی و منبع توضیح باید مشخص باشه. فرض امکان بازبینی هر خروجی رو با حجم و پیچیدگی واقعی بسنج. نقش‌ها رو در چرخهٔ عمر سامانه بازبینی کن.",
-          "source_hash": "b23a6794e8a18c35980d7571416fc185e5154dbfe70f987cdb540aff2520af42"
+          "text": "نقش مسئول در سامانهٔ AI باید بر اساس نوع تصمیم و پیامد خطا تعریف بشه. سازنده، مالک داده، بهره‌بردار و تصمیم‌گیر ممکنه مسئولیت‌های متفاوت داشته باشن؛ عنوان «انسان در حلقه» بدون اختیار و زمان کافی مسئولیت واقعی نمی‌سازه. مسیر اعتراض، اصلاح و توقف رو تعیین کن. اگر خروجی بر استخدام، اعتبار یا دسترسی اثر داره، مسئول نهایی و منبع توضیح باید مشخص باشه. فرض امکان بازبینی هر خروجی رو با حجم و پیچیدگی واقعی بسنج. نقش‌ها رو در چرخهٔ عمر سامانه بازبینی کن.",
+          "source_hash": "df9734e9aab9ab4494b0fe24d196af8cc2fa845dc89e23dfc9921b05012c983e"
         },
         "/questions/E05-ST04-L01-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -4576,8 +4709,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «نقش مسئول در AI» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "79a5d7a473844cd947c8c3968c79705af2047389ab1e37de4b32a754ab00615b"
+          "text": "برای سناریوی سپهر، تمرین «نقش مسئول در AI» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "5678c36e353c4b0670311802e8522f23a9d5ca5e5cfcd3cd9dc8ae5e00ec508d"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -4609,6 +4747,11 @@
           "text": "خلاصهٔ مرحله: اثر AI بر انسان، محیط و سازمان. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5fd0efc23481294aae9980c032009e236642f545e08a145c5c623fcb4934b09"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "ارزیابی مسئولانه از ورودی و چرخهٔ عمر شروع می‌شه و به پیامد واقعی می‌رسه. چرخهٔ عمر و منابع: محاسبات، انرژی، سخت‌افزار و زنجیرهٔ تأمین رو با دامنه و منبع داده بسنج.؛ کار و ذی‌نفع: اثر بر وظیفه، اختیار، کیفیت کار و گروه‌های متأثر رو بررسی کن.؛ کیفیت و حکمرانی: دقت، خطا، دسترسی، پاسخ‌گویی و امکان اعتراض رو با مالک مشخص بسنج.؛ کاهش و بازبینی: اقدام کاهشی و سنجهٔ پس از اجرا تعیین کن؛ در صورت عبور از آستانه امکان توقف بده.",
+          "source_hash": "f91e08bf5b7628e61fe360b43c102e90d2937a96142a6757fd5bbee73f97c1cd"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -4617,7 +4760,8 @@
       }
     },
     "content/e05/lessons/E05-ST04-L02.json": {
-      "source_revision": "dc4398b7c7d277c512d8fcd9e9eb3ba4074e96d16ab97e0f6c1e3670c3981e38",
+      "source_revision": "fc5d86c613e99f39e26afdf1b7d55586436d48ef7e2b36e5af7d7fdd72ee0017",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4726,8 +4870,8 @@
         },
         "/learning_cards/E05-ST04-L02-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "منفعت AI ممکنه برای سازمان متمرکز و هزینه یا ریسک اون برای گروه دیگری توزیع بشه. تحلیل ذی‌نفعان باید هم دسترسی و کیفیت خدمت و هم حریم خصوصی، کار و خطای نامتوازن رو ببینه. میانگین اثر می‌تونه آسیب یک گروه رو پنهان کنه. گروه‌ها و پیامدهای مهم رو با مشارکت و دادهٔ مناسب شناسایی کن. فرض بی‌طرفی داده و دسترسی رو بررسی کن. کنترل، جبران یا عدم‌استفاده از کاربرد رو در صورت نابرابری جدی در نظر بگیر و دلیل تصمیم رو مستند سازید.",
-          "source_hash": "460e53974cd51a695156e5f2edf5b846155f3878c7284259be0535bc90898fcf"
+          "text": "منفعت AI ممکنه برای سازمان متمرکز و هزینه یا ریسک اون برای گروه دیگری توزیع بشه. تحلیل ذی‌نفعان باید هم دسترسی و کیفیت خدمت و هم حریم خصوصی، کار و خطای نامتوازن رو ببینه. میانگین اثر می‌تونه آسیب یک گروه رو پنهان کنه. گروه‌ها و پیامدهای مهم رو با مشارکت و دادهٔ مناسب شناسایی کن. فرض بی‌طرفی داده و دسترسی رو بررسی کن. کنترل، جبران یا عدم‌استفاده از کاربرد رو در صورت نابرابری جدی در نظر بگیر و دلیل تصمیم رو مستند بساز.",
+          "source_hash": "83bc05b1e12181ccd12ea3973603de8eeff89e29387ed428e7c50bf71f7a79f4"
         },
         "/questions/E05-ST04-L02-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -4891,8 +5035,8 @@
         },
         "/questions/E05-ST04-L02-Q05/prompt": {
           "pointer": "/questions/4/prompt",
-          "text": "کاربرد AI بهره‌وری رو بالا می‌برد ولی یک گروه متأثر رو زیان‌دیده می‌کنه. تصمیم مسئولانه چه می‌خواد؟",
-          "source_hash": "270a21317e552db14b2bc5e271dfc46438d8bd77ffdf3eb26bff3922c2dc970f"
+          "text": "کاربرد AI بهره‌وری رو بالا می‌بره ولی یک گروه متأثر رو زیان‌دیده می‌کنه. تصمیم مسئولانه چه می‌خواد؟",
+          "source_hash": "7bc60b3e5af8f48d6c4bcbc7c6ccc0af5236cef75e478d75cfe7e6bf75776ce6"
         },
         "/questions/E05-ST04-L02-Q05/options/a/text": {
           "pointer": "/questions/4/options/0/text",
@@ -4931,8 +5075,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «ریسک و منفعت برای ذی‌نفعان» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "a0c9632d790285e062bfc567b5ad2f31da36106cee6c7f5a53d7c7f3a878f779"
+          "text": "برای سناریوی سپهر، تمرین «ریسک و منفعت برای ذی‌نفعان» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "100ba286900b464bcb8ab777e99580c050fa84fe8c3a9637da69dbf88e49adf1"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -4964,6 +5113,11 @@
           "text": "خلاصهٔ مرحله: اثر AI بر انسان، محیط و سازمان. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5fd0efc23481294aae9980c032009e236642f545e08a145c5c623fcb4934b09"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "ارزیابی مسئولانه از ورودی و چرخهٔ عمر شروع می‌شه و به پیامد واقعی می‌رسه. چرخهٔ عمر و منابع: محاسبات، انرژی، سخت‌افزار و زنجیرهٔ تأمین رو با دامنه و منبع داده بسنج.؛ کار و ذی‌نفع: اثر بر وظیفه، اختیار، کیفیت کار و گروه‌های متأثر رو بررسی کن.؛ کیفیت و حکمرانی: دقت، خطا، دسترسی، پاسخ‌گویی و امکان اعتراض رو با مالک مشخص بسنج.؛ کاهش و بازبینی: اقدام کاهشی و سنجهٔ پس از اجرا تعیین کن؛ در صورت عبور از آستانه امکان توقف بده.",
+          "source_hash": "f91e08bf5b7628e61fe360b43c102e90d2937a96142a6757fd5bbee73f97c1cd"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -4972,7 +5126,8 @@
       }
     },
     "content/e05/lessons/E05-ST04-L03.json": {
-      "source_revision": "85c04b677f6a3aefb35a25b4e573f33aeb6f02997e97bf5e464b3e4cb5b0816d",
+      "source_revision": "93d823b4c5f95078236e4bca8f15c6a6cdae8ac8bc59721a6844945b8e9ddadb",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5286,8 +5441,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «پایش هزینهٔ انرژی و کیفیت» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "e7b09fa83b49a1b769609474b5d7c2c3aa374d77a434dca74b9547e7ec3128de"
+          "text": "برای سناریوی سپهر، تمرین «پایش هزینهٔ انرژی و کیفیت» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "21119fcafd74fb3d66b5bec3f6c2d944b327e0f4086c8b40343dfbb04f28d905"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -5319,6 +5479,11 @@
           "text": "خلاصهٔ مرحله: اثر AI بر انسان، محیط و سازمان. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5fd0efc23481294aae9980c032009e236642f545e08a145c5c623fcb4934b09"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "ارزیابی مسئولانه از ورودی و چرخهٔ عمر شروع می‌شه و به پیامد واقعی می‌رسه. چرخهٔ عمر و منابع: محاسبات، انرژی، سخت‌افزار و زنجیرهٔ تأمین رو با دامنه و منبع داده بسنج.؛ کار و ذی‌نفع: اثر بر وظیفه، اختیار، کیفیت کار و گروه‌های متأثر رو بررسی کن.؛ کیفیت و حکمرانی: دقت، خطا، دسترسی، پاسخ‌گویی و امکان اعتراض رو با مالک مشخص بسنج.؛ کاهش و بازبینی: اقدام کاهشی و سنجهٔ پس از اجرا تعیین کن؛ در صورت عبور از آستانه امکان توقف بده.",
+          "source_hash": "f91e08bf5b7628e61fe360b43c102e90d2937a96142a6757fd5bbee73f97c1cd"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -5327,7 +5492,8 @@
       }
     },
     "content/e05/lessons/E05-ST04-L04.json": {
-      "source_revision": "2f888fa1b52c72c142675a84753e1b3204a4122933a275e0a050f7df0477ea85",
+      "source_revision": "93a639d93701feb6ac2bbc44cff9181fca79fa674eab9b25a46c832f5c83d8e5",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5336,8 +5502,8 @@
         },
         "/objective": {
           "pointer": "/objective",
-          "text": "دفتر تصمیم باید از ثبت یک‌باره به چرخهٔ زندهٔ حکمرانی تبدیل بشه.",
-          "source_hash": "76f4ac1195405b8e1763230a89db6b27bab4588236194ad7b6c25b20b765b5f1"
+          "text": "در این درس یاد می‌گیری ثبت تصمیم رو به چرخه‌ای از پیگیری، بازبینی و اصلاح در حکمرانی وصل کنی.",
+          "source_hash": "4ea977c07cbe8e96531980a21ef3ade81daa77c4343b3e12f7b8f5f7d896c611"
         },
         "/learning_cards/E05-ST04-L04-CARD01/title": {
           "pointer": "/learning_cards/0/title",
@@ -5426,8 +5592,8 @@
         },
         "/learning_cards/E05-ST04-L04-TERMS/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "دفتر تصمیم (Decision log) هدف، نسخه، شاهد، ذی‌نفع، محدودیت، مسئول و بازنگری رو نگه می‌دارد. ردپای قابل حسابرسی امکان پیگیری تغییر تصمیم رو می‌ده. مستندسازی جای کنترل خطر رو نمی‌گیره، اما پاسخ‌گویی و یادگیری پس از رخداد رو ممکن می‌کنه.",
-          "source_hash": "ca145dc88b05d53aa81c8f605d5eaae244c529b7c8c085f40ad9e737cd628065"
+          "text": "دفتر تصمیم (Decision log) هدف، نسخه، شاهد، ذی‌نفع، محدودیت، مسئول و بازنگری رو نگه می‌داره. ردپای قابل حسابرسی امکان پیگیری تغییر تصمیم رو می‌ده. مستندسازی جای کنترل خطر رو نمی‌گیره، اما پاسخ‌گویی و یادگیری پس از رخداد رو ممکن می‌کنه.",
+          "source_hash": "00cc835b47f5339532e881df9e294600450a572dd0b966a49df528124ea058ec"
         },
         "/learning_cards/E05-ST04-L04-DEEP-REVIEW/title": {
           "pointer": "/learning_cards/9/title",
@@ -5641,8 +5807,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "برای سناریوی سپهر، تمرین «دفتر تصمیم مسئولانه» رو با شواهد و فرض‌های ثبت‌شده انجام دهید.",
-          "source_hash": "c99f73e8f1fedbd4d8f2ed00b2e48cb6ed030b7a25bf076580a0365d5be5043a"
+          "text": "برای سناریوی سپهر، تمرین «دفتر تصمیم مسئولانه» رو با شواهد و فرض‌های ثبت‌شده انجام بده.",
+          "source_hash": "b7ec3c7548b488912f774e70f5d22fc3e71685ce4e22363407f4a461f6ebbc45"
+        },
+        "/practice_activity/expected_output": {
+          "pointer": "/practice_activity/expected_output",
+          "text": "یادداشت تصمیم شامل فرض، شاهد، عدم‌قطعیت و اقدام بعدی",
+          "source_hash": "5b23e12371ffea9a20d6218455710f0b9ee56f082c689bf001774be547257d6b"
         },
         "/practice_activity/rubric/0": {
           "pointer": "/practice_activity/rubric/0",
@@ -5674,6 +5845,11 @@
           "text": "خلاصهٔ مرحله: اثر AI بر انسان، محیط و سازمان. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.",
           "source_hash": "b5fd0efc23481294aae9980c032009e236642f545e08a145c5c623fcb4934b09"
         },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "ارزیابی مسئولانه از ورودی و چرخهٔ عمر شروع می‌شه و به پیامد واقعی می‌رسه. چرخهٔ عمر و منابع: محاسبات، انرژی، سخت‌افزار و زنجیرهٔ تأمین رو با دامنه و منبع داده بسنج.؛ کار و ذی‌نفع: اثر بر وظیفه، اختیار، کیفیت کار و گروه‌های متأثر رو بررسی کن.؛ کیفیت و حکمرانی: دقت، خطا، دسترسی، پاسخ‌گویی و امکان اعتراض رو با مالک مشخص بسنج.؛ کاهش و بازبینی: اقدام کاهشی و سنجهٔ پس از اجرا تعیین کن؛ در صورت عبور از آستانه امکان توقف بده.",
+          "source_hash": "f91e08bf5b7628e61fe360b43c102e90d2937a96142a6757fd5bbee73f97c1cd"
+        },
         "/expected_artifact": {
           "pointer": "/expected_artifact",
           "text": "یادداشت تصمیم مستند",
@@ -5683,6 +5859,9 @@
     },
     "content/e05/stages/E05-ST01.json": {
       "source_revision": "c9e2a33160e7a9aec05efda9c4dfce88f6ea0a681fac9b5e16b6d70ed54fc268",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5933,6 +6112,9 @@
     },
     "content/e05/stages/E05-ST02.json": {
       "source_revision": "d18f1df973c994576ade4004bb8bd05654a820081b29c7332aa347d15f56dfab",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6183,6 +6365,9 @@
     },
     "content/e05/stages/E05-ST03.json": {
       "source_revision": "6272ce17986b725dd0f728e1fb41dd52fbb9106a0e38fd16cfa80fc7d291345f",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6433,6 +6618,9 @@
     },
     "content/e05/stages/E05-ST04.json": {
       "source_revision": "7c30d6166644da2b901a9db1a9d744fa8b2a80b40682ecf506b842737135fdf1",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6683,6 +6871,7 @@
     },
     "content/e05/final-assessment.json": {
       "source_revision": "b6136c3e95272f6af27a72ff742517347cc441aee436107c1a0a8c323b614cdc",
+      "revision_excluded_fields": [],
       "messages": {
         "/questions/E05-FINAL-Q01/prompt": {
           "pointer": "/questions/0/prompt",

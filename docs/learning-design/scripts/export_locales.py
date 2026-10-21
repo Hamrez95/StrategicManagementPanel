@@ -5,10 +5,15 @@ Each unit retains a JSON pointer so a future importer can apply reviewed transla
 """
 import hashlib
 import json
+import re
 from pathlib import Path
-from content_voice import ROOT, VISIBLE, SKIP, LISTS
+from content_voice import ROOT, VISIBLE, SKIP, LISTS, has_arabic_letters
 
 OUT = ROOT/'localization'
+TRANSLATABLE = VISIBLE | {'unit', 'expected_output', 'long_description', 'hint'}
+
+def pointer_segment(value):
+    return str(value).replace('~','~0').replace('/','~1')
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True).encode()).hexdigest()
@@ -17,12 +22,15 @@ def units(obj, stable='', pointer='', enabled=False):
     if isinstance(obj,dict):
         for key,value in obj.items():
             if key in SKIP or key.startswith('source_') or key in {'asset_ref','mobile_asset_ref'}:continue
-            yield from units(value,stable+'/'+key,pointer+'/'+key,enabled or key in LISTS or key in VISIBLE)
+            # List inheritance applies to strings, not to metadata in nested objects.
+            yield from units(value,stable+'/'+pointer_segment(key),pointer+'/'+pointer_segment(key),key in LISTS or key in TRANSLATABLE)
     elif isinstance(obj,list):
         for i,value in enumerate(obj):
             anchor=value['id'] if isinstance(value,dict) and 'id' in value else str(i)
-            yield from units(value,stable+'/'+anchor,pointer+'/'+str(i),enabled)
+            yield from units(value,stable+'/'+pointer_segment(anchor),pointer+'/'+str(i),enabled)
     elif isinstance(obj,str) and enabled and obj.strip():
+        if re.fullmatch(r'[\d۰-۹٠-٩\s.,٫٬%٪+−-]+',obj):return
+        if not has_arabic_letters(obj) and re.search(r'[=÷×√]',obj):return
         yield stable,{'pointer':pointer,'text':obj,'source_hash':digest(obj)}
 
 def export():
@@ -35,7 +43,7 @@ def export():
         course=path.relative_to(ROOT/'content').parts[0];entry=path.relative_to(ROOT).as_posix()
         group=groups.setdefault(course,{})
         # Full source revision protects index-based table/rubric units against reordering.
-        group[entry]={'source_revision':digest(document),'messages':dict(units(document))}
+        group[entry]={'source_revision':digest(document),'revision_excluded_fields':['lessons'] if path.parent.name=='stages' else [],'messages':dict(units(document))}
         total+=len(group[entry]['messages'])
     for name,obj in [('catalog',json.loads((ROOT/'catalog.v1.json').read_text(encoding='utf-8'))),('visuals',json.loads((ROOT/'content/media/visuals.v1.json').read_text(encoding='utf-8')))]:
         if name=='catalog':obj={k:v for k,v in obj.items() if k in {'paths','courses'}}

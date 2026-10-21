@@ -8,7 +8,7 @@ import json
 import math
 import re
 import xml.etree.ElementTree as ET
-from content_voice import ROOT,voice
+from content_voice import ROOT,voice,has_arabic_letters
 
 MEDIA=ROOT/'content/media'; MANIFEST=MEDIA/'visuals.v1.json'; NS={'s':'http://www.w3.org/2000/svg'}
 ET.register_namespace('',NS['s'])
@@ -56,10 +56,27 @@ def wrap(text,width):
     if line:out.append(line)
     return out or ['']
 
+def ltr_token(value):
+    token=value.rstrip()
+    # Parentheses that opened in Persian prose must also close outside the isolate.
+    while token.endswith(')') and token.count(')')>token.count('('):token=token[:-1].rstrip()
+    return token
+
+def isolated_match(match):
+    token=ltr_token(match[0])
+    return '\u2066'+token+'\u2069'+match[0][len(token):]
+
 def label(text,x,y,size=24,bold=False,width=None,color='#26364c',lineheight=None,ltr=False):
     lines=wrap(text,width) if width else [text];lh=lineheight or size*1.5
     anchor='start';direction='ltr' if ltr else 'rtl'
-    runs=''.join(f'<tspan x="{x}" dy="{0 if i==0 else lh}">{html.escape(s)}</tspan>' for i,s in enumerate(lines))
+    def isolated(line):
+        # Keep English terms and formulas in reading order inside an RTL line.
+        parts=[];pos=0
+        for match in re.finditer(r'[A-Za-z][A-Za-z0-9_₀₁₂₃₄₅₆₇₈₉ .(),=+*/^÷×−√-]*',line):
+            token=ltr_token(match[0]);end=match.start()+len(token)
+            parts.extend((html.escape(line[pos:match.start()]),'\u2066'+html.escape(token)+'\u2069'));pos=end
+        parts.append(html.escape(line[pos:]));return ''.join(parts)
+    runs=''.join(f'<tspan x="{x}" dy="{0 if i==0 else lh}">{isolated(s) if not ltr else html.escape(s)}</tspan>' for i,s in enumerate(lines))
     return f'<text x="{x}" y="{y}" text-anchor="{anchor}" direction="{direction}" style="direction:{direction};unicode-bidi:isolate;font-size:{size}px;font-weight:{700 if bold else 400};fill:{color}">{runs}</text>',len(lines)*lh
 
 def start(w,h,title,desc):
@@ -112,7 +129,8 @@ def repair_specialist(path):
     for style in svg.findall('s:style',NS):
         if style.text:style.text=style.text.replace('unicode-bidi:plaintext','unicode-bidi:isolate').replace('IRANSans,Segoe','Tahoma,Segoe')
     for text in svg.findall('.//s:text',NS):
-        value=plain(text);rtl=bool(re.search('[آ-ی]',value));old_anchor=text.get('text-anchor')
+        value=plain(text);rtl=has_arabic_letters(value);old_anchor=text.get('text-anchor')
+        if not rtl and text.get('direction')=='rtl' and old_anchor=='start':text.set('text-anchor','end')
         if rtl and old_anchor=='end':text.set('text-anchor','start')
         direction='rtl' if rtl else 'ltr';text.set('direction',direction)
         inline=re.sub(r'(?:^|;)(?:direction|unicode-bidi):[^;]*','',text.get('style','')).strip(';')
@@ -120,6 +138,24 @@ def repair_specialist(path):
         if text.text:text.text=voice(text.text)
         for tspan in text.findall('s:tspan',NS):
             if tspan.text:tspan.text=voice(tspan.text)
+    # A leading LTR child span changes SVG chunk anchoring in Chromium.
+    # Unicode isolates keep the parent chunk's RTL anchor and isolate only the run.
+    for parent in list(svg.iter()):
+        for child in list(parent):
+            if child.tag!=f'{{{NS["s"]}}}tspan' or child.get('direction')!='ltr' or any(child.get(k) is not None for k in ('x','y','dy')):continue
+            chunk='\u2066'+plain(child)+'\u2069'+(child.tail or '')
+            index=list(parent).index(child)
+            if index:previous=list(parent)[index-1];previous.tail=(previous.tail or '')+chunk
+            else:parent.text=(parent.text or '')+chunk
+            parent.remove(child)
+    for node in list(svg.iter()):
+        if node.tag not in {f'{{{NS["s"]}}}text',f'{{{NS["s"]}}}tspan'} or list(node):continue
+        value=re.sub('[\u2066-\u2069]','',node.text or '')
+        if not (has_arabic_letters(value) and re.search('[A-Za-z]',value)):continue
+        node.text=re.sub(r'[A-Za-z][A-Za-z0-9_₀₁₂₃₄₅₆₇₈₉ .(),=+*/^÷×−√-]*',isolated_match,value)
+    for meta in ('title','desc'):
+        node=svg.find('s:'+meta,NS)
+        if node is not None and node.text:node.text=voice(node.text)
     tree.write(path,encoding='unicode',xml_declaration=False)
 
 def main():
@@ -155,7 +191,9 @@ def main():
             asset['long_description']=desc;asset['alt_text']=title+'؛ '+('خلاصهٔ تصویری مفاهیم مرحله' if name in generated and not name.startswith('business-model') else 'شکل آموزشی؛ توضیح و فرض‌ها در کپشن و متن درس اومده')
             mobile=ref.replace('.svg','.mobile.svg')
             if (ROOT/mobile).exists():asset['mobile_asset_ref']=mobile
-            else:asset['mobile_display']='horizontal_scroll_preserve_axes'
+            else:
+                asset['mobile_display']='horizontal_scroll_preserve_axes'
+                asset['desktop_width_px']=int(float(svg.get('viewBox').split()[2]))
             if name in generated and not name.startswith('business-model'):asset['caption']='خلاصهٔ مرحله: '+title+'. بخش مرتبط با این درس رو با مثال و تمرینش دنبال کن.'
         (p).write_text(json.dumps(l,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');updated+=1
     print(json.dumps({'visual_sources':len(records),'mobile_variants':len(records),'specialist_diagrams':88-len(records),'lesson_media_placements':updated}))

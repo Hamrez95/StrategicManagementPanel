@@ -3,7 +3,8 @@ const data=JSON.parse(document.getElementById('catalogData').textContent);
 const bundles=JSON.parse(document.getElementById('authoredData').textContent);
 const $=id=>document.getElementById(id);
 const f=n=>Number(n).toLocaleString('fa-IR');
-const elt=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined){e.textContent=text;if(/[آ-ی]/.test(String(text))&&/[A-Za-z]/.test(String(text))){e.replaceChildren();const parts=String(text).split(/([A-Za-z][A-Za-z0-9_.-]*(?: [A-Za-z0-9_.-]+)*)/g);for(const part of parts){if(/^[A-Za-z]/.test(part)){const bdi=document.createElement('bdi');bdi.dir='ltr';bdi.textContent=part;e.append(bdi);}else e.append(document.createTextNode(part));}}}if(cls)e.className=cls;return e;};
+const hasPersianLetters=text=>/[\u0621-\u063a\u0641-\u064a\u066e-\u066f\u0671-\u06d3\u06fa-\u06fc]/u.test(String(text));
+const elt=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined){e.textContent=text;if(hasPersianLetters(text)&&/[A-Za-z]/.test(String(text))){e.replaceChildren();const parts=String(text).split(/([A-Za-z][A-Za-z0-9_.-]*(?: [A-Za-z0-9_.-]+)*)/g);for(const part of parts){if(/^[A-Za-z]/.test(part)){const bdi=document.createElement('bdi');bdi.dir='ltr';bdi.textContent=part;e.append(bdi);}else e.append(document.createTextNode(part));}}}if(text!==undefined&&!hasPersianLetters(text)&&/[=÷×]/.test(String(text))){e.dir='ltr';e.style.textAlign='start';}if(cls)e.className=cls;return e;};
 const authoredLessons=new Map(),authoredStages=new Map(),authoredCourses=new Map();
 for(const course of bundles.courses){authoredCourses.set(course.id,course);for(const st of course.stages){authoredStages.set(st.id,st);for(const l of st.lessons)authoredLessons.set(l.id,l);}}
 const completed=new Set();
@@ -24,7 +25,7 @@ function draw(){
   st.lessons.forEach((l,i)=>{const b=elt('button',undefined,'node');b.setAttribute('aria-label',l.title);b.append(elt('span',completed.has(l.id)?'✓':f(i+1),'circle'));const label=elt('span');label.append(elt('span',l.title,'label'),elt('span',(authoredLessons.has(l.id)?"نوشته‌شده؛ در انتظار بازبینی":"طرح درس‌نامه")+(l.free_sample?" · نمونهٔ رایگان":''),'small'));b.append(label);b.onclick=()=>openLesson(l);nodes.append(b);});box.append(nodes);
   box.append(action("◇ مرور مرحله؛ "+f(st.checkpoint.item_count)+" پرسش",()=>{const stage=authoredStages.get(st.id);if(stage)startAssessment(stage.checkpoint.questions,'review',"مرور "+st.title);else{dialog("مرور "+st.title);$('body').append(elt('p',"پرسش‌های این مرحله هنوز نوشته نشده‌اند."));}}));root.append(box);
  }
- if(currentCourse.final_assessment){const end=elt('div',undefined,'end');const c=authoredCourses.get(currentCourse.id);end.append(elt('h3',"جمع‌بندی کل درس"));if(c?.final_assessment)end.append(elt('p',f(c.final_assessment.questions.length)+" پرسش با پوشش همهٔ مرحله‌ها؛ بدون قفل دسترسی."),action("شروع جمع‌بندی درس",()=>startAssessment(c.final_assessment.questions,'final',"جمع‌بندی "+currentCourse.title),true));else end.append(elt('p',"بانک سؤال این درس در صف نگارشه."));root.append(end);}
+ if(currentCourse.final_assessment){const end=elt('div',undefined,'end');const c=authoredCourses.get(currentCourse.id);end.append(elt('h3',"جمع‌بندی کل درس"));if(c?.final_assessment)end.append(elt('p',f(c.final_assessment.questions.length)+" پرسش برای مرور درس؛ بدون قفل دسترسی."),...(c.final_assessment.description?[elt('p',c.final_assessment.description,'note')]:[]),action("شروع جمع‌بندی درس",()=>startAssessment(c.final_assessment.questions,'final',"جمع‌بندی "+currentCourse.title),true));else end.append(elt('p',"بانک سؤال این درس در صف نگارشه."));root.append(end);}
 }
 function openLesson(outline){
  currentLesson=authoredLessons.get(outline.id);resumeQuiz=false;cardIndex=0;
@@ -53,7 +54,7 @@ function appendEducationalVisuals(plan,container){
   const figure=elt('figure');figure.style.margin='20px 0';const wrap=elt('div',undefined,'table-scroll'),picture=elt('picture');
   if(asset.mobile_asset_ref){const source=elt('source');source.media='(max-width: 600px)';source.srcset=asset.mobile_asset_ref;picture.append(source);}
   const image=elt('img');image.src=asset.asset_ref;image.alt=asset.alt_text||plan.purpose;image.loading='lazy';image.style.width='100%';image.style.display='block';
-  if(!asset.mobile_asset_ref)image.style.minWidth='680px';picture.append(image);wrap.append(picture);figure.append(wrap);
+  if(!asset.mobile_asset_ref)image.style.minWidth=(asset.desktop_width_px||1000)+'px';picture.append(image);wrap.append(picture);figure.append(wrap);
   if(asset.caption)figure.append(elt('figcaption',asset.caption,'note'));
   if(asset.long_description){const details=elt('details');details.append(elt('summary',"توضیح متنی تصویر"),elt('p',asset.long_description));figure.append(details);}
   container.append(figure);
@@ -63,7 +64,11 @@ function showResources(){
  dialog("منابع و فعالیت؛ "+currentLesson.title);$('body').append(elt('p',currentLesson.objective));
  if(currentLesson.glossary?.length){$('body').append(elt('h2',"واژه‌های این مرحله"));for(const item of currentLesson.glossary)$('body').append(elt('p',item.term+'؛ '+item.definition));}
  if(currentLesson.practice_activity){const a=currentLesson.practice_activity;$('body').append(elt('h2',"فعالیت کاربردی"),elt('p',a.prompt));if(a.rubric)$('body').append(elt('p',"معیار بررسی: "+a.rubric.map(x=>typeof x==='string'?x:x.criterion).join('؛ ')));
-  if(a.type==='numeric'){const label=elt('label',"پاسخ عددی؛ "+a.unit);label.htmlFor='numericAnswer';const input=elt('input');input.id='numericAnswer';input.inputMode='decimal';input.type='text';const feedback=elt('p');$('body').append(label,input,action("بررسی محاسبه",()=>{const raw=input.value.replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[٠-٩]/g,c=>"٠١٢٣٤٥٦٧٨٩".indexOf(c)).replace(/٫/g,'.');const value=Number(raw);feedback.textContent=raw.trim()===''||!Number.isFinite(value)?"یک عدد معتبر وارد کن.":(Math.abs(value-a.answer)<=a.absolute_tolerance?"درسته. ":"این محاسبه رو دوباره بررسی کن. ")+a.solution;}),feedback);}
+  if(a.type==='numeric'){const label=elt('label',"پاسخ عددی؛ "+a.unit);label.htmlFor='numericAnswer';const input=elt('input');input.id='numericAnswer';input.inputMode='decimal';input.type='text';const feedback=elt('p');$('body').append(label,input,action("بررسی محاسبه",()=>{let raw=input.value.trim().replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[٠-٩]/g,c=>"٠١٢٣٤٥٦٧٨٩".indexOf(c)).replace(/٫/g,'.').replace(/−/g,'-');
+   if(/^[+-]?\d{1,3}(?:[٬,]\d{3})+(?:\.\d+)?$/.test(raw))raw=raw.replace(/[٬,]/g,'');
+   const value=Number(raw);const valid=raw!==''&&Number.isFinite(value);
+   const prefix=!valid?"یک عدد معتبر وارد کن.":Math.abs(value-a.answer)<=a.absolute_tolerance?"درسته. ":"این محاسبه رو دوباره بررسی کن. ";
+   feedback.replaceChildren(elt('span',prefix));if(valid)feedback.append(elt('bdi',a.solution));}),feedback);}
   else{const label=elt('label',"پاسخ پیشنهادی تو");label.htmlFor='practiceDraft';const input=elt('textarea');input.id='practiceDraft';input.rows=6;$('body').append(label,input,elt('p',"می‌تونی جوابت رو اینجا بنویسی و بررسی کنی. این پیش‌نمایش جواب رو ذخیره یا نمره‌گذاری نمی‌کنه؛ قبل از خروج کپی‌اش کن.",'note'));}
  }
  $('body').append(elt('h2',"منابع این درس‌نامه"));

@@ -1,0 +1,684 @@
+{
+  "id": "C03-FINAL",
+  "version": "1-review-selection",
+  "status": "review_selection_draft",
+  "unlocks_content": false,
+  "target_percent": 80,
+  "target_is_editorial_default": true,
+  "fresh_equivalent_variants": 0,
+  "reuses_existing_questions": true,
+  "description": "این مرور از سؤال‌های قبلی درس استفاده می‌کنه؛ سؤال تازه یا آزمون مستقل نیست.",
+  "covered_stage_ids": [
+    "C03-ST01",
+    "C03-ST02",
+    "C03-ST03",
+    "C03-ST04"
+  ],
+  "questions": [
+    {
+      "id": "C03-FINAL-Q01",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "نرخ مثبت و زمان بیشتر معمولاً PV رو چه می‌کنه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "کاهش می‌ده",
+          "feedback": "عامل تنزیل بزرگ‌تر می‌شه."
+        },
+        {
+          "id": "b",
+          "text": "زیاد می‌کنه",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شه."
+        },
+        {
+          "id": "c",
+          "text": "بی‌اثره",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. عامل تنزیل بزرگ‌تر می‌شه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "عامل تنزیل بزرگ‌تر می‌شه.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true,
+      "origin_lesson_id": "C03-ST01-L01",
+      "origin_question_id": "C03-ST01-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q02",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "بالارفتن نرخ برای جریان مثبت آینده عموماً؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارزش فعلی رو کم می‌کنه",
+          "feedback": "مخرج تنزیل بزرگ‌تر می‌شه."
+        },
+        {
+          "id": "b",
+          "text": "ارزش فعلی رو زیاد می‌کنه",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مخرج تنزیل بزرگ‌تر می‌شه."
+        },
+        {
+          "id": "c",
+          "text": "اثر نداره",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مخرج تنزیل بزرگ‌تر می‌شه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مخرج تنزیل بزرگ‌تر می‌شه.",
+      "objective_id": "C03-ST01-L02-OBJ1",
+      "equivalence_group": "C03-ST01-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L02-CARD03",
+      "hint_used_may_not_count_as_independent": true,
+      "origin_lesson_id": "C03-ST01-L02",
+      "origin_question_id": "C03-ST01-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q03",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "تصمیم پیش از آینده به کدام تورم نیاز داره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تورم موردانتظار همان افق",
+          "feedback": "تصمیم پیشینی بر انتظار متکیه."
+        },
+        {
+          "id": "b",
+          "text": "فقط تورم گذشته",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکیه."
+        },
+        {
+          "id": "c",
+          "text": "نرخ ارز",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. تصمیم پیشینی بر انتظار متکیه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "تصمیم پیشینی بر انتظار متکیه.",
+      "objective_id": "C03-ST01-L03-OBJ1",
+      "equivalence_group": "C03-ST01-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L03-CARD03",
+      "hint_used_may_not_count_as_independent": true,
+      "origin_lesson_id": "C03-ST01-L03",
+      "origin_question_id": "C03-ST01-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q04",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "ارزش فعلی ۱۲۰۰ آینده با نرخ۱۰٪ چقدره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "۱۰۹۰٫۹۱",
+          "feedback": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        },
+        {
+          "id": "b",
+          "text": "۱۲۰۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        },
+        {
+          "id": "c",
+          "text": "۱۳۲۰",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. ۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "۱۲۰۰/۱٫۱۰≈۱۰۹۰٫۹۱.",
+      "objective_id": "C03-ST01-L04-OBJ1",
+      "equivalence_group": "C03-ST01-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L04-CARD03",
+      "hint_used_may_not_count_as_independent": true,
+      "origin_lesson_id": "C03-ST01-L04",
+      "origin_question_id": "C03-ST01-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q05",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برابر بودن PV در مثال چه چیزی رو حذف نمی‌کنه؟",
+      "options": [
+        {
+          "id": "b",
+          "text": "نیاز به تاریخ",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت رو کامل نمی‌بینه."
+        },
+        {
+          "id": "c",
+          "text": "نیاز به نرخ",
+          "feedback": "این گزینه با فرض مسئله سازگار نیست. مدل ساده تفاوت ریسک و شرایط پرداخت رو کامل نمی‌بینه."
+        },
+        {
+          "id": "a",
+          "text": "ریسک و قطعیت قرارداد",
+          "feedback": "مدل ساده تفاوت ریسک و شرایط پرداخت رو کامل نمی‌بینه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مدل ساده تفاوت ریسک و شرایط پرداخت رو کامل نمی‌بینه.",
+      "objective_id": "C03-ST01-L01-OBJ1",
+      "equivalence_group": "C03-ST01-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST01-L01-CARD03",
+      "hint_used_may_not_count_as_independent": true,
+      "origin_lesson_id": "C03-ST01-L01",
+      "origin_question_id": "C03-ST01-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q06",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "پروژه فروش محصول فعلی رو کاهش می‌ده. چه کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اثر ناشی از تصمیم رو وارد جریان افزایشی کنیم",
+          "feedback": "اثر جانشینی می‌تونه جریان نقد پروژه رو کاهش بده."
+        },
+        {
+          "id": "b",
+          "text": "چون محصول دیگریه نادیده بگیریم",
+          "feedback": "محصول دیگر هم ممکنه از تصمیم اثر بگیره."
+        },
+        {
+          "id": "c",
+          "text": "فقط در گزارش بازاریابی بنویسیم",
+          "feedback": "اثر مالیِ تصمیم باید در جریان نقد هم دیده بشه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "اثر جانشینی می‌تونه جریان نقد پروژه رو کاهش بده.",
+      "objective_id": "C03-ST02-L01-OBJ1",
+      "equivalence_group": "C03-ST02-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L01-CARD03",
+      "origin_lesson_id": "C03-ST02-L01",
+      "origin_question_id": "C03-ST02-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q07",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "جریان پروژه چند بار بین مثبت و منفی تغییر می‌کنه. چه احتیاطی لازمه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "IRR ممکنه چندجوابی یا دشوار برای تفسیر باشه",
+          "feedback": "جریان نامتعارف می‌تونه ریشه‌های متعدد بسازه."
+        },
+        {
+          "id": "b",
+          "text": "همیشه فقط یک IRR داره",
+          "feedback": "چند تغییر علامت می‌تونه چند جواب بسازه."
+        },
+        {
+          "id": "c",
+          "text": "دیگر نیازی به NPV نیست",
+          "feedback": "NPV همچنان برای تحلیل لازمه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "جریان نامتعارف می‌تونه ریشه‌های متعدد بسازه.",
+      "objective_id": "C03-ST02-L02-OBJ1",
+      "equivalence_group": "C03-ST02-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L02-CARD03",
+      "origin_lesson_id": "C03-ST02-L02",
+      "origin_question_id": "C03-ST02-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q08",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "چرا اعشار فراوان می‌تونه گمراه‌کننده باشه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ورودی نامطمئن دقت ظاهری می‌سازه",
+          "feedback": "دقت محاسبه با اطمینان پیش‌بینی یکی نیست."
+        },
+        {
+          "id": "b",
+          "text": "فرمول همیشه غلطه",
+          "feedback": "فرمول می‌تونه درست باشه و ورودی نامطمئن بمونه."
+        },
+        {
+          "id": "c",
+          "text": "اعشار ممنوعه",
+          "feedback": "اعشار ممنوع نیست؛ تعبیرش باید محتاطانه باشه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "دقت محاسبه با اطمینان پیش‌بینی یکی نیست.",
+      "objective_id": "C03-ST02-L03-OBJ1",
+      "equivalence_group": "C03-ST02-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L03-CARD03",
+      "origin_lesson_id": "C03-ST02-L03",
+      "origin_question_id": "C03-ST02-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q09",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام عامل کنار NPV بررسی می‌شه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "قابلیت اجرا و ظرفیت واقعی تیم",
+          "feedback": "بدون توان اجرا جریان پیش‌بینی‌شده تحقق نمی‌یابد."
+        },
+        {
+          "id": "b",
+          "text": "فقط رنگ داشبورد",
+          "feedback": "رنگ، قابلیت اجرا رو مشخص نمی‌کنه."
+        },
+        {
+          "id": "c",
+          "text": "تعداد صفحات گزارش",
+          "feedback": "حجم گزارش معیار تصمیم نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "بدون توان اجرا جریان پیش‌بینی‌شده تحقق نمی‌یابد.",
+      "objective_id": "C03-ST02-L04-OBJ1",
+      "equivalence_group": "C03-ST02-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L04-CARD03",
+      "origin_lesson_id": "C03-ST02-L04",
+      "origin_question_id": "C03-ST02-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q10",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "جدول پایهٔ تصمیم چه چیزی رو جدا نشان می‌ده؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "با پروژه، بدون پروژه و تفاوت زمان‌دار",
+          "feedback": "سه ستون فرض‌ها و دوباره‌شماری رو روشن می‌کنه."
+        },
+        {
+          "id": "b",
+          "text": "فقط سود حسابداری",
+          "feedback": "سود حسابداری جای جریان افزایشی رو نمی‌گیره."
+        },
+        {
+          "id": "c",
+          "text": "فقط هزینه‌های گذشته",
+          "feedback": "هزینه‌های گذشته لزوماً به تصمیم امروز مربوط نیستن."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "سه ستون فرض‌ها و دوباره‌شماری رو روشن می‌کنه.",
+      "objective_id": "C03-ST02-L01-OBJ1",
+      "equivalence_group": "C03-ST02-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST02-L01-CARD03",
+      "origin_lesson_id": "C03-ST02-L01",
+      "origin_question_id": "C03-ST02-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q11",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای مقایسهٔ بازده دو فعالیت، ابتدا چه چیزی رو همسان می‌کنی؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "افق زمانی و تعریف بازده و واحد سنجش",
+          "feedback": "مقایسهٔ معتبر به مبنای مشترک نیاز داره."
+        },
+        {
+          "id": "b",
+          "text": "نام شرکت‌ها",
+          "feedback": "نام مشابه، مبنای سنجش یکسان نمی‌سازه."
+        },
+        {
+          "id": "c",
+          "text": "بودجهٔ تبلیغاتی",
+          "feedback": "این متغیر تعریف بازده و افق رو روشن نمی‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "بدون افق و واحد مشترک، اختلاف اعداد ممکنه صرفاً ناشی از تعریف باشه.",
+      "objective_id": "C03-ST03-L01-OBJ1",
+      "equivalence_group": "C03-ST03-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST03-L01-CARD03",
+      "origin_lesson_id": "C03-ST03-L01",
+      "origin_question_id": "C03-ST03-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q12",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "برای جریان نقد اسمیِ دلاری، نرخ تنزیل چطور انتخاب بشه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نرخ اسمیِ متناسب با دلار و ریسک همان جریان",
+          "feedback": "ارز و اسمی/واقعی بودن باید سازگار باشه."
+        },
+        {
+          "id": "b",
+          "text": "نرخ واقعی با ارز دیگر",
+          "feedback": "اختلاط ارز و واحد نرخ نتیجه رو مخدوش می‌کنه."
+        },
+        {
+          "id": "c",
+          "text": "هر نرخ وام کوتاه‌مدت محلی",
+          "feedback": "وام کوتاه‌مدت لزوماً نرخ فرصت سهام یا پروژه نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "جریان و نرخ باید از نظر ارز، افق و اسمی/واقعی بودن تطبیق داشته باشن.",
+      "objective_id": "C03-ST03-L02-OBJ1",
+      "equivalence_group": "C03-ST03-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST03-L02-CARD03",
+      "origin_lesson_id": "C03-ST03-L02",
+      "origin_question_id": "C03-ST03-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q13",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام مبنا معمولاً وزن سرمایهٔ امروز رو بهتر بازتاب می‌ده؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ارزش بازار یا ساختار هدفِ مستند",
+          "feedback": "وزن باید نمایندهٔ هزینهٔ فرصت/ترکیب مورد انتظار باشه."
+        },
+        {
+          "id": "b",
+          "text": "ارزش دفتری بدون توضیح",
+          "feedback": "ارزش تاریخی الزاماً هزینهٔ فرصت امروز نیست."
+        },
+        {
+          "id": "c",
+          "text": "سهم هزینهٔ کارکنان",
+          "feedback": "این وزن تأمین مالی نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "وزن‌ها باید معنای اقتصادی روشنی داشته باشن و فرض اون‌ها گزارش بشه.",
+      "objective_id": "C03-ST03-L03-OBJ1",
+      "equivalence_group": "C03-ST03-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST03-L03-CARD06",
+      "origin_lesson_id": "C03-ST03-L03",
+      "origin_question_id": "C03-ST03-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q14",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام ویژگی برای سناریو مناسبه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فرض‌های مرتبط و سازگار در یک روایت روشن",
+          "feedback": "روابط میان محرک‌ها باید حفظ بشه."
+        },
+        {
+          "id": "b",
+          "text": "انتخاب بهترین مقدار مستقل برای هر ورودی",
+          "feedback": "ترکیب فرض‌های ناسازگار، سناریوی گمراه‌کننده می‌سازه."
+        },
+        {
+          "id": "c",
+          "text": "حذف منبع و تاریخ داده",
+          "feedback": "ردیابی برای بازبینی لازمه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "سناریو باید داستان علّی/سازگار تغییر چند محرک باشه.",
+      "objective_id": "C03-ST03-L04-OBJ1",
+      "equivalence_group": "C03-ST03-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST03-L04-CARD03",
+      "origin_lesson_id": "C03-ST03-L04",
+      "origin_question_id": "C03-ST03-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q15",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام ریسک با تنوع‌بخشی معمولاً بهتر کاهش پیدا می‌کنه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ریسک ویژهٔ یک شرکت، در صورت هم‌حرکتی ناکامل",
+          "feedback": "ترکیب فعالیت‌های متفاوت می‌تونه اثر رویداد مختص یک شرکت رو پخش کنه."
+        },
+        {
+          "id": "b",
+          "text": "همهٔ ریسک‌های بازار",
+          "feedback": "عامل مشترک همچنان باقی می‌مونه."
+        },
+        {
+          "id": "c",
+          "text": "هر احتمال زیان",
+          "feedback": "تنوع زیان رو ناممکن نمی‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "مزیت تنوع به هم‌حرکتی دارایی‌ها و ماهیت ریسک بستگی داره.",
+      "objective_id": "C03-ST03-L01-OBJ1",
+      "equivalence_group": "C03-ST03-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST03-L01-CARD06",
+      "origin_lesson_id": "C03-ST03-L01",
+      "origin_question_id": "C03-ST03-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q16",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "صدور سهام تازه برای مالک قبلی چه پیامدی داره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ممکنه درصد مالکیت و حق تصمیم او رو رقیق کنه",
+          "feedback": "سهم تازه بخشی از ادعای مالکانه رو منتقل می‌کنه."
+        },
+        {
+          "id": "b",
+          "text": "تعهد بهرهٔ ثابت می‌سازه",
+          "feedback": "این ویژگی معمول بدهیه."
+        },
+        {
+          "id": "c",
+          "text": "هیچ هزینهٔ اقتصادی نداره",
+          "feedback": "مالکیت و اختیار ارزشمندند."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "رقیق‌شدن و حق حاکمیتی باید کنار سرمایهٔ تازه دیده بشن.",
+      "objective_id": "C03-ST04-L01-OBJ1",
+      "equivalence_group": "C03-ST04-L01-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST04-L01-CARD07",
+      "origin_lesson_id": "C03-ST04-L01",
+      "origin_question_id": "C03-ST04-L01-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q17",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "یک فروشنده فصلیه؛ متوسط سالانهٔ CCC چه محدودیتی داره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "می‌تونه اوج نیاز نقد و تغییرات فصلی رو پنهان کنه",
+          "feedback": "برای نقدینگی کوتاه‌مدت برنامهٔ دوره‌ای لازمه."
+        },
+        {
+          "id": "b",
+          "text": "همیشه تمام نیاز نقد رو نشان می‌ده",
+          "feedback": "میانگین، زمان‌بندی درون‌سالی رو صاف می‌کنه."
+        },
+        {
+          "id": "c",
+          "text": "به بهای تمام‌شده وابسته نیست",
+          "feedback": "مخرج/تعریف نسبت‌ها اهمیت داره."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "میانگین‌ها ممکنه نوسان فصلی رو پنهان کنن.",
+      "objective_id": "C03-ST04-L02-OBJ1",
+      "equivalence_group": "C03-ST04-L02-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST04-L02-CARD06",
+      "origin_lesson_id": "C03-ST04-L02",
+      "origin_question_id": "C03-ST04-L02-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q18",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "کدام فرض برای کاربرد مثال ماندهٔ مطالبات مهمه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "فروش و وصول نسبتاً یکنواخت و مهلت واقعی نزدیک به متوسط باشه",
+          "feedback": "تغییر ترکیب مشتری یا فصل، تقریب رو ضعیف می‌کنه."
+        },
+        {
+          "id": "b",
+          "text": "همهٔ مشتریان نقدی باشن",
+          "feedback": "مثال فروش اعتباری رو می‌سنجه."
+        },
+        {
+          "id": "c",
+          "text": "هزینهٔ سرمایه صفر باشه",
+          "feedback": "این ماندهٔ عملیاتی رو تعیین نمی‌کنه."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "فرمول تقریبی به یکنواختی فروش و دورهٔ وصول وابسته‌ست.",
+      "objective_id": "C03-ST04-L03-OBJ1",
+      "equivalence_group": "C03-ST04-L03-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST04-L03-CARD03",
+      "origin_lesson_id": "C03-ST04-L03",
+      "origin_question_id": "C03-ST04-L03-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q19",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "میزان بازبینی گزارش مالی AI رو با چه چیزی تنظیم کنیم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اهمیت تصمیم و پیامد خطا",
+          "feedback": "کنترل باید با ریسک و materiality متناسب باشه."
+        },
+        {
+          "id": "b",
+          "text": "سرعت تولید متن",
+          "feedback": "سرعت مدل اهمیت مالی رو تعیین نمی‌کنه."
+        },
+        {
+          "id": "c",
+          "text": "تعداد نمودارها",
+          "feedback": "تعداد نمودار شاخص ریسک نیست."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "خطای با پیامد بالا به کنترل و تأیید قوی‌تری نیاز داره.",
+      "objective_id": "C03-ST04-L04-OBJ1",
+      "equivalence_group": "C03-ST04-L04-Q04-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST04-L04-CARD06",
+      "origin_lesson_id": "C03-ST04-L04",
+      "origin_question_id": "C03-ST04-L04-Q04",
+      "origin_question_version": 1,
+      "reuses_question": true
+    },
+    {
+      "id": "C03-FINAL-Q20",
+      "version": 1,
+      "type": "single_choice",
+      "prompt": "انتخاب نسبت بدهی مناسب به چه چیزهایی وابسته‌ست؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ثبات جریان، مرحلهٔ عمر، وثیقه، رشد و انعطاف مورد نیاز",
+          "feedback": "ویژگی شرکت و ریسک تصمیم مهم‌اند."
+        },
+        {
+          "id": "b",
+          "text": "یک نسبت جهانی برای همهٔ شرکت‌ها",
+          "feedback": "زمینه‌ها و ساختار ریسک متفاوت‌اند."
+        },
+        {
+          "id": "c",
+          "text": "فقط نرخ مالیات",
+          "feedback": "مالیات یکی از چند عامله."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation": "ساختار سرمایه به مبادلهٔ ریسک، هزینه و انعطاف وابسته‌ست.",
+      "objective_id": "C03-ST04-L01-OBJ1",
+      "equivalence_group": "C03-ST04-L01-Q05-FAMILY",
+      "variant": "A",
+      "remediation_card_id": "C03-ST04-L01-CARD06",
+      "origin_lesson_id": "C03-ST04-L01",
+      "origin_question_id": "C03-ST04-L01-Q05",
+      "origin_question_version": 1,
+      "reuses_question": true
+    }
+  ]
+}

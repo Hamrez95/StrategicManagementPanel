@@ -2,7 +2,8 @@
   "locale": "fa-IR",
   "documents": {
     "content/c06/lessons/C06-ST01-L01.json": {
-      "source_revision": "56d13904d9927ae181a44d090a132b8377ed77c485fb9129bb3fe6de76d5ec3a",
+      "source_revision": "7eb8d2b9863a42ea9dd5ba15eab25afe6604de2c216b117553700b91a5ca6b13",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -409,6 +410,11 @@
           "text": "یک خدمت رو انتخاب کن و واحد جریان، مرز شروع/پایان، مراحل، صاحب هر مرحله، زمان کار، انتظار و یک مسیر استثنا رو رسم کن. حداقل سه پرونده رو با نقشه مقایسه و یک تفاوت میان فرایند رسمی و واقعی یادداشت کن.",
           "source_hash": "0b00a2120ced0f15ee5acca2166697c74d193418e8ab810321b0548864765930"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "نقشه و محاسبهٔ عملیات",
+          "source_hash": "4ee355dd852a61914535776726fd1e795b7a878f06eef2885e91b43529f1b0db"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف واحد، محاسبهٔ سازگار، فرض‌ها و پیامد مدیریتی رو روشن کنه؛ ارزیابی این تمرین نیازمند بازبینی انسانیه.",
@@ -448,11 +454,17 @@
           "pointer": "/media_plan/assets/0/caption",
           "text": "واحد جریان یک درخواسته؛ زمان فعالیت، انتظار و بازکاری رو جدا ثبت کن.",
           "source_hash": "fcce73190f94f67e7f9c8dcc48a230b2a59bc93b274de3e39e7a96dd26350dbe"
+        },
+        "/media_plan/assets/0/long_description": {
+          "pointer": "/media_plan/assets/0/long_description",
+          "text": "درخواست مشتری ثبت می‌شه. اگر اطلاعات ناقص باشه برای تکمیل برمی‌گردد و دوباره وارد ثبت می‌شه. اگر کامل باشه تشخیص مسئله، حل یا ارجاع، تأیید مشتری و بستن پرونده انجام می‌شه. زمان انتظار، فعالیت و بازکاری باید جدا ثبت بشن.",
+          "source_hash": "f0facb4ebca82cf060cdd1be35648492092a51d85c96ccc22f6f5b0b3e84e694"
         }
       }
     },
     "content/c06/lessons/C06-ST01-L02.json": {
-      "source_revision": "3bdec207f08d28a8e4b150c8ae811598b7ed81556f8fdf7ae095e536382fc85a",
+      "source_revision": "d2243153d475e10df330128d88c27c1ae557bb7b48cbd1260b4c01e449eaa27d",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -521,8 +533,8 @@
         },
         "/learning_cards/C06-ST01-L02-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "گلوگاه محدودکنندهٔ نرخ کل در وضعیت فعلیه و ممکنه با تغییر تقاضا یا بهبود مرحله جابه‌جا بشه. افزایش ظرفیت مرحله‌ای که گلوگاه نیست لزوماً خروجی رو بالا نمی‌برد؛ ممکنه فقط صف جلوی گلوگاه رو بزرگ کنه. ابتدا گلوگاه رو از دادهٔ صف و زمان تأیید کن، بعد علت توقفش رو پیدا کن.",
-          "source_hash": "700fbc3046fc53e20f97e62d827eaa0e521251cb731a09617be072af57106a19"
+          "text": "گلوگاه محدودکنندهٔ نرخ کل در وضعیت فعلیه و ممکنه با تغییر تقاضا یا بهبود مرحله جابه‌جا بشه. افزایش ظرفیت مرحله‌ای که گلوگاه نیست لزوماً خروجی رو بالا نمی‌بره؛ ممکنه فقط صف جلوی گلوگاه رو بزرگ کنه. ابتدا گلوگاه رو از دادهٔ صف و زمان تأیید کن، بعد علت توقفش رو پیدا کن.",
+          "source_hash": "ce458ebe02c158feb782a2ec238cce44a6391b29ff8668a67480538f3de9130b"
         },
         "/learning_cards/C06-ST01-L02-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -569,11 +581,6 @@
           "text": "ثبت",
           "source_hash": "69b2cad20c09d851d0128344bc0f0a5d033ba83f054b1b30f547c9257dd82285"
         },
-        "/learning_cards/C06-ST01-L02-CARD08/table/rows/0/1": {
-          "pointer": "/learning_cards/7/table/rows/0/1",
-          "text": "۱۲",
-          "source_hash": "8baf52bfeab236072cb545e96444d7eae4fc2853b67cbef6305cb7542b0a2b4d"
-        },
         "/learning_cards/C06-ST01-L02-CARD08/table/rows/0/2": {
           "pointer": "/learning_cards/7/table/rows/0/2",
           "text": "معمولاً کوتاه",
@@ -589,11 +596,6 @@
           "text": "تشخیص",
           "source_hash": "abed2516ec0b27d22bca794dde60aa3493a0c87935cb84ebaf56cf1a482db265"
         },
-        "/learning_cards/C06-ST01-L02-CARD08/table/rows/1/1": {
-          "pointer": "/learning_cards/7/table/rows/1/1",
-          "text": "۸",
-          "source_hash": "feb512dda3dfcde12ed5d586cffabf3b1ec50a3f836fcc8b3bf5673417df7f57"
-        },
         "/learning_cards/C06-ST01-L02-CARD08/table/rows/1/2": {
           "pointer": "/learning_cards/7/table/rows/1/2",
           "text": "رو به افزایش",
@@ -608,11 +610,6 @@
           "pointer": "/learning_cards/7/table/rows/2/0",
           "text": "حل",
           "source_hash": "02f2bae7eee63aeca234c5dde91c8e7b7f4da41e6f711d82c299e7cbf44345dc"
-        },
-        "/learning_cards/C06-ST01-L02-CARD08/table/rows/2/1": {
-          "pointer": "/learning_cards/7/table/rows/2/1",
-          "text": "۱۰",
-          "source_hash": "bb2f49ea924b6e2be5c5615e61c68bf8285f305984a8ccfd343b7699398b2f02"
         },
         "/learning_cards/C06-ST01-L02-CARD08/table/rows/2/2": {
           "pointer": "/learning_cards/7/table/rows/2/2",
@@ -731,8 +728,8 @@
         },
         "/questions/C06-ST01-L02-Q02/explanation": {
           "pointer": "/questions/1/explanation",
-          "text": "فرض ظرفیت اسمی ساده‌تره؛ ظرفیت مؤثر شرایط واقعی‌تر رو می‌سنجد.",
-          "source_hash": "93d6d573c3fa2220046f90d4e379a3d7e5e16c9d1cf926d6e41b2ebe0d231a95"
+          "text": "فرض ظرفیت اسمی ساده‌تره؛ ظرفیت مؤثر شرایط واقعی‌تر رو می‌سنجه.",
+          "source_hash": "b39229f33b2207f3ee2977cb457bd714158fcbba961eb24a950d595588e7e0a6"
         },
         "/questions/C06-ST01-L02-Q03/prompt": {
           "pointer": "/questions/2/prompt",
@@ -856,8 +853,13 @@
         },
         "/practice_activity/prompt": {
           "pointer": "/practice_activity/prompt",
-          "text": "ظرفیت یک فرایند ۳مرحله‌ای رو برآورد کن. برای هر مرحله زمان چرخه، نفر/منبع در دسترس، توقف معمول، ظرفیت اسمی و مؤثر رو ثبت کن؛ نرخ تقاضا رو اضافه کن و گلوگاه/اقدام پیشنهادی رو توضیح دهید.",
-          "source_hash": "9f8f0f3ac08c1c5fdd98b188caaacadff67ca3ad4667f06efdd57af587d571a0"
+          "text": "ظرفیت یک فرایند ۳مرحله‌ای رو برآورد کن. برای هر مرحله زمان چرخه، نفر/منبع در دسترس، توقف معمول، ظرفیت اسمی و مؤثر رو ثبت کن؛ نرخ تقاضا رو اضافه کن و گلوگاه/اقدام پیشنهادی رو توضیح بده.",
+          "source_hash": "990188158dce96d4ef72d5ae8f08a910e6574ba3a421c4993959410a5aba2291"
+        },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "نقشه و محاسبهٔ عملیات",
+          "source_hash": "4ee355dd852a61914535776726fd1e795b7a878f06eef2885e91b43529f1b0db"
         },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
@@ -887,7 +889,8 @@
       }
     },
     "content/c06/lessons/C06-ST01-L03.json": {
-      "source_revision": "45e1aac0f21f5b77a7c2482b0ce955fc350503e7085e7e46624d909835edb39b",
+      "source_revision": "b851256d82cd3aa7c29f25fe2bb95e09f81d2faaf39fbce12de7567f0b5556da",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -906,8 +909,8 @@
         },
         "/learning_cards/C06-ST01-L03-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "میانگین درخواست‌های باز سپهر از ۲۰ به ۴۰ رسیده، اما تیم نمی‌دونه زمان رسیدگی بالا رفته یا نرخ ورود بیشتر شده. شمار پرونده‌های در جریان به تنهایی زمان انتظار رو نمی‌گوید؛ باید نرخ جریان و مرز فرایند رو هم بسنجیم.",
-          "source_hash": "388a9d979d915d799da144a77510ea861607662ec95cac0c7fe86a97e4d56683"
+          "text": "میانگین درخواست‌های باز سپهر از ۲۰ به ۴۰ رسیده، اما تیم نمی‌دونه زمان رسیدگی بالا رفته یا نرخ ورود بیشتر شده. شمار پرونده‌های در جریان به تنهایی زمان انتظار رو نمی‌گه؛ باید نرخ جریان و مرز فرایند رو هم بسنجیم.",
+          "source_hash": "ca89ef998a5d0df02aff554de94402687eec1db503abcc42f523790bf7024ef0"
         },
         "/learning_cards/C06-ST01-L03-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -973,11 +976,6 @@
           "pointer": "/learning_cards/7/title",
           "text": "سه شکل قانون لیتل",
           "source_hash": "b26dec151cd0986f59f44d574383ed278b1a4ce833bbfb09c988a3c826298cdd"
-        },
-        "/learning_cards/C06-ST01-L03-CARD08/text": {
-          "pointer": "/learning_cards/7/text",
-          "text": "L = λ × W  |  W = L ÷ λ  |  λ = L ÷ W",
-          "source_hash": "b304ea58f573c15d7ce0ba078e3d08dabd3a2d9be8f6ee42bba77a6544bf2e8e"
         },
         "/learning_cards/C06-ST01-L03-CARD08/table/columns/0": {
           "pointer": "/learning_cards/7/table/columns/0",
@@ -1054,30 +1052,15 @@
           "text": "فرم قانون لیتل چیه؟",
           "source_hash": "4248c1b860dcd9949a0d69d6d687a57263d4a227c755184c588b8e43d31c8826"
         },
-        "/questions/C06-ST01-L03-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "L = λ × W",
-          "source_hash": "4f6132fc5f6d59418bad5ba7671c09d5668743c5e8c52ef9d898f1d130372e18"
-        },
         "/questions/C06-ST01-L03-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
           "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
         },
-        "/questions/C06-ST01-L03-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "L = λ ÷ W",
-          "source_hash": "6be83ecb038ffe530c87c45f4696928899d5efd8e42cf86f3499fd7f2dd1730c"
-        },
         "/questions/C06-ST01-L03-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
           "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
-        },
-        "/questions/C06-ST01-L03-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "W = L × λ",
-          "source_hash": "97e6d2b635c1717c0ffbf216d430320b82136d981766fee0a0ac0fa27dde28d9"
         },
         "/questions/C06-ST01-L03-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -1254,6 +1237,11 @@
           "text": "دادهٔ یک فرایند پایدار رو در بازهٔ مشخص جمع کن. مرز، واحد، نرخ خروج، میانگین کار در جریان و زمان جریان رو ثبت کن؛ یک مقدار نامعلوم رو با قانون لیتل محاسبه کن. بعد فرض‌های پایداری و یک محدودیت میانگین رو بنویس.",
           "source_hash": "c00b14afb0cb1c6b003eafcf5538612c985a3941830d0c428e29da9e48212ae1"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "نقشه و محاسبهٔ عملیات",
+          "source_hash": "4ee355dd852a61914535776726fd1e795b7a878f06eef2885e91b43529f1b0db"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف واحد، محاسبهٔ سازگار، فرض‌ها و پیامد مدیریتی رو روشن کنه؛ ارزیابی این تمرین نیازمند بازبینی انسانیه.",
@@ -1282,7 +1270,8 @@
       }
     },
     "content/c06/lessons/C06-ST01-L04.json": {
-      "source_revision": "5d7bb7b0f1c9254f6ea858ad675a2d587098e5a8c0f8d3f4c68f397617705149",
+      "source_revision": "ed9db122251ca6994fa5801498fdaa6180ab9080eb708caaacfd52803f14a201",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1331,8 +1320,8 @@
         },
         "/learning_cards/C06-ST01-L04-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "اگر کارشناس تشخیص بیشتری پردازش کنه ولی خطا باعث بازگشت به مرحلهٔ ثبت یا حل بشه، نرخ خروج نهایی ممکنه پایین بمونه. ظرفیت اسمی کارهای اولیه رو با پرونده‌های حل‌شدهٔ باکیفیت اشتباه نگیرید. معیار محافظی مثل حل در تماس اول، نرخ بازگشایی و شکایت رو کنار سرعت قرار دهید.",
-          "source_hash": "be684f8d7151ba86075297f025e0c6a9be70a1eb7f702f404eaee2a46f8b9f49"
+          "text": "اگر کارشناس تشخیص بیشتری پردازش کنه ولی خطا باعث بازگشت به مرحلهٔ ثبت یا حل بشه، نرخ خروج نهایی ممکنه پایین بمونه. ظرفیت اسمی کارهای اولیه رو با پرونده‌های حل‌شدهٔ باکیفیت اشتباه نگیرید. معیار محافظی مثل حل در تماس اول، نرخ بازگشایی و شکایت رو کنار سرعت قرار بده.",
+          "source_hash": "8ae8533394e72105aa088e8120ae3291a052937fd29141541f8ccbcd319e420a"
         },
         "/learning_cards/C06-ST01-L04-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -1694,6 +1683,11 @@
           "text": "دادهٔ یک خدمت (واقعی یا فرضی) رو در جدولی از ظرفیت مرحله‌ها، تقاضا، نرخ خروج، L و W بنویس. یک تغییر مانند افزایش شیفت یا دستیار AI رو پیشنهاد کن؛ خط مبنا، معیار کیفیت، سنجهٔ بار کار، بازهٔ آزمون و شرط توقف رو مشخص کن. اگر از پژوهش استفاده می‌کنی، وضعیت انتشار و حدود نمونه رو ذکر کن.",
           "source_hash": "2aa7e303f948098f9193aa24455e515ed7c32b77610a27ad41ed8fdbdcc9c4c8"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "نقشه و محاسبهٔ عملیات",
+          "source_hash": "4ee355dd852a61914535776726fd1e795b7a878f06eef2885e91b43529f1b0db"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف واحد، محاسبهٔ سازگار، فرض‌ها و پیامد مدیریتی رو روشن کنه؛ ارزیابی این تمرین نیازمند بازبینی انسانیه.",
@@ -1722,7 +1716,8 @@
       }
     },
     "content/c06/lessons/C06-ST02-L01.json": {
-      "source_revision": "b2255e7339042e741cf4d8fc4ea15111dbff60116fee44b0300bd9c199ec1993",
+      "source_revision": "f647744e9481b9305a681c6a2e995fd5c50f8f2b7c9da9eb9b46b6dbed701433",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -1741,8 +1736,8 @@
         },
         "/learning_cards/C06-ST02-L01-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "پشتیبانی سپهر تماس رو سریع می‌بندد اما مشتری دوباره تماس می‌گیره. سرعتِ یک مرحله با نتیجهٔ مطلوب مشتری یکی نیست.",
-          "source_hash": "54fbeff0c70edd78e3434e1286cdb8ee9c88a7cab072334069cd3563820a913b"
+          "text": "پشتیبانی سپهر تماس رو سریع می‌بنده اما مشتری دوباره تماس می‌گیره. سرعتِ یک مرحله با نتیجهٔ مطلوب مشتری یکی نیست.",
+          "source_hash": "1336274e21ad45e9797f42daaffded4ca21793e03d688ccf841eba5b3491506c"
         },
         "/learning_cards/C06-ST02-L01-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -1771,8 +1766,8 @@
         },
         "/learning_cards/C06-ST02-L01-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "از «زود جواب بدهید» پرس‌وجو می‌کنن و می‌فهمند مشتری می‌خواد زمان حل رو بداند و اطلاعات رو تکرار نکند. تیم زمان پاسخ اولیه رو از حل بدون تماس مجدد جدا می‌سنجد.",
-          "source_hash": "bd31a0912f45147d1de8eb6e546823b4a6b78deb252b82add50fd4c68efe5dcd"
+          "text": "از «زود جواب بدهید» پرس‌وجو می‌کنن و می‌فهمند مشتری می‌خواد زمان حل رو بداند و اطلاعات رو تکرار نکند. تیم زمان پاسخ اولیه رو از حل بدون تماس مجدد جدا می‌سنجه.",
+          "source_hash": "6701358bd8085cc5a3c3ddc95c7226fa86eb2a5829310e1ed7278a2d79b6a735"
         },
         "/learning_cards/C06-ST02-L01-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -1836,8 +1831,8 @@
         },
         "/questions/C06-ST02-L01-Q01/prompt": {
           "pointer": "/questions/0/prompt",
-          "text": "کدام معیار فقط سرعت پاسخ رو می‌سنجد؟",
-          "source_hash": "20f0b6c37562736c017baf196be7c04d861a1c47d76cebfdade169ffae8fa33c"
+          "text": "کدام معیار فقط سرعت پاسخ رو می‌سنجه؟",
+          "source_hash": "c29e82969247a4b64fd70bcde02bf0e69aaac8509c9e5ee810a89be23d297dd4"
         },
         "/questions/C06-ST02-L01-Q01/options/a/text": {
           "pointer": "/questions/0/options/0/text",
@@ -2039,6 +2034,11 @@
           "text": "سه نیاز مشتری رو به مشخصه، قاعدهٔ شمارش، منبع داده و محدودیت تبدیل کن؛ یک معیار سرعت و یکی برای حل پایدار اضافه کن.",
           "source_hash": "d96e05eedf9d1c9c50a99bc4cb333a5a24b59e91b3df06eb761ac3cf01c4c508"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ تحلیل کیفیت و بهبود",
+          "source_hash": "4e096f98afd74c7aa8d286699a6401088c4d4c308ddb5262e419d85bc73d2280"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف شاخص، محاسبه، فرض و پیامد کیفیت رو جدا نشان بده؛ نیازمند بازبینی انسانیه.",
@@ -2062,7 +2062,8 @@
       }
     },
     "content/c06/lessons/C06-ST02-L02.json": {
-      "source_revision": "c8b71f324c23a25518633fd7558ea5b40213c1bd4228aa3a481698b638c67031",
+      "source_revision": "8259e71b6a781a6750e2c0be073a5868050c610e964d9d87f86d57cd1aaf3b76",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2161,8 +2162,8 @@
         },
         "/learning_cards/C06-ST02-L02-CARD09/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "بازکاری رو با تعداد، زمان و نرخ هزینه محاسبه کن. مستقیم رو از غیرمستقیم جدا سازید و تصمیم پیشگیری رو با نتیجهٔ واقعی بازسنجی کن.",
-          "source_hash": "8d94311c07b291d565955c293e895570a812289e195a8020779f8197164334b8"
+          "text": "بازکاری رو با تعداد، زمان و نرخ هزینه محاسبه کن. مستقیم رو از غیرمستقیم جدا بساز و تصمیم پیشگیری رو با نتیجهٔ واقعی بازسنجی کن.",
+          "source_hash": "eb719c4db1a7256e0fac4cb9112b193a7267861f2ef3f12749e7ad70534f7ab9"
         },
         "/learning_cards/C06-ST02-L02-DEEP-REVIEW/title": {
           "pointer": "/learning_cards/9/title",
@@ -2171,8 +2172,8 @@
         },
         "/learning_cards/C06-ST02-L02-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "هزینهٔ کیفیت شامل هزینهٔ پیشگیری و ارزیابی، و هزینهٔ شکست داخلی یا خارجیه. دوباره‌کاری، ضایعات، بازگشت کالا و از دست‌رفتن اعتماد ممکنه در حساب‌های جدا دیده بشن، پس مرز محاسبه رو روشن کن. سرمایه‌گذاری پیشگیری می‌تونه هزینهٔ بعدی رو کم کنه، اما رابطه به فرایند و علت نقص وابسته‌ست. فرض اینکه هر بازرسی کیفیت رو بالا می‌برد معتبر نیست؛ بازرسی نقص رو کشف می‌کنه و لزوماً از ایجادش جلوگیری نمی‌کنه. علت ریشه‌ای رو پیدا کن و اثر اصلاح رو در دوره و حجم قابل مقایسه بسنج.",
-          "source_hash": "70d8649f009ca8d270a77c6b772a0551d6283752ba06b6cd4220651271f8f56b"
+          "text": "هزینهٔ کیفیت شامل هزینهٔ پیشگیری و ارزیابی، و هزینهٔ شکست داخلی یا خارجیه. دوباره‌کاری، ضایعات، بازگشت کالا و از دست‌رفتن اعتماد ممکنه در حساب‌های جدا دیده بشن، پس مرز محاسبه رو روشن کن. سرمایه‌گذاری پیشگیری می‌تونه هزینهٔ بعدی رو کم کنه، اما رابطه به فرایند و علت نقص وابسته‌ست. فرض اینکه هر بازرسی کیفیت رو بالا می‌بره معتبر نیست؛ بازرسی نقص رو کشف می‌کنه و لزوماً از ایجادش جلوگیری نمی‌کنه. علت ریشه‌ای رو پیدا کن و اثر اصلاح رو در دوره و حجم قابل مقایسه بسنج.",
+          "source_hash": "4936e9bda91bbdd00dd8fe2591fdc780b0589b4c494920de23160e4650cf2759"
         },
         "/questions/C06-ST02-L02-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -2379,6 +2380,11 @@
           "text": "برای نقص پرتکرار بار ماهانه رو حساب و چهار دستهٔ هزینه رو پر کن. معلوم کن کدام مقدار اندازه‌گیری و کدام تخمینه.",
           "source_hash": "4e230733167a388b96d49df5551f926438a76ac0a8462913c9543003456022a7"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ تحلیل کیفیت و بهبود",
+          "source_hash": "4e096f98afd74c7aa8d286699a6401088c4d4c308ddb5262e419d85bc73d2280"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف شاخص، محاسبه، فرض و پیامد کیفیت رو جدا نشان بده؛ نیازمند بازبینی انسانیه.",
@@ -2402,7 +2408,8 @@
       }
     },
     "content/c06/lessons/C06-ST02-L03.json": {
-      "source_revision": "3dff541ba3822d22dbb4fa123ebb1996b204ebf2b0ce8197525e2e6e657c7df5",
+      "source_revision": "997a0800cc301957411c51df3f15a3924bc78a3c98739a07b6ceb0414e8daea0",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2511,8 +2518,8 @@
         },
         "/learning_cards/C06-ST02-L03-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "بهبود فرایند با شاهد از تعریف مسئله و خط مبنا شروع می‌شه. نقشهٔ جریان، زمان انتظار، دوباره‌کاری و پراکندگی رو آشکار می‌کنه؛ بعد تغییر محدود رو اجرا و پیامد ناخواسته رو پایش کن. پیش و پس از تغییر اگر ترکیب کار یا فصل فرق کنه، مقایسه گمراه‌کننده‌ست. دادهٔ کمی به‌تنهایی نمی‌گوید چرا نقص رخ می‌ده؛ مشاهدهٔ کار و گفت‌وگو با کارکنان هم لازمه. اگر تغییر بهبود میانگین بدهد اما استثناها رو بدتر کنه، باید طراحی رو اصلاح کرد. ثبت نسخهٔ فرایند و مسئول پیگیری یادگیری رو پایدار می‌کنه.",
-          "source_hash": "07b4fcb7c1b4cf9a2371fc1f6686df1d4ce83f01df9c215f67f5dd250b552a80"
+          "text": "بهبود فرایند با شاهد از تعریف مسئله و خط مبنا شروع می‌شه. نقشهٔ جریان، زمان انتظار، دوباره‌کاری و پراکندگی رو آشکار می‌کنه؛ بعد تغییر محدود رو اجرا و پیامد ناخواسته رو پایش کن. پیش و پس از تغییر اگر ترکیب کار یا فصل فرق کنه، مقایسه گمراه‌کننده‌ست. دادهٔ کمی به‌تنهایی نمی‌گه چرا نقص رخ می‌ده؛ مشاهدهٔ کار و گفت‌وگو با کارکنان هم لازمه. اگر تغییر بهبود میانگین بدهد اما استثناها رو بدتر کنه، باید طراحی رو اصلاح کرد. ثبت نسخهٔ فرایند و مسئول پیگیری یادگیری رو پایدار می‌کنه.",
+          "source_hash": "84dec6b531a33e2c74cd11422351172a401b7fdc907e1098ee8afa79c4de5ed5"
         },
         "/questions/C06-ST02-L03-Q01/prompt": {
           "pointer": "/questions/0/prompt",
@@ -2719,6 +2726,11 @@
           "text": "طرح آزمون محدود: مسئله، خط مبنا، فرضیه، پیامد اصلی، شاخص محافظ، مقایسه، مدت و شرط توقف. وضعیت انتشار منبع AI رو ثبت کن.",
           "source_hash": "f7049bff0da4d6e2d040b6380e97e90de07866c167044b93475db90f898ee721"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ تحلیل کیفیت و بهبود",
+          "source_hash": "4e096f98afd74c7aa8d286699a6401088c4d4c308ddb5262e419d85bc73d2280"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف شاخص، محاسبه، فرض و پیامد کیفیت رو جدا نشان بده؛ نیازمند بازبینی انسانیه.",
@@ -2747,7 +2759,8 @@
       }
     },
     "content/c06/lessons/C06-ST02-L04.json": {
-      "source_revision": "4dda09d7df24d0ae9a0db7be6987bfae30b7f497cb8b478b395527b5f7ddd50c",
+      "source_revision": "acc9ca48103db125804878c06b84312da36bc9cbfe62baf94ed88130e57616ec",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -2856,38 +2869,23 @@
         },
         "/learning_cards/C06-ST02-L04-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "بهره‌وری نسبت خروجی به منابع رو می‌سنجد اما ارزش خروجی و کیفیت رو تضمین نمی‌کنه. افزایش تعداد پرونده‌های بسته‌شده اگر خطا، شکایت یا کار اصلاحی رو بالا ببرد، ممکنه هزینهٔ کل رو بیشتر کنه. شاخص بهره‌وری رو در کنار کیفیت، ایمنی، زمان و تجربهٔ مشتری بخون و از بهینه‌سازی یک عدد به قیمت هدف کلی پرهیز کن. فرض ثبات پیچیدگی کار رو بررسی کن؛ پرونده‌های دشوار منابع بیشتری می‌خوان. اگر فناوری سرعت رو بالا برد، ظرفیت آزادشده تنها وقتی ارزش می‌سازه که سازمان نحوهٔ استفاده از اون رو نیز طراحی کنه.",
-          "source_hash": "af771f76a489f2d8c1da0f3c242f8640f74cfceb543fa65645e26b6dfb15e111"
+          "text": "بهره‌وری نسبت خروجی به منابع رو می‌سنجه اما ارزش خروجی و کیفیت رو تضمین نمی‌کنه. افزایش تعداد پرونده‌های بسته‌شده اگر خطا، شکایت یا کار اصلاحی رو بالا ببرد، ممکنه هزینهٔ کل رو بیشتر کنه. شاخص بهره‌وری رو در کنار کیفیت، ایمنی، زمان و تجربهٔ مشتری بخون و از بهینه‌سازی یک عدد به قیمت هدف کلی پرهیز کن. فرض ثبات پیچیدگی کار رو بررسی کن؛ پرونده‌های دشوار منابع بیشتری می‌خوان. اگر فناوری سرعت رو بالا برد، ظرفیت آزادشده تنها وقتی ارزش می‌سازه که سازمان نحوهٔ استفاده از اون رو نیز طراحی کنه.",
+          "source_hash": "77adeef0e5eec5eab7c14c7324834297634900b0aba7f7095f4a3976c2f9e003"
         },
         "/questions/C06-ST02-L04-Q01/prompt": {
           "pointer": "/questions/0/prompt",
           "text": "حل پایدار الف چند مورده؟",
           "source_hash": "b4b666707716879b733af07d0fcfed1ed180647aaa9073f7ed57d2d5701279ec"
         },
-        "/questions/C06-ST02-L04-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "۱۰۲",
-          "source_hash": "59538a84e15d928f8c7d84dc6fe5904c70ed51db87ac70d92cdcaa257c0cad79"
-        },
         "/questions/C06-ST02-L04-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "۱۲۰ منهای ۱۸ برابر ۱۰۲ است.",
           "source_hash": "16cb42fce3b5119496c739e2c57c87f7abb7049328de284d27dd49f01b341cf8"
         },
-        "/questions/C06-ST02-L04-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "۱۲۰",
-          "source_hash": "c0ad739b971b616822c26424823257043e09486be164d85c67c5a137003d00e8"
-        },
         "/questions/C06-ST02-L04-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "معیار یا فرض مهمی جا افتاده‌ست.",
           "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
-        },
-        "/questions/C06-ST02-L04-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "۱۸",
-          "source_hash": "8a7d01a0f06dc69d3a3c18273f564f135bb52483ea524e77224aafc7725623ec"
         },
         "/questions/C06-ST02-L04-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -2904,30 +2902,15 @@
           "text": "نرخ پایدار الف در ساعت؟",
           "source_hash": "70da62d80fea4a125aa91ecb014ad0273a070dea32784c6a67f8c440d5ef7041"
         },
-        "/questions/C06-ST02-L04-Q02/options/b/text": {
-          "pointer": "/questions/1/options/0/text",
-          "text": "۲",
-          "source_hash": "713a23ad16e51faf3a66a24fa8604bbdd6f5887ebf2136e53b0a82091627479c"
-        },
         "/questions/C06-ST02-L04-Q02/options/b/feedback": {
           "pointer": "/questions/1/options/0/feedback",
           "text": "معیار یا فرض مهمی جا افتاده‌ست.",
           "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
         },
-        "/questions/C06-ST02-L04-Q02/options/c/text": {
-          "pointer": "/questions/1/options/1/text",
-          "text": "۱۰۲",
-          "source_hash": "59538a84e15d928f8c7d84dc6fe5904c70ed51db87ac70d92cdcaa257c0cad79"
-        },
         "/questions/C06-ST02-L04-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/1/feedback",
           "text": "معیار یا فرض مهمی جا افتاده‌ست.",
           "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
-        },
-        "/questions/C06-ST02-L04-Q02/options/a/text": {
-          "pointer": "/questions/1/options/2/text",
-          "text": "۱٫۷",
-          "source_hash": "d69d0234a1d6eca3181b5b47d48b2056b873048560b84b892ad5dce598657304"
         },
         "/questions/C06-ST02-L04-Q02/options/a/feedback": {
           "pointer": "/questions/1/options/2/feedback",
@@ -2991,8 +2974,8 @@
         },
         "/questions/C06-ST02-L04-Q04/options/a/feedback": {
           "pointer": "/questions/3/options/0/feedback",
-          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌برد.",
-          "source_hash": "f4f3190185697b0882a1c50560c630143864b28882a582a74a59c0829ff6d3c9"
+          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌بره.",
+          "source_hash": "4776ccf8c6951b900465e649679631d5577af652ebb222b1cb1d61cee98f2dc2"
         },
         "/questions/C06-ST02-L04-Q04/options/b/text": {
           "pointer": "/questions/3/options/1/text",
@@ -3016,8 +2999,8 @@
         },
         "/questions/C06-ST02-L04-Q04/explanation": {
           "pointer": "/questions/3/explanation",
-          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌برد.",
-          "source_hash": "f4f3190185697b0882a1c50560c630143864b28882a582a74a59c0829ff6d3c9"
+          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌بره.",
+          "source_hash": "4776ccf8c6951b900465e649679631d5577af652ebb222b1cb1d61cee98f2dc2"
         },
         "/questions/C06-ST02-L04-Q05/prompt": {
           "pointer": "/questions/4/prompt",
@@ -3064,6 +3047,11 @@
           "text": "دو شیفت رو با خروجی خام، حل پایدار، زمان و هزینه مقایسه کن؛ شاخص کیفیت و پیچیدگی کار رو اضافه کن و محدودیت نتیجه رو بنویس.",
           "source_hash": "e12df917f16ea2d47d9038bcb9f64a6992edcb0dabf0db8cdbf085c55efa2cb9"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "برگهٔ تحلیل کیفیت و بهبود",
+          "source_hash": "4e096f98afd74c7aa8d286699a6401088c4d4c308ddb5262e419d85bc73d2280"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید تعریف شاخص، محاسبه، فرض و پیامد کیفیت رو جدا نشان بده؛ نیازمند بازبینی انسانیه.",
@@ -3092,7 +3080,8 @@
       }
     },
     "content/c06/lessons/C06-ST03-L01.json": {
-      "source_revision": "bc0ae64645d155fe3cef2bf941f533dae66f050fb251eac463fb2b769c475c06",
+      "source_revision": "9f273f1dcc39b02479452f6eafae545d8aaac56b1d934d6de3fdd14bfc4ce48c",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3111,8 +3100,8 @@
         },
         "/learning_cards/C06-ST03-L01-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "موجودی زیاد سرمایه و فضا می‌گیره و ممکنه کهنه یا خراب بشه؛ موجودی کم احتمال کمبود و توقف رو بالا می‌برد. هدف «صفرکردن موجودی» نیست، بلکه انتخاب سطحی متناسب با تقاضا و ریسکه.",
-          "source_hash": "0d139297575957e80c3e513b5f167ff679a866f35f16d793341c6aa56e3b5891"
+          "text": "موجودی زیاد سرمایه و فضا می‌گیره و ممکنه کهنه یا خراب بشه؛ موجودی کم احتمال کمبود و توقف رو بالا می‌بره. هدف «صفرکردن موجودی» نیست، بلکه انتخاب سطحی متناسب با تقاضا و ریسکه.",
+          "source_hash": "92e94e91e4e250fd1c31dc760ad7a6100580d5350ce841ba4b53b395e2406a7d"
         },
         "/learning_cards/C06-ST03-L01-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -3141,8 +3130,8 @@
         },
         "/learning_cards/C06-ST03-L01-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "قطعهٔ یدکی پرفروش اگر تمام بشه، تعمیر چند روز عقب می‌افتد؛ قطعهٔ کم‌مصرف نیز اگر زیاد خریده بشه سرمایه رو می‌خواباند. مدیر برای هر قلم، پیامد کمبود و نگهداری رو با یک روش یکسان مقایسه نمی‌کنه.",
-          "source_hash": "65c9c20ff6d00a72f7b4cb06c2b01d686bfd9af221c2f48ab672b8255355ef2d"
+          "text": "قطعهٔ یدکی پرفروش اگر تمام بشه، تعمیر چند روز عقب می‌افته؛ قطعهٔ کم‌مصرف نیز اگر زیاد خریده بشه سرمایه رو می‌خواباند. مدیر برای هر قلم، پیامد کمبود و نگهداری رو با یک روش یکسان مقایسه نمی‌کنه.",
+          "source_hash": "a124d76ddcad10be310bae643ef5f7d86c95d74bd45b7f550f6864e152f5f4a4"
         },
         "/learning_cards/C06-ST03-L01-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -3161,8 +3150,8 @@
         },
         "/learning_cards/C06-ST03-L01-CARD06/text": {
           "pointer": "/learning_cards/5/text",
-          "text": "موجودی چرخه‌ای از مقدار سفارش میاد؛ ذخیرهٔ اطمینان برای عدم‌قطعیته. EOQ مقدار چرخه‌ای اقتصادی رو در فرض‌های ساده می‌سنجد و به تنهایی سطح خدمت یا ایمنیِ ذخیره رو تعیین نمی‌کنه.",
-          "source_hash": "9ad394a38256fa6073cd6574157aca40c0ceec094decdf06a6c465045297b6f6"
+          "text": "موجودی چرخه‌ای از مقدار سفارش میاد؛ ذخیرهٔ اطمینان برای عدم‌قطعیته. EOQ مقدار چرخه‌ای اقتصادی رو در فرض‌های ساده می‌سنجه و به تنهایی سطح خدمت یا ایمنیِ ذخیره رو تعیین نمی‌کنه.",
+          "source_hash": "f7bfc69816497a28cfe0c716edc938503be8a9b95248acf7ca446479928576f8"
         },
         "/learning_cards/C06-ST03-L01-CARD07/title": {
           "pointer": "/learning_cards/6/title",
@@ -3399,6 +3388,11 @@
           "text": "برای سه قلم، هزینهٔ کمبود، نگهداری، زمان تأمین و فسادپذیری رو مقایسه و سیاست موجودی متفاوت پیشنهاد کن.",
           "source_hash": "293337f30bf3775e2d48e6b8f5d984d0925b5241aa1ff5cfb3193d66a67fcf00"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل موجودی و تقاضا",
+          "source_hash": "78f65c57ab780b23d0326b4f82109b2bf514e025fc66ba72e692a414bf6652c9"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید واحد، فرض، محاسبه و هزینه/سطح خدمت رو روشن کنه؛ بازبینی انسانی لازمه.",
@@ -3422,7 +3416,8 @@
       }
     },
     "content/c06/lessons/C06-ST03-L02.json": {
-      "source_revision": "6958d1d654563a4518a6bf1a3bec2646af1e5aa6e394e7b6cbeaec7dbdf5f635",
+      "source_revision": "f85459d744ee619c58779c061dad36f6bb6265d23d6d61cf04b6e9c1e40f4268",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3441,8 +3436,8 @@
         },
         "/learning_cards/C06-ST03-L02-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "سفارش‌های کوچک دفعات سفارش رو زیاد می‌کنن؛ سفارش بزرگ موجودی نگهداری رو بالا می‌برد. EOQ نقطهٔ تعادل این دو هزینه رو در شرایط ساده پیدا می‌کنه.",
-          "source_hash": "375e26c43e4da4b890b665836cb1e4394459b1d3ae4e38a2b37b8cd3e2c8e119"
+          "text": "سفارش‌های کوچک دفعات سفارش رو زیاد می‌کنن؛ سفارش بزرگ موجودی نگهداری رو بالا می‌بره. EOQ نقطهٔ تعادل این دو هزینه رو در شرایط ساده پیدا می‌کنه.",
+          "source_hash": "473733d1b1243e8a7c115966af3429fb8756ec2aa9d5de7baa51cdc1f43caa93"
         },
         "/learning_cards/C06-ST03-L02-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -3521,8 +3516,8 @@
         },
         "/learning_cards/C06-ST03-L02-CARD09/text": {
           "pointer": "/learning_cards/8/text",
-          "text": "EOQ موازنهٔ هزینهٔ سفارش و نگهداری رو در فرض‌های ساده می‌سنجد. فرمول رو با واحدهای سازگار به‌کار ببرید و پیش از تبدیل نتیجه به سیاست، فرض‌ها و هزینه‌های حذف‌شده رو بازبینی کن.",
-          "source_hash": "a7faf81d5e243952b70a8309fd4c93beb68d0ce2364288d3553e854a1bb324c8"
+          "text": "EOQ موازنهٔ هزینهٔ سفارش و نگهداری رو در فرض‌های ساده می‌سنجه. فرمول رو با واحدهای سازگار به‌کار ببرید و پیش از تبدیل نتیجه به سیاست، فرض‌ها و هزینه‌های حذف‌شده رو بازبینی کن.",
+          "source_hash": "8f01322f264748b3cc5629a5c8fd720a4a4a4dbd567f20ae816305c0b7ddb3e1"
         },
         "/learning_cards/C06-ST03-L02-DEEP-REVIEW/title": {
           "pointer": "/learning_cards/9/title",
@@ -3539,11 +3534,6 @@
           "text": "فرمول EOQ کدامه؟",
           "source_hash": "c24eae89c280ab8c9b9bb0565980c9c43b1f3840e4a3f0505c73b109c9a2ac2b"
         },
-        "/questions/C06-ST03-L02-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "√(2DS/H)",
-          "source_hash": "ce46a5684a3a245a08ccc4be040c417a25261e503c284e85711602402cc75f32"
-        },
         "/questions/C06-ST03-L02-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "صورت هزینهٔ سفارش و مخرج نرخ نگهداری رو متوازن می‌کنه.",
@@ -3558,11 +3548,6 @@
           "pointer": "/questions/0/options/1/feedback",
           "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
           "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
-        },
-        "/questions/C06-ST03-L02-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "√(DH/2S)",
-          "source_hash": "340ff112b28d17fc5c0e8cbfe7854bdd2fef3b2959563ac6d998c07234db67fa"
         },
         "/questions/C06-ST03-L02-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -3579,30 +3564,15 @@
           "text": "با D=12000، S=50، H=2 مقدار Q* تقریباً؟",
           "source_hash": "0c8eaed9f992a2bff744834facfeae8dd0390a3368bef44132b6e51d58a9f0d6"
         },
-        "/questions/C06-ST03-L02-Q02/options/b/text": {
-          "pointer": "/questions/1/options/0/text",
-          "text": "۳۸۷",
-          "source_hash": "5a0863bf6dbd1e93f8fab99bb786e5c0d7f0d26ab7542b31d0197a4830e03fed"
-        },
         "/questions/C06-ST03-L02-Q02/options/b/feedback": {
           "pointer": "/questions/1/options/0/feedback",
           "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
           "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
         },
-        "/questions/C06-ST03-L02-Q02/options/c/text": {
-          "pointer": "/questions/1/options/1/text",
-          "text": "۱۵٫۵",
-          "source_hash": "01b6cf38358b3914bee333f8113fcb422c07a1ea74d3ce23a64a8b424f8ebc1e"
-        },
         "/questions/C06-ST03-L02-Q02/options/c/feedback": {
           "pointer": "/questions/1/options/1/feedback",
           "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
           "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
-        },
-        "/questions/C06-ST03-L02-Q02/options/a/text": {
-          "pointer": "/questions/1/options/2/text",
-          "text": "۷۷۵",
-          "source_hash": "35df91998f3767c2cb98a386a72d40001bb76f80f2813c59ac9201dbb96dbcf8"
         },
         "/questions/C06-ST03-L02-Q02/options/a/feedback": {
           "pointer": "/questions/1/options/2/feedback",
@@ -3619,11 +3589,6 @@
           "text": "هزینهٔ سفارش سالانه تقریباً چقدر می‌شه؟",
           "source_hash": "571118dc01887303f9d388ea28a895109130a58bb25bbd5324a291ea20b10545"
         },
-        "/questions/C06-ST03-L02-Q03/options/c/text": {
-          "pointer": "/questions/2/options/0/text",
-          "text": "۱۲٬۰۰۰",
-          "source_hash": "df4158b055de11dcc6ea85ae635cf471e741cf523ccf6c24b3ea01571ebb72df"
-        },
         "/questions/C06-ST03-L02-Q03/options/c/feedback": {
           "pointer": "/questions/2/options/0/feedback",
           "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
@@ -3638,11 +3603,6 @@
           "pointer": "/questions/2/options/1/feedback",
           "text": "D/Q تقریباً ۱۵٫۵ سفارش و ضرب در ۵۰ حدود ۷۷۵ می‌شه.",
           "source_hash": "c3fe44310f2750b5e81d7c0579ce7dd7d4c2d1ca710b43704e370e518159efeb"
-        },
-        "/questions/C06-ST03-L02-Q03/options/b/text": {
-          "pointer": "/questions/2/options/2/text",
-          "text": "۵۰",
-          "source_hash": "6801fa46a761c2d5a2914c8725813c556838ec232e18cecf1d4f6adb2faf8fe6"
         },
         "/questions/C06-ST03-L02-Q03/options/b/feedback": {
           "pointer": "/questions/2/options/2/feedback",
@@ -3739,6 +3699,11 @@
           "text": "برای یک قلم، EOQ رو با D,S,H داده‌شده محاسبه کن؛ تعداد سفارش سالانه، موجودی متوسط و هزینهٔ سفارش/نگهداری رو پیدا کن. سه فرض مدل رو با دادهٔ واقعی مقایسه کن.",
           "source_hash": "3792e9da4fa550887fd111a529ec72186bf45200a69a8eb48265bbba3bed747a"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل موجودی و تقاضا",
+          "source_hash": "78f65c57ab780b23d0326b4f82109b2bf514e025fc66ba72e692a414bf6652c9"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید واحد، فرض، محاسبه و هزینه/سطح خدمت رو روشن کنه؛ بازبینی انسانی لازمه.",
@@ -3762,7 +3727,8 @@
       }
     },
     "content/c06/lessons/C06-ST03-L03.json": {
-      "source_revision": "8e0cdabea50b14005e39a2e231d8e62d9e8bef9dcbe4f04a22fb7808092b30e8",
+      "source_revision": "a325c33096ddc2a24558b4174874e97bffe6740a5bed5cf6f830cba8032eb660",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -3871,8 +3837,8 @@
         },
         "/learning_cards/C06-ST03-L03-DEEP-REVIEW/text": {
           "pointer": "/learning_cards/9/text",
-          "text": "ذخیرهٔ اطمینان برای پوشش نوسان تقاضا یا زمان تأمین در سطح خدمت انتخاب‌شده به کار می‌ره. افزایش ذخیره احتمال کمبود رو کم می‌کنه اما سرمایه و خطر کهنگی رو بالا می‌برد. مقدار مناسب به توزیع تقاضا، زمان تأمین، سطح خدمت و هزینهٔ پیامد کمبود بستگی داره. فرمولی که نوسان‌ها رو مستقل یا نرمال فرض می‌کنه ممکنه در شوک‌ها ضعیف باشه. خطای پیش‌بینی و عملکرد واقعی رو در پنجرهٔ زمانی مناسب بسنج. اگر زمان تأمین ساختاری تغییر کرده، افزایش موجودی بدون اصلاح منبع مشکل رو پنهان می‌کنه.",
-          "source_hash": "370e13e572af57c869119b73b9b143bee4e2617abdec3d96f759fad702e3c20b"
+          "text": "ذخیرهٔ اطمینان برای پوشش نوسان تقاضا یا زمان تأمین در سطح خدمت انتخاب‌شده به کار می‌ره. افزایش ذخیره احتمال کمبود رو کم می‌کنه اما سرمایه و خطر کهنگی رو بالا می‌بره. مقدار مناسب به توزیع تقاضا، زمان تأمین، سطح خدمت و هزینهٔ پیامد کمبود بستگی داره. فرمولی که نوسان‌ها رو مستقل یا نرمال فرض می‌کنه ممکنه در شوک‌ها ضعیف باشه. خطای پیش‌بینی و عملکرد واقعی رو در پنجرهٔ زمانی مناسب بسنج. اگر زمان تأمین ساختاری تغییر کرده، افزایش موجودی بدون اصلاح منبع مشکل رو پنهان می‌کنه.",
+          "source_hash": "2c485234c3d348d06f9d60155b6973132356fd6e06c3e9f887f51f040210ab01"
         },
         "/learning_cards/C06-ST03-L03-TERMS-REVIEW/title": {
           "pointer": "/learning_cards/10/title",
@@ -3889,30 +3855,15 @@
           "text": "اگر σ روزانه ۸ و L=۵ باشه، σ زمان تأمین تقریباً؟",
           "source_hash": "ac0271438ed6d980004c4d795d1b9b8fcec1556bfad1c19717d0ce4eb4f11774"
         },
-        "/questions/C06-ST03-L03-Q01/options/a/text": {
-          "pointer": "/questions/0/options/0/text",
-          "text": "۱۷٫۹",
-          "source_hash": "53d5d5e61abcf97eeca21a98a3f4be2884fcff996c730f72610d170e2c77f04c"
-        },
         "/questions/C06-ST03-L03-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
           "text": "۸ ضربدر ریشهٔ ۵ حدود ۱۷٫۹ است.",
           "source_hash": "9ec02e707bf0f6a5216e51df4f22f9656f78a761df64200f2057a3b35b215906"
         },
-        "/questions/C06-ST03-L03-Q01/options/b/text": {
-          "pointer": "/questions/0/options/1/text",
-          "text": "۴۰",
-          "source_hash": "e1e4b7835750864774b5896c6a765bcec6707a7bed6060af830c237f8b3fb4cc"
-        },
         "/questions/C06-ST03-L03-Q01/options/b/feedback": {
           "pointer": "/questions/0/options/1/feedback",
           "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
           "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
-        },
-        "/questions/C06-ST03-L03-Q01/options/c/text": {
-          "pointer": "/questions/0/options/2/text",
-          "text": "۱۳",
-          "source_hash": "dbf055d6bae8255677187a5271124329d9a15efe82e3fb1f27284d53216984f9"
         },
         "/questions/C06-ST03-L03-Q01/options/c/feedback": {
           "pointer": "/questions/0/options/2/feedback",
@@ -4089,6 +4040,11 @@
           "text": "برای قلمی با دادهٔ تقاضا و زمان تأمین، σ زمان تأمین، ذخیره و ROP رو حساب کن. واحد، فرض توزیع، هدف خدمت و هزینهٔ کمبود رو بنویس و یک حالت نامطمئن‌تر رو مقایسه کن.",
           "source_hash": "10331c9f5eed0afd240f8f97628a276c342ae061ac0554bbd6b9619faa3b6b0b"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل موجودی و تقاضا",
+          "source_hash": "78f65c57ab780b23d0326b4f82109b2bf514e025fc66ba72e692a414bf6652c9"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید واحد، فرض، محاسبه و هزینه/سطح خدمت رو روشن کنه؛ بازبینی انسانی لازمه.",
@@ -4112,7 +4068,8 @@
       }
     },
     "content/c06/lessons/C06-ST03-L04.json": {
-      "source_revision": "5cac8ffc2847feadfe73fc1b5d1f3360af6387bad52697d24000a9b7ef931a2a",
+      "source_revision": "5b7c6f72a726391ddaf7384ed1653603e7a876d488beb91e734394ac2098caff",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4131,8 +4088,8 @@
         },
         "/learning_cards/C06-ST03-L04-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "عدد پیش‌بینی تقاضا برای سفارش، ظرفیت یا برنامهٔ تأمین به کار می‌ره. مدل دقیق‌تر روی میانگین خطا الزاماً تصمیم موجودی بهتر نمی‌سازد.",
-          "source_hash": "308cc229bcc52879920d09a84b44a4e99e5049d17d94d8d22b91fc6a41e0c673"
+          "text": "عدد پیش‌بینی تقاضا برای سفارش، ظرفیت یا برنامهٔ تأمین به کار می‌ره. مدل دقیق‌تر روی میانگین خطا الزاماً تصمیم موجودی بهتر نمی‌سازه.",
+          "source_hash": "dba01b384449ccf64e8baf79bc1210a22b117b840f5e30d9dfeec78794c96221"
         },
         "/learning_cards/C06-ST03-L04-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -4226,8 +4183,8 @@
         },
         "/questions/C06-ST03-L04-Q01/prompt": {
           "pointer": "/questions/0/prompt",
-          "text": "MAE چه چیزی رو می‌سنجد؟",
-          "source_hash": "3fad64657b7c143bb89b13e0b7f8a6a5553bd077c481e98e879d7964ef63b1bd"
+          "text": "MAE چه چیزی رو می‌سنجه؟",
+          "source_hash": "dde3eb88229e2102605e6266c6bb395b102ab1bf843a4d499edc9814d9876b8d"
         },
         "/questions/C06-ST03-L04-Q01/options/a/text": {
           "pointer": "/questions/0/options/0/text",
@@ -4429,6 +4386,11 @@
           "text": "برای یک قلم، مدل ساده و AI رو در آزمون زمانی مقایسه کن: MAE، Bias، موجودی متوسط، کمبود و دورریز. هزینهٔ هر خطا و محدودیت نمونه/مدل رو بنویس.",
           "source_hash": "b0d747457a95b22b02daf44e4eab04eb56e20c78dcc9a3a80d4552ba41277429"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل موجودی و تقاضا",
+          "source_hash": "78f65c57ab780b23d0326b4f82109b2bf514e025fc66ba72e692a414bf6652c9"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید واحد، فرض، محاسبه و هزینه/سطح خدمت رو روشن کنه؛ بازبینی انسانی لازمه.",
@@ -4452,7 +4414,8 @@
       }
     },
     "content/c06/lessons/C06-ST04-L01.json": {
-      "source_revision": "b69c481c40bbe35279634a208dcd8ff7243dc3d72864cb9db0f3c1e7d1ebcef4",
+      "source_revision": "0f1939bbac2ddc00c76872998451913611a28839f55aa09780e4bfbef0f50711",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4501,8 +4464,8 @@
         },
         "/learning_cards/C06-ST04-L01-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "قطعهٔ دستگاه از فروشنده، سازندهٔ ماده و مسیر حمل نقشه می‌شه. دو فروشنده شاید به یک ماده یا بندر وابسته باشن؛ تنوع نام فروشنده استقلال واقعی نمی‌سازد.",
-          "source_hash": "7b41a0566b602e8ae66508ed7ad9f56a8dd8247018b4d261a5d4c80a15a8fb34"
+          "text": "قطعهٔ دستگاه از فروشنده، سازندهٔ ماده و مسیر حمل نقشه می‌شه. دو فروشنده شاید به یک ماده یا بندر وابسته باشن؛ تنوع نام فروشنده استقلال واقعی نمی‌سازه.",
+          "source_hash": "f2c566c7509fb249adb46c7b55f5188b654d7fc23cd335b4d4aa2e3e27010bed"
         },
         "/learning_cards/C06-ST04-L01-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -4769,6 +4732,11 @@
           "text": "شبکهٔ چندلایهٔ یک قلم حیاتی رو رسم کن و منبع جایگزین، وابستگی مشترک، مالک داده و زمان انتقال رو ثبت کن.",
           "source_hash": "8f6f1ea718a15f764c635d59783b44be5d520ce37689b73b7682bb6e31b4aaf6"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل تاب‌آوری زنجیره",
+          "source_hash": "0ea3bdf52fd04959af8610e8bbcfdce9457d1cbf0cf48f2ee3777def3356b2fc"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد رو جدا نشان بده؛ بازبینی انسانی لازمه.",
@@ -4792,7 +4760,8 @@
       }
     },
     "content/c06/lessons/C06-ST04-L02.json": {
-      "source_revision": "373fa2bd3cf0e9707ef6c9f70935bcb19a789338ce0ee9ee51ad0ab75b072867",
+      "source_revision": "1750d83d910029db46f69bafd195300746b8a33a5da4c2b751f85bed1f5a0be2",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -4811,8 +4780,8 @@
         },
         "/learning_cards/C06-ST04-L02-CARD01/text": {
           "pointer": "/learning_cards/0/text",
-          "text": "اختلال ظرفیت منبع رو کم می‌کنه، مسیر رو می‌بندد یا تقاضا رو بالا می‌برد. سناریو رو از وابستگی نقشه‌شده و پیامد مشتری آغاز کن.",
-          "source_hash": "0df4b848e263681ffe4904d9d7ac73e47b408d401623e7703c070e6e9e317d80"
+          "text": "اختلال ظرفیت منبع رو کم می‌کنه، مسیر رو می‌بنده یا تقاضا رو بالا می‌بره. سناریو رو از وابستگی نقشه‌شده و پیامد مشتری آغاز کن.",
+          "source_hash": "e20f5c01aee164ffad07cdf1d7e083a3a7cc34e7f2f2374f93f878b8354dc582"
         },
         "/learning_cards/C06-ST04-L02-CARD02/title": {
           "pointer": "/learning_cards/1/title",
@@ -4841,8 +4810,8 @@
         },
         "/learning_cards/C06-ST04-L02-CARD04/text": {
           "pointer": "/learning_cards/3/text",
-          "text": "تأمین‌کنندهٔ اصلی ۸۰٪ قطعه رو می‌ده؛ منبع دوم فقط ۲۰٪ ظرفیت داره و انتقال سفارش ۵ روز می‌برد. گزینهٔ دوم بخشی از ریسک رو کم می‌کنه، نه همه رو.",
-          "source_hash": "d80f9225150ee9e2e2941cae1535d0e45941143769553840bdcaf0f4781bf1da"
+          "text": "تأمین‌کنندهٔ اصلی ۸۰٪ قطعه رو می‌ده؛ منبع دوم فقط ۲۰٪ ظرفیت داره و انتقال سفارش ۵ روز می‌بره. گزینهٔ دوم بخشی از ریسک رو کم می‌کنه، نه همه رو.",
+          "source_hash": "dabff4196016d1f2245f0fb7063089b6b6a6dba409427f07589071e6cecf4097"
         },
         "/learning_cards/C06-ST04-L02-CARD05/title": {
           "pointer": "/learning_cards/4/title",
@@ -4916,8 +4885,8 @@
         },
         "/questions/C06-ST04-L02-Q01/options/a/feedback": {
           "pointer": "/questions/0/options/0/feedback",
-          "text": "انتقال نیز زمان می‌برد.",
-          "source_hash": "994de11a884b1bce108f93d133fc3aca8de144c2a0ead497bf9125e700ce27e3"
+          "text": "انتقال نیز زمان می‌بره.",
+          "source_hash": "a7c96ae323002c42dabb2ecdde425838200fb7f6c4dbf5bec31c133e8b63d06a"
         },
         "/questions/C06-ST04-L02-Q01/options/b/text": {
           "pointer": "/questions/0/options/1/text",
@@ -4941,8 +4910,8 @@
         },
         "/questions/C06-ST04-L02-Q01/explanation": {
           "pointer": "/questions/0/explanation",
-          "text": "انتقال نیز زمان می‌برد.",
-          "source_hash": "994de11a884b1bce108f93d133fc3aca8de144c2a0ead497bf9125e700ce27e3"
+          "text": "انتقال نیز زمان می‌بره.",
+          "source_hash": "a7c96ae323002c42dabb2ecdde425838200fb7f6c4dbf5bec31c133e8b63d06a"
         },
         "/questions/C06-ST04-L02-Q02/prompt": {
           "pointer": "/questions/1/prompt",
@@ -5026,8 +4995,8 @@
         },
         "/questions/C06-ST04-L02-Q04/prompt": {
           "pointer": "/questions/3/prompt",
-          "text": "تمرین رومیزی چه می‌آزماید؟",
-          "source_hash": "30721a334e69a3db0e9eaf44327fadb0ef89f5e2dd6b0f96666996cb40ec2756"
+          "text": "تمرین رومیزی چه آزمایش می‌کنه؟",
+          "source_hash": "818f4b12d4b5518112b752131ca83bb8cf9d4c0f0d4bf52a3561e05b3edc0b17"
         },
         "/questions/C06-ST04-L02-Q04/options/a/text": {
           "pointer": "/questions/3/options/0/text",
@@ -5036,8 +5005,8 @@
         },
         "/questions/C06-ST04-L02-Q04/options/a/feedback": {
           "pointer": "/questions/3/options/0/feedback",
-          "text": "قابلیت اجرای برنامه رو می‌سنجد.",
-          "source_hash": "3556893de21b34360c11357cf7b88f1bcaf1c3247cf1d01f08193bd41a73826c"
+          "text": "قابلیت اجرای برنامه رو می‌سنجه.",
+          "source_hash": "fd69a5b0d5a4419fb330276ca1627f0d6723c0b933d05ce6faec71d925f4ac6e"
         },
         "/questions/C06-ST04-L02-Q04/options/b/text": {
           "pointer": "/questions/3/options/1/text",
@@ -5061,8 +5030,8 @@
         },
         "/questions/C06-ST04-L02-Q04/explanation": {
           "pointer": "/questions/3/explanation",
-          "text": "قابلیت اجرای برنامه رو می‌سنجد.",
-          "source_hash": "3556893de21b34360c11357cf7b88f1bcaf1c3247cf1d01f08193bd41a73826c"
+          "text": "قابلیت اجرای برنامه رو می‌سنجه.",
+          "source_hash": "fd69a5b0d5a4419fb330276ca1627f0d6723c0b933d05ce6faec71d925f4ac6e"
         },
         "/questions/C06-ST04-L02-Q05/prompt": {
           "pointer": "/questions/4/prompt",
@@ -5109,6 +5078,11 @@
           "text": "برای اختلال مهم، محرک، اثر، مدت، گزینه‌ها، زمان انتقال، مالک و اقدام فوری رو بنویس؛ دو گزینه رو با هزینه و زمان بازیابی مقایسه کن.",
           "source_hash": "053980ac22e2dc09c45c8b5a67611ee60588aaa55405a99e85481729a0de84a1"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل تاب‌آوری زنجیره",
+          "source_hash": "0ea3bdf52fd04959af8610e8bbcfdce9457d1cbf0cf48f2ee3777def3356b2fc"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد رو جدا نشان بده؛ بازبینی انسانی لازمه.",
@@ -5132,7 +5106,8 @@
       }
     },
     "content/c06/lessons/C06-ST04-L03.json": {
-      "source_revision": "173b353ed0b6fefc6eec66718718ce2ead130605731a2eb00873e067801fea0c",
+      "source_revision": "a2c5e56a30bedcdd212f2257affb0f93ca27606d32b68806649c0dfdd2236ef0",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5221,8 +5196,8 @@
         },
         "/learning_cards/C06-ST04-L03-CARD08/text": {
           "pointer": "/learning_cards/7/text",
-          "text": "هر سیاست رو در روز عادی و اختلال بسنج. هزینهٔ مورد انتظار رو کنار زیان شدید ممکن قرار دهید تا میانگین بحران رو پنهان نکند.",
-          "source_hash": "749d0a39bd3df5fb0625b632daec28e865e22f34a2ad1ae753b27d4d70893c37"
+          "text": "هر سیاست رو در روز عادی و اختلال بسنج. هزینهٔ مورد انتظار رو کنار زیان شدید ممکن قرار بده تا میانگین بحران رو پنهان نکند.",
+          "source_hash": "8995eb62b3b40d658c15409f54add4b7cf2b3da9e4f1afbd87a5929e0614b0c0"
         },
         "/learning_cards/C06-ST04-L03-CARD09/title": {
           "pointer": "/learning_cards/8/title",
@@ -5449,6 +5424,11 @@
           "text": "دو سیاست تأمین رو در حالت عادی/اختلال با هزینه، سرمایه، بازیابی، کیفیت و ریسک مشترک بسنج؛ توصیه رو مشروط به شواهد بنویس.",
           "source_hash": "7beae5003595a4c499d13816d27016f4e1735caeee99f168476f909762ddea1a"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل تاب‌آوری زنجیره",
+          "source_hash": "0ea3bdf52fd04959af8610e8bbcfdce9457d1cbf0cf48f2ee3777def3356b2fc"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد رو جدا نشان بده؛ بازبینی انسانی لازمه.",
@@ -5473,6 +5453,7 @@
     },
     "content/c06/lessons/C06-ST04-L04.json": {
       "source_revision": "166d1326b9d574c88df4ecd8b8dbbdae152ad66b8f24a55694d819c8681f297b",
+      "revision_excluded_fields": [],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5789,6 +5770,11 @@
           "text": "برای هشدار AI یک قلم بحرانی، منشأ داده، مالک تأیید، اقدام مجاز، زمان پاسخ و نرخ هشدار کاذب/ازدست‌رفته رو طراحی و محدودیت مطالعهٔ موردی رو ثبت کن.",
           "source_hash": "93002474326e7704bd75f0e0a26e07ada0f7cab1046d29ea97f52f20ea7316a2"
         },
+        "/practice_activity/unit": {
+          "pointer": "/practice_activity/unit",
+          "text": "تحلیل تاب‌آوری زنجیره",
+          "source_hash": "0ea3bdf52fd04959af8610e8bbcfdce9457d1cbf0cf48f2ee3777def3356b2fc"
+        },
         "/practice_activity/solution": {
           "pointer": "/practice_activity/solution",
           "text": "پاسخ باید وابستگی، سناریو، هزینه، مالک اقدام و حد شواهد رو جدا نشان بده؛ بازبینی انسانی لازمه.",
@@ -5813,6 +5799,9 @@
     },
     "content/c06/stages/C06-ST01.json": {
       "source_revision": "ef35e6f9dac799c1e8f897cef12a6537cce691c38fa045960d555521da7b14e3",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -5904,30 +5893,15 @@
           "text": "قانون لیتل چه رابطه‌ای می‌ده؟",
           "source_hash": "1d9e1f1e8ba97276d37c3d4499a94d93c94890c9a0f62b4ef0589d651d1f62bd"
         },
-        "/checkpoint/questions/C06-ST01-CHECK-Q03/options/c/text": {
-          "pointer": "/checkpoint/questions/2/options/0/text",
-          "text": "W=L×λ",
-          "source_hash": "6d4c9cd44d4db79cba160acbef82d087fdf8d785ae4565a6864149ecc9c93cc8"
-        },
         "/checkpoint/questions/C06-ST01-CHECK-Q03/options/c/feedback": {
           "pointer": "/checkpoint/questions/2/options/0/feedback",
           "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
           "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
         },
-        "/checkpoint/questions/C06-ST01-CHECK-Q03/options/a/text": {
-          "pointer": "/checkpoint/questions/2/options/1/text",
-          "text": "L=λ×W",
-          "source_hash": "45cbee09e95c4b72d77f475b586141d9118bdd24ed3fd2e0c96471ffe277326a"
-        },
         "/checkpoint/questions/C06-ST01-CHECK-Q03/options/a/feedback": {
           "pointer": "/checkpoint/questions/2/options/1/feedback",
           "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
           "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
-        },
-        "/checkpoint/questions/C06-ST01-CHECK-Q03/options/b/text": {
-          "pointer": "/checkpoint/questions/2/options/2/text",
-          "text": "L=λ+W",
-          "source_hash": "36fbf55de1867815824086f9d3e8d90617d3a9634daa8cc9759a6c29c5d94dbc"
         },
         "/checkpoint/questions/C06-ST01-CHECK-Q03/options/b/feedback": {
           "pointer": "/checkpoint/questions/2/options/2/feedback",
@@ -6083,6 +6057,9 @@
     },
     "content/c06/stages/C06-ST02.json": {
       "source_revision": "9928c11538d24b9bc17e2063597730172d6411cd8e04710d186aa4788a627464",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6134,30 +6111,15 @@
           "text": "۲۰۰ مورد × ۱۵ دقیقه چند ساعته؟",
           "source_hash": "7f752144a412d1e3f77d7c6116423629b26236232b4aa0400f480b4ef35a195e"
         },
-        "/checkpoint/questions/C06-ST02-CHECK-Q02/options/b/text": {
-          "pointer": "/checkpoint/questions/1/options/0/text",
-          "text": "۵",
-          "source_hash": "a81a8a67cd1194ab24c2b17da546fd16bdefbfe26fb061f35b033b5908583e61"
-        },
         "/checkpoint/questions/C06-ST02-CHECK-Q02/options/b/feedback": {
           "pointer": "/checkpoint/questions/1/options/0/feedback",
           "text": "معیار یا فرض مهمی جا افتاده‌ست.",
           "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
         },
-        "/checkpoint/questions/C06-ST02-CHECK-Q02/options/c/text": {
-          "pointer": "/checkpoint/questions/1/options/1/text",
-          "text": "۳۰۰",
-          "source_hash": "6e7c3ee940a470a9a44322fcf9fe172b6a6d992abef1bbac28dce6dc36f3ea25"
-        },
         "/checkpoint/questions/C06-ST02-CHECK-Q02/options/c/feedback": {
           "pointer": "/checkpoint/questions/1/options/1/feedback",
           "text": "معیار یا فرض مهمی جا افتاده‌ست.",
           "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
-        },
-        "/checkpoint/questions/C06-ST02-CHECK-Q02/options/a/text": {
-          "pointer": "/checkpoint/questions/1/options/2/text",
-          "text": "۵۰",
-          "source_hash": "6801fa46a761c2d5a2914c8725813c556838ec232e18cecf1d4f6adb2faf8fe6"
         },
         "/checkpoint/questions/C06-ST02-CHECK-Q02/options/a/feedback": {
           "pointer": "/checkpoint/questions/1/options/2/feedback",
@@ -6347,7 +6309,10 @@
       }
     },
     "content/c06/stages/C06-ST03.json": {
-      "source_revision": "007b6764d70e4766b293b5b8af79bea39ef8ff9bf4638bfe05f53019eff6c315",
+      "source_revision": "3f107e60242799411827b0c04ed87d79839c0501ca87b678f102e43358635807",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6486,8 +6451,8 @@
         },
         "/checkpoint/questions/C06-ST03-CHECK-Q04/options/a/feedback": {
           "pointer": "/checkpoint/questions/3/options/0/feedback",
-          "text": "علامت خطا جهت سوگیری رو می‌سنجد.",
-          "source_hash": "40b07d79f9402fc8852425553aea942e558c5205d30a089d345b3366da9771e9"
+          "text": "علامت خطا جهت سوگیری رو می‌سنجه.",
+          "source_hash": "c6d5b240512c4dca20f2b796db06ad91b1bc963fba4b624a001b05d2687a35c1"
         },
         "/checkpoint/questions/C06-ST03-CHECK-Q04/options/b/text": {
           "pointer": "/checkpoint/questions/3/options/1/text",
@@ -6511,8 +6476,8 @@
         },
         "/checkpoint/questions/C06-ST03-CHECK-Q04/explanation": {
           "pointer": "/checkpoint/questions/3/explanation",
-          "text": "علامت خطا جهت سوگیری رو می‌سنجد.",
-          "source_hash": "40b07d79f9402fc8852425553aea942e558c5205d30a089d345b3366da9771e9"
+          "text": "علامت خطا جهت سوگیری رو می‌سنجه.",
+          "source_hash": "c6d5b240512c4dca20f2b796db06ad91b1bc963fba4b624a001b05d2687a35c1"
         },
         "/checkpoint/questions/C06-ST03-CHECK-Q05/prompt": {
           "pointer": "/checkpoint/questions/4/prompt",
@@ -6618,6 +6583,9 @@
     },
     "content/c06/stages/C06-ST04.json": {
       "source_revision": "2011d25def84a9f696540cd390ec024c9aa8f71fc7a5565f1131236cc3f0a150",
+      "revision_excluded_fields": [
+        "lessons"
+      ],
       "messages": {
         "/title": {
           "pointer": "/title",
@@ -6883,6 +6851,817 @@
           "pointer": "/tool_plan/3/title",
           "text": "ممیزی هشدار AI",
           "source_hash": "84ead8514f1e33585e99f5d6fa91e127b19bf80d20031eb77139077bd49f9320"
+        }
+      }
+    },
+    "content/c06/final-assessment.json": {
+      "source_revision": "9aeb93cc33bef1eed7f3a07badf1ee2e747d43846eefc2695d9b88baf973cbf1",
+      "revision_excluded_fields": [],
+      "messages": {
+        "/description": {
+          "pointer": "/description",
+          "text": "این مرور از سؤال‌های قبلی درس استفاده می‌کنه؛ سؤال تازه یا آزمون مستقل نیست.",
+          "source_hash": "47f3397328448fe4b4922b33460f87ccef5c78f12a96f07d18837b89f56ed7f4"
+        },
+        "/questions/C06-FINAL-Q01/prompt": {
+          "pointer": "/questions/0/prompt",
+          "text": "اگر زمان تماس کم بشه اما صف ارجاع زیاد بمونه چه می‌دانیم؟",
+          "source_hash": "c2915e98f7e14d6bb346a1cbcc93dbe2353cf86b39a8a1742f6f792cdbf1ad17"
+        },
+        "/questions/C06-FINAL-Q01/options/a/text": {
+          "pointer": "/questions/0/options/0/text",
+          "text": "کاهش زمان یک مرحله کافی نیست تا زمان کل کم بشه",
+          "source_hash": "5fb8edc6104a39728cb04ecdc196cd8987a17d4fd2da593f4dcba1d331ad0589"
+        },
+        "/questions/C06-FINAL-Q01/options/a/feedback": {
+          "pointer": "/questions/0/options/0/feedback",
+          "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
+          "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
+        },
+        "/questions/C06-FINAL-Q01/options/b/text": {
+          "pointer": "/questions/0/options/1/text",
+          "text": "فرایند قطعاً سریع‌تر شده",
+          "source_hash": "05f3e835426544aba1c1a3e98b593986c463221132488601815f353f32b7b3c9"
+        },
+        "/questions/C06-FINAL-Q01/options/b/feedback": {
+          "pointer": "/questions/0/options/1/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q01/options/c/text": {
+          "pointer": "/questions/0/options/2/text",
+          "text": "کیفیت هیچ اهمیتی نداره",
+          "source_hash": "009cbe17e66c690250de510a05f12c308c2e62f40bf290ef182e74f5c915a941"
+        },
+        "/questions/C06-FINAL-Q01/options/c/feedback": {
+          "pointer": "/questions/0/options/2/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q01/explanation": {
+          "pointer": "/questions/0/explanation",
+          "text": "کل جریان شامل انتظار بین مراحل هم هست.",
+          "source_hash": "ead06b12c2cb7323f0671ea0ce0c6751d44929268dc918b84a19352544a3c705"
+        },
+        "/questions/C06-FINAL-Q02/prompt": {
+          "pointer": "/questions/1/prompt",
+          "text": "افزودن نفر به مرحلهٔ غیرگلوگاه چه نتیجه‌ای ممکنه داشته باشه؟",
+          "source_hash": "e7eec34d531015b54ca2aa3b73f35706b7970cde5c56997a9282c8c930e99939"
+        },
+        "/questions/C06-FINAL-Q02/options/a/text": {
+          "pointer": "/questions/1/options/0/text",
+          "text": "صف پیش از گلوگاه رو بیشتر کنه بدون افزایش خروج خط",
+          "source_hash": "af485afa140d39b66c2a07c298ebd5defda76b5659a9056399544789a7672585"
+        },
+        "/questions/C06-FINAL-Q02/options/a/feedback": {
+          "pointer": "/questions/1/options/0/feedback",
+          "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
+          "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
+        },
+        "/questions/C06-FINAL-Q02/options/b/text": {
+          "pointer": "/questions/1/options/1/text",
+          "text": "همیشه نرخ کل رو بالا ببرد",
+          "source_hash": "50c35a9ec45a8edf9ad8fb03a666f5b371c78fd4d68386edc251e54b522ec049"
+        },
+        "/questions/C06-FINAL-Q02/options/b/feedback": {
+          "pointer": "/questions/1/options/1/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q02/options/c/text": {
+          "pointer": "/questions/1/options/2/text",
+          "text": "گلوگاه رو از بین ببرد",
+          "source_hash": "1103dfc3e6f482f9983edd4fa64d02f116338fa93ce9e02728fa97d94814f6e9"
+        },
+        "/questions/C06-FINAL-Q02/options/c/feedback": {
+          "pointer": "/questions/1/options/2/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q02/explanation": {
+          "pointer": "/questions/1/explanation",
+          "text": "افزایش ظرفیت غیرمحدودکننده الزاماً جریان کل رو تغییر نمی‌ده.",
+          "source_hash": "115cd635cd5a2aecb6787a131a49ef22c97acb38472916b8948510945fe36ad9"
+        },
+        "/questions/C06-FINAL-Q03/prompt": {
+          "pointer": "/questions/2/prompt",
+          "text": "L=۱۸ پرونده و λ=۶ در ساعت؛ زمان متوسط چقدره؟",
+          "source_hash": "44ab083a2ed92e8069effa108b95a03c869d56a320deaa7895727a1e97bb973a"
+        },
+        "/questions/C06-FINAL-Q03/options/a/text": {
+          "pointer": "/questions/2/options/0/text",
+          "text": "۳ ساعت",
+          "source_hash": "7519ce759054fd8fd5fb487fee0b3310c6a63f568dd956faae21ac4663559332"
+        },
+        "/questions/C06-FINAL-Q03/options/a/feedback": {
+          "pointer": "/questions/2/options/0/feedback",
+          "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
+          "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
+        },
+        "/questions/C06-FINAL-Q03/options/b/text": {
+          "pointer": "/questions/2/options/1/text",
+          "text": "۱۰۸ ساعت",
+          "source_hash": "1f0fd8ca979b9cb7ee3fd305a8c1a5fdc679f1f2ce398872f32c803e921b4591"
+        },
+        "/questions/C06-FINAL-Q03/options/b/feedback": {
+          "pointer": "/questions/2/options/1/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q03/options/c/text": {
+          "pointer": "/questions/2/options/2/text",
+          "text": "۰٫۳۳ ساعت",
+          "source_hash": "cb5bb9462f75ab8e8446a5bb11ae234e733fe87cbbead2dcf2dd855733b08fda"
+        },
+        "/questions/C06-FINAL-Q03/options/c/feedback": {
+          "pointer": "/questions/2/options/2/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q03/explanation": {
+          "pointer": "/questions/2/explanation",
+          "text": "W=L÷λ و واحد پرونده بر پرونده/ساعت به ساعت تبدیل می‌شه.",
+          "source_hash": "aa2e3bec1c1329dd039b177dbd8c6d653fef4b5023cdce1f88dd6aef15d91ef3"
+        },
+        "/questions/C06-FINAL-Q04/prompt": {
+          "pointer": "/questions/3/prompt",
+          "text": "وضعیت مقالهٔ Taobao در منبع انتخابی چیه؟",
+          "source_hash": "89c2e8ea9671f0e06879fae6933e37f46a443ac36a1b1e912ca1448f1a1146c1"
+        },
+        "/questions/C06-FINAL-Q04/options/a/text": {
+          "pointer": "/questions/3/options/0/text",
+          "text": "پیش‌چاپ با دامنهٔ یک فرایند/شرکت مشخص",
+          "source_hash": "881b063b3a50d1a8e05ff466ed2ad25d9450eba8f54fe2637fc7cd7ff300029f"
+        },
+        "/questions/C06-FINAL-Q04/options/a/feedback": {
+          "pointer": "/questions/3/options/0/feedback",
+          "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
+          "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
+        },
+        "/questions/C06-FINAL-Q04/options/b/text": {
+          "pointer": "/questions/3/options/1/text",
+          "text": "قانون عمومی داوری‌شده برای همهٔ خدمات",
+          "source_hash": "7b66d2a26c938e97906ea3238fdd22c51762403309db8a518c67ebe6bedff313"
+        },
+        "/questions/C06-FINAL-Q04/options/b/feedback": {
+          "pointer": "/questions/3/options/1/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q04/options/c/text": {
+          "pointer": "/questions/3/options/2/text",
+          "text": "راهنمای رسمی همهٔ دانشگاه‌ها",
+          "source_hash": "311693724b6adf6b53db582aae96fccb6c782b226159863977521d420302e6c5"
+        },
+        "/questions/C06-FINAL-Q04/options/c/feedback": {
+          "pointer": "/questions/3/options/2/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q04/explanation": {
+          "pointer": "/questions/3/explanation",
+          "text": "برای پیش‌چاپ باید وضعیت انتشار و حدود نتیجه رو اعلام کرد.",
+          "source_hash": "10a8c059a279426d51c3d78a8fa22bbeba644ac5ec085127dc745df6c89dd1e1"
+        },
+        "/questions/C06-FINAL-Q05/prompt": {
+          "pointer": "/questions/4/prompt",
+          "text": "برای سنجش معتبر باید چه کرد؟",
+          "source_hash": "df98554ee1ed704331ff119aa0bcfbc2e11b5e73d106705f31f041b0177dca82"
+        },
+        "/questions/C06-FINAL-Q05/options/b/text": {
+          "pointer": "/questions/4/options/0/text",
+          "text": "هر بار تعریف درخواست رو عوض کرد",
+          "source_hash": "2d361c9fe3ef8154bd02c28d7f1616fdabd3e0fea997cbe2c47a93385f74d966"
+        },
+        "/questions/C06-FINAL-Q05/options/b/feedback": {
+          "pointer": "/questions/4/options/0/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q05/options/c/text": {
+          "pointer": "/questions/4/options/1/text",
+          "text": "نمونهٔ یک مورد رو تعمیم داد",
+          "source_hash": "2d49c3f0402dbd4ef70b3e05414a46a9883835838d0336de7a6451bd428127b7"
+        },
+        "/questions/C06-FINAL-Q05/options/c/feedback": {
+          "pointer": "/questions/4/options/1/feedback",
+          "text": "واحد یا فرض محاسبه رو نادیده گرفته.",
+          "source_hash": "cfd7e623c324b1411cf75310605a020aa437fc1cad7b0ef8ef0700c5007e33a3"
+        },
+        "/questions/C06-FINAL-Q05/options/a/text": {
+          "pointer": "/questions/4/options/2/text",
+          "text": "واحد و نقطهٔ شروع/پایان رو ثابت نگه داشت",
+          "source_hash": "5cd633dbfca4b1740230cf899288e8f84d28950c696bf7df5fd284b3810a82b5"
+        },
+        "/questions/C06-FINAL-Q05/options/a/feedback": {
+          "pointer": "/questions/4/options/2/feedback",
+          "text": "این گزینه با تعریف و محاسبهٔ درس سازگاره.",
+          "source_hash": "e59309b152a9f6503025068654da2eeeb1da95026595bc41cdaebca35fd7c521"
+        },
+        "/questions/C06-FINAL-Q05/explanation": {
+          "pointer": "/questions/4/explanation",
+          "text": "تعریف یکسان امکان مقایسهٔ معنادار می‌ده.",
+          "source_hash": "a8b0235510bbfd11bf05d84970d0e4da77cad9028e39191a1e24ebe58989fa87"
+        },
+        "/questions/C06-FINAL-Q06/prompt": {
+          "pointer": "/questions/5/prompt",
+          "text": "صدای مشتری چطور تفسیر می‌شه؟",
+          "source_hash": "e6466e22794095dbc4de1f95de8366deeeaa61a5f0bca41a5a367bab0199e762"
+        },
+        "/questions/C06-FINAL-Q06/options/a/text": {
+          "pointer": "/questions/5/options/0/text",
+          "text": "با زمینه و نمونه‌های متنوع",
+          "source_hash": "8bbb37bf4f936ddc1a119d90391179ac7bc01bbbdd5daa28278a684c34aa1a46"
+        },
+        "/questions/C06-FINAL-Q06/options/a/feedback": {
+          "pointer": "/questions/5/options/0/feedback",
+          "text": "نمونه و زمینه مانع تعمیم یک روایت می‌شه.",
+          "source_hash": "bf80b96f91a8ecf49a2f8a650b1aa4bf7bb694a4eb5f3d692fe9c6802086c942"
+        },
+        "/questions/C06-FINAL-Q06/options/b/text": {
+          "pointer": "/questions/5/options/1/text",
+          "text": "فقط با یک نظر",
+          "source_hash": "d30f012ca50c86a273d7dad1d27fc77c7880923511f1aa56fe7e544445f31a19"
+        },
+        "/questions/C06-FINAL-Q06/options/b/feedback": {
+          "pointer": "/questions/5/options/1/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q06/options/c/text": {
+          "pointer": "/questions/5/options/2/text",
+          "text": "بدون تعریف معیار",
+          "source_hash": "70dc0a13a8e81e19dc162d2910d97b3ffa5575e88d4996ebbf8aa54c40d957fd"
+        },
+        "/questions/C06-FINAL-Q06/options/c/feedback": {
+          "pointer": "/questions/5/options/2/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q06/explanation": {
+          "pointer": "/questions/5/explanation",
+          "text": "نمونه و زمینه مانع تعمیم یک روایت می‌شه.",
+          "source_hash": "bf80b96f91a8ecf49a2f8a650b1aa4bf7bb694a4eb5f3d692fe9c6802086c942"
+        },
+        "/questions/C06-FINAL-Q07/prompt": {
+          "pointer": "/questions/6/prompt",
+          "text": "کاهش بازرسی چه خطر داره؟",
+          "source_hash": "135cc067b2361b4d10a1879c5a5632503851c529406a740ac3e82d83b8a61cad"
+        },
+        "/questions/C06-FINAL-Q07/options/a/text": {
+          "pointer": "/questions/6/options/0/text",
+          "text": "افزایش نقص رسیده به مشتری",
+          "source_hash": "a92bf6ee3f13bc68b571077d645bdfa5043e93b5548b4a0d5638a9076b4b23d0"
+        },
+        "/questions/C06-FINAL-Q07/options/a/feedback": {
+          "pointer": "/questions/6/options/0/feedback",
+          "text": "هزینه ممکنه از شکست داخلی به بیرونی منتقل بشه.",
+          "source_hash": "6fb9c6d7655c9e869c0477065db577a7bdc395309494dd0a7fc31f8f5e378d73"
+        },
+        "/questions/C06-FINAL-Q07/options/b/text": {
+          "pointer": "/questions/6/options/1/text",
+          "text": "حذف همهٔ نقص‌ها",
+          "source_hash": "eae17aa68bbfeee9c3e065f80238a947be051505813f9c79a9120834b4c6633c"
+        },
+        "/questions/C06-FINAL-Q07/options/b/feedback": {
+          "pointer": "/questions/6/options/1/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q07/options/c/text": {
+          "pointer": "/questions/6/options/2/text",
+          "text": "بی‌اثر بودن",
+          "source_hash": "c7ecfce6c4f4b261349c766c7f3c6245fd16dc259f716414668348e5b0239011"
+        },
+        "/questions/C06-FINAL-Q07/options/c/feedback": {
+          "pointer": "/questions/6/options/2/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q07/explanation": {
+          "pointer": "/questions/6/explanation",
+          "text": "هزینه ممکنه از شکست داخلی به بیرونی منتقل بشه.",
+          "source_hash": "6fb9c6d7655c9e869c0477065db577a7bdc395309494dd0a7fc31f8f5e378d73"
+        },
+        "/questions/C06-FINAL-Q08/prompt": {
+          "pointer": "/questions/7/prompt",
+          "text": "پیچیدگی متفاوت پرونده‌ها چه می‌کنه؟",
+          "source_hash": "b2345150e83d701cda8cba4138a9d5ed8b3c57f45606cb9aa6221257652b3a02"
+        },
+        "/questions/C06-FINAL-Q08/options/a/text": {
+          "pointer": "/questions/7/options/0/text",
+          "text": "می‌تونه عامل مخدوشگر باشه",
+          "source_hash": "1b3c8c331829d80af6610db896af3b2fc4a0c7042de07325e715f11af046ffb3"
+        },
+        "/questions/C06-FINAL-Q08/options/a/feedback": {
+          "pointer": "/questions/7/options/0/feedback",
+          "text": "تفاوت ترکیب کار نسبت‌دادن تغییر رو دشوار می‌کنه.",
+          "source_hash": "90cf8ce659fcaade32cc4ecf04899fb88cdf990203a6adac48985faa99d5bbb4"
+        },
+        "/questions/C06-FINAL-Q08/options/b/text": {
+          "pointer": "/questions/7/options/1/text",
+          "text": "خط مبناست",
+          "source_hash": "72d3f85907ce80bc427fffd4b45979d5583f6753eb34901ff7304edc8907c2de"
+        },
+        "/questions/C06-FINAL-Q08/options/b/feedback": {
+          "pointer": "/questions/7/options/1/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q08/options/c/text": {
+          "pointer": "/questions/7/options/2/text",
+          "text": "پیامد اصلیه",
+          "source_hash": "d705a085a67d1daa36a7771f34d8f2e060c041444101450be06b1bc9ed754752"
+        },
+        "/questions/C06-FINAL-Q08/options/c/feedback": {
+          "pointer": "/questions/7/options/2/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q08/explanation": {
+          "pointer": "/questions/7/explanation",
+          "text": "تفاوت ترکیب کار نسبت‌دادن تغییر رو دشوار می‌کنه.",
+          "source_hash": "90cf8ce659fcaade32cc4ecf04899fb88cdf990203a6adac48985faa99d5bbb4"
+        },
+        "/questions/C06-FINAL-Q09/prompt": {
+          "pointer": "/questions/8/prompt",
+          "text": "بازی با شاخص چیه؟",
+          "source_hash": "6e8243091a1c7975d19fb6372fc2b78c28321f450f0767f1300707a35580c5cd"
+        },
+        "/questions/C06-FINAL-Q09/options/a/text": {
+          "pointer": "/questions/8/options/0/text",
+          "text": "بهبود عدد بدون بهبود هدف",
+          "source_hash": "f79ba1dfd037d0e603da45836d6f18bf320965d6dde6ae75e14303e96b172e6a"
+        },
+        "/questions/C06-FINAL-Q09/options/a/feedback": {
+          "pointer": "/questions/8/options/0/feedback",
+          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌بره.",
+          "source_hash": "4776ccf8c6951b900465e649679631d5577af652ebb222b1cb1d61cee98f2dc2"
+        },
+        "/questions/C06-FINAL-Q09/options/b/text": {
+          "pointer": "/questions/8/options/1/text",
+          "text": "اندازه‌گیری دقیق",
+          "source_hash": "60e2b23cacb4903a94d149b17f3e978be9fbcd7e3fc68fba03a9a2790facb0e9"
+        },
+        "/questions/C06-FINAL-Q09/options/b/feedback": {
+          "pointer": "/questions/8/options/1/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q09/options/c/text": {
+          "pointer": "/questions/8/options/2/text",
+          "text": "تعریف پیشینی معیار",
+          "source_hash": "cf2ce8b3ccac7755e8ee3c1a946d8acaee621a11e8d51bbc9c014ca1fab16a01"
+        },
+        "/questions/C06-FINAL-Q09/options/c/feedback": {
+          "pointer": "/questions/8/options/2/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q09/explanation": {
+          "pointer": "/questions/8/explanation",
+          "text": "شاخص ناقص رفتار رو به هدف جانشین می‌بره.",
+          "source_hash": "4776ccf8c6951b900465e649679631d5577af652ebb222b1cb1d61cee98f2dc2"
+        },
+        "/questions/C06-FINAL-Q10/prompt": {
+          "pointer": "/questions/9/prompt",
+          "text": "چرا چند سنجه داریم؟",
+          "source_hash": "cedc963a62caca29d4db101309f881519b4fb20b27426ac22fad512ca7f07784"
+        },
+        "/questions/C06-FINAL-Q10/options/b/text": {
+          "pointer": "/questions/9/options/0/text",
+          "text": "برای افزایش تعداد KPI",
+          "source_hash": "aaf16c84b040a4ad78cdec203e126159ae96de210432778595c9c0692c891b58"
+        },
+        "/questions/C06-FINAL-Q10/options/b/feedback": {
+          "pointer": "/questions/9/options/0/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q10/options/c/text": {
+          "pointer": "/questions/9/options/1/text",
+          "text": "برای حذف گفت‌وگو",
+          "source_hash": "ef91ec540330fdae3cc4560004404daf9d23644fc67a334a729ca12d1a492258"
+        },
+        "/questions/C06-FINAL-Q10/options/c/feedback": {
+          "pointer": "/questions/9/options/1/feedback",
+          "text": "معیار یا فرض مهمی جا افتاده‌ست.",
+          "source_hash": "424c907761749ef14863c2e415bdfdef2442377d62cfeab12a95ea44655f5335"
+        },
+        "/questions/C06-FINAL-Q10/options/a/text": {
+          "pointer": "/questions/9/options/2/text",
+          "text": "هر سنجه بخشی از کیفیت رو می‌بینه",
+          "source_hash": "d6893c01a4fe3b2330978693e9c472d959cda52428ce208af43dcd76e1d567ae"
+        },
+        "/questions/C06-FINAL-Q10/options/a/feedback": {
+          "pointer": "/questions/9/options/2/feedback",
+          "text": "سنجه‌های متوازن مانع بهینه‌سازی یک عدد ناقص‌اند.",
+          "source_hash": "13f287c306d483aaaade0b0098d95af77c5c93f83ced877fdc8627397455bceb"
+        },
+        "/questions/C06-FINAL-Q10/explanation": {
+          "pointer": "/questions/9/explanation",
+          "text": "سنجه‌های متوازن مانع بهینه‌سازی یک عدد ناقص‌اند.",
+          "source_hash": "13f287c306d483aaaade0b0098d95af77c5c93f83ced877fdc8627397455bceb"
+        },
+        "/questions/C06-FINAL-Q11/prompt": {
+          "pointer": "/questions/10/prompt",
+          "text": "نقطهٔ سفارش مجدد به چه چیزی وابسته‌ست؟",
+          "source_hash": "0e5ca241dc6ccf55c8e738a6f380a839e59bba9c0316ac3f54e71c8105be2a86"
+        },
+        "/questions/C06-FINAL-Q11/options/a/text": {
+          "pointer": "/questions/10/options/0/text",
+          "text": "تقاضا طی زمان تأمین و گاهی بافر",
+          "source_hash": "eb36b1bffcda07715810141d0edc8815050fd5c1d5cf0534f2b767b3a4c12fb4"
+        },
+        "/questions/C06-FINAL-Q11/options/a/feedback": {
+          "pointer": "/questions/10/options/0/feedback",
+          "text": "سفارش باید پیش از تمام‌شدن موجودی برسد.",
+          "source_hash": "7b876f7edf900470ba4e3e1cbfca9bbe61728b987f8273e81746c09327af49b7"
+        },
+        "/questions/C06-FINAL-Q11/options/b/text": {
+          "pointer": "/questions/10/options/1/text",
+          "text": "فقط هزینهٔ سفارش",
+          "source_hash": "920acb0c11609b218e3af0c47306f39be68a6f9b274443bded9274883289fc88"
+        },
+        "/questions/C06-FINAL-Q11/options/b/feedback": {
+          "pointer": "/questions/10/options/1/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q11/options/c/text": {
+          "pointer": "/questions/10/options/2/text",
+          "text": "فقط مقدار سالانه",
+          "source_hash": "bf89784530c2b4a93d65fb6fbf9cf31c8df24a41b31f89496fb4acdf242c8d5b"
+        },
+        "/questions/C06-FINAL-Q11/options/c/feedback": {
+          "pointer": "/questions/10/options/2/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q11/explanation": {
+          "pointer": "/questions/10/explanation",
+          "text": "سفارش باید پیش از تمام‌شدن موجودی برسد.",
+          "source_hash": "7b876f7edf900470ba4e3e1cbfca9bbe61728b987f8273e81746c09327af49b7"
+        },
+        "/questions/C06-FINAL-Q12/prompt": {
+          "pointer": "/questions/11/prompt",
+          "text": "تخفیف حجمی چه چیزی رو تغییر می‌ده؟",
+          "source_hash": "9da65509884660cf9f6673696d54198c1b8eff4918db72dde304732b73658c48"
+        },
+        "/questions/C06-FINAL-Q12/options/a/text": {
+          "pointer": "/questions/11/options/0/text",
+          "text": "قیمت کل به Q وابسته می‌شه",
+          "source_hash": "04d9f11d73ad2f2961604905a84ade25e848b224edcbb2400df9ae901b9e990c"
+        },
+        "/questions/C06-FINAL-Q12/options/a/feedback": {
+          "pointer": "/questions/11/options/0/feedback",
+          "text": "هزینهٔ خرید دیگر ثابت نیست و باید سنجیده بشه.",
+          "source_hash": "07efdfdbc9ef143eee493e9a189386b34d81bd2b923365b45fedc4fafc8cfd40"
+        },
+        "/questions/C06-FINAL-Q12/options/b/text": {
+          "pointer": "/questions/11/options/1/text",
+          "text": "هیچ فرضی رو",
+          "source_hash": "7d81725a0e72d63af1f412e6b45dc090c5fcfffcb1be34d84b93e6c220f0f763"
+        },
+        "/questions/C06-FINAL-Q12/options/b/feedback": {
+          "pointer": "/questions/11/options/1/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q12/options/c/text": {
+          "pointer": "/questions/11/options/2/text",
+          "text": "واحد اندازه‌گیری تقاضا رو",
+          "source_hash": "8792a665abfd5e1e53abfaf11eddaeffade7867a1df59a859c42fad1db681ee0"
+        },
+        "/questions/C06-FINAL-Q12/options/c/feedback": {
+          "pointer": "/questions/11/options/2/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q12/explanation": {
+          "pointer": "/questions/11/explanation",
+          "text": "هزینهٔ خرید دیگر ثابت نیست و باید سنجیده بشه.",
+          "source_hash": "07efdfdbc9ef143eee493e9a189386b34d81bd2b923365b45fedc4fafc8cfd40"
+        },
+        "/questions/C06-FINAL-Q13/prompt": {
+          "pointer": "/questions/12/prompt",
+          "text": "فرمول ساده فرض می‌کنه؟",
+          "source_hash": "3baa48da67531daee10eaf7e27305a13ebbb79f602a37c6ececeff03d923e7bc"
+        },
+        "/questions/C06-FINAL-Q13/options/a/text": {
+          "pointer": "/questions/12/options/0/text",
+          "text": "زمان تأمین ثابت و تقاضای روزانه مستقل",
+          "source_hash": "954b3a471cd4c5634d2a37ccdf5fe5806d30e5c58dd466c579d7f816f8e53912"
+        },
+        "/questions/C06-FINAL-Q13/options/a/feedback": {
+          "pointer": "/questions/12/options/0/feedback",
+          "text": "فرض‌های مدل باید قبل از استفاده وارسی بشن.",
+          "source_hash": "5607c6ac9874dbe941cbb41f5c8fc1c93c01af70483c4dd42e41dbd30b6541c7"
+        },
+        "/questions/C06-FINAL-Q13/options/b/text": {
+          "pointer": "/questions/12/options/1/text",
+          "text": "زمان تأمین تصادفی و وابستگی نامحدود",
+          "source_hash": "c27c3676f09e444f4f33d6c99392308f9cf86fb828e51792e1ee06977ab3eac8"
+        },
+        "/questions/C06-FINAL-Q13/options/b/feedback": {
+          "pointer": "/questions/12/options/1/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q13/options/c/text": {
+          "pointer": "/questions/12/options/2/text",
+          "text": "سطح خدمت بدون توزیع",
+          "source_hash": "86cb5c2891dbc10addc061d07ec5f2d309bf34cb8762d8a9b6896d880b361ff5"
+        },
+        "/questions/C06-FINAL-Q13/options/c/feedback": {
+          "pointer": "/questions/12/options/2/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q13/explanation": {
+          "pointer": "/questions/12/explanation",
+          "text": "فرض‌های مدل باید قبل از استفاده وارسی بشن.",
+          "source_hash": "5607c6ac9874dbe941cbb41f5c8fc1c93c01af70483c4dd42e41dbd30b6541c7"
+        },
+        "/questions/C06-FINAL-Q14/prompt": {
+          "pointer": "/questions/13/prompt",
+          "text": "چرا مدل ساده مبناست؟",
+          "source_hash": "de3f508dd6d07154b7b164e21f20bbcf912ce492c5e5ada6dcb0b2044c517811"
+        },
+        "/questions/C06-FINAL-Q14/options/a/text": {
+          "pointer": "/questions/13/options/0/text",
+          "text": "تا ارزش افزودهٔ مدل پیچیده روشن بشه",
+          "source_hash": "7e43128f214e0cde611e07c8e8aa641befaa4e717d623d5dc51266e57c53080e"
+        },
+        "/questions/C06-FINAL-Q14/options/a/feedback": {
+          "pointer": "/questions/13/options/0/feedback",
+          "text": "مقایسه باید عملکرد افزوده رو نشان بده.",
+          "source_hash": "3b57c47d1b0f32d2b79c69c8ef690067d4df424c546fb5b335263d90869e19a4"
+        },
+        "/questions/C06-FINAL-Q14/options/b/text": {
+          "pointer": "/questions/13/options/1/text",
+          "text": "برای کنارگذاشتن داده",
+          "source_hash": "60565fa6ea580ba2e37733f00c17c8bc75bccf04e2260a48f668fa44b646ef21"
+        },
+        "/questions/C06-FINAL-Q14/options/b/feedback": {
+          "pointer": "/questions/13/options/1/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q14/options/c/text": {
+          "pointer": "/questions/13/options/2/text",
+          "text": "چون مدل AI بی‌فایده‌ست",
+          "source_hash": "bcbfa208b3385b18bcf91dc0baab9f3fbc500a8971a41d7286e73609db2d759d"
+        },
+        "/questions/C06-FINAL-Q14/options/c/feedback": {
+          "pointer": "/questions/13/options/2/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q14/explanation": {
+          "pointer": "/questions/13/explanation",
+          "text": "مقایسه باید عملکرد افزوده رو نشان بده.",
+          "source_hash": "3b57c47d1b0f32d2b79c69c8ef690067d4df424c546fb5b335263d90869e19a4"
+        },
+        "/questions/C06-FINAL-Q15/prompt": {
+          "pointer": "/questions/14/prompt",
+          "text": "EOQ چه چیزی رو به تنهایی تعیین نمی‌کنه؟",
+          "source_hash": "d6f1dca4054eee222034e9ad139f4ddbf3c23c130c9a0f052d953f77c20092f8"
+        },
+        "/questions/C06-FINAL-Q15/options/b/text": {
+          "pointer": "/questions/14/options/0/text",
+          "text": "مقدار سفارش در فرض‌های ساده",
+          "source_hash": "ef77414c4fa2b8388fa16c76847a5d799179725128c562c70469718a0463c82b"
+        },
+        "/questions/C06-FINAL-Q15/options/b/feedback": {
+          "pointer": "/questions/14/options/0/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q15/options/c/text": {
+          "pointer": "/questions/14/options/1/text",
+          "text": "توازن سفارش و نگهداری",
+          "source_hash": "13a3e0aba7fc047227de3e44a954c496cb6397aa4bf754f8b771557b907fd2ed"
+        },
+        "/questions/C06-FINAL-Q15/options/c/feedback": {
+          "pointer": "/questions/14/options/1/feedback",
+          "text": "فرض یا هزینهٔ مورد توجه رو اشتباه گرفته.",
+          "source_hash": "84ec026c577bf7d9c4b47086d931b370ddb10ff17f9aebd714ad93c3b287ce1f"
+        },
+        "/questions/C06-FINAL-Q15/options/a/text": {
+          "pointer": "/questions/14/options/2/text",
+          "text": "سطح خدمت/ذخیرهٔ مناسب",
+          "source_hash": "dff52257669488451f6c53edd378473544187f0cd6407c258a3bbf659851179a"
+        },
+        "/questions/C06-FINAL-Q15/options/a/feedback": {
+          "pointer": "/questions/14/options/2/feedback",
+          "text": "EOQ کلاسیک عدم‌قطعیت و سطح خدمت رو کامل مدل نمی‌کنه.",
+          "source_hash": "7c390a0d84832b847ab0dce606217e5eafb56f9789623b0363514a726660f231"
+        },
+        "/questions/C06-FINAL-Q15/explanation": {
+          "pointer": "/questions/14/explanation",
+          "text": "EOQ کلاسیک عدم‌قطعیت و سطح خدمت رو کامل مدل نمی‌کنه.",
+          "source_hash": "7c390a0d84832b847ab0dce606217e5eafb56f9789623b0363514a726660f231"
+        },
+        "/questions/C06-FINAL-Q16/prompt": {
+          "pointer": "/questions/15/prompt",
+          "text": "نقشهٔ شبکه چه داره؟",
+          "source_hash": "10d3dd548fefa378fdd41c56b4dfc2b4a27cefc3eaa8f6a992b1937d4176aadd"
+        },
+        "/questions/C06-FINAL-Q16/options/a/text": {
+          "pointer": "/questions/15/options/0/text",
+          "text": "گره و پیوند مواد و اطلاعات",
+          "source_hash": "451613bbe306a9619e5e51ea79880c6f0cd268bce48aecb1b66c7ed14edc8c1c"
+        },
+        "/questions/C06-FINAL-Q16/options/a/feedback": {
+          "pointer": "/questions/15/options/0/feedback",
+          "text": "شبکه اجزا و ارتباط آن‌هاست.",
+          "source_hash": "318cd41f4e5c1349b2c08db780e8f96d8d46fc2fc0dfaca5080e84f2486879c5"
+        },
+        "/questions/C06-FINAL-Q16/options/b/text": {
+          "pointer": "/questions/15/options/1/text",
+          "text": "فقط چارت سازمانی",
+          "source_hash": "3bb6e8db09e0873f316bda6be1b884574b3964153823d58ab3a6ab476cb82884"
+        },
+        "/questions/C06-FINAL-Q16/options/b/feedback": {
+          "pointer": "/questions/15/options/1/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q16/options/c/text": {
+          "pointer": "/questions/15/options/2/text",
+          "text": "فقط فهرست قیمت",
+          "source_hash": "c373758a90a6a87b6b80817f7c233a6af225e0df19bf628dc70b01b4a2bd5219"
+        },
+        "/questions/C06-FINAL-Q16/options/c/feedback": {
+          "pointer": "/questions/15/options/2/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q16/explanation": {
+          "pointer": "/questions/15/explanation",
+          "text": "شبکه اجزا و ارتباط آن‌هاست.",
+          "source_hash": "318cd41f4e5c1349b2c08db780e8f96d8d46fc2fc0dfaca5080e84f2486879c5"
+        },
+        "/questions/C06-FINAL-Q17/prompt": {
+          "pointer": "/questions/16/prompt",
+          "text": "تمرین رومیزی چه آزمایش می‌کنه؟",
+          "source_hash": "818f4b12d4b5518112b752131ca83bb8cf9d4c0f0d4bf52a3561e05b3edc0b17"
+        },
+        "/questions/C06-FINAL-Q17/options/a/text": {
+          "pointer": "/questions/16/options/0/text",
+          "text": "مالکیت، اختیار و زمان واکنش",
+          "source_hash": "db958283bccc5dcd48f7235bdd10ef46dbdfcb5b146c1baf50e0853a84d0cbc4"
+        },
+        "/questions/C06-FINAL-Q17/options/a/feedback": {
+          "pointer": "/questions/16/options/0/feedback",
+          "text": "قابلیت اجرای برنامه رو می‌سنجه.",
+          "source_hash": "fd69a5b0d5a4419fb330276ca1627f0d6723c0b933d05ce6faec71d925f4ac6e"
+        },
+        "/questions/C06-FINAL-Q17/options/b/text": {
+          "pointer": "/questions/16/options/1/text",
+          "text": "فقط اسلایدها",
+          "source_hash": "bb26d4bf0f5780ded59ab7efe1e9cdb89e13ab842daa60f1c9fc8f661a6f340d"
+        },
+        "/questions/C06-FINAL-Q17/options/b/feedback": {
+          "pointer": "/questions/16/options/1/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q17/options/c/text": {
+          "pointer": "/questions/16/options/2/text",
+          "text": "قیمت قطعه",
+          "source_hash": "2dd7249048f0a91ad7131865a632a0f0b7bea47b6a8eae2000aad18f31a72c0e"
+        },
+        "/questions/C06-FINAL-Q17/options/c/feedback": {
+          "pointer": "/questions/16/options/2/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q17/explanation": {
+          "pointer": "/questions/16/explanation",
+          "text": "قابلیت اجرای برنامه رو می‌سنجه.",
+          "source_hash": "fd69a5b0d5a4419fb330276ca1627f0d6723c0b933d05ce6faec71d925f4ac6e"
+        },
+        "/questions/C06-FINAL-Q18/prompt": {
+          "pointer": "/questions/17/prompt",
+          "text": "تاب‌آوری چیه؟",
+          "source_hash": "0e2afcb2de6e6c5790348e15faaf707a0bbcc59f19fed221555ce492593d9468"
+        },
+        "/questions/C06-FINAL-Q18/options/a/text": {
+          "pointer": "/questions/17/options/0/text",
+          "text": "آمادگی، جذب، بازیابی و سازگاری",
+          "source_hash": "0af1b38e5b1a70dd9bce40f8681effab488ff5542330ca6fb8d771bd5788c185"
+        },
+        "/questions/C06-FINAL-Q18/options/a/feedback": {
+          "pointer": "/questions/17/options/0/feedback",
+          "text": "تاب‌آوری چند مرحله داره.",
+          "source_hash": "928dcf4d90544a3dd383431f36398fe09ed6c3b8212c9307df02d8976a8501a7"
+        },
+        "/questions/C06-FINAL-Q18/options/b/text": {
+          "pointer": "/questions/17/options/1/text",
+          "text": "فقط موجودی",
+          "source_hash": "40d66ec233599858caa4a9ae8ba47def1e7b5658e8bb0e2299314f9de6f2b8e3"
+        },
+        "/questions/C06-FINAL-Q18/options/b/feedback": {
+          "pointer": "/questions/17/options/1/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q18/options/c/text": {
+          "pointer": "/questions/17/options/2/text",
+          "text": "فقط کاهش هزینه",
+          "source_hash": "93b0365a096473e94e71bae2884277955dc6b412c1be4e0cd5432893dff09946"
+        },
+        "/questions/C06-FINAL-Q18/options/c/feedback": {
+          "pointer": "/questions/17/options/2/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q18/explanation": {
+          "pointer": "/questions/17/explanation",
+          "text": "تاب‌آوری چند مرحله داره.",
+          "source_hash": "928dcf4d90544a3dd383431f36398fe09ed6c3b8212c9307df02d8976a8501a7"
+        },
+        "/questions/C06-FINAL-Q19/prompt": {
+          "pointer": "/questions/18/prompt",
+          "text": "پیش‌چاپ موردی چه چیزی رو ثابت نمی‌کنه؟",
+          "source_hash": "6a7c9520317f56f15d0a44d87e233e957a7b2ffa12f8410d641f3005811c4ae8"
+        },
+        "/questions/C06-FINAL-Q19/options/a/text": {
+          "pointer": "/questions/18/options/0/text",
+          "text": "اثر در همهٔ زنجیره‌ها",
+          "source_hash": "66cc8165bd11a8aa66fc243fbe81f791b09df90034dc8879f14987fdac8c6f37"
+        },
+        "/questions/C06-FINAL-Q19/options/a/feedback": {
+          "pointer": "/questions/18/options/0/feedback",
+          "text": "مورد اکتشافی قانون عمومی نیست.",
+          "source_hash": "f770c25845a8849f962b71009d0bec2f8f0362340525ebf7da13597a0d14b2ce"
+        },
+        "/questions/C06-FINAL-Q19/options/b/text": {
+          "pointer": "/questions/18/options/1/text",
+          "text": "امکان یک رویکرد",
+          "source_hash": "164db0d0c57143b3ab48f0f7d4ee088c8e5cb5b54287a19c203530f706f68746"
+        },
+        "/questions/C06-FINAL-Q19/options/b/feedback": {
+          "pointer": "/questions/18/options/1/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q19/options/c/text": {
+          "pointer": "/questions/18/options/2/text",
+          "text": "محدودیت مورد",
+          "source_hash": "c1e5641982bb3cd8a06db6d24833e94de5101b12a8f3f7b6f6a053e1f9e4d907"
+        },
+        "/questions/C06-FINAL-Q19/options/c/feedback": {
+          "pointer": "/questions/18/options/2/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q19/explanation": {
+          "pointer": "/questions/18/explanation",
+          "text": "مورد اکتشافی قانون عمومی نیست.",
+          "source_hash": "f770c25845a8849f962b71009d0bec2f8f0362340525ebf7da13597a0d14b2ce"
+        },
+        "/questions/C06-FINAL-Q20/prompt": {
+          "pointer": "/questions/19/prompt",
+          "text": "بحرانی‌بودن رو چطور می‌سنجیم؟",
+          "source_hash": "0c4bdab245cb32ecb8991c0fee8f74a6fef55d607142fcd56f721a99a498ed07"
+        },
+        "/questions/C06-FINAL-Q20/options/b/text": {
+          "pointer": "/questions/19/options/0/text",
+          "text": "قیمت خرید تنها",
+          "source_hash": "58b0af09771ab700674fdb47b1096d2a1f298627f97d638fe4ba785f97619b51"
+        },
+        "/questions/C06-FINAL-Q20/options/b/feedback": {
+          "pointer": "/questions/19/options/0/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q20/options/c/text": {
+          "pointer": "/questions/19/options/1/text",
+          "text": "تعداد ایمیل",
+          "source_hash": "e004ded03f6b53d8eb9f92ffaffdb87aac09cb3591bc2ab69903d1e94fceb775"
+        },
+        "/questions/C06-FINAL-Q20/options/c/feedback": {
+          "pointer": "/questions/19/options/1/feedback",
+          "text": "وابستگی یا محدودیت مهمی جا افتاده.",
+          "source_hash": "7ddf6fddc2cc431202fe1f55bb4660d53bb7bedbc6adc97361b95644a8083223"
+        },
+        "/questions/C06-FINAL-Q20/options/a/text": {
+          "pointer": "/questions/19/options/2/text",
+          "text": "جایگزینی، زمان بازیابی و پیامد",
+          "source_hash": "d4e76f5f6017480e79bd2ca92a2594e2320945c6dd35cf9f39e15531cb4a42b3"
+        },
+        "/questions/C06-FINAL-Q20/options/a/feedback": {
+          "pointer": "/questions/19/options/2/feedback",
+          "text": "اثر عملیاتی و بازیابی مهم‌اند.",
+          "source_hash": "5c4e8225b3371869358c13ee60ea06370b998dd76b4fd3cb7514a2bc1c291a9d"
+        },
+        "/questions/C06-FINAL-Q20/explanation": {
+          "pointer": "/questions/19/explanation",
+          "text": "اثر عملیاتی و بازیابی مهم‌اند.",
+          "source_hash": "5c4e8225b3371869358c13ee60ea06370b998dd76b4fd3cb7514a2bc1c291a9d"
         }
       }
     }
