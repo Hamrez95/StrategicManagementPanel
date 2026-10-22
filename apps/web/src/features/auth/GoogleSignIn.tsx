@@ -16,11 +16,24 @@ type IdentityApi = {
     callback: (response: { credential: string }) => void;
     auto_select: boolean;
   }) => void;
-  renderButton: (element: HTMLElement, options: Record<string, string | number>) => void;
+  renderButton: (
+    element: HTMLElement,
+    options: Record<string, string | number | (() => void)>,
+  ) => void;
 };
 const identity = () =>
   (window as Window & { google?: { accounts?: { id?: IdentityApi } } }).google?.accounts?.id;
 let sdkPromise: Promise<IdentityApi> | undefined;
+type Challenge = { challenge_id: string; nonce: string };
+// Serialize session creation across route changes and React's development remount.
+let challengeQueue: Promise<unknown> = Promise.resolve();
+function createChallenge() {
+  const pending = challengeQueue.then(() =>
+    postAuth<Challenge>('/api/v1/accounts/google/challenge/'),
+  );
+  challengeQueue = pending.catch(() => undefined);
+  return pending;
+}
 function loadSdk() {
   if (identity()) return Promise.resolve(identity()!);
   if (sdkPromise) return sdkPromise;
@@ -81,6 +94,9 @@ export function GoogleSignIn() {
   });
   useEffect(() => {
     let active = true;
+    let refreshTimer: ReturnType<typeof setTimeout> | undefined;
+    let issuedAt = 0;
+    let flowStartedAt = 0;
     const controller = new AbortController();
     setState('loading');
     setError('');
@@ -96,17 +112,19 @@ export function GoogleSignIn() {
           setState('disabled');
           return;
         }
-        const [api, challenge] = await Promise.all([
-          loadSdk(),
-          postAuth<{ challenge_id: string; nonce: string }>('/api/v1/accounts/google/challenge/'),
-        ]);
+        const api = await loadSdk();
+        if (!active) return;
+        const challenge = await createChallenge();
         if (!active || !button.current) return;
+        issuedAt = Date.now();
         api.initialize({
           client_id: config.client_id,
           nonce: challenge.nonce,
           auto_select: false,
           callback: (response) => {
             if (!active) return;
+            clearTimeout(refreshTimer);
+            issuedAt = 0;
             setBusy(true);
             setError('');
             postAuth<GoogleResult>('/api/v1/accounts/google/login/', {
@@ -138,8 +156,23 @@ export function GoogleSignIn() {
           shape: 'pill',
           width: Math.min(360, Math.max(200, button.current.parentElement?.clientWidth ?? 320)),
           locale: 'fa',
+          click_listener: () => {
+            flowStartedAt = Date.now();
+          },
         });
         setState('ready');
+        // Refresh while idle, before the server's ten-minute expiry. Give an
+        // open account chooser time to finish without replacing its nonce.
+        function refreshWhenIdle() {
+          if (!active) return;
+          const chooserAge = Date.now() - flowStartedAt;
+          if (flowStartedAt && chooserAge < 120_000) {
+            refreshTimer = setTimeout(refreshWhenIdle, 120_000 - chooserAge);
+            return;
+          }
+          setRetry((value) => value + 1);
+        }
+        refreshTimer = setTimeout(refreshWhenIdle, 7 * 60_000);
       } catch (err) {
         if (active) {
           setError((err as Error).message);
@@ -147,10 +180,23 @@ export function GoogleSignIn() {
         }
       }
     }
+    function refreshAfterWake() {
+      if (
+        document.visibilityState === 'visible' &&
+        issuedAt &&
+        Date.now() - issuedAt >= 7 * 60_000 &&
+        (!flowStartedAt || Date.now() - flowStartedAt >= 120_000)
+      ) {
+        setRetry((value) => value + 1);
+      }
+    }
+    document.addEventListener('visibilitychange', refreshAfterWake);
     void setup();
     return () => {
       active = false;
       controller.abort();
+      clearTimeout(refreshTimer);
+      document.removeEventListener('visibilitychange', refreshAfterWake);
     };
   }, [retry]);
   return (

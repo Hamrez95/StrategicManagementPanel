@@ -11,6 +11,10 @@
 .auth-google-button[hidden] {
   display: none;
 }
+.auth-google-button [role='button'],
+.auth-google-button [role='button'] span {
+  font-family: var(--font-ui) !important;
+}
 .auth-google-placeholder {
   display: flex;
   align-items: center;
