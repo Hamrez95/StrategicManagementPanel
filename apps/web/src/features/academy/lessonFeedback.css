@@ -1,0 +1,150 @@
+.academy-lesson.learning-player {
+  padding-block-end: 6rem;
+}
+.learning-bookmark .learning-bookmark-icon,
+.learning-bookmark .ui-button.learning-bookmark-icon,
+.learning-bookmark .ui-button.learning-bookmark-icon[aria-pressed='true'] {
+  inline-size: 44px;
+  min-inline-size: 44px;
+  block-size: 44px;
+  min-block-size: 44px;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+}
+.learning-bookmark-icon svg {
+  inline-size: 24px;
+  block-size: 24px;
+}
+.learning-bookmark-icon:hover {
+  background: var(--wash);
+}
+.learning-bookmark-icon[aria-pressed='true'] {
+  color: var(--action);
+}
+.learning-bookmark-icon:focus-visible,
+.learning-comment-dock button:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 2px;
+}
+.learning-bookmark-icon:disabled {
+  opacity: 0.5;
+}
+.academy-toast {
+  position: fixed;
+  z-index: 100;
+  inset-block-start: max(1rem, env(safe-area-inset-top));
+  inset-inline: 1rem;
+  margin-inline: auto;
+  inline-size: fit-content;
+  max-inline-size: min(34rem, calc(100vw - 2rem));
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 20%);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.learning-comment-dock {
+  position: fixed;
+  z-index: 20;
+  inset-block-end: calc(0.6rem + env(safe-area-inset-bottom));
+  inset-inline: 0.75rem;
+  margin-inline: auto;
+  max-inline-size: 36rem;
+  max-block-size: 65dvh;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 14%);
+  font: inherit;
+}
+.learning-comment-trigger {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  inline-size: 100%;
+  min-block-size: 44px;
+  padding: 0.5rem 0.85rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.learning-comment-trigger svg {
+  inline-size: 20px;
+  block-size: 20px;
+  flex-shrink: 0;
+}
+.learning-comment-trigger span:last-child {
+  margin-inline-start: auto;
+  font-size: 1.2rem;
+}
+.learning-comment-dock form {
+  padding: 0 0.85rem 0.85rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.learning-comment-context {
+  margin: 0;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.learning-comment-dock label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+.learning-comment-dock textarea,
+.learning-comment-dock select {
+  inline-size: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem;
+  min-block-size: 44px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--canvas);
+  color: var(--ink);
+  font: inherit;
+}
+.learning-comment-dock textarea {
+  resize: vertical;
+  max-block-size: 25dvh;
+  font-size: 0.95rem;
+}
+.learning-comment-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+.learning-comment-actions small {
+  color: var(--muted);
+}
+.learning-comment-actions button {
+  min-block-size: 44px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--wash);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.learning-comment-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

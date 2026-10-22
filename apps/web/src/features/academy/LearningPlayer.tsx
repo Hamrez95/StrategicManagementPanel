@@ -12,6 +12,7 @@ import {
 } from './ContentCard';
 import { academyCopy as copy } from './academyMessages';
 import { faNumber } from './connectedData';
+import { LessonFeedback } from './LessonFeedback';
 import type { Course, Progress, Question, Result, Unit } from './connectedData';
 
 export type LearningActions = {
@@ -232,8 +233,21 @@ export function LearningPlayer({
   const cards = unit.learning_cards.length;
   const activityStep = cards + unit.questions.length;
   const lastStep = activityStep + (unit.practice_activity ? 1 : 0);
+  const questionTarget = unit.questions.findIndex(
+    (question) => question.id === search.get('question'),
+  );
+  const requestedStep =
+    cardTarget >= 0
+      ? cardTarget
+      : questionTarget >= 0
+        ? cards + questionTarget
+        : search.get('step') === 'activity' && unit.practice_activity
+          ? activityStep
+          : search.get('step') === 'summary'
+            ? lastStep
+            : -1;
   const [step, setStep] = useState(
-    Math.min(lastStep, cardTarget >= 0 ? cardTarget : (row?.position ?? 0)),
+    Math.min(lastStep, requestedStep >= 0 ? requestedStep : (row?.position ?? 0)),
   );
   const [note, setNote] = useState(row?.note ?? '');
   const [busy, setBusy] = useState(false);
@@ -255,8 +269,13 @@ export function LearningPlayer({
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [step]);
   useEffect(() => {
-    if (cardTarget >= 0) setStep(cardTarget);
-  }, [cardTarget]);
+    if (requestedStep >= 0) setStep(requestedStep);
+  }, [requestedStep]);
+  useEffect(() => {
+    if (!bookmarkMessage) return;
+    const timer = window.setTimeout(() => setBookmarkMessage(''), 2000);
+    return () => window.clearTimeout(timer);
+  }, [bookmarkMessage]);
   useEffect(() => {
     const warn = (event: BeforeUnloadEvent) => {
       if (note !== (row?.note ?? '')) event.preventDefault();
@@ -301,7 +320,7 @@ export function LearningPlayer({
     try {
       await learning.save(unit, { bookmarked: !row?.bookmarked });
       setBookmarkMessage(
-        row?.bookmarked ? 'از درس‌های ذخیره‌شده برداشته شد.' : 'این درس در بخش «مرور» ذخیره شد.',
+        row?.bookmarked ? 'از ذخیره‌ها برداشته شد.' : 'به درس‌های ذخیره‌شده اضافه شد.',
       );
     } catch (e) {
       setError((e as Error).message);
@@ -325,6 +344,9 @@ export function LearningPlayer({
           {learning.authenticated ? (
             <Button
               variant="quiet"
+              className="learning-bookmark-icon"
+              aria-label={row?.bookmarked ? 'حذف از ذخیره‌ها' : 'ذخیره برای بعد'}
+              title={row?.bookmarked ? 'حذف از ذخیره‌ها' : 'ذخیره برای بعد'}
               disabled={busy}
               aria-pressed={Boolean(row?.bookmarked)}
               onClick={() => void toggleBookmark()}
@@ -338,29 +360,33 @@ export function LearningPlayer({
               >
                 <path d="M6 3h12v18l-6-4-6 4Z" />
               </svg>
-              {row?.bookmarked ? 'حذف از ذخیره‌ها' : 'ذخیره برای بعد'}
             </Button>
           ) : (
             <Link
-              className="ui-button ui-button--quiet"
-              to={`/account/login?next=${encodeURIComponent(`/academy/lesson/${unit.id}`)}`}
+              className="learning-bookmark-icon"
+              aria-label="برای ذخیرهٔ درس، وارد حسابت شو"
+              title="برای ذخیرهٔ درس، وارد حسابت شو"
+              to={`/account/login?next=${encodeURIComponent(`/academy/lesson/${unit.id}${card ? `?card=${card.id}` : ''}`)}`}
             >
-              ذخیره برای بعد
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden="true"
+              >
+                <path d="M6 3h12v18l-6-4-6 4Z" />
+              </svg>
             </Link>
           )}
-          <p>
-            {learning.authenticated ? (
-              <>
-                درس‌های ذخیره‌شده رو در <Link to="/academy/review">مرور</Link> پیدا می‌کنی.
-              </>
-            ) : (
-              'برای ذخیرهٔ این درس، وارد حسابت شو.'
-            )}
-          </p>
-          <p role="status">{bookmarkMessage}</p>
         </div>
       </div>
       <progress aria-label="پیشرفت این بخش" max={lastStep} value={step} />
+      {bookmarkMessage && (
+        <div className="academy-toast" role="status">
+          {bookmarkMessage}
+        </div>
+      )}
       <p className="academy-muted">
         {step < cards
           ? `کارت ${faNumber(step + 1)} از ${faNumber(cards)}`
@@ -547,6 +573,17 @@ export function LearningPlayer({
           </dl>
         </details>
       ) : null}
+      <LessonFeedback
+        context={{
+          unitId: unit.id,
+          revision: unit.revision,
+          userId: learning.authenticated ? learning.userId : '',
+          kind: card ? 'card' : question ? 'question' : step < lastStep ? 'activity' : 'summary',
+          targetId: card?.id ?? question?.id ?? (step < lastStep ? 'activity' : unit.id),
+          title:
+            card?.title ?? question?.prompt ?? (step < lastStep ? 'فعالیت درس' : 'جمع‌بندی درس'),
+        }}
+      />
     </section>
   );
 }

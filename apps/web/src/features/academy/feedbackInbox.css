@@ -1,0 +1,54 @@
+.academy-feedback-inbox {
+  max-inline-size: 960px;
+  margin-inline: auto;
+  padding: 1.5rem;
+  color: var(--ink);
+  font-family: var(--font-ui);
+}
+.feedback-inbox-entry {
+  margin-block: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--paper);
+  overflow-wrap: anywhere;
+}
+.feedback-inbox-entry h2 {
+  font-size: 1.15rem;
+}
+.feedback-inbox-entry h3 {
+  font-size: 1rem;
+}
+.feedback-inbox-entry code {
+  display: inline-block;
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+}
+.feedback-inbox-message {
+  white-space: pre-wrap;
+}
+.feedback-inbox-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block: 1rem;
+}
+.feedback-inbox-controls button,
+.feedback-inbox-controls select {
+  min-block-size: 44px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.feedback-inbox-controls button {
+  cursor: pointer;
+}
+.feedback-inbox-controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
