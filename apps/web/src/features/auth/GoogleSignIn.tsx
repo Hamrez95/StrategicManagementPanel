@@ -26,7 +26,7 @@ function loadSdk() {
   if (sdkPromise) return sdkPromise;
   sdkPromise = new Promise<IdentityApi>((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
+    script.src = 'https://accounts.google.com/gsi/client?hl=fa';
     script.async = true;
     const timer = window.setTimeout(() => {
       script.remove();
@@ -162,12 +162,26 @@ export function GoogleSignIn() {
       />
       {state === 'loading' && (
         <button className="auth-google-placeholder" type="button" disabled>
+          <img
+            className="auth-google-logo"
+            src="/brand/google-g.png"
+            alt=""
+            width="20"
+            height="20"
+          />
           داریم ورود با گوگل رو آماده می‌کنیم…
         </button>
       )}
       {state === 'disabled' && (
         <>
           <button className="auth-google-placeholder" type="button" disabled>
+            <img
+              className="auth-google-logo"
+              src="/brand/google-g.png"
+              alt=""
+              width="20"
+              height="20"
+            />
             ادامه با گوگل
           </button>
           <p className="auth-google-hint">ورود با گوگل هنوز فعال نشده؛ فعلاً با ایمیل ادامه بده.</p>

@@ -12,6 +12,10 @@
   display: none;
 }
 .auth-google-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   inline-size: 100%;
   min-block-size: 48px;
   border: 1px solid var(--line);
@@ -19,6 +23,12 @@
   background: var(--paper);
   color: var(--muted);
   font: inherit;
+}
+.auth-google-logo {
+  inline-size: 20px;
+  block-size: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
 }
 .auth-google-hint {
   color: var(--muted);
