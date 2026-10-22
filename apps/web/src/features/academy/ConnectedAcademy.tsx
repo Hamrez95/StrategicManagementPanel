@@ -16,6 +16,7 @@ import { AcademyIcon } from './AcademyIcons';
 import type { AcademyIconName } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
 import { CourseHero } from './CourseHero';
+import { AcademyTopics } from './AcademyTopics';
 import { LearningPlayer } from './LearningPlayer';
 import type { LearningActions } from './LearningPlayer';
 import { academyCopy as copy } from './academyMessages';
@@ -24,6 +25,7 @@ import type { Catalog, Course, LearningState, Progress, Unit } from './connected
 import './academy.css';
 import './connectedAcademy.css';
 import './courseHero.css';
+import './academyTopics.css';
 
 const fresh = (unit: Unit): Progress => ({
   unit_id: unit.id,
@@ -107,25 +109,14 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
   const next = ids.find((id) => !learning.progress[id]?.completed) ?? ids[0];
   return (
     <div className="academy-layout learning-layout">
-      <aside className="academy-topics">
-        <h2>چه چیزی یاد بگیریم؟</h2>
-        <div className="academy-topic-list">
-          {catalog.paths.map((item) => (
-            <button
-              key={item.id}
-              aria-pressed={path.id === item.id}
-              onClick={() => {
-                const first = item.recommended_order?.[0] ?? item.course_ids[0];
-                setParams({ course: first });
-              }}
-            >
-              <span className="academy-topic-title">
-                <AcademyIcon name="book" />
-                {item.title}
-              </span>
-            </button>
-          ))}
-        </div>
+      <aside className="academy-topics academy-topics--visual">
+        <AcademyTopics
+          paths={catalog.paths}
+          selected={path.id}
+          onSelect={(item) => {
+            setParams({ course: item.recommended_order?.[0] ?? item.course_ids[0] });
+          }}
+        />
         <label className="learning-course-select">
           درس این حوزه
           <select

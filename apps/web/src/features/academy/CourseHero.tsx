@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { Course } from './connectedData';
 import { faNumber } from './connectedData';
 
-type Motif =
+export type Motif =
   | 'compass'
   | 'ledger'
   | 'finance'
@@ -72,7 +72,7 @@ const colours: Record<Palette, [string, string, string]> = {
   berry: ['#b25e86', '#f0bad2', '#853f61'],
   teal: ['#278d85', '#9cddd0', '#1a5f5a'],
 };
-function Symbol({ motif }: { motif: Motif }) {
+export function Symbol({ motif }: { motif: Motif }) {
   switch (motif) {
     case 'compass':
       return (
