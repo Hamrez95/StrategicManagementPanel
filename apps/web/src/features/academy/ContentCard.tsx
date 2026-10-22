@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LearningImage } from './LearningImage';
 import type { Card, Media, Unit } from './connectedData';
 
 /** Preserve authored wording; isolate English runs and mathematical expressions in RTL. */
@@ -25,30 +26,11 @@ const mediaUrl = (ref: string) => `/academy-content/media/${ref.split('/').at(-1
 export function LearningMedia({ asset }: { asset: Media }) {
   return (
     <figure className="learning-media">
-      <div
-        className="learning-media-scroll"
-        tabIndex={0}
-        role="region"
-        aria-label={asset.alt_text ?? 'تصویر آموزشی'}
-      >
-        <picture>
-          {asset.mobile_asset_ref && (
-            <source media="(max-width: 600px)" srcSet={mediaUrl(asset.mobile_asset_ref)} />
-          )}
-          <img
-            src={mediaUrl(asset.asset_ref)}
-            alt={asset.alt_text ?? ''}
-            loading="lazy"
-            style={{
-              width:
-                asset.desktop_width_px && !asset.mobile_asset_ref
-                  ? `${asset.desktop_width_px}px`
-                  : '100%',
-              maxWidth: asset.desktop_width_px && !asset.mobile_asset_ref ? 'none' : '100%',
-            }}
-          />
-        </picture>
-      </div>
+      <LearningImage
+        src={mediaUrl(asset.asset_ref)}
+        mobileSrc={asset.mobile_asset_ref ? mediaUrl(asset.mobile_asset_ref) : undefined}
+        alt={asset.alt_text ?? 'تصویر آموزشی'}
+      />
       {asset.caption && (
         <figcaption>
           <ContentText text={asset.caption} />
