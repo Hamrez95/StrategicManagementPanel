@@ -16,6 +16,7 @@ for (const item of [
   ...manifest.media,
   ...manifest.typography,
   manifest.locales,
+  manifest.reference_visuals,
 ]) {
   const bytes = await readFile(resolve(root, item.path));
   const hash = (value) => createHash('sha256').update(value).digest('hex');
@@ -38,6 +39,32 @@ const cardOwners = new Map(
     ),
   ),
 );
+const references = await read(manifest.reference_visuals.path);
+const visualIds = new Set();
+for (const visual of references.visuals) {
+  if (visualIds.has(visual.id)) throw new Error(`Duplicate reference visual: ${visual.id}`);
+  visualIds.add(visual.id);
+  if (visual.asset_ref) {
+    const bytes = await readFile(resolve(root, 'docs/learning-design', visual.asset_ref));
+    if (
+      createHash('sha256').update(bytes).digest('hex') !== visual.sha256 &&
+      createHash('sha256').update(bytes.toString('utf8').replaceAll('\r\n', '\n')).digest('hex') !==
+        visual.sha256
+    )
+      throw new Error(`Reference visual hash mismatch: ${visual.id}`);
+  }
+}
+const placementIds = new Set();
+for (const placement of references.placements) {
+  const id = `${placement.card_id}:${placement.visual_id}`;
+  if (
+    cardOwners.get(placement.card_id) !== placement.lesson_id ||
+    !visualIds.has(placement.visual_id) ||
+    placementIds.has(id)
+  )
+    throw new Error(`Invalid reference placement: ${id}`);
+  placementIds.add(id);
+}
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 const publicQuestion = (q) => ({
@@ -101,6 +128,13 @@ for (const ref of manifest.courses) {
         course_title: course.title,
         stage_id: stage.id,
         revision: ref.sha256,
+        reference_visual_revision: manifest.reference_visuals.sha256,
+        reference_visuals: references.placements
+          .filter((p) => p.lesson_id === lesson.id)
+          .map((p) => ({
+            ...references.visuals.find((v) => v.id === p.visual_id),
+            card_id: p.card_id,
+          })),
         questions: lesson.questions.map(publicQuestion),
       };
       if (lesson.practice_activity) {
@@ -163,5 +197,5 @@ await cp(resolve(root, 'public/typography'), resolve(root, 'apps/web/public/typo
   recursive: true,
 });
 console.log(
-  `Academy: ${index.courses.length} courses, ${lessonCount} lessons, ${cardCount} cards, ${reviewCount} reviews; ${manifest.media.length} SVG assets. Keys stay server-side.`,
+  `Academy: ${index.courses.length} courses, ${lessonCount} lessons, ${cardCount} cards, ${reviewCount} reviews; ${manifest.media.length} media assets, ${references.placements.length} reference placements. Keys stay server-side.`,
 );

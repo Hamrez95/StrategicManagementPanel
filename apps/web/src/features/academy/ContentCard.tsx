@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { LearningImage } from './LearningImage';
-import type { Card, Media, Unit } from './connectedData';
+import type { Card, Media, ReferenceVisual, Unit } from './connectedData';
 
 /** Preserve authored wording; isolate English runs and mathematical expressions in RTL. */
 export function ContentText({ text }: { text: string }) {
@@ -52,6 +52,60 @@ export function LearningMedia({ asset }: { asset: Media }) {
     </figure>
   );
 }
+function ReferenceFigure({ visual }: { visual: ReferenceVisual }) {
+  return (
+    <section className="learning-reference" aria-label={`شکل مرجع: ${visual.title}`}>
+      <p className="learning-reference-kind">
+        {visual.kind === 'publisher_original'
+          ? 'تصویر منتشرشدهٔ منبع'
+          : visual.kind === 'standard_redraw'
+            ? 'بازترسیم ساختار متداول'
+            : 'شکل در منبع اصلی'}
+      </p>
+      <h3>
+        <bdi dir="ltr">{visual.title}</bdi>
+      </h3>
+      {visual.asset_ref ? (
+        <LearningMedia
+          asset={{
+            asset_ref: visual.asset_ref,
+            alt_text: visual.alt_text,
+            caption: visual.caption,
+          }}
+        />
+      ) : (
+        <p>
+          <ContentText text={visual.caption} />
+        </p>
+      )}
+      <div className="learning-reference-credit">
+        <p>
+          <bdi>{visual.creator}</bdi> · <bdi>{visual.locator}</bdi>
+        </p>
+        {visual.changes && (
+          <p>
+            <ContentText text={visual.changes} />
+          </p>
+        )}
+        <div className="learning-reference-links">
+          <a href={visual.source_url} target="_blank" rel="noreferrer">
+            {visual.kind === 'source_link' ? 'دیدن شکل در منبع اصلی' : 'منبع و توضیح شکل'}
+          </a>
+          {visual.license_url && (
+            <a href={visual.license_url} target="_blank" rel="noreferrer">
+              <bdi dir="ltr">{visual.license}</bdi>
+            </a>
+          )}
+          {visual.download_ref && (
+            <a href={mediaUrl(visual.download_ref)} target="_blank" rel="noreferrer">
+              فایل اصلی PDF
+            </a>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
 export function ContentCard({ card, unit }: { card: Card; unit: Unit }) {
   return (
     <article className={`learning-card learning-card--${card.type ?? 'explanation'}`} id={card.id}>
@@ -100,6 +154,11 @@ export function ContentCard({ card, unit }: { card: Card; unit: Unit }) {
       {unit.media_plan?.display_on_card_id === card.id &&
         unit.media_plan.assets.map((asset) => (
           <LearningMedia key={asset.asset_ref} asset={asset} />
+        ))}
+      {unit.reference_visuals
+        ?.filter((visual) => visual.card_id === card.id)
+        .map((visual) => (
+          <ReferenceFigure key={visual.id} visual={visual} />
         ))}
       {card.source_url && (
         <a href={card.source_url} target="_blank" rel="noreferrer">

@@ -98,3 +98,38 @@
   object-fit: contain;
   transform-origin: center;
 }
+.learning-reference {
+  min-inline-size: 0;
+  margin-block: 1.5rem;
+  padding-block: 1.25rem;
+  border-block-start: 1px solid var(--line);
+}
+.learning-reference h3 {
+  margin-block: 0.4rem 0.8rem;
+}
+.learning-reference-kind,
+.learning-reference-credit {
+  color: var(--muted);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.learning-reference-kind {
+  margin: 0;
+}
+.learning-reference-credit p {
+  margin-block: 0.5rem;
+}
+.learning-reference-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+.learning-reference-links a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+}
+.learning-reference .learning-image-preview {
+  background: #fff;
+  color: #333;
+}

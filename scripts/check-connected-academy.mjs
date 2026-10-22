@@ -3,6 +3,7 @@ import { readFile, access } from 'node:fs/promises';
 const read = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const manifest = await read('docs/learning-design/handoff/manifest.json');
 const catalog = await read('apps/web/public/academy-content/catalog.json');
+const references = await read(manifest.reference_visuals.path);
 assert.deepEqual(
   catalog.courses.map((c) => c.id),
   manifest.courses.map((c) => c.id),
@@ -50,6 +51,26 @@ async function unit(source, kind) {
     lessons++;
     cards += source.learning_cards.length;
     assert.deepEqual(projection.learning_cards, source.learning_cards);
+    assert.equal(projection.reference_visual_revision, manifest.reference_visuals.sha256);
+    const expectedReferences = references.placements
+      .filter((p) => p.lesson_id === source.id)
+      .map((p) => ({
+        ...references.visuals.find((v) => v.id === p.visual_id),
+        card_id: p.card_id,
+      }));
+    assert.deepEqual(projection.reference_visuals, expectedReferences);
+    for (const visual of projection.reference_visuals) {
+      assert(source.learning_cards.some((card) => card.id === visual.card_id));
+      assert(visual.creator && visual.source_url && visual.locator);
+      if (visual.asset_ref) {
+        assert(visual.license && visual.license_url && visual.changes);
+        const name = visual.asset_ref.split('/').at(-1);
+        assert.deepEqual(
+          await readFile(`apps/web/public/academy-content/media/${name}`),
+          await readFile(`docs/learning-design/content/media/${name}`),
+        );
+      }
+    }
     for (const key of [
       'objective',
       'source_links',
@@ -87,5 +108,5 @@ for (const font of manifest.typography)
   );
 assert.deepEqual([lessons, cards, reviews, questions], [592, 5958, 191, 4549]);
 console.log(
-  `Full projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} unchanged cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} SVGs. No assessment keys in public JSON.`,
+  `Full projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} unchanged cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} media assets, ${references.placements.length} reference placements. No assessment keys in public JSON.`,
 );

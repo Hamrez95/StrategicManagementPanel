@@ -56,7 +56,25 @@ export type Media = {
   long_description?: string;
   source_url?: string;
 };
+export type ReferenceVisual = {
+  id: string;
+  title: string;
+  kind: 'publisher_original' | 'standard_redraw' | 'source_link';
+  asset_ref?: string;
+  download_ref?: string;
+  alt_text?: string;
+  caption: string;
+  creator: string;
+  source_url: string;
+  license?: string;
+  license_url?: string;
+  changes?: string;
+  locator: string;
+  card_id: string;
+};
 export type Unit = {
+  reference_visuals?: ReferenceVisual[];
+  reference_visual_revision?: string;
   glossary?: { term: string; definition: string }[];
   scenario_unit?: string;
   id: string;

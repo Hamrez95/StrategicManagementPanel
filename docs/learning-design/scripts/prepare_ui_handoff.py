@@ -49,6 +49,11 @@ def main():
     if errors:raise SystemExit(json.dumps({'blocking_structural_issues':errors},ensure_ascii=False))
     access=read(ROOT/'content/source-access-followup.json')
     manifest={'schema_version':'1.0','state':'ready_for_owner_review','ready_for_ui_integration_draft':True,'owner_review_required':True,'production_ready':False,'answer_keys_in_bundles':True,'counts':counts,'structural_checks':'passed','review_method':'shared source patterns, targeted content corrections and representative browser/visual checks; not manual scientific certification of every statement','courses':courses,'catalog':file_record(ROOT/'catalog.v1.json'),'media':[file_record(p) for p in sorted((ROOT/'content/media').glob('*.svg'))],'typography':[file_record(p) for p in sorted((REPO/'public/typography').rglob('*')) if p.is_file()],'locales':file_record(ROOT/'localization/manifest.json'),'release_followups':{'unconfirmed_direct_publisher_urls':access['unique_original_urls'],'independent_assessment_bank':'not_validated','learner_pilot':'pending','additional_languages':'not_translated'},'rebuild_order':['repair_remediation_refs.py (one-time repairs; does not replace valid targets)','audit_review_reuse.py','build-preview.py','export_locales.py','prepare_ui_handoff.py']}
+    reference_path=ROOT/'content/media/reference-visuals.v1.json'
+    references=read(reference_path)
+    manifest['reference_visuals']=file_record(reference_path)
+    manifest['reference_counts']={'models':len(references['visuals']),'placements':len(references['placements']),'embedded_figures':sum(bool(v.get('asset_ref')) for v in references['visuals'])}
+    manifest['media'].extend(file_record(p) for p in sorted((ROOT/'content/media').glob('reference-*')) if p.suffix in {'.png','.pdf'})
     (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'handoff_state':manifest['state'],'counts':counts,'structural_issues':0}))
 
