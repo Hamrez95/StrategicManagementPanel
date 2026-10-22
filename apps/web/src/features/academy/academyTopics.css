@@ -1,4 +1,99 @@
 /* One visual vocabulary for subjects, with full titles at every viewport size. */
+.academy-catalog-visual .topic-browser {
+  margin-block: 1rem 1.5rem;
+}
+.catalog-clear-area {
+  font: inherit;
+  font-size: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  min-block-size: 44px;
+  cursor: pointer;
+  margin-block-end: 1rem;
+}
+.catalog-course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 200ms,
+    border-color 200ms,
+    box-shadow 200ms;
+}
+.catalog-course-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--action);
+  box-shadow: 0 8px 20px #00000012;
+}
+.catalog-course-card:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 4px;
+}
+.catalog-course-art {
+  display: grid;
+  place-items: center;
+  position: relative;
+  inline-size: 68px;
+  block-size: 68px;
+  margin-block-end: 0.5rem;
+  border-radius: 21px;
+  color: color-mix(in srgb, var(--course-accent) 70%, var(--ink));
+  background: color-mix(in srgb, var(--course-accent) 15%, var(--paper));
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--course-accent) 30%, transparent);
+}
+.catalog-course-art > svg {
+  inline-size: 42px;
+  block-size: 42px;
+}
+.catalog-course-art .course-art-fill {
+  fill: currentColor;
+  fill-opacity: 0.2;
+}
+.catalog-course-art .catalog-course-art-mini {
+  position: absolute;
+  inset-inline-end: -10px;
+  inset-block-end: -2px;
+  inline-size: 29px;
+  block-size: 29px;
+  padding: 5px;
+  border-radius: 9px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.catalog-course-card:is(:hover, :focus-visible) .catalog-course-art > svg:first-child {
+  animation: topic-wave 650ms ease both;
+}
+.catalog-course-card h3 {
+  text-wrap: pretty;
+  overflow-wrap: normal;
+  line-height: 1.9;
+}
+.catalog-course-card progress {
+  margin-block-start: auto;
+  block-size: 7px;
+}
+.catalog-course-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-block-start: 0.75rem;
+  align-items: center;
+}
+.catalog-course-footer > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+@media (prefers-reduced-motion: reduce) {
+  .catalog-course-card,
+  .catalog-course-card * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 .learning-layout {
   grid-template-columns: minmax(0, 1fr) 240px;
 }

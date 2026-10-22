@@ -15,7 +15,7 @@ import { applyAccountPreferences, readDevicePreferences } from '../account/api';
 import { AcademyIcon } from './AcademyIcons';
 import type { AcademyIconName } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
-import { CourseHero } from './CourseHero';
+import { CourseBadge, CourseHero } from './CourseHero';
 import { AcademyTopics } from './AcademyTopics';
 import { LearningPlayer } from './LearningPlayer';
 import type { LearningActions } from './LearningPlayer';
@@ -229,8 +229,15 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
 
 function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: LearningActions }) {
   const [search, setSearch] = useState('');
+  const [params, setParams] = useSearchParams();
+  const area = catalog.paths.find((path) => path.id === params.get('area'))?.id ?? '';
+  const matches = (course: Course) =>
+    (!area || course.path_id === area) &&
+    `${course.title} ${catalog.paths.find((path) => path.id === course.path_id)?.title}`.includes(
+      search.trim(),
+    );
   return (
-    <section className="academy-page">
+    <section className="academy-page academy-catalog-visual">
       <div className="academy-page-intro">
         <div>
           <h1 tabIndex={-1}>دوست داری چه چیزی یاد بگیری؟</h1>
@@ -241,14 +248,22 @@ function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: Learni
         </div>
         <AcademyMascot mood="guidance" />
       </div>
+      <AcademyTopics
+        paths={catalog.paths}
+        selected={area}
+        onSelect={(path) => setParams({ area: path.id })}
+      />
+      {area && (
+        <button type="button" className="catalog-clear-area" onClick={() => setParams({})}>
+          نمایش همهٔ حوزه‌ها ×
+        </button>
+      )}
       <label className="academy-search">
         جست‌وجوی درس یا حوزه
         <input value={search} onChange={(event) => setSearch(event.target.value)} />
       </label>
       {catalog.paths.map((path) => {
-        const courses = catalog.courses.filter(
-          (c) => c.path_id === path.id && `${c.title} ${path.title}`.includes(search.trim()),
-        );
+        const courses = catalog.courses.filter((c) => c.path_id === path.id && matches(c));
         return courses.length ? (
           <section key={path.id}>
             <h2>{path.title}</h2>
@@ -259,16 +274,21 @@ function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: Learni
                 return (
                   <Link
                     to={`/academy?course=${course.id}`}
-                    className="learning-course-card"
+                    className="learning-course-card catalog-course-card"
                     key={course.id}
                   >
-                    <AcademyIcon name="book" />
+                    <CourseBadge courseId={course.id} />
                     <h3>{course.title}</h3>
                     <p>
                       {faNumber(ids.length)} درس‌نامه · {faNumber(course.stages.length)} مرحله
                     </p>
                     <progress value={done} max={ids.length} aria-label={`پیشرفت ${course.title}`} />
-                    <small>{faNumber(done)} درس‌نامه تمرین شده</small>
+                    <div className="catalog-course-footer">
+                      <small>{faNumber(done)} درس‌نامه تمرین شده</small>
+                      <span>
+                        {done ? 'ادامهٔ مسیر' : 'دیدن مسیر'} <span aria-hidden="true">←</span>
+                      </span>
+                    </div>
                   </Link>
                 );
               })}
@@ -276,11 +296,9 @@ function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: Learni
           </section>
         ) : null;
       })}
-      {!catalog.courses.some((c) =>
-        `${c.title} ${catalog.paths.find((p) => p.id === c.path_id)?.title}`.includes(
-          search.trim(),
-        ),
-      ) && <p>درسی با این عبارت پیدا نشد. عبارت کوتاه‌تری رو امتحان کن.</p>}
+      {!catalog.courses.some(matches) && (
+        <p role="status">درسی با این عبارت پیدا نشد. عبارت کوتاه‌تری رو امتحان کن.</p>
+      )}
     </section>
   );
 }
