@@ -1,0 +1,125 @@
+.auth-google-block {
+  margin-block: 1.25rem;
+  min-inline-size: 0;
+}
+.auth-google-button {
+  display: flex;
+  justify-content: center;
+  min-block-size: 44px;
+  max-inline-size: 100%;
+}
+.auth-google-button[hidden] {
+  display: none;
+}
+.auth-google-placeholder {
+  inline-size: 100%;
+  min-block-size: 48px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--muted);
+  font: inherit;
+}
+.auth-google-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-block: 0.6rem;
+}
+.auth-method-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-block: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.auth-method-divider::before,
+.auth-method-divider::after {
+  content: '';
+  block-size: 1px;
+  flex: 1;
+  background: var(--line);
+}
+.auth-google-link {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--wash);
+}
+.auth-profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem;
+  margin-block: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--wash);
+}
+.auth-profile-identity > div {
+  flex: 1;
+  min-inline-size: 0;
+}
+.auth-profile-identity strong {
+  display: block;
+  font-size: 0.9rem;
+}
+.auth-profile-identity bdi {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.auth-profile-check {
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  flex-shrink: 0;
+  background: var(--paper);
+  border-radius: 50%;
+  color: var(--ink);
+}
+.auth-profile-step {
+  white-space: nowrap;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.auth-name-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+.auth-profile-purpose {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0;
+}
+.auth-marketing-choice {
+  display: flex;
+  align-items: start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  padding-block: 0.5rem;
+  cursor: pointer;
+}
+.auth-marketing-choice input {
+  margin-block-start: 0.35rem;
+  inline-size: 20px;
+  block-size: 20px;
+  flex-shrink: 0;
+  accent-color: var(--action);
+}
+.auth-marketing-choice small {
+  display: block;
+  color: var(--muted);
+}
+@media (max-width: 480px) {
+  .auth-name-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

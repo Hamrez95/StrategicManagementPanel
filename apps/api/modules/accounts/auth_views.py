@@ -21,6 +21,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 from .models import AccountPreferences, AuthRateLimit, User
+from .profile_completion import require_profile_on_login
 from modules.core.mailer import deliver_email
 from modules.workspaces.services import workspace_session_payload
 
@@ -133,14 +134,16 @@ def _deliver_auth_email(subject, body, recipient):
     return deliver_email(subject, body, recipient, purpose='Account')
 
 
-def _send_verification(user):
+def _send_verification(user, next_path=None):
     user.email_verification_nonce = uuid.uuid4()
     user.save(update_fields=['email_verification_nonce'])
     token = signing.dumps(
         {'user_id': str(user.pk), 'nonce': str(user.email_verification_nonce)},
         salt=EMAIL_VERIFICATION_SALT,
     )
-    url = f'{settings.STRATINO_PUBLIC_URL}/account/verify#token={quote(token, safe="")}'
+    safe_next = isinstance(next_path, str) and len(next_path) <= 1500 and next_path.startswith('/') and not next_path.startswith('//') and '\\' not in next_path and all(ord(c) > 32 for c in next_path)
+    return_query = '?next=' + quote(next_path, safe='') if safe_next else ''
+    url = f'{settings.STRATINO_PUBLIC_URL}/account/verify{return_query}#token={quote(token, safe="")}'
     _deliver_auth_email(
         'تأیید نشانی ایمیل استراتینو',
         f'برای تأیید نشانی ایمیل خود این پیوند را باز کنید:\n\n{url}\n\n'
@@ -183,6 +186,7 @@ def session_view(request):
                 'id': str(user.pk),
                 'name': user.display_name or user.get_full_name() or user.email,
                 'is_staff': bool(user.is_staff),
+                'profile_required': bool(user.requires_profile_completion),
             },
             'workspaces': workspace_session_payload(user),
         }
@@ -213,11 +217,11 @@ def signup(request):
     if user is None:
         try:
             with transaction.atomic():
-                user = User.objects.create_user(email=email, password=password, is_active=False)
+                user = User.objects.create_user(email=email, password=password, is_active=False, requires_profile_completion=True)
         except IntegrityError:
             user = User.objects.filter(email__iexact=email).first()
     if user and not user.is_active and user.email_verified_at is None:
-        _send_verification(user)
+        _send_verification(user, body.get('next'))
     return _response({'message': GENERIC_DELIVERY_MESSAGE}, status=202)
 
 
@@ -282,7 +286,7 @@ def resend_verification(request):
         email_verified_at__isnull=True,
     ).first()
     if user:
-        _send_verification(user)
+        _send_verification(user, body.get('next'))
     return _response({'message': GENERIC_DELIVERY_MESSAGE}, status=202)
 
 
@@ -303,6 +307,7 @@ def login_view(request):
     user = authenticate(request, username=email, password=password)
     if user is None or not user.email_verified_at:
         return _error(INVALID_LOGIN_MESSAGE, 401, 'invalid_credentials')
+    require_profile_on_login(user)
     login(request, user)
     return _response({'authenticated': True})
 

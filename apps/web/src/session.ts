@@ -1,6 +1,6 @@
 export type Session = {
   authenticated: true;
-  user: { id: string; name: string; is_staff: boolean };
+  user: { id: string; name: string; is_staff: boolean; profile_required?: boolean };
   workspaces: Array<{ id: string; name: string; role: 'owner' | 'editor' | 'viewer' }>;
 };
 export async function readSession(signal?: AbortSignal): Promise<Session | null> {

@@ -58,7 +58,12 @@ function errorFields(value: unknown): ApiFields {
 
 function errorMessage(response: Response, body: unknown) {
   const record = body && typeof body === 'object' ? (body as Record<string, unknown>) : {};
-  if (response.status === 403 && record.code !== 'workspace_permission_denied') {
+  if (
+    response.status === 403 &&
+    record.code !== 'workspace_permission_denied' &&
+    record.code !== 'profile_incomplete' &&
+    record.code !== 'account_unavailable'
+  ) {
     return 'درخواست امنیتی تأیید نشد. صفحه را تازه کنید و دوباره تلاش کنید.';
   }
   return typeof record.message === 'string'

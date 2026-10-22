@@ -31,6 +31,11 @@ class User(AbstractUser):
     email_verification_nonce = models.UUIDField(default=uuid.uuid4, editable=False)
     display_name = models.CharField(max_length=80, blank=True, default='')
     role_title = models.CharField(max_length=80, blank=True, default='')
+    phone_number = models.CharField(max_length=16, blank=True, default='')
+    phone_verified_at = models.DateTimeField(null=True, blank=True)
+    profile_completed_at = models.DateTimeField(null=True, blank=True)
+    requires_profile_completion = models.BooleanField(default=False)
+    marketing_consent_at = models.DateTimeField(null=True, blank=True)
     pending_email = models.EmailField(blank=True, default='')
     email_change_nonce = models.UUIDField(default=uuid.uuid4, editable=False)
     objects = UserManager()
@@ -47,6 +52,20 @@ class AuthRateLimit(models.Model):
     bucket_hash = models.CharField(max_length=64, primary_key=True)
     window_started_at = models.DateTimeField()
     attempts = models.PositiveIntegerField(default=0)
+
+
+class GoogleIdentity(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='google_identity')
+    subject = models.CharField(max_length=255, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class GoogleLoginChallenge(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    nonce_hash = models.CharField(max_length=64)
+    binding_hash = models.CharField(max_length=64)
+    expires_at = models.DateTimeField(db_index=True)
+    used_at = models.DateTimeField(null=True, blank=True)
 
 
 class AccountPreferences(models.Model):

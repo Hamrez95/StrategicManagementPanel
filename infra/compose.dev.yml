@@ -27,6 +27,7 @@ services:
     build: ../apps/api
     environment:
       STRATINO_ENV: development
+      GOOGLE_OAUTH_CLIENT_ID: ${GOOGLE_OAUTH_CLIENT_ID:-}
       STRATINO_ACADEMY_ROOT: /app/academy-content
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set a local session secret}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a local database password}

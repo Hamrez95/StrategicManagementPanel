@@ -98,7 +98,7 @@ function RouteFocus() {
   return null;
 }
 function SessionBoundary({ operator = false }: { operator?: boolean }) {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const activeWorkspace = useMatch('/app/workspaces/:workspaceId/*')?.params.workspaceId ?? '';
@@ -135,6 +135,13 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     );
   if (!query.data)
     return <Navigate to={'/account/login?next=' + encodeURIComponent(pathname)} replace />;
+  if (query.data.user.profile_required)
+    return (
+      <Navigate
+        to={'/account/complete-profile?next=' + encodeURIComponent(pathname + search)}
+        replace
+      />
+    );
   if (operator && !query.data.user.is_staff)
     return (
       <Notice title="دسترسی ندارید">

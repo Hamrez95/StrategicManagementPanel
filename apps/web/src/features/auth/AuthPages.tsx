@@ -7,8 +7,10 @@ import { Button, Input } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth, type AuthFields } from './api';
 import { BoardIllustration, Mark } from '../experience/ExperienceUI';
 import { localExperienceEnabled, loadSpaces, loginLocal, TEST_EMAIL } from '../experience/local';
+import { GoogleSignIn } from './GoogleSignIn';
+import { destinationAfterLogin, authReturnQuery } from './authNavigation';
 
-function AuthFrame({
+export function AuthFrame({
   title,
   description,
   children,
@@ -184,6 +186,7 @@ export function LoginPage() {
         return;
       }
       await postAuth('/api/v1/accounts/login/', { email, password });
+      queryClient.clear();
       const session = await queryClient.fetchQuery({
         queryKey: queryKeys.session,
         queryFn: () => readSession(),
@@ -192,12 +195,7 @@ export function LoginPage() {
         throw new Error('ورود انجام شد، اما نشست حساب تأیید نشد. دوباره تلاش کنید.');
       }
       const next = new URLSearchParams(location.search).get('next');
-      const safeNext = isSafeInternalDestination(next)
-        ? next
-        : session.workspaces.length > 0
-          ? '/app/workspaces'
-          : '/app/start';
-      navigate(safeNext, { replace: true });
+      navigate(destinationAfterLogin(session, next), { replace: true });
     } catch (error) {
       errors.capture(error, 'ورود انجام نشد. اطلاعات را بررسی و دوباره تلاش کنید.');
     } finally {
@@ -208,9 +206,10 @@ export function LoginPage() {
   return (
     <AuthFrame
       title="ورود به حساب"
-      description="با ایمیل تأییدشده وارد فضای کار خود شوید."
+      description="با گوگل یا ایمیلت وارد شو و از همون‌جایی که بودی ادامه بده."
       step="account"
     >
+      <GoogleSignIn />
       <form className="auth-form" onSubmit={submit} noValidate>
         <EmailField
           email={email}
@@ -244,7 +243,7 @@ export function LoginPage() {
           ورود به فضای کار
         </Button>
         <p className="auth-switch">
-          حساب ندارید؟ <Link to="/account/signup">ثبت‌نام کنید</Link>
+          حساب نداری؟ <Link to={`/account/signup${location.search}`}>حساب بساز</Link>
         </p>
       </form>
       {localExperienceEnabled() && (
@@ -271,17 +270,10 @@ export function LoginPage() {
   );
 }
 
-function isSafeInternalDestination(next: string | null): next is string {
-  if (!next?.startsWith('/') || next.startsWith('//') || next.includes('\\')) return false;
-  try {
-    return new URL(next, window.location.origin).origin === window.location.origin;
-  } catch {
-    return false;
-  }
-}
-
 export function SignupPage() {
-  const [email, setEmail] = useState('');
+  const location = useLocation();
+  const initialEmail = (location.state as { email?: string } | null)?.email;
+  const [email, setEmail] = useState(initialEmail ?? '');
   const [password, setPassword] = useState('');
   const [confirmation, setConfirmation] = useState('');
   const [pending, setPending] = useState(false);
@@ -301,8 +293,15 @@ export function SignupPage() {
     }
     setPending(true);
     try {
-      await postAuth('/api/v1/accounts/signup/', { email, password });
-      navigate('/account/verify', { replace: true, state: { email, sent: true } });
+      await postAuth('/api/v1/accounts/signup/', {
+        email,
+        password,
+        next: new URLSearchParams(location.search).get('next'),
+      });
+      navigate(`/account/verify${location.search}`, {
+        replace: true,
+        state: { email, sent: true },
+      });
     } catch (error) {
       errors.capture(error, 'ثبت‌نام انجام نشد. اطلاعات را بررسی و دوباره تلاش کنید.');
     } finally {
@@ -313,9 +312,10 @@ export function SignupPage() {
   return (
     <AuthFrame
       title="ساخت حساب"
-      description="برای شروع فقط ایمیل و یک گذرواژه امن لازم است."
+      description="با گوگل سریع‌تر شروع کن؛ یا با ایمیل حساب بساز. بعدش مشخصاتت رو کامل می‌کنیم."
       step="account"
     >
+      <GoogleSignIn />
       <form className="auth-form" onSubmit={submit} noValidate>
         <EmailField
           email={email}
@@ -359,7 +359,7 @@ export function SignupPage() {
           ساخت حساب و ارسال پیوند تأیید
         </Button>
         <p className="auth-switch">
-          قبلاً ثبت‌نام کرده‌اید؟ <Link to="/account/login">وارد شوید</Link>
+          قبلاً حساب ساختی؟ <Link to={`/account/login${location.search}`}>وارد شو</Link>
         </p>
       </form>
     </AuthFrame>
@@ -404,7 +404,7 @@ export function VerifyEmailPage() {
     try {
       const response = await postAuth<{ message: string }>(
         '/api/v1/accounts/resend-verification/',
-        { email },
+        { email, next: new URLSearchParams(location.search).get('next') },
       );
       errors.setMessage(response.message);
       errors.setFailed(false);
@@ -426,7 +426,10 @@ export function VerifyEmailPage() {
       {result === 'verified' ? (
         <div className="auth-form">
           <FormMessage>نشانی ایمیل تأیید شد. حالا می‌توانید وارد شوید.</FormMessage>
-          <Link className="ui-button ui-button--primary auth-submit" to="/account/login">
+          <Link
+            className="ui-button ui-button--primary auth-submit"
+            to={`/account/login${authReturnQuery(location.search)}`}
+          >
             ورود به حساب
           </Link>
         </div>

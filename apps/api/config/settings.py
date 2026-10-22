@@ -22,8 +22,10 @@ elif not SECRET_KEY:
 
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.customer_context', 'modules.evidence', 'modules.metrics', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.exports', 'modules.core']
 INSTALLED_APPS += ['modules.academy']
+GOOGLE_OAUTH_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID', '').strip()
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'modules.core.middleware.PrivateResponseMiddleware']
 ROOT_URLCONF = 'config.urls'
+MIDDLEWARE.insert(MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1, 'modules.accounts.profile_completion.ProfileCompletionMiddleware')
 WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'

@@ -1,4 +1,5 @@
 from django.urls import include, path
+from modules.accounts.google_auth import google_config, google_challenge, google_login, google_link, completion_details, complete_profile
 from modules.accounts.auth_views import (
     account_preferences,
     account_profile,
@@ -43,6 +44,12 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('api/v1/accounts/google/config/', google_config),
+    path('api/v1/accounts/google/challenge/', google_challenge),
+    path('api/v1/accounts/google/login/', google_login),
+    path('api/v1/accounts/google/link/', google_link),
+    path('api/v1/account/completion/', completion_details),
+    path('api/v1/account/complete-profile/', complete_profile),
     path('api/v1/academy/', include('modules.academy.urls')),
     path('api/v1/health/live', live),
     path('api/v1/health/ready', ready),
