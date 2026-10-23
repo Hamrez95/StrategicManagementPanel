@@ -1,4 +1,7 @@
 from django.urls import include, path
+from django.contrib import admin
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from modules.accounts.google_auth import google_config, google_challenge, google_login, google_link, completion_details, complete_profile
 from modules.accounts.auth_views import (
     account_preferences,
@@ -44,6 +47,7 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('internal/django-admin/', admin.site.urls),
     path('api/v1/accounts/google/config/', google_config),
     path('api/v1/accounts/google/challenge/', google_challenge),
     path('api/v1/accounts/google/login/', google_login),
@@ -91,3 +95,5 @@ urlpatterns = [
     path('api/v1/account/email-change/', email_change_request),
     path('api/v1/account/email-change/confirm/', email_change_confirm),
 ]
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()

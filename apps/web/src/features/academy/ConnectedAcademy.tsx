@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   Link,
+  Navigate,
   NavLink,
   Route,
   Routes,
@@ -11,12 +12,16 @@ import {
 import { useQuery } from '@tanstack/react-query';
 import { Brand, Button, useUIAppearance } from '@stratino/ui';
 import { ApiError } from '../../api/client';
-import { applyAccountPreferences, readDevicePreferences } from '../account/api';
 import { AcademyIcon } from './AcademyIcons';
 import type { AcademyIconName } from './AcademyIcons';
 import { AcademyMascot } from './AcademyMascot';
 import { CourseBadge, CourseHero } from './CourseHero';
 import { AcademyTopics } from './AcademyTopics';
+import { AcademyPurchaseDock } from './AcademyAccess';
+import { AcademyMediaContext } from './ContentCard';
+import { AcademySubscriptions } from './AcademySubscriptions';
+import { AcademyThemeToggle } from './AcademyThemeToggle';
+import subscriptionCrown from '../../assets/academy/subscription-crown.svg';
 import { LearningPlayer } from './LearningPlayer';
 import type { LearningActions } from './LearningPlayer';
 import { academyCopy as copy } from './academyMessages';
@@ -26,6 +31,7 @@ import './academy.css';
 import './connectedAcademy.css';
 import './courseHero.css';
 import './academyTopics.css';
+import './academyAccess.css';
 
 const fresh = (unit: Unit): Progress => ({
   unit_id: unit.id,
@@ -51,7 +57,11 @@ function previewCompletion(unit: Unit, row: Progress): Progress {
     (unit.practice_activity.type === 'numeric'
       ? row.activity_response.result?.correct === true
       : Boolean(row.activity_response.answer));
-  return { ...row, completed: row.completed || (viewed && answered && practiced) };
+  return {
+    ...row,
+    completed:
+      row.completed || (unit.access?.hasFullAccess === true && viewed && answered && practiced),
+  };
 }
 const courseFor = (catalog: Catalog, id: string) =>
   catalog.courses.find(
@@ -64,8 +74,9 @@ const courseFor = (catalog: Catalog, id: string) =>
 function UnitPage({ catalog, learning }: { catalog: Catalog; learning: LearningActions }) {
   const { unitId = '' } = useParams();
   const query = useQuery({
-    queryKey: ['academy-content', catalog.version, unitId],
+    queryKey: ['academy-content', catalog.version, learning.userId, unitId],
     queryFn: ({ signal }) => loadContent<Unit>(unitId, signal),
+    refetchInterval: 60000,
   });
   if (query.isPending)
     return (
@@ -83,13 +94,22 @@ function UnitPage({ catalog, learning }: { catalog: Catalog; learning: LearningA
       </section>
     );
   const course = catalog.courses.find((item) => item.id === query.data.course_id);
+  if (!query.data.access?.hasAccess)
+    return (
+      <Navigate
+        to={`/academy?course=${encodeURIComponent(query.data.course_id)}&locked=${encodeURIComponent(unitId)}`}
+        replace
+      />
+    );
   return course ? (
-    <LearningPlayer
-      key={`${learning.userId}:${unitId}`}
-      unit={query.data}
-      course={course}
-      learning={learning}
-    />
+    <AcademyMediaContext.Provider value={unitId}>
+      <LearningPlayer
+        key={`${learning.userId}:${unitId}`}
+        unit={query.data}
+        course={course}
+        learning={learning}
+      />
+    </AcademyMediaContext.Provider>
   ) : (
     <p>این درس پیدا نشد.</p>
   );
@@ -97,6 +117,7 @@ function UnitPage({ catalog, learning }: { catalog: Catalog; learning: LearningA
 
 function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActions }) {
   const [params, setParams] = useSearchParams();
+  const [lockedSelection, setLockedSelection] = useState<string | null>(null);
   const last = Object.keys(learning.progress).at(-1);
   const selected =
     catalog.courses.find((c) => c.id === params.get('course')) ??
@@ -107,6 +128,11 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
   const ids = lessonIds(selected);
   const done = ids.filter((id) => learning.progress[id]?.completed).length;
   const next = ids.find((id) => !learning.progress[id]?.completed) ?? ids[0];
+  const lockedId = lockedSelection ?? params.get('locked');
+  function selectLocked(event: React.MouseEvent<HTMLAnchorElement>, id: string) {
+    event.preventDefault();
+    setLockedSelection(id);
+  }
   return (
     <div className="academy-layout learning-layout">
       <aside className="academy-topics academy-topics--visual">
@@ -114,6 +140,7 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
           paths={catalog.paths}
           selected={path.id}
           onSelect={(item) => {
+            setLockedSelection(null);
             setParams({ course: item.recommended_order?.[0] ?? item.course_ids[0] });
           }}
         />
@@ -121,7 +148,10 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
           درس این حوزه
           <select
             value={selected.id}
-            onChange={(event) => setParams({ course: event.target.value })}
+            onChange={(event) => {
+              setLockedSelection(null);
+              setParams({ course: event.target.value });
+            }}
           >
             {catalog.courses
               .filter((course) => course.path_id === path.id)
@@ -144,7 +174,18 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
           <span>
             {faNumber(done)} از {faNumber(ids.length)} درس‌نامه تمرین شده
           </span>
-          <Link className="ui-button ui-button--primary" to={`/academy/lesson/${next}`}>
+          <Link
+            className="ui-button ui-button--primary"
+            to={`/academy/lesson/${next}`}
+            onClick={(event) => {
+              if (
+                !selected.stages
+                  .flatMap((stage) => stage.lessons)
+                  .find((lesson) => lesson.id === next)?.access?.hasAccess
+              )
+                selectLocked(event, next);
+            }}
+          >
             {done ? 'ادامهٔ یادگیری' : 'شروع یادگیری'}
           </Link>
         </div>
@@ -158,28 +199,39 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
               {stage.lessons.map((lesson, index) => (
                 <li
                   key={lesson.id}
-                  className={`academy-node academy-node--${learning.progress[lesson.id]?.completed ? 'completed' : next === lesson.id ? 'available' : 'ready'}`}
+                  className={`academy-node academy-node--${!lesson.access?.hasAccess ? 'locked' : learning.progress[lesson.id]?.completed ? 'completed' : next === lesson.id ? 'available' : 'ready'}`}
                 >
                   <div className="academy-node-control">
                     <Link
-                      className="academy-node-disc"
+                      className={`academy-node-disc${lockedId === lesson.id ? ' academy-node-disc--selected-lock' : ''}`}
                       to={`/academy/lesson/${lesson.id}`}
-                      aria-label={lesson.title}
+                      aria-label={`${lesson.title}${!lesson.access?.hasAccess ? '، با اشتراک باز می‌شه' : ''}`}
+                      onClick={(event) => {
+                        if (!lesson.access?.hasAccess) selectLocked(event, lesson.id);
+                      }}
                       aria-current={next === lesson.id ? 'step' : undefined}
                     >
                       <AcademyIcon
-                        name={learning.progress[lesson.id]?.completed ? 'check' : 'star'}
+                        name={
+                          !lesson.access?.hasAccess
+                            ? 'lock'
+                            : learning.progress[lesson.id]?.completed
+                              ? 'check'
+                              : 'star'
+                        }
                       />
                     </Link>
                     <div>
                       <span className="academy-node-index">درس‌نامهٔ {faNumber(index + 1)}</span>
                       <strong>{lesson.title}</strong>
                       <small>
-                        {learning.progress[lesson.id]?.completed
-                          ? 'تمرین شده'
-                          : lesson.id === next
-                            ? 'قدم پیشنهادی بعدی'
-                            : 'آمادهٔ شروع'}
+                        {!lesson.access?.hasAccess
+                          ? 'با اشتراک باز می‌شه'
+                          : learning.progress[lesson.id]?.completed
+                            ? 'تمرین شده'
+                            : lesson.id === next
+                              ? 'قدم پیشنهادی بعدی'
+                              : 'آمادهٔ شروع'}
                       </small>
                     </div>
                   </div>
@@ -188,10 +240,13 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
             </ol>
             {stage.review_id && (
               <Link
-                className={`learning-review-node${learning.progress[stage.review_id]?.completed ? ' learning-review-node--completed' : ''}`}
+                className={`learning-review-node${!stage.review_access?.hasAccess ? ' academy-content-locked' : learning.progress[stage.review_id]?.completed ? ' learning-review-node--completed' : ''}`}
                 to={`/academy/review/${stage.review_id}`}
+                onClick={(event) => {
+                  if (!stage.review_access?.hasAccess) selectLocked(event, stage.review_id!);
+                }}
               >
-                <AcademyIcon name="target" />
+                <AcademyIcon name={stage.review_access?.hasAccess ? 'target' : 'lock'} />
                 {learning.progress[stage.review_id]?.completed
                   ? 'مرور مرحله انجام شد'
                   : 'مرور این مرحله'}
@@ -201,14 +256,32 @@ function Path({ catalog, learning }: { catalog: Catalog; learning: LearningActio
         ))}
         {selected.final_review_id && (
           <Link
-            className={`learning-final-node${learning.progress[selected.final_review_id]?.completed ? ' learning-review-node--completed' : ''}`}
+            className={`learning-final-node${!selected.final_review_access?.hasAccess ? ' academy-content-locked' : learning.progress[selected.final_review_id]?.completed ? ' learning-review-node--completed' : ''}`}
             to={`/academy/review/${selected.final_review_id}`}
+            onClick={(event) => {
+              if (!selected.final_review_access?.hasAccess)
+                selectLocked(event, selected.final_review_id!);
+            }}
           >
-            <AcademyIcon name="trophy" />
+            <AcademyIcon name={selected.final_review_access?.hasAccess ? 'trophy' : 'lock'} />
             مرور پایانی {selected.title}
           </Link>
         )}
       </section>
+      {lockedId && !selected.access?.hasFullAccess && (
+        <AcademyPurchaseDock
+          courseId={selected.id}
+          label="این بخش با اشتراک باز می‌شه"
+          onDismiss={() => {
+            setLockedSelection(null);
+            if (params.has('locked')) {
+              const nextParams = new URLSearchParams(params);
+              nextParams.delete('locked');
+              setParams(nextParams, { replace: true });
+            }
+          }}
+        />
+      )}
       <aside className="academy-companion">
         <AcademyMascot mood="welcome" />
         <h2>هر قدم، یک فرصت برای تمرین</h2>
@@ -274,10 +347,16 @@ function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: Learni
                 return (
                   <Link
                     to={`/academy?course=${course.id}`}
-                    className="learning-course-card catalog-course-card"
+                    className={`learning-course-card catalog-course-card${course.access?.hasAccess ? '' : ' academy-content-locked'}`}
                     key={course.id}
                   >
                     <CourseBadge courseId={course.id} />
+                    {!course.access?.hasFullAccess && (
+                      <span className="academy-access-label">
+                        <AcademyIcon name={course.access?.hasAccess ? 'book' : 'lock'} />
+                        {course.access?.hasAccess ? 'نمونهٔ رایگان' : 'با اشتراک'}
+                      </span>
+                    )}
                     <h3>{course.title}</h3>
                     <p>
                       {faNumber(ids.length)} درس‌نامه · {faNumber(course.stages.length)} مرحله
@@ -373,8 +452,8 @@ function GuidePage({ catalog }: { catalog: Catalog }) {
           درس‌نامه‌ست.
         </li>
         <li>
-          کارت‌ها رو کامل بخون؛ مثال، جدول و تصویر کنار مفهوم خودش قرار داره. تصویر عریض رو داخل
-          قابش به طرفین حرکت بده.
+          کارت‌ها رو کامل بخون؛ مثال، جدول و تصویر کنار مفهوم خودش قرار داره. برای دیدن جزئیات
+          تصویر، اون رو باز کن و با دو انگشت بزرگش کن.
         </li>
         <li>
           جوابت رو ثبت کن تا بازخورد و راه‌حل رو ببینی. در فعالیت عددی، واحد خواسته‌شده رو رعایت کن.
@@ -388,9 +467,18 @@ function GuidePage({ catalog }: { catalog: Catalog }) {
         </li>
         <li>
           با ورود به حسابت، پیشرفت، پاسخ ثبت‌شده، درس‌های انتخاب‌شده برای بعد و یادداشت‌هات در حساب
-          خودت ذخیره می‌شن. ترتیب پیشنهادی درس‌ها جلوی دسترسی مستقیم رو نمی‌گیره.
+          خودت ذخیره می‌شن. ترتیب پیشنهادی، محتوای اشتراکت رو قفل نمی‌کنه.
         </li>
       </ol>
+      <h2>نمونه‌های رایگان و اشتراک</h2>
+      <p>
+        چند کارت اول درس‌نامه‌های عمومی و یک درس منتخب گرایش‌ها برای همه بازه. برای ادامهٔ آموزش،
+        تمرین‌ها و مرورها، اشتراک عمومی، گرایش‌های دلخواه یا اشتراک کامل رو انتخاب کن. بخش‌های
+        قفل‌شده با رنگ خنثی و نشان قفل مشخصن.
+      </p>
+      <Link className="text-link" to="/academy/subscriptions">
+        دیدن اشتراک‌های آکادمی
+      </Link>
       <h2>وضعیت علمی این نسخه</h2>
       <p>{copy.draft}</p>
       <p>
@@ -407,13 +495,15 @@ function GuidePage({ catalog }: { catalog: Catalog }) {
 }
 
 export default function ConnectedAcademy() {
-  const catalog = useQuery({
-    queryKey: ['academy-catalog'],
-    queryFn: ({ signal }) => loadContent<Catalog>('catalog', signal),
-  });
   const [state, setState] = useState<LearningState>({ user_id: '', units: {} });
-  const stateRef = useRef(state);
   const [status, setStatus] = useState<'loading' | 'guest' | 'ready' | 'error'>('loading');
+  const catalog = useQuery({
+    queryKey: ['academy-catalog', state.user_id],
+    queryFn: ({ signal }) => loadContent<Catalog>('catalog', signal),
+    refetchInterval: 60000,
+    enabled: status !== 'loading',
+  });
+  const stateRef = useRef(state);
   const [warning, setWarning] = useState('');
   const { dir } = useUIAppearance();
   const location = useLocation();
@@ -544,19 +634,17 @@ export default function ConnectedAcademy() {
         </Link>
         <span>یاد بگیر. تمرین کن. تصمیم بگیر.</span>
         <nav aria-label="ناوبری آموزش">
-          <Button
-            variant="quiet"
-            onClick={() =>
-              applyAccountPreferences({
-                ...readDevicePreferences(),
-                theme: document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark',
-              })
-            }
+          <AcademyThemeToggle />
+          <Link
+            className="academy-account-link academy-subscription-link"
+            to="/academy/subscriptions"
+            aria-label="اشتراک‌های من"
+            title="اشتراک‌های من"
           >
-            تغییر تم
-          </Button>
-          <Link className="academy-account-link" to="/app/account#subscription">
-            حساب و اشتراک‌ها
+            <span className="academy-subscription-badge" aria-hidden="true">
+              <img src={subscriptionCrown} width="22" height="22" alt="" />
+            </span>
+            <span className="academy-subscription-label">اشتراک‌های من</span>
           </Link>
           <Link to="/">بازگشت به استراتینو</Link>
         </nav>
@@ -615,6 +703,10 @@ export default function ConnectedAcademy() {
             element={<ReviewPage catalog={catalog.data} learning={learning} />}
           />
           <Route path="guide" element={<GuidePage catalog={catalog.data} />} />
+          <Route
+            path="subscriptions"
+            element={<AcademySubscriptions authenticated={learning.authenticated} />}
+          />
           <Route
             path="lesson/:unitId"
             element={<UnitPage catalog={catalog.data} learning={learning} />}

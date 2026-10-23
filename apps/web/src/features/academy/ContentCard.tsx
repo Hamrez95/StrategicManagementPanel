@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { LearningImage } from './LearningImage';
 import type { Card, Media, ReferenceVisual, Unit } from './connectedData';
 
@@ -22,13 +22,16 @@ export function ContentText({ text }: { text: string }) {
     </>
   );
 }
-const mediaUrl = (ref: string) => `/academy-content/media/${ref.split('/').at(-1)}`;
+export const AcademyMediaContext = createContext('');
+const mediaUrl = (unitId: string, ref: string) =>
+  `/api/v1/academy/media/${encodeURIComponent(unitId)}/${encodeURIComponent(ref.split('/').at(-1) ?? '')}/`;
 export function LearningMedia({ asset }: { asset: Media }) {
+  const unitId = useContext(AcademyMediaContext);
   return (
     <figure className="learning-media">
       <LearningImage
-        src={mediaUrl(asset.asset_ref)}
-        mobileSrc={asset.mobile_asset_ref ? mediaUrl(asset.mobile_asset_ref) : undefined}
+        src={mediaUrl(unitId, asset.asset_ref)}
+        mobileSrc={asset.mobile_asset_ref ? mediaUrl(unitId, asset.mobile_asset_ref) : undefined}
         alt={asset.alt_text ?? 'تصویر آموزشی'}
       />
       {asset.caption && (
@@ -53,6 +56,7 @@ export function LearningMedia({ asset }: { asset: Media }) {
   );
 }
 function ReferenceFigure({ visual }: { visual: ReferenceVisual }) {
+  const unitId = useContext(AcademyMediaContext);
   return (
     <section className="learning-reference" aria-label={`شکل مرجع: ${visual.title}`}>
       <p className="learning-reference-kind">
@@ -97,7 +101,7 @@ function ReferenceFigure({ visual }: { visual: ReferenceVisual }) {
             </a>
           )}
           {visual.download_ref && (
-            <a href={mediaUrl(visual.download_ref)} target="_blank" rel="noreferrer">
+            <a href={mediaUrl(unitId, visual.download_ref)} target="_blank" rel="noreferrer">
               فایل اصلی PDF
             </a>
           )}

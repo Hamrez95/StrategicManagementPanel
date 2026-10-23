@@ -13,6 +13,7 @@ import {
 import { academyCopy as copy } from './academyMessages';
 import { faNumber } from './connectedData';
 import { LessonFeedback } from './LessonFeedback';
+import { AcademyAccessGate } from './AcademyAccess';
 import type { Course, Progress, Question, Result, Unit } from './connectedData';
 
 export type LearningActions = {
@@ -381,7 +382,17 @@ export function LearningPlayer({
           )}
         </div>
       </div>
-      <progress aria-label="پیشرفت این بخش" max={lastStep} value={step} />
+      {!unit.access?.hasFullAccess && (
+        <p className="academy-access-label">
+          نمونهٔ رایگان · {faNumber(cards)} از {faNumber(unit.access?.total_cards ?? cards)} کارت
+          آموزشی
+        </p>
+      )}
+      <progress
+        aria-label={unit.access?.hasFullAccess ? 'پیشرفت این بخش' : 'پیشرفت نمونهٔ رایگان'}
+        max={lastStep}
+        value={step}
+      />
       {bookmarkMessage && (
         <div className="academy-toast" role="status">
           {bookmarkMessage}
@@ -419,6 +430,8 @@ export function LearningPlayer({
       )}
       {card ? (
         <ContentCard key={card.id} card={card} unit={unit} />
+      ) : !unit.access?.hasFullAccess ? (
+        <AcademyAccessGate title={unit.title} sample courseId={unit.course_id} />
       ) : step < lastStep ? (
         <Assessment
           onEditing={setActivityDirty}

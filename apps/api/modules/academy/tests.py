@@ -35,8 +35,12 @@ class ContentContractTests(SimpleTestCase):
 
 class AccountLearningTests(TestCase):
     def setUp(self):
+        from .testing import general_fixture, full_grant
+        general_fixture()
         self.a = get_user_model().objects.create_user('academy-a@stratino.invalid')
         self.b = get_user_model().objects.create_user('academy-b@stratino.invalid')
+        full_grant(self.a)
+        full_grant(self.b)
         self.client = APIClient()
         self.unit = units()['C01-ST01-L01']
         self.url = '/api/v1/academy/units/C01-ST01-L01/'

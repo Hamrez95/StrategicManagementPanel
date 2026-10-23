@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 const read = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const manifest = await read('docs/learning-design/handoff/manifest.json');
-const catalog = await read('apps/web/public/academy-content/catalog.json');
+const catalog = await read('apps/api/academy-projections/catalog.json');
 const references = await read(manifest.reference_visuals.path);
 assert.deepEqual(
   catalog.courses.map((c) => c.id),
@@ -27,7 +27,7 @@ function noKeys(value) {
 async function unit(source, kind) {
   assert(!seen.has(source.id), `Duplicate unit: ${source.id}`);
   seen.add(source.id);
-  const projection = await read(`apps/web/public/academy-content/${source.id}.json`);
+  const projection = await read(`apps/api/academy-projections/${source.id}.json`);
   noKeys(projection);
   assert.equal(projection.kind, kind);
   assert.deepEqual(
@@ -66,7 +66,7 @@ async function unit(source, kind) {
         assert(visual.license && visual.license_url && visual.changes);
         const name = visual.asset_ref.split('/').at(-1);
         assert.deepEqual(
-          await readFile(`apps/web/public/academy-content/media/${name}`),
+          await readFile(`apps/api/academy-projections/media/${name}`),
           await readFile(`docs/learning-design/content/media/${name}`),
         );
       }
@@ -100,13 +100,15 @@ for (const ref of manifest.courses) {
     await unit(course.final_assessment, 'final_review');
 }
 for (const media of manifest.media)
-  await access(`apps/web/public/academy-content/media/${media.path.split('/').at(-1)}`);
+  await access(`apps/api/academy-projections/media/${media.path.split('/').at(-1)}`);
 for (const font of manifest.typography)
   assert.deepEqual(
     await readFile(`apps/web/public/${font.path.slice('public/'.length)}`),
     await readFile(font.path),
   );
 assert.deepEqual([lessons, cards, reviews, questions], [592, 5958, 191, 4549]);
+await assert.rejects(access('apps/web/public/academy-content/catalog.json'), { code: 'ENOENT' });
+await assert.rejects(access('dist/academy-content/catalog.json'), { code: 'ENOENT' });
 console.log(
-  `Full projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} unchanged cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} media assets, ${references.placements.length} reference placements. No assessment keys in public JSON.`,
+  `Private projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} unchanged cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} media assets, ${references.placements.length} reference placements. No assessment keys; no public teaching JSON.`,
 );

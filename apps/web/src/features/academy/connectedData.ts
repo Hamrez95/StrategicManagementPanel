@@ -1,6 +1,19 @@
 import { requestApi } from '../../api/client';
 
-export type LessonLink = { id: string; title: string; objective: string; free_sample: boolean };
+export type Access = {
+  hasAccess: boolean;
+  hasFullAccess: boolean;
+  accessLevel?: 'full' | 'sample' | 'locked';
+  allowed_card_ids?: string[];
+  total_cards?: number;
+};
+export type LessonLink = {
+  id: string;
+  title: string;
+  objective: string;
+  free_sample: boolean;
+  access?: Access;
+};
 export type Stage = {
   id: string;
   title: string;
@@ -8,6 +21,7 @@ export type Stage = {
   color_token: string;
   lessons: LessonLink[];
   review_id?: string;
+  review_access?: Access;
 };
 export type Course = {
   id: string;
@@ -18,10 +32,18 @@ export type Course = {
   stages: Stage[];
   final_review_id?: string;
   recommended_prerequisites?: string;
+  access?: Access;
+  final_review_access?: Access;
 };
 export type Catalog = {
   version: string;
-  paths: { id: string; title: string; course_ids: string[]; recommended_order?: string[] }[];
+  paths: {
+    id: string;
+    title: string;
+    course_ids: string[];
+    recommended_order?: string[];
+    access?: Access;
+  }[];
   courses: Course[];
   counts: Record<string, number>;
   production_ready: boolean;
@@ -73,6 +95,7 @@ export type ReferenceVisual = {
   card_id: string;
 };
 export type Unit = {
+  access?: Access;
   reference_visuals?: ReferenceVisual[];
   reference_visual_revision?: string;
   glossary?: { term: string; definition: string }[];
@@ -136,10 +159,10 @@ export type Progress = {
 export type LearningState = { user_id: string; units: Record<string, Progress> };
 export async function loadContent<T>(id: string, signal?: AbortSignal): Promise<T> {
   if (!/^[a-zA-Z0-9-]+$/.test(id)) throw new Error('این بخش پیدا نشد.');
-  const response = await fetch(`/academy-content/${id}.json`, { signal });
-  if (!response.ok || !response.headers.get('content-type')?.includes('json'))
-    throw new Error('محتوا باز نشد؛ دوباره تلاش کن.');
-  return response.json() as Promise<T>;
+  return requestApi<T>(
+    id === 'catalog' ? '/api/v1/academy/catalog/' : `/api/v1/academy/content/${id}/`,
+    { signal },
+  );
 }
 export const learningState = () => requestApi<LearningState>('/api/v1/academy/state/');
 export const saveProgress = (

@@ -115,7 +115,7 @@ export function AcademyTopics({
               <button
                 type="button"
                 key={item.id}
-                className="topic-tile"
+                className={`topic-tile${item.access && !item.access.hasAccess ? ' topic-tile--locked' : ''}`}
                 aria-pressed={selected === item.id}
                 style={{ '--topic-color': art.color } as CSSProperties}
                 data-motion={art.motion}
@@ -137,6 +137,7 @@ export function AcademyTopics({
                   <span className="topic-tile-title">{item.title}</span>
                   <span className="topic-tile-meta">
                     {faNumber(item.course_ids.length)} مجموعهٔ آموزشی
+                    {item.access && !item.access.hasAccess ? ' · قفل' : ''}
                   </span>
                 </span>
                 <span className="topic-tile-selection" aria-hidden="true">

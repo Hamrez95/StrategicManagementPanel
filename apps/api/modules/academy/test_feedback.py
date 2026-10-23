@@ -9,6 +9,8 @@ from .models import LearningFeedback
 
 class LearningFeedbackTests(TestCase):
     def setUp(self):
+        from .testing import general_fixture, full_grant
+        general_fixture()
         cache.clear()
         self.client = APIClient()
         self.unit = units()['C01-ST01-L01']
@@ -17,6 +19,8 @@ class LearningFeedbackTests(TestCase):
         self.payload = dict(submission_id=str(uuid4()), expected_user_id='', content_revision=self.unit['revision'], target_kind='card', target_id=self.card['id'], category='correction', message='این بخش به توضیح روشن‌تری نیاز داره.')
         self.user = get_user_model().objects.create_user(email='feedback-reader@example.test')
         self.staff = get_user_model().objects.create_user(email='feedback-staff@example.test', is_staff=True)
+        full_grant(self.user)
+        full_grant(self.staff)
 
     def post(self, **overrides):
         return self.client.post(self.url, {**self.payload, **overrides}, format='json')
@@ -62,6 +66,8 @@ class LearningFeedbackTests(TestCase):
         self.assertEqual(self.client.get(inbox+'?status=reviewed').data['count'], 1)
 
     def test_question_activity_and_summary_paths(self):
+        self.client.force_authenticate(self.user)
+        self.payload['expected_user_id'] = str(self.user.pk)
         for kind, target, query in [('question', self.unit['questions'][0]['id'], f'question={self.unit["questions"][0]["id"]}'), ('activity', 'activity', 'step=activity'), ('summary', self.unit['id'], 'step=summary')]:
             response = self.post(submission_id=str(uuid4()), target_kind=kind, target_id=target)
             self.assertEqual(response.status_code, 201)

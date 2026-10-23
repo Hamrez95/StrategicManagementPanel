@@ -22,10 +22,15 @@ elif not SECRET_KEY:
 
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.customer_context', 'modules.evidence', 'modules.metrics', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.exports', 'modules.core']
 INSTALLED_APPS += ['modules.academy']
+INSTALLED_APPS += ['django.contrib.admin', 'django.contrib.messages', 'django.contrib.staticfiles']
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static-root'
+TEMPLATES = [{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages']}}]
 GOOGLE_OAUTH_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID', '').strip()
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'modules.core.middleware.PrivateResponseMiddleware']
 ROOT_URLCONF = 'config.urls'
 MIDDLEWARE.insert(MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1, 'modules.accounts.profile_completion.ProfileCompletionMiddleware')
+MIDDLEWARE.append('django.contrib.messages.middleware.MessageMiddleware')
 WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
@@ -64,7 +69,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 DATA_UPLOAD_MAX_MEMORY_SIZE = 6 * 1024 * 1024
 MEDIA_ROOT = Path(os.environ.get('STRATINO_PRIVATE_FILES', str(BASE_DIR / '.private-files')))
-STORAGES = {'default': {'BACKEND': 'modules.core.storage.PrivateFileStorage'}}
+STORAGES = {'default': {'BACKEND': 'modules.core.storage.PrivateFileStorage'}, 'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'}}
 DOCUMENT_ATTACHMENT_MAX_BYTES = int(os.environ.get('STRATINO_ATTACHMENT_MAX_BYTES', str(20 * 1024 * 1024)))
 DOCUMENT_WORKSPACE_QUOTA_BYTES = int(os.environ.get('STRATINO_WORKSPACE_FILE_QUOTA_BYTES', str(100 * 1024 * 1024)))
 DOCUMENT_ATTACHMENT_LIMIT = int(os.environ.get('STRATINO_DOCUMENT_ATTACHMENT_LIMIT', '20'))

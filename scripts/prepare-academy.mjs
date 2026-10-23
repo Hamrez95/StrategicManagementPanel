@@ -7,8 +7,12 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
 const manifest = await read('docs/learning-design/handoff/manifest.json');
 const catalog = await read('docs/learning-design/catalog.v1.json');
-const out = resolve(root, 'apps/web/public/academy-content');
-if (relative(resolve(root, 'apps/web/public'), out) !== 'academy-content')
+const publicOut = resolve(root, 'apps/web/public/academy-content');
+const out = resolve(root, 'apps/api/academy-projections');
+if (
+  relative(resolve(root, 'apps/web/public'), publicOut) !== 'academy-content' ||
+  relative(resolve(root, 'apps/api'), out) !== 'academy-projections'
+)
   throw new Error('Invalid output directory');
 for (const item of [
   ...manifest.courses,
@@ -65,6 +69,12 @@ for (const placement of references.placements) {
     throw new Error(`Invalid reference placement: ${id}`);
   placementIds.add(id);
 }
+await rm(publicOut, { recursive: true, force: true });
+// Remove earlier public build artifacts as well; premium content is API-only.
+const staleBuild = resolve(root, 'dist/academy-content');
+if (relative(resolve(root, 'dist'), staleBuild) !== 'academy-content')
+  throw new Error('Invalid stale output');
+await rm(staleBuild, { recursive: true, force: true });
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 const publicQuestion = (q) => ({
