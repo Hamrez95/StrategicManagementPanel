@@ -7,6 +7,7 @@ import { AuthApiError, firstFieldError, postAuth } from '../auth/api';
 import type { AuthFields } from '../auth/api';
 import type { Session } from '../../session';
 import AccountSubscriptionHub from './AccountSubscriptionHub';
+import { AccountAvatar, AvatarPicker, useAccountAvatars } from './AccountAvatar';
 import {
   loadAndSyncAccountPreferences,
   readAccountProfile,
@@ -45,6 +46,11 @@ export default function AccountSettingsPage() {
   });
   const [displayName, setDisplayName] = useState('');
   const [roleTitle, setRoleTitle] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [avatarId, setAvatarId] = useState<string | null>(null);
+  const avatars = useAccountAvatars();
   const [email, setEmail] = useState('');
   const [profilePending, setProfilePending] = useState(false);
   const [profileError, setProfileError] = useState('');
@@ -67,6 +73,10 @@ export default function AccountSettingsPage() {
     if (!profileQuery.data) return;
     setDisplayName(profileQuery.data.display_name);
     setRoleTitle(profileQuery.data.role_title);
+    setFirstName(profileQuery.data.first_name);
+    setLastName(profileQuery.data.last_name);
+    setPhone(profileQuery.data.phone_number);
+    setAvatarId(profileQuery.data.avatar_id);
   }, [profileQuery.data]);
 
   useEffect(() => {
@@ -92,13 +102,28 @@ export default function AccountSettingsPage() {
     setProfileFields({});
     setProfileSaved(false);
     try {
-      const saved = await saveAccountProfile({ display_name: displayName, role_title: roleTitle });
+      const saved = await saveAccountProfile({
+        display_name: displayName,
+        role_title: roleTitle,
+        first_name: firstName,
+        last_name: lastName,
+        phone_number: phone,
+        avatar_id: avatarId,
+        expected_user_id: profileQuery.data?.user_id,
+      });
       queryClient.setQueryData(queryKeys.account.profile, saved);
       queryClient.setQueryData<Session | null>(queryKeys.session, (current) =>
         current
           ? {
               ...current,
-              user: { ...current.user, name: saved.display_name || saved.email },
+              user: {
+                ...current.user,
+                name:
+                  saved.display_name ||
+                  `${saved.first_name} ${saved.last_name}`.trim() ||
+                  saved.email,
+                avatar: saved.avatar,
+              },
             }
           : current,
       );
@@ -163,8 +188,28 @@ export default function AccountSettingsPage() {
         <h1 id="account-settings-title" tabIndex={-1}>
           پروفایل و تنظیمات
         </h1>
-        <p>اطلاعات حساب شما از جزئیات هر فضای کار جدا نگهداری می‌شود.</p>
+        <p>مشخصاتت، چهرهٔ حسابت و اشتراک‌هات رو از اینجا مدیریت کن.</p>
+        <div className="account-profile-preview">
+          <AccountAvatar
+            avatar={
+              avatars.data?.avatars.find((item) => item.id === avatarId) ??
+              (avatarId ? profileQuery.data?.avatar : null)
+            }
+            name={displayName || firstName}
+            size={72}
+          />
+          <div>
+            <strong>{displayName || `${firstName} ${lastName}`.trim() || 'حساب من'}</strong>
+            <bdi dir="ltr">{profileQuery.data?.email ?? 'در حال بارگذاری…'}</bdi>
+          </div>
+        </div>
       </header>
+      <nav className="account-section-nav" aria-label="بخش‌های حساب">
+        <a href="#profile-heading">اطلاعات شخصی</a>
+        <a href="#academy-plans">اشتراک‌های آکادمی</a>
+        <a href="#account-preferences">ظاهر و تجربه</a>
+        <a href="#email-heading">ایمیل و امنیت</a>
+      </nav>
 
       {profileQuery.isPending && <Feedback message="در حال بارگذاری اطلاعات حساب…" />}
       {profileQuery.isError && (
@@ -179,32 +224,90 @@ export default function AccountSettingsPage() {
           <div>
             <h2 id="profile-heading">اطلاعات شخصی</h2>
             <p>
-              نام و عنوان شما در حساب نمایش داده می‌شود؛ نقش‌های فضای کار در تنظیمات همان پروژه
-              هستند.
+              مشخصات اینجا به حساب تو مربوطه. نقش و دسترسی هر پروژه رو در فضای کار همون پروژه
+              می‌بینی.
             </p>
           </div>
         </div>
-        <form className="account-form" onSubmit={saveProfile} noValidate>
-          <Input
-            label="نام نمایشی"
-            value={displayName}
-            onChange={(event) => {
-              setDisplayName(event.target.value);
+        <form className="account-form account-profile-editor" onSubmit={saveProfile} noValidate>
+          <fieldset
+            className="account-profile-fields"
+            disabled={profilePending || profileQuery.isPending}
+          >
+            <Input
+              label="نام"
+              value={firstName}
+              onChange={(event) => {
+                setFirstName(event.target.value);
+                setProfileSaved(false);
+              }}
+              autoComplete="given-name"
+              maxLength={150}
+              required
+              error={firstError(profileFields, 'first_name')}
+            />
+            <Input
+              label="نام خانوادگی"
+              value={lastName}
+              onChange={(event) => {
+                setLastName(event.target.value);
+                setProfileSaved(false);
+              }}
+              autoComplete="family-name"
+              maxLength={150}
+              required
+              error={firstError(profileFields, 'last_name')}
+            />
+            <Input
+              label="نام نمایشی"
+              value={displayName}
+              onChange={(event) => {
+                setDisplayName(event.target.value);
+                setProfileSaved(false);
+              }}
+              error={firstError(profileFields, 'display_name')}
+              maxLength={80}
+              autoComplete="name"
+            />
+            <Input
+              label="عنوان حرفه‌ای (اختیاری)"
+              value={roleTitle}
+              onChange={(event) => {
+                setRoleTitle(event.target.value);
+                setProfileSaved(false);
+              }}
+              error={firstError(profileFields, 'role_title')}
+              maxLength={80}
+            />
+            <Input
+              label="شماره موبایل"
+              type="tel"
+              inputMode="tel"
+              dir="ltr"
+              autoComplete="tel"
+              value={phone}
+              onChange={(event) => {
+                setPhone(event.target.value);
+                setProfileSaved(false);
+              }}
+              maxLength={40}
+              required
+              error={firstError(profileFields, 'phone_number')}
+            />
+            <p className="account-profile-phone-note">
+              {profileQuery.data?.phone_verified && phone === profileQuery.data.phone_number
+                ? 'شمارهٔ فعلی تأیید شده.'
+                : 'فعلاً تأیید پیامکی فعال نیست؛ شماره برای ارتباط دربارهٔ حسابت ثبت می‌شه.'}
+            </p>
+          </fieldset>
+          <AvatarPicker
+            value={avatarId}
+            onChange={(id) => {
+              setAvatarId(id);
               setProfileSaved(false);
             }}
-            error={firstError(profileFields, 'display_name')}
-            maxLength={80}
-            autoComplete="name"
-          />
-          <Input
-            label="عنوان حرفه‌ای (اختیاری)"
-            value={roleTitle}
-            onChange={(event) => {
-              setRoleTitle(event.target.value);
-              setProfileSaved(false);
-            }}
-            error={firstError(profileFields, 'role_title')}
-            maxLength={80}
+            disabled={profilePending || profileQuery.isPending}
+            error={firstError(profileFields, 'avatar_id')}
           />
           {profileError && <Feedback error message={profileError} />}
           {profileSaved && <Feedback message="اطلاعات شخصی ذخیره شد." />}

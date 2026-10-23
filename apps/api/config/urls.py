@@ -2,6 +2,8 @@ from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from modules.accounts.avatar_views import avatar_catalog
+from modules.accounts.subscription_views import account_subscriptions
 from modules.accounts.google_auth import google_config, google_challenge, google_login, google_link, completion_details, complete_profile
 from modules.accounts.auth_views import (
     account_preferences,
@@ -47,6 +49,8 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('api/v1/account/avatars/', avatar_catalog),
+    path('api/v1/account/subscriptions/', account_subscriptions),
     path('internal/django-admin/', admin.site.urls),
     path('api/v1/accounts/google/config/', google_config),
     path('api/v1/accounts/google/challenge/', google_challenge),

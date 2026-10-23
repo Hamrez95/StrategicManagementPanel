@@ -81,7 +81,7 @@ class AcademyCoupon(models.Model):
     is_active = models.BooleanField(default=True)
     starts_at = models.DateTimeField(null=True, blank=True)
     ends_at = models.DateTimeField(null=True, blank=True)
-    plans = models.ManyToManyField(AcademyPlan, blank=True, help_text='خالی یعنی تمام پلن‌های پولی.')
+    plans = models.ManyToManyField(AcademyPlan, blank=True, help_text='خالی یعنی تمام اشتراک‌های ویژه.')
 
     class Meta:
         constraints = [models.CheckConstraint(condition=Q(percent__gte=1) & Q(percent__lte=100), name='academy_coupon_percent_valid'), models.CheckConstraint(condition=Q(starts_at__isnull=True) | Q(ends_at__isnull=True) | Q(ends_at__gt=F('starts_at')), name='academy_coupon_window_valid')]

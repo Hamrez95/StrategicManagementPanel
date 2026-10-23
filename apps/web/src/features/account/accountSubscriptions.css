@@ -1,0 +1,482 @@
+.account-live-subscriptions {
+  margin-block: 35px;
+  min-inline-size: 0;
+}
+.account-subscription-intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 12px 6px;
+}
+.account-subscription-intro > div > p {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-block-end: 5px;
+}
+.account-subscription-intro h2 {
+  font-size: 1.7rem;
+  line-height: 1.8;
+}
+.account-subscription-intro > div > span {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 2;
+}
+.account-subscription-intro img {
+  inline-size: 110px;
+  block-size: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 13px #0002);
+  animation: account-subscription-float 7s ease-in-out infinite;
+}
+.account-subscription-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-block-end: 20px;
+}
+.account-subscription-heading h3,
+.account-owned-section > h3,
+.account-order-history > h3 {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+.account-subscription-heading p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 2;
+  margin-block-start: 5px;
+}
+.account-access-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  background: var(--wash);
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.account-access-badge--gold {
+  color: #a77924;
+  background: color-mix(in srgb, #e7bb5c 13%, var(--paper));
+  border-color: color-mix(in srgb, #d6a64a 35%, var(--line));
+}
+:root[data-theme='dark'] .account-access-badge--gold {
+  color: #efcf87;
+}
+.account-access-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+  padding-block: 20px;
+  gap: 15px;
+  margin-block: 15px 22px;
+}
+.account-access-facts > div {
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+.account-access-facts strong {
+  font-size: 1.08rem;
+  color: var(--ink);
+  line-height: 1.8;
+}
+.account-access-facts span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.account-area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-block: 12px 20px;
+}
+.account-area-tags :is(a, span) {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 12px;
+  padding: 5px 10px;
+  background: var(--wash);
+  font-size: 0.7rem;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.account-subscription-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-block-end: 18px;
+}
+.account-access-hint {
+  font-size: 0.74rem;
+  line-height: 2;
+  color: var(--muted);
+  margin-block: 12px;
+}
+.account-owned-section,
+.account-plan-options {
+  margin-block: 32px;
+}
+.account-owned-section > h3 {
+  margin-block-end: 17px;
+}
+.account-subscription-empty {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px dashed var(--line);
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--paper);
+}
+.account-subscription-empty > svg {
+  color: var(--action);
+  flex-shrink: 0;
+}
+.account-subscription-empty strong {
+  font-size: 0.85rem;
+}
+.account-subscription-empty p {
+  font-size: 0.77rem;
+  color: var(--muted);
+  line-height: 2;
+  margin-block-start: 5px;
+}
+.account-owned-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.account-owned-card {
+  border: 1px solid var(--line);
+  padding: 22px;
+  background: var(--paper);
+  border-radius: 20px;
+  min-inline-size: 0;
+}
+.account-owned-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block-end: 15px;
+}
+.account-owned-card h4 {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.account-owned-card dl {
+  margin-block: 15px;
+  display: grid;
+  gap: 8px;
+}
+.account-owned-card dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.75rem;
+}
+.account-owned-card dt {
+  color: var(--muted);
+}
+.account-owned-card dd {
+  margin: 0;
+}
+.account-owned-card > p,
+.account-subscription-reference {
+  font-size: 0.71rem;
+  color: var(--muted);
+  line-height: 2;
+}
+.account-subscription-reference {
+  display: block;
+  margin-block-start: 10px;
+  border-block-start: 1px solid var(--line);
+  padding-block-start: 10px;
+}
+.account-subscription-status {
+  padding: 4px 9px;
+  border-radius: 10px;
+  background: var(--wash);
+  font-size: 0.68rem;
+  white-space: nowrap;
+  line-height: 1.9;
+}
+.account-subscription-status--active,
+.account-subscription-status--paid {
+  color: #287352;
+  background: color-mix(in srgb, #50ae81 13%, var(--paper));
+}
+.account-subscription-status--scheduled,
+.account-subscription-status--pending {
+  color: #946421;
+  background: color-mix(in srgb, #e0b361 13%, var(--paper));
+}
+:root[data-theme='dark'] .account-subscription-status--active,
+:root[data-theme='dark'] .account-subscription-status--paid {
+  color: #97dcb5;
+}
+:root[data-theme='dark'] .account-subscription-status--scheduled,
+:root[data-theme='dark'] .account-subscription-status--pending {
+  color: #e6c28b;
+}
+.account-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.account-plan-option {
+  --account-plan-color: #7a9fc9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 25px;
+  min-inline-size: 0;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.account-plan-option:before {
+  content: '';
+  position: absolute;
+  inset-inline: 25px;
+  inset-block-start: 0;
+  block-size: 3px;
+  border-radius: 0 0 5px 5px;
+  background: var(--account-plan-color);
+}
+.account-plan-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #0000000d;
+}
+.account-plan-option--free {
+  --account-plan-color: #65a58e;
+}
+.account-plan-option--specialty {
+  --account-plan-color: #a28bd2;
+}
+.account-plan-option--full {
+  --account-plan-color: #d6ac58;
+}
+.account-plan-symbol {
+  inline-size: 49px;
+  block-size: 49px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--account-plan-color, #a2bdd5) 17%, var(--paper));
+  color: var(--ink);
+}
+.account-plan-option h4 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-block: 16px 7px;
+}
+.account-plan-option > p {
+  font-size: 0.79rem;
+  line-height: 2;
+  color: var(--muted);
+}
+.account-plan-option ul {
+  list-style: none;
+  padding: 0;
+  margin-block: 18px;
+  display: grid;
+  gap: 10px;
+}
+.account-plan-option li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.75rem;
+  line-height: 1.9;
+}
+.account-plan-option li svg {
+  flex-shrink: 0;
+  margin-block-start: 5px;
+  color: var(--account-plan-color);
+}
+.account-plan-price {
+  margin-block-start: auto;
+  padding-block: 14px;
+  display: grid;
+  gap: 5px;
+  border-block-start: 1px solid var(--line);
+  inline-size: 100%;
+}
+.account-plan-price strong {
+  font-size: 0.94rem;
+}
+.account-plan-price :is(del, small) {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.account-covered-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.7rem;
+  min-block-size: 30px;
+  color: var(--muted);
+}
+.account-plan-choose {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  inline-size: 100%;
+  min-block-size: 44px;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-block-start: 10px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 8px 14px;
+  background: var(--wash);
+}
+.account-plan-choose:hover {
+  text-decoration: none;
+  background: var(--canvas);
+}
+.account-payment-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 2.1;
+  margin-block: 18px;
+  padding: 16px 20px;
+  background: var(--wash);
+  border-radius: 16px;
+}
+.account-payment-note > svg {
+  flex-shrink: 0;
+  margin-block-start: 4px;
+}
+.account-orders-empty {
+  font-size: 0.79rem;
+  color: var(--muted);
+  line-height: 2;
+  margin-block: 15px;
+}
+.account-order-list details {
+  border-block-end: 1px solid var(--line);
+}
+.account-order-list summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+  min-block-size: 60px;
+  padding-block: 14px;
+  font-size: 0.8rem;
+  list-style: none;
+}
+.account-order-list summary::-webkit-details-marker {
+  display: none;
+}
+.account-order-list summary > span:first-child {
+  flex: 1;
+  min-inline-size: 130px;
+}
+.account-order-list time {
+  font-size: 0.69rem;
+  color: var(--muted);
+}
+.account-order-detail {
+  padding: 4px 12px 22px;
+  font-size: 0.75rem;
+  line-height: 2.2;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.account-order-detail > div {
+  border-block-start: 1px solid var(--line);
+  margin-block-start: 10px;
+  padding-block-start: 10px;
+}
+.account-order-detail strong {
+  color: var(--ink);
+}
+@keyframes account-subscription-float {
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+@media (max-width: 650px) {
+  .account-subscription-intro {
+    gap: 12px;
+  }
+  .account-subscription-intro img {
+    inline-size: 78px;
+    block-size: 78px;
+  }
+  .account-subscription-intro h2 {
+    font-size: 1.4rem;
+  }
+  .account-subscription-intro > div > span {
+    font-size: 0.75rem;
+  }
+  .account-subscription-heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .account-plan-grid,
+  .account-owned-grid {
+    grid-template-columns: 1fr;
+  }
+  .account-plan-option {
+    padding: 22px;
+  }
+  .account-access-facts {
+    gap: 7px;
+  }
+  .account-access-facts strong {
+    font-size: 0.89rem;
+  }
+  .account-access-facts span {
+    font-size: 0.64rem;
+  }
+  .account-subscription-actions .ui-button {
+    inline-size: 100%;
+    justify-content: center;
+  }
+  .account-subscription-empty {
+    padding: 18px;
+    gap: 12px;
+  }
+  .account-subscription-empty strong {
+    font-size: 0.78rem;
+  }
+  .account-subscription-empty p {
+    font-size: 0.71rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .account-subscription-intro img {
+    animation: none;
+  }
+  .account-plan-option {
+    transition: none;
+  }
+}
+:root[data-motion='reduced'] .account-subscription-intro img {
+  animation: none;
+}

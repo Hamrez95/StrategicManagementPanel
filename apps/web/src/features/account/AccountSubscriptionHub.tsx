@@ -1,202 +1,477 @@
-import { Link } from 'react-router';
+import { useEffect } from 'react';
+import { Link, useLocation, useOutletContext } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
+import { requestApi } from '../../api/client';
+import type { Session } from '../../session';
+import { Icon } from '../experience/ExperienceUI';
+import './accountSubscriptions.css';
 
-function ProductIcon({ name }: { name: 'management' | 'academy' }) {
-  return name === 'management' ? (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path d="M8 38V10h32v28H8Z" stroke="currentColor" strokeWidth="2.5" />
-      <path
-        d="M14 31V23m10 8V16m10 15v-5"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-      <path d="M13 17h5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
-  ) : (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path
-        d="M6.5 12.5c6.4-2.3 12.2-1.5 17.5 2.2v25c-5.3-3.7-11.1-4.5-17.5-2.2v-25Z"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M41.5 12.5c-6.4-2.3-12.2-1.5-17.5 2.2v25c5.3-3.7 11.1-4.5 17.5-2.2v-25Z"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M13 20c2.8-.5 5.5.1 7.8 1.7M13 26c2.8-.5 5.5.1 7.8 1.7m14.2-7.7c-2.8-.5-5.5.1-7.8 1.7m7.8 4.3c-2.8-.5-5.5.1-7.8 1.7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-const academyPlans = [
-  {
-    id: 'general',
-    title: 'مدیریت عمومی',
-    description: 'برای یادگیری پایه‌های مشترک مدیریت و تصمیم‌گیری.',
-    detail: 'دسترسی ۱۲ماهه به مسیر مدیریت عمومی',
+type Kind = 'free' | 'general' | 'specialty' | 'full';
+type Plan = {
+  id: number;
+  code: string;
+  title: string;
+  kind: Kind;
+  price: number | null;
+  sale_price: number | null;
+  currency: string;
+  duration_days: number | null;
+};
+type Subscription = {
+  id: string;
+  title: string;
+  coverage: Kind;
+  status: string;
+  is_effective: boolean;
+  starts_at: string;
+  ends_at: string | null;
+  areas: string[];
+  effective_areas: string[];
+  source: string;
+  order_id: string | null;
+};
+type Order = {
+  id: string;
+  status: string;
+  created_at: string;
+  paid_at: string | null;
+  items: {
+    title: string;
+    coverage: Kind;
+    currency: string;
+    total: number | null;
+    discount_amount: number | null;
+    coupon_code: string;
+    areas: string[];
+  }[];
+};
+type Summary = {
+  user_id: string;
+  academy: {
+    plans: Plan[];
+    areas: { id: string; title: string }[];
+    subscriptions: Subscription[];
+    orders: Order[];
+    payment_enabled: boolean;
+    order_history_limit: number;
+    access_summary: { full: boolean; general: boolean; area_ids: string[]; free_sample: boolean };
+  };
+  management: {
+    billing_status: string | null;
+    owned_workspaces: number;
+    archived_workspaces: number;
+    joined_workspaces: number;
+    plans_configured: boolean;
+  };
+};
+const number = (value: number) => new Intl.NumberFormat('fa-IR').format(value);
+const date = (value: string) =>
+  new Intl.DateTimeFormat('fa-IR', { dateStyle: 'medium' }).format(new Date(value));
+const amount = (value: number, currency: string) =>
+  `${number(value)} ${currency === 'IRR' ? 'ریال' : currency}`;
+const statusText: Record<string, string> = {
+  active: 'فعال',
+  scheduled: 'شروع در آینده',
+  expired: 'پایان‌یافته',
+  revoked: 'لغوشده',
+  requested: 'درخواست ثبت‌شده',
+  pending: 'در انتظار پرداخت',
+  paid: 'پرداخت‌شده',
+  cancelled: 'لغوشده',
+  refunded: 'بازپرداخت‌شده',
+};
+const plansCopy: Record<Kind, { icon: string; description: string; features: string[] }> = {
+  free: {
+    icon: 'book',
+    description: 'اول با شیوهٔ یادگیری آشنا شو.',
+    features: [
+      'چند کارت اول هر درس‌نامهٔ عمومی',
+      'چند کارت از یک درس منتخب گرایش‌ها',
+      'ذخیرهٔ پیشرفت و یادداشت در حسابت',
+    ],
   },
-  {
-    id: 'specializations',
-    title: 'گرایش‌های تخصصی',
-    description: 'یک یا چند گرایش را متناسب با هدفت انتخاب کن.',
-    detail: 'دسترسی ۱۲ماهه، با تخفیف پلکانی برای چند گرایش',
+  general: {
+    icon: 'chart',
+    description: 'پایه‌های مشترک مدیریت رو یک‌جا دنبال کن.',
+    features: [
+      'درس‌های عمومی مدیریت',
+      'کارت‌ها، تمرین‌ها و مرورهای عمومی',
+      'دسترسی مستقل از ترتیب پیشنهادی مسیر',
+    ],
   },
-  {
-    id: 'complete',
-    title: 'دسترسی کامل',
-    description: 'مدیریت عمومی و همهٔ گرایش‌های تخصصی را یک‌جا داشته باش.',
-    detail: 'دسترسی ۱۲ماهه به کل کاتالوگ',
-    featured: true,
+  specialty: {
+    icon: 'compass',
+    description: 'یک یا چند گرایش رو متناسب با نیازت انتخاب کن.',
+    features: [
+      'انتخاب گرایش موقع خرید',
+      'درس‌ها و مرورهای گرایش‌های انتخابی',
+      'فعال‌شدن دسترسی‌های مرتبط با همون گرایش',
+    ],
   },
-];
+  full: {
+    icon: 'spark',
+    description: 'کل محتوای آکادمی رو در دسترس داشته باش.',
+    features: ['همهٔ درس‌های عمومی', 'همهٔ گرایش‌های تخصصی', 'درس‌های تکمیلی و آماده‌سازی'],
+  },
+};
 
 export default function AccountSubscriptionHub() {
+  const session = useOutletContext<Session>(),
+    location = useLocation();
+  const query = useQuery({
+    queryKey: ['account', 'subscriptions', session.user.id],
+    queryFn: ({ signal }) => requestApi<Summary>('/api/v1/account/subscriptions/', { signal }),
+  });
+  useEffect(() => {
+    if (query.data && location.hash)
+      requestAnimationFrame(() =>
+        document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'start' }),
+      );
+  }, [query.data, location.hash]);
+  if (query.isPending)
+    return (
+      <section id="subscription" className="account-card" aria-busy="true">
+        <h2>اشتراک‌های من</h2>
+        <p role="status">داریم اشتراک‌ها و دسترسی‌هات رو بررسی می‌کنیم…</p>
+      </section>
+    );
+  if (query.isError)
+    return (
+      <section id="subscription" className="account-card">
+        <h2>اشتراک‌های من</h2>
+        <p role="alert">اطلاعات اشتراک‌ها بارگذاری نشد. دسترسی‌هات تغییر نکرده.</p>
+        <button className="ui-button" type="button" onClick={() => void query.refetch()}>
+          تلاش دوباره
+        </button>
+      </section>
+    );
+  const { academy, management } = query.data,
+    access = academy.access_summary;
+  const areaTitle = (id: string) => academy.areas.find((area) => area.id === id)?.title ?? id;
+  const active = academy.subscriptions.filter((row) => row.is_effective);
+  const covered = (kind: Kind) =>
+    kind === 'free' ||
+    (kind === 'full'
+      ? access.full
+      : kind === 'general'
+        ? access.general
+        : access.area_ids.length > 0);
   return (
     <section
       id="subscription"
-      className="account-subscriptions"
-      aria-labelledby="subscription-heading"
+      className="account-live-subscriptions"
+      aria-labelledby="account-subscriptions-heading"
     >
-      <div className="account-subscriptions__intro">
+      <header className="account-subscription-intro">
         <div>
-          <p className="account-subscriptions__eyebrow">خرید و دسترسی</p>
-          <h2 id="subscription-heading">خرید و اشتراک‌ها</h2>
-          <p>یک حساب داری؛ اشتراک هر محصول جداست و فقط همان محصول را باز می‌کند.</p>
+          <p>خریدها و دسترسی‌های تو</p>
+          <h2 id="account-subscriptions-heading">اشتراک‌های من</h2>
+          <span>هر اشتراک به همین حساب وصله؛ دسترسی آکادمی و پنل جدا از هم نگهداری می‌شن.</span>
         </div>
-        <span className="account-subscriptions__account-mark" aria-hidden="true">
-          ۱ حساب
-        </span>
-      </div>
-
-      <div className="account-subscriptions__products">
-        <article className="subscription-product subscription-product--management">
-          <div className="subscription-product__topline">
-            <span className="subscription-product__icon">
-              <ProductIcon name="management" />
-            </span>
-            <span className="subscription-product__kind">محصول مدیریتی</span>
-          </div>
-          <h3>پنل مدیریت</h3>
-          <p>برای مدیریت فضای کاری و ابزارهای کسب‌وکارت.</p>
-          <p className="subscription-product__status">جزئیات پلن و قیمت هنوز نهایی نشده.</p>
-          <Link className="subscription-product__link" to="#management-plans">
-            دیدن وضعیت پلن‌ها
-          </Link>
-        </article>
-
-        <article className="subscription-product subscription-product--academy">
-          <div className="subscription-product__topline">
-            <span className="subscription-product__icon">
-              <ProductIcon name="academy" />
-            </span>
-            <span className="subscription-product__kind">محصول آموزشی</span>
-          </div>
-          <h3>آکادمی MBA</h3>
-          <p>مدیریت عمومی و گرایش‌های تخصصی را با مسیرهای آموزشی یاد بگیر.</p>
-          <p className="subscription-product__status">
-            بسته‌های سالانه تعریف شده‌اند؛ خرید هنوز فعال نیست.
-          </p>
-          <Link className="subscription-product__link" to="#academy-plans">
-            دیدن بسته‌های آموزشی
-          </Link>
-        </article>
-      </div>
-
-      <section
-        id="management-plans"
-        className="subscription-details"
-        aria-labelledby="management-plans-title"
-      >
-        <div className="subscription-details__heading">
-          <div>
-            <p className="subscription-details__label">پنل مدیریت</p>
-            <h3 id="management-plans-title">پلن‌های پنل مدیریت</h3>
-          </div>
-          <span className="subscription-status">در حال آماده‌سازی</span>
-        </div>
-        <p className="subscription-details__copy">
-          محدودهٔ پلن‌ها، سهمیه‌ها و قیمت‌ها هنوز نهایی نشده. وقتی آماده باشند، همین‌جا می‌تونی
-          جزئیات را ببینی و خرید را شروع کنی.
-        </p>
-        <div className="subscription-details__actions">
-          <Link className="ui-button ui-button--secondary" to="/app/start">
-            رفتن به پنل مدیریت
-          </Link>
-          <button
-            className="ui-button ui-button--quiet academy-plan__action"
-            type="button"
-            disabled
-            aria-describedby="subscription-not-ready"
-          >
-            خرید به‌زودی
-          </button>
-        </div>
-      </section>
-
+        <img
+          src={new URL('../../assets/home/academy-orbit.webp', import.meta.url).href}
+          alt=""
+          width="110"
+          height="110"
+          loading="lazy"
+        />
+      </header>
       <section
         id="academy-plans"
-        className="subscription-details subscription-details--academy"
-        aria-labelledby="academy-plans-title"
+        className="account-card account-academy-access"
+        aria-labelledby="account-academy-title"
       >
-        <div className="subscription-details__heading">
+        <div className="account-subscription-heading">
           <div>
-            <p className="subscription-details__label">آکادمی MBA</p>
-            <h3 id="academy-plans-title">بسته‌های آموزشی</h3>
-          </div>
-          <span className="subscription-status subscription-status--annual">دسترسی سالانه</span>
-        </div>
-        <p className="subscription-details__copy">
-          همهٔ بسته‌ها ۱۲ماهه‌اند. قیمت‌های اولیه هنوز قطعی نیستند و فعلاً مبلغی از حسابت کم
-          نمی‌شود.
-        </p>
-        <div className="academy-plan-grid">
-          {academyPlans.map((plan) => (
-            <article
-              key={plan.id}
-              className={`academy-plan${plan.featured ? ' academy-plan--featured' : ''}`}
-            >
-              {plan.featured && <span className="academy-plan__badge">بهترین پوشش محتوا</span>}
-              <h4>{plan.title}</h4>
-              <p>{plan.description}</p>
-              <span className="academy-plan__detail">{plan.detail}</span>
-              <p className="academy-plan__price">قیمت نهایی بعد از تکمیل کاتالوگ اعلام می‌شود.</p>
-              <button
-                className="ui-button ui-button--quiet academy-plan__action"
-                type="button"
-                disabled
-                aria-describedby="subscription-not-ready"
-              >
-                خرید به‌زودی
-              </button>
-            </article>
-          ))}
-        </div>
-        <div className="subscription-free-note">
-          <div>
-            <strong>قبل از خرید، مسیر را امتحان کن</strong>
+            <h3 id="account-academy-title">دسترسی آکادمی</h3>
             <p>
-              نسخهٔ تمرینی فعلی آکادمی رایگانه. برنامه اینه که از هر مسیر هم دست‌کم یک درسنامهٔ
-              رایگان داشته باشیم.
+              {active.length
+                ? 'این دسترسی‌ها همین الان برای حسابت فعالن.'
+                : 'نمونه‌های رایگان برای حسابت فعالن. هنوز اشتراک ویژه فعالی نداری.'}
             </p>
           </div>
-          <Link className="ui-button ui-button--secondary" to="/academy">
-            دیدن آموزش رایگان
+          <span
+            className={`account-access-badge${access.full ? ' account-access-badge--gold' : ''}`}
+          >
+            <Icon name={access.full ? 'spark' : 'book'} size={17} />
+            {access.full ? 'دسترسی کامل' : active.length ? 'اشتراک فعال' : 'نمونهٔ رایگان'}
+          </span>
+        </div>
+        <div className="account-access-facts">
+          <div>
+            <strong>{number(active.length)}</strong>
+            <span>اشتراک ویژه فعال</span>
+          </div>
+          <div>
+            <strong>{access.general ? 'فعال' : 'نمونهٔ رایگان'}</strong>
+            <span>بخش عمومی</span>
+          </div>
+          <div>
+            <strong>{number(access.area_ids.length)}</strong>
+            <span>گرایش با دسترسی کامل</span>
+          </div>
+        </div>
+        {!!access.area_ids.length && (
+          <div className="account-area-tags" aria-label="گرایش‌های فعال">
+            {access.area_ids.map((id) => (
+              <Link key={id} to={`/academy/catalog?area=${encodeURIComponent(id)}`}>
+                <Icon name="check" size={14} />
+                {areaTitle(id)}
+              </Link>
+            ))}
+          </div>
+        )}
+        <div className="account-subscription-actions">
+          <Link className="ui-button ui-button--primary" to="/academy">
+            ادامهٔ یادگیری
+          </Link>
+          <Link className="ui-button ui-button--secondary" to="/academy/subscriptions">
+            مقایسه و انتخاب اشتراک
           </Link>
         </div>
+        <p className="account-access-hint">
+          نمونهٔ رایگان شامل چند کارت اول تک‌تک درس‌نامه‌های عمومی و چند کارت از یک درس منتخب
+          گرایش‌هاست.
+        </p>
       </section>
-
-      <p id="subscription-not-ready" className="subscription-readiness" role="status">
-        پرداخت آنلاین و نمایش وضعیت اشتراک هنوز به حساب وصل نشده؛ این صفحه فعلاً بسته‌ها را معرفی
-        می‌کند.
-      </p>
+      <section className="account-owned-section" aria-labelledby="account-owned-title">
+        <h3 id="account-owned-title">اشتراک‌های ثبت‌شده</h3>
+        {!academy.subscriptions.length ? (
+          <div className="account-subscription-empty">
+            <Icon name="compass" size={26} />
+            <div>
+              <strong>وقتی اشتراکی فعال کنی، اینجا می‌بینیش.</strong>
+              <p>نوع پوشش، گرایش‌ها و تاریخ شروع و پایانش همین‌جا ثبت می‌شن.</p>
+            </div>
+          </div>
+        ) : (
+          <div className="account-owned-grid">
+            {academy.subscriptions.map((row) => (
+              <article
+                key={row.id}
+                className={`account-owned-card account-owned-card--${row.coverage}`}
+              >
+                <header>
+                  <span className="account-plan-symbol">
+                    <Icon name={plansCopy[row.coverage]?.icon ?? 'book'} size={23} />
+                  </span>
+                  <span
+                    className={`account-subscription-status account-subscription-status--${row.status}`}
+                  >
+                    {statusText[row.status] ?? row.status}
+                  </span>
+                </header>
+                <h4>{row.title}</h4>
+                <dl>
+                  <div>
+                    <dt>شروع</dt>
+                    <dd>{date(row.starts_at)}</dd>
+                  </div>
+                  <div>
+                    <dt>پایان</dt>
+                    <dd>{row.ends_at ? date(row.ends_at) : 'تاریخ پایان ثبت نشده'}</dd>
+                  </div>
+                </dl>
+                {row.coverage === 'specialty' && (
+                  <div className="account-area-tags">
+                    {row.areas.map((id) => (
+                      <span key={id}>
+                        {areaTitle(id)}
+                        {row.is_effective && !row.effective_areas.includes(id) ? ' · غیرفعال' : ''}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <p>
+                  {row.source === 'purchase'
+                    ? 'فعال‌شده از خرید ثبت‌شده'
+                    : 'فعال‌شده برای این حساب'}
+                </p>
+                <span className="account-subscription-reference">
+                  شناسهٔ اشتراک <bdi dir="ltr">{row.id.slice(0, 8)}</bdi>
+                </span>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+      <section className="account-plan-options" aria-labelledby="account-plan-options-title">
+        <div className="account-subscription-heading">
+          <div>
+            <h3 id="account-plan-options-title">مسیر مناسب خودت رو انتخاب کن</h3>
+            <p>مدت و قیمت هر پلن از تنظیمات خودش خونده می‌شه.</p>
+          </div>
+        </div>
+        <div className="account-plan-grid">
+          {[...academy.plans]
+            .sort(
+              (a, b) =>
+                ['free', 'general', 'specialty', 'full'].indexOf(a.kind) -
+                ['free', 'general', 'specialty', 'full'].indexOf(b.kind),
+            )
+            .map((plan) => (
+              <article
+                className={`account-plan-option account-plan-option--${plan.kind}`}
+                key={plan.id}
+              >
+                <span className="account-plan-symbol">
+                  <Icon name={plansCopy[plan.kind].icon} size={25} />
+                </span>
+                <h4>{plan.title}</h4>
+                <p>{plansCopy[plan.kind].description}</p>
+                <ul>
+                  {plansCopy[plan.kind].features.map((feature) => (
+                    <li key={feature}>
+                      <Icon name="check" size={14} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="account-plan-price">
+                  {plan.kind === 'free' ? (
+                    <strong>رایگان</strong>
+                  ) : plan.price === null ? (
+                    <strong>قیمت هنوز تعیین نشده</strong>
+                  ) : (
+                    <>
+                      {plan.sale_price !== null && plan.sale_price < plan.price && (
+                        <del>{amount(plan.price, plan.currency)}</del>
+                      )}
+                      <strong>{amount(plan.sale_price ?? plan.price, plan.currency)}</strong>
+                    </>
+                  )}
+                  {plan.kind !== 'free' && (
+                    <small>
+                      {plan.duration_days
+                        ? `${number(plan.duration_days)} روز دسترسی`
+                        : 'مدت اشتراک هنوز تعیین نشده'}
+                    </small>
+                  )}
+                </div>
+                {covered(plan.kind) && (
+                  <span className="account-covered-note">
+                    <Icon name="check" size={14} />
+                    {plan.kind === 'free' ? 'برای همه فعاله' : 'این پوشش رو در دسترس داری'}
+                  </span>
+                )}
+                <Link
+                  className="account-plan-choose"
+                  to={plan.kind === 'free' ? '/academy' : `/academy/subscriptions?plan=${plan.id}`}
+                >
+                  {plan.kind === 'free'
+                    ? 'دیدن نمونه‌ها'
+                    : plan.kind === 'specialty'
+                      ? 'انتخاب گرایش‌ها'
+                      : 'دیدن جزئیات'}
+                  <Icon name="arrow" size={17} />
+                </Link>
+              </article>
+            ))}
+        </div>
+        {!academy.payment_enabled && (
+          <p className="account-payment-note">
+            <Icon name="shield" size={18} />
+            پرداخت آنلاین هنوز فعال نیست. می‌تونی گزینه‌ها رو مقایسه کنی؛ ثبت درخواست به‌تنهایی
+            دسترسی ویژه ایجاد نمی‌کنه.
+          </p>
+        )}
+      </section>
+      <section
+        className="account-card account-order-history"
+        aria-labelledby="account-orders-title"
+      >
+        <h3 id="account-orders-title">سابقهٔ سفارش‌ها</h3>
+        {!academy.orders.length ? (
+          <p className="account-orders-empty">هنوز سفارشی ثبت نکردی.</p>
+        ) : (
+          <>
+            <p className="account-orders-empty">
+              {number(academy.order_history_limit)} سفارش آخر این حساب؛ مبلغ‌ها مربوط به زمان ثبت
+              همون سفارش‌اند.
+            </p>
+            <div className="account-order-list">
+              {academy.orders.map((order) => (
+                <details key={order.id}>
+                  <summary>
+                    <span>
+                      {order.items.map((item) => item.title).join('، ') || 'سفارش اشتراک'}
+                    </span>
+                    <span
+                      className={`account-subscription-status account-subscription-status--${order.status}`}
+                    >
+                      {statusText[order.status] ?? order.status}
+                    </span>
+                    <time dateTime={order.created_at}>{date(order.created_at)}</time>
+                  </summary>
+                  <div className="account-order-detail">
+                    <p>
+                      شناسهٔ سفارش <bdi dir="ltr">{order.id}</bdi>
+                    </p>
+                    {order.items.map((item, index) => (
+                      <div key={index}>
+                        <strong>{item.title}</strong>
+                        {!!item.areas.length && <p>{item.areas.map(areaTitle).join('، ')}</p>}
+                        <p>
+                          {item.total === null
+                            ? 'مبلغ نهایی ثبت نشده'
+                            : `مبلغ نهایی: ${amount(item.total, item.currency)}`}
+                        </p>
+                        {!!item.discount_amount && (
+                          <p>تخفیف: {amount(item.discount_amount, item.currency)}</p>
+                        )}
+                        {item.coupon_code && (
+                          <p>
+                            کد تخفیف: <bdi dir="ltr">{item.coupon_code}</bdi>
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                    {order.status !== 'paid' && (
+                      <p>این سفارش به‌خودی‌خود اشتراک فعال محسوب نمی‌شه.</p>
+                    )}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+      <section
+        id="management-plans"
+        className="account-card account-management-access"
+        aria-labelledby="account-management-title"
+      >
+        <div className="account-subscription-heading">
+          <div>
+            <h3 id="account-management-title">فضاهای کاری تو</h3>
+            <p>این بخش به پنل مدیریت مربوطه و از اشتراک آکادمی جداست.</p>
+          </div>
+          <Icon name="grid" size={26} />
+        </div>
+        <div className="account-access-facts">
+          <div>
+            <strong>{number(management.owned_workspaces)}</strong>
+            <span>فضای فعال خودت</span>
+          </div>
+          <div>
+            <strong>{number(management.joined_workspaces)}</strong>
+            <span>فضای عضو‌شده</span>
+          </div>
+          <div>
+            <strong>{number(management.archived_workspaces)}</strong>
+            <span>فضای بایگانی‌شده</span>
+          </div>
+        </div>
+        {management.billing_status === 'suspended' && (
+          <p role="status">حساب فضای کار محدود شده؛ وضعیت اشتراک آکادمی جداست.</p>
+        )}
+        <p className="account-access-hint">
+          پلن فروش و سهمیه‌های پنل هنوز نهایی نشده؛ اینجا وضعیت واقعی فضای کارت نمایش داده می‌شه.
+        </p>
+        <Link className="ui-button ui-button--secondary" to="/app/workspaces">
+          رفتن به فضاهای من
+        </Link>
+      </section>
     </section>
   );
 }

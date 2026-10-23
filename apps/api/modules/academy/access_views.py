@@ -12,6 +12,7 @@ from .projection import curriculum
 from .content import ROOT
 from .models import AcademyPlan, AcademyArea, AcademyOrder, AcademyOrderItem, AcademyOrderArea, AcademySubscription
 from .pricing import selection, quote, PricingError
+from .account_summary import plans_payload
 
 
 def private(response):
@@ -64,17 +65,7 @@ def media(request, unit_id, filename):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def plans(request):
-    rows = list(AcademyPlan.objects.filter(is_active=True).values('id', 'code', 'title', 'kind', 'price', 'sale_price', 'currency', 'duration_days'))
-    areas = list(AcademyArea.objects.filter(kind='specialty', is_active=True).values('id', 'title'))
-    subscriptions = []
-    if request.user.is_authenticated:
-        now = timezone.now()
-        for row in AcademySubscription.objects.filter(user=request.user).select_related('plan').prefetch_related('areas'):
-            status = 'scheduled' if row.starts_at > now else 'expired' if row.ends_at and row.ends_at <= now else row.status
-            if row.order_item_id and row.order_item.order.status != 'paid':
-                status = 'revoked'
-            subscriptions.append({'id': str(row.pk), 'title': row.plan.title, 'coverage': row.coverage, 'status': status, 'starts_at': row.starts_at, 'ends_at': row.ends_at, 'areas': [area.pk for area in row.areas.all()]})
-    return private(Response({'plans': rows, 'areas': areas, 'subscriptions': subscriptions, 'payment_enabled': False}))
+    return private(Response(plans_payload(request.user)))
 
 
 @api_view(['POST'])

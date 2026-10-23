@@ -8,6 +8,7 @@ from django.db import transaction, IntegrityError
 from django.utils import timezone
 from django.utils.crypto import salted_hmac, constant_time_compare
 from django.views.decorators.http import require_GET, require_POST
+from .avatar_views import avatar_payload, resolve_avatar
 from .models import User, GoogleIdentity, GoogleLoginChallenge
 from .auth_views import _response, _error, _json_body, _normalize_email, _email_error, _rate_allowed, _limited_response, _authenticated_account
 from .profile_completion import require_profile_on_login, normalize_phone, profile_complete
@@ -148,7 +149,7 @@ def completion_details(request):
     user = _authenticated_account(request)
     if not user:
         return _error('برای تکمیل مشخصات، اول وارد حسابت شو.', 401, 'not_authenticated')
-    return _response({'first_name': user.first_name, 'last_name': user.last_name, 'phone_number': user.phone_number, 'email': user.email, 'google_connected': GoogleIdentity.objects.filter(user=user).exists(), 'profile_required': not profile_complete(user), 'marketing_opt_in': bool(user.marketing_consent_at)})
+    return _response({'first_name': user.first_name, 'last_name': user.last_name, 'phone_number': user.phone_number, 'avatar_id': user.avatar_id, 'avatar': avatar_payload(user), 'email': user.email, 'google_connected': GoogleIdentity.objects.filter(user=user).exists(), 'profile_required': not profile_complete(user), 'marketing_opt_in': bool(user.marketing_consent_at)})
 
 
 @require_POST
@@ -157,7 +158,7 @@ def complete_profile(request):
     if not user:
         return _error('برای تکمیل مشخصات، اول وارد حسابت شو.', 401, 'not_authenticated')
     data = _json_body(request)
-    if not data or set(data) - {'first_name', 'last_name', 'phone_number', 'marketing_opt_in', 'expected_user_id'}:
+    if not data or set(data) - {'first_name', 'last_name', 'phone_number', 'marketing_opt_in', 'expected_user_id', 'avatar_id'}:
         return _error('اطلاعات پروفایلت معتبر نیست.', 400, 'validation_error')
     if data.get('expected_user_id') != str(user.pk):
         return _error('حساب فعال عوض شده؛ صفحه رو تازه کن.', 409, 'account_changed')
@@ -171,6 +172,12 @@ def complete_profile(request):
         errors['phone_number'] = ['شماره موبایل رو با ۰۹ یا کد کشور مثل ‎+۹۸ وارد کن.']
     if type(data.get('marketing_opt_in', False)) is not bool:
         errors['marketing_opt_in'] = ['انتخاب دریافت خبر معتبر نیست.']
+    avatar = None
+    if 'avatar_id' in data:
+        try:
+            avatar = resolve_avatar(data['avatar_id'], user.avatar_id)
+        except ValueError as error:
+            errors['avatar_id'] = [str(error)]
     if errors:
         return _error('چند مورد رو بررسی کن.', 400, 'validation_error', errors)
     with transaction.atomic():
@@ -183,5 +190,9 @@ def complete_profile(request):
         user.requires_profile_completion = False
         if 'marketing_opt_in' in data:
             user.marketing_consent_at = (user.marketing_consent_at or timezone.now()) if data['marketing_opt_in'] else None
-        user.save(update_fields=['first_name', 'last_name', 'phone_number', 'phone_verified_at', 'profile_completed_at', 'requires_profile_completion', 'marketing_consent_at'])
+        fields = ['first_name', 'last_name', 'phone_number', 'phone_verified_at', 'profile_completed_at', 'requires_profile_completion', 'marketing_consent_at']
+        if 'avatar_id' in data:
+            user.avatar = avatar
+            fields.append('avatar')
+        user.save(update_fields=fields)
     return _response({'saved': True, 'profile_required': False})

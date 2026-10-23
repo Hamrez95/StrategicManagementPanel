@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useMatch, useNavigate, useOutletContext } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Dialog, Input, useUIAppearance } from '@stratino/ui';
 import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { postAuth } from '../auth/api';
+import { AccountAvatar } from '../account/AccountAvatar';
 import { useWorkspaceSwitch } from './switchContext';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
 
@@ -189,6 +190,28 @@ function WorkspaceNavigation({
 export default function ApplicationShell() {
   const session = useOutletContext<Session>();
   const location = useLocation();
+  const accountMenu = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    if (accountMenu.current) accountMenu.current.open = false;
+  }, [location.pathname, location.hash]);
+  useEffect(() => {
+    const outside = (event: globalThis.PointerEvent) => {
+      if (accountMenu.current && !accountMenu.current.contains(event.target as Node))
+        accountMenu.current.open = false;
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && accountMenu.current?.open) {
+        accountMenu.current.open = false;
+        accountMenu.current.querySelector('summary')?.focus();
+      }
+    };
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', escape);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('keydown', escape);
+    };
+  }, []);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { dir } = useUIAppearance();
@@ -404,15 +427,24 @@ export default function ApplicationShell() {
               )}
             </div>
           </Dialog>
-          <details className="app-account-menu">
+          <details className="app-account-menu" ref={accountMenu}>
             <summary aria-label={english ? 'Account menu' : 'منوی حساب'}>
-              <span className="app-account-avatar" aria-hidden="true">
-                {Array.from(session.user.name)[0] ?? 'ح'}
-              </span>
+              <AccountAvatar avatar={session.user.avatar} name={session.user.name} size={40} />
               <span className="app-account-name">{session.user.name}</span>
-              <span aria-hidden="true">⌄</span>
+              <span className="app-account-menu-indicator" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
             </summary>
             <div className="app-account-menu__panel">
+              <div className="app-account-menu__identity">
+                <AccountAvatar avatar={session.user.avatar} name={session.user.name} size={48} />
+                <div>
+                  <strong>{session.user.name}</strong>
+                  <p>{english ? 'Your personal account' : 'حساب شخصی تو'}</p>
+                </div>
+              </div>
               <Link to="/app/account">
                 {english ? 'Account and appearance' : 'حساب و تنظیمات ظاهر'}
               </Link>

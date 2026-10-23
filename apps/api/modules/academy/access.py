@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.utils import timezone
 from .models import AcademySubscription, FreeSample, AcademyArea
 from .projection import curriculum
+from .account_summary import subscription_status
 
 
 class AcademyAccess:
@@ -16,7 +17,7 @@ class AcademyAccess:
         if user.is_authenticated:
             subscriptions = AcademySubscription.objects.filter(user=user, status='active', starts_at__lte=now).filter(Q(ends_at=None) | Q(ends_at__gt=now)).select_related('order_item__order').prefetch_related('area_grants__area')
             for sub in subscriptions:
-                if sub.order_item_id and (sub.order_item.order.user_id != user.pk or sub.order_item.order.status != 'paid' or sub.order_item.plan_kind != sub.coverage):
+                if subscription_status(sub, now) != 'active':
                     continue
                 self.full |= sub.coverage == 'full'
                 self.general |= sub.coverage == 'general'

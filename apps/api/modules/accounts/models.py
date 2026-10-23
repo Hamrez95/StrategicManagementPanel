@@ -23,6 +23,26 @@ class UserManager(BaseUserManager):
             raise ValueError('Superuser flags must be true.')
         return self.create_user(email, password, **extra_fields)
 
+class AccountAvatar(models.Model):
+    id = models.SlugField(primary_key=True, max_length=48)
+    title = models.CharField(max_length=80)
+    character_name = models.CharField(max_length=80, blank=True, default='')
+    leadership_note = models.CharField(max_length=400, blank=True, default='')
+    category = models.CharField(max_length=16, default='original')
+    sprite_index = models.PositiveSmallIntegerField()
+    sprite_sheet = models.CharField(max_length=32, default='executives-v1')
+    source_url = models.URLField(blank=True, default='')
+    is_active = models.BooleanField(default=True)
+    sort_order = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['sort_order', 'id']
+        constraints = [models.CheckConstraint(condition=models.Q(sprite_index__gte=0, sprite_index__lte=19), name='account_avatar_sprite_bounds'), models.UniqueConstraint(fields=['sprite_sheet', 'sprite_index'], name='account_avatar_sheet_position')]
+
+    def __str__(self):
+        return self.title
+
+
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     username = None
@@ -31,6 +51,7 @@ class User(AbstractUser):
     email_verification_nonce = models.UUIDField(default=uuid.uuid4, editable=False)
     display_name = models.CharField(max_length=80, blank=True, default='')
     role_title = models.CharField(max_length=80, blank=True, default='')
+    avatar = models.ForeignKey(AccountAvatar, null=True, blank=True, on_delete=models.PROTECT, related_name='users')
     phone_number = models.CharField(max_length=16, blank=True, default='')
     phone_verified_at = models.DateTimeField(null=True, blank=True)
     profile_completed_at = models.DateTimeField(null=True, blank=True)
