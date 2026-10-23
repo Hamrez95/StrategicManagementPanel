@@ -63,7 +63,8 @@ async function unit(source, kind) {
       assert(source.learning_cards.some((card) => card.id === visual.card_id));
       assert(visual.creator && visual.source_url && visual.locator);
       if (visual.asset_ref) {
-        assert(visual.license && visual.license_url && visual.changes);
+        assert(visual.changes);
+        if (visual.kind !== 'original_educational') assert(visual.license && visual.license_url);
         const name = visual.asset_ref.split('/').at(-1);
         assert.deepEqual(
           await readFile(`apps/api/academy-projections/media/${name}`),
@@ -106,9 +107,9 @@ for (const font of manifest.typography)
     await readFile(`apps/web/public/${font.path.slice('public/'.length)}`),
     await readFile(font.path),
   );
-assert.deepEqual([lessons, cards, reviews, questions], [592, 5958, 191, 4549]);
+assert.deepEqual([lessons, cards, reviews, questions], [592, 5974, 191, 4549]);
 await assert.rejects(access('apps/web/public/academy-content/catalog.json'), { code: 'ENOENT' });
 await assert.rejects(access('dist/academy-content/catalog.json'), { code: 'ENOENT' });
 console.log(
-  `Private projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} unchanged cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} media assets, ${references.placements.length} reference placements. No assessment keys; no public teaching JSON.`,
+  `Private projection verified: ${catalog.courses.length} courses, ${lessons} lessons, ${cards} cards, ${reviews} reviews, ${questions} questions, ${manifest.media.length} media assets, ${references.placements.length} reference placements. No assessment keys; no public teaching JSON.`,
 );

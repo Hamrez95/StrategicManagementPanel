@@ -438,9 +438,15 @@ for (const v of visuals)
       .update(await readFile(media + v.asset_ref.split('/').at(-1)))
       .digest('hex');
   }
+// Original educational illustrations are authored in the registry, not regenerated here.
+const previous = JSON.parse(await readFile(media + 'reference-visuals.v1.json', 'utf8'));
+const originalVisuals = previous.visuals.filter((v) => v.kind === 'original_educational');
+const originalIds = new Set(originalVisuals.map((v) => v.id));
+visuals.push(...originalVisuals.filter((v) => !visuals.some((item) => item.id === v.id)));
+placements.push(...previous.placements.filter((p) => originalIds.has(p.visual_id)));
 const registry = {
   schema_version: '1.0',
-  checked_at: '2026-10-22',
+  checked_at: '2026-10-23',
   scope:
     'Reference figures supplement existing approved lessons; no teaching text or answers replaced.',
   visuals,

@@ -64,7 +64,9 @@ function ReferenceFigure({ visual }: { visual: ReferenceVisual }) {
           ? 'تصویر منتشرشدهٔ منبع'
           : visual.kind === 'standard_redraw'
             ? 'بازترسیم ساختار متداول'
-            : 'شکل در منبع اصلی'}
+            : visual.kind === 'original_educational'
+              ? 'تصویر آموزشی اختصاصی استراتینو'
+              : 'شکل در منبع اصلی'}
       </p>
       <h3>
         <bdi dir="ltr">{visual.title}</bdi>

@@ -21,6 +21,7 @@ import { AcademyPurchaseDock } from './AcademyAccess';
 import { AcademyMediaContext } from './ContentCard';
 import { AcademySubscriptions } from './AcademySubscriptions';
 import { AcademyThemeToggle } from './AcademyThemeToggle';
+import { ReviewPage, GuidePage, LeaderboardPage } from './AcademyLibrary';
 import subscriptionCrown from '../../assets/academy/subscription-crown.svg';
 import { LearningPlayer } from './LearningPlayer';
 import type { LearningActions } from './LearningPlayer';
@@ -382,118 +383,6 @@ function CatalogPage({ catalog, learning }: { catalog: Catalog; learning: Learni
   );
 }
 
-function ReviewPage({ catalog, learning }: { catalog: Catalog; learning: LearningActions }) {
-  const records = Object.values(learning.progress);
-  const selected = records.filter(
-    (row) =>
-      row.note ||
-      row.bookmarked ||
-      row.completed ||
-      Object.values(row.responses).some((r) => !r.first_correct),
-  );
-  return (
-    <section className="academy-page">
-      <h1 tabIndex={-1}>مرور و یادداشت‌های من</h1>
-      <p>{copy.independentNotice}</p>
-      {!selected.length && (
-        <p>
-          بعد از شروع درس‌ها، یادداشت‌ها، درس‌های ذخیره‌شده و تمرین‌هایی که نیاز به مرور دارن اینجا
-          دیده می‌شن.
-        </p>
-      )}
-      <div className="learning-course-grid">
-        {selected.map((row) => {
-          const course = courseFor(catalog, row.unit_id);
-          const lesson = course?.stages.flatMap((s) => s.lessons).find((l) => l.id === row.unit_id);
-          return (
-            <article className="learning-course-card" key={row.unit_id}>
-              <h2>{lesson?.title ?? course?.title ?? row.unit_id}</h2>
-              <p>
-                {row.completed ? 'تمرین شده' : 'در حال تمرین'}
-                {row.bookmarked ? ' · ذخیره‌شده برای بعد' : ''}
-              </p>
-              {row.note && <p className="learning-prose">{row.note}</p>}
-              <Link to={`/academy/lesson/${row.unit_id}`}>بازکردن و مرور</Link>
-            </article>
-          );
-        })}
-      </div>
-      <h2>مرور مرحله‌ها و پایان درس</h2>
-      <div className="learning-review-list">
-        {catalog.courses.map((course) => (
-          <details key={course.id}>
-            <summary>{course.title}</summary>
-            {course.stages.map(
-              (stage) =>
-                stage.review_id && (
-                  <Link key={stage.id} to={`/academy/review/${stage.review_id}`}>
-                    {stage.title}
-                  </Link>
-                ),
-            )}
-            {course.final_review_id && (
-              <Link to={`/academy/review/${course.final_review_id}`}>مرور پایانی</Link>
-            )}
-          </details>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function GuidePage({ catalog }: { catalog: Catalog }) {
-  return (
-    <section className="academy-page learning-guide">
-      <h1 tabIndex={-1}>با این مسیر چطور یاد بگیریم؟</h1>
-      <AcademyMascot mood="guidance" />
-      <ol>
-        <li>
-          از «حوزه‌ها» یک درس رو انتخاب کن. رنگ‌ها مرحله‌های اون درس رو نشون می‌دن و هر دایره یک
-          درس‌نامه‌ست.
-        </li>
-        <li>
-          کارت‌ها رو کامل بخون؛ مثال، جدول و تصویر کنار مفهوم خودش قرار داره. برای دیدن جزئیات
-          تصویر، اون رو باز کن و با دو انگشت بزرگش کن.
-        </li>
-        <li>
-          جوابت رو ثبت کن تا بازخورد و راه‌حل رو ببینی. در فعالیت عددی، واحد خواسته‌شده رو رعایت کن.
-        </li>
-        <li>
-          فعالیت پاسخ‌باز نمرهٔ خودکار نداره؛ بعد از نوشتن پاسخ، با معیارهای ارائه‌شده مرورش کن.
-        </li>
-        <li>
-          مرور هر مرحله و مرور پایانی جدا در دسترسن. سؤال‌های قبلی برچسب تکراری دارن و آزمون مستقل
-          حساب نمی‌شن.
-        </li>
-        <li>
-          با ورود به حسابت، پیشرفت، پاسخ ثبت‌شده، درس‌های انتخاب‌شده برای بعد و یادداشت‌هات در حساب
-          خودت ذخیره می‌شن. ترتیب پیشنهادی، محتوای اشتراکت رو قفل نمی‌کنه.
-        </li>
-      </ol>
-      <h2>نمونه‌های رایگان و اشتراک</h2>
-      <p>
-        چند کارت اول درس‌نامه‌های عمومی و یک درس منتخب گرایش‌ها برای همه بازه. برای ادامهٔ آموزش،
-        تمرین‌ها و مرورها، اشتراک عمومی، گرایش‌های دلخواه یا اشتراک کامل رو انتخاب کن. بخش‌های
-        قفل‌شده با رنگ خنثی و نشان قفل مشخصن.
-      </p>
-      <Link className="text-link" to="/academy/subscriptions">
-        دیدن اشتراک‌های آکادمی
-      </Link>
-      <h2>وضعیت علمی این نسخه</h2>
-      <p>{copy.draft}</p>
-      <p>
-        {faNumber(Number(catalog.release_followups.unconfirmed_direct_publisher_urls))} نشانی ناشر
-        هنوز دسترسی مستقیم تأییدشده ندارن. دسترسی به چکیده با خواندن متن کامل یکی نیست. محدودیت هر
-        منبع در درس مربوط حفظ شده.
-      </p>
-      <p>
-        بانک سؤال مستقل و بررسی با یادگیرنده هنوز باقیه. ترجمهٔ کامل زبان‌های دیگه آماده نیست؛
-        محتوای فعلی با زبان و جهت فارسی نمایش داده می‌شه.
-      </p>
-    </section>
-  );
-}
-
 export default function ConnectedAcademy() {
   const [state, setState] = useState<LearningState>({ user_id: '', units: {} });
   const [status, setStatus] = useState<'loading' | 'guest' | 'ready' | 'error'>('loading');
@@ -625,6 +514,7 @@ export default function ConnectedAcademy() {
     ['/academy/catalog', copy.catalog, 'book'],
     ['/academy/review', copy.review, 'target'],
     ['/academy/guide', copy.guide, 'spark'],
+    ['/academy/leaderboard', 'لیدربورد', 'trophy'],
   ];
   return (
     <div className={`academy${inLesson ? ' academy--lesson' : ''}`} lang="fa" dir="rtl">
@@ -703,6 +593,7 @@ export default function ConnectedAcademy() {
             element={<ReviewPage catalog={catalog.data} learning={learning} />}
           />
           <Route path="guide" element={<GuidePage catalog={catalog.data} />} />
+          <Route path="leaderboard" element={<LeaderboardPage />} />
           <Route
             path="subscriptions"
             element={<AcademySubscriptions authenticated={learning.authenticated} />}

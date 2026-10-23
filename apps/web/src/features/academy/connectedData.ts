@@ -81,7 +81,7 @@ export type Media = {
 export type ReferenceVisual = {
   id: string;
   title: string;
-  kind: 'publisher_original' | 'standard_redraw' | 'source_link';
+  kind: 'publisher_original' | 'standard_redraw' | 'original_educational' | 'source_link';
   asset_ref?: string;
   download_ref?: string;
   alt_text?: string;
