@@ -1,14 +1,15 @@
 import json
-from pathlib import Path
+from modules.core.resources import resource_path
 
 from django.test import TestCase
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.workspaces.testing import grant_test_management_access
 from modules.workspaces.models import BillingAccount, Membership, Workspace
 
 
-FIXTURES = json.loads((Path(__file__).resolve().parents[4] / 'docs' / 'fixtures' / 'efe-ife.json').read_text(encoding='utf-8'))
+FIXTURES = json.loads(resource_path('fixtures/efe-ife.json').read_text(encoding='utf-8'))
 
 
 class AnalysisMatrixApiTests(TestCase):
@@ -19,6 +20,7 @@ class AnalysisMatrixApiTests(TestCase):
         self.outsider = self.user('matrix-outsider@example.test')
         self.workspace = self.make_workspace(self.owner, 'Workspace A')
         self.other_workspace = self.make_workspace(self.outsider, 'Workspace B')
+        grant_test_management_access(self.owner)
         Membership.objects.create(workspace=self.workspace, user=self.editor, role=Membership.Role.EDITOR)
         Membership.objects.create(workspace=self.workspace, user=self.viewer, role=Membership.Role.VIEWER)
         Membership.objects.create(workspace=self.other_workspace, user=self.editor, role=Membership.Role.EDITOR)

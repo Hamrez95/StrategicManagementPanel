@@ -20,7 +20,7 @@ from modules.accounts.auth_views import (
     signup,
     verify_email,
 )
-from modules.analysis.views import analysis_collection, analysis_detail
+from modules.analysis.views import analysis_collection, analysis_detail, analysis_revisions
 from modules.core.views import live, ready
 from modules.imports.views import (
     preview_import,
@@ -46,6 +46,7 @@ from modules.workspaces.views import (
     workspace_profile,
     workspace_profile_revisions,
     workspace_summary,
+    workspace_entitlements,
 )
 
 urlpatterns = [
@@ -75,7 +76,9 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/strategy/options/', strategy_option_create),
     path('api/v1/workspaces/<str:workspace_id>/strategy/options/<uuid:option_id>/', strategy_option_detail),
     path('api/v1/workspaces/<str:workspace_id>/analyses/', analysis_collection),
+    path('api/v1/workspaces/<str:workspace_id>/entitlements/', workspace_entitlements),
     path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/', analysis_detail),
+    path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/revisions/', analysis_revisions),
     path('api/v1/workspaces/<str:workspace_id>/execution/', include('modules.execution.urls')),
     path('api/v1/workspaces/<str:workspace_id>/documents/', include('modules.documents.urls')),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),

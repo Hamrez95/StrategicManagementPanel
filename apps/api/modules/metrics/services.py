@@ -6,6 +6,7 @@ from modules.evidence.models import Evidence
 from modules.knowledge.registry import KnowledgeReleaseError, load_release
 from modules.workspaces.models import Workspace
 from modules.workspaces.services import workspace_role
+from modules.workspaces.entitlements import require_workspace_feature
 
 from .bindings import NUMERIC_INPUT_BINDINGS
 from .calculations import (
@@ -52,6 +53,7 @@ def calculate_and_store_contribution_margin(
     workspace = Workspace.objects.select_for_update().get(pk=workspace_id)
     if workspace_role(actor, workspace) not in {"owner", "editor"}:
         raise PermissionDenied("An active Workspace owner or editor is required.")
+    require_workspace_feature(workspace, 'can_calculate_metrics')
     try:
         release = load_release(knowledge_release_id)
     except KnowledgeReleaseError as error:
@@ -75,7 +77,7 @@ def calculate_and_store_contribution_margin(
             {"observation_ids": "Input observation IDs must be unique."}
         )
     observations = list(
-        InputObservation.objects.select_for_update()
+        InputObservation.objects.select_for_update(of=('self',))
         .filter(workspace=workspace, pk__in=ids)
         .select_related("segment", "recorded_by")
         .order_by("binding_id", "id")

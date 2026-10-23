@@ -10,7 +10,8 @@ class ContentContractTests(SimpleTestCase):
     def test_full_inventory_and_original_correct_ids(self):
         content = units()
         self.assertEqual(len(content), 592 + 148 + 43)
-        self.assertEqual(sum(len(u.get('learning_cards', [])) for u in content.values()), 5958)
+        # Includes the 16 approved instructor-enrichment cards added to the original release.
+        self.assertEqual(sum(len(u.get('learning_cards', [])) for u in content.values()), 5974)
         self.assertEqual(sum(len(u['questions']) for u in content.values()), 4549)
         for unit in content.values():
             for question in unit['questions']:

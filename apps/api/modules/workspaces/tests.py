@@ -11,6 +11,7 @@ from django.utils import timezone
 from rest_framework.exceptions import NotFound, PermissionDenied
 
 from modules.accounts.models import User
+from modules.workspaces.testing import grant_test_management_access
 from modules.workspaces.models import (
     BillingAccount,
     Membership,
@@ -47,11 +48,14 @@ class WorkspaceAuthorizationTests(TestCase):
 
         self.owner_billing = BillingAccount.objects.create(owner=self.owner)
         self.other_billing = BillingAccount.objects.create(owner=self.outsider)
+        grant_test_management_access(self.owner)
+        grant_test_management_access(self.outsider)
         self.workspace = Workspace.objects.create(
             owner=self.owner,
             billing_account=self.owner_billing,
             name='Private workspace',
         )
+        WorkspaceProfile.objects.create(workspace=self.workspace)
         self.other_workspace = Workspace.objects.create(
             owner=self.outsider,
             billing_account=self.other_billing,
@@ -249,7 +253,7 @@ class WorkspaceAuthorizationTests(TestCase):
         )
         with self.assertRaises(ValidationError):
             grant_workspace_membership(self.owner, self.workspace, self.owner, Membership.Role.VIEWER)
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(PermissionDenied):
             grant_workspace_membership(self.editor, self.workspace, self.outsider, Membership.Role.VIEWER)
 
     def test_member_removal_requires_owner_and_cannot_remove_owner(self):

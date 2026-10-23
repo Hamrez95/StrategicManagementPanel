@@ -11,6 +11,59 @@
     }
   ],
   "paths": {
+    "/api/v1/workspaces/{workspace_id}/entitlements/": {
+      "get": {
+        "operationId": "readWorkspaceEntitlements",
+        "summary": "Read effective owner-plan features for this Workspace",
+        "description": "Live. Verified members only; private no-store response. Features follow the Workspace owner's effective grants. No billing identifiers or owner subscription list are exposed. Membership write permission and archive state remain independent. can_generate_reports is reserved; no report renderer is implemented by this flag.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Effective Workspace access", "content": { "application/json": { "schema": {
+            "type": "object", "required": ["workspace_id", "hasAccess", "accessLevel", "features", "readOnly"], "additionalProperties": false,
+            "properties": {
+              "workspace_id": { "type": "string" }, "hasAccess": { "type": "boolean", "enum": [true] },
+              "accessLevel": { "type": "string", "enum": ["free", "special"] }, "readOnly": { "type": "boolean" },
+              "features": { "type": "object", "additionalProperties": false, "required": ["can_finalize_analysis", "can_calculate_metrics", "can_generate_reports"], "properties": {
+                "can_finalize_analysis": { "type": "boolean" }, "can_calculate_metrics": { "type": "boolean" }, "can_generate_reports": { "type": "boolean" }
+              } }
+            }
+          } } } },
+          "401": { "description": "Verified session required" },
+          "404": { "description": "Missing or invisible Workspace" }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/analyses/{record_id}/revisions/": {
+      "get": {
+        "operationId": "listAnalysisRevisions",
+        "summary": "Read retained private analysis snapshots",
+        "description": "Live. Verified Workspace members only. Newest first, at most 50 items. History remains readable after the source analysis is deleted. Migration backfills only the current known version, with is_backfill=true and recorded_by=null. Private no-store response.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "record_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } },
+          { "name": "before", "in": "query", "schema": { "type": "integer", "minimum": 1 } }
+        ],
+        "responses": {
+          "200": { "description": "Revision page", "content": { "application/json": { "schema": {
+            "type": "object", "required": ["items", "next_before"], "additionalProperties": false,
+            "properties": {
+              "next_before": { "type": "integer", "nullable": true },
+              "items": { "type": "array", "maxItems": 50, "items": {
+                "type": "object", "required": ["revision", "snapshot", "recorded_at", "recorded_by", "is_backfill"], "additionalProperties": false,
+                "properties": {
+                  "revision": { "type": "integer", "minimum": 1 }, "snapshot": { "$ref": "#/components/schemas/Analysis" },
+                  "recorded_at": { "type": "string", "format": "date-time" }, "recorded_by": { "type": "string", "nullable": true }, "is_backfill": { "type": "boolean" }
+                }
+              } }
+            }
+          } } } },
+          "400": { "description": "Invalid before cursor" }, "401": { "description": "Verified session required" },
+          "404": { "description": "Missing or invisible Workspace or history" }
+        }
+      }
+    },
     "/api/v1/session/": {
       "get": {
         "operationId": "readSession",

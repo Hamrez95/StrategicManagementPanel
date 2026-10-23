@@ -62,6 +62,17 @@ type Summary = {
     archived_workspaces: number;
     joined_workspaces: number;
     plans_configured: boolean;
+    access?: {
+      accessLevel: 'free' | 'special';
+      owned_workspace_limit: number | null;
+      can_create_workspace: boolean;
+      features: {
+        can_finalize_analysis: boolean;
+        can_calculate_metrics: boolean;
+        can_generate_reports: boolean;
+      };
+      subscriptions: { id: string; title: string; starts_at: string; ends_at: string | null }[];
+    };
   };
 };
 const number = (value: number) => new Intl.NumberFormat('fa-IR').format(value);
@@ -466,8 +477,38 @@ export default function AccountSubscriptionHub() {
           <p role="status">حساب فضای کار محدود شده؛ وضعیت اشتراک آکادمی جداست.</p>
         )}
         <p className="account-access-hint">
-          پلن فروش و سهمیه‌های پنل هنوز نهایی نشده؛ اینجا وضعیت واقعی فضای کارت نمایش داده می‌شه.
+          {management.access?.accessLevel === 'special'
+            ? 'اشتراک ویژهٔ پنل برای حسابت فعاله.'
+            : 'پنل رایگان شامل یک فضای کاری، اطلاعات پایهٔ کسب‌وکار و پیش‌نویس ابزارهاست.'}{' '}
+          دیدن داده‌های قبلی و گرفتن نسخهٔ پشتیبان همیشه در دسترسه.
         </p>
+        {management.access && (
+          <>
+            <p className="account-access-hint">
+              ظرفیت فضای کاری فعال:{' '}
+              {management.access.owned_workspace_limit === null
+                ? 'بدون محدودیت پلن'
+                : number(management.access.owned_workspace_limit)}
+              . عضویت در فضای دیگران از این ظرفیت کم نمی‌کنه.
+            </p>
+            <ul className="account-plan-benefits">
+              <li>
+                نهایی‌سازی تحلیل‌ها:{' '}
+                {management.access.features.can_finalize_analysis ? 'فعاله' : 'با اشتراک ویژه'}
+              </li>
+              <li>
+                محاسبهٔ تأییدشدهٔ شاخص‌ها:{' '}
+                {management.access.features.can_calculate_metrics ? 'فعاله' : 'با اشتراک ویژه'}
+              </li>
+            </ul>
+            {management.access.subscriptions.map((subscription) => (
+              <p key={subscription.id} className="account-access-hint">
+                {subscription.title}؛ از {date(subscription.starts_at)}
+                {subscription.ends_at ? ` تا ${date(subscription.ends_at)}` : ''}
+              </p>
+            ))}
+          </>
+        )}
         <Link className="ui-button ui-button--secondary" to="/app/workspaces">
           رفتن به فضاهای من
         </Link>

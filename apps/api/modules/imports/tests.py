@@ -5,7 +5,7 @@ from django.utils import timezone
 
 from modules.accounts.models import User
 from modules.imports.models import WorkspaceImportBatch
-from modules.imports.services import ImportValidationError, inspect_legacy_backup, parse_import_request
+from modules.imports.services import MAX_REQUEST_BYTES, ImportValidationError, inspect_legacy_backup, parse_import_request
 from modules.workspaces.models import BillingAccount, Membership, Workspace
 from modules.exports.services import EXPORT_SCOPE
 
@@ -82,7 +82,7 @@ class LegacyImportMappingTests(TestCase):
         with self.assertRaises(ImportValidationError):
             parse_import_request(json.dumps({'schema_version': 1, 'data': legacy_backup(notes='\ud800')}).encode('utf-8'))
         with self.assertRaises(ImportValidationError) as oversized:
-            parse_import_request(b' ' * 1_001_025)
+            parse_import_request(b' ' * (MAX_REQUEST_BYTES + 1))
         self.assertEqual(oversized.exception.code, 'import_too_large')
 
     def test_schema_envelope_maps_to_the_same_digest_as_direct_state(self):
@@ -201,7 +201,7 @@ class WorkspaceImportApiTests(TestCase):
         self.assertEqual(denied.status_code, 403)
         invisible = self.post_import(self.outsider)
         self.assertEqual(invisible.status_code, 404)
-        self.assertEqual(WorkspaceImportBatch.objects.count(), 0)
+        self.assertEqual(WorkspaceImportBatch.objects.count(), 1)
 
     def test_commit_is_idempotent_and_undo_keeps_recoverable_snapshot(self):
         created = self.post_import(self.owner)

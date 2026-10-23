@@ -34,6 +34,21 @@ from .services import (
     workspace_role,
 )
 from .summary import read_workspace_summary
+from .entitlements import management_access
+
+
+@require_GET
+def workspace_entitlements(request, workspace_id):
+    if not _verified_user(request):
+        return _error(401, 'not_authenticated', 'برای ادامه وارد حسابت شو.')
+    try:
+        workspace = get_accessible_workspace_or_404(request.user, workspace_id)
+    except Http404:
+        return _error(404, 'workspace_not_found', 'فضای کاری در دسترس نیست.')
+    access = management_access(workspace.owner)
+    return JsonResponse({'workspace_id': str(workspace.pk), 'hasAccess': True,
+                         'accessLevel': access['accessLevel'], 'features': access['features'],
+                         'readOnly': workspace.archived_at is not None})
 
 CURSOR_SALT = 'stratino.workspace-list-cursor'
 CURSOR_MAX_AGE = 60 * 60

@@ -3,7 +3,6 @@ from uuid import UUID
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db import IntegrityError, transaction
 from django.http import Http404
-from django.utils import timezone
 
 from modules.workspaces.models import Membership, Workspace
 from modules.workspaces.services import WorkspaceActionError, workspace_role
@@ -275,7 +274,7 @@ def update_document_record(actor, workspace, record_id, body):
         record_uuid = UUID(str(record_id))
     except (ValueError, AttributeError):
         raise Http404('Document is not available.')
-    record = DocumentRecord.objects.select_for_update().select_related('owner', 'reviewer').filter(workspace=locked, pk=record_uuid).first()
+    record = DocumentRecord.objects.select_for_update(of=('self',)).select_related('owner', 'reviewer').filter(workspace=locked, pk=record_uuid).first()
     if record is None:
         raise Http404('Document is not available.')
     if not isinstance(body, dict) or set(body) - {'stage', 'industry', 'owner_id', 'reviewer_id', 'status', 'content', 'revision'} or 'revision' not in body:

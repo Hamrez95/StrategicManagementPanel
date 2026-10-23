@@ -18,6 +18,11 @@ jobs:
       DJANGO_SECRET_KEY: synthetic-local-ci-only-key-with-many-characters-never-use-in-production-58310
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+      - name: Verify packaged API reference resources
+        run: node scripts/sync-api-resources.mjs --check
       - name: Build, migrate and test against PostgreSQL
         run: |
           docker compose -f infra/compose.dev.yml config --quiet
@@ -26,6 +31,7 @@ jobs:
           docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --noinput
           docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --check
           docker compose -f infra/compose.dev.yml run --rm api python manage.py makemigrations --check --dry-run
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py audit_model_integrity --summary
           docker compose -f infra/compose.dev.yml run --rm api python manage.py check
           docker compose -f infra/compose.dev.yml run --rm api python manage.py test --noinput
           docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid api python manage.py check --deploy --fail-level WARNING
