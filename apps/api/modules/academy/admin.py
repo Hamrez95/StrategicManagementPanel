@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (AcademyArea, AcademyCourse, AcademyUnit, AcademyCard, AcademyPlan, FreeSample, AcademyOrder, AcademyOrderItem, AcademyOrderArea, AcademySubscription, SubscriptionArea)
+from .models import (AcademyArea, AcademyCourse, AcademyUnit, AcademyCard, AcademyPlan, AcademyCoupon, FreeSample, AcademyOrder, AcademyOrderItem, AcademyOrderArea, AcademySubscription, SubscriptionArea)
 
 admin.site.site_header = 'مدیریت آکادمی استراتینو'
 admin.site.site_title = 'مدیریت آکادمی'
@@ -47,8 +47,16 @@ class FreeSampleAdmin(admin.ModelAdmin):
 
 @admin.register(AcademyPlan)
 class PlanAdmin(admin.ModelAdmin):
-    list_display = ['code', 'title', 'kind', 'price', 'currency', 'duration_days', 'is_active']
+    list_display = ['code', 'title', 'kind', 'price', 'sale_price', 'currency', 'duration_days', 'is_active']
     list_filter = ['kind', 'is_active']
+
+
+@admin.register(AcademyCoupon)
+class CouponAdmin(admin.ModelAdmin):
+    list_display = ['code', 'percent', 'is_active', 'starts_at', 'ends_at']
+    list_filter = ['is_active']
+    search_fields = ['code']
+    filter_horizontal = ['plans']
 
 
 class SubscriptionAreaInline(admin.TabularInline):
@@ -78,7 +86,7 @@ class OrderItemInline(admin.TabularInline):
     model = AcademyOrderItem
     extra = 0
     can_delete = False
-    readonly_fields = ['plan', 'plan_title', 'plan_kind', 'unit_price', 'currency', 'duration_days', 'selected_areas']
+    readonly_fields = ['plan', 'plan_title', 'plan_kind', 'unit_price', 'original_unit_price', 'subtotal', 'discount_amount', 'total', 'coupon_code', 'coupon', 'currency', 'duration_days', 'selected_areas']
 
     @admin.display(description='گرایش‌های خرید')
     def selected_areas(self, obj):

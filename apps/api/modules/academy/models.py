@@ -56,12 +56,13 @@ class AcademyPlan(models.Model):
     kind = models.CharField(max_length=16, choices=[('free', 'رایگان'), ('full', 'کامل'), ('general', 'عمومی'), ('specialty', 'گرایش‌های انتخابی')])
     is_active = models.BooleanField(default=True)
     price = models.PositiveBigIntegerField(null=True, blank=True, help_text='خالی یعنی قیمت هنوز تعیین نشده. قیمت گرایش برای هر گرایش است.')
+    sale_price = models.PositiveBigIntegerField(null=True, blank=True, help_text='قیمت پس از تخفیف عمومی؛ خالی یعنی بدون تخفیف.')
     currency = models.CharField(max_length=3, default='IRR')
     duration_days = models.PositiveIntegerField(null=True, blank=True, help_text='تا تعیین سیاست مدت، خالی بماند.')
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
-        constraints = [models.CheckConstraint(condition=Q(duration_days__isnull=True) | Q(duration_days__gt=0), name='academy_plan_duration_positive')]
+        constraints = [models.CheckConstraint(condition=Q(duration_days__isnull=True) | Q(duration_days__gt=0), name='academy_plan_duration_positive'), models.CheckConstraint(condition=Q(sale_price__isnull=True) | (Q(price__isnull=False) & Q(sale_price__lte=F('price'))), name='academy_sale_price_valid')]
         ordering = ['order', 'id']
 
     def __str__(self):
@@ -72,6 +73,30 @@ class FreeSample(models.Model):
     card = models.OneToOneField(AcademyCard, primary_key=True, on_delete=models.CASCADE, related_name='free_sample')
     is_active = models.BooleanField(default=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class AcademyCoupon(models.Model):
+    code = models.CharField(max_length=48, unique=True)
+    percent = models.PositiveSmallIntegerField(help_text='درصد تخفیف روی مبلغ پس از تخفیف عمومی پلن.')
+    is_active = models.BooleanField(default=True)
+    starts_at = models.DateTimeField(null=True, blank=True)
+    ends_at = models.DateTimeField(null=True, blank=True)
+    plans = models.ManyToManyField(AcademyPlan, blank=True, help_text='خالی یعنی تمام پلن‌های پولی.')
+
+    class Meta:
+        constraints = [models.CheckConstraint(condition=Q(percent__gte=1) & Q(percent__lte=100), name='academy_coupon_percent_valid'), models.CheckConstraint(condition=Q(starts_at__isnull=True) | Q(ends_at__isnull=True) | Q(ends_at__gt=F('starts_at')), name='academy_coupon_window_valid')]
+
+    def clean(self):
+        self.code = self.code.strip().upper()
+        if not self.code or any(char.isspace() for char in self.code):
+            raise ValidationError('کد تخفیف نباید خالی یا دارای فاصله باشد.')
+
+    def save(self, *args, **kwargs):
+        self.code = self.code.strip().upper()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.code
 
 
 class AcademyOrder(models.Model):
@@ -89,6 +114,12 @@ class AcademyOrderItem(models.Model):
     plan_title = models.CharField(max_length=160)
     plan_kind = models.CharField(max_length=16)
     unit_price = models.PositiveBigIntegerField(null=True, blank=True)
+    original_unit_price = models.PositiveBigIntegerField(null=True, blank=True)
+    subtotal = models.PositiveBigIntegerField(null=True, blank=True)
+    discount_amount = models.PositiveBigIntegerField(null=True, blank=True)
+    total = models.PositiveBigIntegerField(null=True, blank=True)
+    coupon = models.ForeignKey(AcademyCoupon, null=True, blank=True, on_delete=models.PROTECT)
+    coupon_code = models.CharField(max_length=48, blank=True)
     currency = models.CharField(max_length=3)
     duration_days = models.PositiveIntegerField(null=True, blank=True)
     areas = models.ManyToManyField(AcademyArea, through='AcademyOrderArea')

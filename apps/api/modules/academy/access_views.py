@@ -11,6 +11,7 @@ from .access import AcademyAccess
 from .projection import curriculum
 from .content import ROOT
 from .models import AcademyPlan, AcademyArea, AcademyOrder, AcademyOrderItem, AcademyOrderArea, AcademySubscription
+from .pricing import selection, quote, PricingError
 
 
 def private(response):
@@ -63,7 +64,7 @@ def media(request, unit_id, filename):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def plans(request):
-    rows = list(AcademyPlan.objects.filter(is_active=True).values('id', 'code', 'title', 'kind', 'price', 'currency', 'duration_days'))
+    rows = list(AcademyPlan.objects.filter(is_active=True).values('id', 'code', 'title', 'kind', 'price', 'sale_price', 'currency', 'duration_days'))
     areas = list(AcademyArea.objects.filter(kind='specialty', is_active=True).values('id', 'title'))
     subscriptions = []
     if request.user.is_authenticated:
@@ -77,16 +78,29 @@ def plans(request):
 
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
+def price_quote(request):
+    try:
+        plan, areas, code = selection(request.data)
+        pricing, _ = quote(plan, areas, code)
+    except PricingError as error:
+        return private(Response({'message': str(error)}, status=400))
+    return private(Response(pricing))
+
+
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 @transaction.atomic
 def order_request(request):
     data = request.data
-    if not isinstance(data, dict) or set(data) != {'request_id', 'plan_id', 'area_ids'}:
+    if not isinstance(data, dict) or not {'request_id', 'plan_id', 'area_ids'} <= set(data) or set(data) - {'request_id', 'plan_id', 'area_ids', 'coupon_code'}:
         return Response({'message': 'انتخاب اشتراکت معتبر نیست.'}, status=400)
     try:
         request_id = uuid.UUID(str(data['request_id']))
-        plan = AcademyPlan.objects.get(pk=data['plan_id'], is_active=True)
-    except (ValueError, TypeError, AcademyPlan.DoesNotExist):
+        plan, areas, code = selection(data)
+    except (ValueError, TypeError) as error:
+        if isinstance(error, PricingError):
+            return private(Response({'message': str(error)}, status=400))
         return Response({'message': 'این اشتراک پیدا نشد.'}, status=400)
     area_ids = data['area_ids']
     if not isinstance(area_ids, list) or len(area_ids) > 20 or not all(isinstance(x, str) for x in area_ids) or len(set(area_ids)) != len(area_ids) or plan.kind == 'free':
@@ -97,15 +111,19 @@ def order_request(request):
     existing = AcademyOrder.objects.filter(request_id=request_id).first()
     if existing:
         item = existing.items.first()
-        if existing.user_id != request.user.pk or not item or item.plan_id != plan.pk or set(item.areas.values_list('id', flat=True)) != set(area_ids):
+        if existing.user_id != request.user.pk or not item or item.plan_id != plan.pk or item.coupon_code != code or set(item.areas.values_list('id', flat=True)) != set(area_ids):
             return Response({'message': 'این درخواست با انتخاب دیگه‌ای ثبت شده.'}, status=409)
         return private(Response({'id': str(existing.pk), 'status': existing.status}))
     if AcademyOrder.objects.filter(user=request.user, created_at__gte=timezone.now()-timezone.timedelta(hours=1)).count() >= 15:
         return Response({'message': 'چند درخواست ثبت کردی؛ کمی بعد دوباره تلاش کن.'}, status=429)
     try:
+        pricing, coupon = quote(plan, areas, code)
+    except PricingError as error:
+        return private(Response({'message': str(error)}, status=400))
+    try:
         with transaction.atomic():
             order = AcademyOrder.objects.create(user=request.user, request_id=request_id)
-            item = AcademyOrderItem.objects.create(order=order, plan=plan, plan_title=plan.title, plan_kind=plan.kind, unit_price=plan.price, currency=plan.currency, duration_days=plan.duration_days)
+            item = AcademyOrderItem.objects.create(order=order, plan=plan, plan_title=plan.title, plan_kind=plan.kind, unit_price=pricing['unit_price'], original_unit_price=pricing['original_unit_price'], subtotal=pricing['subtotal'], discount_amount=pricing['discount_amount'], total=pricing['total'], coupon=coupon, coupon_code=pricing['coupon_code'], currency=plan.currency, duration_days=plan.duration_days)
             AcademyOrderArea.objects.bulk_create([AcademyOrderArea(item=item, area=area) for area in areas])
     except IntegrityError:
         return Response({'message': 'درخواست هم‌زمان ثبت شد؛ دوباره تلاش کن.'}, status=409)
