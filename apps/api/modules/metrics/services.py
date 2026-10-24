@@ -1,13 +1,13 @@
-from django.core.exceptions import PermissionDenied, ValidationError
+from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.db.models import Max
 
 from modules.evidence.models import Evidence
 from modules.knowledge.registry import KnowledgeReleaseError, load_release
-from modules.workspaces.models import Workspace
-from modules.workspaces.services import workspace_role
 from modules.workspaces.entitlements import require_workspace_feature
+from modules.workspaces.models import Workspace
 
+from .api import require_metric_writer, validate_segment
 from .bindings import NUMERIC_INPUT_BINDINGS
 from .calculations import (
     ContributionContext,
@@ -27,8 +27,9 @@ def link_input_evidence(*, observation_id, evidence_id, actor):
     """Attach an available, same-Workspace source with an immutable revision pin."""
     observation = InputObservation.objects.select_for_update().get(pk=observation_id)
     evidence = Evidence.objects.select_for_update().get(pk=evidence_id)
-    if workspace_role(actor, observation.workspace) not in {"owner", "editor"}:
-        raise PermissionDenied("An active Workspace owner or editor is required.")
+    require_metric_writer(actor, observation.workspace)
+    if evidence.workspace_id != observation.workspace_id:
+        raise ValidationError({"evidence_id": "The source is not in this Workspace."})
     link = InputObservationEvidence(observation=observation, evidence=evidence)
     link.full_clean()
     link.save()
@@ -51,9 +52,9 @@ def calculate_and_store_contribution_margin(
 ):
     """Authorize, freeze and persist one exact-release contribution-amount run."""
     workspace = Workspace.objects.select_for_update().get(pk=workspace_id)
-    if workspace_role(actor, workspace) not in {"owner", "editor"}:
-        raise PermissionDenied("An active Workspace owner or editor is required.")
-    require_workspace_feature(workspace, 'can_calculate_metrics')
+    require_metric_writer(actor, workspace)
+    validate_segment(workspace, segment_id)
+    require_workspace_feature(workspace, "can_calculate_metrics")
     try:
         release = load_release(knowledge_release_id)
     except KnowledgeReleaseError as error:
@@ -77,7 +78,7 @@ def calculate_and_store_contribution_margin(
             {"observation_ids": "Input observation IDs must be unique."}
         )
     observations = list(
-        InputObservation.objects.select_for_update(of=('self',))
+        InputObservation.objects.select_for_update(of=("self",))
         .filter(workspace=workspace, pk__in=ids)
         .select_related("segment", "recorded_by")
         .order_by("binding_id", "id")
