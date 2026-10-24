@@ -23,6 +23,7 @@ from modules.accounts.auth_views import (
 )
 from modules.analysis.views import analysis_collection, analysis_detail, analysis_revisions
 from modules.core.views import live, ready
+from modules.operations.views import operator_collection, operator_status
 from modules.imports.views import (
     preview_import,
     workspace_import_detail,
@@ -51,6 +52,8 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('api/v1/operator/status/', operator_status),
+    path('api/v1/operator/<str:section>/', operator_collection),
     path('api/v1/account/avatars/', avatar_catalog),
     path('api/v1/account/subscriptions/', account_subscriptions),
     path('internal/django-admin/', admin.site.urls),

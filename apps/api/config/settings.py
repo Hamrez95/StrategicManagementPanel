@@ -31,6 +31,7 @@ MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.s
 ROOT_URLCONF = 'config.urls'
 MIDDLEWARE.insert(MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1, 'modules.accounts.profile_completion.ProfileCompletionMiddleware')
 MIDDLEWARE.append('django.contrib.messages.middleware.MessageMiddleware')
+MIDDLEWARE.insert(0, 'modules.operations.security.OperatorAdminBoundaryMiddleware')
 WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'

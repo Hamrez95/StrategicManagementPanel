@@ -11,6 +11,644 @@
     }
   ],
   "paths": {
+    "/api/v1/operator/status/": {
+      "get": {
+        "operationId": "readOperatorReadiness",
+        "summary": "Read own operator sections and MFA readiness",
+        "description": "Implemented. Requires a freshly loaded active, verified staff identity and at least one explicit accounts.operator_view_<section> permission, direct or group. Staff/superuser flags alone grant no access. No customer data. MFA is currently unimplemented, so mfa_ready is false. Headers and session flags cannot open this gate.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Own permitted sections only",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "sections",
+                    "mfa_ready"
+                  ],
+                  "properties": {
+                    "sections": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "accounts",
+                          "workspaces",
+                          "plans",
+                          "subscriptions",
+                          "access",
+                          "audit"
+                        ]
+                      }
+                    },
+                    "mfa_ready": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Session required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "403": {
+            "description": "Explicit operator permission required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "405": {
+            "description": "GET only",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/operator/{section}/": {
+      "get": {
+        "operationId": "listOperatorSection",
+        "summary": "Read one independently authorized management summary section",
+        "description": "Implemented but fail-closed until reviewed operator MFA exists. Requires freshly loaded active, email-verified staff and explicit accounts.operator_view_<section>, assigned directly or by group; staff/superuser alone are insufficient. Current authorized requests return 503 operator_mfa_unavailable before customer querysets. No impersonation or tenant-content access. The 200 schema is the tested contract after future MFA integration. Account/access search is exact email or UUID; plans use code/title substring; other sections use record/owner UUID, audit reference/actor UUID. Audit merges Workspace and management subscription events newest-first with source/ID tie-breaks. No business content, email in results, free-text changes/reasons, password, token, phone or billing ID. Recorded active subscription status can differ from effective access. Report capability is reserved, not an implemented renderer.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "section",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "accounts",
+                "workspaces",
+                "plans",
+                "subscriptions",
+                "access",
+                "audit"
+              ]
+            },
+            "description": "Each value requires its own accounts.operator_view_<section> permission"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "Redact search parameters in deployment access logs"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "active",
+                "inactive",
+                "archived",
+                "revoked"
+              ]
+            },
+            "description": "accounts/access/plans: active or inactive; workspaces: active or archived; subscriptions: active or revoked; audit: no state filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Read contract, gated by MFA prerequisite",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "results",
+                    "count",
+                    "page",
+                    "page_size",
+                    "has_next",
+                    "has_previous"
+                  ],
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "maxItems": 25,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "title": "accounts",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "is_active",
+                              "verified",
+                              "date_joined"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "verified": {
+                                "type": "boolean"
+                              },
+                              "date_joined": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "workspaces",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "owner_id",
+                              "archived_at",
+                              "created_at"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "owner_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "archived_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "plans",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "code",
+                              "title",
+                              "is_active",
+                              "is_default",
+                              "revision",
+                              "owned_workspace_limit",
+                              "can_finalize_analysis",
+                              "can_calculate_metrics",
+                              "can_generate_reports",
+                              "price",
+                              "currency",
+                              "duration_days"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "is_default": {
+                                "type": "boolean"
+                              },
+                              "revision": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "can_finalize_analysis": {
+                                "type": "boolean"
+                              },
+                              "can_calculate_metrics": {
+                                "type": "boolean"
+                              },
+                              "can_generate_reports": {
+                                "type": "boolean",
+                                "description": "Reserved capability; no report renderer is implemented"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "currency": {
+                                "type": "string"
+                              },
+                              "duration_days": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "subscriptions",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "owner_id",
+                              "plan_title",
+                              "plan_revision",
+                              "status",
+                              "starts_at",
+                              "ends_at",
+                              "owned_workspace_limit",
+                              "can_finalize_analysis",
+                              "can_calculate_metrics",
+                              "can_generate_reports"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "owner_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "plan_title": {
+                                "type": "string"
+                              },
+                              "plan_revision": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "active",
+                                  "revoked"
+                                ]
+                              },
+                              "starts_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "ends_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "can_finalize_analysis": {
+                                "type": "boolean"
+                              },
+                              "can_calculate_metrics": {
+                                "type": "boolean"
+                              },
+                              "can_generate_reports": {
+                                "type": "boolean",
+                                "description": "Reserved capability; no report renderer is implemented"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "access",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "accessLevel",
+                              "owned_workspace_limit",
+                              "owned_workspaces",
+                              "can_create_workspace",
+                              "features"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "accessLevel": {
+                                "type": "string",
+                                "enum": [
+                                  "free",
+                                  "special"
+                                ]
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "owned_workspaces": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "can_create_workspace": {
+                                "type": "boolean"
+                              },
+                              "features": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "can_finalize_analysis",
+                                  "can_calculate_metrics",
+                                  "can_generate_reports"
+                                ],
+                                "properties": {
+                                  "can_finalize_analysis": {
+                                    "type": "boolean"
+                                  },
+                                  "can_calculate_metrics": {
+                                    "type": "boolean"
+                                  },
+                                  "can_generate_reports": {
+                                    "type": "boolean",
+                                    "description": "Reserved capability; no report renderer is implemented"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "audit",
+                            "additionalProperties": false,
+                            "required": [
+                              "event_id",
+                              "source",
+                              "actor_id",
+                              "event_type",
+                              "target",
+                              "created_at"
+                            ],
+                            "properties": {
+                              "event_id": {
+                                "type": "string"
+                              },
+                              "source": {
+                                "type": "string",
+                                "enum": [
+                                  "workspace",
+                                  "subscription"
+                                ]
+                              },
+                              "actor_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "event_type": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "enum": [
+                        25
+                      ]
+                    },
+                    "has_next": {
+                      "type": "boolean"
+                    },
+                    "has_previous": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query, filter or page",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "401": {
+            "description": "Session required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "403": {
+            "description": "Section permission required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "404": {
+            "description": "Page does not exist",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "405": {
+            "description": "GET only",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "503": {
+            "description": "operator_mfa_unavailable: MFA not implemented; no customer read",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/metrics/observations/": {
       "get": {
         "operationId": "listMetricObservations",

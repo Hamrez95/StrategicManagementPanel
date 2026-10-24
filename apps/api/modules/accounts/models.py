@@ -65,6 +65,14 @@ class User(AbstractUser):
 
     class Meta:
         constraints = [models.UniqueConstraint(Lower('email'), name='user_email_case_insensitive')]
+        permissions = [
+            ('operator_view_accounts', 'Operator: read account summaries'),
+            ('operator_view_workspaces', 'Operator: read Workspace summaries'),
+            ('operator_view_plans', 'Operator: read management plans'),
+            ('operator_view_subscriptions', 'Operator: read management subscriptions'),
+            ('operator_view_access', 'Operator: read effective management access'),
+            ('operator_view_audit', 'Operator: read redacted audit history'),
+        ]
 
 
 class AuthRateLimit(models.Model):
