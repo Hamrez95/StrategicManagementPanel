@@ -153,10 +153,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
+  gap: 7px;
   min-block-size: 44px;
   color: inherit;
-  font: 600 0.8rem var(--font-ui);
+  font: 600 0.76rem var(--font-ui);
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
@@ -169,13 +169,13 @@
     transform 200ms;
 }
 .header-language-switch {
-  padding: 0 11px;
+  padding: 0 9px;
   background: color-mix(in srgb, currentColor 4%, transparent);
   direction: ltr;
 }
 .header-language-globe {
-  width: 21px;
-  height: 21px;
+  width: 18px;
+  height: 18px;
   transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .header-language-switch:hover .header-language-globe {
@@ -186,8 +186,8 @@
 }
 .header-account-entry {
   position: relative;
-  padding-block: 5px;
-  padding-inline: 6px 15px;
+  padding-block: 4px;
+  padding-inline: 5px 12px;
   overflow: hidden;
   background: color-mix(in srgb, #4285f4 10%, transparent);
 }
@@ -195,17 +195,17 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: 33px;
-  height: 33px;
-  border-radius: 11px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
   background: linear-gradient(145deg, #548bff, #2855cf);
   color: #fff;
   box-shadow: inset 0 1px 0 #ffffff50;
   transition: transform 300ms;
 }
 .header-account-emblem svg {
-  width: 23px;
-  height: 23px;
+  width: 20px;
+  height: 20px;
 }
 .header-account-emblem i {
   position: absolute;
