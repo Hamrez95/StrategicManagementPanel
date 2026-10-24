@@ -10,9 +10,9 @@ Connected the existing plan and subscription models to a dedicated Django admin 
 
 **Security gate:** the shared operator MFA verifier for #30 has not yet been implemented in this checkout. `operator_mfa_verified` remains hard-closed for all users, environments and superusers. This surface must stay unavailable until #30 installs a reviewed, session-bound MFA verifier. Plan editing also stays unavailable until an audited plan-change service and reason/revision contract exist. The seeded special plan remains inactive and unpriced. No operator account or customer subscription was created or changed.
 
-**Verification:** Django system check passed; PostgreSQL tests initially passed 15/15 across this slice and existing entitlement regressions; focused Ruff E4/E7/E9/F/I and `git diff --check` passed. Two extra negative tests cover missing action permissions and forged MFA after that test run and still need a fresh run. Graphify AST was updated once (16,255 nodes / 23,311 edges / 1,115 communities); rerun after final changes and query the admin consumers. Browser run remains pending because the local Docker Desktop engine stopped responding while the disposable browser database was starting; the browser harness exists under the task workspace. Browser/theme/breakpoint/Axe acceptance and the final test rerun are not claimed. PostgreSQL live data was not touched. Issue #28 and #30 remain open.
+**Verification:** Django system check passed; the first focused PostgreSQL run passed 15/15 tests. Two additional negative tests now cover missing action permissions and forged MFA; the complete final 17-test rerun is pending. Python syntax, focused Ruff E4/E7/E9/F/I, staged diff checks and commit diff checks passed. Final AST Graphify update passed at 16,400 nodes / 23,811 edges / 1,120 communities; its follow-up query located `ManagementAdminSite` and `ManagementSubscriptionAdmin` in the updated graph. Browser review remains pending: Docker Desktop stopped answering both `docker ps` and the disposable server request, so no screenshot, breakpoint/theme or Axe pass is claimed. PostgreSQL live data was not touched. Issue #28 and #30 remain open.
 
-Commit: pending.
+Commit: `0e6844c` (`STR-028: expose audited management access admin`). The metric API route remains unstaged in the shared URL file.
 
 ## Current owner revision — complete design coverage
 
