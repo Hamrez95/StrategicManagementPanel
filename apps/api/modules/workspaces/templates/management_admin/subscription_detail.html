@@ -1,0 +1,8 @@
+{% extends "admin/change_form.html" %}
+{% block object-tools-items %}
+{% if can_revoke %}<li><a href="{% url 'management_admin:workspaces_managementsubscription_revoke' original.pk %}">لغو اشتراک</a></li>{% endif %}
+{{ block.super }}
+{% endblock %}
+{% block form_top %}
+<p>این اطلاعات، نسخهٔ ثبت‌شده در زمان فعال‌سازی هستن و قابل ویرایش نیستن. تغییر پلن، این نسخه رو عوض نمی‌کنه.</p>
+{% endblock %}

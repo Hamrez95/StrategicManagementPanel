@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from modules.accounts.avatar_views import avatar_catalog
+from modules.workspaces.admin import management_admin_site
 from modules.accounts.subscription_views import account_subscriptions
 from modules.accounts.google_auth import google_config, google_challenge, google_login, google_link, completion_details, complete_profile
 from modules.accounts.auth_views import (
@@ -53,6 +54,7 @@ urlpatterns = [
     path('api/v1/account/avatars/', avatar_catalog),
     path('api/v1/account/subscriptions/', account_subscriptions),
     path('internal/django-admin/', admin.site.urls),
+    path('internal/management/', management_admin_site.urls),
     path('api/v1/accounts/google/config/', google_config),
     path('api/v1/accounts/google/challenge/', google_challenge),
     path('api/v1/accounts/google/login/', google_login),

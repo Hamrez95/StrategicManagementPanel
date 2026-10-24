@@ -1,0 +1,39 @@
+@font-face {
+  font-family: ManagementVazir;
+  src: url("Vazir-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: ManagementVazir;
+  src: url("Vazir-Bold.woff2") format("woff2");
+  font-weight: 600 900;
+  font-display: swap;
+}
+:root {
+  --font-family-primary: ManagementVazir, sans-serif;
+}
+body, input, select, textarea, button {
+  font-family: var(--font-family-primary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.management-operation { max-inline-size: 48rem; }
+.management-operation > div { margin-block: 1.2rem; }
+.management-operation label { display: block; }
+.management-operation input:not([type="checkbox"]),
+.management-operation select, .management-operation textarea {
+  box-sizing: border-box;
+  max-inline-size: 100%;
+  min-block-size: 44px;
+}
+.management-operation input[type="text"], .management-operation textarea { inline-size: 100%; }
+.management-operation input[type="checkbox"] { min-inline-size: 44px; min-block-size: 44px; }
+.management-operation .helptext { color: var(--body-quiet-color); }
+.management-operation .errorlist { color: var(--error-fg); }
+dd { margin-inline-start: 1rem; overflow-wrap: anywhere; }
+#changelist table th, #changelist table td { font-size: 1rem; }
+.object-tools a { min-block-size: 32px; align-content: center; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

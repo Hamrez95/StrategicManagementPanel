@@ -4,6 +4,16 @@
 
 See [MODELING_READINESS_2026-10-24](MODELING_READINESS_2026-10-24.md) for the audited 59-model inventory, 112 PostgreSQL guards, default management free plan, frozen grants, analysis history, Workspace audit events, 223 passing PostgreSQL tests and verified isolated database restore. This supersedes historical statements below that server verification was wholly deferred. It does not mark advanced frontend drafts, professional report rendering, management payments or the restricted operator console as complete.
 
+## Management access admin slice — 2026-10-25; STR-028/#28 + STR-030/#30
+
+Connected the existing plan and subscription models to a dedicated Django admin registry at `/internal/management/`. Plan catalog/detail, subscription snapshot, actor references and append-only history are read-only. Explicit POST-only, CSRF-protected grant/revoke forms call the existing audited services and carry reason plus grant request UUID; no customer-content lookup, impersonation, account mutation, pricing, real grant or migration was added. Full scope, field-level permissions, rollback and limits: [MANAGEMENT_ACCESS_ADMIN_2026-10-24](MANAGEMENT_ACCESS_ADMIN_2026-10-24.md).
+
+**Security gate:** the shared operator MFA verifier for #30 has not yet been implemented in this checkout. `operator_mfa_verified` remains hard-closed for all users, environments and superusers. This surface must stay unavailable until #30 installs a reviewed, session-bound MFA verifier. Plan editing also stays unavailable until an audited plan-change service and reason/revision contract exist. The seeded special plan remains inactive and unpriced. No operator account or customer subscription was created or changed.
+
+**Verification:** Django system check passed; PostgreSQL tests initially passed 15/15 across this slice and existing entitlement regressions; focused Ruff E4/E7/E9/F/I and `git diff --check` passed. Two extra negative tests cover missing action permissions and forged MFA after that test run and still need a fresh run. Graphify AST was updated once (16,255 nodes / 23,311 edges / 1,115 communities); rerun after final changes and query the admin consumers. Browser run remains pending because the local Docker Desktop engine stopped responding while the disposable browser database was starting; the browser harness exists under the task workspace. Browser/theme/breakpoint/Axe acceptance and the final test rerun are not claimed. PostgreSQL live data was not touched. Issue #28 and #30 remain open.
+
+Commit: pending.
+
 ## Current owner revision — complete design coverage
 
 ### 010-D implementation slice
