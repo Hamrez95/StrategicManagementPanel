@@ -3,7 +3,8 @@ import type { CSSProperties, MouseEvent, PointerEvent } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { Brand } from '@stratino/ui';
 import { Icon } from '../features/experience/ExperienceUI';
-import { applyAccountPreferences, readDevicePreferences } from '../features/account/api';
+import { readDevicePreferences } from '../features/account/api';
+import { AccountEntry, LanguageSwitch, ThemeSwitch } from '../features/chrome/HeaderControls';
 import type { DevicePreferences } from '../features/account/api';
 import { homeCopy, homeSources } from './homeCopy';
 import './home.css';
@@ -24,23 +25,14 @@ export default function Site({ academyEnabled = true }: { academyEnabled?: boole
     root = useRef<HTMLDivElement>(null),
     entering = useRef(false);
   const [preferences, setPreferences] = useState(readDevicePreferences);
-  const [dark, setDark] = useState(document.documentElement.dataset.theme === 'dark');
   const english = preferences.language === 'en',
     copy = homeCopy[english ? 'en' : 'fa'];
   useEffect(() => {
     const update = (event: Event) =>
       setPreferences((event as CustomEvent<DevicePreferences>).detail);
     window.addEventListener('stratino:preferences', update);
-    const observer = new MutationObserver(() =>
-      setDark(document.documentElement.dataset.theme === 'dark'),
-    );
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
     return () => {
       window.removeEventListener('stratino:preferences', update);
-      observer.disconnect();
     };
   }, []);
   useEffect(() => {
@@ -153,30 +145,9 @@ export default function Site({ academyEnabled = true }: { academyEnabled?: boole
           {academyEnabled && <a href="#learning-sources">{copy.sources}</a>}
         </nav>
         <div className="home-header-actions">
-          <button
-            className="home-icon-button"
-            type="button"
-            aria-label={dark ? copy.light : copy.dark}
-            onClick={() =>
-              applyAccountPreferences({ ...preferences, theme: dark ? 'light' : 'dark' })
-            }
-          >
-            <Icon name={dark ? 'sun' : 'spark'} size={19} />
-          </button>
-          <button
-            type="button"
-            className="home-language"
-            aria-label={copy.language}
-            onClick={() =>
-              applyAccountPreferences({ ...preferences, language: english ? 'fa' : 'en' })
-            }
-          >
-            {english ? 'فا' : 'EN'}
-          </button>
-          <Link className="home-login" to="/account/login">
-            {copy.login}
-            <Icon name="arrow" size={17} />
-          </Link>
+          <ThemeSwitch />
+          <LanguageSwitch english={english} />
+          <AccountEntry label={copy.login} />
         </div>
       </header>
       <section className="home-orbit-hero" aria-labelledby="home-title">

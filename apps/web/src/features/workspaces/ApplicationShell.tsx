@@ -6,6 +6,7 @@ import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { postAuth } from '../auth/api';
 import { AccountAvatar } from '../account/AccountAvatar';
+import { LanguageSwitch, ThemeSwitch } from '../chrome/HeaderControls';
 import { useWorkspaceSwitch } from './switchContext';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
 
@@ -373,6 +374,8 @@ export default function ApplicationShell() {
           className="app-topbar-actions"
           aria-label={english ? 'Application tools' : 'ابزارهای برنامه'}
         >
+          <ThemeSwitch />
+          <LanguageSwitch english={english} />
           <Dialog
             closeLabel={english ? 'Close search' : 'بستن جستجو'}
             title={english ? 'Search this Workspace' : 'جستجو در فضای کار'}
