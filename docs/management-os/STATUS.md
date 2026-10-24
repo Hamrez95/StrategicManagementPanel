@@ -4,6 +4,14 @@
 
 See [MODELING_READINESS_2026-10-24](MODELING_READINESS_2026-10-24.md) for the audited 59-model inventory, 112 PostgreSQL guards, default management free plan, frozen grants, analysis history, Workspace audit events, 223 passing PostgreSQL tests and verified isolated database restore. This supersedes historical statements below that server verification was wholly deferred. It does not mark advanced frontend drafts, professional report rendering, management payments or the restricted operator console as complete.
 
+## STR-029 / #29 payment lifecycle implementation — 2026-10-25
+
+Implemented in the dedicated `feat/str-029-management-payments` worktree. `ManagementOrder`, `ManagementPaymentAttempt`, `ManagementDiscount`, `ManagementRefund` and append-only `ManagementPaymentEvent` are separate from #28's operator subscription grants and Academy purchases. Orders and attempts have explicit states, owner-scoped idempotency, immutable offer snapshots, integer rial amounts and database choice/snapshot/scope guards. A verified server-provider result must match our persisted UUID, exact amount and currency before the transaction can create a frozen subscription. Browser-provided status is not accepted. Timeouts leave a retryable key; duplicate confirmations are serialized; cancelled late success becomes `payment_review`. Refunds and cancellations have explicit idempotency keys, operator permissions and audit entries; entitlement revocation on refund is an explicit audited decision.
+
+Commerce is closed by default: checkout and discounts are disabled, there is no registered provider, and no public payment/callback mutation route was added. The provider protocol is a server-side implementation boundary, not a completed live integration. Do not activate purchases or discount codes until provider ownership, prices, durations and refund/discount policy are approved. No prices, durations or commercial policy were seeded.
+
+Validation: the focused payment suite ran **23 tests: 21 passed, 2 skipped** (PostgreSQL-only database-guard and row-locking checks). Django system checks and `makemigrations --check --dry-run` passed under the isolated SQLite test settings; these checks are supplementary only. Focused Ruff and `git diff --check` passed. Graphify code-only update and the payment/order dependency query ran in the worktree. Docker/PostgreSQL stopped responding during the requested full run; direct PostgreSQL connections timed out. The PostgreSQL payment suite, full API suite and restored-database migration/audit were therefore not verified in this checkpoint. STR-029/#29 remains open pending those checks and later owner-approved provider configuration/integration. No GitHub tasks were recreated.
+
 ## Current owner revision — complete design coverage
 
 ### 010-D implementation slice
