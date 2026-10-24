@@ -1,6 +1,7 @@
 import uuid
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
@@ -25,6 +26,11 @@ class ExportSnapshot(models.Model):
     artifact_size_bytes = models.PositiveBigIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            raise ValidationError('Export snapshots are immutable; create a new snapshot.')
+        return super().save(*args, **kwargs)
+
     class Meta:
         ordering = ('-created_at', 'id')
         constraints = [
@@ -32,6 +38,6 @@ class ExportSnapshot(models.Model):
                 fields=('workspace', 'requested_by', 'idempotency_key'),
                 name='export_workspace_user_idem_uniq',
             ),
-            models.CheckConstraint(condition=models.Q(schema_version=1), name='export_schema_version_supported'),
+            models.CheckConstraint(condition=models.Q(schema_version__in=(1, 2)), name='export_schema_version_supported'),
             models.CheckConstraint(condition=models.Q(artifact_size_bytes__gte=0), name='export_artifact_size_nonnegative'),
         ]

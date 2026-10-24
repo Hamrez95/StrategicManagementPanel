@@ -1,8 +1,10 @@
 import io
+import hashlib
 import json
 import tempfile
 import uuid
 import zipfile
+from unittest.mock import patch
 from datetime import date, timedelta
 
 from django.core.files.base import ContentFile
@@ -11,7 +13,7 @@ from django.test import TestCase, override_settings
 from django.utils import timezone
 
 from modules.accounts.models import User
-from modules.analysis.models import Analysis
+from modules.analysis.models import Analysis, AnalysisRevision
 from modules.documents.models import DocumentAttachment, DocumentRecord
 from modules.execution.models import Action, Decision, Goal
 from modules.imports.models import WorkspaceImportBatch
@@ -124,8 +126,10 @@ class WorkspaceExportApiTests(TestCase):
             content='One-page company summary',
         )
         file_content = b'allowed attachment'
-        stored_key = default_storage.save('quarantine/test-report-file.txt', ContentFile(file_content))
+        attachment_id = uuid.uuid4()
+        stored_key = default_storage.save(f'attachments/{attachment_id.hex}', ContentFile(file_content))
         attachment = DocumentAttachment.objects.create(
+            id=attachment_id,
             workspace=self.workspace,
             document=document,
             created_by=self.owner,
@@ -136,18 +140,18 @@ class WorkspaceExportApiTests(TestCase):
             version=1,
             reserved_size_bytes=len(file_content),
             size_bytes=len(file_content),
-            sha256='a' * 64,
+            sha256=hashlib.sha256(file_content).hexdigest(),
             storage_key=stored_key,
             status=DocumentAttachment.Status.READY,
             expires_at=timezone.now() + timedelta(minutes=30),
         )
         return analysis, factor, option, decision, goal, document, attachment
 
-    def create_export(self, actor, *, key='report-key-1'):
+    def create_export(self, actor, *, key='report-key-1', body=None):
         self.client.force_login(actor)
         return self.client.post(
             self.path,
-            data='{}',
+            data=json.dumps(body or {}),
             content_type='application/json',
             HTTP_IDEMPOTENCY_KEY=key,
         )
@@ -334,3 +338,110 @@ class WorkspaceExportApiTests(TestCase):
         with zipfile.ZipFile(io.BytesIO(b''.join(archive_response.streaming_content))) as archive:
             self.assertTrue(any(name.endswith('/strategy-notes.txt') for name in archive.namelist()))
             self.assertFalse(any(name.endswith('/pending.txt') for name in archive.namelist()))
+
+    def test_v2_includes_canonical_unknown_zero_and_deleted_analysis_history(self):
+        from modules.metrics.models import InputObservation
+        from modules.customer_context.models import Product
+        Product.objects.create(workspace=self.workspace, name='محصول واقعی')
+        for state, value in [('observed', 0), ('unknown', None)]:
+            InputObservation.objects.create(workspace=self.workspace, recorded_by=self.owner,
+                binding_id='net_revenue', period_start='2026-01-01', period_end='2026-02-01',
+                state=state, value=value, unit='currency', currency='IRR', accounting_basis='cash',
+                source_kind='owner_reported', source_id=state, source_revision='1', reason='نامشخص' if value is None else '')
+        source_id = uuid.uuid4()
+        AnalysisRevision.objects.create(workspace=self.workspace, source_record_id=source_id, revision=1,
+            snapshot={'kind': 'ife', 'state': 'draft', 'inputs': {'rows': []}}, is_backfill=True)
+        created = self.create_export(self.viewer, body={'schema_version': 2})
+        self.assertEqual(created.status_code, 201, created.content)
+        envelope = created.json()['snapshot']
+        self.assertEqual(envelope['schema'], 'stratino-workspace-v2')
+        self.assertEqual(len(envelope['scope']), 29)
+        data = envelope['data']
+        self.assertEqual(data['products'][0]['name'], 'محصول واقعی')
+        self.assertEqual({row['state']: row['value'] for row in data['observations']}, {'observed': '0.000000', 'unknown': None})
+        self.assertEqual(data['analysis_history'][0]['source_record_id'], str(source_id))
+        self.assertIsNone(data['report_verification'])
+        self.assertNotIn('storage_key', json.dumps(data))
+        imported = self.client.post(f'/api/v1/workspaces/{self.workspace.pk}/imports/',
+            data=json.dumps({'schema_version': 1, 'data': envelope}), content_type='application/json', HTTP_IDEMPOTENCY_KEY='v2-import')
+        self.client.force_login(self.owner)
+        imported = self.client.post(f'/api/v1/workspaces/{self.workspace.pk}/imports/',
+            data=json.dumps({'schema_version': 1, 'data': envelope}), content_type='application/json', HTTP_IDEMPOTENCY_KEY='v2-import')
+        self.assertEqual(imported.status_code, 201, imported.content)
+        self.assertEqual(WorkspaceImportBatch.objects.get().source_backup, envelope)
+        original = self.create_export(self.viewer, key='legacy')
+        self.assertEqual(set(original.json()['snapshot']['data']), set(EXPORT_SCOPE))
+
+    def special_grant(self):
+        from modules.workspaces.models import ManagementPlan, ManagementSubscription
+        plan = ManagementPlan.objects.create(code='report-test', title='Test special', is_active=True, can_generate_reports=True)
+        return ManagementSubscription.objects.create(billing_account=self.workspace.billing_account, plan=plan,
+            request_id=uuid.uuid4(), starts_at=timezone.now() - timedelta(minutes=1), plan_title=plan.title,
+            plan_revision=plan.revision, can_generate_reports=True, granted_by=self.owner, reason='Synthetic report test')
+
+    def test_professional_requires_entitlement_and_recalculates_without_mutating_inputs(self):
+        analysis, *_ = self.create_project_records()
+        analysis.inputs['rows'][0]['factor_type'] = 'opportunity'
+        analysis.output = {'score': 99, 'ready': True}
+        analysis.save()
+        body = {'schema_version': 2, 'purpose': 'professional'}
+        denied = self.create_export(self.viewer, body=body)
+        self.assertEqual(denied.status_code, 403, denied.content)
+        self.assertEqual(ExportSnapshot.objects.count(), 0)
+        grant = self.special_grant()
+        created = self.create_export(self.viewer, body=body)
+        self.assertEqual(created.status_code, 201, created.content)
+        data = created.json()['snapshot']['data']
+        self.assertEqual(data['analyses'][0]['output']['score'], 99)
+        self.assertEqual(data['report_verification']['analyses'][0]['output']['score'], 3)
+        self.assertTrue(data['report_verification']['calculated_server_side'])
+        analysis.inputs['rows'][0]['rating'] = 1
+        analysis.save()
+        detail = self.client.get(self.path + created.json()['id'] + '/')
+        self.assertEqual(detail.json()['snapshot']['data']['report_verification']['analyses'][0]['output']['score'], 3)
+        grant.status = 'revoked'
+        grant.save(update_fields=['status'])
+        for suffix in ('/', '/download/?format=json', '/download/?format=csv', '/download/?format=zip'):
+            self.assertEqual(self.client.get(self.path + created.json()['id'] + suffix).status_code, 403)
+        self.assertEqual(self.create_export(self.viewer, key='raw-after-revoke', body={'schema_version': 2}).status_code, 201)
+
+    def test_unsupported_professional_method_fails_without_storing_artifact(self):
+        self.special_grant()
+        analysis, *_ = self.create_project_records()
+        analysis.method_version = 'unsupported'
+        analysis.save()
+        response = self.create_export(self.owner, body={'schema_version': 2, 'purpose': 'professional'})
+        self.assertEqual(response.status_code, 400, response.content)
+        self.assertEqual(response.json()['code'], 'report_verification_failed')
+        self.assertEqual(ExportSnapshot.objects.count(), 0)
+
+    def test_archive_rechecks_membership_after_build_and_does_not_publish(self):
+        from .services import _build_archive
+        def revoked(*args):
+            result = _build_archive(*args)
+            Membership.objects.filter(workspace=self.workspace, user=self.viewer).delete()
+            return result
+        with patch('modules.exports.services._build_archive', side_effect=revoked):
+            self.assertEqual(self.create_export(self.viewer).status_code, 404)
+        self.assertEqual(ExportSnapshot.objects.count(), 0)
+
+    def test_archive_checks_canonical_storage_path_and_file_checksum(self):
+        *_, attachment = self.create_project_records()
+        DocumentAttachment.objects.filter(pk=attachment.pk).update(storage_key='../unsafe')
+        denied = self.create_export(self.owner)
+        self.assertEqual(denied.status_code, 400)
+        self.assertEqual(denied.json()['code'], 'unsafe_attachment_path')
+        DocumentAttachment.objects.filter(pk=attachment.pk).update(storage_key=attachment.storage_key, sha256='0' * 64)
+        denied = self.create_export(self.owner)
+        self.assertEqual(denied.status_code, 400)
+        self.assertEqual(denied.json()['code'], 'attachment_integrity_failed')
+        self.assertEqual(ExportSnapshot.objects.count(), 0)
+
+    def test_schema_selection_is_explicit_and_idempotency_cannot_change_contract(self):
+        first = self.create_export(self.viewer)
+        self.assertEqual(first.status_code, 201)
+        conflict = self.create_export(self.viewer, body={'schema_version': 2})
+        self.assertEqual(conflict.status_code, 400)
+        self.assertEqual(conflict.json()['code'], 'export_idempotency_conflict')
+        for body in ({'schema_version': True}, {'schema_version': 3}, {'purpose': 'professional'}, {'inputs': {}}):
+            self.assertEqual(self.create_export(self.viewer, key='invalid', body=body).status_code, 400)

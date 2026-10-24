@@ -1,6 +1,7 @@
 import hashlib
 import json
 import math
+from modules.exports.schema_v2 import V2_EXTRA_SCOPE
 
 MAX_IMPORT_BYTES = 5_000_000
 MAX_REQUEST_BYTES = MAX_IMPORT_BYTES + 256
@@ -18,6 +19,7 @@ OPTIONAL_FIELDS = {'schema', 'schema_version', 'exported_at', 'attachments', 'fi
 RECORD_FIELDS = ('external', 'internal', 'objectives', 'initiatives', 'risks', 'journal', 'pestel', 'competitors', 'vrio', 'swot', 'options', 'products')
 BYTE_FIELDS = {'file_bytes', 'bytes_base64', 'content_base64', 'data_url', 'blob'}
 STRATINO_EXPORT_SCHEMA = 'stratino-workspace-v1'
+STRATINO_EXPORT_SCHEMAS = {'stratino-workspace-v1': 1, 'stratino-workspace-v2': 2}
 STRATINO_EXPORT_SCOPE = {
     'workspace', 'workspace_profile', 'profile_history', 'analyses', 'strategy_factors', 'strategy_options',
     'decisions', 'goals', 'actions', 'execution_history', 'documents', 'document_templates', 'document_history', 'ready_attachments',
@@ -196,7 +198,7 @@ def _strip_file_bytes(value):
 
 def inspect_legacy_backup(value):
     """Validate and map the old browser backup without mutating its source."""
-    if isinstance(value, dict) and value.get('schema') == STRATINO_EXPORT_SCHEMA:
+    if isinstance(value, dict) and isinstance(value.get('schema'), str) and value.get('schema') in STRATINO_EXPORT_SCHEMAS:
         return inspect_stratino_export(value)
     state, source_schema, source_envelope = _source_state(value)
     _validate_legacy_state(state)
@@ -281,16 +283,18 @@ def inspect_stratino_export(value):
     required = {'schema', 'schema_version', 'exported_at', 'method_version', 'scope', 'data'}
     if set(value) != required:
         _bad('ساختار فایل خروجی استراتینو معتبر نیست.')
-    if value.get('schema') != STRATINO_EXPORT_SCHEMA or value.get('schema_version') != 1 or isinstance(value.get('schema_version'), bool):
+    version = STRATINO_EXPORT_SCHEMAS.get(value.get('schema')) if isinstance(value.get('schema'), str) else None
+    if version is None or value.get('schema_version') != version or isinstance(value.get('schema_version'), bool):
         _bad('نسخه فایل خروجی استراتینو پشتیبانی نمی‌شود.')
     if not isinstance(value.get('exported_at'), str) or not isinstance(value.get('method_version'), str):
         _bad('نسخه روش یا زمان ساخت فایل معتبر نیست.')
     scope = value.get('scope')
+    expected_scope = STRATINO_EXPORT_SCOPE | (set(V2_EXTRA_SCOPE) if version == 2 else set())
     if (
         not isinstance(scope, list)
         or any(not isinstance(item, str) for item in scope)
-        or set(scope) != STRATINO_EXPORT_SCOPE
-        or len(scope) != len(STRATINO_EXPORT_SCOPE)
+        or set(scope) != expected_scope
+        or len(scope) != len(expected_scope)
     ):
         _bad('دامنه داده فایل با دامنه مجاز این نسخه هماهنگ نیست.')
     data = value.get('data')
@@ -299,11 +303,13 @@ def inspect_stratino_export(value):
         'strategy_options', 'decisions', 'goals', 'actions', 'execution_history', 'documents', 'document_templates',
         'ready_attachments', 'document_history',
     }
+    if version == 2:
+        required_sections.update(V2_EXTRA_SCOPE)
     if not isinstance(data, dict) or set(data) != required_sections:
         _bad('بخش‌های فایل خروجی کامل یا شناخته‌شده نیستند.')
     if not isinstance(data['workspace'], dict) or not isinstance(data['workspace'].get('id'), str):
         _bad('شناسه فضای کار در فایل معتبر نیست.')
-    for field in required_sections - {'workspace', 'workspace_profile'}:
+    for field in required_sections - {'workspace', 'workspace_profile', 'report_verification'}:
         if not isinstance(data[field], list):
             _bad('ساختار یکی از فهرست‌های فایل معتبر نیست.', field)
     if data['workspace_profile'] is not None and not isinstance(data['workspace_profile'], dict):
@@ -319,9 +325,11 @@ def inspect_stratino_export(value):
         'strategy_records': len(data['strategy_factors']) + len(data['strategy_options']),
         'document_records': len(data['documents']),
     }
+    if version == 2:
+        record_counts['canonical_records'] = sum(len(data[key]) for key in V2_EXTRA_SCOPE if key != 'report_verification')
     canonical = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
     return {
-        'source_schema': STRATINO_EXPORT_SCHEMA,
+        'source_schema': value['schema'],
         'source_digest': hashlib.sha256(canonical.encode('utf-8')).hexdigest(),
         'record_counts': record_counts,
         'record_count': sum(record_counts.values()),
@@ -350,7 +358,7 @@ def parse_import_request(raw_body):
         body = json.loads(raw_body or b'{}', parse_constant=_reject_constant, object_pairs_hook=_unique_object)
     except (UnicodeDecodeError, json.JSONDecodeError, ValueError, RecursionError):
         _bad('فایل JSON معتبر نیست.')
-    if isinstance(body, dict) and body.get('schema') == STRATINO_EXPORT_SCHEMA:
+    if isinstance(body, dict) and isinstance(body.get('schema'), str) and body.get('schema') in STRATINO_EXPORT_SCHEMAS:
         return inspect_stratino_export(body)
     if not isinstance(body, dict) or set(body) != {'schema_version', 'data'}:
         _bad('درخواست باید شامل نسخه طرح و داده فایل باشد.')

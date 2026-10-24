@@ -22,11 +22,22 @@ export type ReportData = {
   document_templates: Record<string, unknown>[];
   ready_attachments: Record<string, unknown>[];
   document_history: Record<string, unknown>[];
+  products?: Record<string, unknown>[];
+  segments?: Record<string, unknown>[];
+  icps?: Record<string, unknown>[];
+  observations?: Record<string, unknown>[];
+  evidence?: Record<string, unknown>[];
+  claims?: Record<string, unknown>[];
+  confidence_assessments?: Record<string, unknown>[];
+  calculation_runs?: Record<string, unknown>[];
+  metric_values?: Record<string, unknown>[];
+  analysis_history?: Record<string, unknown>[];
+  report_verification?: Record<string, unknown> | null;
 };
 
 export type ReportEnvelope = {
-  schema: 'stratino-workspace-v1';
-  schema_version: 1;
+  schema: 'stratino-workspace-v1' | 'stratino-workspace-v2';
+  schema_version: 1 | 2;
   exported_at: string;
   method_version: string;
   scope: string[];
@@ -75,6 +86,23 @@ function decodeSnapshotData(value: unknown): ReportEnvelope {
     'ready_attachments',
     'document_history',
   ];
+  if (envelope.schema_version === 2)
+    arrayFields.push(
+      'products',
+      'segments',
+      'icps',
+      'context_identities',
+      'claims',
+      'evidence',
+      'claim_evidence_links',
+      'confidence_assessments',
+      'observations',
+      'observation_evidence_links',
+      'calculation_runs',
+      'metric_values',
+      'analysis_history',
+      'attachment_records',
+    );
   for (const field of arrayFields) {
     if (
       !Array.isArray(data[field]) ||
@@ -87,16 +115,31 @@ function decodeSnapshotData(value: unknown): ReportEnvelope {
   if (typeof workspace.id !== 'string' || typeof workspace.name !== 'string')
     throw new TypeError('Expected Workspace');
   if (data.workspace_profile !== null) asRecord(data.workspace_profile);
+  if (envelope.schema_version === 2) {
+    if (envelope.method_version === 'stratino-professional-report-v1') {
+      const verification = asRecord(data.report_verification);
+      if (
+        verification.calculated_server_side !== true ||
+        !['draft', 'verified'].includes(String(verification.state)) ||
+        !Array.isArray(verification.analyses) ||
+        !Array.isArray(verification.metrics)
+      )
+        throw new TypeError('Invalid report verification');
+    } else if (data.report_verification !== null)
+      throw new TypeError('Unexpected report verification');
+  }
   if (
-    envelope.schema !== 'stratino-workspace-v1' ||
-    envelope.schema_version !== 1 ||
+    !(
+      (envelope.schema === 'stratino-workspace-v1' && envelope.schema_version === 1) ||
+      (envelope.schema === 'stratino-workspace-v2' && envelope.schema_version === 2)
+    ) ||
     !Array.isArray(envelope.scope)
   ) {
     throw new TypeError('Unsupported report schema');
   }
   return {
-    schema: 'stratino-workspace-v1',
-    schema_version: 1,
+    schema: envelope.schema as ReportEnvelope['schema'],
+    schema_version: envelope.schema_version as 1 | 2,
     exported_at: requiredString(envelope.exported_at, 'export date'),
     method_version: requiredString(envelope.method_version, 'method version'),
     scope: envelope.scope.map((item) => requiredString(item, 'scope item')),
@@ -108,7 +151,7 @@ export function decodeExportSnapshot(value: unknown): ExportSnapshot {
   const item = asRecord(value);
   const artifact = asRecord(item.artifact);
   if (
-    item.schema_version !== 1 ||
+    (item.schema_version !== 1 && item.schema_version !== 2) ||
     item.state !== 'ready' ||
     artifact.format !== 'zip' ||
     !Number.isInteger(artifact.size_bytes) ||
@@ -120,6 +163,16 @@ export function decodeExportSnapshot(value: unknown): ExportSnapshot {
   }
   if (!Array.isArray(item.scope) || item.scope.some((scope) => typeof scope !== 'string'))
     throw new TypeError('Invalid export scope');
+  if (item.snapshot) {
+    const envelope = asRecord(item.snapshot);
+    const data = asRecord(envelope.data);
+    if (
+      envelope.schema_version !== item.schema_version ||
+      envelope.method_version !== item.method_version ||
+      asRecord(data.workspace).id !== item.workspace_id
+    )
+      throw new TypeError('Mismatched report snapshot');
+  }
   return {
     id: requiredString(item.id, 'export ID'),
     workspace_id: requiredString(item.workspace_id, 'Workspace ID'),
@@ -162,10 +215,14 @@ export function listWorkspaceExports(workspaceId: string, signal?: AbortSignal) 
   });
 }
 
-export function createWorkspaceExport(workspaceId: string, idempotencyKey: string) {
+export function createWorkspaceExport(
+  workspaceId: string,
+  idempotencyKey: string,
+  purpose: 'raw' | 'professional' = 'raw',
+) {
   return requestApi<ExportSnapshot>(exportPath(workspaceId), {
     method: 'POST',
-    body: {},
+    body: { schema_version: 2, purpose },
     headers: { 'Idempotency-Key': idempotencyKey },
     decode: (value) => {
       const result = decodeExportSnapshot(value);

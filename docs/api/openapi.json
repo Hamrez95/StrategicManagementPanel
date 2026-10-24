@@ -11,6 +11,299 @@
     }
   ],
   "paths": {
+    "/api/v1/workspaces/{workspace_id}/metrics/observations/": {
+      "get": {
+        "operationId": "listMetricObservations",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Newest first, at most 50 records; offset pagination is a changing feed, not an export snapshot. Evidence pins remain historical; current reports whether their revision and permission are still available.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      },
+      "post": {
+        "operationId": "captureMetricObservation",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Owner/editor in active Workspace only. Available without a special grant. Append-only capture with server-assigned revision per binding/context/cost policy. Existing captures never change. Client provenance is owner_reported only; a verified import requires a separate trusted importer. At most 20 unique same-Workspace available evidence IDs; links pin revisions atomically. Unknown/invalid/not_applicable require null value and a reason; variable costs require explicit cost policy. No universal accounting policy or benchmark is inferred. POST is not idempotent; read after an uncertain response before intentionally capturing another revision.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetricObservationCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricObservation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/contribution-runs/": {
+      "get": {
+        "operationId": "listContributionRuns",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Newest first, at most 50 immutable runs.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRunPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createContributionRun",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Owner/editor in active Workspace, effective can_calculate_metrics grant required. Calls the existing Decimal contribution-amount-v1 calculator against an exact approved release. At most two unique saved observations, one per binding; same scope, Segment, dates, currency and accounting basis required. Missing input yields a persisted nonnumeric unknown result. Stale/revoked evidence and unreviewed release fail without writing. Client result/method/snapshot injection rejected. Historical runs do not become current facts automatically. POST appends a new run on each intentional submission; no idempotency guarantee.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionRunCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRun"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/contribution-runs/{run_id}/": {
+      "get": {
+        "operationId": "readContributionRun",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Returns the exact stored context, input/evidence pins and result; never recalculates history. Source revisions may since have changed; this is a historical snapshot, not a claim of current evidence availability.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRun"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/entitlements/": {
       "get": {
         "operationId": "readWorkspaceEntitlements",
@@ -7055,6 +7348,701 @@
       }
     },
     "schemas": {
+      "MetricObservationCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "source_kind",
+          "source_id",
+          "source_revision"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "evidence_ids": {
+            "type": "array",
+            "maxItems": 20,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      },
+      "MetricObservation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "cost_scope",
+          "source_kind",
+          "source_id",
+          "source_revision",
+          "reason",
+          "id",
+          "workspace_id",
+          "revision",
+          "created_at",
+          "evidence"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported",
+              "verified_import"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evidence_id",
+                "revision",
+                "permission_status",
+                "current"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "permission_status": {
+                  "type": "string",
+                  "enum": [
+                    "available"
+                  ]
+                },
+                "current": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ContributionRunCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "observation_ids",
+          "knowledge_release_id"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "observation_ids": {
+            "type": "array",
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "knowledge_release_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1
+          }
+        }
+      },
+      "ContributionInputSnapshot": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "cost_scope",
+          "source_kind",
+          "source_id",
+          "source_revision",
+          "reason",
+          "observation_id",
+          "revision",
+          "evidence"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported",
+              "verified_import"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evidence_id",
+                "revision",
+                "permission_status"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "permission_status": {
+                  "type": "string",
+                  "enum": [
+                    "available"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ContributionRun": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "id",
+          "workspace_id",
+          "metric_id",
+          "method_revision",
+          "knowledge_release_id",
+          "knowledge_release_hash",
+          "variant",
+          "cost_scope",
+          "input_revision",
+          "input_snapshot",
+          "created_at",
+          "results"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "metric_id": {
+            "type": "string",
+            "enum": [
+              "MET-CONTRIBUTION-MARGIN"
+            ]
+          },
+          "method_revision": {
+            "type": "string",
+            "enum": [
+              "contribution-amount-v1"
+            ]
+          },
+          "knowledge_release_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "knowledge_release_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "variant": {
+            "type": "string",
+            "enum": [
+              "amount"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "input_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "input_snapshot": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/ContributionInputSnapshot"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "metric_id",
+                "variant",
+                "status",
+                "value",
+                "reason",
+                "unit",
+                "currency"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "metric_id": {
+                  "type": "string",
+                  "enum": [
+                    "MET-CONTRIBUTION-MARGIN"
+                  ]
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "amount"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "observed",
+                    "unknown",
+                    "not_applicable",
+                    "invalid"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "nullable": true,
+                  "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+                  "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+                },
+                "reason": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "currency"
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$",
+                  "maxLength": 3
+                }
+              }
+            }
+          }
+        }
+      },
+      "MetricObservationPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/MetricObservation"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "ContributionRunPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/ContributionRun"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
       "Error": {
         "type": "object",
         "properties": {

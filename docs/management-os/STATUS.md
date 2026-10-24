@@ -2,7 +2,7 @@
 
 ## Current modeling checkpoint
 
-See [MODELING_READINESS_2026-10-24](MODELING_READINESS_2026-10-24.md) for the audited 59-model inventory, 112 PostgreSQL guards, default management free plan, frozen grants, analysis history, Workspace audit events, 223 passing PostgreSQL tests and verified isolated database restore. This supersedes historical statements below that server verification was wholly deferred. It does not mark advanced frontend drafts, professional report rendering, management payments or the restricted operator console as complete.
+See [MODELING_READINESS_2026-10-24](MODELING_READINESS_2026-10-24.md) for the audited 59-model inventory, 112 PostgreSQL guards, default management free plan, frozen grants, analysis history, Workspace audit events, 223 passing PostgreSQL tests and verified isolated database restore. This supersedes historical statements below that server verification was wholly deferred. The professional report renderer is now implemented for gated v2 snapshots; this does not complete advanced frontend drafts, real management checkout, or the restricted operator console while its MFA gate is closed.
 
 ## Management access admin slice — 2026-10-25; STR-028/#28 + STR-030/#30
 
@@ -12,7 +12,19 @@ Connected the existing plan and subscription models to a dedicated Django admin 
 
 **Verification:** Django system check passed; the first focused PostgreSQL run passed 15/15 tests. Two additional negative tests now cover missing action permissions and forged MFA; the complete final 17-test rerun is pending. Python syntax, focused Ruff E4/E7/E9/F/I, staged diff checks and commit diff checks passed. Final AST Graphify update passed at 16,400 nodes / 23,811 edges / 1,120 communities; its follow-up query located `ManagementAdminSite` and `ManagementSubscriptionAdmin` in the updated graph. Browser review remains pending: Docker Desktop stopped answering both `docker ps` and the disposable server request, so no screenshot, breakpoint/theme or Axe pass is claimed. PostgreSQL live data was not touched. Issue #28 and #30 remain open.
 
-Commit: `0e6844c` (`STR-028: expose audited management access admin`). The metric API route remains unstaged in the shared URL file.
+Commit: `0e6844c` (`STR-028: expose audited management access admin`). The metric API route is in `1027d5e`.
+
+## Management metric API slice — 2026-10-25; STR-039/#39
+
+Added Workspace-scoped observation capture/read and immutable contribution-run creation/read endpoints. Writes require an active Workspace owner/editor and the effective `can_calculate_metrics` entitlement; verified members can read bounded pages. Archived Workspaces reject writes. Inputs accept exact decimal strings, preserve zero versus unknown, validate same-Workspace Segments and available Evidence, pin source revisions, and calculate only the reviewed `contribution-amount-v1` method. Client result injection and cross-Workspace IDs are rejected. The route and schemas are documented in the OpenAPI contract. This is a server slice, not the complete management tool directory or a production scientific approval.
+
+Verification: metric API tests passed **13/13 on temporary in-memory SQLite** in this continuation; the earlier targeted PostgreSQL run reported **35/35 related cases**. Ruff, `npm run check:contracts` (**77 operations**) and `git diff --check` passed. A second attempt to use the local PostgreSQL service timed out; SQLite does not verify PostgreSQL-only guards. Commit: `1027d5e` (`STR-039: connect verified contribution metrics API`). Issue #39 remains open for broader tool integration and acceptance.
+
+## Versioned management reports — 2026-10-25; STR-024/#24
+
+Added an explicit additive export v2 that preserves the existing 14-section v1 contract and includes canonical products, segments, ICPs, claims, Evidence, typed observations, calculation runs, metric values, analysis revision history and attachment metadata. Import validates and preserves a v2 source archive without silently applying its additional records. Professional reports require the server-side `can_generate_reports` entitlement, recalculate only existing reviewed analysis/metric methods, preserve draft/unknown status and immutable snapshots, and block detail/download after entitlement revocation. Private ZIPs retain canonical storage paths and checksum validation; storage keys are not included in report data. No price, payment provider, customer grant or production entitlement was configured.
+
+Verification in this continuation: exports **12/12** and imports **8/8** passed on temporary in-memory SQLite; OpenAPI contract check passed with **77 operations**, web typecheck, production web build, changed-file ESLint/Prettier and Ruff passed. PostgreSQL-only behavior was not verified. Browser review was blocked because the local Playwright Chromium binary is absent; no browser pass is claimed. The attempt did not install a browser. Issue #24 remains open for browser/production acceptance and commercial rollout.
 
 ## Current owner revision — complete design coverage
 

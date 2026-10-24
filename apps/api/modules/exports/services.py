@@ -21,6 +21,9 @@ from modules.execution.models import Action, Decision, ExecutionEvent, Goal
 from modules.strategy.models import StrategyFactor, StrategyOption
 from modules.workspaces.models import Workspace, WorkspaceProfile, WorkspaceProfileRevision
 from modules.workspaces.services import workspace_role
+from modules.workspaces.entitlements import require_workspace_feature
+from .schema_v2 import collect_v2, V2_EXTRA_SCOPE, PROFESSIONAL_METHOD
+from .verification import verify_report
 
 from .models import ExportSnapshot
 
@@ -255,7 +258,7 @@ def _archive_filename(value):
 
 def _envelope(snapshot):
     return {
-        'schema': SCHEMA_NAME,
+        'schema': SCHEMA_NAME if snapshot.schema_version == 1 else 'stratino-workspace-v2',
         'schema_version': snapshot.schema_version,
         'exported_at': _time(snapshot.exported_at),
         'method_version': snapshot.method_version,
@@ -290,10 +293,18 @@ def _build_archive(snapshot, attachments):
             archive.writestr('workspace.json', _json_bytes(snapshot))
             archive.writestr('records.csv', _csv_bytes(snapshot))
             for attachment, metadata in attachments:
+                if attachment.storage_key != f'attachments/{attachment.pk.hex}':
+                    raise ExportValidationError('مسیر فایل خصوصی معتبر نیست.', code='unsafe_attachment_path')
+                digest = hashlib.sha256()
+                size = 0
                 with default_storage.open(attachment.storage_key, 'rb') as stored:
                     with archive.open(metadata['archive_path'], mode='w') as member:
                         for chunk in iter(lambda: stored.read(64 * 1024), b''):
+                            digest.update(chunk)
+                            size += len(chunk)
                             member.write(chunk)
+                if size != attachment.size_bytes or digest.hexdigest() != attachment.sha256:
+                    raise ExportValidationError('فایل خصوصی با نسخهٔ ثبت‌شده یکسان نیست.', code='attachment_integrity_failed')
         archive_file.seek(0)
         digest = hashlib.sha256()
         size = 0
@@ -328,27 +339,43 @@ def snapshot_payload(snapshot, *, include_data=False):
 
 
 @transaction.atomic
-def create_snapshot(actor, workspace, idempotency_key):
+def create_snapshot(actor, workspace, idempotency_key, *, schema_version=1, purpose='raw'):
     key = validate_idempotency_key(idempotency_key)
+    if type(schema_version) is not int or schema_version not in (1, 2) or purpose not in ('raw', 'professional') or (purpose == 'professional' and schema_version != 2):
+        raise ExportValidationError('نسخه یا نوع خروجی معتبر نیست.', code='unsupported_export_contract')
     locked = Workspace.objects.select_for_update().get(pk=workspace.pk)
     if workspace_role(actor, locked) is None:
         raise Http404('Workspace is not available.')
+    method = PROFESSIONAL_METHOD if purpose == 'professional' else (METHOD_VERSION if schema_version == 1 else 'stratino-report-v2')
+    if purpose == 'professional':
+        require_workspace_feature(locked, 'can_generate_reports')
     existing = ExportSnapshot.objects.filter(
         workspace=locked,
         requested_by=actor,
         idempotency_key=key,
     ).first()
     if existing:
+        if existing.schema_version != schema_version or existing.method_version != method:
+            raise ExportValidationError('این شناسه برای خروجی دیگه‌ای ثبت شده.', code='export_idempotency_conflict')
         return existing, False
 
     data, attachments = collect_workspace_data(locked)
+    if schema_version == 2:
+        data.update(collect_v2(locked, _model_values))
+    if purpose == 'professional':
+        from django.core.exceptions import ValidationError
+        from modules.knowledge.registry import KnowledgeReleaseError
+        try:
+            data['report_verification'] = verify_report(data)
+        except (ValidationError, KnowledgeReleaseError, ValueError, TypeError, KeyError, ArithmeticError) as error:
+            raise ExportValidationError('روش یا ورودی‌های این گزارش قابل بررسی نیست؛ داده‌ها و نسخهٔ روش رو بررسی کن.', code='report_verification_failed') from error
     candidate = ExportSnapshot(
         workspace=locked,
         requested_by=actor,
         idempotency_key=key,
-        schema_version=SCHEMA_VERSION,
-        method_version=METHOD_VERSION,
-        scope=list(EXPORT_SCOPE),
+        schema_version=schema_version,
+        method_version=method,
+        scope=list(EXPORT_SCOPE) + (V2_EXTRA_SCOPE if schema_version == 2 else []),
         data=data,
         exported_at=timezone.now(),
         artifact_key=f'exports/{uuid.uuid4().hex}.zip',
@@ -358,6 +385,10 @@ def create_snapshot(actor, workspace, idempotency_key):
     candidate.artifact_size_bytes = size
     stored_key = ''
     try:
+        if workspace_role(actor, locked) is None:
+            raise Http404('Workspace is not available.')
+        if purpose == 'professional':
+            require_workspace_feature(locked, 'can_generate_reports')
         stored_key = default_storage.save(candidate.artifact_key, File(artifact_file, name='workspace-export.zip'))
         candidate.artifact_key = stored_key
         candidate.save(force_insert=True)
