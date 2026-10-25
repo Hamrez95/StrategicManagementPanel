@@ -144,6 +144,45 @@ try {
   );
   await page.screenshot({ path: `${folder}/workspace-desktop.png`, fullPage: true });
   checks++;
+  // A motion must never replace the translate used to center a portaled dialog.
+  for (const direction of ['rtl', 'ltr']) {
+    for (const reducedMotion of ['no-preference', 'reduce']) {
+      await page.emulateMedia({ reducedMotion });
+      for (const width of [360, 725, 768, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.locator('.management-welcome button').click();
+        const dialog = page.getByRole('dialog', { name: 'ساخت فضای کار' });
+        await dialog.waitFor();
+        await dialog.evaluate((node, dir) => {
+          node.dir = dir;
+        }, direction);
+        await dialog.evaluate(async (node) => {
+          await Promise.allSettled(node.getAnimations().map((animation) => animation.finished));
+        });
+        const bounds = await dialog.boundingBox();
+        assert.ok(bounds && bounds.x >= 15 && bounds.y >= 15);
+        assert.ok(bounds.x + bounds.width <= width - 15);
+        assert.ok(bounds.y + bounds.height <= 885);
+        assert.ok(Math.abs(bounds.x + bounds.width / 2 - width / 2) < 2);
+        await page.getByRole('textbox', { name: 'نام فضای کار' }).fill('بررسی پنجره');
+        await page.keyboard.press('Tab');
+        assert.ok(await dialog.evaluate((node) => node.contains(document.activeElement)));
+        if (width === 725 && direction === 'rtl' && reducedMotion === 'no-preference') {
+          await page.screenshot({ path: `${folder}/workspace-dialog-fixed.png`, fullPage: true });
+        }
+        await page.keyboard.press('Escape');
+        await dialog.waitFor({ state: 'hidden' });
+        assert.ok(
+          await page
+            .locator('.management-welcome button')
+            .evaluate((node) => node === document.activeElement),
+        );
+        checks++;
+      }
+    }
+  }
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(base + '/');
   await page.locator('.home-world').first().waitFor();
   await page.locator('.home-world').first().hover();
