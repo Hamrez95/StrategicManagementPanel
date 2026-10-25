@@ -1,6 +1,17 @@
 import { cp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 const destination = 'apps/web/public';
-await rm(destination, { recursive: true, force: true });
+// Only remove outputs owned by this script. Keep source assets such as brand/google-g.png.
+for (const generated of [
+  'prototype',
+  'assets',
+  'src',
+  'theme-init.js',
+  'manifest.webmanifest',
+  'manifest-en.webmanifest',
+  'sw.js',
+]) {
+  await rm(`${destination}/${generated}`, { recursive: true, force: true });
+}
 await mkdir(`${destination}/prototype`, { recursive: true });
 await cp('public/assets', `${destination}/assets`, { recursive: true });
 await cp('src', `${destination}/src`, { recursive: true });
