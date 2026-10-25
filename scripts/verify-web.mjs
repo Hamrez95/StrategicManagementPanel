@@ -15,13 +15,16 @@ try {
   const context = await browser.newContext({ serviceWorkers: 'block' });
   const page = await context.newPage();
   page.on('pageerror', (e) => errors.push(e.message));
+  await page.route('**/api/v1/session/', (route) =>
+    route.fulfill({ status: 401, json: { detail: 'unauthenticated' } }),
+  );
   for (const width of [360, 768, 1280, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.getByRole('heading', { name: /تحلیل‌هایتان/ }).waitFor();
+    await page.getByRole('heading', { level: 1, name: /مدار رشدت/ }).waitFor();
     for (const theme of ['light', 'dark']) {
       if ((await page.getAttribute('html', 'data-theme')) !== theme)
-        await page.getByRole('button', { name: 'تغییر تم' }).click();
+        await page.getByRole('switch', { name: 'تم تیره', exact: true }).click();
       assert.equal(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
         true,
@@ -35,23 +38,22 @@ try {
     }
     results.push({ width, themes: ['light', 'dark'], overflow: false });
   }
-  await page.locator('.strategy-path button').nth(3).click();
-  assert.match(await page.locator('.scene-detail').innerText(), /مدارک ارائه/);
+  const panelEntry = page.locator('.home-world--panel');
+  assert.equal(await panelEntry.getAttribute('href'), '/app/workspaces');
+  await panelEntry.click();
+  await page.waitForURL(/account\/login/);
   await page.goto(url + '/demo');
   await page.frameLocator('iframe').locator('.brand strong').waitFor();
   assert.equal(await page.frameLocator('iframe').locator('.brand strong').innerText(), 'استراتینو');
   await page.goto(url + '/account/reset-password');
-  await page.getByRole('heading', { name: /حساب استراتینو/ }).waitFor();
+  await page.getByRole('heading', { name: 'بازیابی گذرواژه', exact: true }).waitFor();
   await page.reload();
-  await page.getByRole('heading', { name: /حساب استراتینو/ }).waitFor();
+  await page.getByRole('heading', { name: 'بازیابی گذرواژه', exact: true }).waitFor();
   let session = {
     authenticated: true,
     user: { id: 'u1', name: 'مدیر نمونه', is_staff: false },
     workspaces: [{ id: 'w1', name: 'پروژه مجاز', role: 'owner' }],
   };
-  await page.route('**/api/v1/session/', (route) =>
-    route.fulfill({ status: 401, json: { detail: 'unauthenticated' } }),
-  );
   await page.goto(url + '/app/workspaces/w1/overview');
   await page.waitForURL(/account\/login/);
   await page.unroute('**/api/v1/session/');
@@ -1140,7 +1142,7 @@ try {
     'شرکت‌ها برای کاهش تاخیر بودجه اختصاص می‌دهند.',
   );
   await page.getByRole('heading', { name: 'نسخه‌های ذخیره‌شده اخیر' }).waitFor();
-  await page.getByRole('button', { name: 'بارگذاری در پیش‌نویس' }).waitFor();
+  await page.getByRole('button', { name: 'بارگذاری در پیش‌نویس' }).first().waitFor();
   await page.getByLabel('جست‌وجوی ICP').fill('تیم‌های تولید');
   await page.getByRole('button', { name: /تیم‌های تولید متوسط/ }).waitFor();
   for (const theme of ['light', 'dark']) {
@@ -1384,6 +1386,8 @@ try {
   );
   await page.goto(url + '/app/workspaces/w1/tools/matrices');
   await page.getByRole('heading', { name: 'Factor evaluation' }).waitFor();
+  // Clear the empty manual-entry row before copying the real SWOT snapshot.
+  await page.getByRole('button', { name: 'Remove factor 1', exact: true }).click();
   await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
   await page.getByLabel('Weight percent for factor 1').fill('100');
   await page.getByLabel('Rating for factor 1').selectOption('4');
@@ -1392,6 +1396,7 @@ try {
   assert.equal(analysisRecords.get('w1:efe').output.rounded_score, 4);
   assert.equal(analysisRecords.get('w1:efe').state, 'finalized');
   await page.getByRole('button', { name: /IFE/ }).click();
+  await page.getByRole('button', { name: 'Remove factor 1', exact: true }).click();
   await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
   await page.getByLabel('Weight percent for factor 1').fill('100');
   await page.getByLabel('Rating for factor 1').selectOption('4');
@@ -1430,9 +1435,15 @@ try {
     'matrix controls must keep visible keyboard focus',
   );
 
+  await page.goto(url + '/app/account');
+  await page.getByLabel('زبان رابط').selectOption('fa');
+  await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
   await page.goto(url + '/app/workspaces/w1/tools/execution');
   await page.getByRole('heading', { name: 'از تصمیم تا اقدام' }).waitFor();
-  await page.getByLabel('تصمیم', { exact: true }).fill('پایلوت بازار برای مشتریان سازمانی');
+  await page
+    .getByRole('textbox', { name: 'تصمیم', exact: true })
+    .fill('پایلوت بازار برای مشتریان سازمانی');
   await page
     .getByLabel('تحلیل یا گزینه راهبردی')
     .selectOption(`analysis:${analysisRecords.get('w1:efe').id}`);
@@ -2071,6 +2082,16 @@ try {
   console.log(
     'PASS: responsive/theme/onboarding/shell/import/profile/SWOT/execution/documents RTL/LTR screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, SWOT/TOWS factor links and dependency review, decision-to-action and document ownership/history/role isolation, keyboard focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
+} catch (error) {
+  const failedPage = browser.contexts()[0]?.pages()[0];
+  if (failedPage) {
+    await failedPage.screenshot({ path: 'test-results/web/failure.png', fullPage: true });
+    console.error('Synthetic browser fixture failed:', failedPage.url(), {
+      alerts: await failedPage.getByRole('alert').allTextContents(),
+      statuses: await failedPage.getByRole('status').allTextContents(),
+    });
+  }
+  throw error;
 } finally {
   await browser.close();
 }
