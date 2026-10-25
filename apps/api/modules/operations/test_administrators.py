@@ -112,3 +112,15 @@ class AdministratorTests(TestCase):
         self.client.force_login(self.owner)
         self.assertEqual(self.client.get('/api/v1/operator/status/').status_code, 200)
         self.assertEqual(self.client.get('/api/v1/workspaces/').status_code, 403)
+
+    def test_google_only_owner_can_explicitly_set_a_temporary_manual_password(self):
+        user = User.objects.create_user(settings.OPERATOR_OWNER_EMAILS[1], email_verified_at=timezone.now())
+        self.assertFalse(user.has_usable_password())
+        with self.assertRaises(CommandError):
+            call_command('bootstrap_operator', email=user.email, stdout=StringIO())
+        self.assertFalse(OperatorAccess.objects.filter(user=user).exists())
+        with patch('modules.operations.management.commands.bootstrap_operator.getpass', return_value='test-only-temporary'):
+            call_command('bootstrap_operator', email=user.email, set_temporary_password=True, stdout=StringIO())
+        user.refresh_from_db()
+        self.assertTrue(user.check_password('test-only-temporary'))
+        self.assertTrue(OperatorAccess.objects.get(user=user).must_change_password)
