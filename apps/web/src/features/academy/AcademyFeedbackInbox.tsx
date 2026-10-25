@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { requestApi } from '../../api/client';
-import { faNumber } from './connectedData';
 import './feedbackInbox.css';
 type FeedbackStatus = 'new' | 'reviewed' | 'resolved';
 type Entry = {
@@ -24,7 +23,28 @@ const categories: Record<string, string> = {
   question: 'ابهام',
   suggestion: 'پیشنهاد',
 };
-export function AcademyFeedbackInbox() {
+export function AcademyFeedbackInbox({
+  embedded = false,
+  english = false,
+  canTriage = false,
+}: {
+  embedded?: boolean;
+  english?: boolean;
+  canTriage?: boolean;
+} = {}) {
+  const t = (fa: string, en: string) => (english ? en : fa);
+  const number = (value: number) => new Intl.NumberFormat(english ? 'en' : 'fa-IR').format(value);
+  const statusLabels = english
+    ? { new: 'New', reviewed: 'Reviewed', resolved: 'Resolved' }
+    : labels;
+  const categoryLabels = english
+    ? ({ correction: 'Correction', question: 'Question', suggestion: 'Suggestion' } as Record<
+        string,
+        string
+      >)
+    : categories;
+  const Container = embedded ? 'section' : 'main';
+  const Heading = embedded ? 'h2' : 'h1';
   const [status, setStatus] = useState('new');
   const [page, setPage] = useState(1);
   const [reload, setReload] = useState(0);
@@ -42,6 +62,7 @@ export function AcademyFeedbackInbox() {
       { signal: controller.signal },
     )
       .then((data) => {
+        if (controller.signal.aborted) return;
         setEntries(data.results);
         setCount(data.count);
       })
@@ -69,15 +90,18 @@ export function AcademyFeedbackInbox() {
     }
   }
   return (
-    <main className="academy-feedback-inbox" dir="rtl">
-      <Link to="/academy">رفتن به آکادمی</Link>
-      <h1>نظرهای یادگیرنده‌ها</h1>
+    <Container className="academy-feedback-inbox" dir={english ? 'ltr' : 'rtl'}>
+      {!embedded && <Link to="/academy">{t('رفتن به آکادمی', 'Open Academy')}</Link>}
+      <Heading>{t('نظرهای یادگیرنده‌ها', 'Learner feedback')}</Heading>
       <p>
-        نظرها همراه با متن و آدرس بخش مربوط ثبت شدن. بعد از بررسی می‌تونی وضعیتشون رو تغییر بدی.
+        {t(
+          'نظرها همراه با متن و آدرس بخش مربوط ثبت شدن. بعد از بررسی می‌تونی وضعیتشون رو تغییر بدی.',
+          'Feedback includes the text and exact content location. Authorized reviewers can update its status.',
+        )}
       </p>
       <div className="feedback-inbox-controls">
         <label>
-          وضعیت{' '}
+          {t('وضعیت', 'Status')}{' '}
           <select
             value={status}
             onChange={(event) => {
@@ -85,78 +109,96 @@ export function AcademyFeedbackInbox() {
               setPage(1);
             }}
           >
-            <option value="new">تازه</option>
-            <option value="reviewed">بررسی‌شده</option>
-            <option value="resolved">رسیدگی‌شده</option>
-            <option value="all">همه</option>
+            <option value="new">{t('تازه', 'New')}</option>
+            <option value="reviewed">{t('بررسی‌شده', 'Reviewed')}</option>
+            <option value="resolved">{t('رسیدگی‌شده', 'Resolved')}</option>
+            <option value="all">{t('همه', 'All')}</option>
           </select>
         </label>
         <button type="button" disabled={loading} onClick={() => setReload((value) => value + 1)}>
-          تازه‌کردن
+          {t('تازه‌کردن', 'Refresh')}
         </button>
       </div>
       {error && <p role="alert">{error}</p>}
       {loading ? (
-        <p role="status">داریم نظرها رو می‌گیریم…</p>
+        <p role="status">{t('داریم نظرها رو می‌گیریم…', 'Loading feedback…')}</p>
       ) : (
         !error && (
           <>
-            <p>{faNumber(count)} نظر</p>
-            {!entries.length && <p>نظری با این وضعیت نداریم.</p>}
+            <p>
+              {number(count)} {t('نظر', 'comments')}
+            </p>
+            {!entries.length && (
+              <p>{t('نظری با این وضعیت نداریم.', 'No feedback with this status.')}</p>
+            )}
             {entries.map((entry) => (
               <article key={entry.id} className="feedback-inbox-entry">
                 <p>
-                  {categories[entry.category]} · {labels[entry.status]} ·{' '}
-                  {new Intl.DateTimeFormat('fa-IR', {
+                  {categoryLabels[entry.category]} · {statusLabels[entry.status]} ·{' '}
+                  {new Intl.DateTimeFormat(english ? 'en' : 'fa-IR', {
                     dateStyle: 'medium',
                     timeStyle: 'short',
                   }).format(new Date(entry.created_at))}
                 </p>
-                <h2>{entry.unit_title}</h2>
-                <h3>{entry.target_title}</h3>
-                <p className="feedback-inbox-message">{entry.message}</p>
-                <Link to={entry.content_path}>دیدن بخش مربوط در درس</Link>
+                <h2 dir="auto">{entry.unit_title}</h2>
+                <h3 dir="auto">{entry.target_title}</h3>
+                <p className="feedback-inbox-message" dir="auto">
+                  {entry.message}
+                </p>
+                <Link to={entry.content_path}>
+                  {t('دیدن بخش مربوط در درس', 'Open the exact lesson location')}
+                </Link>
                 <details>
-                  <summary>متن و نشانی هنگام ثبت</summary>
+                  <summary>{t('متن و نشانی هنگام ثبت', 'Text and location at submission')}</summary>
                   <p className="feedback-inbox-message">{entry.target_text}</p>
                   <code dir="ltr">{entry.target_id}</code>
                   <br />
                   <code dir="ltr">{entry.content_revision}</code>
                 </details>
-                <div className="feedback-inbox-controls">
-                  {(Object.keys(labels) as FeedbackStatus[]).map((next) => (
-                    <button
-                      key={next}
-                      type="button"
-                      disabled={busy !== null || next === entry.status}
-                      onClick={() => void update(entry, next)}
-                    >
-                      {busy === entry.id ? 'داریم ثبت می‌کنیم…' : labels[next]}
-                    </button>
-                  ))}
-                </div>
+                {canTriage && (
+                  <div className="feedback-inbox-controls">
+                    {(Object.keys(labels) as FeedbackStatus[]).map((next) => (
+                      <button
+                        key={next}
+                        type="button"
+                        disabled={busy !== null || next === entry.status}
+                        onClick={() => void update(entry, next)}
+                      >
+                        {busy === entry.id
+                          ? t('داریم ثبت می‌کنیم…', 'Saving…')
+                          : statusLabels[next]}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
-            <nav className="feedback-inbox-controls" aria-label="صفحه‌های نظرها">
+            <nav
+              className="feedback-inbox-controls"
+              aria-label={t('صفحه‌های نظرها', 'Feedback pages')}
+            >
               <button
                 type="button"
                 disabled={page <= 1}
                 onClick={() => setPage((value) => value - 1)}
               >
-                صفحهٔ قبل
+                {t('صفحهٔ قبل', 'Previous page')}
               </button>
-              <span>صفحهٔ {faNumber(page)}</span>
+              <span>
+                {t('صفحهٔ ', 'Page ')}
+                {number(page)}
+              </span>
               <button
                 type="button"
                 disabled={page * 25 >= count}
                 onClick={() => setPage((value) => value + 1)}
               >
-                صفحهٔ بعد
+                {t('صفحهٔ بعد', 'Next page')}
               </button>
             </nav>
           </>
         )
       )}
-    </main>
+    </Container>
   );
 }

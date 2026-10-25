@@ -1,13 +1,23 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { Link, NavLink, useLocation } from 'react-router';
 import { ApiError, requestApi } from '../../api/client';
-import { LanguageSwitch, ThemeSwitch } from '../chrome/HeaderControls';
+import { OperatorShell } from './OperatorShell';
+import { OperatorIcon } from './OperatorIcon';
+import { OperatorActionDialog, type OperatorAction } from './OperatorActionDialog';
+import type { OperatorCapabilities } from './OperatorSecurity';
 import './operator.css';
 
-const sections = ['accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit'] as const;
+const sections = [
+  'accounts',
+  'workspaces',
+  'plans',
+  'subscriptions',
+  'access',
+  'audit',
+  'academy',
+  'feedback',
+] as const;
 type Section = (typeof sections)[number];
 type Row = Record<string, unknown>;
-type Status = { sections: Section[]; mfa_ready: boolean };
 type Page = {
   results: Row[];
   count: number;
@@ -22,6 +32,8 @@ const titles: Record<Section, [string, string]> = {
   subscriptions: ['اشتراک‌های مدیریت', 'Management subscriptions'],
   access: ['دسترسی مؤثر مدیریت', 'Effective management access'],
   audit: ['تاریخچهٔ ممیزی', 'Audit history'],
+  academy: ['مجموعه‌های آموزشی', 'Academy courses'],
+  feedback: ['نظرهای یادگیرنده‌ها', 'Learner feedback'],
 };
 const columns: Record<Section, string[]> = {
   accounts: ['id', 'is_active', 'verified', 'date_joined'],
@@ -62,6 +74,8 @@ const columns: Record<Section, string[]> = {
     'features',
   ],
   audit: ['source', 'event_id', 'actor_id', 'event_type', 'target', 'created_at'],
+  academy: ['id', 'title', 'area_id', 'order'],
+  feedback: [],
 };
 const names: Record<string, [string, string]> = {
   id: ['شناسه', 'ID'],
@@ -81,7 +95,7 @@ const names: Record<string, [string, string]> = {
   duration_days: ['مدت به روز', 'Duration in days'],
   can_finalize_analysis: ['نهایی‌کردن تحلیل', 'Finalize analysis'],
   can_calculate_metrics: ['محاسبهٔ شاخص', 'Calculate metrics'],
-  can_generate_reports: ['مجوز رزروشدهٔ گزارش', 'Reserved report capability'],
+  can_generate_reports: ['گزارش حرفه‌ای', 'Professional reports'],
   plan_title: ['عنوان پلن هنگام اعطا', 'Granted plan title'],
   plan_revision: ['نسخهٔ پلن هنگام اعطا', 'Granted plan revision'],
   status: ['وضعیت ثبت‌شده', 'Recorded status'],
@@ -96,111 +110,59 @@ const names: Record<string, [string, string]> = {
   actor_id: ['شناسهٔ عامل', 'Actor ID'],
   event_type: ['نوع رویداد', 'Event type'],
   target: ['شناسهٔ مرجع', 'Reference ID'],
+  area_id: ['حوزه', 'Area'],
+  order: ['ترتیب', 'Order'],
+  first_name: ['نام', 'First name'],
+  last_name: ['نام خانوادگی', 'Last name'],
+  email: ['ایمیل', 'Email'],
+  phone_number: ['شمارهٔ تماس', 'Phone'],
 };
 
 export function OperatorConsole() {
-  const { pathname } = useLocation();
-  const route = pathname.split('/')[2] || 'accounts';
-  const section = sections.find((value) => value === route);
-  const [english, setEnglish] = useState(document.documentElement.lang === 'en');
-  const [status, setStatus] = useState<Status | null>(null);
-  const [statusError, setStatusError] = useState('');
-  const [reload, setReload] = useState(0);
-  const t = (fa: string, en: string) => (english ? en : fa);
-  useEffect(() => {
-    const observer = new MutationObserver(() => setEnglish(document.documentElement.lang === 'en'));
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-    return () => observer.disconnect();
-  }, []);
-  useEffect(() => {
-    const controller = new AbortController();
-    setStatus(null);
-    setStatusError('');
-    requestApi<Status>('/api/v1/operator/status/', { signal: controller.signal })
-      .then((value) => {
-        if (!controller.signal.aborted) setStatus(value);
-      })
-      .catch((error: Error) => {
-        if (!controller.signal.aborted) setStatusError(error.message);
-      });
-    return () => controller.abort();
-  }, [reload]);
   return (
-    <div className="operator-console" dir={english ? 'ltr' : 'rtl'}>
-      <header className="operator-header">
-        <div>
-          <h1>{t('پنل داخلی اپراتور', 'Internal operator console')}</h1>
-          <p>{t('نمای خلاصه و فقط‌خواندنی سرویس', 'Read-only service summaries')}</p>
-        </div>
-        <div className="operator-tools">
-          <ThemeSwitch />
-          <LanguageSwitch english={english} />
-          <Link to="/app">{t('فضاهای من', 'My Workspaces')}</Link>
-        </div>
-      </header>
-      {!status && !statusError && (
-        <p role="status">
-          {t('داریم مجوزهای دسترسی رو بررسی می‌کنیم…', 'Checking operator permissions…')}
-        </p>
+    <OperatorShell
+      sections={sections}
+      titles={titles}
+      renderCollection={(section, english, reauthenticate, capabilities) => (
+        <OperatorCollection
+          key={section + String(english)}
+          section={section as Section}
+          english={english}
+          onReauthenticate={reauthenticate}
+          capabilities={capabilities}
+        />
       )}
-      {statusError && (
-        <div role="alert">
-          <p>
-            {english
-              ? 'Operator access could not be verified. Check your session and permissions.'
-              : statusError}
-          </p>
-          <button onClick={() => setReload((value) => value + 1)}>
-            {t('تلاش دوباره', 'Retry')}
-          </button>
-        </div>
-      )}
-      {status && (
-        <>
-          <nav aria-label={t('بخش‌های اپراتور', 'Operator sections')} className="operator-nav">
-            {sections
-              .filter((value) => status.sections.includes(value))
-              .map((value) => (
-                <NavLink key={value} to={'/internal/' + value}>
-                  {titles[value][english ? 1 : 0]}
-                </NavLink>
-              ))}
-          </nav>
-          {!status.mfa_ready ? (
-            <section className="operator-message" role="alert">
-              <h2>{t('نمایش اطلاعات مشتری بسته است', 'Customer information is locked')}</h2>
-              <p>
-                {t(
-                  'احراز هویت دومرحله‌ای اپراتور هنوز آماده نیست. بعد از آماده‌شدن این پیش‌نیاز و تأیید مجوز هر بخش، اطلاعات نمایش داده می‌شه.',
-                  'Operator MFA is not ready. Data remains unavailable until MFA and section permissions are verified.',
-                )}
-              </p>
-              <button onClick={() => setReload((value) => value + 1)}>
-                {t('بررسی دوباره', 'Check again')}
-              </button>
-            </section>
-          ) : section && status.sections.includes(section) ? (
-            <OperatorCollection
-              key={section + String(english)}
-              section={section}
-              english={english}
-            />
-          ) : (
-            <p role="alert">
-              {t(
-                'این بخش در دسترس نیست یا مجوزش رو نداری.',
-                'This section is unavailable or you do not have permission.',
-              )}
-            </p>
-          )}
-        </>
-      )}
-    </div>
+    />
   );
 }
 
-function OperatorCollection({ section, english }: { section: Section; english: boolean }) {
+function OperatorCollection({
+  section,
+  english,
+  onReauthenticate,
+  capabilities,
+}: {
+  section: Section;
+  english: boolean;
+  onReauthenticate: () => void;
+  capabilities: OperatorCapabilities;
+}) {
   const t = (fa: string, en: string) => (english ? en : fa);
+  const [action, setAction] = useState<OperatorAction | null>(null);
+  const [success, setSuccess] = useState('');
+  const keys =
+    section === 'accounts' && capabilities.identity
+      ? [
+          'id',
+          'first_name',
+          'last_name',
+          'email',
+          'phone_number',
+          'is_active',
+          'verified',
+          'date_joined',
+        ]
+      : columns[section];
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [state, setState] = useState('');
@@ -236,7 +198,7 @@ function OperatorCollection({ section, english }: { section: Section; english: b
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [section, query, state, page, reload, english]);
+  }, [section, query, state, page, reload, english, onReauthenticate]);
   function display(value: unknown, key: string): ReactNode {
     if (value === null && key === 'owned_workspace_limit')
       return t('بدون سقف اضافی پلن', 'No additional plan cap');
@@ -274,24 +236,55 @@ function OperatorCollection({ section, english }: { section: Section; english: b
       invite_revoked: ['لغو دعوت', 'Invitation revoked'],
       invite_accepted: ['پذیرش دعوت', 'Invitation accepted'],
       granted: ['اعطای اشتراک', 'Subscription granted'],
+      security: ['امنیت حساب', 'Account security'],
+      operator: ['مدیریت سرویس', 'Service administration'],
+      enrolled: ['اتصال Authenticator', 'Authenticator enrolled'],
+      enrollment_started: ['شروع اتصال Authenticator', 'Authenticator setup started'],
+      verified: ['تأیید نشست', 'Session verified'],
+      locked: ['قفل نشست', 'Session locked'],
+      factor_removed: ['حذف Authenticator', 'Authenticator removed'],
+      account_status_changed: ['تغییر وضعیت حساب', 'Account status changed'],
+      feedback_triaged: ['بررسی نظر', 'Feedback triaged'],
     };
-    return <bdi>{labels[String(value)]?.[english ? 1 : 0] ?? String(value)}</bdi>;
+    return (
+      <bdi
+        className={
+          ['active', 'revoked', 'free', 'special'].includes(String(value))
+            ? 'op-badge op-badge-' + value
+            : undefined
+        }
+      >
+        {labels[String(value)]?.[english ? 1 : 0] ?? String(value)}
+      </bdi>
+    );
   }
   return (
-    <section aria-labelledby="operator-section-title">
-      <h2 id="operator-section-title">{titles[section][english ? 1 : 0]}</h2>
+    <section className="op-card op-collection" aria-labelledby="operator-section-title">
+      <div className="op-collection-heading">
+        <h2 id="operator-section-title">{titles[section][english ? 1 : 0]}</h2>
+        {section === 'subscriptions' && capabilities.grant && (
+          <button className="op-primary" onClick={() => setAction({ kind: 'grant' })}>
+            <OperatorIcon name="subscriptions" size={18} />
+            {t('اعطای اشتراک', 'Grant subscription')}
+          </button>
+        )}
+      </div>
+      {success && (
+        <p role="status" className="op-success">
+          {success}
+        </p>
+      )}
       <p id="operator-search-help">
         {section === 'plans'
           ? t('جست‌وجو با کد یا عنوان پلن.', 'Search by plan code or title.')
-          : section === 'accounts' || section === 'access'
-            ? t(
-                'جست‌وجو با شناسهٔ حساب یا ایمیل کامل. ایمیل در نتیجه نمایش داده نمی‌شه.',
-                'Search by account ID or exact email. Emails are not displayed.',
-              )
-            : t(
-                'جست‌وجو با شناسهٔ کامل رکورد یا مالک؛ در ممیزی با شناسهٔ مرجع یا عامل.',
-                'Search by full record or owner ID; for audit, use a reference or actor ID.',
-              )}
+          : section === 'academy'
+            ? t('جست‌وجو با شناسه یا عنوان مجموعه.', 'Search by course ID or title.')
+            : section === 'accounts' || section === 'access'
+              ? t('جست‌وجو با شناسهٔ حساب یا ایمیل کامل.', 'Search by account ID or exact email.')
+              : t(
+                  'جست‌وجو با شناسهٔ کامل رکورد یا مالک؛ در ممیزی با شناسهٔ مرجع یا عامل.',
+                  'Search by full record or owner ID; for audit, use a reference or actor ID.',
+                )}
       </p>
       <form
         className="operator-tools"
@@ -312,7 +305,7 @@ function OperatorCollection({ section, english }: { section: Section; english: b
             type="search"
           />
         </label>
-        {section !== 'audit' && (
+        {section !== 'audit' && section !== 'academy' && (
           <label>
             {t('وضعیت', 'State')}
             <select
@@ -342,8 +335,12 @@ function OperatorCollection({ section, english }: { section: Section; english: b
             </select>
           </label>
         )}
-        <button type="submit">{t('جست‌وجو', 'Search')}</button>
+        <button type="submit" className="op-primary">
+          <OperatorIcon name="search" size={18} />
+          {t('جست‌وجو', 'Search')}
+        </button>
         <button type="button" onClick={() => setReload((value) => value + 1)}>
+          <OperatorIcon name="refresh" size={18} />
           {t('تازه‌کردن', 'Refresh')}
         </button>
       </form>
@@ -373,18 +370,22 @@ function OperatorCollection({ section, english }: { section: Section; english: b
             <div
               className="operator-table"
               role="region"
-              aria-label={titles[section][english ? 1 : 0]}
+              aria-label={t('جدول ', 'Table: ') + titles[section][english ? 1 : 0]}
               tabIndex={0}
             >
               <table>
                 <caption>{titles[section][english ? 1 : 0]}</caption>
                 <thead>
                   <tr>
-                    {columns[section].map((key) => (
+                    {keys.map((key) => (
                       <th key={key} scope="col">
                         {names[key]?.[english ? 1 : 0] ?? key}
                       </th>
                     ))}
+                    {((section === 'accounts' && capabilities.manage_accounts) ||
+                      (section === 'subscriptions' && capabilities.revoke)) && (
+                      <th scope="col">{t('عملیات', 'Actions')}</th>
+                    )}
                   </tr>
                 </thead>
                 <tbody>
@@ -393,6 +394,37 @@ function OperatorCollection({ section, english }: { section: Section; english: b
                       {columns[section].map((key) => (
                         <td key={key}>{display(row[key], key)}</td>
                       ))}
+                      {section === 'accounts' && capabilities.manage_accounts && (
+                        <td>
+                          <button
+                            onClick={() =>
+                              setAction({
+                                kind: 'account-status',
+                                id: String(row.id),
+                                active: row.is_active === true,
+                              })
+                            }
+                          >
+                            {row.is_active
+                              ? t('غیرفعال‌کردن', 'Deactivate')
+                              : t('فعال‌کردن', 'Activate')}
+                          </button>
+                        </td>
+                      )}
+                      {section === 'subscriptions' && capabilities.revoke && (
+                        <td>
+                          {row.status === 'active' ? (
+                            <button
+                              className="op-danger"
+                              onClick={() => setAction({ kind: 'revoke', id: String(row.id) })}
+                            >
+                              {t('لغو دسترسی', 'Revoke access')}
+                            </button>
+                          ) : (
+                            '—'
+                          )}
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>
@@ -411,6 +443,19 @@ function OperatorCollection({ section, english }: { section: Section; english: b
             </button>
           </nav>
         </>
+      )}
+      {action && (
+        <OperatorActionDialog
+          action={action}
+          english={english}
+          onClose={() => setAction(null)}
+          onReauthenticate={onReauthenticate}
+          onDone={() => {
+            setAction(null);
+            setSuccess(t('تغییر با موفقیت ثبت شد.', 'Change saved successfully.'));
+            setReload((value) => value + 1);
+          }}
+        />
       )}
     </section>
   );

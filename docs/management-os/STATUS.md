@@ -1,5 +1,13 @@
 # Management OS checkpoint — 2026-10-24
 
+## Global service admin continuation — 2026-10-25; #30 / #28
+
+The owner explicitly selected **Mazeduneh's global admin**, not the customer's Workspace dashboard, as the frontend reference. The `/internal` shell now follows its actual AdminShell/AdminColors, with permission-scoped overview, metadata tables, Academy inventory/feedback, mobile navigation, shared theme/language controls and audited customer-status/grant/revoke dialogs. The customer Workspace UI, public site, profile and lessons were not redesigned. Main remains untouched; this implementation stays on the isolated operator branch. Reference mapping and full boundaries: [GLOBAL_ADMIN_MAZEDUNEH_2026-10-25](GLOBAL_ADMIN_MAZEDUNEH_2026-10-25.md).
+
+The previous hard-coded MFA stub is replaced by encrypted TOTP enrollment, replay-protected verification and expiring database proofs bound to the current session/password/factor generation. Missing encryption configuration still fails closed. Explicit section/action permissions are reloaded independently of staff/superuser shortcuts; the legacy management admin shares this verifier and now also requires explicit permissions. Feedback reads/triage are protected by the same boundary. No real operator, factor, subscription, price, payment or live migration was configured. PostgreSQL-only locking/guards and deployment/recovery acceptance remain pending; the historical closed-MFA statements below describe the earlier slice.
+
+Focused synthetic SQLite verification: **47 tests run: 46 passed and one PostgreSQL-only append-only guard test skipped** across operations, MFA/actions, management admin and learner feedback. Browser verification: **34 checks / 8 focused axe audits passed**, using mocked APIs only, covering setup/locked states, populated tables, search, confirmed grant dialog, errors/retry, four widths, dark/LTR and keyboard menus. The four ordinary-user auth navigation cases also passed on this branch. TypeScript, focused ESLint/Ruff, migration drift, Django checks, production build and the OpenAPI contract (86 operations) passed. Images remain under ignored `test-results/global-admin/`; no customer information is used. Full PostgreSQL and independent security acceptance are not claimed. Issues stay open.
+
 ## STR-030 / #30 read-only operator slice — 2026-10-25
 
 Implementation and security handoff: [OPERATOR_READONLY_2026-10-24](OPERATOR_READONLY_2026-10-24.md). Work is isolated on `feat/str-030-operator-readonly` at `C:\Users\SAMAN\Documents\Codex\2026-10-24\stratino-p1\work\operator`; concurrent main/worktree work is excluded from this commit. Existing issues #30, #10, #12 and #28 remain open.
