@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { matchesContentHash } from './content-hash.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
@@ -23,11 +24,7 @@ for (const item of [
   manifest.reference_visuals,
 ]) {
   const bytes = await readFile(resolve(root, item.path));
-  const hash = (value) => createHash('sha256').update(value).digest('hex');
-  if (
-    hash(bytes) !== item.sha256 &&
-    hash(bytes.toString('utf8').replaceAll('\r\n', '\n')) !== item.sha256
-  )
+  if (!matchesContentHash(bytes, item.sha256, item.path))
     throw new Error(
       `Handoff hash mismatch: ${item.path}. Rebuild the manifest from the source first.`,
     );
@@ -50,11 +47,7 @@ for (const visual of references.visuals) {
   visualIds.add(visual.id);
   if (visual.asset_ref) {
     const bytes = await readFile(resolve(root, 'docs/learning-design', visual.asset_ref));
-    if (
-      createHash('sha256').update(bytes).digest('hex') !== visual.sha256 &&
-      createHash('sha256').update(bytes.toString('utf8').replaceAll('\r\n', '\n')).digest('hex') !==
-        visual.sha256
-    )
+    if (!matchesContentHash(bytes, visual.sha256, visual.asset_ref))
       throw new Error(`Reference visual hash mismatch: ${visual.id}`);
   }
 }
