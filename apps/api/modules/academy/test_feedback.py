@@ -1,15 +1,20 @@
+from unittest.mock import patch
 from uuid import uuid4
+
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Permission
 from django.core.cache import cache
 from django.test import TestCase
+from django.utils import timezone
 from rest_framework.test import APIClient
+
 from .content import units
 from .models import LearningFeedback
 
 
 class LearningFeedbackTests(TestCase):
     def setUp(self):
-        from .testing import general_fixture, full_grant
+        from .testing import full_grant, general_fixture
         general_fixture()
         cache.clear()
         self.client = APIClient()
@@ -48,7 +53,8 @@ class LearningFeedbackTests(TestCase):
         self.assertEqual(self.post(expected_user_id=str(self.user.pk)).status_code, 201)
         self.assertEqual(LearningFeedback.objects.get().user, self.user)
 
-    def test_inbox_and_status_are_staff_only(self):
+    @patch('modules.operations.security.operator_mfa_verified', return_value=True)
+    def test_inbox_and_status_require_explicit_operator_permissions(self, _mfa):
         row_id = self.post().data['id']
         inbox = '/api/v1/academy/feedback/inbox/'
         detail = f'/api/v1/academy/feedback/{row_id}/'
@@ -57,6 +63,11 @@ class LearningFeedbackTests(TestCase):
         self.assertEqual(self.client.get(inbox).status_code, 403)
         self.assertEqual(self.client.patch(detail, {'status': 'resolved'}, format='json').status_code, 403)
         self.client.force_authenticate(self.staff)
+        self.assertEqual(self.client.get(inbox).status_code, 403)
+        self.staff.email_verified_at = timezone.now()
+        self.staff.save(update_fields=['email_verified_at'])
+        self.staff.user_permissions.add(*Permission.objects.filter(
+            codename__in=['operator_view_feedback', 'operator_triage_feedback']))
         response = self.client.get(inbox)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['count'], 1)

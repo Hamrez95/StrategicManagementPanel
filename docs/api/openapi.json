@@ -15,7 +15,7 @@
       "get": {
         "operationId": "readOperatorReadiness",
         "summary": "Read own operator sections and MFA readiness",
-        "description": "Implemented. Requires a freshly loaded active, verified staff identity and at least one explicit accounts.operator_view_<section> permission, direct or group. Staff/superuser flags alone grant no access. No customer data. MFA is currently unimplemented, so mfa_ready is false. Headers and session flags cannot open this gate.",
+        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed.",
         "security": [
           {
             "cookieSession": []
@@ -23,19 +23,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Own permitted sections only",
+            "description": "Current operator sections and MFA state",
             "headers": {
               "Cache-Control": {
                 "schema": {
-                  "type": "string"
-                },
-                "description": "private, no-store on success and errors"
-              },
-              "Vary": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Includes Cookie"
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
               }
             },
             "content": {
@@ -45,11 +41,17 @@
                   "additionalProperties": false,
                   "required": [
                     "sections",
-                    "mfa_ready"
+                    "mfa_ready",
+                    "mfa_configured",
+                    "mfa_enrolled",
+                    "expires_at",
+                    "actor",
+                    "capabilities"
                   ],
                   "properties": {
                     "sections": {
                       "type": "array",
+                      "uniqueItems": true,
                       "items": {
                         "type": "string",
                         "enum": [
@@ -58,12 +60,65 @@
                           "plans",
                           "subscriptions",
                           "access",
-                          "audit"
+                          "audit",
+                          "academy",
+                          "feedback"
                         ]
                       }
                     },
                     "mfa_ready": {
                       "type": "boolean"
+                    },
+                    "mfa_configured": {
+                      "type": "boolean"
+                    },
+                    "mfa_enrolled": {
+                      "type": "boolean"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "actor": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "capabilities": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "identity",
+                        "manage_accounts",
+                        "triage_feedback",
+                        "grant",
+                        "revoke"
+                      ],
+                      "properties": {
+                        "identity": {
+                          "type": "boolean"
+                        },
+                        "manage_accounts": {
+                          "type": "boolean"
+                        },
+                        "triage_feedback": {
+                          "type": "boolean"
+                        },
+                        "grant": {
+                          "type": "boolean"
+                        },
+                        "revoke": {
+                          "type": "boolean"
+                        }
+                      }
                     }
                   }
                 }
@@ -128,7 +183,7 @@
       "get": {
         "operationId": "listOperatorSection",
         "summary": "Read one independently authorized management summary section",
-        "description": "Implemented but fail-closed until reviewed operator MFA exists. Requires freshly loaded active, email-verified staff and explicit accounts.operator_view_<section>, assigned directly or by group; staff/superuser alone are insufficient. Current authorized requests return 503 operator_mfa_unavailable before customer querysets. No impersonation or tenant-content access. The 200 schema is the tested contract after future MFA integration. Account/access search is exact email or UUID; plans use code/title substring; other sections use record/owner UUID, audit reference/actor UUID. Audit merges Workspace and management subscription events newest-first with source/ID tie-breaks. No business content, email in results, free-text changes/reasons, password, token, phone or billing ID. Recorded active subscription status can differ from effective access. Report capability is reserved, not an implemented renderer.",
+        "description": "Live. Fresh explicit section permission and session-bound TOTP proof required before querying records. Bounded deterministic pages. Accounts show contact identity only with additional accounts.operator_view_identity permission; UUID summaries otherwise. Workspaces expose metadata only. Academy exposes course metadata and order, never assessment keys. Audit merges Workspace, grant, security and operator-action metadata; free-text reasons and customer content are excluded. Feedback uses its dedicated MFA-protected inbox. All responses private/no-store; redact search parameters from access logs.",
         "security": [
           {
             "cookieSession": []
@@ -147,7 +202,8 @@
                 "plans",
                 "subscriptions",
                 "access",
-                "audit"
+                "audit",
+                "academy"
               ]
             },
             "description": "Each value requires its own accounts.operator_view_<section> permission"
@@ -245,6 +301,19 @@
                               "date_joined": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "first_name": {
+                                "type": "string"
+                              },
+                              "last_name": {
+                                "type": "string"
+                              },
+                              "email": {
+                                "type": "string",
+                                "format": "email"
+                              },
+                              "phone_number": {
+                                "type": "string"
                               }
                             }
                           },
@@ -496,7 +565,9 @@
                                 "type": "string",
                                 "enum": [
                                   "workspace",
-                                  "subscription"
+                                  "subscription",
+                                  "security",
+                                  "operator"
                                 ]
                               },
                               "actor_id": {
@@ -507,12 +578,36 @@
                                 "type": "string"
                               },
                               "target": {
-                                "type": "string",
-                                "format": "uuid"
+                                "type": "string"
                               },
                               "created_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title",
+                              "area_id",
+                              "order"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "area_id": {
+                                "type": "string"
+                              },
+                              "order": {
+                                "type": "integer",
+                                "minimum": 0
                               }
                             }
                           }
@@ -579,21 +674,7 @@
             }
           },
           "403": {
-            "description": "Section permission required",
-            "headers": {
-              "Cache-Control": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "private, no-store on success and errors"
-              },
-              "Vary": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Includes Cookie"
-              }
-            }
+            "description": "Section permission missing or operator_mfa_unavailable: fresh MFA required"
           },
           "404": {
             "description": "Page does not exist",
@@ -630,21 +711,937 @@
             }
           },
           "503": {
-            "description": "operator_mfa_unavailable: MFA not implemented; no customer read",
+            "description": "Service unavailable; no successful read claimed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/overview/": {
+      "get": {
+        "operationId": "readOperatorOverview",
+        "summary": "Read only counts for explicitly permitted sections",
+        "description": "Live. Fresh MFA required. No revenue, invented trend or inferred scientific status. Counts refer to database records and are omitted when section permission is absent.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Permission-scoped counts",
             "headers": {
               "Cache-Control": {
                 "schema": {
-                  "type": "string"
-                },
-                "description": "private, no-store on success and errors"
-              },
-              "Vary": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
-                },
-                "description": "Includes Cookie"
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "counts"
+                  ],
+                  "properties": {
+                    "counts": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "accounts": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "workspaces": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "plans": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "subscriptions": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "lessons": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "feedback": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/mfa/{action}/": {
+      "post": {
+        "operationId": "changeOperatorMfa",
+        "summary": "Enroll, verify, lock or remove the current operator factor",
+        "description": "Live. CSRF and explicit operator eligibility required. Enroll, verify and remove require password reauthentication and shared rate limits; a Google-only account must first establish a password via the normal recovery flow. TOTP accepts a 30-second adjacent window and atomically rejects reused counters. Pending enrollment is bound to this session/password and expires in 10 minutes. QR is generated locally on the server. The secret and QR are returned once to this browser only; do not log bodies, persist them in browser storage or send to external QR services. Keys remain encrypted with the configured Fernet key ring. Removing a factor revokes all proofs. Lock is idempotent and revokes only this session.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "enroll",
+                "verify",
+                "lock",
+                "remove"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 4096
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "^[0-9]{6}$",
+                    "writeOnly": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "MFA proof or factor removed/locked",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "mfa_ready"
+                  ],
+                  "properties": {
+                    "mfa_ready": {
+                      "type": "boolean"
+                    },
+                    "mfa_enrolled": {
+                      "type": "boolean"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Pending enrollment; only this browser receives the setup secret",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "secret",
+                    "qr_svg",
+                    "expires_at"
+                  ],
+                  "properties": {
+                    "secret": {
+                      "type": "string"
+                    },
+                    "qr_svg": {
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/accounts/{target}/status/": {
+      "post": {
+        "operationId": "changeOperatorCustomerStatus",
+        "summary": "Activate or deactivate an ordinary customer account",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm",
+                  "is_active"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/subscriptions/grant/": {
+      "post": {
+        "operationId": "grantOperatorManagementSubscription",
+        "summary": "Grant a frozen management subscription via audited service",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm",
+                  "owner_id",
+                  "plan_id",
+                  "request_id"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "owner_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "plan_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "request_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/subscriptions/{target}/revoke/": {
+      "post": {
+        "operationId": "revokeOperatorManagementSubscription",
+        "summary": "Revoke a management grant via audited service",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/academy/feedback/inbox/": {
+      "get": {
+        "operationId": "readOperatorLearnerFeedback",
+        "summary": "Read the protected learner feedback inbox",
+        "description": "Live. Active, verified staff with explicit accounts.operator_view_feedback and session-bound MFA required; staff alone is insufficient. Source text and exact card paths are preserved. Private/no-store. A status change additionally requires operator_triage_feedback and appends an immutable operator action event.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "new",
+                "reviewed",
+                "resolved",
+                "all"
+              ],
+              "default": "new"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bounded feedback page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "page",
+                    "results"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "page": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "maxItems": 25,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "unit_id",
+                          "unit_title",
+                          "content_revision",
+                          "target_kind",
+                          "target_id",
+                          "target_title",
+                          "target_text",
+                          "content_path",
+                          "category",
+                          "message",
+                          "status",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "unit_id": {
+                            "type": "string"
+                          },
+                          "unit_title": {
+                            "type": "string"
+                          },
+                          "content_revision": {
+                            "type": "string"
+                          },
+                          "target_kind": {
+                            "type": "string"
+                          },
+                          "target_id": {
+                            "type": "string"
+                          },
+                          "target_title": {
+                            "type": "string"
+                          },
+                          "target_text": {
+                            "type": "string"
+                          },
+                          "content_path": {
+                            "type": "string"
+                          },
+                          "category": {
+                            "type": "string",
+                            "enum": [
+                              "correction",
+                              "question",
+                              "suggestion"
+                            ]
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "new",
+                              "reviewed",
+                              "resolved"
+                            ]
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid filter"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Explicit feedback permission and fresh operator MFA required"
+          }
+        }
+      }
+    },
+    "/api/v1/academy/feedback/{feedback_id}/": {
+      "patch": {
+        "operationId": "triageOperatorLearnerFeedback",
+        "summary": "Update feedback triage status with an audit event",
+        "description": "Live. Active, verified staff with explicit accounts.operator_view_feedback and session-bound MFA required; staff alone is insufficient. Source text and exact card paths are preserved. Private/no-store. A status change additionally requires operator_triage_feedback and appends an immutable operator action event.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feedback_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "new",
+                      "reviewed",
+                      "resolved"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated feedback",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "unit_id",
+                    "unit_title",
+                    "content_revision",
+                    "target_kind",
+                    "target_id",
+                    "target_title",
+                    "target_text",
+                    "content_path",
+                    "category",
+                    "message",
+                    "status",
+                    "created_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "unit_id": {
+                      "type": "string"
+                    },
+                    "unit_title": {
+                      "type": "string"
+                    },
+                    "content_revision": {
+                      "type": "string"
+                    },
+                    "target_kind": {
+                      "type": "string"
+                    },
+                    "target_id": {
+                      "type": "string"
+                    },
+                    "target_title": {
+                      "type": "string"
+                    },
+                    "target_text": {
+                      "type": "string"
+                    },
+                    "content_path": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string",
+                      "enum": [
+                        "correction",
+                        "question",
+                        "suggestion"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "new",
+                        "reviewed",
+                        "resolved"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Explicit feedback permission and fresh operator MFA required"
+          },
+          "404": {
+            "description": "Feedback missing"
           }
         }
       }

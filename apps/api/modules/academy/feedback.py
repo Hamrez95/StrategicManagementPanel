@@ -2,13 +2,19 @@
 from hashlib import sha256
 from urllib.parse import urlencode
 from uuid import UUID
+
+from django.db import transaction
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.throttling import SimpleRateThrottle
+
+from modules.operations.models import OperatorActionEvent
+from modules.operations.security import OperatorFeedbackPermission
+
+from .access import AcademyAccess
 from .content import units
 from .models import LearningFeedback
-from .access import AcademyAccess
 from .projection import curriculum
 from .views import error
 
@@ -86,7 +92,7 @@ def serialize_feedback(row):
 
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser])
+@permission_classes([OperatorFeedbackPermission])
 def feedback_inbox(request):
     status = request.query_params.get('status', 'new')
     if status not in {'new', 'reviewed', 'resolved', 'all'}:
@@ -102,14 +108,19 @@ def feedback_inbox(request):
 
 
 @api_view(['PATCH'])
-@permission_classes([IsAdminUser])
+@permission_classes([OperatorFeedbackPermission])
+@transaction.atomic
 def feedback_update(request, feedback_id):
     data = request.data
     if not isinstance(data, dict) or set(data) != {'status'} or not isinstance(data.get('status'), str) or data['status'] not in {'new', 'reviewed', 'resolved'}:
         return error('وضعیت بررسی معتبر نیست.')
-    row = LearningFeedback.objects.filter(pk=feedback_id).first()
+    row = LearningFeedback.objects.select_for_update().filter(pk=feedback_id).first()
     if not row:
         return error('این نظر پیدا نشد.', 404)
+    before = row.status
     row.status = data['status']
     row.save(update_fields=['status', 'updated_at'])
+    if before != row.status:
+        OperatorActionEvent.objects.create(actor=request.user, event_type='feedback_triaged',
+                                          target=str(row.pk), before=before, after=row.status)
     return Response(serialize_feedback(row))

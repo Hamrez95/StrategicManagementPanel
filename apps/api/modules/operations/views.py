@@ -8,9 +8,22 @@ from django.db.models.functions import Cast
 from modules.accounts.models import User
 from modules.workspaces.entitlements import FEATURES, management_access
 from modules.workspaces.models import (
-    ManagementPlan, ManagementSubscription, ManagementSubscriptionEvent, Workspace, WorkspaceEvent,
+    ManagementPlan,
+    ManagementSubscription,
+    ManagementSubscriptionEvent,
+    Workspace,
+    WorkspaceEvent,
 )
-from .security import SECTIONS, failure, operator_mfa_verified, operator_sections, private_response
+
+from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
+from .security import (
+    SECTIONS,
+    explicit_permission,
+    failure,
+    operator_mfa_verified,
+    operator_sections,
+    private_response,
+)
 
 PAGE_SIZE = 25
 
@@ -21,7 +34,45 @@ def operator_status(request):
     actor, sections = operator_sections(request)
     if actor is None or not sections:
         return denied(request)
-    return private_response({'sections': sections, 'mfa_ready': operator_mfa_verified(request, actor)})
+    from .mfa import cipher, verified_proof
+    proof = verified_proof(request, actor)
+    return private_response({
+        'sections': sections, 'mfa_ready': proof is not None,
+        'mfa_configured': cipher() is not None,
+        'mfa_enrolled': OperatorFactor.objects.filter(user=actor, enabled_at__isnull=False).exists(),
+        'expires_at': proof.expires_at.isoformat() if proof else None,
+        'actor': {'name': actor.get_full_name() or actor.display_name or 'اپراتور'},
+        'capabilities': {
+            'identity': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_view_identity'),
+            'manage_accounts': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_manage_accounts'),
+            'triage_feedback': 'feedback' in sections and explicit_permission(actor, 'accounts.operator_triage_feedback'),
+            'grant': {'plans', 'subscriptions'}.issubset(sections) and explicit_permission(actor, 'workspaces.add_managementsubscription'),
+            'revoke': 'subscriptions' in sections and explicit_permission(actor, 'workspaces.change_managementsubscription'),
+        },
+    })
+
+
+def operator_overview(request):
+    if request.method != 'GET':
+        return method_denied()
+    actor, sections = operator_sections(request)
+    if actor is None or not sections:
+        return denied(request)
+    if not operator_mfa_verified(request, actor):
+        return failure('operator_mfa_unavailable', 'برای ادامه، احراز هویت دومرحله‌ای رو تأیید کن.', 403)
+    from modules.academy.models import AcademyCourse, AcademyUnit, LearningFeedback
+    counts = {}
+    sources = {
+        'accounts': User.objects, 'workspaces': Workspace.objects,
+        'plans': ManagementPlan.objects, 'subscriptions': ManagementSubscription.objects,
+        'academy': AcademyCourse.objects, 'feedback': LearningFeedback.objects,
+    }
+    for section, source in sources.items():
+        if section in sections:
+            counts[section] = source.count()
+    if 'academy' in sections:
+        counts['lessons'] = AcademyUnit.objects.count()
+    return private_response({'counts': counts})
 
 
 def denied(request):
@@ -50,7 +101,7 @@ def _accounts(query):
     return rows
 
 
-def _rows(section, query, state):
+def _rows(section, query, state, *, identity_allowed=False):
     identity = _uuid(query)
     if section in ('accounts', 'access'):
         rows = _accounts(query)
@@ -59,7 +110,8 @@ def _rows(section, query, state):
         if section == 'access':
             return rows.only('id')
         return rows.annotate(verified=Q(email_verified_at__isnull=False)).values(
-            'id', 'is_active', 'verified', 'date_joined')
+            'id', 'is_active', 'verified', 'date_joined',
+            *(['first_name', 'last_name', 'email', 'phone_number'] if identity_allowed else []))
     if section == 'plans':
         rows = ManagementPlan.objects.order_by('code', 'id')
         if query:
@@ -84,6 +136,12 @@ def _rows(section, query, state):
         return rows.annotate(owner_id=F('billing_account__owner_id')).values(
             'id', 'owner_id', 'plan_title', 'plan_revision', 'status', 'starts_at', 'ends_at',
             'owned_workspace_limit', *FEATURES)
+    if section == 'academy':
+        from modules.academy.models import AcademyCourse
+        rows = AcademyCourse.objects.select_related('area').order_by('order', 'id')
+        if query:
+            rows = rows.filter(Q(title__icontains=query) | Q(id__icontains=query))
+        return rows.values('id', 'title', 'area_id', 'order')
     # Free-text changes and reasons can contain customer information. Omit them.
     workspace_events = WorkspaceEvent.objects.all()
     grant_events = ManagementSubscriptionEvent.objects.all()
@@ -103,7 +161,20 @@ def _rows(section, query, state):
         event_id=Cast('pk', CharField()), source=Value('subscription', output_field=CharField()),
         target=Cast('subscription_id', CharField()),
     ).values(*fields)
-    return workspace_events.union(grant_events, all=True).order_by('-created_at', 'source', 'event_id')
+    security_events = OperatorSecurityEvent.objects.all()
+    if query:
+        security_events = security_events.filter(Q(pk=identity) | Q(actor_id=identity)) if identity else security_events.none()
+    security_events = security_events.order_by().annotate(
+        event_id=Cast('pk', CharField()), source=Value('security', output_field=CharField()),
+        target=Cast('actor_id', CharField()),
+    ).values(*fields)
+    action_events = OperatorActionEvent.objects.all()
+    if query:
+        action_events = action_events.filter(Q(actor_id=identity) | Q(target=query) | Q(pk=identity)) if identity else action_events.filter(target=query)
+    action_events = action_events.order_by().annotate(
+        event_id=Cast('pk', CharField()), source=Value('operator', output_field=CharField()),
+    ).values(*fields)
+    return workspace_events.union(grant_events, security_events, action_events, all=True).order_by('-created_at', 'source', 'event_id')
 
 
 def operator_collection(request, section):
@@ -115,13 +186,13 @@ def operator_collection(request, section):
     # Check before parsing query parameters or touching any customer queryset.
     if not operator_mfa_verified(request, actor):
         return failure('operator_mfa_unavailable',
-                       'احراز هویت دومرحله‌ای اپراتور هنوز آماده نیست. نمایش اطلاعات مشتری بسته است.', 503)
+                       'برای ادامه، احراز هویت دومرحله‌ای رو تأیید کن.', 403)
     query = request.GET.get('q', '').strip()
     state = request.GET.get('state', '')
     allowed_states = {
         'accounts': ('active', 'inactive'), 'access': ('active', 'inactive'),
         'plans': ('active', 'inactive'), 'workspaces': ('active', 'archived'),
-        'subscriptions': ('active', 'revoked'), 'audit': (),
+        'subscriptions': ('active', 'revoked'), 'audit': (), 'academy': (), 'feedback': (),
     }
     try:
         page_number = int(request.GET.get('page', '1'))
@@ -129,7 +200,10 @@ def operator_collection(request, section):
         page_number = 0
     if len(query) > 254 or page_number < 1 or (state and state not in allowed_states[section]):
         return failure('operator_invalid_query', 'جست‌وجو، وضعیت یا شمارهٔ صفحه معتبر نیست.', 400)
-    paginator = Paginator(_rows(section, query, state), PAGE_SIZE)
+    if section == 'feedback':
+        return failure('operator_use_feedback_inbox', 'از بخش نظرهای یادگیرنده‌ها استفاده کن.', 400)
+    paginator = Paginator(_rows(section, query, state,
+                               identity_allowed=explicit_permission(actor, 'accounts.operator_view_identity')), PAGE_SIZE)
     try:
         page = paginator.page(page_number)
     except EmptyPage:

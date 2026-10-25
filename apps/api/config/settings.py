@@ -22,6 +22,8 @@ elif not SECRET_KEY:
 
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'modules.accounts', 'modules.workspaces', 'modules.customer_context', 'modules.evidence', 'modules.metrics', 'modules.strategy', 'modules.analysis', 'modules.execution', 'modules.documents', 'modules.imports', 'modules.exports', 'modules.core']
 INSTALLED_APPS += ['modules.academy']
+INSTALLED_APPS += ['modules.operations']
+OPERATOR_MFA_KEYS = tuple(key.strip() for key in os.environ.get('STRATINO_OPERATOR_MFA_KEYS', '').split(',') if key.strip())
 INSTALLED_APPS += ['django.contrib.admin', 'django.contrib.messages', 'django.contrib.staticfiles']
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static-root'

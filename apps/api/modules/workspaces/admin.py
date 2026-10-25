@@ -11,6 +11,8 @@ from django.urls import path, reverse
 from django.utils.decorators import method_decorator
 from django.views.decorators.http import require_http_methods
 
+from modules.operations.security import explicit_permission, operator_sections
+
 from .entitlements import (
     _operator,
     grant_management_subscription,
@@ -25,12 +27,8 @@ from .models import (
 
 
 def operator_mfa_verified(request, actor):
-    """Closed until #30 supplies a reviewed, session-bound operator MFA verifier.
-
-    Never accept browser headers, session booleans or environment bypasses as proof.
-    Tests replace this function only against disposable synthetic databases.
-    """
-    return False
+    from modules.operations.security import operator_mfa_verified as verify
+    return verify(request, actor)
 
 
 class ManagementAdminSite(admin.AdminSite):
@@ -40,9 +38,9 @@ class ManagementAdminSite(admin.AdminSite):
     site_url = None
 
     def has_permission(self, request):
-        # No development or superuser bypass while operator MFA is unresolved.
-        return (super().has_permission(request) and bool(request.user.email_verified_at)
-                and operator_mfa_verified(request, request.user))
+        actor, sections = operator_sections(request)
+        return bool(actor and set(sections) & {'plans', 'subscriptions', 'access', 'audit'}
+                    and operator_mfa_verified(request, actor))
 
 
 management_admin_site = ManagementAdminSite(name='management_admin')
@@ -63,6 +61,13 @@ class ReadOnlyAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
+
+    def has_view_permission(self, request, obj=None):
+        section = {'managementplan': 'plans', 'managementsubscription': 'subscriptions',
+                   'managementsubscriptionevent': 'audit', 'billingaccount': 'access'}.get(self.opts.model_name)
+        actor, sections = operator_sections(request)
+        return bool(actor and section in sections and explicit_permission(
+            actor, f'{self.opts.app_label}.view_{self.opts.model_name}'))
 
     def has_delete_permission(self, request, obj=None):
         return False
@@ -152,11 +157,17 @@ class ManagementSubscriptionAdmin(ReadOnlyAdmin):
         return str(obj.granted_by_id)
 
     def _can_grant(self, request):
-        return request.user.has_perms(('workspaces.add_managementsubscription', 'workspaces.view_managementsubscription',
-                                      'workspaces.view_managementplan', 'workspaces.view_billingaccount'))
+        actor, sections = operator_sections(request)
+        return bool(actor and {'plans', 'subscriptions', 'access'}.issubset(sections) and all(
+            explicit_permission(actor, permission) for permission in (
+                'workspaces.add_managementsubscription', 'workspaces.view_managementsubscription',
+                'workspaces.view_managementplan', 'workspaces.view_billingaccount')))
 
     def _can_revoke(self, request):
-        return request.user.has_perms(('workspaces.change_managementsubscription', 'workspaces.view_managementsubscription'))
+        actor, sections = operator_sections(request)
+        return bool(actor and 'subscriptions' in sections and all(
+            explicit_permission(actor, permission) for permission in (
+                'workspaces.change_managementsubscription', 'workspaces.view_managementsubscription')))
 
     def get_urls(self):
         return [path('grant/', self.admin_site.admin_view(self.grant_view), name='workspaces_managementsubscription_grant'),

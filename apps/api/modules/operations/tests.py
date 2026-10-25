@@ -8,7 +8,10 @@ from django.utils import timezone
 
 from modules.accounts.models import User
 from modules.operations.security import SECTIONS, operator_sections
-from modules.workspaces.entitlements import grant_management_subscription, management_access
+from modules.workspaces.entitlements import (
+    grant_management_subscription,
+    management_access,
+)
 from modules.workspaces.models import ManagementPlan, Membership, WorkspaceEvent
 from modules.workspaces.services import create_owned_workspace
 
@@ -70,7 +73,7 @@ class OperatorReadTests(TestCase):
         with patch('modules.operations.views._rows', side_effect=AssertionError('Customer read')):
             for section in SECTIONS:
                 response = self.client.get(f'/api/v1/operator/{section}/', HTTP_X_OPERATOR_MFA='true')
-                self.assertEqual(response.status_code, 503)
+                self.assertEqual(response.status_code, 403)
                 self.assertEqual(response.json()['code'], 'operator_mfa_unavailable')
                 self.assert_private(response)
         status = self.get('status')
@@ -139,7 +142,7 @@ class OperatorReadTests(TestCase):
         WorkspaceEvent.objects.create(workspace=self.workspace, actor=self.owner, event_type='updated',
                                       changes={'secret': 'Private business payload'})
         self.client.force_login(self.actor)
-        for section in SECTIONS:
+        for section in (value for value in SECTIONS if value != 'feedback'):
             response = self.get(section)
             self.assertEqual(response.status_code, 200, response.content)
             self.assert_private(response)

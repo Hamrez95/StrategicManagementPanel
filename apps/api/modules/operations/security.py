@@ -1,12 +1,13 @@
-"""Deny customer reads until a reviewed operator MFA integration exists."""
+"""Explicit operator permissions and session-bound MFA for every customer read."""
 from django.contrib.auth.models import Permission
 from django.db.models import Q
 from django.http import JsonResponse
 from django.utils.cache import patch_vary_headers
+from rest_framework.permissions import BasePermission
 
 from modules.accounts.models import User
 
-SECTIONS = ('accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit')
+SECTIONS = ('accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit', 'academy', 'feedback')
 
 
 def private_response(payload, status=200):
@@ -38,13 +39,25 @@ def operator_sections(request):
 
 
 def operator_mfa_verified(request, actor):
-    """No MFA provider/verifier is implemented. Never trust headers or session booleans.
+    # Import lazily: the MFA endpoint uses the same explicit permission resolver.
+    from .mfa import verified_proof
+    return verified_proof(request, actor) is not None
 
-    Future work must verify an enrolled factor, bind the proof to this authenticated
-    session and user, enforce freshness and invalidate it on logout/password/factor
-    changes. There is deliberately no environment flag or browser-controlled bypass.
-    """
-    return False
+
+def explicit_permission(actor, permission):
+    app, code = permission.split('.', 1)
+    return Permission.objects.filter(
+        Q(user=actor) | Q(group__user=actor), content_type__app_label=app, codename=code,
+    ).exists()
+
+
+class OperatorFeedbackPermission(BasePermission):
+    message = 'برای بررسی نظرها، مجوز مربوط و تأیید دومرحله‌ای لازم داری.'
+
+    def has_permission(self, request, view):
+        actor, sections = operator_sections(request)
+        return bool(actor and 'feedback' in sections and operator_mfa_verified(request, actor)
+                    and (request.method == 'GET' or explicit_permission(actor, 'accounts.operator_triage_feedback')))
 
 
 class OperatorAdminBoundaryMiddleware:

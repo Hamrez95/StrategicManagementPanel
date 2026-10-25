@@ -27,12 +27,16 @@ class ManagementAdminTests(TestCase):
             'view_managementsubscriptionevent', 'add_managementsubscription', 'change_managementsubscription',
         ])
         self.operator.user_permissions.set(permissions)
+        self.operator.user_permissions.add(*Permission.objects.filter(
+            content_type__app_label='accounts', codename__in=[
+                'operator_view_plans', 'operator_view_subscriptions', 'operator_view_access', 'operator_view_audit',
+            ]))
         self.owner = User.objects.create_user('management-owner@example.test', email_verified_at=timezone.now())
         self.billing = BillingAccount.objects.create(owner=self.owner)
         self.plan = ManagementPlan.objects.create(code='operator-test', title='Synthetic approved plan',
             is_active=True, owned_workspace_limit=3, can_finalize_analysis=True, duration_days=7)
         self.client.force_login(self.operator)
-        # Synthetic MFA only within this test; the actual shared verifier remains closed.
+        # This suite isolates admin permissions; real MFA is tested in operations.test_mfa.
         self.mfa = patch('modules.workspaces.admin.operator_mfa_verified', return_value=True)
         self.mfa.start()
         self.addCleanup(self.mfa.stop)
@@ -128,8 +132,11 @@ class ManagementAdminTests(TestCase):
         self.assertEqual(grant.events.count(), 1)
 
     def test_snapshot_and_catalog_cannot_be_edited_or_deleted_even_by_superuser(self):
-        self.client.force_login(User.objects.create_superuser('management-super@example.test', password='test-only'))
         grant = self.grant()
+        superuser = User.objects.create_superuser('management-super@example.test', password='test-only')
+        self.client.force_login(superuser)
+        self.assertEqual(self.client.get(self.list_url).status_code, 302)
+        superuser.user_permissions.set(self.operator.user_permissions.all())
         detail = reverse('management_admin:workspaces_managementsubscription_change', args=[grant.pk])
         response = self.client.get(detail)
         self.assertContains(response, 'readonly')

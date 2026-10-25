@@ -72,6 +72,11 @@ class User(AbstractUser):
             ('operator_view_subscriptions', 'Operator: read management subscriptions'),
             ('operator_view_access', 'Operator: read effective management access'),
             ('operator_view_audit', 'Operator: read redacted audit history'),
+            ('operator_view_academy', 'Operator: read Academy course inventory'),
+            ('operator_view_feedback', 'Operator: read learner feedback'),
+            ('operator_triage_feedback', 'Operator: triage learner feedback'),
+            ('operator_view_identity', 'Operator: read customer contact identity'),
+            ('operator_manage_accounts', 'Operator: activate or deactivate customer accounts'),
         ]
 
 
