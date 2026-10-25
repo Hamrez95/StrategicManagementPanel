@@ -7,10 +7,28 @@ import type { Session } from '../../session';
 import { postAuth } from '../auth/api';
 import { AccountAvatar } from '../account/AccountAvatar';
 import { LanguageSwitch, ThemeSwitch } from '../chrome/HeaderControls';
+import { Icon } from '../experience/ExperienceUI';
 import { useWorkspaceSwitch } from './switchContext';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
 
 type RouteChoice = { title: string; path: string; keywords: string };
+const workspaceToolIcons: Record<string, string> = {
+  company: 'people',
+  environment: 'compass',
+  industry: 'people',
+  internal: 'grid',
+  matrices: 'chart',
+  swot: 'compass',
+  finance: 'chart',
+  scenarios: 'spark',
+  qspm: 'compass',
+  journal: 'book',
+  execution: 'flag',
+  scorecard: 'chart',
+  risks: 'shield',
+  reports: 'chart',
+  documents: 'file',
+};
 
 function routeChoices(workspaceId: string | undefined, english: boolean): RouteChoice[] {
   const choices: RouteChoice[] = [
@@ -143,11 +161,11 @@ function WorkspaceNavigation({
         onClick={onNavigate}
       >
         <span className="app-nav-link__mark" aria-hidden="true">
-          {new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(1)}
+          <Icon name="grid" size={19} />
         </span>
         <span>{english ? 'Project overview' : 'نمای کلی پروژه'}</span>
       </Link>
-      {workspaceToolGroups.map((group, index) => (
+      {workspaceToolGroups.map((group) => (
         <section
           className="app-nav-group"
           key={group.id}
@@ -165,7 +183,7 @@ function WorkspaceNavigation({
                 onClick={onNavigate}
               >
                 <span className="app-nav-link__mark" aria-hidden="true">
-                  {new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(index + 2)}
+                  <Icon name={workspaceToolIcons[tool.id] ?? 'book'} size={19} />
                 </span>
                 <span>{tool.title[english ? 'en' : 'fa']}</span>
               </Link>
@@ -180,7 +198,7 @@ function WorkspaceNavigation({
         onClick={onNavigate}
       >
         <span className="app-nav-link__mark" aria-hidden="true">
-          ⚙
+          <Icon name="settings" size={19} />
         </span>
         <span>{english ? 'Workspace settings' : 'تنظیمات فضای کار'}</span>
       </Link>

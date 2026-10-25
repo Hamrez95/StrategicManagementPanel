@@ -5,6 +5,7 @@ import { Button, EmptyState, Notice, Skeleton, useUIAppearance } from '@stratino
 import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { useWorkspaceDirtyGuard } from '../workspaces/switchContext';
+import { ReportInsights } from './ReportInsights';
 import {
   createWorkspaceExport,
   downloadWorkspaceExport,
@@ -1088,7 +1089,9 @@ export default function ReportsPage() {
         </div>
       </header>
 
+      <ReportInsights key={workspaceId} report={report} english={english} />
       <section
+        id="report-actions"
         className="reports-controls"
         aria-label={english ? 'Report actions' : 'عملیات گزارش'}
       >

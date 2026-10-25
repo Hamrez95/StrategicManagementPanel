@@ -1,0 +1,701 @@
+/* Customer Workspace skin. Operator/public/Academy data and appearance remain independent. */
+.application-shell {
+  --canvas: #f7f8f4;
+  --paper: #fff;
+  --ink: #24463a;
+  --muted: #5b6c62;
+  --line: #dde5dd;
+  --control: #708376;
+  --action: #245343;
+  --action-fill: #245343;
+  --on-action: #fff;
+  --accent: #34755a;
+  --wash: #edf4ee;
+  --success: #286c4c;
+  background: var(--canvas);
+  color: var(--ink);
+}
+[data-theme='dark'] .application-shell {
+  --canvas: #101c18;
+  --paper: #192b24;
+  --ink: #e5f0e9;
+  --muted: #b2c3b8;
+  --line: #33473b;
+  --control: #879e8e;
+  --action: #b9e1c5;
+  --action-fill: #b9e1c5;
+  --on-action: #143522;
+  --accent: #b9e1c5;
+  --wash: #243b2e;
+  --success: #b9e1c5;
+}
+.application-shell .app-topbar {
+  flex-wrap: wrap;
+  margin: 12px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+}
+.application-shell .app-sidebar {
+  margin: 12px;
+  height: calc(100dvh - 24px);
+  border: 0;
+  border-radius: 23px;
+  background: #19352c;
+  color: #edf5ef;
+  scrollbar-color: #688774 transparent;
+}
+.application-shell .app-sidebar :is(.app-sidebar__eyebrow, .app-nav-group h2) {
+  color: #b6c8bc;
+}
+.application-shell .app-sidebar .app-sidebar__workspace {
+  border-color: #ffffff24;
+}
+.application-shell .app-sidebar .app-nav-link {
+  color: #e2eee5;
+  min-block-size: 46px;
+  border-radius: 12px;
+}
+.application-shell .app-sidebar .app-nav-link:hover {
+  background: #ffffff0c;
+}
+.application-shell .app-sidebar .app-nav-link.is-active {
+  background: #3b634b;
+  border-color: #edc989;
+  color: #fff;
+}
+.application-shell .app-sidebar .app-nav-link__mark {
+  color: #c5daca;
+  border-color: transparent;
+  background: #ffffff09;
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 9px;
+}
+.application-shell .app-sidebar .app-nav-link:focus-visible {
+  outline-color: #edc989;
+}
+.application-shell .app-nav-link__mark svg {
+  inline-size: 19px;
+  block-size: 19px;
+}
+.application-shell .ui-button--primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--action-fill) 86%, var(--ink));
+}
+.application-shell .reports-version-select {
+  inline-size: min(100%, 360px);
+  min-inline-size: 0;
+}
+.application-shell .reports-version-select select {
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+.application-shell
+  :is(.workspace-home__profile, .workspace-home__summary, .workspace-row, .reports-controls) {
+  border-radius: 20px;
+}
+.application-shell .workspace-home {
+  max-inline-size: 1280px;
+}
+.workspace-pulse,
+.report-studio {
+  display: grid;
+  gap: 22px;
+  margin-block: 24px 36px;
+  min-inline-size: 0;
+}
+.management-welcome {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(
+    115deg,
+    var(--paper) 25%,
+    color-mix(in srgb, var(--wash) 80%, var(--paper))
+  );
+  overflow: clip;
+}
+.management-welcome h2 {
+  margin-block: 8px 10px;
+  font-size: clamp(24px, 2.7vw, 34px);
+  line-height: 1.6;
+}
+.management-welcome p {
+  max-inline-size: 64ch;
+  color: var(--muted);
+}
+.management-welcome .ui-button {
+  margin-block-start: 22px;
+  gap: 10px;
+  border-radius: 12px;
+}
+.management-eyebrow {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--accent) !important;
+}
+.management-orbit {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 260px;
+  color: var(--action);
+}
+.management-orbit__ring {
+  opacity: 0.28;
+  transform-origin: 130px 95px;
+}
+.management-source-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.management-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.management-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-inline-size: 0;
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+.management-stat:hover {
+  text-decoration: none;
+}
+.management-stat > span:nth-child(2) {
+  display: grid;
+  gap: 3px;
+  min-inline-size: 0;
+}
+.management-stat > svg:last-child {
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+.management-stat span span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.management-stat strong {
+  font-size: 31px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.management-stat small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.management-stat__icon,
+.management-focus__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 53px;
+  block-size: 53px;
+  flex-shrink: 0;
+  color: var(--action);
+  background: var(--wash);
+  border-radius: 16px;
+}
+.management-stat:nth-child(2) .management-stat__icon {
+  background: #b686481b;
+}
+.management-stat:nth-child(3) .management-stat__icon {
+  background: #6684aa1b;
+}
+.management-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.management-chart,
+.management-focus,
+.report-drilldown {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  padding: 26px;
+  min-inline-size: 0;
+}
+.management-chart > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-block-end: 24px;
+  flex-wrap: wrap;
+}
+.management-chart h3,
+.management-focus h3,
+.report-drilldown h4 {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.management-chart > header > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.management-chart__body {
+  display: grid;
+  grid-template-columns: 122px minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+.management-donut {
+  display: grid;
+  place-items: center;
+  inline-size: 122px;
+  block-size: 122px;
+  border-radius: 50%;
+  background: var(--chart-fill);
+}
+.management-donut > div {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  inline-size: 94px;
+  block-size: 94px;
+  border-radius: inherit;
+  background: var(--paper);
+}
+.management-donut strong {
+  font-size: 27px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.management-donut span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.management-chart__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  min-inline-size: 0;
+}
+.management-chart__rows :is(li > div, button) {
+  display: grid;
+  gap: 7px;
+  inline-size: 100%;
+  text-align: start;
+  padding: 5px 0;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  font: inherit;
+}
+.management-chart__rows button {
+  cursor: pointer;
+}
+.management-chart__rows button[aria-pressed='true'] {
+  outline: 2px solid var(--action);
+  outline-offset: 4px;
+}
+.management-chart__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.management-chart__label > i {
+  inline-size: 7px;
+  block-size: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+.management-chart__label > strong {
+  margin-inline-start: auto;
+  font-variant-numeric: tabular-nums;
+}
+.management-chart__track {
+  display: block;
+  block-size: 6px;
+  background: var(--wash);
+  border-radius: 10px;
+  overflow: clip;
+}
+.management-chart__track > i {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+}
+.management-chart__caption,
+.management-chart__empty,
+.management-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.management-chart__caption {
+  margin-block-start: 22px;
+}
+.management-chart__empty {
+  margin-block-start: 16px;
+}
+.management-focus {
+  display: grid;
+  gap: 16px;
+  min-block-size: 100%;
+  background: linear-gradient(145deg, var(--paper), var(--wash));
+}
+.management-focus > p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.management-focus > a,
+.report-drilldown > a,
+.report-studio__empty > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.report-view-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.report-view-picker > button {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 12px;
+  padding: 22px;
+  min-inline-size: 0;
+  text-align: start;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  cursor: pointer;
+  font: inherit;
+}
+.report-view-picker > button[aria-pressed='true'] {
+  border-color: var(--action);
+  background: var(--wash);
+  box-shadow: inset 0 0 0 1px var(--action);
+}
+.report-view-picker__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 47px;
+  block-size: 47px;
+  border-radius: 14px;
+  color: var(--action);
+  background: var(--wash);
+}
+.report-view-picker > button:nth-child(2) .report-view-picker__icon {
+  background: #b6864822;
+}
+.report-view-picker > button:nth-child(3) .report-view-picker__icon {
+  background: #6684aa22;
+}
+.report-view-picker > button:nth-child(4) .report-view-picker__icon {
+  background: #b66a5e22;
+}
+.report-view-picker strong {
+  font-size: 15px;
+}
+.report-view-picker > button > span:not(.report-view-picker__icon) {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.report-view-picker > button > i {
+  position: absolute;
+  inset-inline-end: 18px;
+  inset-block-start: 22px;
+}
+.report-studio__empty {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 36px;
+  border: 1px dashed var(--control);
+  border-radius: 22px;
+  color: var(--muted);
+}
+.report-studio__empty h3 {
+  color: var(--ink);
+  font-size: 19px;
+}
+.report-studio__empty p {
+  max-inline-size: 65ch;
+  font-size: 14px;
+}
+.report-studio__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-block-end: 20px;
+}
+.report-studio__meta h3 {
+  font-size: 21px;
+}
+.report-studio__meta time {
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-studio__content > .management-stat-grid {
+  margin-block-end: 22px;
+}
+.report-studio__content > .management-note {
+  margin-block-start: 18px;
+}
+.report-drilldown > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.report-drilldown button {
+  font: inherit;
+  font-size: 12px;
+  border: 0;
+  background: none;
+  color: var(--action);
+  cursor: pointer;
+  min-block-size: 44px;
+}
+.report-drilldown button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.report-drilldown ul {
+  display: grid;
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  max-block-size: 330px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.report-drilldown li {
+  display: grid;
+  gap: 7px;
+  padding-block: 13px;
+  border-block-end: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.report-drilldown li strong {
+  font-size: 13px;
+}
+.report-drilldown li :is(p, span) {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.report-drilldown > a {
+  margin-block-start: 16px;
+}
+:is(
+  .management-stat,
+  .report-view-picker button,
+  .management-chart button,
+  .report-drilldown button,
+  .report-drilldown ul
+):focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) .management-orbit__sheet {
+    animation: management-sheet 6s ease-in-out 2;
+  }
+  :root:not([data-motion='reduced']) .management-orbit__seal {
+    animation: management-seal 900ms cubic-bezier(0.2, 0.85, 0.25, 1.16) both;
+    transform-origin: 64px 139px;
+  }
+  :root:not([data-motion='reduced']) .report-studio__content {
+    animation: stratino-scene 400ms var(--motion-settle) both;
+  }
+  :root:not([data-motion='reduced']) .management-chart__track > i {
+    animation: management-bar 650ms var(--motion-settle) both;
+    transform-origin: left;
+  }
+  :root[dir='rtl']:not([data-motion='reduced']) .management-chart__track > i {
+    transform-origin: right;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) :is(.management-stat, .report-view-picker button) {
+    transition:
+      translate 260ms var(--motion-settle),
+      border-color 260ms,
+      box-shadow 260ms;
+  }
+  :root:not([data-motion='reduced']) :is(.management-stat, .report-view-picker button):hover {
+    translate: 0 -4px;
+    border-color: var(--control);
+    box-shadow: 0 16px 35px -28px var(--ink);
+  }
+  :root:not([data-motion='reduced']) .management-stat:hover .management-stat__icon svg {
+    animation: stratino-icon-arrive 600ms var(--motion-playful);
+  }
+}
+@keyframes management-sheet {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -5px;
+    rotate: 2deg;
+  }
+}
+@keyframes management-seal {
+  from {
+    scale: 0.3;
+    rotate: -30deg;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    rotate: 0deg;
+    opacity: 1;
+  }
+}
+@keyframes management-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 1180px) {
+  .management-chart__body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .management-chart__rows {
+    inline-size: 100%;
+  }
+  .management-stat {
+    padding: 18px;
+    gap: 12px;
+  }
+  .report-view-picker {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 800px) {
+  .management-welcome {
+    grid-template-columns: minmax(0, 1fr) 150px;
+    gap: 12px;
+    padding: 24px;
+  }
+  .management-stat-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .management-stat > span:nth-child(2) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    inline-size: 100%;
+    align-items: center;
+  }
+  .management-stat strong {
+    grid-row: span 2;
+    grid-column: 2;
+  }
+  .management-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .management-chart__body {
+    grid-template-columns: 122px minmax(0, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .management-welcome {
+    grid-template-columns: 1fr;
+    padding: 23px;
+  }
+  .management-welcome .management-orbit {
+    inline-size: 155px;
+    justify-self: center;
+    grid-row: 1;
+    margin-block: -12px;
+  }
+  .management-chart,
+  .management-focus,
+  .report-drilldown {
+    padding: 20px;
+  }
+  .management-chart__body {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .report-view-picker {
+    gap: 10px;
+  }
+  .report-view-picker > button {
+    padding: 15px;
+    gap: 9px;
+  }
+  .report-view-picker > button > i {
+    display: none;
+  }
+  .report-view-picker strong {
+    font-size: 13px;
+  }
+  .report-view-picker > button > span:not(.report-view-picker__icon) {
+    font-size: 11px;
+  }
+  .application-shell .app-topbar {
+    margin: 7px;
+    border-radius: 17px;
+  }
+}
+@media print {
+  .report-view-picker,
+  .report-studio__empty,
+  .report-drilldown :is(button, a),
+  .report-studio__welcome {
+    display: none !important;
+  }
+  .management-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .management-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .management-chart,
+  .management-stat,
+  .report-drilldown {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  .report-drilldown ul {
+    max-block-size: none;
+    overflow: visible;
+  }
+  .management-chart__track,
+  .management-donut {
+    print-color-adjust: exact;
+  }
+}

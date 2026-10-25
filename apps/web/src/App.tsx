@@ -357,7 +357,11 @@ export function App() {
   useEffect(() => {
     if (
       location.pathname === '/' &&
-      workspaceTools.some((tool) => location.hash === '#' + tool.legacyHash)
+      workspaceTools.some(
+        (tool) =>
+          location.hash === '#' + tool.legacyHash ||
+          location.hash.startsWith('#' + tool.legacyHash + '/'),
+      )
     )
       window.location.replace('/prototype/' + location.hash);
   }, [location.hash, location.pathname]);

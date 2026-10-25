@@ -92,6 +92,7 @@ try {
     'scripts/verify-brand.mjs',
     'scripts/verify-global-admin.mjs',
     'scripts/verify-motion.mjs',
+    'scripts/verify-management-studio.mjs',
   ])
     await run(script, env);
   console.log('PASS: complete browser suite; owned local servers shutting down.');

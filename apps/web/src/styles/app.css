@@ -1784,7 +1784,8 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (max-width: 720px) {
+/* Account for the Workspace sidebar: the document editor needs its stacked layout on tablets. */
+@media (max-width: 1050px) {
   .documents-page {
     inline-size: calc(100% - 32px);
     margin-block: 24px 44px;
