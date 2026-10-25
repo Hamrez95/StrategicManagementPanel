@@ -8,6 +8,7 @@ from django.test import Client, TestCase
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.operations.models import OperatorAccess
 from modules.workspaces.models import (
     BillingAccount,
     ManagementPlan,
@@ -20,6 +21,7 @@ from .models import OperatorActionEvent, OperatorSecurityEvent
 class OperatorActionTests(TestCase):
     def setUp(self):
         self.actor = User.objects.create_user('actor@actions.test', is_staff=True, email_verified_at=timezone.now())
+        OperatorAccess.objects.create(user=self.actor, role="admin")
         self.actor.user_permissions.add(*Permission.objects.filter(codename__in=[
             'operator_view_accounts', 'operator_view_plans', 'operator_view_subscriptions', 'operator_view_audit',
             'operator_manage_accounts', 'add_managementsubscription', 'change_managementsubscription',

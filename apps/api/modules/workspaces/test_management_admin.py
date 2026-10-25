@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.operations.models import OperatorAccess
 
 from .models import (
     BillingAccount,
@@ -22,6 +23,7 @@ class ManagementAdminTests(TestCase):
     def setUp(self):
         self.operator = User.objects.create_user('management-operator@example.test', is_staff=True,
                                                  email_verified_at=timezone.now())
+        OperatorAccess.objects.create(user=self.operator, role="admin")
         permissions = Permission.objects.filter(content_type__app_label='workspaces', codename__in=[
             'view_managementplan', 'view_billingaccount', 'view_managementsubscription',
             'view_managementsubscriptionevent', 'add_managementsubscription', 'change_managementsubscription',
@@ -137,6 +139,7 @@ class ManagementAdminTests(TestCase):
         self.client.force_login(superuser)
         self.assertEqual(self.client.get(self.list_url).status_code, 302)
         superuser.user_permissions.set(self.operator.user_permissions.all())
+        OperatorAccess.objects.create(user=superuser, role='admin')
         detail = reverse('management_admin:workspaces_managementsubscription_change', args=[grant.pk])
         response = self.client.get(detail)
         self.assertContains(response, 'readonly')

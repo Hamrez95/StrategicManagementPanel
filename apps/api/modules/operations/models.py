@@ -5,6 +5,20 @@ from django.conf import settings
 from django.db import models
 
 
+class OperatorAccess(models.Model):
+    """Explicit approval, separate from staff flags and normal account signup."""
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.PROTECT)
+    role = models.CharField(max_length=10, choices=[('owner', 'Owner'), ('admin', 'Administrator')])
+    is_active = models.BooleanField(default=True)
+    must_change_password = models.BooleanField(default=False)
+    revision = models.PositiveIntegerField(default=1)
+    approved_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.PROTECT, related_name='+')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [models.CheckConstraint(condition=models.Q(role__in=['owner', 'admin']), name='operator_access_role')]
+
+
 class OperatorFactor(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
@@ -68,7 +82,7 @@ class OperatorSecurityEvent(models.Model):
 class OperatorActionEvent(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     actor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    event_type = models.CharField(max_length=32, choices=[('account_status_changed', 'Account status'), ('feedback_triaged', 'Feedback triage')])
+    event_type = models.CharField(max_length=32, choices=[('account_status_changed', 'Account status'), ('feedback_triaged', 'Feedback triage'), ('operator_access_changed', 'Operator access'), ('operator_password_changed', 'Operator password')])
     target = models.CharField(max_length=100)
     before = models.CharField(max_length=20)
     after = models.CharField(max_length=20)
@@ -78,7 +92,7 @@ class OperatorActionEvent(models.Model):
     class Meta:
         ordering = ['-created_at', '-id']
         constraints = [models.CheckConstraint(
-            condition=models.Q(event_type__in=['account_status_changed', 'feedback_triaged']),
+            condition=models.Q(event_type__in=['account_status_changed', 'feedback_triaged', 'operator_access_changed', 'operator_password_changed']),
             name='operator_action_event_type',
         )]
 

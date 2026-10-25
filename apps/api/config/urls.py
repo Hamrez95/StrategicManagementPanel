@@ -26,6 +26,7 @@ from modules.core.views import live, ready
 from modules.operations.views import operator_collection, operator_status, operator_overview
 from modules.operations.mfa import operator_mfa
 from modules.operations.actions import operator_action
+from modules.operations.administrators import operator_login, operator_password, operator_team
 from modules.imports.views import (
     preview_import,
     workspace_import_detail,
@@ -54,6 +55,9 @@ from modules.workspaces.views import (
 )
 
 urlpatterns = [
+    path('api/v1/operator/login/', operator_login),
+    path('api/v1/operator/password/', operator_password),
+    path('api/v1/operator/team/', operator_team),
     path('api/v1/operator/accounts/<uuid:target>/status/', operator_action, {'action': 'account-status'}),
     path('api/v1/operator/subscriptions/grant/', operator_action, {'action': 'grant'}),
     path('api/v1/operator/subscriptions/<uuid:target>/revoke/', operator_action, {'action': 'revoke'}),

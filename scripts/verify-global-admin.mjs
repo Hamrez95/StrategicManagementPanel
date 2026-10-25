@@ -153,6 +153,7 @@ try {
   let mfa = false;
   let configured = false;
   let enrolled = false;
+  let mustChangePassword = false;
   let protectedReads = 0;
   let failCollection = false;
   let lastQuery;
@@ -183,6 +184,8 @@ try {
         mfa_ready: mfa,
         mfa_configured: configured,
         mfa_enrolled: enrolled,
+        must_change_password: mustChangePassword,
+        can_manage_operators: true,
         expires_at: mfa ? new Date(Date.now() + 900_000).toISOString() : null,
         actor: { name: 'اپراتور آزمایشی' },
         capabilities: {
@@ -193,7 +196,29 @@ try {
           revoke: true,
         },
       };
-    else if (url.pathname.includes('/operator/mfa/')) {
+    else if (url.pathname === '/api/v1/operator/password/') {
+      assert.equal(request.method(), 'POST');
+      assert.ok(request.headers()['x-csrftoken']);
+      assert.ok(mfa || mustChangePassword);
+      mustChangePassword = false;
+      mfa = false;
+      payload = { changed: true };
+    } else if (url.pathname === '/api/v1/operator/team/' && request.method() === 'GET') {
+      assert.ok(mfa);
+      payload = {
+        permissions: ['operator_view_academy'],
+        results: [
+          {
+            id: uuid,
+            email: 'owner@example.test',
+            role: 'owner',
+            is_active: true,
+            revision: 1,
+            permissions: ['operator_view_academy'],
+          },
+        ],
+      };
+    } else if (url.pathname.includes('/operator/mfa/')) {
       assert.equal(request.method(), 'POST');
       assert.ok(request.headers()['x-csrftoken']);
       if (url.pathname.endsWith('/enroll/')) {
@@ -380,6 +405,49 @@ try {
   await page.getByRole('dialog', { name: 'Administration sections' }).waitFor();
   await page.keyboard.press('Escape');
   await page.getByRole('dialog').waitFor({ state: 'hidden' });
+  checks++;
+  await page.goto(base + '/internal/team');
+  await page
+    .getByRole('heading', { name: /Service administrators|مدیران سرویس/, level: 2 })
+    .waitFor();
+  if ((await page.getAttribute('html', 'lang')) !== 'en')
+    await page.getByRole('button', { name: 'Switch language to English' }).click();
+  await page
+    .getByRole('heading', { name: 'Service administrators', exact: true, level: 2 })
+    .waitFor();
+  await page.getByLabel('Administrator email', { exact: true }).fill('new-admin@example.test');
+  await page.getByRole('checkbox', { name: 'Courses', exact: true }).check();
+  await page.getByLabel('Reason', { exact: true }).fill('Synthetic browser approval');
+  await page
+    .getByLabel('Your password to confirm', { exact: true })
+    .fill('synthetic-owner-password');
+  await page.getByRole('button', { name: 'Save administrator access', exact: true }).click();
+  await page.getByText('Administrator access saved.', { exact: true }).waitFor();
+  assert.equal(actions.at(-1).body.revision, 0);
+  assert.deepEqual(actions.at(-1).body.permissions, ['operator_view_academy']);
+  await fit();
+  await axe('team-mobile');
+  checks++;
+  const readsBeforePassword = protectedReads;
+  mustChangePassword = true;
+  mfa = false;
+  await page.goto(base + '/internal');
+  await page
+    .getByRole('heading', { name: /Replace your temporary password|گذرواژهٔ اولیه رو تغییر بده/ })
+    .waitFor();
+  if ((await page.getAttribute('html', 'lang')) !== 'en')
+    await page.getByRole('button', { name: 'Switch language to English' }).click();
+  await page.getByRole('heading', { name: 'Replace your temporary password' }).waitFor();
+  assert.equal(protectedReads, readsBeforePassword);
+  await page.getByLabel('Current password', { exact: true }).fill('synthetic-temporary');
+  await page.getByLabel('New password', { exact: true }).fill('new-synthetic-password-2048');
+  await page
+    .getByLabel('Confirm new password', { exact: true })
+    .fill('new-synthetic-password-2048');
+  await axe('initial-password-mobile');
+  await fit();
+  await page.getByRole('button', { name: 'Change password', exact: true }).click();
+  await page.getByLabel('Six-digit code').waitFor();
   checks++;
   assert.deepEqual(errors, []);
   console.log(

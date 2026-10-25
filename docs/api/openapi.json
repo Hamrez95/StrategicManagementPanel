@@ -11,11 +11,388 @@
     }
   ],
   "paths": {
+    "/api/v1/operator/login/": {
+      "post": {
+        "operationId": "loginOperator",
+        "summary": "Sign in with an approved operator email and password",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "authenticated"
+                  ],
+                  "properties": {
+                    "authenticated": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "maxLength": 254
+                  },
+                  "password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/operator/password/": {
+      "post": {
+        "operationId": "changeOperatorPassword",
+        "summary": "Replace operator password and revoke previous MFA proofs",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "changed"
+                  ],
+                  "properties": {
+                    "changed": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "current_password",
+                  "new_password",
+                  "confirmation"
+                ],
+                "properties": {
+                  "current_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  },
+                  "new_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  },
+                  "confirmation": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/operator/team/": {
+      "get": {
+        "operationId": "readOperatorTeam",
+        "summary": "Read owner-only administrator approvals and grantable permissions",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "permissions",
+                    "results"
+                  ],
+                  "properties": {
+                    "permissions": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "email",
+                          "role",
+                          "is_active",
+                          "revision",
+                          "permissions"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "email": {
+                            "type": "string",
+                            "format": "email"
+                          },
+                          "role": {
+                            "type": "string",
+                            "enum": [
+                              "owner",
+                              "admin"
+                            ]
+                          },
+                          "is_active": {
+                            "type": "boolean"
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "permissions": {
+                            "type": "array",
+                            "maxItems": 30,
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "operationId": "saveOperatorAccess",
+        "summary": "Approve or update a non-owner administrator with explicit permissions",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "saved"
+                  ],
+                  "properties": {
+                    "saved": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "email",
+                  "permissions",
+                  "is_active",
+                  "revision",
+                  "reason",
+                  "current_password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "maxItems": 30,
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "current_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/api/v1/operator/status/": {
       "get": {
         "operationId": "readOperatorReadiness",
         "summary": "Read own operator sections and MFA readiness",
-        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed.",
+        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed. Requires an explicit active OperatorAccess approval in addition to staff and section permissions. Owner role is restricted to configured owner addresses. A temporary password locks customer reads until replaced; team administration is owner-only.",
         "security": [
           {
             "cookieSession": []
@@ -123,6 +500,12 @@
                           "type": "boolean"
                         }
                       }
+                    },
+                    "must_change_password": {
+                      "type": "boolean"
+                    },
+                    "can_manage_operators": {
+                      "type": "boolean"
                     }
                   }
                 }

@@ -176,6 +176,65 @@
   display: grid;
   gap: 5px;
 }
+.op-admin-form {
+  display: grid;
+  gap: 18px;
+  max-inline-size: 760px;
+  margin-block-start: 24px;
+}
+.op-admin-form > label {
+  display: grid;
+  gap: 8px;
+}
+.op-admin-form input:not([type='checkbox']),
+.op-admin-form textarea {
+  inline-size: 100%;
+  min-block-size: 48px;
+  border: 1px solid var(--op-line);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--op-surface);
+  color: var(--op-ink);
+  font: inherit;
+}
+.op-admin-form fieldset {
+  border: 1px solid var(--op-line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.op-permission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+.op-permission-grid label,
+.op-admin-form .op-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-block-size: 44px;
+}
+.op-team-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.op-team-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  border-block-end: 1px solid var(--op-line);
+  padding-block: 14px;
+}
+.op-team-list li > span {
+  display: grid;
+  gap: 4px;
+  overflow-wrap: anywhere;
+  min-inline-size: 0;
+}
 .op-sidebar > .op-navigation {
   flex: 1;
   min-block-size: 0;

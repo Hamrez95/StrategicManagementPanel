@@ -24,6 +24,7 @@ INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.
 INSTALLED_APPS += ['modules.academy']
 INSTALLED_APPS += ['modules.operations']
 OPERATOR_MFA_KEYS = tuple(key.strip() for key in os.environ.get('STRATINO_OPERATOR_MFA_KEYS', '').split(',') if key.strip())
+OPERATOR_OWNER_EMAILS = ('hamidrezapakpour95@gmail.com', 'hamidrezaprogramming95@gmail.com')
 INSTALLED_APPS += ['django.contrib.admin', 'django.contrib.messages', 'django.contrib.staticfiles']
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static-root'

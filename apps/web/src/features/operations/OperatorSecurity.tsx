@@ -15,6 +15,8 @@ export type OperatorStatus = {
   mfa_configured: boolean;
   mfa_enrolled: boolean;
   expires_at: string | null;
+  must_change_password?: boolean;
+  can_manage_operators?: boolean;
   actor: { name: string };
   capabilities?: OperatorCapabilities;
 };

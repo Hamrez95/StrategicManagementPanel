@@ -6,6 +6,7 @@ import { LanguageSwitch, ThemeSwitch } from '../chrome/HeaderControls';
 import { AcademyFeedbackInbox } from '../academy/AcademyFeedbackInbox';
 import { OperatorIcon } from './OperatorIcon';
 import { OperatorOverview } from './OperatorOverview';
+import { OperatorPassword, OperatorTeam } from './OperatorAdministration';
 import {
   OperatorSecurity,
   type OperatorStatus,
@@ -42,10 +43,14 @@ export function OperatorShell({
     overview: ['نمای کلی', 'Overview'],
     ...titles,
     security: ['امنیت حساب', 'Account security'],
+    password: ['تغییر گذرواژه', 'Change password'],
+    team: ['مدیران سرویس', 'Administrators'],
   };
   const available = [
     'overview',
     ...sections.filter((s) => status?.sections.includes(s)),
+    ...(status?.can_manage_operators ? ['team'] : []),
+    'password',
     'security',
   ];
   const href = (s: string) => '/internal' + (s === 'overview' ? '' : '/' + s);
@@ -229,7 +234,13 @@ export function OperatorShell({
           )}
           {status &&
             !error &&
-            (!status.mfa_ready || route === 'security' ? (
+            (status.must_change_password || (route === 'password' && status.mfa_ready) ? (
+              <OperatorPassword
+                english={english}
+                initial={status.must_change_password}
+                onDone={reauthenticate}
+              />
+            ) : !status.mfa_ready || route === 'security' ? (
               <OperatorSecurity
                 key={String(status.mfa_ready)}
                 status={status}
@@ -237,6 +248,8 @@ export function OperatorShell({
                 onVerified={reauthenticate}
                 onLock={() => void lock()}
               />
+            ) : route === 'team' && status.can_manage_operators ? (
+              <OperatorTeam english={english} />
             ) : route === 'overview' ? (
               <OperatorOverview
                 english={english}

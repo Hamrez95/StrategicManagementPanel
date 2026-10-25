@@ -1,4 +1,5 @@
 """Explicit operator permissions and session-bound MFA for every customer read."""
+from django.conf import settings
 from django.contrib.auth.models import Permission
 from django.db.models import Q
 from django.http import JsonResponse
@@ -6,6 +7,8 @@ from django.utils.cache import patch_vary_headers
 from rest_framework.permissions import BasePermission
 
 from modules.accounts.models import User
+
+from .models import OperatorAccess
 
 SECTIONS = ('accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit', 'academy',
             'academy_plans', 'academy_subscriptions', 'academy_orders', 'academy_samples', 'feedback')
@@ -30,6 +33,9 @@ def operator_sections(request):
                                 email_verified_at__isnull=False).first()
     if actor is None:
         return None, ()
+    access = approved_access(actor)
+    if access is None:
+        return None, ()
     # Superuser is not an implicit grant for the operator surface.
     codes = set(Permission.objects.filter(
         Q(user=actor) | Q(group__user=actor),
@@ -39,10 +45,18 @@ def operator_sections(request):
     return actor, tuple(section for section in SECTIONS if f'operator_view_{section}' in codes)
 
 
+def approved_access(actor):
+    access = OperatorAccess.objects.filter(user=actor, is_active=True).first()
+    if access and (access.role != 'owner' or actor.email.lower() in settings.OPERATOR_OWNER_EMAILS):
+        return access
+    return None
+
+
 def operator_mfa_verified(request, actor):
     # Import lazily: the MFA endpoint uses the same explicit permission resolver.
     from .mfa import verified_proof
-    return verified_proof(request, actor) is not None
+    access = approved_access(actor)
+    return bool(access and not access.must_change_password and verified_proof(request, actor) is not None)
 
 
 def explicit_permission(actor, permission):

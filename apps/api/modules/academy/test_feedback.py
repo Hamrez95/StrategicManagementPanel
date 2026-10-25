@@ -8,6 +8,8 @@ from django.test import TestCase
 from django.utils import timezone
 from rest_framework.test import APIClient
 
+from modules.operations.models import OperatorAccess
+
 from .content import units
 from .models import LearningFeedback
 
@@ -24,6 +26,7 @@ class LearningFeedbackTests(TestCase):
         self.payload = dict(submission_id=str(uuid4()), expected_user_id='', content_revision=self.unit['revision'], target_kind='card', target_id=self.card['id'], category='correction', message='این بخش به توضیح روشن‌تری نیاز داره.')
         self.user = get_user_model().objects.create_user(email='feedback-reader@example.test')
         self.staff = get_user_model().objects.create_user(email='feedback-staff@example.test', is_staff=True)
+        OperatorAccess.objects.create(user=self.staff, role="admin")
         full_grant(self.user)
         full_grant(self.staff)
 

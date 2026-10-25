@@ -18,6 +18,7 @@ from modules.workspaces.models import (
 from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
 from .security import (
     SECTIONS,
+    approved_access,
     explicit_permission,
     failure,
     operator_mfa_verified,
@@ -35,12 +36,15 @@ def operator_status(request):
     if actor is None or not sections:
         return denied(request)
     from .mfa import cipher, verified_proof
-    proof = verified_proof(request, actor)
+    access = approved_access(actor)
+    proof = verified_proof(request, actor) if not access.must_change_password else None
     return private_response({
         'sections': sections, 'mfa_ready': proof is not None,
         'mfa_configured': cipher() is not None,
         'mfa_enrolled': OperatorFactor.objects.filter(user=actor, enabled_at__isnull=False).exists(),
         'expires_at': proof.expires_at.isoformat() if proof else None,
+        'must_change_password': access.must_change_password,
+        'can_manage_operators': access.role == 'owner',
         'actor': {'name': actor.get_full_name() or actor.display_name or 'اپراتور'},
         'capabilities': {
             'identity': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_view_identity'),

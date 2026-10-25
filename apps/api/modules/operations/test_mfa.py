@@ -9,6 +9,7 @@ from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.operations.models import OperatorAccess
 
 from .models import OperatorFactor, OperatorProof, OperatorSecurityEvent
 
@@ -19,6 +20,7 @@ class OperatorMfaTests(TestCase):
         self.actor = User.objects.create_user(
             'operator@mfa.test', 'test-only-password', is_staff=True, email_verified_at=timezone.now(),
         )
+        OperatorAccess.objects.create(user=self.actor, role="admin")
         self.permission = Permission.objects.get(codename='operator_view_accounts')
         self.actor.user_permissions.add(self.permission)
         self.client.force_login(self.actor)

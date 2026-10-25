@@ -319,6 +319,8 @@ function OperatorCollection({
       factor_removed: ['حذف Authenticator', 'Authenticator removed'],
       account_status_changed: ['تغییر وضعیت حساب', 'Account status changed'],
       feedback_triaged: ['بررسی نظر', 'Feedback triaged'],
+      operator_access_changed: ['تغییر دسترسی مدیر', 'Administrator access changed'],
+      operator_password_changed: ['تغییر گذرواژهٔ مدیر', 'Administrator password changed'],
     };
     return (
       <bdi

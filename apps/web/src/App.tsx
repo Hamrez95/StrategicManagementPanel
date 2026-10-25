@@ -55,6 +55,7 @@ const WorkspaceIndexRedirect = lazy(() =>
   })),
 );
 const Operator = lazy(() => import('./pages/Operator'));
+const OperatorLogin = lazy(() => import('./pages/OperatorLogin'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const WorkspaceImportPage = lazy(() => import('./features/imports/WorkspaceImportPage'));
 const CompanyProfilePage = lazy(() => import('./features/workspaces/CompanyProfilePage'));
@@ -134,8 +135,17 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
       </Notice>
     );
   if (!query.data)
-    return <Navigate to={'/account/login?next=' + encodeURIComponent(pathname)} replace />;
-  if (query.data.user.profile_required)
+    return (
+      <Navigate
+        to={
+          (operator ? '/internal/login' : '/account/login') +
+          '?next=' +
+          encodeURIComponent(pathname + search)
+        }
+        replace
+      />
+    );
+  if (query.data.user.profile_required && !operator)
     return (
       <Navigate
         to={'/account/complete-profile?next=' + encodeURIComponent(pathname + search)}
@@ -439,6 +449,7 @@ export function App() {
                 </Route>
               </Route>
             </Route>
+            <Route path="/internal/login" element={<OperatorLogin />} />
             <Route element={<SessionBoundary operator />}>
               <Route path="/internal/*" element={<Operator />} />
             </Route>

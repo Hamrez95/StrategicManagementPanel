@@ -1,3 +1,4 @@
+
 """Commerce inventory uses real models, explicit grants and frozen order data."""
 from datetime import timedelta
 from unittest.mock import patch
@@ -20,6 +21,7 @@ from modules.academy.models import (
     SubscriptionArea,
 )
 from modules.accounts.models import User
+from modules.operations.models import OperatorAccess
 
 
 @patch('modules.operations.views.operator_mfa_verified', return_value=True)
@@ -27,6 +29,7 @@ class OperatorAcademyTests(TestCase):
     def setUp(self):
         self.actor = User.objects.create_user('staff@inventory.test', is_staff=True,
                                              email_verified_at=timezone.now())
+        OperatorAccess.objects.create(user=self.actor, role="admin")
         self.owner = User.objects.create_user('private@inventory.test')
         self.area = AcademyArea.objects.create(id='strategy', title='استراتژی', kind='specialty')
         self.course = AcademyCourse.objects.create(id='C1', area=self.area, title='مجموعه')

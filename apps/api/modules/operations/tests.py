@@ -1,3 +1,4 @@
+
 """Synthetic tests only: no real operator, grant or MFA assertion is provisioned."""
 from unittest.mock import patch
 from uuid import uuid4
@@ -7,6 +8,7 @@ from django.test import RequestFactory, TestCase
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.operations.models import OperatorAccess
 from modules.operations.security import SECTIONS, operator_sections
 from modules.workspaces.entitlements import (
     grant_management_subscription,
@@ -20,6 +22,7 @@ class OperatorReadTests(TestCase):
     def setUp(self):
         self.owner = User.objects.create_user('owner@operator.test', email_verified_at=timezone.now())
         self.actor = User.objects.create_user('staff@operator.test', is_staff=True, email_verified_at=timezone.now())
+        OperatorAccess.objects.create(user=self.actor, role="admin")
         self.workspace = create_owned_workspace(self.owner, 'Private business name')
         self.plan = ManagementPlan.objects.create(code='operator-test', title='Synthetic grant plan',
                                                   is_active=True, owned_workspace_limit=4,
