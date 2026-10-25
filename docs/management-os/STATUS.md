@@ -60,6 +60,14 @@ Added an explicit additive export v2 that preserves the existing 14-section v1 c
 
 Verification in this continuation: exports **12/12** and imports **8/8** passed on temporary in-memory SQLite; OpenAPI contract check passed with **77 operations**, web typecheck, production web build, changed-file ESLint/Prettier and Ruff passed. PostgreSQL-only behavior was not verified. Browser review was blocked because the local Playwright Chromium binary is absent; no browser pass is claimed. The attempt did not install a browser. Issue #24 remains open for browser/production acceptance and commercial rollout.
 
+## STR-029 / #29 payment lifecycle implementation — 2026-10-25
+
+Implemented in the dedicated `feat/str-029-management-payments` worktree. `ManagementOrder`, `ManagementPaymentAttempt`, `ManagementDiscount`, `ManagementRefund` and append-only `ManagementPaymentEvent` are separate from #28's operator subscription grants and Academy purchases. Orders and attempts have explicit states, owner-scoped idempotency, immutable offer snapshots, integer rial amounts and database choice/snapshot/scope guards. A verified server-provider result must match our persisted UUID, exact amount and currency before the transaction can create a frozen subscription. Browser-provided status is not accepted. Timeouts leave a retryable key; duplicate confirmations are serialized; cancelled late success becomes `payment_review`. Refunds and cancellations have explicit idempotency keys, operator permissions and audit entries; entitlement revocation on refund is an explicit audited decision.
+
+Commerce is closed by default: checkout and discounts are disabled, there is no registered provider, and no public payment/callback mutation route was added. The provider protocol is a server-side implementation boundary, not a completed live integration. Do not activate purchases or discount codes until provider ownership, prices, durations and refund/discount policy are approved. No prices, durations or commercial policy were seeded.
+
+Validation: the focused payment suite ran **23 tests: 21 passed, 2 skipped** (PostgreSQL-only database-guard and row-locking checks). Django system checks and `makemigrations --check --dry-run` passed under the isolated SQLite test settings; these checks are supplementary only. Focused Ruff and `git diff --check` passed. Graphify code-only update and the payment/order dependency query ran in the worktree. Docker/PostgreSQL stopped responding during the requested full run; direct PostgreSQL connections timed out. The PostgreSQL payment suite, full API suite and restored-database migration/audit were therefore not verified in this checkpoint. STR-029/#29 remains open pending those checks and later owner-approved provider configuration/integration. No GitHub tasks were recreated.
+
 ## Current owner revision — complete design coverage
 
 ### 010-D implementation slice

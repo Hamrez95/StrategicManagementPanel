@@ -2,6 +2,7 @@ import os
 import secrets
 from pathlib import Path
 from urllib.parse import urlsplit
+
 from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +26,11 @@ INSTALLED_APPS += ['modules.academy']
 INSTALLED_APPS += ['modules.operations']
 OPERATOR_MFA_KEYS = tuple(key.strip() for key in os.environ.get('STRATINO_OPERATOR_MFA_KEYS', '').split(',') if key.strip())
 OPERATOR_OWNER_EMAILS = ('hamidrezapakpour95@gmail.com', 'hamidrezaprogramming95@gmail.com')
+# STR-029 remains closed until an owner-approved provider and commerce policy ship.
+MANAGEMENT_CHECKOUT_ENABLED = False
+MANAGEMENT_DISCOUNTS_ENABLED = False
+MANAGEMENT_COMMERCE_POLICY_REVISION = ''
+MANAGEMENT_PAYMENT_PROVIDERS = {}
 INSTALLED_APPS += ['django.contrib.admin', 'django.contrib.messages', 'django.contrib.staticfiles']
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static-root'

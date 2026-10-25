@@ -97,3 +97,7 @@ New live read routes and pagination/visibility semantics are documented in [Open
 5. Before production: verify offsite database retention, private object-file backup/restore, monitoring and operator MFA with real deployment configuration. The local database restore drill does not close those tasks.
 
 The safe next admin slice is plan/user/subscription **read views first**, then scoped audited mutations. The database inventory and integrity gate provide the review baseline; unfinished domain engines remain explicitly unfinished.
+
+## STR-029 implementation follow-up — 2026-10-25
+
+See [STATUS](STATUS.md) for the order/payment/refund state and authorization contract. The implementation adds payment models and a provider-agnostic server service boundary while leaving checkout and discounts closed. Twenty-three focused tests ran under SQLite (21 passed; PostgreSQL-only database-guard and row-locking checks skipped); this is supplementary evidence. The required PostgreSQL and isolated-restore acceptance has not been completed because Docker/PostgreSQL became unreachable during the run; no payment-specific PostgreSQL pass is claimed.

@@ -48,6 +48,8 @@ def database_guard_coverage(database='default'):
         return f'ci_{kind}_{hashlib.sha256(value.encode()).hexdigest()[:16]}'
 
     expected = {'ci_billing_owner_key', 'ci_workspace_billing_owner', 'ci_membership_owner', 'ci_workspace_owner', 'ci_management_grant_snapshot', 'ci_billing_owner_identity', 'ci_workspace_owner_identity'}
+    expected.update({'ci_managementorder_snapshot', 'ci_managementpaymentattempt_snapshot',
+                     'ci_managementrefund_snapshot', 'ci_payment_event_immutable', 'ci_order_grant_scope'})
     for model in product_models():
         table = model._meta.db_table
         expected.update(name('choice', table + field.name) for field in model._meta.fields if field.choices)
@@ -88,6 +90,11 @@ def audit_data(database='default'):
     Membership = apps.get_model('workspaces', 'Membership')
     record('workspaces.Workspace.billing_owner', Workspace.objects.using(database).exclude(owner_id=F('billing_account__owner_id')))
     record('workspaces.Membership.owner_duplicate', Membership.objects.using(database).filter(user_id=F('workspace__owner_id')))
+    Order = apps.get_model('workspaces', 'ManagementOrder')
+    linked = Order.objects.using(database).filter(subscription__isnull=False)
+    record('workspaces.ManagementOrder.grant_scope', linked.exclude(
+        billing_account_id=F('subscription__billing_account_id'),
+        plan_id=F('subscription__plan_id'), id=F('subscription__request_id')))
     for label, left, right in [('strategy.StrategyOptionFactor', 'option__workspace_id', 'factor__workspace_id'), ('metrics.InputObservationEvidence', 'observation__workspace_id', 'evidence__workspace_id')]:
         model = apps.get_model(label)
         record(f'{label}.workspace', model.objects.using(database).exclude(**{left: F(right)}))

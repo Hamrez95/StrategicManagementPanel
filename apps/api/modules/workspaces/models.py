@@ -5,7 +5,18 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 
-from .plan_models import ManagementPlan, ManagementSubscription, ManagementSubscriptionEvent  # noqa: F401
+from .payment_models import (  # noqa: F401
+    ManagementDiscount,
+    ManagementOrder,
+    ManagementPaymentAttempt,
+    ManagementPaymentEvent,
+    ManagementRefund,
+)
+from .plan_models import (  # noqa: F401
+    ManagementPlan,
+    ManagementSubscription,
+    ManagementSubscriptionEvent,
+)
 
 
 class BillingAccount(models.Model):
