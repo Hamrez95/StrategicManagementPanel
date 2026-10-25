@@ -13,6 +13,10 @@ const sections = [
   'access',
   'audit',
   'academy',
+  'academy_plans',
+  'academy_subscriptions',
+  'academy_orders',
+  'academy_samples',
   'feedback',
 ];
 const uuid = '00000000-0000-4000-8000-000000000001';
@@ -85,6 +89,55 @@ const rows = {
   ],
   academy: [
     { id: 'synthetic-course', title: 'مجموعهٔ آزمایشی مرورگر', area_id: 'strategy', order: 1 },
+  ],
+  academy_plans: [
+    {
+      id: 1,
+      code: 'academy-full',
+      title: 'اشتراک کامل',
+      kind: 'full',
+      is_active: true,
+      price: null,
+      sale_price: null,
+      currency: 'IRR',
+      duration_days: null,
+    },
+  ],
+  academy_subscriptions: [
+    {
+      id: uuid,
+      user_id: uuid,
+      plan_code: 'academy-full',
+      coverage: 'specialty',
+      areas: ['strategy'],
+      status: 'active',
+      is_effective: false,
+      starts_at: '2026-09-01T00:00:00Z',
+      ends_at: '2026-10-01T00:00:00Z',
+      order_item_id: null,
+    },
+  ],
+  academy_orders: [
+    {
+      id: uuid,
+      user_id: uuid,
+      status: 'requested',
+      created_at: '2026-10-24T12:00:00Z',
+      paid_at: null,
+      items: [
+        { plan_title: 'اشتراک کامل', coverage: 'full', total: null, currency: 'IRR', areas: [] },
+      ],
+    },
+  ],
+  academy_samples: [
+    {
+      id: 'CARD1',
+      title: 'کارت نمونه',
+      unit_id: 'L1',
+      course_id: 'C1',
+      is_active: true,
+      updated_at: '2026-10-24T12:00:00Z',
+    },
   ],
 };
 await mkdir(folder, { recursive: true });
@@ -247,11 +300,23 @@ try {
   }
   for (const width of [360, 768]) {
     await page.setViewportSize({ width, height: 960 });
-    for (const section of ['accounts', 'plans', 'subscriptions']) {
+    for (const section of [
+      'accounts',
+      'plans',
+      'subscriptions',
+      'academy_plans',
+      'academy_subscriptions',
+      'academy_orders',
+      'academy_samples',
+    ]) {
       await page.goto(base + '/internal/' + section);
       await page.getByRole('table').waitFor();
       await fit();
       if (width === 360 && section === 'accounts') await axe('accounts-mobile');
+      if (width === 360 && section === 'academy_orders') {
+        await axe('academy-orders-mobile');
+        await page.screenshot({ path: `${folder}/academy-orders-mobile.png`, fullPage: true });
+      }
     }
   }
   await page.setViewportSize({ width: 1440, height: 960 });

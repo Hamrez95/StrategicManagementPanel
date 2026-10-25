@@ -7,7 +7,8 @@ from rest_framework.permissions import BasePermission
 
 from modules.accounts.models import User
 
-SECTIONS = ('accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit', 'academy', 'feedback')
+SECTIONS = ('accounts', 'workspaces', 'plans', 'subscriptions', 'access', 'audit', 'academy',
+            'academy_plans', 'academy_subscriptions', 'academy_orders', 'academy_samples', 'feedback')
 
 
 def private_response(payload, status=200):

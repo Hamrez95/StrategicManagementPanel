@@ -2,7 +2,7 @@
 from uuid import UUID
 
 from django.core.paginator import EmptyPage, Paginator
-from django.db.models import CharField, F, Q, Value
+from django.db.models import CharField, Count, F, Prefetch, Q, Value
 from django.db.models.functions import Cast
 
 from modules.accounts.models import User
@@ -60,12 +60,22 @@ def operator_overview(request):
         return denied(request)
     if not operator_mfa_verified(request, actor):
         return failure('operator_mfa_unavailable', 'برای ادامه، احراز هویت دومرحله‌ای رو تأیید کن.', 403)
-    from modules.academy.models import AcademyCourse, AcademyUnit, LearningFeedback
+    from modules.academy.models import (
+        AcademyCourse,
+        AcademyOrder,
+        AcademyPlan,
+        AcademySubscription,
+        AcademyUnit,
+        FreeSample,
+        LearningFeedback,
+    )
     counts = {}
     sources = {
         'accounts': User.objects, 'workspaces': Workspace.objects,
         'plans': ManagementPlan.objects, 'subscriptions': ManagementSubscription.objects,
         'academy': AcademyCourse.objects, 'feedback': LearningFeedback.objects,
+        'academy_plans': AcademyPlan.objects, 'academy_subscriptions': AcademySubscription.objects,
+        'academy_orders': AcademyOrder.objects, 'academy_samples': FreeSample.objects,
     }
     for section, source in sources.items():
         if section in sections:
@@ -141,7 +151,56 @@ def _rows(section, query, state, *, identity_allowed=False):
         rows = AcademyCourse.objects.select_related('area').order_by('order', 'id')
         if query:
             rows = rows.filter(Q(title__icontains=query) | Q(id__icontains=query))
-        return rows.values('id', 'title', 'area_id', 'order')
+        return rows.annotate(unit_count=Count('units', distinct=True),
+                             card_count=Count('units__cards', distinct=True)).values(
+            'id', 'title', 'area_id', 'order', 'unit_count', 'card_count')
+    if section.startswith('academy_'):
+        from modules.academy.models import (
+            AcademyArea,
+            AcademyOrder,
+            AcademyOrderItem,
+            AcademyPlan,
+            AcademySubscription,
+            FreeSample,
+        )
+        if section == 'academy_plans':
+            rows = AcademyPlan.objects.order_by('order', 'id')
+            if query:
+                rows = rows.filter(Q(code__icontains=query) | Q(title__icontains=query))
+            if state:
+                rows = rows.filter(is_active=state == 'active')
+            return rows.values('id', 'code', 'title', 'kind', 'is_active', 'price', 'sale_price',
+                               'currency', 'duration_days')
+        if section == 'academy_subscriptions':
+            rows = AcademySubscription.objects.select_related('plan').prefetch_related(
+                Prefetch('areas', queryset=AcademyArea.objects.order_by('order', 'id')),
+            ).order_by('-created_at', '-id')
+            if query:
+                rows = rows.filter(Q(pk=identity) | Q(user_id=identity)) if identity else rows.none()
+            if state:
+                rows = rows.filter(status=state)
+            return rows
+        if section == 'academy_orders':
+            rows = AcademyOrder.objects.prefetch_related(Prefetch(
+                'items', queryset=AcademyOrderItem.objects.prefetch_related(
+                    Prefetch('areas', queryset=AcademyArea.objects.order_by('order', 'id')),
+                ).order_by('id'),
+            )).order_by('-created_at', '-id')
+            if query:
+                rows = rows.filter(Q(pk=identity) | Q(user_id=identity)) if identity else rows.none()
+            if state:
+                rows = rows.filter(status=state)
+            return rows
+        rows = FreeSample.objects.order_by('card__unit__course__order', 'card__unit__order',
+                                           'card__order', 'card_id')
+        if query:
+            rows = rows.filter(Q(card__id__icontains=query) | Q(card__title__icontains=query)
+                               | Q(card__unit__id__icontains=query) | Q(card__unit__course__id__icontains=query))
+        if state:
+            rows = rows.filter(is_active=state == 'active')
+        return rows.annotate(id=F('card_id'), title=F('card__title'), unit_id=F('card__unit_id'),
+                             course_id=F('card__unit__course_id')).values(
+            'id', 'title', 'unit_id', 'course_id', 'is_active', 'updated_at')
     # Free-text changes and reasons can contain customer information. Omit them.
     workspace_events = WorkspaceEvent.objects.all()
     grant_events = ManagementSubscriptionEvent.objects.all()
@@ -193,6 +252,9 @@ def operator_collection(request, section):
         'accounts': ('active', 'inactive'), 'access': ('active', 'inactive'),
         'plans': ('active', 'inactive'), 'workspaces': ('active', 'archived'),
         'subscriptions': ('active', 'revoked'), 'audit': (), 'academy': (), 'feedback': (),
+        'academy_plans': ('active', 'inactive'), 'academy_subscriptions': ('active', 'revoked'),
+        'academy_orders': ('requested', 'pending', 'paid', 'cancelled', 'refunded'),
+        'academy_samples': ('active', 'inactive'),
     }
     try:
         page_number = int(request.GET.get('page', '1'))
@@ -209,6 +271,30 @@ def operator_collection(request, section):
     except EmptyPage:
         return failure('operator_page_not_found', 'این صفحه وجود نداره. به صفحهٔ قبل برگرد.', 404)
     results = list(page.object_list)
+    if section == 'academy_subscriptions':
+        from django.utils import timezone
+        now = timezone.now()
+        results = [{
+            'id': str(row.pk), 'user_id': str(row.user_id), 'plan_code': row.plan.code,
+            'coverage': row.coverage, 'status': row.status,
+            'is_effective': row.status == 'active' and row.starts_at <= now
+                            and (row.ends_at is None or row.ends_at > now),
+            'starts_at': row.starts_at, 'ends_at': row.ends_at,
+            'order_item_id': row.order_item_id,
+            'areas': [area.pk for area in row.areas.all()],
+        } for row in results]
+    if section == 'academy_orders':
+        results = [{
+            'id': str(row.pk), 'user_id': str(row.user_id), 'status': row.status,
+            'created_at': row.created_at, 'paid_at': row.paid_at,
+            'items': [{
+                'plan_title': item.plan_title, 'coverage': item.plan_kind,
+                'original_unit_price': item.original_unit_price, 'unit_price': item.unit_price,
+                'subtotal': item.subtotal, 'discount_amount': item.discount_amount,
+                'total': item.total, 'currency': item.currency, 'duration_days': item.duration_days,
+                'areas': [area.pk for area in item.areas.all()],
+            } for item in row.items.all()],
+        } for row in results]
     if section == 'access':
         results = [{'id': str(user.pk), **{key: value for key, value in management_access(user).items()
                    if key in ('accessLevel', 'owned_workspace_limit', 'owned_workspaces',

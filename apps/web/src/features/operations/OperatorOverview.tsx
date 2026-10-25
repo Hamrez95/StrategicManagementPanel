@@ -213,6 +213,49 @@ export function OperatorOverview({
               <OperatorIcon name="arrow" size={18} />
             </Link>
           )}
+          {[
+            [
+              'academy_plans',
+              'پلن‌های آکادمی',
+              'Academy plans',
+              'قیمت، تخفیف و مدت ثبت‌شده',
+              'Configured price, sale price and duration',
+            ],
+            [
+              'academy_subscriptions',
+              'اشتراک‌های آکادمی',
+              'Academy subscriptions',
+              'پوشش و گرایش‌های هر کاربر',
+              'Per-user coverage and selected specialties',
+            ],
+            [
+              'academy_orders',
+              'سفارش‌های آکادمی',
+              'Academy orders',
+              'وضعیت و جزئیات هر خرید',
+              'Order status and recorded items',
+            ],
+            [
+              'academy_samples',
+              'نمونه‌های رایگان',
+              'Free samples',
+              'کارت‌های رایگان با شناسهٔ دقیق',
+              'Free cards with exact identifiers',
+            ],
+          ]
+            .filter(([s]) => sections.includes(s))
+            .map(([s, fa, en, subfa, suben]) => (
+              <Link to={'/internal/' + s} className="op-destination" key={s}>
+                <span className="op-soft-icon">
+                  <OperatorIcon name={s} />
+                </span>
+                <span>
+                  <strong>{t(fa, en)}</strong>
+                  <small>{t(subfa, suben)}</small>
+                </span>
+                <OperatorIcon name="arrow" size={18} />
+              </Link>
+            ))}
           <div className="op-inline-note">
             <OperatorIcon name="access" size={20} />
             <p>

@@ -62,7 +62,11 @@
                           "access",
                           "audit",
                           "academy",
-                          "feedback"
+                          "feedback",
+                          "academy_plans",
+                          "academy_subscriptions",
+                          "academy_orders",
+                          "academy_samples"
                         ]
                       }
                     },
@@ -182,8 +186,8 @@
     "/api/v1/operator/{section}/": {
       "get": {
         "operationId": "listOperatorSection",
-        "summary": "Read one independently authorized management summary section",
-        "description": "Live. Fresh explicit section permission and session-bound TOTP proof required before querying records. Bounded deterministic pages. Accounts show contact identity only with additional accounts.operator_view_identity permission; UUID summaries otherwise. Workspaces expose metadata only. Academy exposes course metadata and order, never assessment keys. Audit merges Workspace, grant, security and operator-action metadata; free-text reasons and customer content are excluded. Feedback uses its dedicated MFA-protected inbox. All responses private/no-store; redact search parameters from access logs.",
+        "summary": "Read one independently authorized service or Academy summary section",
+        "description": "Live. Fresh explicit section permission and session-bound TOTP proof required before querying records. Bounded deterministic pages. Accounts show contact identity only with additional accounts.operator_view_identity permission; UUID summaries otherwise. Workspaces expose metadata only. Academy exposes course metadata and order, never assessment keys. Audit merges Workspace, grant, security and operator-action metadata; free-text reasons and customer content are excluded. Feedback uses its dedicated MFA-protected inbox. All responses private/no-store; redact search parameters from access logs. Academy commerce sections each require their own explicit permission. Subscriptions return frozen coverage, selected area IDs, and current effective-window status. Orders expose recorded item snapshots, not current catalog prices; no settlement action is offered. Samples expose card metadata only. No contact identity or assessment keys in commerce inventories.",
         "security": [
           {
             "cookieSession": []
@@ -203,7 +207,11 @@
                 "subscriptions",
                 "access",
                 "audit",
-                "academy"
+                "academy",
+                "academy_plans",
+                "academy_subscriptions",
+                "academy_orders",
+                "academy_samples"
               ]
             },
             "description": "Each value requires its own accounts.operator_view_<section> permission"
@@ -235,10 +243,15 @@
                 "active",
                 "inactive",
                 "archived",
-                "revoked"
+                "revoked",
+                "requested",
+                "pending",
+                "paid",
+                "cancelled",
+                "refunded"
               ]
             },
-            "description": "accounts/access/plans: active or inactive; workspaces: active or archived; subscriptions: active or revoked; audit: no state filter"
+            "description": "accounts/access/plans/academy_plans/academy_samples: active or inactive; workspaces: active or archived; subscriptions/academy_subscriptions: active or revoked; academy_orders: requested, pending, paid, cancelled, refunded; audit/academy: no filter"
           }
         ],
         "responses": {
@@ -610,6 +623,275 @@
                                 "minimum": 0
                               }
                             }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_plans",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "code",
+                              "title",
+                              "kind",
+                              "is_active",
+                              "price",
+                              "sale_price",
+                              "currency",
+                              "duration_days"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "free",
+                                  "full",
+                                  "general",
+                                  "specialty"
+                                ]
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "sale_price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "currency": {
+                                "type": "string"
+                              },
+                              "duration_days": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_subscriptions",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "user_id",
+                              "plan_code",
+                              "coverage",
+                              "status",
+                              "is_effective",
+                              "starts_at",
+                              "ends_at",
+                              "order_item_id",
+                              "areas"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "user_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "plan_code": {
+                                "type": "string"
+                              },
+                              "coverage": {
+                                "type": "string",
+                                "enum": [
+                                  "full",
+                                  "general",
+                                  "specialty"
+                                ]
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "active",
+                                  "revoked"
+                                ]
+                              },
+                              "is_effective": {
+                                "type": "boolean"
+                              },
+                              "starts_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "ends_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "order_item_id": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "areas": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_orders",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "user_id",
+                              "status",
+                              "created_at",
+                              "paid_at",
+                              "items"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "user_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "requested",
+                                  "pending",
+                                  "paid",
+                                  "cancelled",
+                                  "refunded"
+                                ]
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "paid_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "title": "order item snapshot",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "plan_title",
+                                    "coverage",
+                                    "original_unit_price",
+                                    "unit_price",
+                                    "subtotal",
+                                    "discount_amount",
+                                    "total",
+                                    "currency",
+                                    "duration_days",
+                                    "areas"
+                                  ],
+                                  "properties": {
+                                    "plan_title": {
+                                      "type": "string"
+                                    },
+                                    "coverage": {
+                                      "type": "string"
+                                    },
+                                    "original_unit_price": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "unit_price": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "subtotal": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "discount_amount": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "total": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "currency": {
+                                      "type": "string"
+                                    },
+                                    "duration_days": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "areas": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_samples",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title",
+                              "unit_id",
+                              "course_id",
+                              "is_active",
+                              "updated_at"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "unit_id": {
+                                "type": "string"
+                              },
+                              "course_id": {
+                                "type": "string"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
                           }
                         ]
                       }
@@ -778,6 +1060,22 @@
                           "minimum": 0
                         },
                         "feedback": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_plans": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_subscriptions": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_orders": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_samples": {
                           "type": "integer",
                           "minimum": 0
                         }

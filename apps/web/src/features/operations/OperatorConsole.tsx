@@ -14,6 +14,10 @@ const sections = [
   'access',
   'audit',
   'academy',
+  'academy_plans',
+  'academy_subscriptions',
+  'academy_orders',
+  'academy_samples',
   'feedback',
 ] as const;
 type Section = (typeof sections)[number];
@@ -33,6 +37,10 @@ const titles: Record<Section, [string, string]> = {
   access: ['دسترسی مؤثر مدیریت', 'Effective management access'],
   audit: ['تاریخچهٔ ممیزی', 'Audit history'],
   academy: ['مجموعه‌های آموزشی', 'Academy courses'],
+  academy_plans: ['پلن‌های آکادمی', 'Academy plans'],
+  academy_subscriptions: ['اشتراک‌های آکادمی', 'Academy subscriptions'],
+  academy_orders: ['سفارش‌های آکادمی', 'Academy orders'],
+  academy_samples: ['نمونه‌های رایگان', 'Free samples'],
   feedback: ['نظرهای یادگیرنده‌ها', 'Learner feedback'],
 };
 const columns: Record<Section, string[]> = {
@@ -74,7 +82,31 @@ const columns: Record<Section, string[]> = {
     'features',
   ],
   audit: ['source', 'event_id', 'actor_id', 'event_type', 'target', 'created_at'],
-  academy: ['id', 'title', 'area_id', 'order'],
+  academy: ['id', 'title', 'area_id', 'order', 'unit_count', 'card_count'],
+  academy_plans: [
+    'code',
+    'title',
+    'kind',
+    'is_active',
+    'price',
+    'sale_price',
+    'currency',
+    'duration_days',
+  ],
+  academy_subscriptions: [
+    'id',
+    'user_id',
+    'plan_code',
+    'coverage',
+    'areas',
+    'status',
+    'is_effective',
+    'starts_at',
+    'ends_at',
+    'order_item_id',
+  ],
+  academy_orders: ['id', 'user_id', 'status', 'created_at', 'paid_at', 'items'],
+  academy_samples: ['id', 'title', 'unit_id', 'course_id', 'is_active', 'updated_at'],
   feedback: [],
 };
 const names: Record<string, [string, string]> = {
@@ -96,7 +128,7 @@ const names: Record<string, [string, string]> = {
   can_finalize_analysis: ['نهایی‌کردن تحلیل', 'Finalize analysis'],
   can_calculate_metrics: ['محاسبهٔ شاخص', 'Calculate metrics'],
   can_generate_reports: ['گزارش حرفه‌ای', 'Professional reports'],
-  plan_title: ['عنوان پلن هنگام اعطا', 'Granted plan title'],
+  plan_title: ['عنوان ثبت‌شدهٔ پلن', 'Recorded plan title'],
   plan_revision: ['نسخهٔ پلن هنگام اعطا', 'Granted plan revision'],
   status: ['وضعیت ثبت‌شده', 'Recorded status'],
   starts_at: ['شروع', 'Starts'],
@@ -116,6 +148,26 @@ const names: Record<string, [string, string]> = {
   last_name: ['نام خانوادگی', 'Last name'],
   email: ['ایمیل', 'Email'],
   phone_number: ['شمارهٔ تماس', 'Phone'],
+  user_id: ['شناسهٔ کاربر', 'User ID'],
+  kind: ['نوع پلن', 'Plan type'],
+  coverage: ['پوشش ثبت‌شده', 'Recorded coverage'],
+  areas: ['گرایش‌های انتخابی', 'Selected specialties'],
+  sale_price: ['قیمت با تخفیف', 'Sale price'],
+  plan_code: ['کد پلن', 'Plan code'],
+  is_effective: ['دسترسی در این لحظه', 'Effective now'],
+  order_item_id: ['ردیف خرید', 'Order item'],
+  paid_at: ['زمان پرداخت', 'Paid at'],
+  items: ['جزئیات ثبت‌شدهٔ خرید', 'Recorded order items'],
+  original_unit_price: ['قیمت اصلی واحد', 'Original unit price'],
+  unit_price: ['قیمت واحد', 'Unit price'],
+  subtotal: ['جمع اولیه', 'Subtotal'],
+  discount_amount: ['مبلغ تخفیف', 'Discount amount'],
+  total: ['مبلغ نهایی', 'Total'],
+  unit_id: ['شناسهٔ درس‌نامه', 'Unit ID'],
+  course_id: ['شناسهٔ مجموعه', 'Course ID'],
+  updated_at: ['آخرین تغییر', 'Updated'],
+  unit_count: ['تعداد درس و مرور', 'Learning and review units'],
+  card_count: ['تعداد کارت', 'Cards'],
 };
 
 export function OperatorConsole() {
@@ -203,9 +255,23 @@ function OperatorCollection({
     if (value === null && key === 'owned_workspace_limit')
       return t('بدون سقف اضافی پلن', 'No additional plan cap');
     if (value === null && key === 'archived_at') return t('بایگانی نشده', 'Not archived');
+    if (value === null && key === 'ends_at') return t('بدون تاریخ پایان', 'No end date');
+    if (value === null && (key === 'price' || key === 'duration_days'))
+      return t('هنوز تعیین نشده', 'Not decided yet');
+    if (value === null && key === 'sale_price') return t('بدون تخفیف عمومی', 'No catalog discount');
     if (value === null || value === undefined) return t('ثبت نشده', 'Not set');
     if (typeof value === 'boolean') return value ? t('بله', 'Yes') : t('خیر', 'No');
     if (typeof value === 'number') return number(value);
+    if (Array.isArray(value))
+      return value.length ? (
+        <ul className="operator-features">
+          {value.map((item, index) => (
+            <li key={index}>{display(item, key)}</li>
+          ))}
+        </ul>
+      ) : (
+        t('موردی ثبت نشده', 'None recorded')
+      );
     if (typeof value === 'object')
       return (
         <ul className="operator-features">
@@ -225,6 +291,14 @@ function OperatorCollection({
       active: ['فعال', 'Active'],
       revoked: ['لغوشده', 'Revoked'],
       free: ['رایگان', 'Free'],
+      full: ['کامل', 'Full'],
+      general: ['عمومی', 'General'],
+      specialty: ['گرایش‌های انتخابی', 'Selected specialties'],
+      requested: ['درخواست قیمت', 'Quote requested'],
+      pending: ['در انتظار پرداخت', 'Pending payment'],
+      paid: ['پرداخت‌شده', 'Paid'],
+      cancelled: ['لغوشده', 'Cancelled'],
+      refunded: ['بازپرداخت‌شده', 'Refunded'],
       special: ['اشتراک ویژه', 'Special'],
       workspace: ['فضای کاری', 'Workspace'],
       subscription: ['اشتراک', 'Subscription'],
@@ -275,17 +349,46 @@ function OperatorCollection({
         </p>
       )}
       <p id="operator-search-help">
-        {section === 'plans'
+        {section === 'plans' || section === 'academy_plans'
           ? t('جست‌وجو با کد یا عنوان پلن.', 'Search by plan code or title.')
           : section === 'academy'
             ? t('جست‌وجو با شناسه یا عنوان مجموعه.', 'Search by course ID or title.')
-            : section === 'accounts' || section === 'access'
-              ? t('جست‌وجو با شناسهٔ حساب یا ایمیل کامل.', 'Search by account ID or exact email.')
-              : t(
-                  'جست‌وجو با شناسهٔ کامل رکورد یا مالک؛ در ممیزی با شناسهٔ مرجع یا عامل.',
-                  'Search by full record or owner ID; for audit, use a reference or actor ID.',
-                )}
+            : section === 'academy_samples'
+              ? t(
+                  'با شناسهٔ کارت، درس‌نامه، مجموعه یا عنوان کارت جست‌وجو کن.',
+                  'Search by card, unit, course ID or card title.',
+                )
+              : section === 'academy_orders' || section === 'academy_subscriptions'
+                ? t(
+                    'با شناسهٔ کامل کاربر یا رکورد جست‌وجو کن.',
+                    'Search by full user or record ID.',
+                  )
+                : section === 'accounts' || section === 'access'
+                  ? t(
+                      'جست‌وجو با شناسهٔ حساب یا ایمیل کامل.',
+                      'Search by account ID or exact email.',
+                    )
+                  : t(
+                      'جست‌وجو با شناسهٔ کامل رکورد یا مالک؛ در ممیزی با شناسهٔ مرجع یا عامل.',
+                      'Search by full record or owner ID; for audit, use a reference or actor ID.',
+                    )}
       </p>
+      {section === 'academy_subscriptions' && (
+        <p className="op-inline-note">
+          {t(
+            'وضعیت ثبت‌شده با دسترسی فعلی فرق داره؛ زمان شروع، پایان و لغو اشتراک رو هم بررسی کن. پوشش و گرایش‌های هر خرید جدا ثبت می‌شن.',
+            'Recorded status and current access differ. Check start, expiry and revocation. Coverage and selected specialties belong to each grant.',
+          )}
+        </p>
+      )}
+      {section === 'academy_orders' && (
+        <p className="op-inline-note">
+          {t(
+            'مبلغ‌ها به واحد ارز هر ردیف هستن. اینجا فقط سابقهٔ سفارش رو می‌بینی؛ وضعیت پرداخت رو از این بخش تغییر نمی‌دی.',
+            'Amounts use each item’s recorded currency. This view shows order history; it does not change payment status.',
+          )}
+        </p>
+      )}
       <form
         className="operator-tools"
         onSubmit={(event) => {
@@ -316,22 +419,34 @@ function OperatorCollection({
               }}
             >
               <option value="">{t('همه', 'All')}</option>
-              <option value="active">{t('فعال', 'Active')}</option>
-              <option
-                value={
-                  section === 'workspaces'
-                    ? 'archived'
-                    : section === 'subscriptions'
-                      ? 'revoked'
-                      : 'inactive'
-                }
-              >
-                {section === 'workspaces'
-                  ? t('بایگانی‌شده', 'Archived')
-                  : section === 'subscriptions'
-                    ? t('لغوشده', 'Revoked')
-                    : t('غیرفعال', 'Inactive')}
-              </option>
+              {section === 'academy_orders' ? (
+                <>
+                  <option value="requested">{t('درخواست قیمت', 'Quote requested')}</option>
+                  <option value="pending">{t('در انتظار پرداخت', 'Pending payment')}</option>
+                  <option value="paid">{t('پرداخت‌شده', 'Paid')}</option>
+                  <option value="cancelled">{t('لغوشده', 'Cancelled')}</option>
+                  <option value="refunded">{t('بازپرداخت‌شده', 'Refunded')}</option>
+                </>
+              ) : (
+                <>
+                  <option value="active">{t('فعال', 'Active')}</option>
+                  <option
+                    value={
+                      section === 'workspaces'
+                        ? 'archived'
+                        : section === 'subscriptions' || section === 'academy_subscriptions'
+                          ? 'revoked'
+                          : 'inactive'
+                    }
+                  >
+                    {section === 'workspaces'
+                      ? t('بایگانی‌شده', 'Archived')
+                      : section === 'subscriptions' || section === 'academy_subscriptions'
+                        ? t('لغوشده', 'Revoked')
+                        : t('غیرفعال', 'Inactive')}
+                  </option>
+                </>
+              )}
             </select>
           </label>
         )}
@@ -391,7 +506,7 @@ function OperatorCollection({
                 <tbody>
                   {data.results.map((row) => (
                     <tr key={String(row.id ?? `${row.source}:${row.event_id}`)}>
-                      {columns[section].map((key) => (
+                      {keys.map((key) => (
                         <td key={key}>{display(row[key], key)}</td>
                       ))}
                       {section === 'accounts' && capabilities.manage_accounts && (

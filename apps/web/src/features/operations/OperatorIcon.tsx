@@ -22,6 +22,12 @@ const paths: Record<string, string> = {
 };
 
 export function OperatorIcon({ name, size = 22 }: { name: string; size?: number }) {
+  const aliases: Record<string, string> = {
+    academy_plans: 'plans',
+    academy_subscriptions: 'subscriptions',
+    academy_orders: 'audit',
+    academy_samples: 'academy',
+  };
   return (
     <svg
       width={size}
@@ -34,7 +40,7 @@ export function OperatorIcon({ name, size = 22 }: { name: string; size?: number 
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d={paths[name] ?? paths.overview} />
+      <path d={paths[aliases[name] ?? name] ?? paths.overview} />
     </svg>
   );
 }

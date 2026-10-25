@@ -176,6 +176,17 @@
   display: grid;
   gap: 5px;
 }
+.op-sidebar > .op-navigation {
+  flex: 1;
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #648d72 transparent;
+}
+.op-sidebar-bottom {
+  flex-shrink: 0;
+}
 .op-navigation a {
   display: flex;
   align-items: center;
