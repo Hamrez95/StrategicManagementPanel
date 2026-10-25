@@ -34,7 +34,7 @@ jobs:
           docker compose -f infra/compose.dev.yml run --rm api python manage.py audit_model_integrity --summary
           docker compose -f infra/compose.dev.yml run --rm api python manage.py check
           docker compose -f infra/compose.dev.yml run --rm api python manage.py test --noinput
-          docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid api python manage.py check --deploy --fail-level WARNING
+          docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid -e STRATINO_PUBLIC_URL=https://example.invalid -e DJANGO_CSRF_TRUSTED_ORIGINS=https://example.invalid api python manage.py check --deploy --fail-level WARNING
       - name: HTTP readiness, private file persistence and local email
         run: |
           docker compose -f infra/compose.dev.yml up -d --wait api
