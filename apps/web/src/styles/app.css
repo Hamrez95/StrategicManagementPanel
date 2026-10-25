@@ -78,6 +78,8 @@ p {
 }
 .site-header nav {
   display: flex;
+  flex-wrap: wrap;
+  min-inline-size: 0;
   align-items: center;
   gap: 26px;
   font-size: 15px;
