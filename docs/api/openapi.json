@@ -10513,10 +10513,40 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 160
+            "maxLength": 301
           },
           "is_staff": {
             "type": "boolean"
+          },
+          "profile_required": {
+            "type": "boolean"
+          },
+          "avatar": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "sprite_index",
+              "sprite_sheet"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "sprite_index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 19
+              },
+              "sprite_sheet": {
+                "type": "string"
+              }
+            }
           }
         },
         "required": [
@@ -10556,6 +10586,16 @@
         ],
         "additionalProperties": false
       },
+      "WorkspaceSessionEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string"},
+          "role": {"type": "string", "enum": ["owner", "editor", "viewer"]}
+        }
+      },
       "Session": {
         "type": "object",
         "properties": {
@@ -10571,7 +10611,7 @@
           "workspaces": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkspaceSummary"
+              "$ref": "#/components/schemas/WorkspaceSessionEntry"
             }
           }
         },
