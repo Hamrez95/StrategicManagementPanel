@@ -671,6 +671,101 @@
     border-radius: 17px;
   }
 }
+/* Compact shell controls and setup, without shrinking touch targets or page text. */
+@media (max-width: 760px) {
+  .application-shell .app-topbar {
+    gap: 8px;
+    min-block-size: 60px;
+    padding: 8px 10px;
+    margin: 8px;
+    border-radius: 18px;
+  }
+  .application-shell .app-topbar-actions {
+    gap: 6px;
+    min-inline-size: 0;
+  }
+  .application-shell .app-workspace-select {
+    order: 2;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+  .application-shell .app-breadcrumbs {
+    flex-wrap: wrap;
+    gap: 6px;
+    min-block-size: 36px;
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+  .application-shell .app-content {
+    padding: 20px 16px 32px;
+  }
+  .application-shell .onboarding-topline {
+    gap: 12px;
+    margin-block-end: 12px;
+    align-items: flex-start;
+  }
+  .application-shell .onboarding-topline p {
+    margin-block: 0 4px;
+  }
+  .application-shell .onboarding-topline > a {
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .application-shell .onboarding-progress {
+    margin-block-end: 16px;
+  }
+  .application-shell .onboarding-steps {
+    padding-block-end: 16px;
+  }
+  .application-shell .onboarding-step {
+    min-inline-size: 0;
+    padding: 8px 4px 0;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .application-shell .onboarding-heading {
+    margin-block-end: 20px;
+  }
+  .application-shell .onboarding-heading h1 {
+    font-size: clamp(24px, 5vw, 30px);
+    margin-block: 0 8px;
+  }
+  .application-shell .onboarding-heading > p:last-child {
+    margin-block: 0;
+  }
+  .application-shell .onboarding-form {
+    gap: 16px;
+  }
+}
+@media (max-width: 560px) {
+  .application-shell .app-brand .product-brand {
+    gap: 0;
+  }
+  .application-shell .app-brand .product-brand > strong {
+    display: none;
+  }
+  .application-shell .app-brand .product-mark {
+    inline-size: 36px;
+    block-size: 36px;
+  }
+  .application-shell .header-language-switch {
+    inline-size: 44px;
+    padding: 0;
+    border-radius: 13px;
+  }
+  .application-shell .header-language-switch > span,
+  .application-shell .app-account-menu summary > .app-account-menu-indicator {
+    display: none;
+  }
+  .application-shell .app-account-menu summary {
+    padding: 2px;
+    min-inline-size: 44px;
+    justify-content: center;
+  }
+  .application-shell .app-topbar-actions {
+    gap: 4px;
+  }
+}
 @media print {
   .report-view-picker,
   .report-studio__empty,

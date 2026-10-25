@@ -1096,6 +1096,10 @@ main {
 .app-shell-body .onboarding-shell {
   margin-block-start: 0;
 }
+.app-shell-body .onboarding-shell {
+  width: min(100%, 1080px);
+  min-inline-size: 0;
+}
 .account-card[id],
 .account-settings [id='subscription'] {
   scroll-margin-block-start: 20px;
