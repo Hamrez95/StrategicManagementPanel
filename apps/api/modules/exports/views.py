@@ -1,9 +1,15 @@
+import json
+import re
+
 from django.core.exceptions import RequestDataTooBig
 from django.core.files.storage import default_storage
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.views.decorators.http import require_http_methods
 
 from modules.workspaces.services import get_accessible_workspace_or_404, workspace_role
+from modules.workspaces.services import WorkspaceActionError
+from modules.workspaces.entitlements import require_workspace_feature
+from .schema_v2 import PROFESSIONAL_METHOD
 
 from .models import ExportSnapshot
 from .services import (
@@ -39,6 +45,8 @@ def _workspace(request, workspace_id):
 
 
 def _workspace_error(error):
+    if isinstance(error, WorkspaceActionError):
+        return _error(error.status, error.code, error.message)
     if isinstance(error, Http404):
         return _error(404, 'workspace_not_found', 'فضای کار در دسترس نیست.')
     if isinstance(error, PermissionError) and str(error) == 'not_authenticated':
@@ -67,7 +75,15 @@ def export_collection(request, workspace_id):
         return _error(413, 'export_request_too_large', 'درخواست ساخت گزارش بیش از اندازه بزرگ است.')
     key = request.headers.get('Idempotency-Key', '')
     try:
-        snapshot, created = create_snapshot(request.user, workspace, key)
+        body = json.loads(request.body or b'{}')
+        if not isinstance(body, dict) or set(body) - {'schema_version', 'purpose'}:
+            return _error(400, 'invalid_export_request', 'درخواست خروجی معتبر نیست.')
+        snapshot, created = create_snapshot(request.user, workspace, key,
+            schema_version=body.get('schema_version', 1), purpose=body.get('purpose', 'raw'))
+    except (ValueError, UnicodeDecodeError):
+        return _error(400, 'invalid_export_request', 'درخواست خروجی معتبر نیست.')
+    except WorkspaceActionError as error:
+        return _workspace_error(error)
     except ExportValidationError as error:
         return _error(400, error.code, str(error))
     except Http404:
@@ -91,7 +107,9 @@ def export_detail(request, workspace_id, record_id):
     try:
         workspace = _workspace(request, workspace_id)
         snapshot = ExportSnapshot.objects.get(pk=record_id, workspace=workspace)
-    except (PermissionError, Http404) as error:
+        if snapshot.method_version == PROFESSIONAL_METHOD:
+            require_workspace_feature(workspace, 'can_generate_reports')
+    except (PermissionError, Http404, WorkspaceActionError) as error:
         return _workspace_error(error)
     except (ExportSnapshot.DoesNotExist, ValueError, TypeError):
         return _error(404, 'export_not_found', 'نسخهٔ گزارش در این فضا پیدا نشد.')
@@ -103,7 +121,9 @@ def export_download(request, workspace_id, record_id):
     try:
         workspace = _workspace(request, workspace_id)
         snapshot = ExportSnapshot.objects.get(pk=record_id, workspace=workspace)
-    except (PermissionError, Http404) as error:
+        if snapshot.method_version == PROFESSIONAL_METHOD:
+            require_workspace_feature(workspace, 'can_generate_reports')
+    except (PermissionError, Http404, WorkspaceActionError) as error:
         return _workspace_error(error)
     except (ExportSnapshot.DoesNotExist, ValueError, TypeError):
         return _error(404, 'export_not_found', 'نسخهٔ گزارش در این فضا پیدا نشد.')
@@ -121,6 +141,8 @@ def export_download(request, workspace_id, record_id):
     if export_format != 'zip':
         return _error(400, 'invalid_export_format', 'قالب خروجی را JSON، CSV یا ZIP انتخاب کنید.')
     try:
+        if not re.fullmatch(r'exports/[a-f0-9]{32}\.zip', snapshot.artifact_key):
+            return _error(410, 'export_file_unavailable', 'مسیر فایل خروجی معتبر نیست؛ نسخهٔ تازه بساز.')
         archive = default_storage.open(snapshot.artifact_key, 'rb')
     except (FileNotFoundError, OSError):
         return _error(410, 'export_file_unavailable', 'فایل این نسخه در دسترس نیست؛ گزارش تازه‌ای بسازید.')

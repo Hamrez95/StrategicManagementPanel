@@ -11,8 +11,10 @@ import { queryKeys } from '../../api/queryKeys';
 import { readSession } from '../../session';
 import { destinationAfterLogin } from './authNavigation';
 import './googleAuth.css';
+import { AvatarPicker } from '../account/AccountAvatar';
 
 type Profile = {
+  avatar_id: string | null;
   first_name: string;
   last_name: string;
   phone_number: string;
@@ -56,7 +58,7 @@ export function CompleteProfilePage() {
       });
     return () => controller.abort();
   }, [retry, navigate, location.search]);
-  function update(key: keyof Profile, value: string | boolean) {
+  function update(key: keyof Profile, value: string | boolean | null) {
     setProfile((current) => (current ? { ...current, [key]: value } : current));
     setFields((current) => ({ ...current, [key]: [] }));
     setError('');
@@ -72,6 +74,7 @@ export function CompleteProfilePage() {
         first_name: profile.first_name,
         last_name: profile.last_name,
         phone_number: profile.phone_number,
+        avatar_id: profile.avatar_id,
         marketing_opt_in: profile.marketing_opt_in,
         expected_user_id: userId,
       });
@@ -150,6 +153,12 @@ export function CompleteProfilePage() {
               شماره‌ات برای ارتباط دربارهٔ حسابت ثبت می‌شه. فعلاً کد پیامکی نمی‌فرستیم و شماره،
               تأییدنشده می‌مونه.
             </p>
+            <AvatarPicker
+              value={profile.avatar_id ?? null}
+              onChange={(id) => update('avatar_id', id)}
+              disabled={busy}
+              error={firstFieldError(fields, 'avatar_id')}
+            />
             <label className="auth-marketing-choice">
               <input
                 type="checkbox"

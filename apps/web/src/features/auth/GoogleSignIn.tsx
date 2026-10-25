@@ -78,7 +78,10 @@ export function GoogleSignIn() {
   const location = useLocation(),
     navigate = useNavigate(),
     queryClient = useQueryClient();
-  const next = new URLSearchParams(location.search).get('next');
+  const next =
+    location.pathname === '/internal/login'
+      ? '/internal'
+      : new URLSearchParams(location.search).get('next');
   async function finish() {
     queryClient.clear();
     const session = await queryClient.fetchQuery({

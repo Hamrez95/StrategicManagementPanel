@@ -1,7 +1,7 @@
 import json
 from datetime import date
 from decimal import Decimal
-from pathlib import Path
+from modules.core.resources import resource_path
 from unittest import TestCase
 
 from .calculations import (
@@ -10,12 +10,7 @@ from .calculations import (
     calculate_contribution_amount,
 )
 
-FIXTURE_PATH = (
-    Path(__file__).resolve().parents[4]
-    / "docs"
-    / "fixtures"
-    / "contribution-margin.json"
-)
+FIXTURE_PATH = resource_path('fixtures/contribution-margin.json')
 
 
 def parse_context(source):

@@ -156,12 +156,13 @@ test('payment amounts are nonnegative integer rial and states are explicit', () 
 test('session contract rejects fake authentication and private object keys', () => {
   const session = {
     authenticated: true,
-    user: { id: 'user-a', name: 'مدیر', is_staff: false },
+    user: { id: 'user-a', name: 'مدیر', is_staff: false, profile_required: false, avatar: null },
     workspaces: [{ id: 'project-a', name: 'آزمایش', role: 'owner' }],
   };
   assert.equal(check('Session', session), true);
   assert.equal(check('Session', { ...session, authenticated: false }), false);
   assert.equal(check('Session', { ...session, token: 'secret' }), false);
+  assert.equal(check('Session', { ...session, workspaces: [{ workspace_id: 'project-a', role: 'owner' }] }), false);
   const file = {
     id: 'file-a',
     workspace_id: 'project-a',

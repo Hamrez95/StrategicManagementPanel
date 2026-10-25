@@ -15,13 +15,16 @@ try {
   const context = await browser.newContext({ serviceWorkers: 'block' });
   const page = await context.newPage();
   page.on('pageerror', (e) => errors.push(e.message));
+  await page.route('**/api/v1/session/', (route) =>
+    route.fulfill({ status: 401, json: { detail: 'unauthenticated' } }),
+  );
   for (const width of [360, 768, 1280, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.getByRole('heading', { name: /تحلیل‌هایتان/ }).waitFor();
+    await page.getByRole('heading', { level: 1, name: /مدار رشدت/ }).waitFor();
     for (const theme of ['light', 'dark']) {
       if ((await page.getAttribute('html', 'data-theme')) !== theme)
-        await page.getByRole('button', { name: 'تغییر تم' }).click();
+        await page.getByRole('switch', { name: 'تم تیره', exact: true }).click();
       assert.equal(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
         true,
@@ -35,23 +38,22 @@ try {
     }
     results.push({ width, themes: ['light', 'dark'], overflow: false });
   }
-  await page.locator('.strategy-path button').nth(3).click();
-  assert.match(await page.locator('.scene-detail').innerText(), /مدارک ارائه/);
+  const panelEntry = page.locator('.home-world--panel');
+  assert.equal(await panelEntry.getAttribute('href'), '/app/workspaces');
+  await panelEntry.click();
+  await page.waitForURL(/account\/login/);
   await page.goto(url + '/demo');
   await page.frameLocator('iframe').locator('.brand strong').waitFor();
   assert.equal(await page.frameLocator('iframe').locator('.brand strong').innerText(), 'استراتینو');
   await page.goto(url + '/account/reset-password');
-  await page.getByRole('heading', { name: /حساب استراتینو/ }).waitFor();
+  await page.getByRole('heading', { name: 'بازیابی گذرواژه', exact: true }).waitFor();
   await page.reload();
-  await page.getByRole('heading', { name: /حساب استراتینو/ }).waitFor();
+  await page.getByRole('heading', { name: 'بازیابی گذرواژه', exact: true }).waitFor();
   let session = {
     authenticated: true,
     user: { id: 'u1', name: 'مدیر نمونه', is_staff: false },
     workspaces: [{ id: 'w1', name: 'پروژه مجاز', role: 'owner' }],
   };
-  await page.route('**/api/v1/session/', (route) =>
-    route.fulfill({ status: 401, json: { detail: 'unauthenticated' } }),
-  );
   await page.goto(url + '/app/workspaces/w1/overview');
   await page.waitForURL(/account\/login/);
   await page.unroute('**/api/v1/session/');
@@ -140,6 +142,7 @@ try {
   let documentSequence = 0;
   let attachmentSequence = 0;
   const documentAttachments = new Map();
+  const attachmentReservations = new Map();
   let failNextAttachmentUpload = false;
   let holdNextAttachmentUpload = false;
   let signalAttachmentUploadStarted;
@@ -511,6 +514,11 @@ try {
         });
       if (request.method() === 'POST') {
         const body = request.postDataJSON();
+        const reservationKey = `${key}/${body.request_id}`;
+        const existing = rows.find(
+          (item) => item.id === attachmentReservations.get(reservationKey),
+        );
+        if (existing) return route.fulfill({ status: 200, json: structuredClone(existing) });
         const extension = body.name.split('.').at(-1).toLowerCase();
         const mediaTypes = {
           pdf: 'application/pdf',
@@ -540,6 +548,7 @@ try {
           updated_at: now,
         };
         rows.unshift(item);
+        attachmentReservations.set(reservationKey, item.id);
         documentAttachments.set(key, rows);
         return route.fulfill({ status: 201, json: structuredClone(item) });
       }
@@ -736,7 +745,11 @@ try {
       item.updated_at = new Date().toISOString();
       const changes = Object.fromEntries(
         Object.entries(item)
-          .filter(([key, value]) => before[key] !== value)
+          // Audit actual editable changes, not revision/timestamp or derived display metadata.
+          .filter(
+            ([key, value]) =>
+              key !== 'revision' && Object.hasOwn(body, key) && before[key] !== value,
+          )
           .map(([key, value]) => [key, { from: before[key], to: value }]),
       );
       const eventType =
@@ -1140,7 +1153,7 @@ try {
     'شرکت‌ها برای کاهش تاخیر بودجه اختصاص می‌دهند.',
   );
   await page.getByRole('heading', { name: 'نسخه‌های ذخیره‌شده اخیر' }).waitFor();
-  await page.getByRole('button', { name: 'بارگذاری در پیش‌نویس' }).waitFor();
+  await page.getByRole('button', { name: 'بارگذاری در پیش‌نویس' }).first().waitFor();
   await page.getByLabel('جست‌وجوی ICP').fill('تیم‌های تولید');
   await page.getByRole('button', { name: /تیم‌های تولید متوسط/ }).waitFor();
   for (const theme of ['light', 'dark']) {
@@ -1384,6 +1397,8 @@ try {
   );
   await page.goto(url + '/app/workspaces/w1/tools/matrices');
   await page.getByRole('heading', { name: 'Factor evaluation' }).waitFor();
+  // Clear the empty manual-entry row before copying the real SWOT snapshot.
+  await page.getByRole('button', { name: 'Remove factor 1', exact: true }).click();
   await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
   await page.getByLabel('Weight percent for factor 1').fill('100');
   await page.getByLabel('Rating for factor 1').selectOption('4');
@@ -1392,6 +1407,7 @@ try {
   assert.equal(analysisRecords.get('w1:efe').output.rounded_score, 4);
   assert.equal(analysisRecords.get('w1:efe').state, 'finalized');
   await page.getByRole('button', { name: /IFE/ }).click();
+  await page.getByRole('button', { name: 'Remove factor 1', exact: true }).click();
   await page.getByRole('button', { name: /Copy SWOT factors/ }).click();
   await page.getByLabel('Weight percent for factor 1').fill('100');
   await page.getByLabel('Rating for factor 1').selectOption('4');
@@ -1430,9 +1446,15 @@ try {
     'matrix controls must keep visible keyboard focus',
   );
 
+  await page.goto(url + '/app/account');
+  await page.getByLabel('زبان رابط').selectOption('fa');
+  await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
   await page.goto(url + '/app/workspaces/w1/tools/execution');
   await page.getByRole('heading', { name: 'از تصمیم تا اقدام' }).waitFor();
-  await page.getByLabel('تصمیم', { exact: true }).fill('پایلوت بازار برای مشتریان سازمانی');
+  await page
+    .getByRole('textbox', { name: 'تصمیم', exact: true })
+    .fill('پایلوت بازار برای مشتریان سازمانی');
   await page
     .getByLabel('تحلیل یا گزینه راهبردی')
     .selectOption(`analysis:${analysisRecords.get('w1:efe').id}`);
@@ -1484,14 +1506,17 @@ try {
   await page.getByLabel('تغییر وضعیت').press('ArrowDown');
   await page.getByLabel('تغییر وضعیت').press('ArrowUp');
   await page.getByLabel('تغییر وضعیت').selectOption('in_progress');
-  await page.getByRole('button', { name: 'ذخیره وضعیت' }).click();
+  await page
+    .getByRole('region', { name: /اقدام‌های.*پیش رو/ })
+    .getByRole('button', { name: 'ذخیره وضعیت' })
+    .click();
   await page.getByRole('status').filter({ hasText: 'وضعیت اقدام ذخیره شد' }).waitFor();
   executionAction = executionBoards.get('w1').actions[0];
   assert.equal(executionAction.status, 'in_progress');
   assert.equal(executionBoards.get('w1').events[0].event_type, 'status_changed');
   await page.reload();
   await page.getByRole('heading', { name: 'از تصمیم تا اقدام' }).waitFor();
-  await page.getByText('اجرای پایلوت بازار').waitFor();
+  await page.getByRole('heading', { name: 'اجرای پایلوت بازار', exact: true }).waitFor();
   for (const theme of ['light', 'dark']) {
     await page.evaluate((value) => {
       document.documentElement.dataset.theme = value;
@@ -1533,14 +1558,14 @@ try {
   await page.goto(url + '/app/workspaces/w1/tools/documents');
   await page.getByRole('heading', { name: 'کتابخانه مدارک مدیریتی' }).waitFor();
   await page.getByLabel('مرحله کسب‌وکار').selectOption('growth');
-  await page.getByLabel('صنعت').selectOption('technology');
+  await page.locator('.documents-filterbar').getByLabel('صنعت').selectOption('technology');
   await page.locator('.documents-index__item').first().waitFor();
   assert.ok(
     (await page.locator('.documents-index__item').count()) > 0,
     'stage and industry filters must leave matching guides',
   );
   await page.getByLabel('مرحله کسب‌وکار').selectOption('');
-  await page.getByLabel('صنعت').selectOption('');
+  await page.locator('.documents-filterbar').getByLabel('صنعت').selectOption('');
   await page.getByRole('heading', { name: 'کتابخانه مدارک مدیریتی' }).waitFor();
 
   const advisoryTemplate = documentCatalog.documents.find((item) => item.advisory_note);
@@ -1559,7 +1584,7 @@ try {
     .filter({ hasText: executiveTemplate.title.fa })
     .click();
   await page.getByLabel('پیش‌نویس سند').fill('پیش‌نویس اختصاصی برای مرور مدیر پروژه');
-  await page.getByLabel('بازبین').selectOption('u1');
+  await page.getByRole('combobox', { name: /^بازبین/ }).selectOption('u1');
   await page.getByLabel('وضعیت سند').selectOption('review');
   await page.getByRole('button', { name: 'ثبت در فضای کار' }).click();
   await page.getByRole('status').filter({ hasText: 'راهنمای سند در فضای کار ذخیره شد' }).waitFor();
@@ -1576,13 +1601,15 @@ try {
   await page.getByText('بارگذاری ناموفق بود').waitFor();
   await page.getByRole('button', { name: 'تلاش دوباره برای بارگذاری' }).click();
   await page.getByRole('link', { name: 'دریافت فایل' }).waitFor();
-  assert.equal(
-    await page.getByText('صورتجلسه.pdf').count(),
-    2,
-    'uploaded file appears in both queue and private list',
-  );
+  for (const container of ['.document-attachments__queue', '.document-attachments__list']) {
+    assert.equal(
+      await page.locator(container).getByText('صورتجلسه.pdf', { exact: true }).count(),
+      1,
+      'uploaded file appears once in both queue and private list',
+    );
+  }
   assert.match(
-    await page.locator('.document-attachment__list code').innerText(),
+    await page.locator('.document-attachments__list code').innerText(),
     /^SHA-256 · a{64}$/,
   );
   await page.locator('.document-attachments__input').setInputFiles([
@@ -1713,13 +1740,14 @@ try {
   await page.evaluate(() =>
     localStorage.setItem('royesh-strategy-v1', 'preserve-this-browser-copy'),
   );
+  const shellScreenshots = [];
   for (const theme of ['light', 'dark']) {
     await page.goto(url + '/app/account');
     await page.getByLabel('پوسته').selectOption(theme);
     await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
     await page.getByText('تنظیمات حساب ذخیره و با این دستگاه همگام شد.').waitFor();
     await page.goto(url + '/app/workspaces/w1/imports');
-    await page.getByRole('heading', { name: 'پشتیبان مرورگر قدیمی' }).waitFor();
+    await page.getByRole('heading', { name: 'واردسازی پشتیبان', exact: true }).waitFor();
     for (const width of [360, 768, 1280, 1440]) {
       await page.setViewportSize({ width, height: 920 });
       assert.equal(
@@ -1735,7 +1763,7 @@ try {
       shellScreenshots.push(`test-results/web/import-${width}-${theme}.png`);
     }
   }
-  await page.getByLabel('فایل پشتیبان JSON').setInputFiles({
+  await page.getByLabel('فایل پشتیبان JSON', { exact: true }).setInputFiles({
     name: 'legacy-backup.json',
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(legacyImportFixture)),
@@ -1744,7 +1772,7 @@ try {
   await page.getByRole('heading', { name: 'مقصد: پروژه مجاز' }).waitFor();
   await page.getByText('۸ رکورد برای این فضای کار شناسایی شد.').waitFor();
   await page.getByRole('button', { name: 'واردسازی در پروژه مجاز' }).click();
-  await page.getByRole('status').filter({ hasText: 'نسخه مرورگر قدیمی دست‌نخورده ماند' }).waitFor();
+  await page.getByRole('status').filter({ hasText: 'داده فعال پروژه بدون تغییر ماند' }).waitFor();
   assert.equal(
     await page.evaluate(() => localStorage.getItem('royesh-strategy-v1')),
     'preserve-this-browser-copy',
@@ -1758,6 +1786,8 @@ try {
   await undoDialog.getByRole('button', { name: 'بازگردانی batch' }).click();
   await page.getByText('بازگردانی‌شده').waitFor();
 
+  await page.goto(url + '/app/workspaces/w1/settings');
+  await page.getByLabel('مرحله فعلی (اختیاری)').waitFor();
   const competingProfile = projectProfiles.get('w1');
   competingProfile.mission = 'ویرایش هم‌زمان از تب دیگر';
   competingProfile.revision++;
@@ -1836,9 +1866,12 @@ try {
   await page.getByRole('button', { name: 'لغو دعوت' }).click();
   const invitationDialog = page.getByRole('dialog');
   await invitationDialog.getByRole('button', { name: 'لغو دعوت' }).click();
-  await page.getByText('member@example.test').waitFor({ state: 'detached' });
+  await invitationDialog.waitFor({ state: 'hidden' });
+  await page
+    .locator('.workspace-invite-row__email')
+    .filter({ hasText: 'member@example.test' })
+    .waitFor({ state: 'detached' });
 
-  const shellScreenshots = [];
   for (const theme of ['light', 'dark']) {
     await page.goto(url + '/app/account');
     await page.getByRole('heading', { name: 'پروفایل و تنظیمات' }).waitFor();
@@ -1893,24 +1926,40 @@ try {
   await page.waitForURL(/\/app\/workspaces\/w1\/tools\/qspm$/);
   await page.goto(url + '/app/workspaces/w1/matrices/efe');
   await page.waitForURL(/\/app\/workspaces\/w1\/tools\/matrices\?path=efe$/);
+  await page.getByRole('heading', { name: 'ارزیابی عوامل راهبردی' }).waitFor();
   assert.equal(
-    await page.getByRole('link', { name: 'بازکردن نسخه نمونه محلی' }).getAttribute('href'),
-    '/prototype/#matrices/efe',
+    await page
+      .getByRole('button', { name: /EFE.*ارزیابی عوامل بیرونی/ })
+      .getAttribute('aria-pressed'),
+    'true',
+    'legacy EFE URLs must open the real authorized EFE editor',
   );
   await page.reload();
-  await page.getByRole('heading', { name: 'آزمایشگاه ماتریس‌ها' }).waitFor();
+  await page.getByRole('heading', { name: 'ارزیابی عوامل راهبردی' }).waitFor();
 
-  await page.getByRole('button', { name: 'منوی حساب' }).click();
+  await page.locator('summary[aria-label="منوی حساب"]').click();
   await page.getByRole('link', { name: 'پلن و سهمیه' }).click();
-  await page.getByRole('heading', { name: 'پلن و سهمیه' }).waitFor();
+  await page.waitForURL(/\/app\/account#subscription$/);
+  await page.getByRole('heading', { name: 'اشتراک‌های من', exact: true }).waitFor();
 
   await page.goto(url + '/app/workspaces/other/overview');
   await page.getByRole('heading', { name: 'فضای کار در دسترس نیست' }).waitFor();
   await page.goto(url + '/internal');
   await page.getByRole('heading', { name: 'دسترسی ندارید' }).waitFor();
   session = { ...session, user: { ...session.user, is_staff: true } };
+  await page.route('**/api/v1/operator/status/', (route) =>
+    route.fulfill({
+      status: 403,
+      json: { code: 'operator_permission_denied', message: 'مجوز مستقل مدیریت لازم است.' },
+    }),
+  );
   await page.reload();
-  await page.getByRole('heading', { name: 'مدیریت سرویس' }).waitFor();
+  await page.getByRole('alert').filter({ hasText: 'مجوز مستقل مدیریت لازم است.' }).waitFor();
+  assert.equal(
+    await page.locator('.op-collection').count(),
+    0,
+    'staff status alone must not expose operator collections',
+  );
   await page.unroute('**/api/v1/session/');
   await page.route('**/api/v1/session/', (route) =>
     route.fulfill({
@@ -2009,7 +2058,7 @@ try {
   );
 
   await page.goto(url + '/app/start');
-  await page.waitForURL(/\/app\/workspaces\/w2$/);
+  await page.waitForURL(/\/app\/workspaces\/w2\/overview$/);
   session = {
     authenticated: true,
     user: { id: 'u3', name: 'عضو دعوت‌شده', is_staff: false },
@@ -2071,6 +2120,16 @@ try {
   console.log(
     'PASS: responsive/theme/onboarding/shell/import/profile/SWOT/execution/documents RTL/LTR screenshots, workspace routes/search/legacy mapping, import preview/commit/download/undo, profile autosave/recovery, SWOT/TOWS factor links and dependency review, decision-to-action and document ownership/history/role isolation, keyboard focus, onboarding refresh/back, session boundaries, membership, prototype and API fallback',
   );
+} catch (error) {
+  const failedPage = browser.contexts()[0]?.pages()[0];
+  if (failedPage) {
+    await failedPage.screenshot({ path: 'test-results/web/failure.png', fullPage: true });
+    console.error('Synthetic browser fixture failed:', failedPage.url(), {
+      alerts: await failedPage.getByRole('alert').allTextContents(),
+      statuses: await failedPage.getByRole('status').allTextContents(),
+    });
+  }
+  throw error;
 } finally {
   await browser.close();
 }

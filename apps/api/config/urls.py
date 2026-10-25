@@ -1,4 +1,10 @@
 from django.urls import include, path
+from django.contrib import admin
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from modules.accounts.avatar_views import avatar_catalog
+from modules.workspaces.admin import management_admin_site
+from modules.accounts.subscription_views import account_subscriptions
 from modules.accounts.google_auth import google_config, google_challenge, google_login, google_link, completion_details, complete_profile
 from modules.accounts.auth_views import (
     account_preferences,
@@ -15,8 +21,12 @@ from modules.accounts.auth_views import (
     signup,
     verify_email,
 )
-from modules.analysis.views import analysis_collection, analysis_detail
+from modules.analysis.views import analysis_collection, analysis_detail, analysis_revisions
 from modules.core.views import live, ready
+from modules.operations.views import operator_collection, operator_status, operator_overview
+from modules.operations.mfa import operator_mfa
+from modules.operations.actions import operator_action
+from modules.operations.administrators import operator_login, operator_password, operator_team
 from modules.imports.views import (
     preview_import,
     workspace_import_detail,
@@ -41,9 +51,24 @@ from modules.workspaces.views import (
     workspace_profile,
     workspace_profile_revisions,
     workspace_summary,
+    workspace_entitlements,
 )
 
 urlpatterns = [
+    path('api/v1/operator/login/', operator_login),
+    path('api/v1/operator/password/', operator_password),
+    path('api/v1/operator/team/', operator_team),
+    path('api/v1/operator/accounts/<uuid:target>/status/', operator_action, {'action': 'account-status'}),
+    path('api/v1/operator/subscriptions/grant/', operator_action, {'action': 'grant'}),
+    path('api/v1/operator/subscriptions/<uuid:target>/revoke/', operator_action, {'action': 'revoke'}),
+    path('api/v1/operator/mfa/<str:action>/', operator_mfa),
+    path('api/v1/operator/status/', operator_status),
+    path('api/v1/operator/overview/', operator_overview),
+    path('api/v1/operator/<str:section>/', operator_collection),
+    path('api/v1/account/avatars/', avatar_catalog),
+    path('api/v1/account/subscriptions/', account_subscriptions),
+    path('internal/django-admin/', admin.site.urls),
+    path('internal/management/', management_admin_site.urls),
     path('api/v1/accounts/google/config/', google_config),
     path('api/v1/accounts/google/challenge/', google_challenge),
     path('api/v1/accounts/google/login/', google_login),
@@ -67,8 +92,11 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/strategy/options/', strategy_option_create),
     path('api/v1/workspaces/<str:workspace_id>/strategy/options/<uuid:option_id>/', strategy_option_detail),
     path('api/v1/workspaces/<str:workspace_id>/analyses/', analysis_collection),
+    path('api/v1/workspaces/<str:workspace_id>/entitlements/', workspace_entitlements),
     path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/', analysis_detail),
+    path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/revisions/', analysis_revisions),
     path('api/v1/workspaces/<str:workspace_id>/execution/', include('modules.execution.urls')),
+    path('api/v1/workspaces/<str:workspace_id>/metrics/', include('modules.metrics.urls')),
     path('api/v1/workspaces/<str:workspace_id>/documents/', include('modules.documents.urls')),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),
@@ -91,3 +119,5 @@ urlpatterns = [
     path('api/v1/account/email-change/', email_change_request),
     path('api/v1/account/email-change/confirm/', email_change_confirm),
 ]
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()

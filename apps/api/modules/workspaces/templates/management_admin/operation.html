@@ -1,0 +1,26 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static 'management_admin/access.css' %}">{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs"><a href="{{ list_url }}">اشتراک‌ها</a> &rsaquo; {{ title }}</div>
+{% endblock %}
+{% block content %}
+<p>تغییر دسترسی با شناسهٔ اپراتور و دلیل ثبت می‌شه. این عملیات رسید پرداخت نیست.</p>
+{% if subscription %}
+<dl>
+  <dt>اشتراک</dt><dd><bdi>{{ subscription.pk }}</bdi></dd>
+  <dt>حساب صورتحساب</dt><dd><bdi>{{ subscription.billing_account_id }}</bdi></dd>
+  <dt>پلن ثبت‌شده</dt><dd>{{ subscription.plan_title }} ({{ subscription.plan_revision }})</dd>
+  <dt>وضعیت</dt><dd>{{ subscription.get_status_display }}</dd>
+</dl>
+<p>لغو اشتراک، اطلاعات و خروجی خام شخصی رو حذف یا قفل نمی‌کنه. درخواست تکراری، لغو دوباره ثبت نمی‌کنه.</p>
+{% else %}
+<p>فقط پلن فعالِ غیراپیش‌فرض قابل انتخابه. زمان و قابلیت‌ها از پلن ثبت می‌شن. قبل از تأیید، <a href="{% url 'management_admin:workspaces_managementplan_changelist' %}" target="_blank" rel="noopener">جزئیات پلن‌ها رو ببین</a>.</p>
+<p>پلن ویژه تا تعیین شرایط تجاری مالک، غیرفعال و بی‌قیمت می‌مونه.</p>
+{% endif %}
+<form method="post" class="management-operation" novalidate>
+  {% csrf_token %}
+  {{ form.as_div }}
+  <div class="submit-row"><input type="submit" value="{{ title }}"> <a href="{{ list_url }}">بازگشت به اشتراک‌ها</a></div>
+</form>
+{% endblock %}

@@ -2,13 +2,18 @@ import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { matchesContentHash } from './content-hash.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
 const manifest = await read('docs/learning-design/handoff/manifest.json');
 const catalog = await read('docs/learning-design/catalog.v1.json');
-const out = resolve(root, 'apps/web/public/academy-content');
-if (relative(resolve(root, 'apps/web/public'), out) !== 'academy-content')
+const publicOut = resolve(root, 'apps/web/public/academy-content');
+const out = resolve(root, 'apps/api/academy-projections');
+if (
+  relative(resolve(root, 'apps/web/public'), publicOut) !== 'academy-content' ||
+  relative(resolve(root, 'apps/api'), out) !== 'academy-projections'
+)
   throw new Error('Invalid output directory');
 for (const item of [
   ...manifest.courses,
@@ -19,11 +24,7 @@ for (const item of [
   manifest.reference_visuals,
 ]) {
   const bytes = await readFile(resolve(root, item.path));
-  const hash = (value) => createHash('sha256').update(value).digest('hex');
-  if (
-    hash(bytes) !== item.sha256 &&
-    hash(bytes.toString('utf8').replaceAll('\r\n', '\n')) !== item.sha256
-  )
+  if (!matchesContentHash(bytes, item.sha256, item.path))
     throw new Error(
       `Handoff hash mismatch: ${item.path}. Rebuild the manifest from the source first.`,
     );
@@ -46,11 +47,7 @@ for (const visual of references.visuals) {
   visualIds.add(visual.id);
   if (visual.asset_ref) {
     const bytes = await readFile(resolve(root, 'docs/learning-design', visual.asset_ref));
-    if (
-      createHash('sha256').update(bytes).digest('hex') !== visual.sha256 &&
-      createHash('sha256').update(bytes.toString('utf8').replaceAll('\r\n', '\n')).digest('hex') !==
-        visual.sha256
-    )
+    if (!matchesContentHash(bytes, visual.sha256, visual.asset_ref))
       throw new Error(`Reference visual hash mismatch: ${visual.id}`);
   }
 }
@@ -65,6 +62,12 @@ for (const placement of references.placements) {
     throw new Error(`Invalid reference placement: ${id}`);
   placementIds.add(id);
 }
+await rm(publicOut, { recursive: true, force: true });
+// Remove earlier public build artifacts as well; premium content is API-only.
+const staleBuild = resolve(root, 'dist/academy-content');
+if (relative(resolve(root, 'dist'), staleBuild) !== 'academy-content')
+  throw new Error('Invalid stale output');
+await rm(staleBuild, { recursive: true, force: true });
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 const publicQuestion = (q) => ({

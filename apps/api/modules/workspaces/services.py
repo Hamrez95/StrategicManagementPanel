@@ -22,6 +22,7 @@ from .models import (
     BillingAccount,
     Membership,
     Workspace,
+    WorkspaceEvent,
     WorkspaceBootstrapRequest,
     WorkspaceInvitation,
     WorkspaceProfile,
@@ -114,6 +115,8 @@ def create_owned_workspace(owner, name):
     billing_account, _ = BillingAccount.objects.get_or_create(owner=owner)
     if billing_account.status != BillingAccount.Status.ACTIVE:
         raise DjangoValidationError({'billing_account': 'This billing account cannot create Workspaces.'})
+    from .entitlements import require_workspace_slot
+    require_workspace_slot(owner, billing_account)
     workspace = Workspace(
         owner=owner,
         billing_account=billing_account,
@@ -122,6 +125,7 @@ def create_owned_workspace(owner, name):
     workspace.full_clean()
     workspace.save(force_insert=True)
     WorkspaceProfile.objects.create(workspace=workspace)
+    WorkspaceEvent.objects.create(workspace=workspace, actor=owner, event_type='created', changes={'revision': 1})
     return workspace
 
 
@@ -262,6 +266,8 @@ def update_workspace(actor, workspace, *, revision, name=None, archived=None):
                 revoked_at__isnull=True,
             ).update(revoked_at=timezone.now())
         elif not archived and locked.archived_at is not None:
+            from .entitlements import require_workspace_slot
+            require_workspace_slot(locked.owner, locked.billing_account)
             locked.archived_at = None
             changed_fields.append('archived_at')
     if not changed_fields:
@@ -269,6 +275,7 @@ def update_workspace(actor, workspace, *, revision, name=None, archived=None):
     locked.revision += 1
     locked.updated_at = timezone.now()
     locked.save(update_fields=[*changed_fields, 'revision', 'updated_at'])
+    WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='updated', changes={'fields': changed_fields, 'revision': locked.revision, 'archived': locked.archived_at is not None})
     return locked
 
 
@@ -284,11 +291,14 @@ def grant_workspace_membership(actor, workspace, user, role):
         raise DjangoValidationError({'user': 'The owner role is derived from Workspace ownership.'})
     if not user.is_active or user.email_verified_at is None:
         raise DjangoValidationError({'user': 'Only active, verified accounts can be members.'})
+    previous_role = Membership.objects.filter(workspace=locked, user=user).values_list('role', flat=True).first()
     membership, _ = Membership.objects.update_or_create(
         workspace=locked,
         user=user,
         defaults={'role': role},
     )
+    if previous_role != role:
+        WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='member_changed', target_id=user.pk, changes={'before': previous_role, 'after': role})
     return membership
 
 
@@ -302,10 +312,11 @@ def remove_workspace_membership(actor, workspace, user):
     deleted, _ = Membership.objects.filter(workspace=locked, user=user).delete()
     if not deleted:
         raise DjangoValidationError({'user': 'This account is not a member of the Workspace.'})
+    WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='member_removed', target_id=user.pk)
 
 
 def _invitation_digest(token):
-    return salted_hmac(INVITATION_SALT, token).hexdigest()
+    return salted_hmac(INVITATION_SALT, token, algorithm='sha256').hexdigest()
 
 
 def create_workspace_invitation(actor, workspace, email, role):
@@ -367,6 +378,7 @@ def create_workspace_invitation(actor, workspace, email, role):
             token_digest=_invitation_digest(token),
             expires_at=now + INVITATION_TIMEOUT,
         )
+        WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='invite_created', target_id=invitation.pk, changes={'role': role})
 
     link = f'{settings.STRATINO_PUBLIC_URL}/account/invitation#token={quote(token, safe="")}'
     sent = deliver_email(
@@ -378,9 +390,10 @@ def create_workspace_invitation(actor, workspace, email, role):
         purpose='Workspace invitation',
     )
     if not sent:
-        WorkspaceInvitation.objects.filter(pk=invitation.pk, accepted_at__isnull=True).update(
-            revoked_at=timezone.now()
-        )
+        with transaction.atomic():
+            revoked = WorkspaceInvitation.objects.filter(pk=invitation.pk, accepted_at__isnull=True).update(revoked_at=timezone.now())
+            if revoked:
+                WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='invite_revoked', target_id=invitation.pk, changes={'reason': 'delivery_failed'})
         raise WorkspaceActionError(
             503,
             'email_unavailable',
@@ -392,8 +405,9 @@ def create_workspace_invitation(actor, workspace, email, role):
 def accept_workspace_invitation(user, token):
     if not isinstance(token, str) or not 32 <= len(token) <= 256:
         raise DjangoValidationError({'token': 'دعوت معتبر نیست یا منقضی شده است.'})
-    digest = _invitation_digest(token)
-    workspace_id = WorkspaceInvitation.objects.filter(token_digest=digest).values_list('workspace_id', flat=True).first()
+    # Existing seven-day links stay valid during the SHA-256 transition.
+    digests = (_invitation_digest(token), salted_hmac(INVITATION_SALT, token, algorithm='sha1').hexdigest())
+    workspace_id = WorkspaceInvitation.objects.filter(token_digest__in=digests).values_list('workspace_id', flat=True).first()
     if workspace_id is None:
         raise DjangoValidationError({'token': 'دعوت معتبر نیست یا منقضی شده است.'})
 
@@ -401,7 +415,7 @@ def accept_workspace_invitation(user, token):
         workspace = Workspace.objects.select_for_update().filter(pk=workspace_id).first()
         invitation = WorkspaceInvitation.objects.select_for_update().filter(
             workspace_id=workspace_id,
-            token_digest=digest,
+            token_digest__in=digests,
         ).first()
         now = timezone.now()
         if (
@@ -429,6 +443,7 @@ def accept_workspace_invitation(user, token):
         )
         invitation.accepted_at = now
         invitation.save(update_fields=['accepted_at'])
+        WorkspaceEvent.objects.create(workspace=workspace, actor=user, event_type='invite_accepted', target_id=invitation.pk, changes={'role': invitation.role})
     return workspace, membership
 
 
@@ -446,6 +461,7 @@ def revoke_workspace_invitation(actor, workspace, invitation_id):
         raise Http404('Invitation is not available.')
     invitation.revoked_at = timezone.now()
     invitation.save(update_fields=['revoked_at'])
+    WorkspaceEvent.objects.create(workspace=locked, actor=actor, event_type='invite_revoked', target_id=invitation.pk, changes={'reason': 'owner_request'})
     return invitation
 
 

@@ -10,7 +10,8 @@ class ContentContractTests(SimpleTestCase):
     def test_full_inventory_and_original_correct_ids(self):
         content = units()
         self.assertEqual(len(content), 592 + 148 + 43)
-        self.assertEqual(sum(len(u.get('learning_cards', [])) for u in content.values()), 5958)
+        # Includes the 16 approved instructor-enrichment cards added to the original release.
+        self.assertEqual(sum(len(u.get('learning_cards', [])) for u in content.values()), 5974)
         self.assertEqual(sum(len(u['questions']) for u in content.values()), 4549)
         for unit in content.values():
             for question in unit['questions']:
@@ -35,8 +36,12 @@ class ContentContractTests(SimpleTestCase):
 
 class AccountLearningTests(TestCase):
     def setUp(self):
+        from .testing import general_fixture, full_grant
+        general_fixture()
         self.a = get_user_model().objects.create_user('academy-a@stratino.invalid')
         self.b = get_user_model().objects.create_user('academy-b@stratino.invalid')
+        full_grant(self.a)
+        full_grant(self.b)
         self.client = APIClient()
         self.unit = units()['C01-ST01-L01']
         self.url = '/api/v1/academy/units/C01-ST01-L01/'

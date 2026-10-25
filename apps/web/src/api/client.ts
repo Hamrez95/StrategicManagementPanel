@@ -62,7 +62,8 @@ function errorMessage(response: Response, body: unknown) {
     response.status === 403 &&
     record.code !== 'workspace_permission_denied' &&
     record.code !== 'profile_incomplete' &&
-    record.code !== 'account_unavailable'
+    record.code !== 'account_unavailable' &&
+    record.code !== 'operator_permission_denied'
   ) {
     return 'درخواست امنیتی تأیید نشد. صفحه را تازه کنید و دوباره تلاش کنید.';
   }
@@ -76,7 +77,8 @@ function reportSessionExpiry(path: string, status: number) {
   if (
     !path.startsWith('/api/v1/workspaces/') &&
     !path.startsWith('/api/v1/account/') &&
-    !path.startsWith('/api/v1/academy/')
+    !path.startsWith('/api/v1/academy/') &&
+    !path.startsWith('/api/v1/operator/')
   )
     return;
   window.dispatchEvent(new Event('stratino:session-expired'));

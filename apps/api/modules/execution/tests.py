@@ -8,7 +8,7 @@ from modules.analysis.models import Analysis
 from modules.strategy.models import StrategyOption
 from modules.workspaces.models import BillingAccount, Membership, Workspace
 
-from .models import Action, Decision, ExecutionEvent, Goal
+from .models import Action, Decision, ExecutionEvent
 
 
 class ExecutionBoardApiTests(TestCase):
@@ -39,13 +39,13 @@ class ExecutionBoardApiTests(TestCase):
         return Workspace.objects.create(owner=owner, billing_account=billing, name=name)
 
     @staticmethod
-    def analysis_for(workspace, actor, *, state=Analysis.State.FINALIZED):
+    def analysis_for(workspace, actor, *, state=Analysis.State.FINALIZED, kind=Analysis.Kind.EFE):
         return Analysis.objects.create(
             workspace=workspace,
             created_by=actor,
-            kind=Analysis.Kind.EFE,
+            kind=kind,
             schema_version=1,
-            method_version='efe-v1',
+            method_version=f'{kind}-v1',
             inputs={'rows': []},
             output={'rounded_score': 3.1},
             state=state,
@@ -146,7 +146,7 @@ class ExecutionBoardApiTests(TestCase):
     def test_source_and_assignee_must_belong_to_workspace_and_source_must_be_ready(self):
         foreign_analysis = self.analysis_for(self.other_workspace, self.outsider)
         self.assertEqual(self.decision(source=foreign_analysis).status_code, 400)
-        draft_analysis = self.analysis_for(self.workspace, self.owner, state=Analysis.State.DRAFT)
+        draft_analysis = self.analysis_for(self.workspace, self.owner, kind='ife', state=Analysis.State.DRAFT)
         response = self.decision(source=draft_analysis)
         self.assertEqual(response.status_code, 400)
         self.assertIn('source_id', response.json()['fields'])

@@ -1,4 +1,4 @@
-import { AcademyFeedbackInbox } from '../features/academy/AcademyFeedbackInbox';
+import { OperatorConsole } from '../features/operations/OperatorConsole';
 export default function Operator() {
-  return <AcademyFeedbackInbox />;
+  return <OperatorConsole />;
 }

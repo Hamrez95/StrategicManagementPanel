@@ -55,6 +55,7 @@ const WorkspaceIndexRedirect = lazy(() =>
   })),
 );
 const Operator = lazy(() => import('./pages/Operator'));
+const OperatorLogin = lazy(() => import('./pages/OperatorLogin'));
 const AccountSettingsPage = lazy(() => import('./features/account/AccountSettingsPage'));
 const WorkspaceImportPage = lazy(() => import('./features/imports/WorkspaceImportPage'));
 const CompanyProfilePage = lazy(() => import('./features/workspaces/CompanyProfilePage'));
@@ -134,8 +135,17 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
       </Notice>
     );
   if (!query.data)
-    return <Navigate to={'/account/login?next=' + encodeURIComponent(pathname)} replace />;
-  if (query.data.user.profile_required)
+    return (
+      <Navigate
+        to={
+          (operator ? '/internal/login' : '/account/login') +
+          '?next=' +
+          encodeURIComponent(pathname + search)
+        }
+        replace
+      />
+    );
+  if (query.data.user.profile_required && !operator)
     return (
       <Navigate
         to={'/account/complete-profile?next=' + encodeURIComponent(pathname + search)}
@@ -149,6 +159,8 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
         <Link to="/">بازگشت به صفحه اصلی</Link>
       </Notice>
     );
+  // Global administration has its own shell and no active customer Workspace.
+  if (operator) return <Outlet context={query.data} />;
   async function signOut() {
     setLogoutError('');
     setLoggingOut(true);
@@ -277,6 +289,7 @@ export function App() {
   const managementPreviewPath = location.pathname === '/management-preview';
   const independentChrome =
     location.pathname === '/' ||
+    location.pathname.startsWith('/internal') ||
     location.pathname.startsWith('/account') ||
     location.pathname.startsWith('/preview') ||
     (Academy !== null &&
@@ -344,7 +357,11 @@ export function App() {
   useEffect(() => {
     if (
       location.pathname === '/' &&
-      workspaceTools.some((tool) => location.hash === '#' + tool.legacyHash)
+      workspaceTools.some(
+        (tool) =>
+          location.hash === '#' + tool.legacyHash ||
+          location.hash.startsWith('#' + tool.legacyHash + '/'),
+      )
     )
       window.location.replace('/prototype/' + location.hash);
   }, [location.hash, location.pathname]);
@@ -436,6 +453,7 @@ export function App() {
                 </Route>
               </Route>
             </Route>
+            <Route path="/internal/login" element={<OperatorLogin />} />
             <Route element={<SessionBoundary operator />}>
               <Route path="/internal/*" element={<Operator />} />
             </Route>

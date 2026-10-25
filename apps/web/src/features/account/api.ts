@@ -13,6 +13,13 @@ export type UserPreferences = {
 export type DevicePreferences = Omit<UserPreferences, 'device_sync_pending' | 'updated_at'>;
 
 export type AccountProfile = {
+  user_id: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  phone_verified: boolean;
+  avatar_id: string | null;
+  avatar: import('./AccountAvatar').AvatarSummary | null;
   email: string;
   display_name: string;
   role_title: string;
@@ -102,7 +109,10 @@ export async function readAccountProfile(signal?: AbortSignal) {
 }
 
 export async function saveAccountProfile(
-  profile: Pick<AccountProfile, 'display_name' | 'role_title'>,
+  profile: Pick<AccountProfile, 'display_name' | 'role_title'> &
+    Partial<Pick<AccountProfile, 'first_name' | 'last_name' | 'phone_number' | 'avatar_id'>> & {
+      expected_user_id?: string;
+    },
 ) {
   return patchAuth<AccountProfile>('/api/v1/account/profile/', profile);
 }

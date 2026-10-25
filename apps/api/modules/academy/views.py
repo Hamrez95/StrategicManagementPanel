@@ -4,6 +4,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from .content import grade, units
 from .models import LearningProgress
+from .access import AcademyAccess
+from .projection import curriculum
 
 def serialize(row):
     return {key: getattr(row, key) for key in ['unit_id', 'content_revision', 'note', 'position', 'viewed_cards', 'responses', 'activity_response', 'bookmarked', 'completed', 'revision']}
@@ -24,7 +26,23 @@ def update_completion(row, unit):
 def state(request):
     available = units()
     rows = LearningProgress.objects.filter(user=request.user).order_by('updated_at')
-    return Response({'user_id': str(request.user.pk), 'units': {r.unit_id: serialize(r) for r in rows if r.unit_id in available and r.content_revision == available[r.unit_id]['revision']}})
+    access = AcademyAccess(request.user)
+    public_units = curriculum()[1]
+    result = {}
+    for row in rows:
+        if row.unit_id not in available or row.content_revision != available[row.unit_id]['revision']:
+            continue
+        item = serialize(row)
+        permission = access.unit_access(public_units[row.unit_id])
+        if not permission['hasFullAccess']:
+            item['responses'] = {}
+            item['activity_response'] = {}
+            item['viewed_cards'] = [card for card in item['viewed_cards'] if card in permission['allowed_card_ids']]
+            item['position'] = min(item['position'], len(permission['allowed_card_ids']))
+        result[row.unit_id] = item
+    response = Response({'user_id': str(request.user.pk), 'units': result})
+    response['Cache-Control'] = 'private, no-store'
+    return response
 
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
@@ -32,6 +50,9 @@ def progress(request, unit_id):
     unit = units().get(unit_id)
     if not unit:
         return error('این بخش پیدا نشد.', 404)
+    access = AcademyAccess(request.user).unit_access(curriculum()[1][unit_id])
+    if not access['hasAccess']:
+        return error('برای این درس، اشتراک مربوط رو فعال کن.', 403)
     data = request.data
     if not isinstance(data, dict) or type(data.get('revision')) is not int or data['revision'] < 0:
         return error('اطلاعات ذخیره معتبر نیست.')
@@ -50,6 +71,8 @@ def progress(request, unit_id):
                 return error('یادداشت باید متن باشه و کمتر از ۳۰ هزار نویسه داشته باشه.')
             row.note = data['note']
         if 'position' in data:
+            if not access['hasFullAccess'] and (type(data['position']) is not int or data['position'] > len(access['allowed_card_ids'])):
+                return error('ادامهٔ این درس با اشتراک باز می‌شه.', 403)
             if type(data['position']) is not int or not 0 <= data['position'] <= len(unit.get('learning_cards', [])) + len(unit.get('questions', [])) + 3:
                 return error('مرحلهٔ ذخیره معتبر نیست.')
             row.position = data['position']
@@ -60,8 +83,11 @@ def progress(request, unit_id):
         if 'card_id' in data:
             if data['card_id'] not in [c['id'] for c in unit.get('learning_cards', [])]:
                 return error('کارت پیدا نشد.')
+            if data['card_id'] not in access['allowed_card_ids']:
+                return error('این کارت در نمونهٔ رایگان نیست.', 403)
             row.viewed_cards = list(dict.fromkeys([*row.viewed_cards, data['card_id']]))
-        update_completion(row, unit)
+        if access['hasFullAccess']:
+            update_completion(row, unit)
         row.revision += 1
         row.save()
     return Response(serialize(row))
@@ -78,6 +104,8 @@ def answer(request, unit_id):
     unit = units().get(unit_id)
     if not unit:
         return error('این بخش پیدا نشد.', 404)
+    if not AcademyAccess(request.user).has_full_course(curriculum()[1][unit_id]['course_id']):
+        return error('برای تمرین و ارزیابی این درس، اشتراک مربوط رو فعال کن.', 403)
     if request.data.get('content_revision') != unit['revision']:
         return error('نسخهٔ درس تغییر کرده؛ صفحه رو تازه کن.', 409)
     qid, value = request.data.get('question_id'), request.data.get('answer')

@@ -197,6 +197,39 @@ export function Symbol({ motif }: { motif: Motif }) {
       );
   }
 }
+export function CourseBadge({ courseId }: { courseId: string }) {
+  const [motif, secondary, palette] = themes[courseId] ?? ['compass', 'idea', 'ocean'];
+  const [accent] = colours[palette];
+  return (
+    <span
+      className="catalog-course-art"
+      style={{ '--course-accent': accent } as CSSProperties}
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 100 100"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <Symbol motif={motif} />
+      </svg>
+      <svg
+        className="catalog-course-art-mini"
+        viewBox="0 0 100 100"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <Symbol motif={secondary} />
+      </svg>
+    </span>
+  );
+}
 export function CourseHero({
   course,
   pathTitle,

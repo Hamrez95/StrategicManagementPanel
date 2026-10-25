@@ -6,6 +6,7 @@ from django.test import TestCase
 from django.utils import timezone
 
 from modules.accounts.models import User
+from modules.workspaces.testing import grant_test_management_access
 from modules.customer_context.models import Segment
 from modules.evidence.models import Evidence
 from modules.workspaces.models import BillingAccount, Membership, Workspace
@@ -32,6 +33,7 @@ class MetricPersistenceTests(TestCase):
             email_verified_at=timezone.now(),
         )
         self.workspace = self.create_workspace(self.owner, "Workspace")
+        grant_test_management_access(self.owner)
         self.other_workspace = self.create_workspace(
             User.objects.create_user(
                 "other@example.test",

@@ -18,6 +18,11 @@ jobs:
       DJANGO_SECRET_KEY: synthetic-local-ci-only-key-with-many-characters-never-use-in-production-58310
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+      - name: Verify packaged API reference resources
+        run: node scripts/sync-api-resources.mjs --check
       - name: Build, migrate and test against PostgreSQL
         run: |
           docker compose -f infra/compose.dev.yml config --quiet
@@ -26,9 +31,10 @@ jobs:
           docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --noinput
           docker compose -f infra/compose.dev.yml run --rm api python manage.py migrate --check
           docker compose -f infra/compose.dev.yml run --rm api python manage.py makemigrations --check --dry-run
+          docker compose -f infra/compose.dev.yml run --rm api python manage.py audit_model_integrity --summary
           docker compose -f infra/compose.dev.yml run --rm api python manage.py check
           docker compose -f infra/compose.dev.yml run --rm api python manage.py test --noinput
-          docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid api python manage.py check --deploy --fail-level WARNING
+          docker compose -f infra/compose.dev.yml run --rm -e STRATINO_ENV=production -e DJANGO_DEBUG=0 -e DJANGO_ALLOWED_HOSTS=example.invalid -e STRATINO_PUBLIC_URL=https://example.invalid -e DJANGO_CSRF_TRUSTED_ORIGINS=https://example.invalid api python manage.py check --deploy --fail-level WARNING
       - name: HTTP readiness, private file persistence and local email
         run: |
           docker compose -f infra/compose.dev.yml up -d --wait api
@@ -52,7 +58,8 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: '24'
-      - run: git branch -f main origin/main
+      # Exercise both build modes from the candidate, not obsolete dependencies on an old branch.
+      - run: git branch -f feat/stratino-academy HEAD
       - name: Real Compose volumes, proxy readiness, cleanup and repeated run
         shell: pwsh
         run: ./scripts/test-full-stack-runner.ps1

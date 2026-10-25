@@ -1,15 +1,18 @@
+import json
 import math
 import re
 
 from django.core.exceptions import ValidationError as DjangoValidationError
+from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
 from django.http import Http404
 
 from modules.workspaces.models import Workspace
 from modules.workspaces.services import WorkspaceActionError, workspace_role
+from modules.workspaces.entitlements import require_workspace_feature
 
 from .calculation import evaluate_matrix
-from .models import Analysis
+from .models import Analysis, AnalysisRevision
 
 METHOD_VERSIONS = {'efe': 'efe-v1', 'ife': 'ife-v1'}
 MAX_ROWS = 100
@@ -130,6 +133,31 @@ def _payload(analysis):
     }
 
 
+def _capture_revision(analysis, actor):
+    AnalysisRevision.objects.create(workspace=analysis.workspace, source_record_id=analysis.pk,
+                                    revision=analysis.revision, recorded_by=actor,
+                                    snapshot=json.loads(json.dumps(_payload(analysis), cls=DjangoJSONEncoder)))
+
+
+def read_analysis_revisions(actor, workspace, record_id, before=None):
+    _access(actor, workspace)
+    rows = AnalysisRevision.objects.filter(workspace=workspace, source_record_id=record_id)
+    if before is not None:
+        try:
+            before = int(before)
+        except (TypeError, ValueError):
+            _invalid('before', 'نسخهٔ شروع فهرست معتبر نیست.')
+        if before < 1:
+            _invalid('before', 'نسخهٔ شروع فهرست معتبر نیست.')
+        rows = rows.filter(revision__lt=before)
+    page = list(rows.order_by('-revision')[:51])
+    if not page and not Analysis.objects.filter(workspace=workspace, pk=record_id).exists():
+        raise Http404('Analysis history is not available.')
+    return {'items': [{'revision': row.revision, 'snapshot': row.snapshot, 'recorded_at': row.recorded_at,
+                       'recorded_by': str(row.recorded_by_id) if row.recorded_by_id else None, 'is_backfill': row.is_backfill} for row in page[:50]],
+            'next_before': page[49].revision if len(page) > 50 else None}
+
+
 def _ensure_finalizable(output):
     if output['can_finalize']:
         return
@@ -172,6 +200,7 @@ def create_analysis(actor, workspace, body):
     output = evaluate_matrix(values['kind'], values['inputs']['rows'])
     if values['state'] == Analysis.State.FINALIZED:
         _ensure_finalizable(output)
+        require_workspace_feature(locked, 'can_finalize_analysis')
     analysis = Analysis.objects.create(
         workspace=locked,
         created_by=actor,
@@ -182,6 +211,7 @@ def create_analysis(actor, workspace, body):
         output=output,
         state=values['state'],
     )
+    _capture_revision(analysis, actor)
     return _payload(analysis)
 
 
@@ -205,6 +235,7 @@ def update_analysis(actor, workspace, record_id, body):
     output = evaluate_matrix(values['kind'], values['inputs']['rows'])
     if values['state'] == Analysis.State.FINALIZED:
         _ensure_finalizable(output)
+        require_workspace_feature(locked, 'can_finalize_analysis')
     analysis.schema_version = values['schema_version']
     analysis.method_version = values['method_version']
     analysis.inputs = values['inputs']
@@ -212,6 +243,7 @@ def update_analysis(actor, workspace, record_id, body):
     analysis.state = values['state']
     analysis.revision += 1
     analysis.save(update_fields=['schema_version', 'method_version', 'inputs', 'output', 'state', 'revision', 'updated_at'])
+    _capture_revision(analysis, actor)
     return _payload(analysis)
 
 

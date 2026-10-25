@@ -1,11 +1,14 @@
 from rest_framework.views import exception_handler as drf_exception_handler
+from rest_framework.exceptions import NotAuthenticated, AuthenticationFailed
 
 def exception_handler(exc, context):
     response = drf_exception_handler(exc, context)
     if response is None:
         return response
-    request = context.get('request')
-    if response.status_code == 403 and request and not getattr(request.user, 'is_authenticated', False):
+    # Authentication failures are 401; permission and CSRF failures stay 403.
+    # DRF resets request.user after a failed authenticator, so that field cannot
+    # distinguish a missing login from an authenticated session failing CSRF.
+    if response.status_code == 403 and isinstance(exc, (NotAuthenticated, AuthenticationFailed)):
         response.status_code = 401
     codes = exc.get_codes() if hasattr(exc, 'get_codes') else None
     code = codes if isinstance(codes, str) else getattr(exc, 'default_code', 'request_error')

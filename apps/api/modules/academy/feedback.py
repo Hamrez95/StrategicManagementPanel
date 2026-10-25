@@ -2,12 +2,20 @@
 from hashlib import sha256
 from urllib.parse import urlencode
 from uuid import UUID
+
+from django.db import transaction
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.throttling import SimpleRateThrottle
+
+from modules.operations.models import OperatorActionEvent
+from modules.operations.security import OperatorFeedbackPermission
+
+from .access import AcademyAccess
 from .content import units
 from .models import LearningFeedback
+from .projection import curriculum
 from .views import error
 
 
@@ -58,6 +66,9 @@ def feedback_submit(request, unit_id):
         query = {'step': 'summary'}
     if not target:
         return error('بخش مربوط به نظرت پیدا نشد؛ صفحه رو تازه کن.')
+    access = AcademyAccess(request.user).unit_access(curriculum()[1][unit_id])
+    if not access['hasAccess'] or (not access['hasFullAccess'] and kind != 'summary' and (kind != 'card' or target_id not in access['allowed_card_ids'])):
+        return error('برای این بخش دسترسی لازم رو نداری.', 403)
     values = dict(user=request.user if request.user.is_authenticated else None,
         unit_id=unit_id, unit_title=unit.get('title', unit_id), content_revision=unit['revision'],
         target_kind=kind, target_id=target_id, target_title=target.get('title', 'پرسش' if kind == 'question' else 'فعالیت درس'),
@@ -81,7 +92,7 @@ def serialize_feedback(row):
 
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser])
+@permission_classes([OperatorFeedbackPermission])
 def feedback_inbox(request):
     status = request.query_params.get('status', 'new')
     if status not in {'new', 'reviewed', 'resolved', 'all'}:
@@ -97,14 +108,19 @@ def feedback_inbox(request):
 
 
 @api_view(['PATCH'])
-@permission_classes([IsAdminUser])
+@permission_classes([OperatorFeedbackPermission])
+@transaction.atomic
 def feedback_update(request, feedback_id):
     data = request.data
     if not isinstance(data, dict) or set(data) != {'status'} or not isinstance(data.get('status'), str) or data['status'] not in {'new', 'reviewed', 'resolved'}:
         return error('وضعیت بررسی معتبر نیست.')
-    row = LearningFeedback.objects.filter(pk=feedback_id).first()
+    row = LearningFeedback.objects.select_for_update().filter(pk=feedback_id).first()
     if not row:
         return error('این نظر پیدا نشد.', 404)
+    before = row.status
     row.status = data['status']
     row.save(update_fields=['status', 'updated_at'])
+    if before != row.status:
+        OperatorActionEvent.objects.create(actor=request.user, event_type='feedback_triaged',
+                                          target=str(row.pk), before=before, after=row.status)
     return Response(serialize_feedback(row))

@@ -8,6 +8,9 @@ import { App } from './App';
 import { ErrorBoundary } from './ErrorBoundary';
 import { readDevicePreferences, type DevicePreferences } from './features/account/api';
 import './styles/app.css';
+import './styles/management.css';
+import './styles/motion.css';
+import { PointerHighlights } from './features/chrome/PointerHighlights';
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: false, staleTime: 0, refetchOnWindowFocus: false } },
 });
@@ -31,6 +34,7 @@ function Application() {
             dir={preferences.language === 'en' ? 'ltr' : 'rtl'}
             motion={reducedMotion ? 'reduced' : 'auto'}
           >
+            <PointerHighlights disabled={reducedMotion} />
             <ErrorBoundary>
               <App />
             </ErrorBoundary>

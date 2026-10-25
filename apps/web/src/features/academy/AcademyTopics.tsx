@@ -7,7 +7,7 @@ import type { Catalog } from './connectedData';
 import { faNumber } from './connectedData';
 
 type Topic = Catalog['paths'][number];
-const artwork: Record<string, { motif: Motif; color: string; motion: string }> = {
+export const topicArtwork: Record<string, { motif: Motif; color: string; motion: string }> = {
   GENERAL: { motif: 'ledger', color: '#5f9fea', motion: 'page' },
   S01: { motif: 'compass', color: '#ac8aef', motion: 'turn' },
   S02: { motif: 'finance', color: '#46b5a0', motion: 'rise' },
@@ -110,12 +110,12 @@ export function AcademyTopics({
           aria-label="انتخاب حوزهٔ یادگیری"
         >
           {paths.map((item) => {
-            const art = artwork[item.id] ?? artwork.GENERAL;
+            const art = topicArtwork[item.id] ?? topicArtwork.GENERAL;
             return (
               <button
                 type="button"
                 key={item.id}
-                className="topic-tile"
+                className={`topic-tile${item.access && !item.access.hasAccess ? ' topic-tile--locked' : ''}`}
                 aria-pressed={selected === item.id}
                 style={{ '--topic-color': art.color } as CSSProperties}
                 data-motion={art.motion}
@@ -137,6 +137,7 @@ export function AcademyTopics({
                   <span className="topic-tile-title">{item.title}</span>
                   <span className="topic-tile-meta">
                     {faNumber(item.course_ids.length)} مجموعهٔ آموزشی
+                    {item.access && !item.access.hasAccess ? ' · قفل' : ''}
                   </span>
                 </span>
                 <span className="topic-tile-selection" aria-hidden="true">

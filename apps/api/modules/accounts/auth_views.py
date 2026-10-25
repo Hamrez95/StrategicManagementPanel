@@ -21,7 +21,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 from .models import AccountPreferences, AuthRateLimit, User
-from .profile_completion import require_profile_on_login
+from .profile_completion import require_profile_on_login, normalize_phone
+from .avatar_views import avatar_payload, resolve_avatar
 from modules.core.mailer import deliver_email
 from modules.workspaces.services import workspace_session_payload
 
@@ -187,6 +188,7 @@ def session_view(request):
                 'name': user.display_name or user.get_full_name() or user.email,
                 'is_staff': bool(user.is_staff),
                 'profile_required': bool(user.requires_profile_completion),
+                'avatar': avatar_payload(user),
             },
             'workspaces': workspace_session_payload(user),
         }
@@ -382,7 +384,14 @@ def _authenticated_account(request):
 
 def _profile_payload(user):
     return {
+        'user_id': str(user.pk),
         'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'phone_number': user.phone_number,
+        'phone_verified': bool(user.phone_verified_at),
+        'avatar': avatar_payload(user),
+        'avatar_id': user.avatar_id,
         'display_name': user.display_name,
         'role_title': user.role_title,
         'pending_email': user.pending_email,
@@ -395,13 +404,15 @@ def account_profile(request):
     if user is None:
         return _error('برای ادامه وارد حساب شوید.', 401, 'not_authenticated')
     if request.method == 'GET':
-        return _response(_profile_payload(user))
+        return _response(_profile_payload(user), headers={'Cache-Control': 'private, no-store'})
     body = _json_body(request)
     if body is None:
         return _error('درخواست قابل خواندن نیست.', 400, 'invalid_json')
-    allowed_fields = {'display_name', 'role_title'}
+    allowed_fields = {'display_name', 'role_title', 'first_name', 'last_name', 'phone_number', 'avatar_id', 'expected_user_id'}
     if body.keys() - allowed_fields:
         return _error('فقط اطلاعات شخصی قابل ویرایش است.', 400, 'invalid_fields')
+    if 'expected_user_id' in body and body['expected_user_id'] != str(user.pk):
+        return _error('حساب فعال عوض شده؛ صفحه رو تازه کن.', 409, 'account_changed')
     errors = {}
     for field, maximum in [('display_name', 80), ('role_title', 80)]:
         if field not in body:
@@ -411,10 +422,36 @@ def account_profile(request):
             errors[field] = ['این مقدار را کوتاه‌تر وارد کنید.']
         else:
             setattr(user, field, value.strip())
+    for field in ('first_name', 'last_name'):
+        if field in body:
+            value = body[field]
+            if not isinstance(value, str) or not 1 <= len(value.strip()) <= 150 or any(ord(c) < 32 for c in value):
+                errors[field] = ['این قسمت رو تکمیل کن؛ حداکثر ۱۵۰ نویسه.']
+            else:
+                setattr(user, field, value.strip())
+    if 'phone_number' in body:
+        phone = normalize_phone(body['phone_number'])
+        if not phone:
+            errors['phone_number'] = ['شماره موبایل رو با ۰۹ یا کد کشور وارد کن.']
+        else:
+            if phone != user.phone_number:
+                user.phone_verified_at = None
+            user.phone_number = phone
+    if 'avatar_id' in body:
+        try:
+            user.avatar = resolve_avatar(body['avatar_id'], user.avatar_id)
+        except ValueError as error:
+            errors['avatar_id'] = [str(error)]
     if errors:
         return _error('اطلاعات را بررسی کنید.', 400, 'validation_error', errors)
-    user.save(update_fields=[field for field in ('display_name', 'role_title') if field in body])
-    return _response(_profile_payload(user))
+    changed = [field for field in ('display_name', 'role_title', 'first_name', 'last_name', 'phone_number') if field in body]
+    if 'phone_number' in body:
+        changed.append('phone_verified_at')
+    if 'avatar_id' in body:
+        changed.append('avatar')
+    if changed:
+        user.save(update_fields=changed)
+    return _response(_profile_payload(user), headers={'Cache-Control': 'private, no-store'})
 
 
 def _preferences_payload(preferences, device_sync_pending=False):

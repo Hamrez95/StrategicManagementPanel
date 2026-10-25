@@ -5,6 +5,7 @@ import { Button, EmptyState, Notice, Skeleton, useUIAppearance } from '@stratino
 import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { useWorkspaceDirtyGuard } from '../workspaces/switchContext';
+import { ReportInsights } from './ReportInsights';
 import {
   createWorkspaceExport,
   downloadWorkspaceExport,
@@ -73,6 +74,14 @@ function statusLabel(value: unknown, english: boolean) {
     medium: { fa: 'متوسط', en: 'Medium' },
     high: { fa: 'زیاد', en: 'High' },
     untested: { fa: 'آزمون‌نشده', en: 'Untested' },
+    observed: { fa: 'ثبت‌شده', en: 'Observed' },
+    unknown: { fa: 'نامشخص', en: 'Unknown' },
+    invalid: { fa: 'نامعتبر', en: 'Invalid' },
+    not_applicable: { fa: 'کاربرد ندارد', en: 'Not applicable' },
+    available: { fa: 'در دسترس', en: 'Available' },
+    unverified: { fa: 'بررسی‌نشده', en: 'Unverified' },
+    revoked: { fa: 'مجوز لغو شده', en: 'Revoked' },
+    verified: { fa: 'محاسبه‌شده در سرور', en: 'Calculated on server' },
     supported: { fa: 'پشتیبانی‌شده', en: 'Supported' },
     interview: { fa: 'مصاحبه', en: 'Interview' },
     sales: { fa: 'فروش', en: 'Sales' },
@@ -240,6 +249,212 @@ function AnalysisTable({ rows, english }: { rows: RecordValue[]; english: boolea
   );
 }
 
+function decimalLabel(value: unknown, english: boolean) {
+  if (typeof value !== 'string' || !/^-?\d+(\.\d+)?$/.test(value)) return '—';
+  return english
+    ? value
+    : value.replace(/\d/g, (digit) => '۰۱۲۳۴۵۶۷۸۹'[Number(digit)]).replace('.', '٫');
+}
+
+function CanonicalReport({ data, english }: { data: ReportEnvelope['data']; english: boolean }) {
+  const binding = (value: unknown) =>
+    ({
+      net_revenue: english ? 'Net revenue' : 'درآمد خالص',
+      variable_costs: english ? 'Variable costs' : 'هزینه‌های متغیر',
+    })[text(value)] || (english ? 'Recorded input' : 'ورودی ثبت‌شده');
+  const unit = (value: unknown) =>
+    text(value) === 'currency' ? (english ? 'Monetary amount' : 'مبلغ') : text(value);
+  const verification = record(data.report_verification);
+  const runs = records(data.calculation_runs);
+  return (
+    <>
+      <section className="report-section" aria-labelledby="report-observations-title">
+        <h3 id="report-observations-title">
+          {english ? 'Recorded observations' : 'مشاهده‌های ثبت‌شده'}
+        </h3>
+        {!data.observations?.length && (
+          <p>
+            {english ? 'No numeric observations have been recorded.' : 'مشاهدهٔ عددی ثبت نشده.'}
+          </p>
+        )}
+        {records(data.observations).map((item) => (
+          <article className="report-entry" key={text(item.id)}>
+            <h4>{binding(item.binding_id)}</h4>
+            <p>
+              {statusLabel(item.state, english)} ·{' '}
+              <bdi dir="auto">{decimalLabel(item.value, english)}</bdi> · {unit(item.unit)}{' '}
+              <bdi dir="ltr">{text(item.currency)}</bdi>
+            </p>
+            <p>
+              {english ? 'Period' : 'دوره'}: {dateOnlyLabel(text(item.period_start), english)} /{' '}
+              {dateOnlyLabel(text(item.period_end), english)}
+            </p>
+            <p>
+              {english ? 'Accounting basis' : 'مبنای حسابداری'}:{' '}
+              <bdi dir="auto">{text(item.accounting_basis)}</bdi>
+            </p>
+            {text(item.cost_scope) && (
+              <p>
+                {english ? 'Included variable costs' : 'دامنهٔ هزینهٔ متغیر'}:{' '}
+                <bdi dir="auto">{text(item.cost_scope)}</bdi>
+              </p>
+            )}
+            <p>
+              {english ? 'Source / revision' : 'منبع / نسخه'}:{' '}
+              <bdi dir="auto">{text(item.source_id)}</bdi> /{' '}
+              <bdi dir="auto">{text(item.source_revision)}</bdi>
+            </p>
+            {text(item.reason) && <p dir="auto">{text(item.reason)}</p>}
+          </article>
+        ))}
+      </section>
+      <section className="report-section" aria-labelledby="report-metrics-title">
+        <h3 id="report-metrics-title">
+          {english ? 'Verified metric calculations' : 'محاسبات شاخص‌ها'}
+        </h3>
+        {!runs.length && (
+          <p>
+            {english
+              ? 'No server calculation runs have been recorded.'
+              : 'اجرای محاسبه‌ای در سرور ثبت نشده.'}
+          </p>
+        )}
+        {runs.map((run) => {
+          const result = records(verification.metrics).find((item) => item.run_id === run.id);
+          return (
+            <article className="report-entry" key={text(run.id)}>
+              <h4>{english ? 'Contribution amount' : 'مبلغ حاشیهٔ مشارکت'}</h4>
+              <p>
+                {english ? 'Method / knowledge release' : 'روش / نسخهٔ دانش'}:{' '}
+                <bdi dir="ltr">{text(run.method_revision)}</bdi> /{' '}
+                <bdi dir="ltr">{text(run.knowledge_release_id)}</bdi>
+              </p>
+              <p>
+                {english ? 'Period / accounting basis' : 'دوره / مبنای حسابداری'}:{' '}
+                {dateOnlyLabel(text(run.period_start), english)} /{' '}
+                {dateOnlyLabel(text(run.period_end), english)} ·{' '}
+                <bdi dir="auto">{text(run.accounting_basis)}</bdi>
+              </p>
+              <p>
+                {english ? 'Included variable costs' : 'دامنهٔ هزینهٔ متغیر'}:{' '}
+                <bdi dir="auto">{text(run.cost_scope)}</bdi>
+              </p>
+              {result ? (
+                <>
+                  <p>
+                    {statusLabel(result.status, english)} ·{' '}
+                    <bdi dir="auto">{decimalLabel(result.value, english)}</bdi> ·{' '}
+                    {unit(result.unit)} <bdi dir="ltr">{text(result.currency)}</bdi>
+                  </p>
+                  {Array.isArray(result.missing_inputs) && result.missing_inputs.length > 0 && (
+                    <p>
+                      {english ? 'Missing inputs' : 'ورودی‌های ناقص'}:{' '}
+                      {result.missing_inputs.map(binding).join('، ')}
+                    </p>
+                  )}
+                  {text(result.reason) && <p dir="auto">{text(result.reason)}</p>}
+                </>
+              ) : (
+                <p>
+                  {english
+                    ? 'A professional recalculation has not been requested.'
+                    : 'بازمحاسبهٔ حرفه‌ای درخواست نشده.'}
+                </p>
+              )}
+            </article>
+          );
+        })}
+      </section>
+      <section className="report-section" aria-labelledby="report-evidence-title">
+        <h3 id="report-evidence-title">{english ? 'Claims and evidence' : 'ادعاها و شواهد'}</h3>
+        {!data.claims?.length && !data.evidence?.length && (
+          <p>{english ? 'No claims or evidence have been recorded.' : 'ادعا یا شاهدی ثبت نشده.'}</p>
+        )}
+        {records(data.claims).map((item) => (
+          <article className="report-entry" key={text(item.id)}>
+            <h4 dir="auto">{text(item.statement)}</h4>
+            <p>
+              {statusLabel(item.status, english)} ·{' '}
+              {
+                {
+                  fact: english ? 'Fact' : 'واقعیت',
+                  estimate: english ? 'Estimate' : 'برآورد',
+                  hypothesis: english ? 'Hypothesis' : 'فرضیه',
+                  assumption: english ? 'Assumption' : 'فرض',
+                }[text(item.claim_type)]
+              }
+            </p>
+            {records(data.confidence_assessments)
+              .filter((assessment) => assessment.claim_id === item.id)
+              .map((assessment) => (
+                <p key={text(assessment.id)}>
+                  {english ? 'Confidence review' : 'بررسی اطمینان'}:{' '}
+                  {statusLabel(assessment.confidence, english)} ·{' '}
+                  <bdi dir="auto">{text(assessment.rationale)}</bdi>
+                </p>
+              ))}
+          </article>
+        ))}
+        {records(data.evidence).map((item) => (
+          <article className="report-entry" key={text(item.id)}>
+            <h4 dir="auto">{text(item.provenance)}</h4>
+            <p>
+              {statusLabel(item.permission_status, english)} · {english ? 'Revision' : 'نسخه'}{' '}
+              {numberLabel(item.revision, english, 0)}
+            </p>
+            <p>
+              {english ? 'Source / revision' : 'منبع / نسخه'}:{' '}
+              <bdi dir="auto">{text(item.source_id)}</bdi> /{' '}
+              <bdi dir="auto">{text(item.source_revision)}</bdi>
+            </p>
+            <p>
+              {english ? 'Observed' : 'زمان مشاهده'}: {dateLabel(text(item.observed_at), english)}
+            </p>
+            {text(item.method) && <p dir="auto">{text(item.method)}</p>}
+            {text(item.limitations) && (
+              <p>
+                {english ? 'Limitations' : 'محدودیت‌ها'}:{' '}
+                <bdi dir="auto">{text(item.limitations)}</bdi>
+              </p>
+            )}
+          </article>
+        ))}
+      </section>
+      <section className="report-section" aria-labelledby="report-history-title">
+        <h3 id="report-history-title">
+          {english ? 'Analysis revision history' : 'تاریخچهٔ نسخه‌های تحلیل'}
+        </h3>
+        {!data.analysis_history?.length && (
+          <p>{english ? 'No retained revisions.' : 'نسخه‌ای در تاریخچه ثبت نشده.'}</p>
+        )}
+        {records(data.analysis_history).map((item) => {
+          const saved = record(item.snapshot);
+          return (
+            <article className="report-entry" key={text(item.id)}>
+              <h4>
+                <bdi dir="ltr">{text(saved.kind).toUpperCase()}</bdi> ·{' '}
+                {english ? 'Revision' : 'نسخه'} {numberLabel(item.revision, english, 0)}
+              </h4>
+              <p>
+                {dateLabel(text(item.recorded_at), english)} · {statusLabel(saved.state, english)} ·{' '}
+                <bdi dir="ltr">{text(saved.method_version)}</bdi>
+              </p>
+              {item.is_backfill === true && (
+                <p>
+                  {english
+                    ? 'Initial retained version; earlier history is unknown.'
+                    : 'اولین نسخهٔ نگهداری‌شده؛ تاریخچهٔ قبل از اون نامشخصه.'}
+                </p>
+              )}
+              <AnalysisTable rows={records(record(saved.inputs).rows)} english={english} />
+            </article>
+          );
+        })}
+      </section>
+    </>
+  );
+}
+
 function ReportDocument({ snapshot, english }: { snapshot: ReportEnvelope; english: boolean }) {
   const data = snapshot.data;
   const profile = record(data.workspace_profile);
@@ -254,13 +469,15 @@ function ReportDocument({ snapshot, english }: { snapshot: ReportEnvelope; engli
       return [text(template.id), text(title[english ? 'en' : 'fa'])] as const;
     }),
   );
-  const analyses = records(data.analyses);
+  const verification = record(data.report_verification);
+  const professional = verification.calculated_server_side === true;
+  const analyses = records(professional ? verification.analyses : data.analyses);
   const factors = records(data.strategy_factors);
   const options = records(data.strategy_options);
-  const products = records(profile.products);
-  const customerSegments = records(profile.customer_segments);
+  const products = records(data.products ?? profile.products);
+  const customerSegments = records(data.segments ?? profile.customer_segments);
   const profileGoals = records(profile.goals);
-  const icps = records(profile.icps);
+  const icps = records(data.icps ?? profile.icps);
   const workspace = data.workspace;
   const heading = text(profile.company_name) || workspace.name;
 
@@ -485,7 +702,19 @@ function ReportDocument({ snapshot, english }: { snapshot: ReportEnvelope; engli
                   </h4>
                   <span>{statusLabel(analysis.state, english)}</span>
                 </div>
-                <MatrixChart analysis={analysis} english={english} />
+                <p>
+                  {english ? 'Method / revision' : 'روش / نسخه'}:{' '}
+                  <bdi dir="ltr">{text(analysis.method_version)}</bdi> ·{' '}
+                  {numberLabel(analysis.revision, english, 0)}
+                </p>
+                {professional && <MatrixChart analysis={analysis} english={english} />}
+                {!professional && (
+                  <p className="report-muted">
+                    {english
+                      ? 'Recorded inputs; professional calculation has not been requested.'
+                      : 'ورودی‌های ثبت‌شده؛ محاسبهٔ گزارش حرفه‌ای درخواست نشده.'}
+                  </p>
+                )}
                 <AnalysisTable rows={rows} english={english} />
               </article>
             );
@@ -705,7 +934,13 @@ function ReportDocument({ snapshot, english }: { snapshot: ReportEnvelope; engli
         </div>
       </section>
 
+      {snapshot.schema_version === 2 && <CanonicalReport data={data} english={english} />}
       <footer className="report-footer">
+        {professional && (
+          <p>
+            {english ? 'Report status' : 'وضعیت گزارش'}: {statusLabel(verification.state, english)}
+          </p>
+        )}
         <p>
           {english
             ? `Workspace revision ${numberLabel(data.workspace.revision, true, 0)} · method `
@@ -732,7 +967,7 @@ export default function ReportsPage() {
   const [creating, setCreating] = useState(false);
   const [downloading, setDownloading] = useState<'json' | 'csv' | 'zip' | ''>('');
   const [actionError, setActionError] = useState('');
-  const createKey = useRef('');
+  const createKey = useRef<{ workspaceId: string; purpose: string; key: string } | null>(null);
   useWorkspaceDirtyGuard(`workspace-report-${workspaceId}`, creating);
 
   const exportsQuery = useQuery({
@@ -751,16 +986,25 @@ export default function ReportsPage() {
     enabled: Boolean(workspace && selectedId),
   });
 
-  async function createReport() {
+  async function createReport(purpose: 'raw' | 'professional' = 'raw') {
     if (creating) return;
     setCreating(true);
     setActionError('');
-    if (!createKey.current)
-      createKey.current =
-        globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    if (
+      !createKey.current ||
+      createKey.current.workspaceId !== workspaceId ||
+      createKey.current.purpose !== purpose
+    )
+      createKey.current = {
+        workspaceId,
+        purpose,
+        key:
+          globalThis.crypto?.randomUUID?.() ??
+          `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      };
     try {
-      const snapshot = await createWorkspaceExport(workspaceId, createKey.current);
-      createKey.current = '';
+      const snapshot = await createWorkspaceExport(workspaceId, createKey.current.key, purpose);
+      createKey.current = null;
       setSelectedId(snapshot.id);
       queryClient.setQueryData(queryKeys.workspace.export(workspaceId, snapshot.id), snapshot);
       await queryClient.invalidateQueries({ queryKey: queryKeys.workspace.exports(workspaceId) });
@@ -796,8 +1040,13 @@ export default function ReportsPage() {
     }
   }
 
-  function printReport() {
-    if (snapshotQuery.data?.snapshot) window.print();
+  async function printReport() {
+    try {
+      await snapshotQuery.refetch({ throwOnError: true });
+      window.print();
+    } catch (reason) {
+      setActionError(reason instanceof Error ? reason.message : 'دسترسی گزارش رو دوباره بررسی کن.');
+    }
   }
 
   if (!workspace) {
@@ -840,7 +1089,9 @@ export default function ReportsPage() {
         </div>
       </header>
 
+      <ReportInsights key={workspaceId} report={report} english={english} />
       <section
+        id="report-actions"
         className="reports-controls"
         aria-label={english ? 'Report actions' : 'عملیات گزارش'}
       >
@@ -851,7 +1102,16 @@ export default function ReportsPage() {
             pendingLabel={english ? 'Preparing snapshot…' : 'در حال ثبت نسخه گزارش…'}
             onClick={() => void createReport()}
           >
-            {english ? 'Create report snapshot' : 'ساخت نسخهٔ تازه گزارش'}
+            {english ? 'Save personal data snapshot' : 'ثبت نسخهٔ داده‌های شخصی'}
+          </Button>
+          <Button
+            variant="secondary"
+            disabled={creating}
+            onClick={() => void createReport('professional')}
+          >
+            {english
+              ? 'Professional report · special subscription'
+              : 'گزارش حرفه‌ای با اشتراک ویژه'}
           </Button>
           {creating && (
             <span className="reports-progress" role="status">
@@ -951,7 +1211,7 @@ export default function ReportsPage() {
               >
                 {english ? 'ZIP with files' : 'ZIP همراه فایل‌ها'}
               </Button>
-              <Button variant="quiet" onClick={printReport}>
+              <Button variant="quiet" onClick={() => void printReport()}>
                 {english ? 'Print / save PDF' : 'چاپ / ذخیره PDF'}
               </Button>
             </div>

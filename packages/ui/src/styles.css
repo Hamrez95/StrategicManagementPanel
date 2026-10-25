@@ -250,7 +250,7 @@
   position: fixed;
   inset-block-end: var(--space-6);
   inset-inline-end: var(--space-6);
-  inline-size: min(400px, calc(100vw - 32px));
+  inline-size: min(400px, calc(100vw - 2 * var(--space-6)));
   display: grid;
   gap: var(--space-3);
   list-style: none;

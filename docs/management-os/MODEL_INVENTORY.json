@@ -1,0 +1,6249 @@
+{
+  "models": [
+    {
+      "model": "academy.AcademyArea",
+      "table": "academy_academyarea",
+      "fields": [
+        {
+          "name": "id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "general",
+            "specialty",
+            "supplement"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyCard",
+      "table": "academy_academycard",
+      "fields": [
+        {
+          "name": "id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "unit",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyUnit",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyCoupon",
+      "table": "academy_academycoupon",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "code",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "percent",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "starts_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "ends_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "academy_coupon_percent_valid",
+        "academy_coupon_window_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyCourse",
+      "table": "academy_academycourse",
+      "fields": [
+        {
+          "name": "id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "area",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyArea",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyOrder",
+      "table": "academy_academyorder",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "request_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "requested",
+            "pending",
+            "paid",
+            "cancelled",
+            "refunded"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "paid_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyOrderArea",
+      "table": "academy_academyorderarea",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "item",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyOrderItem",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "area",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyArea",
+          "on_delete": "PROTECT"
+        }
+      ],
+      "constraints": [
+        "academy_order_area_unique"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyOrderItem",
+      "table": "academy_academyorderitem",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyOrder",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "plan",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyPlan",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "plan_title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "plan_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "unit_price",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "original_unit_price",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "subtotal",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "discount_amount",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "total",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "coupon",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyCoupon",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "coupon_code",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "duration_days",
+          "type": "PositiveIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademyPlan",
+      "table": "academy_academyplan",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "code",
+          "type": "SlugField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "free",
+            "full",
+            "general",
+            "specialty"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "price",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sale_price",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "duration_days",
+          "type": "PositiveIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "academy_plan_duration_positive",
+        "academy_sale_price_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "academy.AcademySubscription",
+      "table": "academy_academysubscription",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "plan",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyPlan",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "coverage",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "full",
+            "general",
+            "specialty"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order_item",
+          "type": "OneToOneField",
+          "nullable": true,
+          "unique": true,
+          "choices": [],
+          "target": "academy.AcademyOrderItem",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "active",
+            "revoked"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "starts_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "ends_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "granted_by",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "academy_subscription_valid_window"
+      ],
+      "indexes": [
+        "academy_active_access"
+      ]
+    },
+    {
+      "model": "academy.AcademyUnit",
+      "table": "academy_academyunit",
+      "fields": [
+        {
+          "name": "id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "course",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyCourse",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "lesson",
+            "stage_review",
+            "final_review"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "order",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.FreeSample",
+      "table": "academy_freesample",
+      "fields": [
+        {
+          "name": "card",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "academy.AcademyCard",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "academy.LearningFeedback",
+      "table": "academy_learningfeedback",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "submission_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "SET_NULL"
+        },
+        {
+          "name": "unit_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "unit_title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "content_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_text",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "content_path",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "category",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "correction",
+            "question",
+            "suggestion"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "message",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "new",
+            "reviewed",
+            "resolved"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": [
+        "academy_feedback_inbox"
+      ]
+    },
+    {
+      "model": "academy.LearningProgress",
+      "table": "academy_learningprogress",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "unit_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "content_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "note",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "position",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "viewed_cards",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "responses",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "activity_response",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "bookmarked",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "completed",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "academy_user_unit_revision"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "academy.SubscriptionArea",
+      "table": "academy_subscriptionarea",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "subscription",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademySubscription",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "area",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "academy.AcademyArea",
+          "on_delete": "PROTECT"
+        }
+      ],
+      "constraints": [
+        "academy_subscription_area_unique"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "accounts.AccountAvatar",
+      "table": "accounts_accountavatar",
+      "fields": [
+        {
+          "name": "id",
+          "type": "SlugField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "character_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "leadership_note",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "category",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sprite_index",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sprite_sheet",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_url",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sort_order",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "account_avatar_sprite_bounds",
+        "account_avatar_sheet_position"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "accounts.AccountPreferences",
+      "table": "accounts_accountpreferences",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "theme",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "system",
+            "light",
+            "dark"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "language",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "fa",
+            "en"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "motion",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "auto",
+            "reduced"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "show_tutorial",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "device_synced_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "accounts.AuthRateLimit",
+      "table": "accounts_authratelimit",
+      "fields": [
+        {
+          "name": "bucket_hash",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "window_started_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "attempts",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "accounts.GoogleIdentity",
+      "table": "accounts_googleidentity",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "user",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "subject",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "accounts.GoogleLoginChallenge",
+      "table": "accounts_googleloginchallenge",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "nonce_hash",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "binding_hash",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "expires_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "used_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "accounts.User",
+      "table": "accounts_user",
+      "fields": [
+        {
+          "name": "password",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "last_login",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_superuser",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "first_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "last_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_staff",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "date_joined",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "email",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "email_verified_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "email_verification_nonce",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "display_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "role_title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "avatar",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.AccountAvatar",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "phone_number",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "phone_verified_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "profile_completed_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "requires_profile_completion",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "marketing_consent_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "pending_email",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "email_change_nonce",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "user_email_case_insensitive"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "analysis.Analysis",
+      "table": "analysis_analysis",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "efe",
+            "ife"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "schema_version",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "method_version",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "inputs",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "output",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "state",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "draft",
+            "finalized"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "analysis_workspace_kind_unique",
+        "analysis_revision_gte_1",
+        "analysis_schema_supported",
+        "analysis_kind_valid",
+        "analysis_state_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "analysis.AnalysisRevision",
+      "table": "analysis_analysisrevision",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "source_record_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "recorded_by",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "recorded_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_backfill",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "analysis_history_revision_uniq",
+        "analysis_history_revision_gte1"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "customer_context.IdealCustomerProfile",
+      "table": "customer_context_idealcustomerprofile",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "persona_role",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "persona_decision_role",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "persona_goals",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "persona_pains",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "problem",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "legacy_segment_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "legacy_evidence_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "legacy_assumptions_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "cust_icp_revision_gte1"
+      ],
+      "indexes": [
+        "customer_icp_name_idx"
+      ]
+    },
+    {
+      "model": "customer_context.LegacyProfileIdentityMap",
+      "table": "customer_context_legacyprofileidentitymap",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "source_namespace",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "entity_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "product",
+            "segment",
+            "icp"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "legacy_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_position",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_profile_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "product",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Product",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "icp",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.IdealCustomerProfile",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "cust_legacy_source_id_uniq",
+        "cust_legacy_product_uniq",
+        "cust_legacy_segment_uniq",
+        "cust_legacy_icp_uniq",
+        "cust_legacy_type_valid",
+        "cust_legacy_fields_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "customer_context.Product",
+      "table": "customer_context_product",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "description",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "problem_solved",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_customer_legacy",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "cust_product_revision_gte1"
+      ],
+      "indexes": [
+        "customer_product_name_idx"
+      ]
+    },
+    {
+      "model": "customer_context.ProfileMigrationBatch",
+      "table": "customer_context_profilemigrationbatch",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "idempotency_key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_profile_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "migrated_profile_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_digest",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_backup",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "plan_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "applied_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "cust_migration_idempotency_uniq",
+        "cust_migration_revisions_gte1",
+        "cust_migration_identity_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "customer_context.Segment",
+      "table": "customer_context_segment",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "description",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "needs",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "buying_roles",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "industry",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "organization_size",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "geography",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "buying_context",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "cust_segment_revision_gte1"
+      ],
+      "indexes": [
+        "customer_segment_name_idx"
+      ]
+    },
+    {
+      "model": "documents.DocumentAttachment",
+      "table": "documents_documentattachment",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "document",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "documents.DocumentRecord",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "request_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "original_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "extension",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "media_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "version",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reserved_size_bytes",
+          "type": "PositiveBigIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "size_bytes",
+          "type": "PositiveBigIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sha256",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "storage_key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "reserved",
+            "uploading",
+            "cancel_requested",
+            "quarantined",
+            "ready",
+            "rejected"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "expires_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "document_attachment_version_unique",
+        "document_attachment_request_unique",
+        "document_attachment_version_gte1",
+        "document_attachment_reserved_size_gt0",
+        "document_attachment_size_gte0"
+      ],
+      "indexes": [
+        "document_attachment_quota_idx",
+        "document_attachment_expiry_idx"
+      ]
+    },
+    {
+      "model": "documents.DocumentEvent",
+      "table": "documents_documentevent",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "document",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "documents.DocumentRecord",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "actor",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "event_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "changes",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": [
+        "document_event_recent_idx"
+      ]
+    },
+    {
+      "model": "documents.DocumentRecord",
+      "table": "documents_documentrecord",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "template_id",
+          "type": "SlugField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "stage",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "industry",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "reviewer",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "SET_NULL"
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "draft",
+            "review",
+            "ready"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "content",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "content_version",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "updated_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "document_workspace_template_unique",
+        "document_version_gte1",
+        "document_revision_gte1"
+      ],
+      "indexes": [
+        "document_workspace_status_idx"
+      ]
+    },
+    {
+      "model": "evidence.Claim",
+      "table": "evidence_claim",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "statement",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "claim_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "fact",
+            "estimate",
+            "hypothesis",
+            "assumption"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "active",
+            "superseded",
+            "archived"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "scope_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "workspace",
+            "segment"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "period_start",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "period_end",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "expires_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "evidence_claim_revision_gte1",
+        "evidence_claim_type_valid",
+        "evidence_claim_status_valid",
+        "evidence_claim_scope_valid",
+        "evidence_claim_period_valid"
+      ],
+      "indexes": [
+        "evidence_claim_status_idx"
+      ]
+    },
+    {
+      "model": "evidence.ClaimEvidenceLink",
+      "table": "evidence_claimevidencelink",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "claim",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "evidence.Claim",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "evidence",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "evidence.Evidence",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "polarity",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "supports",
+            "refutes",
+            "qualifies"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "rationale",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reviewer",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reviewed_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "evidence_claim_source_link_uniq",
+        "evidence_link_revision_gte1",
+        "evidence_link_polarity_valid",
+        "evidence_link_rationale_required"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "evidence.ConfidenceAssessment",
+      "table": "evidence_confidenceassessment",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "claim",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "evidence.Claim",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "claim_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "confidence",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "insufficient",
+            "low",
+            "medium",
+            "high"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "freshness",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "current",
+            "stale",
+            "unknown",
+            "unavailable"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "axis_reviews",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "contradiction_status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "none",
+            "resolved",
+            "unresolved"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "contradiction_reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "essential_information_missing",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "missing_information_reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "limitations_known",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "limitations_reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "rationale",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "rule_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_trace",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reviewer",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "reviewed_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "confidence_claim_revision_uniq",
+        "confidence_revisions_gte1",
+        "confidence_level_valid",
+        "confidence_freshness_valid",
+        "confidence_contradiction_valid",
+        "confidence_review_text_required",
+        "confidence_missing_reason_required",
+        "confidence_limits_reason_required"
+      ],
+      "indexes": [
+        "confidence_claim_revision_idx"
+      ]
+    },
+    {
+      "model": "evidence.Evidence",
+      "table": "evidence_evidence",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "origin",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "internal_data",
+            "external_evidence",
+            "experiment",
+            "customer_interview",
+            "expert_judgment"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "provenance",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "method",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "observed_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "imported_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "review_due",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "period_start",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "period_end",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "sample",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "population",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "geography",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "limitations",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "permission_scope",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "permission_status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "unverified",
+            "available",
+            "revoked"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "scope_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "workspace",
+            "segment"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "PROTECT"
+        }
+      ],
+      "constraints": [
+        "evidence_source_identity_uniq",
+        "evidence_record_revision_gte1",
+        "evidence_origin_valid",
+        "evidence_permission_status_valid",
+        "evidence_scope_valid",
+        "evidence_period_valid"
+      ],
+      "indexes": [
+        "evidence_source_time_idx",
+        "evidence_permission_idx"
+      ]
+    },
+    {
+      "model": "execution.Action",
+      "table": "execution_action",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "decision",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "execution.Decision",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "goal",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "execution.Goal",
+          "on_delete": "SET_NULL"
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "description",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "due_on",
+          "type": "DateField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "planned",
+            "in_progress",
+            "blocked",
+            "done"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "exec_action_revision_gte1"
+      ],
+      "indexes": [
+        "execution_action_due_idx"
+      ]
+    },
+    {
+      "model": "execution.Decision",
+      "table": "execution_decision",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "rationale",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "assumptions",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "review_trigger",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_analysis",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "analysis.Analysis",
+          "on_delete": "SET_NULL"
+        },
+        {
+          "name": "source_option",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "strategy.StrategyOption",
+          "on_delete": "SET_NULL"
+        },
+        {
+          "name": "source_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "proposed",
+            "approved",
+            "rejected",
+            "superseded"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "execution_decision_one_source",
+        "exec_decision_revision_gte1"
+      ],
+      "indexes": [
+        "execution_decision_status_idx"
+      ]
+    },
+    {
+      "model": "execution.ExecutionEvent",
+      "table": "execution_executionevent",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "actor",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "entity_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "decision",
+            "goal",
+            "action"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "entity_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "entity_label",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "event_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "changes",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": [
+        "execution_event_recent_idx"
+      ]
+    },
+    {
+      "model": "execution.Goal",
+      "table": "execution_goal",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "description",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "due_on",
+          "type": "DateField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "active",
+            "complete"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "exec_goal_revision_gte1"
+      ],
+      "indexes": [
+        "execution_goal_status_idx"
+      ]
+    },
+    {
+      "model": "exports.ExportSnapshot",
+      "table": "exports_exportsnapshot",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "requested_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "idempotency_key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "schema_version",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "method_version",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "scope",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "data",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "exported_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "artifact_key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "artifact_sha256",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "artifact_size_bytes",
+          "type": "PositiveBigIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "export_workspace_user_idem_uniq",
+        "export_schema_version_supported",
+        "export_artifact_size_nonnegative"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "imports.WorkspaceImportBatch",
+      "table": "imports_workspaceimportbatch",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "idempotency_key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_schema",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "mapping_version",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_digest",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "record_counts",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "missing_attachment_bytes",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "data",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_backup",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "undone_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_import_idem_uniq",
+        "workspace_import_active_digest_uniq",
+        "workspace_import_mapping_version_gte_1"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "metrics.CalculationRun",
+      "table": "metrics_calculationrun",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "metric_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "method_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "knowledge_release_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "knowledge_release_hash",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "variant",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "scope_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "workspace",
+            "segment"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "period_start",
+          "type": "DateField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "period_end",
+          "type": "DateField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "accounting_basis",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "cost_scope",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "input_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "input_snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "metric_run_input_rev_gte1",
+        "metric_run_period_valid",
+        "metric_run_scope_valid"
+      ],
+      "indexes": [
+        "metric_run_period_idx"
+      ]
+    },
+    {
+      "model": "metrics.InputObservation",
+      "table": "metrics_inputobservation",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "binding_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "scope_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "workspace",
+            "segment"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "segment",
+          "type": "ForeignKey",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": "customer_context.Segment",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "period_start",
+          "type": "DateField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "period_end",
+          "type": "DateField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "value",
+          "type": "DecimalField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "state",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "observed",
+            "unknown",
+            "not_applicable",
+            "invalid"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "unit",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "accounting_basis",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "cost_scope",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "owner_reported",
+            "verified_import"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "source_revision",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "recorded_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "metric_input_rev_gte1",
+        "metric_input_period_valid",
+        "metric_input_state_value_valid",
+        "metric_input_state_valid",
+        "metric_input_scope_valid"
+      ],
+      "indexes": [
+        "metric_input_period_idx"
+      ]
+    },
+    {
+      "model": "metrics.InputObservationEvidence",
+      "table": "metrics_inputobservationevidence",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "observation",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "metrics.InputObservation",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "evidence",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "evidence.Evidence",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "evidence_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "permission_status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "metric_input_evidence_uniq"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "metrics.MetricValue",
+      "table": "metrics_metricvalue",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "run",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "metrics.CalculationRun",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "metric_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "variant",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "value",
+          "type": "DecimalField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "observed",
+            "unknown",
+            "not_applicable",
+            "invalid"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "unit",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "metric_value_run_identity_uniq",
+        "metric_value_state_value_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "strategy.StrategyFactor",
+      "table": "strategy_strategyfactor",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "factor_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "strength",
+            "weakness",
+            "opportunity",
+            "threat"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "evidence",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "priority",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "strategy_factor_priority_range",
+        "strategy_factor_revision_gte_1"
+      ],
+      "indexes": [
+        "strategy_factor_kind_idx"
+      ]
+    },
+    {
+      "model": "strategy.StrategyOption",
+      "table": "strategy_strategyoption",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "category",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "SO",
+            "WO",
+            "ST",
+            "WT"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "action",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "rationale",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "hypothesis",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "cost",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "needs_review",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "strategy_option_revision_gte_1"
+      ],
+      "indexes": [
+        "strategy_option_kind_idx"
+      ]
+    },
+    {
+      "model": "strategy.StrategyOptionFactor",
+      "table": "strategy_strategyoptionfactor",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "option",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "strategy.StrategyOption",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "factor",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "strategy.StrategyFactor",
+          "on_delete": "CASCADE"
+        }
+      ],
+      "constraints": [
+        "strategy_option_factor_unique"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.BillingAccount",
+      "table": "workspaces_billingaccount",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "active",
+            "suspended"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.ManagementPlan",
+      "table": "workspaces_managementplan",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "code",
+          "type": "SlugField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_default",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owned_workspace_limit",
+          "type": "PositiveIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_finalize_analysis",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_calculate_metrics",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_generate_reports",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "price",
+          "type": "PositiveBigIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "currency",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "duration_days",
+          "type": "PositiveIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "management_one_default_plan",
+        "management_plan_revision_gte1",
+        "management_plan_duration_valid"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.ManagementSubscription",
+      "table": "workspaces_managementsubscription",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "billing_account",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.BillingAccount",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "plan",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.ManagementPlan",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "request_id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "status",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "active",
+            "revoked"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "starts_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "ends_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "plan_title",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "plan_revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owned_workspace_limit",
+          "type": "PositiveIntegerField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_finalize_analysis",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_calculate_metrics",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "can_generate_reports",
+          "type": "BooleanField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "granted_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "management_grant_window_valid",
+        "management_grant_reason_required",
+        "management_grant_plan_rev_gte1"
+      ],
+      "indexes": [
+        "management_active_grants_idx"
+      ]
+    },
+    {
+      "model": "workspaces.ManagementSubscriptionEvent",
+      "table": "workspaces_managementsubscriptionevent",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "subscription",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.ManagementSubscription",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "actor",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "event_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "granted",
+            "revoked"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reason",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.Membership",
+      "table": "workspaces_membership",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "user",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "role",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "editor",
+            "viewer"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_membership_unique_user",
+        "workspace_membership_valid_role"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.Workspace",
+      "table": "workspaces_workspace",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "billing_account",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.BillingAccount",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "archived_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_revision_gte_1"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.WorkspaceBootstrapRequest",
+      "table": "workspaces_workspacebootstraprequest",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "owner",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "key",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "payload_digest",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_bootstrap_owner_key_uniq"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.WorkspaceEvent",
+      "table": "workspaces_workspaceevent",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "actor",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "event_type",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "created",
+            "updated",
+            "member_changed",
+            "member_removed",
+            "invite_created",
+            "invite_revoked",
+            "invite_accepted"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "target_id",
+          "type": "UUIDField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "changes",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [],
+      "indexes": [
+        "workspace_event_recent_idx"
+      ]
+    },
+    {
+      "model": "workspaces.WorkspaceInvitation",
+      "table": "workspaces_workspaceinvitation",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUIDField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "invited_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "email",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "role",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "editor",
+            "viewer"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "token_digest",
+          "type": "CharField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "expires_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "accepted_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revoked_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_invite_pending_uniq",
+        "workspace_invite_valid_role"
+      ],
+      "indexes": [
+        "workspace_invite_expiry_idx"
+      ]
+    },
+    {
+      "model": "workspaces.WorkspaceProfile",
+      "table": "workspaces_workspaceprofile",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "company_name",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "industry",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "stage",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "mission",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "problem_statement",
+          "type": "TextField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "products",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "customer_segments",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "goals",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "icps",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "onboarding_completed_at",
+          "type": "DateTimeField",
+          "nullable": true,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_profile_revision_gte_1"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.WorkspaceProfileRevision",
+      "table": "workspaces_workspaceprofilerevision",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "profile",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "workspaces.WorkspaceProfile",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "snapshot",
+          "type": "JSONField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "changed_by",
+          "type": "ForeignKey",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": "accounts.User",
+          "on_delete": "PROTECT"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_profile_revision_unique",
+        "workspace_profile_history_revision_gte_1"
+      ],
+      "indexes": []
+    },
+    {
+      "model": "workspaces.WorkspaceSetup",
+      "table": "workspaces_workspacesetup",
+      "fields": [
+        {
+          "name": "id",
+          "type": "BigAutoField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "workspace",
+          "type": "OneToOneField",
+          "nullable": false,
+          "unique": true,
+          "choices": [],
+          "target": "workspaces.Workspace",
+          "on_delete": "CASCADE"
+        },
+        {
+          "name": "schema_version",
+          "type": "PositiveSmallIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "business_kind",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "startup",
+            "business",
+            "organization"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "reported_stage",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "idea",
+            "building",
+            "operating",
+            "unknown"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "setup_objective",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [
+            "customers",
+            "growth",
+            "strategy",
+            "execution"
+          ],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "follow_up_question_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "follow_up_choice_id",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "presentation_color",
+          "type": "CharField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "revision",
+          "type": "PositiveIntegerField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTimeField",
+          "nullable": false,
+          "unique": false,
+          "choices": [],
+          "target": null,
+          "on_delete": null
+        }
+      ],
+      "constraints": [
+        "workspace_setup_schema_gte_1",
+        "workspace_setup_revision_gte_1"
+      ],
+      "indexes": []
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+/* Shared motion language: quick feedback, soft depth, brief celebrations. */
+:root {
+  --motion-quick: 160ms;
+  --motion-scene: 480ms;
+  --motion-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-playful: cubic-bezier(0.2, 0.85, 0.25, 1.16);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) .operator-console .op-page-body {
+    animation: stratino-scene var(--motion-scene) var(--motion-settle) both;
+  }
+  :root:not([data-motion='reduced']) .application-shell .app-route-content {
+    animation: stratino-scene var(--motion-scene) var(--motion-settle) both;
+  }
+  :root:not([data-motion='reduced']) :is(.op-metrics > .op-stat, .workspace-list > .workspace-row) {
+    animation: stratino-card 560ms var(--motion-settle) both;
+    animation-delay: calc(min(var(--motion-index, 0), 4) * 45ms);
+  }
+  :is(.op-metrics > .op-stat, .workspace-list > .workspace-row):nth-child(2) {
+    --motion-index: 1;
+  }
+  :is(.op-metrics > .op-stat, .workspace-list > .workspace-row):nth-child(3) {
+    --motion-index: 2;
+  }
+  :is(.op-metrics > .op-stat, .workspace-list > .workspace-row):nth-child(n + 4) {
+    --motion-index: 3;
+  }
+
+  :root:not([data-motion='reduced'])
+    :is(.op-navigation a[aria-current='page'], .app-nav-link.is-active) {
+    animation: stratino-nav-select 420ms var(--motion-settle);
+  }
+  :root:not([data-motion='reduced'])
+    :is(.op-navigation a[aria-current='page'], .app-nav-link.is-active)
+    > svg {
+    animation: stratino-icon-arrive 650ms var(--motion-playful);
+  }
+  :root:not([data-motion='reduced'])
+    :is(
+      .op-action-dialog[open],
+      .op-more-dialog[open],
+      .ui-dialog[data-state='open'],
+      .app-account-menu__panel
+    ) {
+    animation: stratino-dialog 360ms var(--motion-playful) both;
+  }
+  :root:not([data-motion='reduced']) :is(.op-action-dialog[open], .op-more-dialog[open])::backdrop {
+    animation: stratino-backdrop 220ms ease-out both;
+  }
+  :root:not([data-motion='reduced']) .ui-dialog-overlay[data-state='open'] {
+    animation: stratino-backdrop 220ms ease-out both;
+  }
+  :root:not([data-motion='reduced']) :is(.op-success, .ui-toast, .account-feedback--success) {
+    animation: stratino-feedback 480ms var(--motion-playful) both;
+  }
+  :root:not([data-motion='reduced'])
+    :is(.operator-console, .application-shell, .home-universe)
+    button:not(:disabled):active {
+    scale: 0.965;
+    transition: scale 90ms ease-out;
+  }
+  :root:not([data-motion='reduced'])
+    :is(.operator-console, .application-shell, .home-universe)
+    :is(button, a) {
+    transition-timing-function: var(--motion-settle);
+  }
+  :root:not([data-motion='reduced']) :is(.op-status-dot.is-ready, .home-intro-note > span) {
+    animation: stratino-status 2200ms ease-out 2;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) :is(.op-stat, .op-destination, .workspace-row) {
+    transition:
+      translate 300ms var(--motion-settle),
+      box-shadow 300ms var(--motion-settle),
+      border-color 220ms ease;
+  }
+  :root:not([data-motion='reduced']) :is(.op-stat, .op-destination, .workspace-row):hover {
+    translate: 0 -3px;
+    background-image: radial-gradient(
+      160px circle at var(--spot-x, 50%) var(--spot-y, 0%),
+      color-mix(in srgb, currentColor 6%, transparent),
+      transparent 85%
+    );
+  }
+  :root:not([data-motion='reduced']) .op-stat:hover {
+    box-shadow: 0 14px 32px -22px color-mix(in srgb, var(--op-ink) 65%, transparent);
+  }
+  :root:not([data-motion='reduced'])
+    :is(
+      .op-stat:hover .op-icon-tile,
+      .op-destination:hover .op-soft-icon,
+      .app-nav-link:hover .app-nav-link__mark
+    ) {
+    animation: stratino-icon-arrive 600ms var(--motion-playful);
+  }
+  :root:not([data-motion='reduced']) .home-world:hover .home-world-action {
+    animation: stratino-action-glint 700ms var(--motion-settle);
+  }
+  :root:not([data-motion='reduced'])
+    :is(.op-destination, .op-primary, .home-world-action)
+    > svg:last-child {
+    transition: translate 280ms var(--motion-playful);
+  }
+  :root:not([data-motion='reduced'])
+    :is(.op-destination, .op-primary, .home-world-action):hover
+    > svg:last-child {
+    translate: -4px 0;
+  }
+  :root[dir='ltr']:not([data-motion='reduced'])
+    :is(.op-destination, .op-primary, .home-world-action):hover
+    > svg:last-child {
+    translate: 4px 0;
+  }
+}
+
+@keyframes stratino-scene {
+  from {
+    opacity: 0.35;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes stratino-card {
+  from {
+    opacity: 0.25;
+    transform: perspective(1000px) translateY(18px) rotateX(4deg) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) translateY(0) rotateX(0) scale(1);
+  }
+}
+@keyframes stratino-icon-arrive {
+  0% {
+    rotate: -9deg;
+    scale: 0.9;
+  }
+  55% {
+    rotate: 5deg;
+    scale: 1.08;
+  }
+  100% {
+    rotate: 0deg;
+    scale: 1;
+  }
+}
+@keyframes stratino-nav-select {
+  from {
+    clip-path: inset(0 0 0 12% round 14px);
+    opacity: 0.7;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 14px);
+    opacity: 1;
+  }
+}
+@keyframes stratino-dialog {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+    scale: 0.96;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+@keyframes stratino-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes stratino-feedback {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+    scale: 0.97;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+@keyframes stratino-status {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 0%, transparent);
+  }
+  20% {
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+  }
+  65% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+}
+@keyframes stratino-action-glint {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  45% {
+    filter: brightness(1.2);
+  }
+}

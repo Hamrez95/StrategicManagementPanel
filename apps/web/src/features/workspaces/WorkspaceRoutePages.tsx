@@ -13,6 +13,7 @@ import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { readWorkspaceProfile, readWorkspaceSummary } from './api';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
+import { WorkspacePulse } from '../management/WorkspacePulse';
 
 function formatSummaryDate(value: string, english: boolean) {
   const [year, month, day] = value.split('-').map(Number);
@@ -68,6 +69,10 @@ export function WorkspaceOverviewPage() {
             : 'از شناخت روشن کسب‌وکار به تحلیل، تصمیم، برنامه اجرا و مدارک برسید.'}
         </p>
       </header>
+
+      {summaryQuery.data && (
+        <WorkspacePulse summary={summaryQuery.data} workspaceId={workspaceId} english={english} />
+      )}
 
       {profileQuery.isPending && (
         <Skeleton

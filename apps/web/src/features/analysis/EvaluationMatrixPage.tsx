@@ -183,15 +183,19 @@ export default function EvaluationMatrixPage() {
 
   useEffect(() => {
     if (!matricesQuery.data) return;
-    if (loadedContext.current === contextKey && dirty) return;
+    const contextChanged = loadedContext.current !== contextKey;
+    if (!contextChanged && dirty) return;
     loadedContext.current = contextKey;
     const nextRows = record?.inputs.rows ?? [emptyRow(kind)];
     setRows(nextRows);
     setCleanRows(nextRows);
     setSaveState(record?.state ?? 'draft');
-    setFeedback('');
-    setSaved('');
-    setRevisionConflict(false);
+    // A successful save updates the query and clears dirty; keep its confirmation visible.
+    if (contextChanged) {
+      setFeedback('');
+      setSaved('');
+      setRevisionConflict(false);
+    }
     // A kind/workspace/record change is the only safe point to replace the open draft.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [workspaceId, contextKey, kind, record?.id, Boolean(matricesQuery.data), dirty]);

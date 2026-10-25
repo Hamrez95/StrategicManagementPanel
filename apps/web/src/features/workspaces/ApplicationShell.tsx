@@ -1,14 +1,34 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useMatch, useNavigate, useOutletContext } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Dialog, Input, useUIAppearance } from '@stratino/ui';
 import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { postAuth } from '../auth/api';
+import { AccountAvatar } from '../account/AccountAvatar';
+import { LanguageSwitch, ThemeSwitch } from '../chrome/HeaderControls';
+import { Icon } from '../experience/ExperienceUI';
 import { useWorkspaceSwitch } from './switchContext';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
 
 type RouteChoice = { title: string; path: string; keywords: string };
+const workspaceToolIcons: Record<string, string> = {
+  company: 'people',
+  environment: 'compass',
+  industry: 'people',
+  internal: 'grid',
+  matrices: 'chart',
+  swot: 'compass',
+  finance: 'chart',
+  scenarios: 'spark',
+  qspm: 'compass',
+  journal: 'book',
+  execution: 'flag',
+  scorecard: 'chart',
+  risks: 'shield',
+  reports: 'chart',
+  documents: 'file',
+};
 
 function routeChoices(workspaceId: string | undefined, english: boolean): RouteChoice[] {
   const choices: RouteChoice[] = [
@@ -141,11 +161,11 @@ function WorkspaceNavigation({
         onClick={onNavigate}
       >
         <span className="app-nav-link__mark" aria-hidden="true">
-          {new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(1)}
+          <Icon name="grid" size={19} />
         </span>
         <span>{english ? 'Project overview' : 'نمای کلی پروژه'}</span>
       </Link>
-      {workspaceToolGroups.map((group, index) => (
+      {workspaceToolGroups.map((group) => (
         <section
           className="app-nav-group"
           key={group.id}
@@ -163,7 +183,7 @@ function WorkspaceNavigation({
                 onClick={onNavigate}
               >
                 <span className="app-nav-link__mark" aria-hidden="true">
-                  {new Intl.NumberFormat(english ? 'en-US' : 'fa-IR').format(index + 2)}
+                  <Icon name={workspaceToolIcons[tool.id] ?? 'book'} size={19} />
                 </span>
                 <span>{tool.title[english ? 'en' : 'fa']}</span>
               </Link>
@@ -178,7 +198,7 @@ function WorkspaceNavigation({
         onClick={onNavigate}
       >
         <span className="app-nav-link__mark" aria-hidden="true">
-          ⚙
+          <Icon name="settings" size={19} />
         </span>
         <span>{english ? 'Workspace settings' : 'تنظیمات فضای کار'}</span>
       </Link>
@@ -189,6 +209,28 @@ function WorkspaceNavigation({
 export default function ApplicationShell() {
   const session = useOutletContext<Session>();
   const location = useLocation();
+  const accountMenu = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    if (accountMenu.current) accountMenu.current.open = false;
+  }, [location.pathname, location.hash]);
+  useEffect(() => {
+    const outside = (event: globalThis.PointerEvent) => {
+      if (accountMenu.current && !accountMenu.current.contains(event.target as Node))
+        accountMenu.current.open = false;
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && accountMenu.current?.open) {
+        accountMenu.current.open = false;
+        accountMenu.current.querySelector('summary')?.focus();
+      }
+    };
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', escape);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('keydown', escape);
+    };
+  }, []);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { dir } = useUIAppearance();
@@ -350,6 +392,8 @@ export default function ApplicationShell() {
           className="app-topbar-actions"
           aria-label={english ? 'Application tools' : 'ابزارهای برنامه'}
         >
+          <ThemeSwitch />
+          <LanguageSwitch english={english} />
           <Dialog
             closeLabel={english ? 'Close search' : 'بستن جستجو'}
             title={english ? 'Search this Workspace' : 'جستجو در فضای کار'}
@@ -404,15 +448,24 @@ export default function ApplicationShell() {
               )}
             </div>
           </Dialog>
-          <details className="app-account-menu">
+          <details className="app-account-menu" ref={accountMenu}>
             <summary aria-label={english ? 'Account menu' : 'منوی حساب'}>
-              <span className="app-account-avatar" aria-hidden="true">
-                {Array.from(session.user.name)[0] ?? 'ح'}
-              </span>
+              <AccountAvatar avatar={session.user.avatar} name={session.user.name} size={40} />
               <span className="app-account-name">{session.user.name}</span>
-              <span aria-hidden="true">⌄</span>
+              <span className="app-account-menu-indicator" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
             </summary>
             <div className="app-account-menu__panel">
+              <div className="app-account-menu__identity">
+                <AccountAvatar avatar={session.user.avatar} name={session.user.name} size={48} />
+                <div>
+                  <strong>{session.user.name}</strong>
+                  <p>{english ? 'Your personal account' : 'حساب شخصی تو'}</p>
+                </div>
+              </div>
               <Link to="/app/account">
                 {english ? 'Account and appearance' : 'حساب و تنظیمات ظاهر'}
               </Link>

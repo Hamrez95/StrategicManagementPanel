@@ -35,7 +35,8 @@ class ProfileCompletionMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        allowed = ('/api/v1/accounts/', '/api/v1/account/', '/api/v1/session/', '/api/v1/csrf/', '/api/v1/health/')
+        # Operator APIs have their own approval/MFA gate and no customer Workspace.
+        allowed = ('/api/v1/accounts/', '/api/v1/account/', '/api/v1/session/', '/api/v1/csrf/', '/api/v1/health/', '/api/v1/operator/')
         user = request.user
         if request.path.startswith('/api/') and not request.path.startswith(allowed) and user.is_authenticated and user.requires_profile_completion and not profile_complete(user):
             return JsonResponse({'code': 'profile_incomplete', 'message': 'برای ادامه، نام، نام خانوادگی و شماره موبایلت رو تکمیل کن.'}, status=403)

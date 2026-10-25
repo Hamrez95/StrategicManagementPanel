@@ -2,11 +2,11 @@ import json
 
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.http import Http404, JsonResponse
-from django.views.decorators.http import require_GET, require_http_methods, require_POST
+from django.views.decorators.http import require_GET, require_http_methods
 
 from modules.workspaces.services import WorkspaceActionError, get_accessible_workspace_or_404
 
-from .services import create_analysis, delete_analysis, read_analyses, read_analysis, update_analysis
+from .services import create_analysis, delete_analysis, read_analyses, read_analysis, read_analysis_revisions, update_analysis
 
 
 def _error(status, code, message, fields=None):
@@ -61,3 +61,8 @@ def _run(request, workspace_id, operation, *, status=200):
     except DjangoValidationError as error:
         fields = getattr(error, 'message_dict', None) or {'non_field_errors': error.messages}
         return _error(400, 'validation_error', 'اطلاعات را بررسی کنید.', fields)
+
+
+@require_GET
+def analysis_revisions(request, workspace_id, record_id):
+    return _run(request, workspace_id, lambda workspace: read_analysis_revisions(request.user, workspace, record_id, request.GET.get('before')))

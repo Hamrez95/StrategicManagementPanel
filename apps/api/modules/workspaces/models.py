@@ -5,6 +5,19 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 
+from .payment_models import (  # noqa: F401
+    ManagementDiscount,
+    ManagementOrder,
+    ManagementPaymentAttempt,
+    ManagementPaymentEvent,
+    ManagementRefund,
+)
+from .plan_models import (  # noqa: F401
+    ManagementPlan,
+    ManagementSubscription,
+    ManagementSubscriptionEvent,
+)
+
 
 class BillingAccount(models.Model):
     """Owner-scoped billing identity; plans and payment behavior live in STR-029."""
@@ -189,4 +202,34 @@ class WorkspaceInvitation(models.Model):
                 name='workspace_invite_valid_role',
             ),
         ]
+
+
+class WorkspaceEvent(models.Model):
+    """Access/Workspace lifecycle audit; never stores invitation tokens or email bodies."""
+
+    class Type(models.TextChoices):
+        CREATED = 'created', 'Created'
+        UPDATED = 'updated', 'Updated'
+        MEMBER_CHANGED = 'member_changed', 'Member changed'
+        MEMBER_REMOVED = 'member_removed', 'Member removed'
+        INVITE_CREATED = 'invite_created', 'Invitation created'
+        INVITE_REVOKED = 'invite_revoked', 'Invitation revoked'
+        INVITE_ACCEPTED = 'invite_accepted', 'Invitation accepted'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='audit_events')
+    actor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='workspace_audit_events')
+    event_type = models.CharField(max_length=20, choices=Type.choices)
+    target_id = models.UUIDField(null=True, blank=True)
+    changes = models.JSONField(default=dict)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-created_at', '-id')
+        indexes = [models.Index(fields=('workspace', '-created_at'), name='workspace_event_recent_idx')]
+
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            raise ValidationError('Workspace audit events are immutable.')
+        return super().save(*args, **kwargs)
 

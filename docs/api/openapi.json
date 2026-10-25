@@ -11,6 +11,2668 @@
     }
   ],
   "paths": {
+    "/api/v1/operator/login/": {
+      "post": {
+        "operationId": "loginOperator",
+        "summary": "Sign in with an approved operator email and password",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "authenticated"
+                  ],
+                  "properties": {
+                    "authenticated": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "maxLength": 254
+                  },
+                  "password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/operator/password/": {
+      "post": {
+        "operationId": "changeOperatorPassword",
+        "summary": "Replace operator password and revoke previous MFA proofs",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "changed"
+                  ],
+                  "properties": {
+                    "changed": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "current_password",
+                  "new_password",
+                  "confirmation"
+                ],
+                "properties": {
+                  "current_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  },
+                  "new_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  },
+                  "confirmation": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/operator/team/": {
+      "get": {
+        "operationId": "readOperatorTeam",
+        "summary": "Read owner-only administrator approvals and grantable permissions",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "permissions",
+                    "results"
+                  ],
+                  "properties": {
+                    "permissions": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "email",
+                          "role",
+                          "is_active",
+                          "revision",
+                          "permissions"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "email": {
+                            "type": "string",
+                            "format": "email"
+                          },
+                          "role": {
+                            "type": "string",
+                            "enum": [
+                              "owner",
+                              "admin"
+                            ]
+                          },
+                          "is_active": {
+                            "type": "boolean"
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "permissions": {
+                            "type": "array",
+                            "maxItems": 30,
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "operationId": "saveOperatorAccess",
+        "summary": "Approve or update a non-owner administrator with explicit permissions",
+        "description": "Live. Explicit active operator approval required except credential login. Session CSRF protects POST requests. Temporary-password replacement requires current password; later replacements and owner-only team operations additionally require fresh TOTP. All responses private/no-store. No implicit staff/superuser grant. Passwords are never returned or audited.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "saved"
+                  ],
+                  "properties": {
+                    "saved": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthenticated or invalid credentials"
+          },
+          "403": {
+            "description": "Approval, owner, MFA or CSRF denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          },
+          "429": {
+            "description": "Rate limited"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "email",
+                  "permissions",
+                  "is_active",
+                  "revision",
+                  "reason",
+                  "current_password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "maxItems": 30,
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "current_password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/operator/status/": {
+      "get": {
+        "operationId": "readOperatorReadiness",
+        "summary": "Read own operator sections and MFA readiness",
+        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed. Requires an explicit active OperatorAccess approval in addition to staff and section permissions. Owner role is restricted to configured owner addresses. A temporary password locks customer reads until replaced; team administration is owner-only.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current operator sections and MFA state",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "sections",
+                    "mfa_ready",
+                    "mfa_configured",
+                    "mfa_enrolled",
+                    "expires_at",
+                    "actor",
+                    "capabilities"
+                  ],
+                  "properties": {
+                    "sections": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "accounts",
+                          "workspaces",
+                          "plans",
+                          "subscriptions",
+                          "access",
+                          "audit",
+                          "academy",
+                          "feedback",
+                          "academy_plans",
+                          "academy_subscriptions",
+                          "academy_orders",
+                          "academy_samples"
+                        ]
+                      }
+                    },
+                    "mfa_ready": {
+                      "type": "boolean"
+                    },
+                    "mfa_configured": {
+                      "type": "boolean"
+                    },
+                    "mfa_enrolled": {
+                      "type": "boolean"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "actor": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "capabilities": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "identity",
+                        "manage_accounts",
+                        "triage_feedback",
+                        "grant",
+                        "revoke"
+                      ],
+                      "properties": {
+                        "identity": {
+                          "type": "boolean"
+                        },
+                        "manage_accounts": {
+                          "type": "boolean"
+                        },
+                        "triage_feedback": {
+                          "type": "boolean"
+                        },
+                        "grant": {
+                          "type": "boolean"
+                        },
+                        "revoke": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "must_change_password": {
+                      "type": "boolean"
+                    },
+                    "can_manage_operators": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Session required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "403": {
+            "description": "Explicit operator permission required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "405": {
+            "description": "GET only",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/operator/{section}/": {
+      "get": {
+        "operationId": "listOperatorSection",
+        "summary": "Read one independently authorized service or Academy summary section",
+        "description": "Live. Fresh explicit section permission and session-bound TOTP proof required before querying records. Bounded deterministic pages. Accounts show contact identity only with additional accounts.operator_view_identity permission; UUID summaries otherwise. Workspaces expose metadata only. Academy exposes course metadata and order, never assessment keys. Audit merges Workspace, grant, security and operator-action metadata; free-text reasons and customer content are excluded. Feedback uses its dedicated MFA-protected inbox. All responses private/no-store; redact search parameters from access logs. Academy commerce sections each require their own explicit permission. Subscriptions return frozen coverage, selected area IDs, and current effective-window status. Orders expose recorded item snapshots, not current catalog prices; no settlement action is offered. Samples expose card metadata only. No contact identity or assessment keys in commerce inventories.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "section",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "accounts",
+                "workspaces",
+                "plans",
+                "subscriptions",
+                "access",
+                "audit",
+                "academy",
+                "academy_plans",
+                "academy_subscriptions",
+                "academy_orders",
+                "academy_samples"
+              ]
+            },
+            "description": "Each value requires its own accounts.operator_view_<section> permission"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "Redact search parameters in deployment access logs"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "active",
+                "inactive",
+                "archived",
+                "revoked",
+                "requested",
+                "pending",
+                "paid",
+                "cancelled",
+                "refunded"
+              ]
+            },
+            "description": "accounts/access/plans/academy_plans/academy_samples: active or inactive; workspaces: active or archived; subscriptions/academy_subscriptions: active or revoked; academy_orders: requested, pending, paid, cancelled, refunded; audit/academy: no filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Read contract, gated by MFA prerequisite",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "results",
+                    "count",
+                    "page",
+                    "page_size",
+                    "has_next",
+                    "has_previous"
+                  ],
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "maxItems": 25,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "title": "accounts",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "is_active",
+                              "verified",
+                              "date_joined"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "verified": {
+                                "type": "boolean"
+                              },
+                              "date_joined": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "first_name": {
+                                "type": "string"
+                              },
+                              "last_name": {
+                                "type": "string"
+                              },
+                              "email": {
+                                "type": "string",
+                                "format": "email"
+                              },
+                              "phone_number": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "workspaces",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "owner_id",
+                              "archived_at",
+                              "created_at"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "owner_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "archived_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "plans",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "code",
+                              "title",
+                              "is_active",
+                              "is_default",
+                              "revision",
+                              "owned_workspace_limit",
+                              "can_finalize_analysis",
+                              "can_calculate_metrics",
+                              "can_generate_reports",
+                              "price",
+                              "currency",
+                              "duration_days"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "is_default": {
+                                "type": "boolean"
+                              },
+                              "revision": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "can_finalize_analysis": {
+                                "type": "boolean"
+                              },
+                              "can_calculate_metrics": {
+                                "type": "boolean"
+                              },
+                              "can_generate_reports": {
+                                "type": "boolean",
+                                "description": "Reserved capability; no report renderer is implemented"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "currency": {
+                                "type": "string"
+                              },
+                              "duration_days": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "subscriptions",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "owner_id",
+                              "plan_title",
+                              "plan_revision",
+                              "status",
+                              "starts_at",
+                              "ends_at",
+                              "owned_workspace_limit",
+                              "can_finalize_analysis",
+                              "can_calculate_metrics",
+                              "can_generate_reports"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "owner_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "plan_title": {
+                                "type": "string"
+                              },
+                              "plan_revision": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "active",
+                                  "revoked"
+                                ]
+                              },
+                              "starts_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "ends_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "can_finalize_analysis": {
+                                "type": "boolean"
+                              },
+                              "can_calculate_metrics": {
+                                "type": "boolean"
+                              },
+                              "can_generate_reports": {
+                                "type": "boolean",
+                                "description": "Reserved capability; no report renderer is implemented"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "access",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "accessLevel",
+                              "owned_workspace_limit",
+                              "owned_workspaces",
+                              "can_create_workspace",
+                              "features"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "accessLevel": {
+                                "type": "string",
+                                "enum": [
+                                  "free",
+                                  "special"
+                                ]
+                              },
+                              "owned_workspace_limit": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true,
+                                "description": "Null means no additional plan cap"
+                              },
+                              "owned_workspaces": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "can_create_workspace": {
+                                "type": "boolean"
+                              },
+                              "features": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "can_finalize_analysis",
+                                  "can_calculate_metrics",
+                                  "can_generate_reports"
+                                ],
+                                "properties": {
+                                  "can_finalize_analysis": {
+                                    "type": "boolean"
+                                  },
+                                  "can_calculate_metrics": {
+                                    "type": "boolean"
+                                  },
+                                  "can_generate_reports": {
+                                    "type": "boolean",
+                                    "description": "Reserved capability; no report renderer is implemented"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "audit",
+                            "additionalProperties": false,
+                            "required": [
+                              "event_id",
+                              "source",
+                              "actor_id",
+                              "event_type",
+                              "target",
+                              "created_at"
+                            ],
+                            "properties": {
+                              "event_id": {
+                                "type": "string"
+                              },
+                              "source": {
+                                "type": "string",
+                                "enum": [
+                                  "workspace",
+                                  "subscription",
+                                  "security",
+                                  "operator"
+                                ]
+                              },
+                              "actor_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "event_type": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "type": "string"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title",
+                              "area_id",
+                              "order"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "area_id": {
+                                "type": "string"
+                              },
+                              "order": {
+                                "type": "integer",
+                                "minimum": 0
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_plans",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "code",
+                              "title",
+                              "kind",
+                              "is_active",
+                              "price",
+                              "sale_price",
+                              "currency",
+                              "duration_days"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "free",
+                                  "full",
+                                  "general",
+                                  "specialty"
+                                ]
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "sale_price": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "currency": {
+                                "type": "string"
+                              },
+                              "duration_days": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_subscriptions",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "user_id",
+                              "plan_code",
+                              "coverage",
+                              "status",
+                              "is_effective",
+                              "starts_at",
+                              "ends_at",
+                              "order_item_id",
+                              "areas"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "user_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "plan_code": {
+                                "type": "string"
+                              },
+                              "coverage": {
+                                "type": "string",
+                                "enum": [
+                                  "full",
+                                  "general",
+                                  "specialty"
+                                ]
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "active",
+                                  "revoked"
+                                ]
+                              },
+                              "is_effective": {
+                                "type": "boolean"
+                              },
+                              "starts_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "ends_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "order_item_id": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "nullable": true
+                              },
+                              "areas": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_orders",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "user_id",
+                              "status",
+                              "created_at",
+                              "paid_at",
+                              "items"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "user_id": {
+                                "type": "string",
+                                "format": "uuid"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "requested",
+                                  "pending",
+                                  "paid",
+                                  "cancelled",
+                                  "refunded"
+                                ]
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "paid_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "nullable": true
+                              },
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "title": "order item snapshot",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "plan_title",
+                                    "coverage",
+                                    "original_unit_price",
+                                    "unit_price",
+                                    "subtotal",
+                                    "discount_amount",
+                                    "total",
+                                    "currency",
+                                    "duration_days",
+                                    "areas"
+                                  ],
+                                  "properties": {
+                                    "plan_title": {
+                                      "type": "string"
+                                    },
+                                    "coverage": {
+                                      "type": "string"
+                                    },
+                                    "original_unit_price": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "unit_price": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "subtotal": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "discount_amount": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "total": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "currency": {
+                                      "type": "string"
+                                    },
+                                    "duration_days": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "nullable": true
+                                    },
+                                    "areas": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "title": "academy_samples",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title",
+                              "unit_id",
+                              "course_id",
+                              "is_active",
+                              "updated_at"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "unit_id": {
+                                "type": "string"
+                              },
+                              "course_id": {
+                                "type": "string"
+                              },
+                              "is_active": {
+                                "type": "boolean"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "enum": [
+                        25
+                      ]
+                    },
+                    "has_next": {
+                      "type": "boolean"
+                    },
+                    "has_previous": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query, filter or page",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "401": {
+            "description": "Session required",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "403": {
+            "description": "Section permission missing or operator_mfa_unavailable: fresh MFA required"
+          },
+          "404": {
+            "description": "Page does not exist",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "405": {
+            "description": "GET only",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "private, no-store on success and errors"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Includes Cookie"
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable; no successful read claimed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/overview/": {
+      "get": {
+        "operationId": "readOperatorOverview",
+        "summary": "Read only counts for explicitly permitted sections",
+        "description": "Live. Fresh MFA required. No revenue, invented trend or inferred scientific status. Counts refer to database records and are omitted when section permission is absent.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Permission-scoped counts",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "counts"
+                  ],
+                  "properties": {
+                    "counts": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "accounts": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "workspaces": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "plans": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "subscriptions": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "lessons": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "feedback": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_plans": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_subscriptions": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_orders": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "academy_samples": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/mfa/{action}/": {
+      "post": {
+        "operationId": "changeOperatorMfa",
+        "summary": "Enroll, verify, lock or remove the current operator factor",
+        "description": "Live. CSRF and explicit operator eligibility required. Enroll, verify and remove require password reauthentication and shared rate limits; a Google-only account must first establish a password via the normal recovery flow. TOTP accepts a 30-second adjacent window and atomically rejects reused counters. Pending enrollment is bound to this session/password and expires in 10 minutes. QR is generated locally on the server. The secret and QR are returned once to this browser only; do not log bodies, persist them in browser storage or send to external QR services. Keys remain encrypted with the configured Fernet key ring. Removing a factor revokes all proofs. Lock is idempotent and revokes only this session.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "enroll",
+                "verify",
+                "lock",
+                "remove"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "writeOnly": true,
+                    "maxLength": 4096
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "^[0-9]{6}$",
+                    "writeOnly": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "MFA proof or factor removed/locked",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "mfa_ready"
+                  ],
+                  "properties": {
+                    "mfa_ready": {
+                      "type": "boolean"
+                    },
+                    "mfa_enrolled": {
+                      "type": "boolean"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Pending enrollment; only this browser receives the setup secret",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "secret",
+                    "qr_svg",
+                    "expires_at"
+                  ],
+                  "properties": {
+                    "secret": {
+                      "type": "string"
+                    },
+                    "qr_svg": {
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/accounts/{target}/status/": {
+      "post": {
+        "operationId": "changeOperatorCustomerStatus",
+        "summary": "Activate or deactivate an ordinary customer account",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm",
+                  "is_active"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/subscriptions/grant/": {
+      "post": {
+        "operationId": "grantOperatorManagementSubscription",
+        "summary": "Grant a frozen management subscription via audited service",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm",
+                  "owner_id",
+                  "plan_id",
+                  "request_id"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "owner_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "plan_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "request_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/operator/subscriptions/{target}/revoke/": {
+      "post": {
+        "operationId": "revokeOperatorManagementSubscription",
+        "summary": "Revoke a management grant via audited service",
+        "description": "Live. Fresh session-bound MFA, independently assigned section/action permissions, explicit confirmation and reason required. No superuser bypass. Customer status changes protect self/staff/superusers and retain data. Grant/revoke call the canonical audited services; frozen grants are never edited and no payment is recorded. request_id is stable across retries. No endpoint configures commercial prices or enables checkout.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reason",
+                  "confirm"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recorded audited action",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "private, no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input; no successful mutation claimed"
+          },
+          "401": {
+            "description": "Authenticated session required"
+          },
+          "403": {
+            "description": "Explicit permission and fresh session-bound MFA required"
+          },
+          "404": {
+            "description": "Unknown target"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Enrollment or request conflict"
+          },
+          "429": {
+            "description": "Shared rate limit"
+          },
+          "503": {
+            "description": "Encryption key unavailable; access stays closed"
+          }
+        }
+      }
+    },
+    "/api/v1/academy/feedback/inbox/": {
+      "get": {
+        "operationId": "readOperatorLearnerFeedback",
+        "summary": "Read the protected learner feedback inbox",
+        "description": "Live. Active, verified staff with explicit accounts.operator_view_feedback and session-bound MFA required; staff alone is insufficient. Source text and exact card paths are preserved. Private/no-store. A status change additionally requires operator_triage_feedback and appends an immutable operator action event.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "new",
+                "reviewed",
+                "resolved",
+                "all"
+              ],
+              "default": "new"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bounded feedback page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "page",
+                    "results"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "page": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "maxItems": 25,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "unit_id",
+                          "unit_title",
+                          "content_revision",
+                          "target_kind",
+                          "target_id",
+                          "target_title",
+                          "target_text",
+                          "content_path",
+                          "category",
+                          "message",
+                          "status",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "unit_id": {
+                            "type": "string"
+                          },
+                          "unit_title": {
+                            "type": "string"
+                          },
+                          "content_revision": {
+                            "type": "string"
+                          },
+                          "target_kind": {
+                            "type": "string"
+                          },
+                          "target_id": {
+                            "type": "string"
+                          },
+                          "target_title": {
+                            "type": "string"
+                          },
+                          "target_text": {
+                            "type": "string"
+                          },
+                          "content_path": {
+                            "type": "string"
+                          },
+                          "category": {
+                            "type": "string",
+                            "enum": [
+                              "correction",
+                              "question",
+                              "suggestion"
+                            ]
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "new",
+                              "reviewed",
+                              "resolved"
+                            ]
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid filter"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Explicit feedback permission and fresh operator MFA required"
+          }
+        }
+      }
+    },
+    "/api/v1/academy/feedback/{feedback_id}/": {
+      "patch": {
+        "operationId": "triageOperatorLearnerFeedback",
+        "summary": "Update feedback triage status with an audit event",
+        "description": "Live. Active, verified staff with explicit accounts.operator_view_feedback and session-bound MFA required; staff alone is insufficient. Source text and exact card paths are preserved. Private/no-store. A status change additionally requires operator_triage_feedback and appends an immutable operator action event.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feedback_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "new",
+                      "reviewed",
+                      "resolved"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated feedback",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "unit_id",
+                    "unit_title",
+                    "content_revision",
+                    "target_kind",
+                    "target_id",
+                    "target_title",
+                    "target_text",
+                    "content_path",
+                    "category",
+                    "message",
+                    "status",
+                    "created_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "unit_id": {
+                      "type": "string"
+                    },
+                    "unit_title": {
+                      "type": "string"
+                    },
+                    "content_revision": {
+                      "type": "string"
+                    },
+                    "target_kind": {
+                      "type": "string"
+                    },
+                    "target_id": {
+                      "type": "string"
+                    },
+                    "target_title": {
+                      "type": "string"
+                    },
+                    "target_text": {
+                      "type": "string"
+                    },
+                    "content_path": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string",
+                      "enum": [
+                        "correction",
+                        "question",
+                        "suggestion"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "new",
+                        "reviewed",
+                        "resolved"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status"
+          },
+          "401": {
+            "description": "Session required"
+          },
+          "403": {
+            "description": "Explicit feedback permission and fresh operator MFA required"
+          },
+          "404": {
+            "description": "Feedback missing"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/observations/": {
+      "get": {
+        "operationId": "listMetricObservations",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Newest first, at most 50 records; offset pagination is a changing feed, not an export snapshot. Evidence pins remain historical; current reports whether their revision and permission are still available.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      },
+      "post": {
+        "operationId": "captureMetricObservation",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Owner/editor in active Workspace only. Available without a special grant. Append-only capture with server-assigned revision per binding/context/cost policy. Existing captures never change. Client provenance is owner_reported only; a verified import requires a separate trusted importer. At most 20 unique same-Workspace available evidence IDs; links pin revisions atomically. Unknown/invalid/not_applicable require null value and a reason; variable costs require explicit cost policy. No universal accounting policy or benchmark is inferred. POST is not idempotent; read after an uncertain response before intentionally capturing another revision.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetricObservationCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricObservation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/contribution-runs/": {
+      "get": {
+        "operationId": "listContributionRuns",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Newest first, at most 50 immutable runs.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRunPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createContributionRun",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Owner/editor in active Workspace, effective can_calculate_metrics grant required. Calls the existing Decimal contribution-amount-v1 calculator against an exact approved release. At most two unique saved observations, one per binding; same scope, Segment, dates, currency and accounting basis required. Missing input yields a persisted nonnumeric unknown result. Stale/revoked evidence and unreviewed release fail without writing. Client result/method/snapshot injection rejected. Historical runs do not become current facts automatically. POST appends a new run on each intentional submission; no idempotency guarantee.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionRunCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRun"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/contribution-runs/{run_id}/": {
+      "get": {
+        "operationId": "readContributionRun",
+        "description": "Live. Verified Workspace members only; staff has no bypass. Private no-store. Reads survive archive or entitlement expiry. Returns the exact stored context, input/evidence pins and result; never recalculates history. Source revisions may since have changed; this is a historical snapshot, not a claim of current evidence availability.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionRun"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input or context/source mismatch"
+          },
+          "401": {
+            "description": "Active verified session required"
+          },
+          "403": {
+            "description": "Viewer/archive write denied; calculation also requires owner entitlement"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace or run"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/entitlements/": {
+      "get": {
+        "operationId": "readWorkspaceEntitlements",
+        "summary": "Read effective owner-plan features for this Workspace",
+        "description": "Live. Verified members only; private no-store response. Features follow the Workspace owner's effective grants. No billing identifiers or owner subscription list are exposed. Membership write permission and archive state remain independent. can_generate_reports is reserved; no report renderer is implemented by this flag.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [{ "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Effective Workspace access", "content": { "application/json": { "schema": {
+            "type": "object", "required": ["workspace_id", "hasAccess", "accessLevel", "features", "readOnly"], "additionalProperties": false,
+            "properties": {
+              "workspace_id": { "type": "string" }, "hasAccess": { "type": "boolean", "enum": [true] },
+              "accessLevel": { "type": "string", "enum": ["free", "special"] }, "readOnly": { "type": "boolean" },
+              "features": { "type": "object", "additionalProperties": false, "required": ["can_finalize_analysis", "can_calculate_metrics", "can_generate_reports"], "properties": {
+                "can_finalize_analysis": { "type": "boolean" }, "can_calculate_metrics": { "type": "boolean" }, "can_generate_reports": { "type": "boolean" }
+              } }
+            }
+          } } } },
+          "401": { "description": "Verified session required" },
+          "404": { "description": "Missing or invisible Workspace" }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/analyses/{record_id}/revisions/": {
+      "get": {
+        "operationId": "listAnalysisRevisions",
+        "summary": "Read retained private analysis snapshots",
+        "description": "Live. Verified Workspace members only. Newest first, at most 50 items. History remains readable after the source analysis is deleted. Migration backfills only the current known version, with is_backfill=true and recorded_by=null. Private no-store response.",
+        "security": [{ "cookieSession": [] }],
+        "parameters": [
+          { "name": "workspace_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "record_id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } },
+          { "name": "before", "in": "query", "schema": { "type": "integer", "minimum": 1 } }
+        ],
+        "responses": {
+          "200": { "description": "Revision page", "content": { "application/json": { "schema": {
+            "type": "object", "required": ["items", "next_before"], "additionalProperties": false,
+            "properties": {
+              "next_before": { "type": "integer", "nullable": true },
+              "items": { "type": "array", "maxItems": 50, "items": {
+                "type": "object", "required": ["revision", "snapshot", "recorded_at", "recorded_by", "is_backfill"], "additionalProperties": false,
+                "properties": {
+                  "revision": { "type": "integer", "minimum": 1 }, "snapshot": { "$ref": "#/components/schemas/Analysis" },
+                  "recorded_at": { "type": "string", "format": "date-time" }, "recorded_by": { "type": "string", "nullable": true }, "is_backfill": { "type": "boolean" }
+                }
+              } }
+            }
+          } } } },
+          "400": { "description": "Invalid before cursor" }, "401": { "description": "Verified session required" },
+          "404": { "description": "Missing or invisible Workspace or history" }
+        }
+      }
+    },
     "/api/v1/session/": {
       "get": {
         "operationId": "readSession",
@@ -7002,6 +9664,701 @@
       }
     },
     "schemas": {
+      "MetricObservationCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "source_kind",
+          "source_id",
+          "source_revision"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "evidence_ids": {
+            "type": "array",
+            "maxItems": 20,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      },
+      "MetricObservation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "cost_scope",
+          "source_kind",
+          "source_id",
+          "source_revision",
+          "reason",
+          "id",
+          "workspace_id",
+          "revision",
+          "created_at",
+          "evidence"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported",
+              "verified_import"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evidence_id",
+                "revision",
+                "permission_status",
+                "current"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "permission_status": {
+                  "type": "string",
+                  "enum": [
+                    "available"
+                  ]
+                },
+                "current": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ContributionRunCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "observation_ids",
+          "knowledge_release_id"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "observation_ids": {
+            "type": "array",
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "knowledge_release_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1
+          }
+        }
+      },
+      "ContributionInputSnapshot": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "binding_id",
+          "state",
+          "value",
+          "unit",
+          "cost_scope",
+          "source_kind",
+          "source_id",
+          "source_revision",
+          "reason",
+          "observation_id",
+          "revision",
+          "evidence"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "binding_id": {
+            "type": "string",
+            "enum": [
+              "net_revenue",
+              "variable_costs"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "unknown",
+              "not_applicable",
+              "invalid"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+            "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "currency"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "owner_reported",
+              "verified_import"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evidence_id",
+                "revision",
+                "permission_status"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "permission_status": {
+                  "type": "string",
+                  "enum": [
+                    "available"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ContributionRun": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope_kind",
+          "segment_id",
+          "period_start",
+          "period_end",
+          "currency",
+          "accounting_basis",
+          "id",
+          "workspace_id",
+          "metric_id",
+          "method_revision",
+          "knowledge_release_id",
+          "knowledge_release_hash",
+          "variant",
+          "cost_scope",
+          "input_revision",
+          "input_snapshot",
+          "created_at",
+          "results"
+        ],
+        "properties": {
+          "scope_kind": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "segment"
+            ]
+          },
+          "segment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "period_start": {
+            "type": "string",
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "maxLength": 3
+          },
+          "accounting_basis": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "metric_id": {
+            "type": "string",
+            "enum": [
+              "MET-CONTRIBUTION-MARGIN"
+            ]
+          },
+          "method_revision": {
+            "type": "string",
+            "enum": [
+              "contribution-amount-v1"
+            ]
+          },
+          "knowledge_release_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "knowledge_release_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "variant": {
+            "type": "string",
+            "enum": [
+              "amount"
+            ]
+          },
+          "cost_scope": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "input_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "input_snapshot": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/ContributionInputSnapshot"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "metric_id",
+                "variant",
+                "status",
+                "value",
+                "reason",
+                "unit",
+                "currency"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "metric_id": {
+                  "type": "string",
+                  "enum": [
+                    "MET-CONTRIBUTION-MARGIN"
+                  ]
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "amount"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "observed",
+                    "unknown",
+                    "not_applicable",
+                    "invalid"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "nullable": true,
+                  "pattern": "^-?[0-9]+(?:\\.[0-9]{1,6})?$",
+                  "description": "Exact base-10 value; never a JSON number. Null is distinct from zero. At most 18 whole digits and six decimal places."
+                },
+                "reason": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "currency"
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$",
+                  "maxLength": 3
+                }
+              }
+            }
+          }
+        }
+      },
+      "MetricObservationPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/MetricObservation"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "ContributionRunPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/ContributionRun"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
       "Error": {
         "type": "object",
         "properties": {
@@ -7156,10 +10513,40 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 160
+            "maxLength": 301
           },
           "is_staff": {
             "type": "boolean"
+          },
+          "profile_required": {
+            "type": "boolean"
+          },
+          "avatar": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "sprite_index",
+              "sprite_sheet"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "sprite_index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 19
+              },
+              "sprite_sheet": {
+                "type": "string"
+              }
+            }
           }
         },
         "required": [
@@ -7199,6 +10586,16 @@
         ],
         "additionalProperties": false
       },
+      "WorkspaceSessionEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string"},
+          "role": {"type": "string", "enum": ["owner", "editor", "viewer"]}
+        }
+      },
       "Session": {
         "type": "object",
         "properties": {
@@ -7214,7 +10611,7 @@
           "workspaces": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkspaceSummary"
+              "$ref": "#/components/schemas/WorkspaceSessionEntry"
             }
           }
         },

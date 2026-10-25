@@ -22,6 +22,7 @@ import {
 } from './api';
 import { workspaceToolPath } from './routeRegistry';
 import { useWorkspaceDirtyGuard } from './switchContext';
+import { DecisionOrbit } from '../management/ManagementCharts';
 
 function WorkspaceRow({
   workspace,
@@ -286,7 +287,7 @@ export default function WorkspaceManagementPage() {
 
   return (
     <section className="workspace-management" aria-labelledby="workspace-management-title">
-      <header className="workspace-management__header">
+      <header className="workspace-management__header management-welcome">
         <div>
           <p className="auth-kicker">{english ? 'Project access' : 'دسترسی پروژه'}</p>
           <h1 id="workspace-management-title" tabIndex={-1}>
@@ -295,47 +296,48 @@ export default function WorkspaceManagementPage() {
           <p>
             {english
               ? 'Keep each project and its members in the right place.'
-              : 'هر پروژه و اعضایش را در فضای خودش مدیریت کنید.'}
+              : 'برای هر کسب‌وکارت یک فضای مستقل داشته باش. از همین‌جا، تیم، تحلیل‌ها و گزارش‌هاش رو دنبال کن.'}
           </p>
-        </div>
-        <Dialog
-          closeLabel={english ? 'Close' : 'بستن'}
-          trigger={createTrigger}
-          title={english ? 'Create a Workspace' : 'ساخت فضای کار'}
-          description={
-            english
-              ? 'Give this project a clear name. You can invite members after creation.'
-              : 'برای این پروژه نام مشخصی انتخاب کنید. پس از ساخت می‌توانید عضو دعوت کنید.'
-          }
-          open={createOpen}
-          onOpenChange={(open) => {
-            setCreateOpen(open);
-            if (!open) {
-              setError('');
-              setNameError('');
+          <Dialog
+            closeLabel={english ? 'Close' : 'بستن'}
+            trigger={createTrigger}
+            title={english ? 'Create a Workspace' : 'ساخت فضای کار'}
+            description={
+              english
+                ? 'Give this project a clear name. You can invite members after creation.'
+                : 'برای این پروژه نام مشخصی انتخاب کنید. پس از ساخت می‌توانید عضو دعوت کنید.'
             }
-          }}
-        >
-          <form className="workspace-form" onSubmit={(event) => void submitCreate(event)}>
-            <Input
-              label={english ? 'Workspace name' : 'نام فضای کار'}
-              value={name}
-              onChange={(event) => setName(event.currentTarget.value)}
-              maxLength={120}
-              required
-              autoFocus
-              error={nameError}
-            />
-            {error && (
-              <p className="account-feedback account-feedback--error" role="alert">
-                {error}
-              </p>
-            )}
-            <Button variant="primary" type="submit" pending={pending}>
-              {english ? 'Create Workspace' : 'ساخت فضا'}
-            </Button>
-          </form>
-        </Dialog>
+            open={createOpen}
+            onOpenChange={(open) => {
+              setCreateOpen(open);
+              if (!open) {
+                setError('');
+                setNameError('');
+              }
+            }}
+          >
+            <form className="workspace-form" onSubmit={(event) => void submitCreate(event)}>
+              <Input
+                label={english ? 'Workspace name' : 'نام فضای کار'}
+                value={name}
+                onChange={(event) => setName(event.currentTarget.value)}
+                maxLength={120}
+                required
+                autoFocus
+                error={nameError}
+              />
+              {error && (
+                <p className="account-feedback account-feedback--error" role="alert">
+                  {error}
+                </p>
+              )}
+              <Button variant="primary" type="submit" pending={pending}>
+                {english ? 'Create Workspace' : 'ساخت فضا'}
+              </Button>
+            </form>
+          </Dialog>
+        </div>
+        <DecisionOrbit />
       </header>
 
       {!workspaces.isPending && !workspaces.isError && records.length > 0 && (

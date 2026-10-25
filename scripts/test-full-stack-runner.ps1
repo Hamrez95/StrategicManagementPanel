@@ -31,7 +31,7 @@ function Invoke-FixtureCompose {
     }
 }
 try {
-    & $runner -WithBackend -NoBrowser -SmokeTest
+    & $runner -Refs @('HEAD', 'feat/stratino-academy') -WithBackend -NoBrowser -SmokeTest
     $states = @(Get-ChildItem -LiteralPath (Join-Path $repo '.local-dev') -Filter '*.env' | Sort-Object Name)
     if ($states.Count -ne 2) { throw 'Expected two independent stack identities.' }
     if (((& git -C $repo worktree list --porcelain) -join "`n") -ne $before) { throw 'Runner left registered worktrees.' }
@@ -46,7 +46,7 @@ try {
     Invoke-FixtureCompose $states[0] @('run', '--rm', 'api', 'python', '-c', $write)
     Invoke-FixtureCompose $states[1] @('run', '--rm', 'api', 'python', '-c', $absent)
     foreach ($state in $states) { Invoke-FixtureCompose $state @('down') }
-    & $runner -WithBackend -NoBrowser -SmokeTest
+    & $runner -Refs @('HEAD', 'feat/stratino-academy') -WithBackend -NoBrowser -SmokeTest
     foreach ($state in $states) { Invoke-FixtureCompose $state @('up', '-d', '--wait', 'db', 'mailpit') }
     Invoke-FixtureCompose $states[0] @('run', '--rm', 'api', 'python', '-c', $retained)
     Invoke-FixtureCompose $states[1] @('run', '--rm', 'api', 'python', '-c', $absent)
