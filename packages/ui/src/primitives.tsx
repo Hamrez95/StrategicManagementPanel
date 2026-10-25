@@ -119,21 +119,72 @@ export function Input({
   ...props
 }: ComponentProps<'input'> & { label: string; hint?: string; error?: string }) {
   const generated = useId();
+  const { dir } = useUIAppearance();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const password = props.type === 'password';
   const fieldId = id || generated;
   const described =
     [hint && `${fieldId}-hint`, error && `${fieldId}-error`, props['aria-describedby']]
       .filter(Boolean)
       .join(' ') || undefined;
+  const control = (
+    <input
+      {...props}
+      type={password && passwordVisible ? 'text' : props.type}
+      id={fieldId}
+      className={`ui-input ${className}`}
+      aria-invalid={Boolean(error) || undefined}
+      aria-describedby={described}
+    />
+  );
+  const visibilityLabel = passwordVisible
+    ? dir === 'ltr'
+      ? 'Hide password'
+      : 'پنهان کردن گذرواژه'
+    : dir === 'ltr'
+      ? 'Show password'
+      : 'نمایش گذرواژه';
   return (
     <div className="ui-field">
       <label htmlFor={fieldId}>{label}</label>
-      <input
-        {...props}
-        id={fieldId}
-        className={`ui-input ${className}`}
-        aria-invalid={Boolean(error) || undefined}
-        aria-describedby={described}
-      />
+      {password ? (
+        <div className="ui-password-control">
+          {control}
+          <button
+            type="button"
+            className="ui-password-toggle"
+            aria-label={visibilityLabel}
+            title={visibilityLabel}
+            aria-controls={fieldId}
+            aria-pressed={passwordVisible}
+            disabled={props.disabled}
+            onClick={() => setPasswordVisible((visible) => !visible)}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              aria-hidden="true"
+              focusable="false"
+            >
+              {passwordVisible ? (
+                <>
+                  <path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8" />
+                  <path d="M9.9 5.2A10.7 10.7 0 0112 5c5.2 0 8.6 4.8 9.5 6.3a1.3 1.3 0 010 1.4 13 13 0 01-3.2 3.5M6.2 6.2A14 14 0 002.5 11.3a1.3 1.3 0 000 1.4C3.4 14.2 6.8 19 12 19a10.5 10.5 0 004-.8" />
+                </>
+              ) : (
+                <>
+                  <path d="M2.5 12s3.4-7 9.5-7 9.5 7 9.5 7-3.4 7-9.5 7-9.5-7-9.5-7z" />
+                  <circle cx="12" cy="12" r="3" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
+      ) : (
+        control
+      )}
       {hint && (
         <p id={`${fieldId}-hint`} className="ui-hint">
           {hint}

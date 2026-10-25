@@ -202,6 +202,12 @@
   border-radius: 14px;
   padding: 16px;
 }
+.op-admin-form .ui-password-control:dir(rtl) > input {
+  padding-left: 3.5rem;
+}
+.op-admin-form .ui-password-control:dir(ltr) > input {
+  padding-right: 3.5rem;
+}
 .op-permission-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));

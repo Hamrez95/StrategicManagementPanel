@@ -1,3 +1,4 @@
+import { Input } from '@stratino/ui';
 import { useEffect, useState, type FormEvent } from 'react';
 import { requestApi } from '../../api/client';
 import { OperatorIcon } from './OperatorIcon';
@@ -52,41 +53,35 @@ export function OperatorPassword({
         )}
       </p>
       <form className="op-admin-form" onSubmit={submit}>
-        <label>
-          {t('گذرواژهٔ فعلی', 'Current password')}
-          <input
-            type="password"
-            autoComplete="current-password"
-            required
-            maxLength={1024}
-            value={current}
-            onChange={(e) => setCurrent(e.target.value)}
-          />
-        </label>
-        <label>
-          {t('گذرواژهٔ جدید', 'New password')}
-          <input
-            type="password"
-            autoComplete="new-password"
-            required
-            minLength={12}
-            maxLength={1024}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <label>
-          {t('تکرار گذرواژهٔ جدید', 'Confirm new password')}
-          <input
-            type="password"
-            autoComplete="new-password"
-            required
-            minLength={12}
-            maxLength={1024}
-            value={confirmation}
-            onChange={(e) => setConfirmation(e.target.value)}
-          />
-        </label>
+        <Input
+          label={t('گذرواژهٔ فعلی', 'Current password')}
+          type="password"
+          autoComplete="current-password"
+          required
+          maxLength={1024}
+          value={current}
+          onChange={(e) => setCurrent(e.target.value)}
+        />
+        <Input
+          label={t('گذرواژهٔ جدید', 'New password')}
+          type="password"
+          autoComplete="new-password"
+          required
+          minLength={12}
+          maxLength={1024}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Input
+          label={t('تکرار گذرواژهٔ جدید', 'Confirm new password')}
+          type="password"
+          autoComplete="new-password"
+          required
+          minLength={12}
+          maxLength={1024}
+          value={confirmation}
+          onChange={(e) => setConfirmation(e.target.value)}
+        />
         {error && <p role="alert">{error}</p>}
         <button className="op-primary" disabled={busy || password !== confirmation}>
           {t(busy ? 'داریم ذخیره می‌کنیم…' : 'تغییر گذرواژه', busy ? 'Saving…' : 'Change password')}
@@ -288,17 +283,15 @@ export function OperatorTeam({ english }: { english: boolean }) {
                 onChange={(e) => setReason(e.target.value)}
               />
             </label>
-            <label>
-              {t('گذرواژهٔ خودت برای تأیید', 'Your password to confirm')}
-              <input
-                type="password"
-                autoComplete="current-password"
-                required
-                maxLength={1024}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
+            <Input
+              label={t('گذرواژهٔ خودت برای تأیید', 'Your password to confirm')}
+              type="password"
+              autoComplete="current-password"
+              required
+              maxLength={1024}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button className="op-primary" disabled={busy || codes.length === 0}>
               {t(
                 busy ? 'داریم ذخیره می‌کنیم…' : 'ثبت دسترسی مدیر',

@@ -295,6 +295,26 @@ try {
     );
     audits++;
   }
+  async function checkPasswordVisibility(label) {
+    const field = page.getByLabel(label, { exact: true });
+    const toggle = field.locator('..').getByRole('button');
+    const value = await field.inputValue();
+    const autocomplete = await field.getAttribute('autocomplete');
+    assert.equal(await field.getAttribute('type'), 'password');
+    await toggle.focus();
+    await page.keyboard.press('Space');
+    assert.equal(await field.getAttribute('type'), 'text');
+    assert.equal(await toggle.getAttribute('aria-pressed'), 'true');
+    assert.equal(await field.inputValue(), value);
+    await page.keyboard.press('Enter');
+    assert.equal(await field.getAttribute('type'), 'password');
+    assert.equal(await field.getAttribute('autocomplete'), autocomplete);
+    assert.equal(await field.inputValue(), value);
+    const fieldBox = await field.boundingBox();
+    const eyeBox = await toggle.boundingBox();
+    assert.ok(eyeBox.x >= fieldBox.x && eyeBox.x + eyeBox.width <= fieldBox.x + fieldBox.width);
+    checks++;
+  }
   await page.setViewportSize({ width: 360, height: 900 });
   await page.goto(base + '/internal');
   await page.getByRole('heading', { name: 'راه‌اندازی سرور لازمه' }).waitFor();
@@ -305,6 +325,7 @@ try {
   configured = true;
   await page.reload();
   await page.getByLabel('گذرواژه', { exact: true }).fill('synthetic-password-only');
+  await checkPasswordVisibility('گذرواژه');
   await page.getByRole('button', { name: 'ساخت QR اتصال' }).click();
   await page.getByAltText('QR اتصال حساب استراتینو به Authenticator').waitFor();
   await page.getByLabel('کد شش‌رقمی').fill('123456');
@@ -446,6 +467,9 @@ try {
   await page
     .getByLabel('Confirm new password', { exact: true })
     .fill('new-synthetic-password-2048');
+  for (const label of ['Current password', 'New password', 'Confirm new password'])
+    await checkPasswordVisibility(label);
+  await page.screenshot({ path: `${folder}/password-eyes-mobile.png`, fullPage: true });
   await axe('initial-password-mobile');
   await fit();
   await page.getByRole('button', { name: 'Change password', exact: true }).click();

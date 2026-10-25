@@ -1,3 +1,4 @@
+import { Input } from '@stratino/ui';
 import { useState, type FormEvent } from 'react';
 import { requestApi } from '../../api/client';
 import { OperatorIcon } from './OperatorIcon';
@@ -193,17 +194,15 @@ export function OperatorSecurity({
                 'Use the password for this admin account.',
               )}
             </p>
-            <label>
-              {t('گذرواژه', 'Password')}
-              <input
-                type="password"
-                autoComplete="current-password"
-                required
-                maxLength={4096}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
+            <Input
+              label={t('گذرواژه', 'Password')}
+              type="password"
+              autoComplete="current-password"
+              required
+              maxLength={4096}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             {enrollment && (
               <div className="op-qr">
                 <img

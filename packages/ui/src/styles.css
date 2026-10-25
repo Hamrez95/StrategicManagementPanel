@@ -134,6 +134,48 @@
   line-height: 1.7;
   margin: 0;
 }
+.ui-password-control {
+  position: relative;
+  min-inline-size: 0;
+}
+.ui-password-control:dir(rtl) > input {
+  padding-left: 3.5rem;
+}
+.ui-password-control:dir(ltr) > input {
+  padding-right: 3.5rem;
+}
+.ui-password-toggle {
+  position: absolute;
+  inset-inline-end: 4px;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.ui-password-toggle svg {
+  inline-size: 22px;
+  block-size: 22px;
+  pointer-events: none;
+}
+.ui-password-toggle:hover:not(:disabled) {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.ui-password-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+.ui-password-toggle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .ui-hint {
   color: var(--muted);
 }

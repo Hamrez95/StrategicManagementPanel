@@ -2520,37 +2520,8 @@ main {
   min-width: 0;
 }
 .auth-email-input:dir(ltr),
-.auth-password-input:dir(ltr) {
+.ui-password-control > input:dir(ltr) {
   text-align: left;
-}
-.auth-password-field {
-  position: relative;
-  direction: ltr;
-}
-.auth-password-field .ui-field {
-  direction: rtl;
-}
-.auth-password-field .auth-password-input {
-  padding-inline-end: 5.5rem;
-}
-.auth-password-toggle.ui-button {
-  position: absolute;
-  inset-inline-end: 5px;
-  top: 31px;
-  width: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.5rem;
-}
-.auth-password-toggle svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
 }
 .auth-field-hint {
   margin-top: -14px;

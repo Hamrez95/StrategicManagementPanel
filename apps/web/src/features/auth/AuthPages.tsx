@@ -54,43 +54,19 @@ function PasswordField({
   error?: string;
   autoComplete: 'current-password' | 'new-password';
 }) {
-  const [visible, setVisible] = useState(false);
   return (
-    <div className="auth-password-field">
-      <Input
-        label={label}
-        type={visible ? 'text' : 'password'}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        error={error}
-        autoComplete={autoComplete}
-        dir="ltr"
-        autoCapitalize="none"
-        spellCheck={false}
-        required
-        className="auth-password-input"
-      />
-      <Button
-        type="button"
-        variant="quiet"
-        className="auth-password-toggle"
-        aria-label={visible ? 'پنهان کردن گذرواژه' : 'نمایش گذرواژه'}
-        aria-pressed={visible}
-        onClick={() => setVisible((current) => !current)}
-      >
-        {visible ? (
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8" />
-            <path d="M9.9 5.2A10.7 10.7 0 0112 5c5.2 0 8.6 4.8 9.5 6.3a1.3 1.3 0 010 1.4 13 13 0 01-3.2 3.5M6.2 6.2A14 14 0 002.5 11.3a1.3 1.3 0 000 1.4C3.4 14.2 6.8 19 12 19a10.5 10.5 0 004-.8" />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M2.5 12s3.4-7 9.5-7 9.5 7 9.5 7-3.4 7-9.5 7-9.5-7-9.5-7z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-        )}
-      </Button>
-    </div>
+    <Input
+      label={label}
+      type="password"
+      value={value}
+      onChange={(event) => onChange(event.target.value)}
+      error={error}
+      autoComplete={autoComplete}
+      dir="ltr"
+      autoCapitalize="none"
+      spellCheck={false}
+      required
+    />
   );
 }
 
