@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
-const base = process.argv[2] || 'http://127.0.0.1:5217';
+const base = process.argv[2] || process.env.STRATINO_UI_URL || 'http://127.0.0.1:5217';
 const folder = 'test-results/global-admin';
 const sections = [
   'accounts',
@@ -141,7 +141,9 @@ const rows = {
   ],
 };
 await mkdir(folder, { recursive: true });
-const browser = await chromium.launch({ channel: 'chrome' });
+const browser = await chromium.launch({
+  channel: process.platform === 'win32' ? 'chrome' : undefined,
+});
 let checks = 0;
 let audits = 0;
 try {

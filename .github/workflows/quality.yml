@@ -22,6 +22,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm run quality
       - run: npm run test:gate
   browser:
@@ -50,3 +51,5 @@ jobs:
             test-results/ui/report.json
             test-results/web/*.png
             test-results/web/report.json
+            test-results/global-admin/
+            test-results/motion/

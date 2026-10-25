@@ -23,6 +23,8 @@ const paths: Record<string, string> = {
 
 export function OperatorIcon({ name, size = 22 }: { name: string; size?: number }) {
   const aliases: Record<string, string> = {
+    team: 'accounts',
+    password: 'security',
     academy_plans: 'plans',
     academy_subscriptions: 'subscriptions',
     academy_orders: 'audit',
