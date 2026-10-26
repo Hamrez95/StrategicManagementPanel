@@ -1,5 +1,11 @@
 # Management OS checkpoint — 2026-10-24
 
+## Account destination fixes — 2026-10-26
+
+Academy subscription choice is now read directly from the URL instead of mount-only state and an implicit specialty fallback. The generic comparison page starts with no selected plan, each account plan deep link selects its exact ID, and area/coupon parameters survive reload/history without resetting the scroll during selection. Invalid/inactive/free plan IDs do not silently select another special plan. Submission feedback and retry identity are scoped to the actual selection so a historical result is not displayed for another choice. The page heading explicitly identifies Academy plan comparison.
+
+Account free-sample links open the course catalog; the account footer returns to Workspace lists rather than the first-run form, and the account-menu learning guide opens the actual Academy guide. A dedicated Academy Suspense boundary replaces the old account screen with visible loading feedback while its module loads. The isolated account navigation regression verifies 36 destinations/selection/history/loading cases in both themes without editing real profile data or submitting purchases; it is included in the browser suite.
+
 ## Typed Workspace tool connections — 2026-10-26
 
 The customer route registry's six original server-backed tools remain intact. The remaining visible routes no longer send customers to the browser prototype: PESTEL observations, competitor profiles, VRIO self-assessments, scenarios, risks and self-reported journey progress have separate typed database models and strict Workspace-scoped APIs. Creation has an actor/Workspace/payload-bound retry UUID, updates require a revision, archived Workspaces/viewers cannot write, and frozen revision snapshots retain prior inputs. PostgreSQL tenant/choice/composite foreign-key guards are installed; the real local integrity audit reports 77 models, 180 checks, zero violations and no missing guards. A private database dump was captured before the additive migration.

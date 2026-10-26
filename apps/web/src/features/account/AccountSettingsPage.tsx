@@ -467,7 +467,7 @@ export default function AccountSettingsPage() {
       </section>
 
       <p className="account-settings__back">
-        <Link to="/app/start">بازگشت به فضای کار</Link>
+        <Link to="/app/workspaces">بازگشت به فضاهای من</Link>
       </p>
     </section>
   );

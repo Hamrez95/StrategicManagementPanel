@@ -396,6 +396,7 @@ export default function ConnectedAcademy() {
   const [warning, setWarning] = useState('');
   const { dir } = useUIAppearance();
   const location = useLocation();
+  const previousPage = useRef('');
   const inLesson = /\/(lesson|review)\//.test(location.pathname);
   function update(units: Record<string, Progress>) {
     const next = { ...stateRef.current, units };
@@ -455,7 +456,13 @@ export default function ConnectedAcademy() {
   }, []);
   useEffect(() => {
     document.title = 'استراتینو | آکادمی آموزش';
-    window.scrollTo(0, 0);
+    if (
+      location.pathname !== '/academy/subscriptions' ||
+      previousPage.current !== location.pathname
+    ) {
+      window.scrollTo(0, 0);
+    }
+    previousPage.current = location.pathname;
   }, [location.pathname, location.search]);
   const learning: LearningActions = {
     userId: state.user_id,

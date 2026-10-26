@@ -367,7 +367,11 @@ export default function AccountSubscriptionHub() {
                 )}
                 <Link
                   className="account-plan-choose"
-                  to={plan.kind === 'free' ? '/academy' : `/academy/subscriptions?plan=${plan.id}`}
+                  to={
+                    plan.kind === 'free'
+                      ? '/academy/catalog'
+                      : `/academy/subscriptions?plan=${plan.id}`
+                  }
                 >
                   {plan.kind === 'free'
                     ? 'دیدن نمونه‌ها'

@@ -113,28 +113,33 @@ function Price({ plan }: { plan: Plan }) {
 }
 export function AcademySubscriptions({ authenticated }: { authenticated: boolean }) {
   const location = useLocation();
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const query = useQuery({
     queryKey: ['academy-plans', authenticated],
     queryFn: () => requestApi<PlanData>('/api/v1/academy/plans/'),
   });
-  const [planId, setPlanId] = useState<number | null>(() =>
-    params.get('plan') ? Number(params.get('plan')) : null,
-  );
-  const [areas, setAreas] = useState<string[]>(() =>
-    (params.get('areas') ?? '').split(',').filter(Boolean),
-  );
+  const requestedPlan = params.get('plan');
+  const planId = requestedPlan && /^\d+$/.test(requestedPlan) ? Number(requestedPlan) : null;
+  const areas = (params.get('areas') ?? '').split(',').filter(Boolean);
   const [busy, setBusy] = useState(false),
     [message, setMessage] = useState(''),
     [error, setError] = useState('');
-  const [couponInput, setCouponInput] = useState(params.get('coupon') ?? '');
-  const [couponCode, setCouponCode] = useState(params.get('coupon') ?? '');
+  const couponCode = params.get('coupon') ?? '';
+  const [couponDraft, setCouponDraft] = useState({ key: couponCode, value: couponCode });
+  const couponInput = couponDraft.key === couponCode ? couponDraft.value : couponCode;
+  const setCouponInput = (value: string) => setCouponDraft({ key: couponCode, value });
   const requestId = useRef(crypto.randomUUID());
-  const selected =
-    query.data?.plans.find((p) => p.id === planId) ??
-    query.data?.plans.find((p) => p.kind === 'specialty') ??
-    query.data?.plans.find((p) => p.kind !== 'free');
+  const requestContext = useRef('');
+  const [feedbackContext, setFeedbackContext] = useState('');
+  const selected = query.data?.plans.find((p) => p.id === planId && p.kind !== 'free');
   const chosenAreas = (query.data?.areas ?? []).filter((area) => areas.includes(area.id));
+  const selectionContext = JSON.stringify([
+    selected?.id,
+    selected?.kind === 'specialty' ? chosenAreas.map((area) => area.id) : [],
+    couponCode,
+  ]);
+  const currentMessage = feedbackContext === selectionContext ? message : '';
+  const currentError = feedbackContext === selectionContext ? error : '';
   const selectionReady = !!selected && (selected.kind !== 'specialty' || chosenAreas.length > 0);
   const pricing = useQuery({
     queryKey: [
@@ -161,16 +166,32 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
     setMessage('');
     setError('');
   }
+  function changeSelection(name: 'plan' | 'areas' | 'coupon', value: string) {
+    setParams(
+      (current) => {
+        const next = new URLSearchParams(current);
+        if (value) next.set(name, value);
+        else next.delete(name);
+        return next;
+      },
+      { replace: true },
+    );
+    resetRequest();
+  }
   function applyCoupon(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const code = couponInput.trim().toUpperCase();
-    setCouponCode(code);
-    resetRequest();
+    changeSelection('coupon', code);
     if (couponCode === code) void pricing.refetch();
   }
   async function submit() {
     if (!selected || busy || !pricing.data || pricing.isError || pricing.isFetching) return;
     setBusy(true);
+    if (requestContext.current !== selectionContext) {
+      requestContext.current = selectionContext;
+      requestId.current = crypto.randomUUID();
+    }
+    setFeedbackContext(selectionContext);
     setError('');
     setMessage('');
     try {
@@ -218,13 +239,20 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
       </Link>
       <header className="subscription-heading">
         <div>
-          <h1>قدم بعدی یادگیری رو خودت انتخاب کن</h1>
+          <h1>مقایسهٔ اشتراک‌های آکادمی</h1>
           <p>
             از پایه‌های مدیریت شروع کن، روی یک گرایش تمرکز کن یا همهٔ آکادمی رو کنار هم داشته باش.
           </p>
         </div>
         <Illustration {...planArt.full} />
       </header>
+      <p role="status" className="subscription-section-note">
+        {selected
+          ? `اشتراک انتخاب‌شده: ${selected.title}`
+          : requestedPlan
+            ? 'این اشتراک در دسترس نیست؛ یکی از گزینه‌های فعال رو انتخاب کن.'
+            : 'هنوز اشتراکی انتخاب نکردی. گزینه‌ها رو مقایسه کن و مورد مناسب خودت رو انتخاب کن.'}
+      </p>
       <div className="academy-plan-grid" role="group" aria-label="انتخاب نوع اشتراک">
         {query.data.plans.map((plan) => (
           <button
@@ -234,8 +262,7 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
             disabled={busy || plan.kind === 'free'}
             aria-pressed={selected?.id === plan.id}
             onClick={() => {
-              setPlanId(plan.id);
-              resetRequest();
+              changeSelection('plan', String(plan.id));
             }}
           >
             <span className="subscription-plan-top">
@@ -279,12 +306,13 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
                         type="checkbox"
                         checked={checked}
                         onChange={(event) => {
-                          setAreas((current) =>
-                            event.target.checked
-                              ? [...current, area.id]
-                              : current.filter((id) => id !== area.id),
+                          changeSelection(
+                            'areas',
+                            (event.target.checked
+                              ? [...areas, area.id]
+                              : areas.filter((id) => id !== area.id)
+                            ).join(','),
                           );
-                          resetRequest();
                         }}
                       />
                       <span className="subscription-area-check" aria-hidden="true">
@@ -407,7 +435,7 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
                   type="button"
                   disabled={busy}
                   onClick={() => {
-                    setCouponCode('');
+                    changeSelection('coupon', '');
                     setCouponInput('');
                     resetRequest();
                   }}
@@ -420,7 +448,7 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
               <Button
                 disabled={
                   busy ||
-                  !!message ||
+                  !!currentMessage ||
                   !selectionReady ||
                   pricing.isFetching ||
                   !total ||
@@ -441,8 +469,8 @@ export function AcademySubscriptions({ authenticated }: { authenticated: boolean
             <p className="subscription-checkout-note">
               ثبت درخواست، پرداخت یا فعال‌سازی اشتراک نیست.
             </p>
-            <p role="status">{message}</p>
-            {error && <p role="alert">{error}</p>}
+            <p role="status">{currentMessage}</p>
+            {currentError && <p role="alert">{currentError}</p>}
           </aside>
         )}
       </div>

@@ -408,7 +408,22 @@ export function App() {
         >
           <Routes>
             {ComponentLab && <Route path="/__dev/ui" element={<ComponentLab />} />}
-            {Academy && <Route path="/academy/*" element={<Academy />} />}
+            {Academy && (
+              <Route
+                path="/academy/*"
+                element={
+                  <Suspense
+                    fallback={
+                      <section className="academy-page" aria-busy="true">
+                        <p role="status">در حال بازکردن آکادمی…</p>
+                      </section>
+                    }
+                  >
+                    <Academy />
+                  </Suspense>
+                }
+              />
+            )}
             <Route path="/" element={<Site academyEnabled={Academy !== null} />} />
             <Route
               path="/management-preview"

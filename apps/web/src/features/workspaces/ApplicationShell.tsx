@@ -532,13 +532,7 @@ export default function ApplicationShell() {
                   {english ? 'Import old backup' : 'واردسازی پشتیبان قدیمی'}
                 </Link>
               )}
-              <Link
-                to={
-                  activeWorkspaceId ? workspaceToolPath(activeWorkspaceId, 'learn') : '/app/start'
-                }
-              >
-                {english ? 'Guided learning' : 'آموزش راهنما'}
-              </Link>
+              <Link to="/academy/guide">{english ? 'Guided learning' : 'آموزش راهنما'}</Link>
               <Link to="/app/account#subscription">
                 {english ? 'Plan and usage' : 'پلن و سهمیه'}
               </Link>
