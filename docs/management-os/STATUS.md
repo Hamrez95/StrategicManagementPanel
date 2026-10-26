@@ -1,5 +1,13 @@
 # Management OS checkpoint — 2026-10-24
 
+## Verified operator merge and recovery tooling — 2026-10-26
+
+PR #111 merged at `5fa182f` after all seven remote checks passed, including the browser job rerun after an installation timeout. All 12 registered browser suites also passed locally. The earlier pending-check descriptions below are historical checkpoints, not the current merge state.
+
+The #31 packet adds a quiesced PostgreSQL/private-file snapshot script and a strict manifest-based file restore utility. The final local combined drill restored a separate database, matched key record counts/ID digests, applied migrations and passed integrity checks (77 models, 180 checks, zero violations, all 147 guards present). The API restarted healthy. Actual local storage contained zero private files; ten independent archive tests cover nonempty Unicode/binary/empty-file round trips and malformed/traversal/link/corruption rejection. An isolated failure probe confirmed API restart after a failed database snapshot. No source database or customer file was overwritten. The added CI step exercises nonempty synthetic file recovery; its remote result remains a separate gate. AST-only Graphify: 17148 nodes / 26118 edges / 1144 communities.
+
+Runbook: [BACKUP_RECOVERY](../runbooks/BACKUP_RECOVERY.md). Off-host encrypted storage, key recovery, scheduling/retention/alerts and target-environment recovery objectives remain open; #31 is not closed by this local drill.
+
 ## Completion sequence and Academy operator actions — 2026-10-26
 
 The owner authorized source push/merge and sequential completion of the existing tasks. [COMPLETION_PLAN](COMPLETION_PLAN.md) records the order, acceptance gates and owner-dependent inputs; issues #53/#30/#101/#105/#31/#39/#40/#42/#29/#38 were updated in place, without duplicate issues. Git transport identity was explicitly verified as Hamrez95 and all eight prior commits were pushed; local/remote main equality was verified at `50eb798`. PR #110 fixes the stale browser assertion that still expected the removed QSPM placeholder; all seven remote checks passed before merge (`23d038e`).
