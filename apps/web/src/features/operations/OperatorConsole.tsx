@@ -3,6 +3,7 @@ import { ApiError, requestApi } from '../../api/client';
 import { OperatorShell } from './OperatorShell';
 import { OperatorIcon } from './OperatorIcon';
 import { OperatorActionDialog, type OperatorAction } from './OperatorActionDialog';
+import { OperatorAcademyPlanDialog } from './OperatorAcademyPlanDialog';
 import type { OperatorCapabilities } from './OperatorSecurity';
 import './operator.css';
 
@@ -201,6 +202,7 @@ function OperatorCollection({
 }) {
   const t = (fa: string, en: string) => (english ? en : fa);
   const [action, setAction] = useState<OperatorAction | null>(null);
+  const [editingPlan, setEditingPlan] = useState<string | null>(null);
   const [success, setSuccess] = useState('');
   const keys =
     section === 'accounts' && capabilities.identity
@@ -319,6 +321,7 @@ function OperatorCollection({
       factor_removed: ['حذف Authenticator', 'Authenticator removed'],
       account_status_changed: ['تغییر وضعیت حساب', 'Account status changed'],
       feedback_triaged: ['بررسی نظر', 'Feedback triaged'],
+      academy_plan_updated: ['ویرایش پلن آکادمی', 'Academy plan updated'],
       operator_access_changed: ['تغییر دسترسی مدیر', 'Administrator access changed'],
       operator_password_changed: ['تغییر گذرواژهٔ مدیر', 'Administrator password changed'],
     };
@@ -500,7 +503,8 @@ function OperatorCollection({
                       </th>
                     ))}
                     {((section === 'accounts' && capabilities.manage_accounts) ||
-                      (section === 'subscriptions' && capabilities.revoke)) && (
+                      (section === 'subscriptions' && capabilities.revoke) ||
+                      (section === 'academy_plans' && capabilities.edit_academy_plans)) && (
                       <th scope="col">{t('عملیات', 'Actions')}</th>
                     )}
                   </tr>
@@ -525,6 +529,13 @@ function OperatorCollection({
                             {row.is_active
                               ? t('غیرفعال‌کردن', 'Deactivate')
                               : t('فعال‌کردن', 'Activate')}
+                          </button>
+                        </td>
+                      )}
+                      {section === 'academy_plans' && capabilities.edit_academy_plans && (
+                        <td>
+                          <button onClick={() => setEditingPlan(String(row.id))}>
+                            {t('ویرایش پلن', 'Edit plan')}
                           </button>
                         </td>
                       )}
@@ -570,6 +581,24 @@ function OperatorCollection({
           onDone={() => {
             setAction(null);
             setSuccess(t('تغییر با موفقیت ثبت شد.', 'Change saved successfully.'));
+            setReload((value) => value + 1);
+          }}
+        />
+      )}
+      {editingPlan && (
+        <OperatorAcademyPlanDialog
+          id={editingPlan}
+          english={english}
+          onClose={() => setEditingPlan(null)}
+          onReauthenticate={onReauthenticate}
+          onDone={() => {
+            setEditingPlan(null);
+            setSuccess(
+              t(
+                'پلن ذخیره شد و در صفحهٔ اشتراک‌ها نمایش داده می‌شه.',
+                'Plan saved and reflected on subscription pages.',
+              ),
+            );
             setReload((value) => value + 1);
           }}
         />

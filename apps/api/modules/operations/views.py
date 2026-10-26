@@ -16,6 +16,7 @@ from modules.workspaces.models import (
 )
 
 from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
+from .academy_plans import can_edit_academy_plans
 from .security import (
     SECTIONS,
     approved_access,
@@ -47,6 +48,7 @@ def operator_status(request):
         'can_manage_operators': access.role == 'owner',
         'actor': {'name': actor.get_full_name() or actor.display_name or 'اپراتور'},
         'capabilities': {
+            'edit_academy_plans': can_edit_academy_plans(actor, sections),
             'identity': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_view_identity'),
             'manage_accounts': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_manage_accounts'),
             'triage_feedback': 'feedback' in sections and explicit_permission(actor, 'accounts.operator_triage_feedback'),

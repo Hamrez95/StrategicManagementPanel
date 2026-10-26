@@ -388,6 +388,279 @@
         ]
       }
     },
+    "/api/v1/operator/academy_plans/{plan_id}/": {
+      "parameters": [
+        {
+          "name": "plan_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "operationId": "readOperatorAcademyPlan",
+        "summary": "Read Academy catalog plan for editing",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current saved catalog plan; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "code",
+                    "kind",
+                    "currency",
+                    "title",
+                    "is_active",
+                    "price",
+                    "sale_price",
+                    "duration_days",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "free",
+                        "full",
+                        "general",
+                        "specialty"
+                      ]
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "price": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000000000000,
+                      "nullable": true
+                    },
+                    "sale_price": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000000000000,
+                      "nullable": true
+                    },
+                    "duration_days": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 36500,
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved owner or explicit edit permission, section access, MFA and CSRF required"
+          },
+          "404": {
+            "description": "Plan not found"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "editOperatorAcademyPlan",
+        "summary": "Edit Academy plan with optimistic concurrency and immutable audit",
+        "description": "Currency is read-only; IRR amounts are rials, not tomans. Code and coverage kind are immutable. Specialty prices are per selected area. Existing orders and subscriptions retain their frozen snapshots. version is the canonical saved-state hash.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "title",
+                  "is_active",
+                  "price",
+                  "sale_price",
+                  "duration_days",
+                  "version",
+                  "reason"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  },
+                  "price": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000000000000,
+                    "nullable": true
+                  },
+                  "sale_price": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000000000000,
+                    "nullable": true
+                  },
+                  "duration_days": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 36500,
+                    "nullable": true
+                  },
+                  "version": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Current saved catalog plan; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "code",
+                    "kind",
+                    "currency",
+                    "title",
+                    "is_active",
+                    "price",
+                    "sale_price",
+                    "duration_days",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "free",
+                        "full",
+                        "general",
+                        "specialty"
+                      ]
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "price": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000000000000,
+                      "nullable": true
+                    },
+                    "sale_price": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000000000000,
+                      "nullable": true
+                    },
+                    "duration_days": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 36500,
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid title, integer price, discount, duration or reason"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved owner or explicit edit permission, section access, MFA and CSRF required"
+          },
+          "404": {
+            "description": "Plan not found"
+          },
+          "409": {
+            "description": "revision_conflict: reload latest plan before editing"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/api/v1/operator/status/": {
       "get": {
         "operationId": "readOperatorReadiness",
@@ -484,6 +757,9 @@
                         "revoke"
                       ],
                       "properties": {
+                        "edit_academy_plans": {
+                          "type": "boolean"
+                        },
                         "identity": {
                           "type": "boolean"
                         },

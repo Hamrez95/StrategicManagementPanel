@@ -12,6 +12,24 @@
   background: #101c1877;
   backdrop-filter: blur(5px);
 }
+.op-plan-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.op-plan-dialog > :is(header, p, footer, button) {
+  flex-shrink: 0;
+}
+.op-plan-dialog > .op-admin-form {
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px;
+  margin-block: 0 16px;
+}
+.op-plan-dialog > footer {
+  margin-block-start: auto;
+}
 .op-action-dialog > header {
   display: flex;
   align-items: center;

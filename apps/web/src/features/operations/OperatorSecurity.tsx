@@ -4,6 +4,7 @@ import { requestApi } from '../../api/client';
 import { OperatorIcon } from './OperatorIcon';
 
 export type OperatorCapabilities = {
+  edit_academy_plans?: boolean;
   triage_feedback?: boolean;
   grant?: boolean;
   revoke?: boolean;

@@ -118,6 +118,7 @@ const permissionLabels: Record<string, [string, string]> = {
   operator_triage_feedback: ['رسیدگی به نظرها', 'Triage feedback'],
   add_managementsubscription: ['اعطای اشتراک مدیریت', 'Grant management subscription'],
   change_managementsubscription: ['لغو اشتراک مدیریت', 'Revoke management subscription'],
+  change_academyplan: ['ویرایش پلن و قیمت آکادمی', 'Edit Academy plans and pricing'],
 };
 export function OperatorTeam({ english }: { english: boolean }) {
   const t = (fa: string, en: string) => (english ? en : fa);

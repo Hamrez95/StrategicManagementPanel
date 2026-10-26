@@ -160,6 +160,8 @@ try {
   let failCollection = false;
   let lastQuery;
   const actions = [];
+  let academyPlan = { ...rows.academy_plans[0], version: 'synthetic-version-1' };
+  let conflictPlan = false;
   await page.route(/\/api\/v1\//, async (route) => {
     const request = route.request();
     const url = new URL(request.url());
@@ -196,9 +198,25 @@ try {
           triage_feedback: false,
           grant: true,
           revoke: true,
+          edit_academy_plans: true,
         },
       };
-    else if (url.pathname === '/api/v1/operator/password/') {
+    else if (url.pathname === '/api/v1/operator/academy_plans/1/') {
+      assert.ok(mfa);
+      if (request.method() === 'PATCH') {
+        assert.ok(request.headers()['x-csrftoken']);
+        if (conflictPlan) {
+          status = 409;
+          payload = { code: 'revision_conflict', message: 'تغییر هم‌زمان آزمایشی' };
+        } else {
+          const body = request.postDataJSON();
+          assert.equal(body.version, academyPlan.version);
+          academyPlan = { ...academyPlan, ...body, version: 'synthetic-version-2' };
+          rows.academy_plans[0] = academyPlan;
+          payload = academyPlan;
+        }
+      } else payload = academyPlan;
+    } else if (url.pathname === '/api/v1/operator/password/') {
       assert.equal(request.method(), 'POST');
       assert.ok(request.headers()['x-csrftoken']);
       assert.ok(mfa || mustChangePassword);
@@ -346,6 +364,42 @@ try {
     await fit();
     checks++;
   }
+  await page.setViewportSize({ width: 360, height: 900 });
+  await page.goto(base + '/internal/academy_plans');
+  await page.getByRole('button', { name: 'ویرایش پلن', exact: true }).click();
+  let planDialog = page.getByRole('dialog', { name: 'ویرایش پلن آکادمی' });
+  await planDialog.getByLabel('قیمت اصلی (ریال)', { exact: true }).fill('۱٬۰۰۰٬۰۰۰');
+  await planDialog.getByLabel('قیمت با تخفیف (ریال)', { exact: true }).fill('۸۰۰۰۰۰');
+  await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).fill('۹۰');
+  await planDialog.getByLabel('دلیل تغییر', { exact: true }).fill('Synthetic catalog update only');
+  await fit();
+  await page.screenshot({ path: `${folder}/academy-plan-editor-mobile.png`, fullPage: true });
+  await axe('academy-plan-editor-mobile');
+  await planDialog.getByRole('button', { name: 'ذخیرهٔ تغییرات', exact: true }).click();
+  await planDialog.waitFor({ state: 'hidden' });
+  assert.equal(academyPlan.price, 1000000);
+  assert.equal(academyPlan.sale_price, 800000);
+  assert.equal(academyPlan.duration_days, 90);
+  await page.getByRole('cell', { name: '۱٬۰۰۰٬۰۰۰', exact: true }).waitFor();
+  conflictPlan = true;
+  await page.getByRole('button', { name: 'ویرایش پلن', exact: true }).click();
+  planDialog = page.getByRole('dialog', { name: 'ویرایش پلن آکادمی' });
+  await planDialog.getByLabel('دلیل تغییر', { exact: true }).fill('Synthetic concurrent edit');
+  await planDialog.getByRole('button', { name: 'ذخیرهٔ تغییرات', exact: true }).click();
+  await planDialog.getByRole('alert').waitFor();
+  assert.equal(
+    await planDialog.getByRole('button', { name: 'ذخیرهٔ تغییرات', exact: true }).isDisabled(),
+    true,
+  );
+  assert.equal(
+    await planDialog.getByLabel('دلیل تغییر', { exact: true }).inputValue(),
+    'Synthetic concurrent edit',
+  );
+  await planDialog.getByRole('button', { name: 'دریافت اطلاعات تازه', exact: true }).click();
+  await planDialog.getByRole('button', { name: 'ذخیرهٔ تغییرات', exact: true }).waitFor();
+  await planDialog.getByRole('button', { name: 'بستن', exact: true }).click();
+  conflictPlan = false;
+  checks += 6;
   for (const width of [360, 768]) {
     await page.setViewportSize({ width, height: 960 });
     for (const section of [

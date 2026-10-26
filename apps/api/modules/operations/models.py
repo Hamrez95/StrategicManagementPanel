@@ -82,17 +82,18 @@ class OperatorSecurityEvent(models.Model):
 class OperatorActionEvent(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     actor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
-    event_type = models.CharField(max_length=32, choices=[('account_status_changed', 'Account status'), ('feedback_triaged', 'Feedback triage'), ('operator_access_changed', 'Operator access'), ('operator_password_changed', 'Operator password')])
+    event_type = models.CharField(max_length=32, choices=[('account_status_changed', 'Account status'), ('feedback_triaged', 'Feedback triage'), ('operator_access_changed', 'Operator access'), ('operator_password_changed', 'Operator password'), ('academy_plan_updated', 'Academy plan updated')])
     target = models.CharField(max_length=100)
     before = models.CharField(max_length=20)
     after = models.CharField(max_length=20)
     reason = models.CharField(max_length=500, blank=True)
+    details = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-created_at', '-id']
         constraints = [models.CheckConstraint(
-            condition=models.Q(event_type__in=['account_status_changed', 'feedback_triaged', 'operator_access_changed', 'operator_password_changed']),
+            condition=models.Q(event_type__in=['account_status_changed', 'feedback_triaged', 'operator_access_changed', 'operator_password_changed', 'academy_plan_updated']),
             name='operator_action_event_type',
         )]
 
