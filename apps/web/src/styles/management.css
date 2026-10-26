@@ -120,6 +120,34 @@
 .application-shell .workspace-home {
   max-inline-size: 1280px;
 }
+.application-shell--workspace .app-content {
+  padding: clamp(16px, 2vw, 28px);
+}
+.application-shell .strategy-page {
+  inline-size: 100%;
+  margin-block: 0 32px;
+  gap: 18px;
+}
+.application-shell .strategy-heading {
+  gap: 16px;
+}
+.application-shell .strategy-heading > div {
+  gap: 4px;
+}
+.application-shell .strategy-heading h1 {
+  font-size: clamp(24px, 2.5vw, 32px);
+}
+.application-shell .strategy-panel {
+  padding: clamp(16px, 2vw, 22px);
+  gap: 16px;
+}
+.application-shell .evaluation-page {
+  gap: 12px;
+}
+.application-shell .evaluation-ledger {
+  gap: 10px;
+  padding: clamp(14px, 1.6vw, 18px);
+}
 .workspace-pulse,
 .report-studio {
   display: grid;

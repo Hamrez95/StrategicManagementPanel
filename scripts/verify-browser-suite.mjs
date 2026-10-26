@@ -94,6 +94,7 @@ try {
     'scripts/verify-motion.mjs',
     'scripts/verify-management-studio.mjs',
     'scripts/verify-mobile-onboarding.mjs',
+    'scripts/verify-matrix-layout.mjs',
   ])
     await run(script, env);
   console.log('PASS: complete browser suite; owned local servers shutting down.');

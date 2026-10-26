@@ -222,20 +222,20 @@ export default function EvaluationMatrixPage() {
   }
   if (matricesQuery.isPending)
     return (
-      <main className="strategy-page">
+      <section className="strategy-page">
         <Skeleton label={english ? 'Loading matrix' : 'در حال بارگیری ماتریس'} />
-      </main>
+      </section>
     );
   if (matricesQuery.isError)
     return (
-      <main className="strategy-page">
+      <section className="strategy-page">
         <Notice title={english ? 'Matrix could not be loaded' : 'ماتریس بارگیری نشد'}>
           <p role="alert">{matricesQuery.error.message}</p>
           <Button onClick={() => void matricesQuery.refetch()}>
             {english ? 'Retry' : 'تلاش دوباره'}
           </Button>
         </Notice>
-      </main>
+      </section>
     );
 
   function changeRow(index: number, patch: Partial<ApiAnalysisRow>) {
@@ -357,13 +357,15 @@ export default function EvaluationMatrixPage() {
   const factorName = (type: ApiStrategyFactorType) => FACTOR_NAMES[type][english ? 'en' : 'fa'];
 
   return (
-    <main className="strategy-page evaluation-page">
+    <section className="strategy-page evaluation-page" aria-labelledby="evaluation-page-title">
       <header className="strategy-heading evaluation-heading">
         <div>
           <p className="auth-kicker">
             {english ? 'STRATEGY WORK / MATRIX STUDIO' : 'کار استراتژی / آزمایشگاه ماتریس‌ها'}
           </p>
-          <h1 tabIndex={-1}>{english ? 'Factor evaluation' : 'ارزیابی عوامل راهبردی'}</h1>
+          <h1 id="evaluation-page-title" tabIndex={-1}>
+            {english ? 'Factor evaluation' : 'ارزیابی عوامل راهبردی'}
+          </h1>
           <p>{english ? `Workspace: ${workspace.name}` : `فضای کار: ${workspace.name}`}</p>
         </div>
         <Link
@@ -454,17 +456,22 @@ export default function EvaluationMatrixPage() {
               <h2 id="evaluation-ledger-title">
                 {english ? 'Factors and evidence' : 'عامل‌ها و شواهد'}
               </h2>
-              <p>
-                {english
-                  ? 'Weights are percentages. Every factor needs a traceable source before finalization.'
-                  : 'وزن‌ها درصد هستند. برای نهایی‌کردن، هر عامل باید شاهد یا منبع قابل پیگیری داشته باشد.'}
-              </p>
+              <details className="evaluation-entry-help">
+                <summary>
+                  {english ? 'How to complete this matrix' : 'راهنمای تکمیل ماتریس'}
+                </summary>
+                <p>
+                  {english
+                    ? 'Weights are percentages. Every factor needs a traceable source before finalization.'
+                    : 'وزن‌ها درصد هستند. برای نهایی‌کردن، هر عامل باید شاهد یا منبع قابل پیگیری داشته باشد.'}
+                </p>
+                <p className="evaluation-rating-help">{ratingHelp}</p>
+              </details>
             </div>
             <span className="evaluation-count">
               {number(rows.length, 0)} / {number(100, 0)}
             </span>
           </header>
-          <p className="evaluation-rating-help">{ratingHelp}</p>
           {rows.length === 0 ? (
             <EmptyState
               title={english ? 'No factors yet' : 'هنوز عاملی ثبت نشده'}
@@ -478,16 +485,12 @@ export default function EvaluationMatrixPage() {
             <div
               className="evaluation-table-scroll"
               role="region"
-              aria-label={
-                english
-                  ? 'Scrollable factor editor'
-                  : 'جدول عامل‌ها؛ برای دیدن ستون‌ها افقی پیمایش کنید'
-              }
+              aria-label={english ? 'Factor editor' : 'ویرایش عامل‌ها'}
               tabIndex={0}
             >
-              <table className="evaluation-table">
-                <thead>
-                  <tr>
+              <table className="evaluation-table" role="table">
+                <thead role="rowgroup">
+                  <tr role="row">
                     <th scope="col">{english ? 'Factor' : 'عامل'}</th>
                     <th scope="col">{english ? 'Type' : 'دسته'}</th>
                     <th scope="col">{english ? 'Weight %' : 'وزن ٪'}</th>
@@ -498,11 +501,14 @@ export default function EvaluationMatrixPage() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody role="rowgroup">
                   {rows.map((row, index) => (
-                    <tr key={row.id}>
+                    <tr key={row.id} role="row">
                       <td>
                         <label className="evaluation-cell-field">
+                          <span className="evaluation-field-caption" aria-hidden="true">
+                            {english ? 'Factor' : 'عامل'} {number(index + 1, 0)}
+                          </span>
                           <span className="ui-sr-only">
                             {english ? `Factor ${index + 1}` : `عامل ${number(index + 1, 0)}`}
                           </span>
@@ -519,6 +525,9 @@ export default function EvaluationMatrixPage() {
                       </td>
                       <td>
                         <label className="evaluation-cell-field">
+                          <span className="evaluation-field-caption" aria-hidden="true">
+                            {english ? 'Type' : 'دسته'}
+                          </span>
                           <span className="ui-sr-only">
                             {english
                               ? `Type for factor ${index + 1}`
@@ -542,6 +551,9 @@ export default function EvaluationMatrixPage() {
                       </td>
                       <td>
                         <label className="evaluation-cell-field">
+                          <span className="evaluation-field-caption" aria-hidden="true">
+                            {english ? 'Weight %' : 'وزن ٪'}
+                          </span>
                           <span className="ui-sr-only">
                             {english
                               ? `Weight percent for factor ${index + 1}`
@@ -568,6 +580,9 @@ export default function EvaluationMatrixPage() {
                       </td>
                       <td>
                         <label className="evaluation-cell-field">
+                          <span className="evaluation-field-caption" aria-hidden="true">
+                            {english ? 'Rating' : 'رتبه'}
+                          </span>
                           <span className="ui-sr-only">
                             {english
                               ? `Rating for factor ${index + 1}`
@@ -596,6 +611,9 @@ export default function EvaluationMatrixPage() {
                       </td>
                       <td>
                         <label className="evaluation-cell-field">
+                          <span className="evaluation-field-caption" aria-hidden="true">
+                            {english ? 'Evidence / source' : 'شاهد / منبع'}
+                          </span>
                           <span className="ui-sr-only">
                             {english
                               ? `Evidence for factor ${index + 1}`
@@ -650,15 +668,17 @@ export default function EvaluationMatrixPage() {
             >
               {english ? 'Add factor' : 'افزودن عامل'}
             </Button>
-            <Button
-              variant="quiet"
-              disabled={!editable || pending || !importedFactors.length || rows.length >= 100}
-              onClick={importFactors}
-            >
-              {english
-                ? `Copy SWOT factors (${importedFactors.length})`
-                : `افزودن عکس عامل‌های SWOT (${number(importedFactors.length, 0)})`}
-            </Button>
+            {importedFactors.length > 0 && (
+              <Button
+                variant="quiet"
+                disabled={!editable || pending || !importedFactors.length || rows.length >= 100}
+                onClick={importFactors}
+              >
+                {english
+                  ? `Copy SWOT factors (${importedFactors.length})`
+                  : `افزودن عکس عامل‌های SWOT (${number(importedFactors.length, 0)})`}
+              </Button>
+            )}
             {strategyQuery.isPending && (
               <span role="status">
                 {english ? 'Loading SWOT factors…' : 'در حال دریافت عامل‌های SWOT…'}
@@ -728,12 +748,24 @@ export default function EvaluationMatrixPage() {
               <dd>{interpretationLabel(preview.interpretation, english)}</dd>
             </div>
           </dl>
-          <p className="evaluation-result__midpoint">
-            {english
-              ? '2.5 is the arithmetic midpoint of the 1–4 scale, not a universal success threshold.'
-              : '۲٫۵ میانه حسابی مقیاس ۱ تا ۴ است و آستانه عمومی موفقیت نیست.'}
-          </p>
-          <p className="evaluation-result__limitation">{limitations}</p>
+          <details className="evaluation-method-notes">
+            <summary>
+              {english ? 'Interpretation and limitations' : 'توضیح نتیجه و محدودیت‌ها'}
+            </summary>
+            <p className="evaluation-result__midpoint">
+              {english
+                ? '2.5 is the arithmetic midpoint of the 1–4 scale, not a universal success threshold.'
+                : '۲٫۵ میانه حسابی مقیاس ۱ تا ۴ است و آستانه عمومی موفقیت نیست.'}
+            </p>
+            <p className="evaluation-result__limitation">{limitations}</p>
+            {record && (
+              <p className="evaluation-result__revision">
+                {english
+                  ? `Saved revision ${number(record.revision, 0)} · ${record.method_version}`
+                  : `نسخه ذخیره‌شده ${number(record.revision, 0)} · ${record.method_version}`}
+              </p>
+            )}
+          </details>
           {!preview.can_finalize && (
             <section
               className="evaluation-issues"
@@ -751,13 +783,6 @@ export default function EvaluationMatrixPage() {
               </ul>
             </section>
           )}
-          {record && (
-            <p className="evaluation-result__revision">
-              {english
-                ? `Saved revision ${number(record.revision, 0)} · ${record.method_version}`
-                : `نسخه ذخیره‌شده ${number(record.revision, 0)} · ${record.method_version}`}
-            </p>
-          )}
         </aside>
       </section>
       <p className="evaluation-footnote">
@@ -765,6 +790,6 @@ export default function EvaluationMatrixPage() {
           ? 'Calculation uses weight ÷ 100 × rating for each factor. Source evidence remains part of the saved input snapshot.'
           : 'محاسبه برای هر عامل برابر وزن تقسیم بر ۱۰۰ ضربدر رتبه است. شواهد منبع همراه عکس ورودی ذخیره می‌شود.'}
       </p>
-    </main>
+    </section>
   );
 }
