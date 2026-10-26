@@ -61,6 +61,25 @@
   overflow-wrap: anywhere;
   font-size: 0.75rem;
 }
+.op-sample-preview {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+.op-sample-preview li {
+  padding: 10px 12px;
+  border-block-end: 1px solid var(--op-line);
+  overflow-wrap: anywhere;
+}
+.op-sample-preview li[data-selected='true'] {
+  background: var(--op-mint);
+  border-radius: 8px;
+}
+.op-sample-preview span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--op-muted);
+}
 .op-action-dialog footer {
   display: flex;
   justify-content: end;

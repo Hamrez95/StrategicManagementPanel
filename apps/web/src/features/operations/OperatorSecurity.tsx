@@ -5,6 +5,9 @@ import { OperatorIcon } from './OperatorIcon';
 
 export type OperatorCapabilities = {
   edit_academy_plans?: boolean;
+  edit_academy_samples?: boolean;
+  grant_academy?: boolean;
+  revoke_academy?: boolean;
   triage_feedback?: boolean;
   grant?: boolean;
   revoke?: boolean;

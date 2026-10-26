@@ -28,6 +28,7 @@ from modules.operations.views import operator_collection, operator_status, opera
 from modules.operations.mfa import operator_mfa
 from modules.operations.actions import operator_action
 from modules.operations.academy_plans import academy_plan_detail
+from modules.operations.academy_access import academy_grant, academy_sample_config, academy_subscription_detail
 from modules.operations.administrators import operator_login, operator_password, operator_team
 from modules.imports.views import (
     preview_import,
@@ -67,6 +68,9 @@ urlpatterns = [
     path('api/v1/operator/status/', operator_status),
     path('api/v1/operator/overview/', operator_overview),
     path('api/v1/operator/academy_plans/<int:plan_id>/', academy_plan_detail),
+    path('api/v1/operator/academy_samples/configure/', academy_sample_config),
+    path('api/v1/operator/academy_subscriptions/grant/', academy_grant),
+    path('api/v1/operator/academy_subscriptions/<uuid:subscription_id>/', academy_subscription_detail),
     path('api/v1/operator/<str:section>/', operator_collection),
     path('api/v1/account/avatars/', avatar_catalog),
     path('api/v1/account/subscriptions/', account_subscriptions),

@@ -31,7 +31,10 @@ def grantable_permissions():
         ['operator_manage_accounts', 'operator_view_identity', 'operator_triage_feedback'],
     ) | Permission.objects.filter(content_type__app_label='workspaces', codename__in=[
         'add_managementsubscription', 'change_managementsubscription',
-    ]) | Permission.objects.filter(content_type__app_label='academy', codename='change_academyplan')
+    ]) | Permission.objects.filter(content_type__app_label='academy', codename__in=[
+        'change_academyplan', 'add_freesample', 'change_freesample',
+        'add_academysubscription', 'change_academysubscription',
+    ])
 
 
 @csrf_protect

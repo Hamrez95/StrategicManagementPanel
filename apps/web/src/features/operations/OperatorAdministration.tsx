@@ -119,6 +119,10 @@ const permissionLabels: Record<string, [string, string]> = {
   add_managementsubscription: ['اعطای اشتراک مدیریت', 'Grant management subscription'],
   change_managementsubscription: ['لغو اشتراک مدیریت', 'Revoke management subscription'],
   change_academyplan: ['ویرایش پلن و قیمت آکادمی', 'Edit Academy plans and pricing'],
+  add_freesample: ['افزودن نمونهٔ رایگان', 'Add free samples'],
+  change_freesample: ['تغییر نمونهٔ رایگان', 'Change free samples'],
+  add_academysubscription: ['اعطای دسترسی آکادمی', 'Grant Academy access'],
+  change_academysubscription: ['لغو دسترسی آکادمی', 'Revoke Academy access'],
 };
 export function OperatorTeam({ english }: { english: boolean }) {
   const t = (fa: string, en: string) => (english ? en : fa);
