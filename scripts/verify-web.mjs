@@ -1917,9 +1917,10 @@ try {
   await searchDialog.getByRole('link', { name: 'اتاق تصمیم' }).click();
   await page.getByRole('heading', { name: 'اتاق تصمیم' }).waitFor();
   assert.match(
-    await page.locator('.workspace-tool__availability').innerText(),
-    /نمونه قدیمی داده را جداگانه/,
+    await page.locator('[aria-labelledby="comparison-title"]').innerText(),
+    /این مقایسه کیفیه و امتیاز QSPM تولید نمی‌کنه/,
   );
+  assert.equal(await page.locator('.workspace-tool__availability').count(), 0);
   await page.goBack();
   await page.waitForURL(/\/app\/workspaces\/w1\/overview$/);
   await page.goForward();
