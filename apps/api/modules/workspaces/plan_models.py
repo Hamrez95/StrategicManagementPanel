@@ -18,7 +18,7 @@ class ManagementPlan(models.Model):
     can_generate_reports = models.BooleanField(default=False)
     price = models.PositiveBigIntegerField(null=True, blank=True)
     currency = models.CharField(max_length=3, default='IRR')
-    duration_days = models.PositiveIntegerField(null=True, blank=True)
+    duration_days = models.PositiveIntegerField(null=True, blank=True, default=365)
     revision = models.PositiveIntegerField(default=1)
 
     class Meta:

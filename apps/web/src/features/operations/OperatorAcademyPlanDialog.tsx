@@ -73,7 +73,13 @@ export function OperatorAcademyPlanDialog({
         setActive(data.is_active);
         setPrice(data.price === null ? '' : String(data.price));
         setSale(data.sale_price === null ? '' : String(data.sale_price));
-        setDuration(data.duration_days === null ? '' : String(data.duration_days));
+        setDuration(
+          data.kind === 'free'
+            ? data.duration_days === null
+              ? ''
+              : String(data.duration_days)
+            : '365',
+        );
         setConflict(false);
       })
       .catch((err: Error) => {
@@ -205,8 +211,11 @@ export function OperatorAcademyPlanDialog({
               inputMode="numeric"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              disabled={busy}
-              hint={t('خالی یعنی مدت هنوز تعیین نشده.', 'Leave blank if duration is not decided.')}
+              disabled={busy || plan.kind !== 'free'}
+              hint={t(
+                'دورهٔ اشتراک‌های ویژه یک سال، برابر با ۳۶۵ روزه.',
+                'Special subscriptions last one year (365 days).',
+              )}
             />
             <label className="op-checkbox">
               <input

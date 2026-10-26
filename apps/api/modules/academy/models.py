@@ -58,7 +58,7 @@ class AcademyPlan(models.Model):
     price = models.PositiveBigIntegerField(null=True, blank=True, help_text='خالی یعنی قیمت هنوز تعیین نشده. قیمت گرایش برای هر گرایش است.')
     sale_price = models.PositiveBigIntegerField(null=True, blank=True, help_text='قیمت پس از تخفیف عمومی؛ خالی یعنی بدون تخفیف.')
     currency = models.CharField(max_length=3, default='IRR')
-    duration_days = models.PositiveIntegerField(null=True, blank=True, help_text='تا تعیین سیاست مدت، خالی بماند.')
+    duration_days = models.PositiveIntegerField(null=True, blank=True, default=365, help_text='دورهٔ خرید جدید یک سال، برابر با ۳۶۵ روز است.')
     order = models.PositiveIntegerField(default=0)
 
     class Meta:

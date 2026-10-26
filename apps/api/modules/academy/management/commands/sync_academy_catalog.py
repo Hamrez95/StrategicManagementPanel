@@ -23,7 +23,7 @@ class Command(BaseCommand):
             for position, card in enumerate(unit['learning_cards']):
                 AcademyCard.objects.update_or_create(id=card['id'], defaults={'unit_id': unit['id'], 'title': card.get('title', ''), 'order': position})
         for index, (code, title) in enumerate([('free', 'نمونه‌های رایگان'), ('general', 'آموزش عمومی'), ('specialty', 'گرایش‌های انتخابی'), ('full', 'آکادمی کامل')]):
-            AcademyPlan.objects.get_or_create(code=code, defaults={'kind': code, 'title': title, 'order': index})
+            AcademyPlan.objects.get_or_create(code=code, defaults={'kind': code, 'title': title, 'order': index, 'duration_days': None if code == 'free' else 365})
         if options['seed_free_samples'] and not FreeSample.objects.exists():
             if not 1 <= options['sample_cards'] <= 10:
                 raise ValueError('sample-cards must be between 1 and 10')

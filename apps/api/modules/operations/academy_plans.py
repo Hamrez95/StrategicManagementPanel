@@ -4,9 +4,19 @@ import json
 
 from django.db import transaction
 from django.views.decorators.csrf import csrf_protect
+
 from modules.academy.models import AcademyPlan
+from modules.core.commerce_policy import ANNUAL_DURATION_DAYS
+
 from .models import OperatorActionEvent
-from .security import approved_access, explicit_permission, failure, operator_mfa_verified, operator_sections, private_response
+from .security import (
+    approved_access,
+    explicit_permission,
+    failure,
+    operator_mfa_verified,
+    operator_sections,
+    private_response,
+)
 
 FIELDS = ('title', 'is_active', 'price', 'sale_price', 'duration_days')
 MAX_AMOUNT = 1_000_000_000_000_000
@@ -56,6 +66,8 @@ def academy_plan_detail(request, plan_id):
                     raise ValueError
             if data['sale_price'] is not None and (data['price'] is None or data['sale_price'] > data['price']):
                 return failure('invalid_input', 'قیمت تخفیف‌خورده باید از قیمت اصلی بیشتر نباشه.', 400)
+            if plan.kind != 'free' and data['duration_days'] != ANNUAL_DURATION_DAYS:
+                return failure('invalid_input', 'مدت اشتراک‌های ویژه یک ساله؛ مقدار ۳۶۵ روز رو نگه دار.', 400)
             if plan.kind == 'free' and (data['price'] not in (None, 0) or data['sale_price'] is not None):
                 return failure('invalid_input', 'برای نمونه‌های رایگان، قیمت وارد نکن.', 400)
             if not isinstance(data['reason'], str) or not 3 <= len(data['reason'].strip()) <= 500:

@@ -1,5 +1,13 @@
 # Management OS checkpoint — 2026-10-24
 
+## Annual purchase terms and pricing research — 2026-10-26
+
+Owner decision: Zibal; annual-only new management and Academy general/specialty/full purchases; cheaper Academy renewals. [Pricing research](../research/PANEL_PRICING_2026-10-26.md) separates five official competitor pages and explicitly labels the suggested 4,900,000 toman/year panel price as an unapproved hypothesis. No live offer price, gateway secret or checkout flag was changed. Renewal discount amount/eligibility/window and combination with coupons remain unapproved; no discount or automatic deletion policy was invented.
+
+New order/quote services now reject non-365-day mutable offers, Academy plan editing preserves the annual term, and catalog migrations change offers only (management revisions increment once). Free catalog terms and old order/subscription snapshots remain intact; historical fulfillment uses the purchased term. This packet does not implement live Zibal payment or discounted renewal fulfillment. Local evidence: 72 PostgreSQL tests, including migration preservation, nonannual rejection and existing payment concurrency/recovery tests, passed; migration autodetection reports no drift; full root quality passed. The focused admin browser passed 65 checks and 12 axe audits; the mobile modal screenshot was reviewed. Final remote head checks remain a separate merge gate.
+
+PR #112 merged at `4534098` after all seven remote checks passed. Its API CI proved nonempty synthetic private-file restoration as well as isolated DB restore/migrations/integrity. The off-host/target recovery gaps described below remain open.
+
 ## Verified operator merge and recovery tooling — 2026-10-26
 
 PR #111 merged at `5fa182f` after all seven remote checks passed, including the browser job rerun after an installation timeout. All 12 registered browser suites also passed locally. The earlier pending-check descriptions below are historical checkpoints, not the current merge state.

@@ -15,6 +15,8 @@ from django.db import transaction
 from django.utils import timezone
 from django.utils.module_loading import import_string
 
+from modules.core.commerce_policy import ANNUAL_DURATION_DAYS
+
 from .entitlements import FEATURES, _operator
 from .models import (
     BillingAccount,
@@ -106,7 +108,7 @@ def create_order(actor, billing_account, plan, *, request_id, discount_code=None
     policy = _checkout_policy()
     plan = ManagementPlan.objects.select_for_update().get(pk=plan.pk)
     if (billing.status != 'active' or not plan.is_active or plan.is_default
-            or not plan.price or plan.currency != 'IRR' or not plan.duration_days):
+            or not plan.price or plan.currency != 'IRR' or plan.duration_days != ANNUAL_DURATION_DAYS):
         raise ValidationError('plan_not_purchasable')
     discount = None
     amount = 0

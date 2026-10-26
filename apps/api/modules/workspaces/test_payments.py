@@ -93,7 +93,7 @@ class PaymentFixture:
         self.operator = User.objects.create_superuser('payment-operator@example.test', password='synthetic-test-only')
         self.billing = BillingAccount.objects.create(owner=self.owner)
         self.plan = ManagementPlan.objects.create(code='payment-test', title='Synthetic offer', is_active=True,
-            price=12000, duration_days=7, owned_workspace_limit=2, can_finalize_analysis=True)
+            price=12000, duration_days=365, owned_workspace_limit=2, can_finalize_analysis=True)
 
     def order(self, **kwargs):
         return create_order(self.owner, self.billing, self.plan, request_id=kwargs.pop('request_id', uuid4()), **kwargs)
@@ -118,7 +118,7 @@ class ManagementPaymentTests(PaymentFixture, TestCase):
         self.assertFalse(ManagementOrder.objects.exists())
 
     def test_unpriced_or_undated_plan_cannot_be_purchased(self):
-        for field, value in [('price', None), ('price', 0), ('duration_days', None), ('currency', 'USD')]:
+        for field, value in [('price', None), ('price', 0), ('duration_days', None), ('duration_days', 30), ('duration_days', 366), ('currency', 'USD')]:
             with self.subTest(field=field, value=value):
                 original = getattr(self.plan, field)
                 setattr(self.plan, field, value)
@@ -208,7 +208,7 @@ class ManagementPaymentTests(PaymentFixture, TestCase):
         self.settle(attempt)
         grant = ManagementSubscription.objects.get()
         self.assertTrue(grant.can_finalize_analysis)
-        self.assertEqual(grant.ends_at-grant.starts_at, timedelta(days=7))
+        self.assertEqual(grant.ends_at-grant.starts_at, timedelta(days=365))
         self.assertEqual(SyntheticProvider.payments[attempt.pk][0], 12000)
 
     def test_discount_lifecycle_reservation_expiry_and_disabled_gate(self):
