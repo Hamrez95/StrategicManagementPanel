@@ -11332,6 +11332,917 @@
           }
         }
       }
+    },
+  "/api/v1/operator/academy_samples/configure/": {
+      "get": {
+        "operationId": "readOperatorAcademySample",
+        "summary": "Read lesson sample metadata or find up to 50 lessons",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "unit_id",
+                        "title",
+                        "area_kind",
+                        "cards",
+                        "active_card_ids",
+                        "other_specialty_cards",
+                        "version"
+                      ],
+                      "properties": {
+                        "unit_id": {
+                          "type": "string",
+                          "maxLength": 80
+                        },
+                        "title": {
+                          "type": "string",
+                          "maxLength": 400
+                        },
+                        "area_kind": {
+                          "type": "string",
+                          "enum": [
+                            "general",
+                            "specialty"
+                          ]
+                        },
+                        "cards": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "maxLength": 160
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 500
+                              }
+                            }
+                          }
+                        },
+                        "active_card_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "maxLength": 160
+                          }
+                        },
+                        "other_specialty_cards": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "units"
+                      ],
+                      "properties": {
+                        "units": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "id",
+                              "title",
+                              "course_id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "maxLength": 80
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 400
+                              },
+                              "course_id": {
+                                "type": "string",
+                                "maxLength": 80
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        },
+        "parameters": [
+          {
+            "name": "unit_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 160
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "configureOperatorAcademySample",
+        "summary": "Replace first-card sample prefix with an audited revision",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "unit_id",
+                    "title",
+                    "area_kind",
+                    "cards",
+                    "active_card_ids",
+                    "other_specialty_cards",
+                    "version"
+                  ],
+                  "properties": {
+                    "unit_id": {
+                      "type": "string",
+                      "maxLength": 80
+                    },
+                    "title": {
+                      "type": "string",
+                      "maxLength": 400
+                    },
+                    "area_kind": {
+                      "type": "string",
+                      "enum": [
+                        "general",
+                        "specialty"
+                      ]
+                    },
+                    "cards": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "title"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "maxLength": 160
+                          },
+                          "title": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        }
+                      }
+                    },
+                    "active_card_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 160
+                      }
+                    },
+                    "other_specialty_cards": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 160
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "unit_id",
+                  "count",
+                  "version",
+                  "reason"
+                ],
+                "properties": {
+                  "unit_id": {
+                    "type": "string",
+                    "maxLength": 80
+                  },
+                  "count": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "version": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Only lesson units are eligible. Count selects the first cards in canonical order. Selecting a nonempty specialty sample disables all other specialty lesson samples atomically. General lessons remain independent. Stale sample selection returns 409; review and assessment content is never returned."
+      }
+    },
+    "/api/v1/operator/academy_subscriptions/grant/": {
+      "get": {
+        "operationId": "readOperatorAcademyGrantChoices",
+        "summary": "List active special Academy plans and specialties",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "plans",
+                    "areas"
+                  ],
+                  "properties": {
+                    "plans": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "title",
+                          "kind"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "title": {
+                            "type": "string",
+                            "maxLength": 160
+                          },
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "general",
+                              "full",
+                              "specialty"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "areas": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "id",
+                          "title"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "maxLength": 80
+                          },
+                          "title": {
+                            "type": "string",
+                            "maxLength": 160
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        }
+      },
+      "post": {
+        "operationId": "grantOperatorAcademyAccess",
+        "summary": "Create a reasoned manual Academy grant with payload-bound retry identity",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "user_id",
+                    "plan_id",
+                    "coverage",
+                    "areas",
+                    "starts_at",
+                    "ends_at",
+                    "status",
+                    "order_item_id",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "plan_id": {
+                      "type": "integer"
+                    },
+                    "coverage": {
+                      "type": "string",
+                      "enum": [
+                        "general",
+                        "full",
+                        "specialty"
+                      ]
+                    },
+                    "areas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 80
+                      }
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ends_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    },
+                    "order_item_id": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "user_id",
+                    "plan_id",
+                    "coverage",
+                    "areas",
+                    "starts_at",
+                    "ends_at",
+                    "status",
+                    "order_item_id",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "plan_id": {
+                      "type": "integer"
+                    },
+                    "coverage": {
+                      "type": "string",
+                      "enum": [
+                        "general",
+                        "full",
+                        "specialty"
+                      ]
+                    },
+                    "areas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 80
+                      }
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ends_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    },
+                    "order_item_id": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 160
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "request_id",
+                  "user_id",
+                  "plan_id",
+                  "areas",
+                  "starts_at",
+                  "ends_at",
+                  "reason",
+                  "confirm"
+                ],
+                "properties": {
+                  "request_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "plan_id": {
+                    "type": "integer"
+                  },
+                  "areas": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 80
+                    },
+                    "maxItems": 100,
+                    "uniqueItems": true
+                  },
+                  "starts_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ends_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Grant does not create an order or payment. request_id is bound to actor, recipient and exact normalized payload. Retry returns the existing grant, including its current revoked state; no reactivation. Only specialty coverage accepts selected active specialty area IDs. Datetimes require timezone offsets; ends_at=null explicitly grants no expiry."
+      }
+    },
+    "/api/v1/operator/academy_subscriptions/{subscription_id}/": {
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "readOperatorAcademyRevocation",
+        "summary": "Read one Academy subscription for explicit revocation",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "user_id",
+                    "plan_id",
+                    "coverage",
+                    "areas",
+                    "starts_at",
+                    "ends_at",
+                    "status",
+                    "order_item_id",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "plan_id": {
+                      "type": "integer"
+                    },
+                    "coverage": {
+                      "type": "string",
+                      "enum": [
+                        "general",
+                        "full",
+                        "specialty"
+                      ]
+                    },
+                    "areas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 80
+                      }
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ends_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    },
+                    "order_item_id": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        }
+      },
+      "post": {
+        "operationId": "revokeOperatorAcademyAccess",
+        "summary": "Revoke only the selected Academy subscription",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current canonical record; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "user_id",
+                    "plan_id",
+                    "coverage",
+                    "areas",
+                    "starts_at",
+                    "ends_at",
+                    "status",
+                    "order_item_id",
+                    "version"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "plan_id": {
+                      "type": "integer"
+                    },
+                    "coverage": {
+                      "type": "string",
+                      "enum": [
+                        "general",
+                        "full",
+                        "specialty"
+                      ]
+                    },
+                    "areas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 80
+                      }
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ends_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "revoked"
+                      ]
+                    },
+                    "order_item_id": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unknown fields"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator, section and action permissions, fresh MFA and mutation CSRF required"
+          },
+          "404": {
+            "description": "Record not found"
+          },
+          "409": {
+            "description": "Revision or idempotency conflict; preserve draft and reload latest state"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 160
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "version",
+                  "reason",
+                  "confirm"
+                ],
+                "properties": {
+                  "version": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 500
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Requires section and change permission with fresh MFA. Revision checked under row lock. Writes an immutable audit record, preserves original purchase/payment and other grants, and does not issue a refund."
+      }
     }
   },
   "components": {

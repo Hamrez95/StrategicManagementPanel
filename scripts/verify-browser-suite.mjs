@@ -97,6 +97,7 @@ try {
     'scripts/verify-matrix-layout.mjs',
     'scripts/verify-planning-tools.mjs',
     'scripts/verify-account-navigation.mjs',
+    'scripts/verify-academy-operator-actions.mjs',
   ])
     await run(script, env);
   console.log('PASS: complete browser suite; owned local servers shutting down.');

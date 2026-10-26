@@ -17,6 +17,7 @@ from modules.workspaces.models import (
 
 from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
 from .academy_plans import can_edit_academy_plans
+from .academy_access import allowed as academy_action_allowed
 from .security import (
     SECTIONS,
     approved_access,
@@ -49,6 +50,9 @@ def operator_status(request):
         'actor': {'name': actor.get_full_name() or actor.display_name or 'اپراتور'},
         'capabilities': {
             'edit_academy_plans': can_edit_academy_plans(actor, sections),
+            'edit_academy_samples': academy_action_allowed(actor, sections, 'samples'),
+            'grant_academy': academy_action_allowed(actor, sections, 'grant'),
+            'revoke_academy': academy_action_allowed(actor, sections, 'revoke'),
             'identity': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_view_identity'),
             'manage_accounts': 'accounts' in sections and explicit_permission(actor, 'accounts.operator_manage_accounts'),
             'triage_feedback': 'feedback' in sections and explicit_permission(actor, 'accounts.operator_triage_feedback'),
@@ -178,8 +182,9 @@ def _rows(section, query, state, *, identity_allowed=False):
             return rows.values('id', 'code', 'title', 'kind', 'is_active', 'price', 'sale_price',
                                'currency', 'duration_days')
         if section == 'academy_subscriptions':
-            rows = AcademySubscription.objects.select_related('plan').prefetch_related(
+            rows = AcademySubscription.objects.select_related('plan', 'order_item__order').prefetch_related(
                 Prefetch('areas', queryset=AcademyArea.objects.order_by('order', 'id')),
+                'order_item__areas',
             ).order_by('-created_at', '-id')
             if query:
                 rows = rows.filter(Q(pk=identity) | Q(user_id=identity)) if identity else rows.none()
@@ -279,12 +284,13 @@ def operator_collection(request, section):
     results = list(page.object_list)
     if section == 'academy_subscriptions':
         from django.utils import timezone
+        from modules.academy.account_summary import effective_areas, subscription_status
         now = timezone.now()
         results = [{
             'id': str(row.pk), 'user_id': str(row.user_id), 'plan_code': row.plan.code,
             'coverage': row.coverage, 'status': row.status,
-            'is_effective': row.status == 'active' and row.starts_at <= now
-                            and (row.ends_at is None or row.ends_at > now),
+            'is_effective': subscription_status(row, now) == 'active'
+                            and (row.coverage != 'specialty' or bool(effective_areas(row))),
             'starts_at': row.starts_at, 'ends_at': row.ends_at,
             'order_item_id': row.order_item_id,
             'areas': [area.pk for area in row.areas.all()],

@@ -4,6 +4,7 @@ import { OperatorShell } from './OperatorShell';
 import { OperatorIcon } from './OperatorIcon';
 import { OperatorActionDialog, type OperatorAction } from './OperatorActionDialog';
 import { OperatorAcademyPlanDialog } from './OperatorAcademyPlanDialog';
+import { OperatorAcademyAccessDialog, type AcademyAction } from './OperatorAcademyAccessDialog';
 import type { OperatorCapabilities } from './OperatorSecurity';
 import './operator.css';
 
@@ -203,6 +204,7 @@ function OperatorCollection({
   const t = (fa: string, en: string) => (english ? en : fa);
   const [action, setAction] = useState<OperatorAction | null>(null);
   const [editingPlan, setEditingPlan] = useState<string | null>(null);
+  const [academyAction, setAcademyAction] = useState<AcademyAction | null>(null);
   const [success, setSuccess] = useState('');
   const keys =
     section === 'accounts' && capabilities.identity
@@ -322,6 +324,9 @@ function OperatorCollection({
       account_status_changed: ['تغییر وضعیت حساب', 'Account status changed'],
       feedback_triaged: ['بررسی نظر', 'Feedback triaged'],
       academy_plan_updated: ['ویرایش پلن آکادمی', 'Academy plan updated'],
+      academy_samples_updated: ['ویرایش نمونهٔ رایگان', 'Free sample updated'],
+      academy_access_granted: ['اعطای دسترسی آکادمی', 'Academy access granted'],
+      academy_access_revoked: ['لغو دسترسی آکادمی', 'Academy access revoked'],
       operator_access_changed: ['تغییر دسترسی مدیر', 'Administrator access changed'],
       operator_password_changed: ['تغییر گذرواژهٔ مدیر', 'Administrator password changed'],
     };
@@ -341,6 +346,18 @@ function OperatorCollection({
     <section className="op-card op-collection" aria-labelledby="operator-section-title">
       <div className="op-collection-heading">
         <h2 id="operator-section-title">{titles[section][english ? 1 : 0]}</h2>
+        {section === 'academy_samples' && capabilities.edit_academy_samples && (
+          <button className="op-primary" onClick={() => setAcademyAction({ kind: 'samples' })}>
+            <OperatorIcon name="academy" size={18} />
+            {t('تنظیم نمونهٔ درس‌نامه', 'Configure lesson sample')}
+          </button>
+        )}
+        {section === 'academy_subscriptions' && capabilities.grant_academy && (
+          <button className="op-primary" onClick={() => setAcademyAction({ kind: 'grant' })}>
+            <OperatorIcon name="subscriptions" size={18} />
+            {t('اعطای دسترسی آکادمی', 'Grant Academy access')}
+          </button>
+        )}
         {section === 'subscriptions' && capabilities.grant && (
           <button className="op-primary" onClick={() => setAction({ kind: 'grant' })}>
             <OperatorIcon name="subscriptions" size={18} />
@@ -504,7 +521,9 @@ function OperatorCollection({
                     ))}
                     {((section === 'accounts' && capabilities.manage_accounts) ||
                       (section === 'subscriptions' && capabilities.revoke) ||
-                      (section === 'academy_plans' && capabilities.edit_academy_plans)) && (
+                      (section === 'academy_plans' && capabilities.edit_academy_plans) ||
+                      (section === 'academy_samples' && capabilities.edit_academy_samples) ||
+                      (section === 'academy_subscriptions' && capabilities.revoke_academy)) && (
                       <th scope="col">{t('عملیات', 'Actions')}</th>
                     )}
                   </tr>
@@ -537,6 +556,33 @@ function OperatorCollection({
                           <button onClick={() => setEditingPlan(String(row.id))}>
                             {t('ویرایش پلن', 'Edit plan')}
                           </button>
+                        </td>
+                      )}
+                      {section === 'academy_samples' && capabilities.edit_academy_samples && (
+                        <td>
+                          <button
+                            onClick={() =>
+                              setAcademyAction({ kind: 'samples', unitId: String(row.unit_id) })
+                            }
+                          >
+                            {t('ویرایش نمونه', 'Edit sample')}
+                          </button>
+                        </td>
+                      )}
+                      {section === 'academy_subscriptions' && capabilities.revoke_academy && (
+                        <td>
+                          {row.status === 'active' ? (
+                            <button
+                              className="op-danger"
+                              onClick={() =>
+                                setAcademyAction({ kind: 'revoke', id: String(row.id) })
+                              }
+                            >
+                              {t('لغو دسترسی آکادمی', 'Revoke Academy access')}
+                            </button>
+                          ) : (
+                            '—'
+                          )}
                         </td>
                       )}
                       {section === 'subscriptions' && capabilities.revoke && (
@@ -599,6 +645,19 @@ function OperatorCollection({
                 'Plan saved and reflected on subscription pages.',
               ),
             );
+            setReload((value) => value + 1);
+          }}
+        />
+      )}
+      {academyAction && (
+        <OperatorAcademyAccessDialog
+          action={academyAction}
+          english={english}
+          onClose={() => setAcademyAction(null)}
+          onReauthenticate={onReauthenticate}
+          onDone={() => {
+            setAcademyAction(null);
+            setSuccess(t('تغییر دسترسی آکادمی ثبت شد.', 'Academy access change saved.'));
             setReload((value) => value + 1);
           }}
         />
