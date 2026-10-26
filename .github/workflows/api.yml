@@ -43,6 +43,15 @@ jobs:
           docker compose -f infra/compose.dev.yml restart api
           docker compose -f infra/compose.dev.yml up -d --wait api
           docker compose -f infra/compose.dev.yml exec -T api python scripts/smoke.py read
+      - name: Consistent backup and isolated database/file restore
+        shell: pwsh
+        run: |
+          $dbId = docker compose -f infra/compose.dev.yml ps -q db
+          $apiId = docker compose -f infra/compose.dev.yml ps -q api
+          ./scripts/backup-recovery.ps1 -DbContainer $dbId -ApiContainer $apiId -OutputDirectory "$PWD/.local-backups/ci-recovery" -StopApiForSnapshot -TestRestore
+          $receipt = Get-Content .local-backups/ci-recovery/receipt.json -Raw | ConvertFrom-Json
+          if (-not $receipt.restore_verified -or $receipt.files.files -lt 1 -or $receipt.restored_files.files -ne $receipt.files.files) { throw 'Nonempty private-file recovery was not proved' }
+          docker compose -f infra/compose.dev.yml exec -T api python scripts/smoke.py read
       - name: Stop owned CI services
         if: always()
         run: docker compose -f infra/compose.dev.yml down --volumes
