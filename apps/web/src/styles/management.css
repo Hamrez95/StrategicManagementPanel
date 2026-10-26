@@ -44,6 +44,60 @@
   border-radius: 22px;
   background: var(--paper);
 }
+.app-academy-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.app-academy-link svg {
+  inline-size: 21px;
+  block-size: 21px;
+}
+.app-academy-link:hover {
+  background: var(--wash);
+  border-color: var(--control);
+}
+.app-academy-link:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+.app-account-search {
+  display: none !important;
+}
+@media (max-width: 1000px) {
+  .app-academy-link > span {
+    display: none;
+  }
+  .app-academy-link {
+    padding-inline: 8px;
+  }
+}
+@media (max-width: 560px) {
+  .application-shell .app-search-trigger {
+    display: none;
+  }
+  .app-account-search {
+    display: flex !important;
+  }
+}
+.planning-record details summary {
+  min-block-size: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.planning-record details[open] dl {
+  margin-block-start: 12px;
+}
 .application-shell .app-sidebar {
   margin: 12px;
   inset-block-start: 12px;
@@ -843,5 +897,146 @@
   .management-chart__track,
   .management-donut {
     print-color-adjust: exact;
+  }
+}
+.planning-page {
+  container: planning / inline-size;
+}
+.planning-page .strategy-heading {
+  align-items: start;
+}
+.planning-page .strategy-heading p {
+  max-inline-size: 72ch;
+  margin-block: 6px 0;
+}
+.planning-note {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-inline-start: 3px solid currentColor;
+  border-radius: 12px;
+}
+.planning-note summary {
+  cursor: pointer;
+  min-block-size: 32px;
+  display: flex;
+  align-items: center;
+}
+.planning-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+.planning-field,
+.planning-input-pair {
+  display: grid;
+  gap: 8px;
+  min-inline-size: 0;
+}
+.planning-field--wide {
+  grid-column: 1/-1;
+}
+.planning-field input,
+.planning-field select,
+.planning-field textarea {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 44px;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.planning-field textarea {
+  resize: vertical;
+}
+.planning-editor h2,
+.planning-list-heading h2,
+.planning-record h2,
+.planning-record h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.planning-actions,
+.planning-list-heading,
+.planning-record > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.planning-actions {
+  justify-content: start;
+}
+.planning-records {
+  display: grid;
+  gap: 16px;
+}
+.planning-record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.planning-record {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+.planning-record dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+.planning-record dl > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+  border-block-end: 1px solid var(--line);
+  padding-block-end: 10px;
+}
+.planning-record dt {
+  font-weight: 600;
+}
+.planning-record dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.planning-success,
+.planning-error {
+  padding: 12px 16px;
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  margin: 0;
+}
+.planning-error {
+  color: var(--danger, #b42335);
+}
+.planning-calculation {
+  padding: 12px;
+  border-inline-start: 3px solid currentColor;
+  background: var(--paper);
+  border-radius: 10px;
+}
+.execution-workspace-focus {
+  display: grid;
+  min-inline-size: 0;
+}
+@container planning (max-width: 760px) {
+  .planning-fields,
+  .planning-record-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@container planning (max-width: 420px) {
+  .planning-record dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
   }
 }

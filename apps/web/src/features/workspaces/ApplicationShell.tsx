@@ -417,8 +417,8 @@ export default function ApplicationShell() {
         )}
         <Link
           className="app-brand"
-          to="/app/workspaces"
-          aria-label={english ? 'Stratino Workspaces' : 'فضاهای استراتینو'}
+          to="/"
+          aria-label={english ? 'Stratino home' : 'صفحهٔ اصلی استراتینو'}
         >
           <Brand english={english} />
         </Link>
@@ -429,6 +429,14 @@ export default function ApplicationShell() {
           className="app-topbar-actions"
           aria-label={english ? 'Application tools' : 'ابزارهای برنامه'}
         >
+          <Link
+            className="app-academy-link"
+            to="/academy"
+            aria-label={english ? 'Academy' : 'آکادمی'}
+          >
+            <Icon name="book" />
+            <span>{english ? 'Academy' : 'آکادمی'}</span>
+          </Link>
           <ThemeSwitch />
           <LanguageSwitch english={english} />
           <Dialog
@@ -503,6 +511,19 @@ export default function ApplicationShell() {
                   <p>{english ? 'Your personal account' : 'حساب شخصی تو'}</p>
                 </div>
               </div>
+              <Link to="/">{english ? 'Website home' : 'صفحهٔ اصلی سایت'}</Link>
+              <Link to="/academy">{english ? 'Academy' : 'آکادمی'}</Link>
+              <Link to="/app/workspaces">{english ? 'My Workspaces' : 'فضاهای من'}</Link>
+              <button
+                type="button"
+                className="app-account-search"
+                onClick={() => {
+                  if (accountMenu.current) accountMenu.current.open = false;
+                  setSearchOpen(true);
+                }}
+              >
+                {english ? 'Search pages and tools' : 'جستجوی صفحه و ابزار'}
+              </button>
               <Link to="/app/account">
                 {english ? 'Account and appearance' : 'حساب و تنظیمات ظاهر'}
               </Link>

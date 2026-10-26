@@ -339,7 +339,8 @@
   border-radius: 20px;
   padding: 12px 22px;
 }
-.op-page-title > span {
+.op-page-title > span,
+.op-page-title > a {
   font-size: 0.6875rem;
   color: var(--op-muted);
 }
@@ -364,6 +365,7 @@
   animation: op-page-in 0.2s ease-out;
 }
 .op-page-context {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -381,7 +383,17 @@
   gap: 9px;
 }
 .op-page-context > div {
+  flex-wrap: wrap;
   gap: 18px;
+}
+.op-page-context a {
+  min-block-size: 44px;
+  text-decoration: none;
+}
+.op-page-context a:hover {
+  color: var(--op-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .op-page-context button {
   font-size: 0.75rem;

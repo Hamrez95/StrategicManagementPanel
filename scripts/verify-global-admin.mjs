@@ -335,6 +335,10 @@ try {
   }
   await page.setViewportSize({ width: 360, height: 900 });
   await page.goto(base + '/internal');
+  await page.locator('.op-brand').waitFor({ state: 'attached' });
+  assert.equal(await page.locator('.op-brand').getAttribute('href'), '/');
+  assert.equal(await page.locator('.op-page-context a[href="/"]').count(), 1);
+  assert.equal(await page.locator('.op-page-context a[href="/academy"]').count(), 1);
   await page.getByRole('heading', { name: 'راه‌اندازی سرور لازمه' }).waitFor();
   assert.equal(protectedReads, 0);
   await fit();

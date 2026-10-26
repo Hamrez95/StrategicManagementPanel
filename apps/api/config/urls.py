@@ -1,4 +1,5 @@
 from django.urls import include, path
+from modules.analysis.planning_views import planning_records
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -99,6 +100,8 @@ urlpatterns = [
     path('api/v1/workspaces/<str:workspace_id>/analyses/<uuid:record_id>/revisions/', analysis_revisions),
     path('api/v1/workspaces/<str:workspace_id>/execution/', include('modules.execution.urls')),
     path('api/v1/workspaces/<str:workspace_id>/metrics/', include('modules.metrics.urls')),
+    path('api/v1/workspaces/<str:workspace_id>/planning/<str:tool>/', planning_records),
+    path('api/v1/workspaces/<str:workspace_id>/planning/<str:tool>/<uuid:record_id>/', planning_records),
     path('api/v1/workspaces/<str:workspace_id>/documents/', include('modules.documents.urls')),
     path('api/v1/workspaces/<str:workspace_id>/imports/preview/', preview_import),
     path('api/v1/workspaces/<str:workspace_id>/imports/', workspace_imports),

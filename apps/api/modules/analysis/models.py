@@ -5,6 +5,11 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 
+from .planning_models import (  # noqa: F401 — Django model discovery
+    CompetitorProfile, EnvironmentSignal, JourneyStep, PlanningRevision,
+    ResourceAssessment, RiskRecord, ScenarioPlan,
+)
+
 
 class Analysis(models.Model):
     class Kind(models.TextChoices):

@@ -1,6 +1,14 @@
 import { ApiError, requestApi } from '../../api/client';
 
 export type ReportData = {
+  environment_signals?: Record<string, unknown>[];
+  competitor_profiles?: Record<string, unknown>[];
+  resource_assessments?: Record<string, unknown>[];
+  scenario_plans?: Record<string, unknown>[];
+  risk_records?: Record<string, unknown>[];
+  journey_steps?: Record<string, unknown>[];
+  planning_history?: Record<string, unknown>[];
+  finance_captures?: Record<string, unknown>[];
   workspace: {
     id: string;
     name: string;
@@ -110,6 +118,23 @@ function decodeSnapshotData(value: unknown): ReportEnvelope {
     ) {
       throw new TypeError(`Expected ${field}`);
     }
+  }
+  for (const field of [
+    'environment_signals',
+    'competitor_profiles',
+    'resource_assessments',
+    'scenario_plans',
+    'risk_records',
+    'journey_steps',
+    'planning_history',
+    'finance_captures',
+  ]) {
+    if (
+      data[field] !== undefined &&
+      (!Array.isArray(data[field]) ||
+        data[field].some((item) => !item || typeof item !== 'object' || Array.isArray(item)))
+    )
+      throw new TypeError(`Expected ${field}`);
   }
   const workspace = asRecord(data.workspace);
   if (typeof workspace.id !== 'string' || typeof workspace.name !== 'string')

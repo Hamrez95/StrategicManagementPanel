@@ -137,7 +137,7 @@ export function OperatorShell({
   return (
     <div className="operator-console" dir={english ? 'ltr' : 'rtl'}>
       <aside className="op-sidebar">
-        <Link to="/internal" className="op-brand">
+        <Link to="/" className="op-brand" aria-label={t('صفحهٔ اصلی استراتینو', 'Stratino home')}>
           <Brand english={english} />
           <span>{t('مدیریت سرویس', 'Service administration')}</span>
         </Link>
@@ -163,7 +163,9 @@ export function OperatorShell({
       <div className="op-main">
         <header className="op-topbar">
           <div className="op-page-title">
-            <span>{t('مدیریت کل استراتینو', 'Stratino service administration')}</span>
+            <Link to="/" aria-label={t('صفحهٔ اصلی استراتینو', 'Stratino home')}>
+              {t('مدیریت کل استراتینو', 'Stratino service administration')}
+            </Link>
             <h1>{label(route)}</h1>
           </div>
           <div className="op-topbar-tools">
@@ -193,6 +195,14 @@ export function OperatorShell({
                 : t('تأیید دسترسی مدیریت', 'Admin access verification')}
             </span>
             <div>
+              <Link to="/">
+                <OperatorIcon name="home" size={18} />
+                {t('خانه', 'Home')}
+              </Link>
+              <Link to="/academy">
+                <OperatorIcon name="academy" size={18} />
+                {t('آکادمی', 'Academy')}
+              </Link>
               {status?.mfa_ready && (
                 <button onClick={() => void lock()}>
                   <OperatorIcon name="security" size={16} />
@@ -317,6 +327,9 @@ export function OperatorShell({
           </button>
         </header>
         {nav(true)}
+        <Link to="/">{t('صفحهٔ اصلی سایت', 'Website home')}</Link>
+        <Link to="/academy">{t('آکادمی', 'Academy')}</Link>
+        <Link to="/app/workspaces">{t('فضاهای من', 'My Workspaces')}</Link>
         <Link to="/app/account">{t('حساب من', 'My account')}</Link>
       </dialog>
     </div>

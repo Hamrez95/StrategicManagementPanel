@@ -519,7 +519,7 @@ export default function ConnectedAcademy() {
   return (
     <div className={`academy${inLesson ? ' academy--lesson' : ''}`} lang="fa" dir="rtl">
       <header className="academy-header">
-        <Link to="/academy" aria-label="آکادمی استراتینو">
+        <Link to="/" aria-label="صفحهٔ اصلی استراتینو">
           <Brand />
         </Link>
         <span>یاد بگیر. تمرین کن. تصمیم بگیر.</span>
@@ -536,7 +536,15 @@ export default function ConnectedAcademy() {
             </span>
             <span className="academy-subscription-label">اشتراک‌های من</span>
           </Link>
-          <Link to="/">بازگشت به استراتینو</Link>
+          <Link
+            to="/app/workspaces"
+            className="academy-account-link academy-workspaces-link"
+            aria-label="فضاهای من"
+            title="فضاهای من"
+          >
+            <AcademyIcon name="briefcase" />
+            <span>فضاهای من</span>
+          </Link>
         </nav>
       </header>
       {!inLesson && (

@@ -9928,7 +9928,1411 @@
             }
           }
         }
+      },
+  "/api/v1/workspaces/{workspace_id}/planning/environment/": {
+      "get": {
+        "operationId": "listEnvironmentSignal",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentSignalPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createEnvironmentSignal",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvironmentSignalCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentSignal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
       }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/environment/{record_id}/": {
+      "patch": {
+        "operationId": "updateEnvironmentSignal",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvironmentSignalUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentSignal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/industry/": {
+      "get": {
+        "operationId": "listCompetitorProfile",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompetitorProfilePage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCompetitorProfile",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompetitorProfileCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompetitorProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/industry/{record_id}/": {
+      "patch": {
+        "operationId": "updateCompetitorProfile",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompetitorProfileUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompetitorProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/internal/": {
+      "get": {
+        "operationId": "listResourceAssessment",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceAssessmentPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createResourceAssessment",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceAssessmentCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceAssessment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/internal/{record_id}/": {
+      "patch": {
+        "operationId": "updateResourceAssessment",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceAssessmentUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceAssessment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/scenarios/": {
+      "get": {
+        "operationId": "listScenarioPlan",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScenarioPlanPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createScenarioPlan",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScenarioPlanCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScenarioPlan"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/scenarios/{record_id}/": {
+      "patch": {
+        "operationId": "updateScenarioPlan",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScenarioPlanUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScenarioPlan"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/risks/": {
+      "get": {
+        "operationId": "listRiskRecord",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskRecordPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createRiskRecord",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RiskRecordCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/risks/{record_id}/": {
+      "patch": {
+        "operationId": "updateRiskRecord",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RiskRecordUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/journey/": {
+      "get": {
+        "operationId": "listJourneyStep",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyStepPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createJourneyStep",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyStepCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyStep"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/planning/journey/{record_id}/": {
+      "patch": {
+        "operationId": "updateJourneyStep",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyStepUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyStep"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/captures/": {
+      "get": {
+        "operationId": "listFinanceCaptures",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinanceCapturePage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createFinanceCapture",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinanceCaptureCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinanceCapture"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/metrics/captures/{record_id}/calculate/": {
+      "post": {
+        "operationId": "calculateFinanceCapture",
+        "description": "Workspace membership is rechecked server-side; staff has no bypass. Owner/editor writes only in an active Workspace. Create retries use a client UUID and require the original payload. Updates require the saved revision. Source text is owner-reported, never inferred scientific approval.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "record_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Private typed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinanceCapture"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid typed input"
+          },
+          "401": {
+            "description": "Verified session required"
+          },
+          "403": {
+            "description": "Workspace write permission or calculation entitlement required"
+          },
+          "404": {
+            "description": "Missing or invisible Workspace/record"
+          },
+          "409": {
+            "description": "Stale revision, archive or idempotency conflict"
+          }
+        }
+      }
+    }
   },
   "components": {
     "securitySchemes": {
@@ -14277,7 +15681,1370 @@
             "data"
           ],
           "additionalProperties": false
+        },
+    "EnvironmentSignalCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "category",
+          "observation",
+          "implication",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "political",
+              "economic",
+              "social",
+              "technological",
+              "environmental",
+              "legal"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "implication": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
         }
+      },
+      "EnvironmentSignalUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "category",
+          "observation",
+          "implication",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "political",
+              "economic",
+              "social",
+              "technological",
+              "environmental",
+              "legal"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "implication": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "EnvironmentSignal": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "category",
+          "observation",
+          "implication",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "political",
+              "economic",
+              "social",
+              "technological",
+              "environmental",
+              "legal"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "implication": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "EnvironmentSignalPage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "environment"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentSignal"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "CompetitorProfileCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "customer_segment",
+          "value_proposition",
+          "advantage",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "customer_segment": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "value_proposition": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "advantage": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "CompetitorProfileUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "customer_segment",
+          "value_proposition",
+          "advantage",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "customer_segment": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "value_proposition": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "advantage": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "CompetitorProfile": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "customer_segment",
+          "value_proposition",
+          "advantage",
+          "source",
+          "observed_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "customer_segment": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "value_proposition": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "advantage": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "CompetitorProfilePage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "industry"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/CompetitorProfile"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "ResourceAssessmentCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "description",
+          "valuable",
+          "rare",
+          "hard_to_imitate",
+          "organized",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "valuable": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "rare": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "hard_to_imitate": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "organized": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      },
+      "ResourceAssessmentUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "description",
+          "valuable",
+          "rare",
+          "hard_to_imitate",
+          "organized",
+          "source"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "valuable": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "rare": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "hard_to_imitate": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "organized": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      },
+      "ResourceAssessment": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "description",
+          "valuable",
+          "rare",
+          "hard_to_imitate",
+          "organized",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "valuable": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "rare": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "hard_to_imitate": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "organized": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "yes",
+              "no"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      },
+      "ResourceAssessmentPage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "internal"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/ResourceAssessment"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "ScenarioPlanCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "uncertainty",
+          "assumptions",
+          "early_signal",
+          "response",
+          "review_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "uncertainty": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "assumptions": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "early_signal": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "response": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "ScenarioPlanUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "uncertainty",
+          "assumptions",
+          "early_signal",
+          "response",
+          "review_on"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "uncertainty": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "assumptions": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "early_signal": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "response": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "ScenarioPlan": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "uncertainty",
+          "assumptions",
+          "early_signal",
+          "response",
+          "review_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "uncertainty": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "assumptions": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "early_signal": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "response": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "ScenarioPlanPage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "scenarios"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/ScenarioPlan"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "RiskRecordCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "description",
+          "likelihood",
+          "impact",
+          "mitigation",
+          "responsible",
+          "review_on",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "likelihood": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "mitigation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "responsible": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "monitoring",
+              "closed"
+            ]
+          }
+        }
+      },
+      "RiskRecordUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "description",
+          "likelihood",
+          "impact",
+          "mitigation",
+          "responsible",
+          "review_on",
+          "status"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "likelihood": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "mitigation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "responsible": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "monitoring",
+              "closed"
+            ]
+          }
+        }
+      },
+      "RiskRecord": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "description",
+          "likelihood",
+          "impact",
+          "mitigation",
+          "responsible",
+          "review_on",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "likelihood": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "mitigation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "responsible": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "review_on": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "monitoring",
+              "closed"
+            ]
+          }
+        }
+      },
+      "RiskRecordPage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "risks"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/RiskRecord"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "JourneyStepCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "stage",
+          "status",
+          "outcome"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "understand",
+              "analyze",
+              "decide",
+              "execute",
+              "evidence"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      },
+      "JourneyStepUpdate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision",
+          "title",
+          "stage",
+          "status",
+          "outcome"
+        ],
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "understand",
+              "analyze",
+              "decide",
+              "execute",
+              "evidence"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      },
+      "JourneyStep": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "workspace_id",
+          "revision",
+          "updated_at",
+          "title",
+          "stage",
+          "status",
+          "outcome"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "understand",
+              "analyze",
+              "decide",
+              "execute",
+              "evidence"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      },
+      "JourneyStepPage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "tool",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "tool": {
+            "type": "string",
+            "enum": [
+              "journey"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "$ref": "#/components/schemas/JourneyStep"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      },
+      "FinanceCaptureCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "context",
+          "observations"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "context": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "scope_kind",
+              "segment_id",
+              "period_start",
+              "period_end",
+              "currency",
+              "accounting_basis"
+            ],
+            "properties": {
+              "scope_kind": {
+                "type": "string",
+                "enum": [
+                  "workspace",
+                  "segment"
+                ]
+              },
+              "segment_id": {
+                "type": "string",
+                "format": "uuid",
+                "nullable": true
+              },
+              "period_start": {
+                "type": "string",
+                "format": "date"
+              },
+              "period_end": {
+                "type": "string",
+                "format": "date"
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$",
+                "maxLength": 3
+              },
+              "accounting_basis": {
+                "type": "string",
+                "maxLength": 64,
+                "minLength": 1
+              }
+            }
+          },
+          "observations": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/MetricObservationCreate"
+            }
+          }
+        }
+      },
+      "FinanceCapture": {
+        "type": "object",
+        "required": [
+          "id",
+          "workspace_id",
+          "observations",
+          "run",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "observations": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/MetricObservation"
+            }
+          },
+          "run": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContributionRun"
+              }
+            ],
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "FinanceCapturePage": {
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "items",
+          "next_offset"
+        ],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/components/schemas/FinanceCapture"
+            }
+          },
+          "next_offset": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0
+          }
+        }
+      }
     }
   }
 }

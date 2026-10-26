@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link, useOutletContext, useParams } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, EmptyState, Input, Notice, Skeleton, useUIAppearance } from '@stratino/ui';
@@ -284,7 +284,15 @@ function ActionCard({
   );
 }
 
-export default function ExecutionPlanPage() {
+export default function ExecutionPlanPage({
+  focus = 'all',
+  intro,
+  title,
+}: {
+  focus?: 'all' | 'decisions' | 'goals';
+  intro?: ReactNode;
+  title?: string;
+}) {
   const { workspaceId = '' } = useParams();
   const session = useOutletContext<Session>();
   const { dir } = useUIAppearance();
@@ -604,7 +612,18 @@ export default function ExecutionPlanPage() {
       <header className="execution-heading">
         <div>
           <h1 id="execution-title" tabIndex={-1}>
-            {english ? 'Decisions into action' : 'از تصمیم تا اقدام'}
+            {title ??
+              (focus === 'decisions'
+                ? english
+                  ? 'Decisions and hypotheses'
+                  : 'تصمیم‌ها و فرضیه‌ها'
+                : focus === 'goals'
+                  ? english
+                    ? 'Goals and performance'
+                    : 'اهداف و عملکرد'
+                  : english
+                    ? 'Decisions into action'
+                    : 'از تصمیم تا اقدام')}
           </h1>
           <p>
             {english
@@ -618,6 +637,7 @@ export default function ExecutionPlanPage() {
         </div>
       </header>
 
+      {intro}
       {!canWrite && (
         <p className="execution-readonly-note" role="status">
           {english
@@ -641,388 +661,295 @@ export default function ExecutionPlanPage() {
         </p>
       )}
 
-      <section className="execution-board" aria-labelledby="execution-board-title">
-        <div className="execution-section-heading">
-          <div>
-            <h2 id="execution-board-title">
-              {english ? 'Actions for the next 90 days' : 'اقدام‌های ۹۰ روز پیش رو'}
-            </h2>
-            <p>
-              {english
-                ? 'Deadlines and owners stay visible in every status.'
-                : 'موعد و مسئول در هر وضعیت آشکار می‌مانند.'}
-            </p>
-          </div>
-          <span className="execution-board-range" dir="auto">
-            {dateRange}
-          </span>
-        </div>
-        <div className="execution-lanes">
-          {ACTION_LANES.map((lane) => {
-            const actions = actionsByLane.get(lane.status) ?? [];
-            return (
-              <section
-                className={`execution-lane execution-lane--${lane.status}`}
-                key={lane.status}
-                aria-labelledby={`execution-lane-${lane.status}`}
-              >
-                <header>
-                  <h3 id={`execution-lane-${lane.status}`}>{lane[english ? 'en' : 'fa']}</h3>
-                  <span
-                    aria-label={`${localeNumber(actions.length)} ${english ? 'actions' : 'اقدام'}`}
-                  >
-                    {localeNumber(actions.length)}
-                  </span>
-                </header>
-                {actions.length ? (
-                  actions.map((action) => (
-                    <ActionCard
-                      key={`${action.id}:${action.revision}`}
-                      action={action}
-                      board={board}
-                      english={english}
-                      editable={canWrite}
-                      pending={pending}
-                      statusBlocked={dirtyRecords.has(`action:${action.id}`)}
-                      statusDraft={actionStatuses[action.id] ?? action.status}
-                      onStatusChange={(status) =>
-                        setActionStatuses((current) =>
-                          status === action.status
-                            ? Object.fromEntries(
-                                Object.entries(current).filter(([id]) => id !== action.id),
-                              )
-                            : { ...current, [action.id]: status },
-                        )
-                      }
-                      onStatusSave={() => void updateActionStatus(action)}
-                      onEdit={(event) => {
-                        markDirty(`action:${action.id}`);
-                        void editAction(event, action);
-                      }}
-                      onEditChange={() => markDirty(`action:${action.id}`)}
-                    />
-                  ))
-                ) : (
-                  <p className="execution-lane__empty">
-                    {english ? 'No actions here.' : 'اقدامی در این وضعیت نیست.'}
-                  </p>
-                )}
-              </section>
-            );
-          })}
-        </div>
-        {laterActions.length > 0 && (
-          <details className="execution-later">
-            <summary>
-              {english
-                ? `${localeNumber(laterActions.length)} actions are due after this 90-day plan`
-                : `${localeNumber(laterActions.length)} اقدام پس از این بازه ۹۰ روزه موعد دارند`}
-            </summary>
-            <ul>
-              {laterActions.map((action) => (
-                <li key={action.id}>
-                  <strong dir="auto">{action.title}</strong>
-                  <span>
-                    {dateLabel(action.due_on, english)} · {actionStatusText(action.status)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
-      </section>
-
-      <section className="execution-workspace-grid">
-        <section className="execution-decisions" aria-labelledby="execution-decisions-title">
+      {focus === 'all' && (
+        <section className="execution-board" aria-labelledby="execution-board-title">
           <div className="execution-section-heading">
             <div>
-              <h2 id="execution-decisions-title">{english ? 'Decision register' : 'دفتر تصمیم'}</h2>
+              <h2 id="execution-board-title">
+                {english ? 'Actions for the next 90 days' : 'اقدام‌های ۹۰ روز پیش رو'}
+              </h2>
               <p>
                 {english
-                  ? 'Record why, based on what, and when to review.'
-                  : 'دلیل، منبع و زمان بازبینی تصمیم را ثبت کنید.'}
+                  ? 'Deadlines and owners stay visible in every status.'
+                  : 'موعد و مسئول در هر وضعیت آشکار می‌مانند.'}
               </p>
             </div>
+            <span className="execution-board-range" dir="auto">
+              {dateRange}
+            </span>
           </div>
-          {canWrite && (
-            <form className="execution-form execution-form--create" onSubmit={submitDecision}>
-              <h3>{english ? 'Record a decision' : 'ثبت تصمیم تازه'}</h3>
-              <Input
-                label={english ? 'Decision' : 'تصمیم'}
-                value={decisionDraft.title}
-                maxLength={160}
-                required
-                onChange={(event) => {
-                  const title = event.currentTarget.value;
-                  setDecisionDraft((current) => ({ ...current, title }));
-                }}
-              />
-              <label className="execution-field">
-                <span>
-                  {english ? 'Source analysis or strategy option' : 'تحلیل یا گزینه راهبردی'}
-                </span>
-                <select
-                  value={
-                    decisionDraft.source_kind && decisionDraft.source_id
-                      ? `${decisionDraft.source_kind}:${decisionDraft.source_id}`
-                      : ''
-                  }
-                  required
-                  onChange={(event) => {
-                    const [kind = '', id = ''] = event.currentTarget.value.split(':');
-                    setDecisionDraft((current) => ({
-                      ...current,
-                      source_kind: kind as DecisionDraft['source_kind'],
-                      source_id: id || null,
-                    }));
-                  }}
+          <div className="execution-lanes">
+            {ACTION_LANES.map((lane) => {
+              const actions = actionsByLane.get(lane.status) ?? [];
+              return (
+                <section
+                  className={`execution-lane execution-lane--${lane.status}`}
+                  key={lane.status}
+                  aria-labelledby={`execution-lane-${lane.status}`}
                 >
-                  <option value="" disabled>
-                    {english ? 'Choose a source' : 'یک منبع انتخاب کنید'}
-                  </option>
-                  {board.sources.map((source) => (
-                    <option
-                      key={`${source.kind}:${source.id}`}
-                      value={`${source.kind}:${source.id}`}
-                    >
-                      {source.title} ·{' '}
-                      {source.kind === 'analysis'
-                        ? english
-                          ? 'Analysis'
-                          : 'تحلیل'
-                        : english
-                          ? 'Strategy option'
-                          : 'گزینه راهبردی'}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <TextArea
-                label={english ? 'Reason for the decision' : 'دلیل تصمیم'}
-                value={decisionDraft.rationale}
-                required
-                onChange={(rationale) => setDecisionDraft((current) => ({ ...current, rationale }))}
-              />
-              <TextArea
-                label={english ? 'Assumptions' : 'فرض‌هایی که باید درست باشند'}
-                value={decisionDraft.assumptions}
-                required
-                onChange={(assumptions) =>
-                  setDecisionDraft((current) => ({ ...current, assumptions }))
-                }
-              />
-              <Input
-                label={english ? 'Review when' : 'چه زمانی تصمیم را بازبینی کنیم؟'}
-                value={decisionDraft.review_trigger}
-                maxLength={500}
-                required
-                onChange={(event) => {
-                  const review_trigger = event.currentTarget.value;
-                  setDecisionDraft((current) => ({ ...current, review_trigger }));
-                }}
-              />
-              <Button
-                type="submit"
-                variant="primary"
-                pending={pending}
-                pendingLabel={english ? 'Saving…' : 'در حال ذخیره…'}
-              >
-                {english ? 'Save decision' : 'ذخیره تصمیم'}
-              </Button>
-            </form>
-          )}
-
-          {board.decisions.length === 0 ? (
-            <EmptyState
-              title={english ? 'No decisions recorded' : 'هنوز تصمیمی ثبت نشده'}
-              description={
-                english
-                  ? 'Start with the choice you want the team to act on, then link a source and review trigger.'
-                  : 'انتخابی را ثبت کنید که باید به اقدام برسد؛ سپس منبع و زمان بازبینی را مشخص کنید.'
-              }
-              action={
-                canWrite ? (
-                  <Link
-                    className="ui-button ui-button--secondary"
-                    to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/matrices`}
-                  >
-                    {english ? 'Review EFE and IFE' : 'بررسی ماتریس‌های EFE و IFE'}
-                  </Link>
-                ) : undefined
-              }
-            />
-          ) : (
-            <ol className="execution-decision-list">
-              {board.decisions.map((decision) => (
-                <li className="execution-decision" key={`${decision.id}:${decision.revision}`}>
                   <header>
-                    <div>
-                      <h3 dir="auto">{decision.title}</h3>
-                      <p>
-                        {english ? 'Updated' : 'آخرین تغییر'}:{' '}
-                        {dateLabel(decision.updated_at.slice(0, 10), english)}
-                      </p>
-                    </div>
+                    <h3 id={`execution-lane-${lane.status}`}>{lane[english ? 'en' : 'fa']}</h3>
                     <span
-                      className={`execution-decision-status execution-decision-status--${decision.status}`}
+                      aria-label={`${localeNumber(actions.length)} ${english ? 'actions' : 'اقدام'}`}
                     >
-                      {statusText(decision.status)}
+                      {localeNumber(actions.length)}
                     </span>
                   </header>
-                  {decision.source && (
-                    <p className="execution-decision__source">
-                      {english ? 'Source' : 'منبع'}:{' '}
-                      {decision.source.kind === 'analysis' ? (
-                        <Link
-                          to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/matrices`}
-                        >
-                          {decision.source.title}
-                        </Link>
-                      ) : (
-                        <Link to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/swot`}>
-                          {decision.source.title}
-                        </Link>
-                      )}
+                  {actions.length ? (
+                    actions.map((action) => (
+                      <ActionCard
+                        key={`${action.id}:${action.revision}`}
+                        action={action}
+                        board={board}
+                        english={english}
+                        editable={canWrite}
+                        pending={pending}
+                        statusBlocked={dirtyRecords.has(`action:${action.id}`)}
+                        statusDraft={actionStatuses[action.id] ?? action.status}
+                        onStatusChange={(status) =>
+                          setActionStatuses((current) =>
+                            status === action.status
+                              ? Object.fromEntries(
+                                  Object.entries(current).filter(([id]) => id !== action.id),
+                                )
+                              : { ...current, [action.id]: status },
+                          )
+                        }
+                        onStatusSave={() => void updateActionStatus(action)}
+                        onEdit={(event) => {
+                          markDirty(`action:${action.id}`);
+                          void editAction(event, action);
+                        }}
+                        onEditChange={() => markDirty(`action:${action.id}`)}
+                      />
+                    ))
+                  ) : (
+                    <p className="execution-lane__empty">
+                      {english ? 'No actions here.' : 'اقدامی در این وضعیت نیست.'}
                     </p>
                   )}
-                  <dl className="execution-decision__facts">
-                    <div>
-                      <dt>{english ? 'Reason' : 'دلیل'}</dt>
-                      <dd dir="auto">{decision.rationale}</dd>
-                    </div>
-                    <div>
-                      <dt>{english ? 'Assumptions' : 'فرض‌ها'}</dt>
-                      <dd dir="auto">{decision.assumptions}</dd>
-                    </div>
-                    <div>
-                      <dt>{english ? 'Review when' : 'بازبینی در صورت'}</dt>
-                      <dd dir="auto">{decision.review_trigger}</dd>
-                    </div>
-                  </dl>
-                  {canWrite && (
-                    <div className="execution-decision__actions">
-                      <label>
-                        <span>{english ? 'Decision status' : 'وضعیت تصمیم'}</span>
-                        <select
-                          value={decisionStatuses[decision.id] ?? decision.status}
-                          disabled={dirtyRecords.has(`decision:${decision.id}`)}
-                          onChange={(event) => {
-                            const status = event.currentTarget.value as ApiExecutionDecisionStatus;
-                            setDecisionStatuses((current) => {
-                              if (status === decision.status) {
-                                const next = { ...current };
-                                delete next[decision.id];
-                                return next;
-                              }
-                              return { ...current, [decision.id]: status };
-                            });
-                          }}
-                        >
-                          {DECISION_STATUSES.map((item) => (
-                            <option key={item.status} value={item.status}>
-                              {item[english ? 'en' : 'fa']}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
-                      <Button
-                        disabled={
-                          pending ||
-                          dirtyRecords.has(`decision:${decision.id}`) ||
-                          !decisionStatuses[decision.id] ||
-                          decisionStatuses[decision.id] === decision.status
-                        }
-                        onClick={() => void updateDecisionStatus(decision)}
+                </section>
+              );
+            })}
+          </div>
+          {laterActions.length > 0 && (
+            <details className="execution-later">
+              <summary>
+                {english
+                  ? `${localeNumber(laterActions.length)} actions are due after this 90-day plan`
+                  : `${localeNumber(laterActions.length)} اقدام پس از این بازه ۹۰ روزه موعد دارند`}
+              </summary>
+              <ul>
+                {laterActions.map((action) => (
+                  <li key={action.id}>
+                    <strong dir="auto">{action.title}</strong>
+                    <span>
+                      {dateLabel(action.due_on, english)} · {actionStatusText(action.status)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </section>
+      )}
+
+      <section
+        className={focus === 'all' ? 'execution-workspace-grid' : 'execution-workspace-focus'}
+      >
+        {focus !== 'goals' && (
+          <section className="execution-decisions" aria-labelledby="execution-decisions-title">
+            <div className="execution-section-heading">
+              <div>
+                <h2 id="execution-decisions-title">
+                  {english ? 'Decision register' : 'دفتر تصمیم'}
+                </h2>
+                <p>
+                  {english
+                    ? 'Record why, based on what, and when to review.'
+                    : 'دلیل، منبع و زمان بازبینی تصمیم را ثبت کنید.'}
+                </p>
+              </div>
+            </div>
+            {canWrite && (
+              <form className="execution-form execution-form--create" onSubmit={submitDecision}>
+                <h3>{english ? 'Record a decision' : 'ثبت تصمیم تازه'}</h3>
+                <Input
+                  label={english ? 'Decision' : 'تصمیم'}
+                  value={decisionDraft.title}
+                  maxLength={160}
+                  required
+                  onChange={(event) => {
+                    const title = event.currentTarget.value;
+                    setDecisionDraft((current) => ({ ...current, title }));
+                  }}
+                />
+                <label className="execution-field">
+                  <span>
+                    {english ? 'Source analysis or strategy option' : 'تحلیل یا گزینه راهبردی'}
+                  </span>
+                  <select
+                    value={
+                      decisionDraft.source_kind && decisionDraft.source_id
+                        ? `${decisionDraft.source_kind}:${decisionDraft.source_id}`
+                        : ''
+                    }
+                    required
+                    onChange={(event) => {
+                      const [kind = '', id = ''] = event.currentTarget.value.split(':');
+                      setDecisionDraft((current) => ({
+                        ...current,
+                        source_kind: kind as DecisionDraft['source_kind'],
+                        source_id: id || null,
+                      }));
+                    }}
+                  >
+                    <option value="" disabled>
+                      {english ? 'Choose a source' : 'یک منبع انتخاب کنید'}
+                    </option>
+                    {board.sources.map((source) => (
+                      <option
+                        key={`${source.kind}:${source.id}`}
+                        value={`${source.kind}:${source.id}`}
                       >
-                        {english ? 'Save status' : 'ذخیره وضعیت'}
-                      </Button>
-                      <Button variant="quiet" onClick={() => openActionForm(decision)}>
-                        {english ? 'Add action' : 'افزودن اقدام'}
-                      </Button>
-                    </div>
-                  )}
-                  {canWrite && (
-                    <details className="execution-edit">
-                      <summary>{english ? 'Edit decision details' : 'ویرایش جزئیات تصمیم'}</summary>
-                      <form
-                        className="execution-form"
-                        key={`${decision.id}:${decision.revision}:edit`}
-                        onSubmit={(event) => {
-                          markDirty(`decision:${decision.id}`);
-                          void editDecision(event, decision);
-                        }}
-                        onChange={() => markDirty(`decision:${decision.id}`)}
+                        {source.title} ·{' '}
+                        {source.kind === 'analysis'
+                          ? english
+                            ? 'Analysis'
+                            : 'تحلیل'
+                          : english
+                            ? 'Strategy option'
+                            : 'گزینه راهبردی'}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <TextArea
+                  label={english ? 'Reason for the decision' : 'دلیل تصمیم'}
+                  value={decisionDraft.rationale}
+                  required
+                  onChange={(rationale) =>
+                    setDecisionDraft((current) => ({ ...current, rationale }))
+                  }
+                />
+                <TextArea
+                  label={english ? 'Assumptions' : 'فرض‌هایی که باید درست باشند'}
+                  value={decisionDraft.assumptions}
+                  required
+                  onChange={(assumptions) =>
+                    setDecisionDraft((current) => ({ ...current, assumptions }))
+                  }
+                />
+                <Input
+                  label={english ? 'Review when' : 'چه زمانی تصمیم را بازبینی کنیم؟'}
+                  value={decisionDraft.review_trigger}
+                  maxLength={500}
+                  required
+                  onChange={(event) => {
+                    const review_trigger = event.currentTarget.value;
+                    setDecisionDraft((current) => ({ ...current, review_trigger }));
+                  }}
+                />
+                <Button
+                  type="submit"
+                  variant="primary"
+                  pending={pending}
+                  pendingLabel={english ? 'Saving…' : 'در حال ذخیره…'}
+                >
+                  {english ? 'Save decision' : 'ذخیره تصمیم'}
+                </Button>
+              </form>
+            )}
+
+            {board.decisions.length === 0 ? (
+              <EmptyState
+                title={english ? 'No decisions recorded' : 'هنوز تصمیمی ثبت نشده'}
+                description={
+                  english
+                    ? 'Start with the choice you want the team to act on, then link a source and review trigger.'
+                    : 'انتخابی را ثبت کنید که باید به اقدام برسد؛ سپس منبع و زمان بازبینی را مشخص کنید.'
+                }
+                action={
+                  canWrite ? (
+                    <Link
+                      className="ui-button ui-button--secondary"
+                      to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/matrices`}
+                    >
+                      {english ? 'Review EFE and IFE' : 'بررسی ماتریس‌های EFE و IFE'}
+                    </Link>
+                  ) : undefined
+                }
+              />
+            ) : (
+              <ol className="execution-decision-list">
+                {board.decisions.map((decision) => (
+                  <li className="execution-decision" key={`${decision.id}:${decision.revision}`}>
+                    <header>
+                      <div>
+                        <h3 dir="auto">{decision.title}</h3>
+                        <p>
+                          {english ? 'Updated' : 'آخرین تغییر'}:{' '}
+                          {dateLabel(decision.updated_at.slice(0, 10), english)}
+                        </p>
+                      </div>
+                      <span
+                        className={`execution-decision-status execution-decision-status--${decision.status}`}
                       >
-                        <Input
-                          label={english ? 'Decision' : 'تصمیم'}
-                          name="title"
-                          defaultValue={decision.title}
-                          maxLength={160}
-                          required
-                        />
-                        <label className="execution-field">
-                          <span>{english ? 'Source' : 'منبع'}</span>
-                          <select
-                            name="source"
-                            defaultValue={
-                              decision.source ? `${decision.source.kind}:${decision.source.id}` : ''
-                            }
-                            required
+                        {statusText(decision.status)}
+                      </span>
+                    </header>
+                    {decision.source && (
+                      <p className="execution-decision__source">
+                        {english ? 'Source' : 'منبع'}:{' '}
+                        {decision.source.kind === 'analysis' ? (
+                          <Link
+                            to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/matrices`}
                           >
-                            <option value="" disabled>
-                              {english ? 'Choose a source' : 'یک منبع انتخاب کنید'}
-                            </option>
-                            {board.sources.map((source) => (
-                              <option
-                                key={`${source.kind}:${source.id}`}
-                                value={`${source.kind}:${source.id}`}
-                              >
-                                {source.title}
-                              </option>
-                            ))}
-                            {decision.source &&
-                              !board.sources.some(
-                                (source) =>
-                                  source.kind === decision.source?.kind &&
-                                  source.id === decision.source.id,
-                              ) && (
-                                <option value={`${decision.source.kind}:${decision.source.id}`}>
-                                  {decision.source.title} ·{' '}
-                                  {english ? 'source snapshot' : 'نسخه ثبت‌شده از منبع'}
-                                </option>
-                              )}
-                          </select>
-                        </label>
-                        <label className="execution-field">
-                          <span>{english ? 'Reason' : 'دلیل'}</span>
-                          <textarea
-                            name="rationale"
-                            defaultValue={decision.rationale}
-                            maxLength={2000}
-                            rows={3}
-                            required
-                          />
-                        </label>
-                        <label className="execution-field">
-                          <span>{english ? 'Assumptions' : 'فرض‌ها'}</span>
-                          <textarea
-                            name="assumptions"
-                            defaultValue={decision.assumptions}
-                            maxLength={2000}
-                            rows={3}
-                            required
-                          />
-                        </label>
-                        <Input
-                          label={english ? 'Review when' : 'محرک بازبینی'}
-                          name="review_trigger"
-                          defaultValue={decision.review_trigger}
-                          maxLength={500}
-                          required
-                        />
-                        <label className="execution-field">
-                          <span>{english ? 'Status' : 'وضعیت'}</span>
-                          <select name="status" defaultValue={decision.status}>
+                            {decision.source.title}
+                          </Link>
+                        ) : (
+                          <Link
+                            to={`/app/workspaces/${encodeURIComponent(workspaceId)}/tools/swot`}
+                          >
+                            {decision.source.title}
+                          </Link>
+                        )}
+                      </p>
+                    )}
+                    <dl className="execution-decision__facts">
+                      <div>
+                        <dt>{english ? 'Reason' : 'دلیل'}</dt>
+                        <dd dir="auto">{decision.rationale}</dd>
+                      </div>
+                      <div>
+                        <dt>{english ? 'Assumptions' : 'فرض‌ها'}</dt>
+                        <dd dir="auto">{decision.assumptions}</dd>
+                      </div>
+                      <div>
+                        <dt>{english ? 'Review when' : 'بازبینی در صورت'}</dt>
+                        <dd dir="auto">{decision.review_trigger}</dd>
+                      </div>
+                    </dl>
+                    {canWrite && (
+                      <div className="execution-decision__actions">
+                        <label>
+                          <span>{english ? 'Decision status' : 'وضعیت تصمیم'}</span>
+                          <select
+                            value={decisionStatuses[decision.id] ?? decision.status}
+                            disabled={dirtyRecords.has(`decision:${decision.id}`)}
+                            onChange={(event) => {
+                              const status = event.currentTarget
+                                .value as ApiExecutionDecisionStatus;
+                              setDecisionStatuses((current) => {
+                                if (status === decision.status) {
+                                  const next = { ...current };
+                                  delete next[decision.id];
+                                  return next;
+                                }
+                                return { ...current, [decision.id]: status };
+                              });
+                            }}
+                          >
                             {DECISION_STATUSES.map((item) => (
                               <option key={item.status} value={item.status}>
                                 {item[english ? 'en' : 'fa']}
@@ -1030,265 +957,381 @@ export default function ExecutionPlanPage() {
                             ))}
                           </select>
                         </label>
-                        <Button type="submit" variant="primary" pending={pending}>
-                          {english ? 'Save decision' : 'ذخیره تصمیم'}
+                        <Button
+                          disabled={
+                            pending ||
+                            dirtyRecords.has(`decision:${decision.id}`) ||
+                            !decisionStatuses[decision.id] ||
+                            decisionStatuses[decision.id] === decision.status
+                          }
+                          onClick={() => void updateDecisionStatus(decision)}
+                        >
+                          {english ? 'Save status' : 'ذخیره وضعیت'}
                         </Button>
-                      </form>
-                    </details>
-                  )}
-                  {actionDraft?.decision_id === decision.id && (
-                    <form
-                      className="execution-form execution-form--action"
-                      onSubmit={submitAction}
-                      onChange={() => setActionDirty(true)}
-                    >
-                      <h4>
-                        {english
-                          ? 'Add an action for this decision'
-                          : 'اقدام این تصمیم را ثبت کنید'}
-                      </h4>
-                      <Input
-                        label={english ? 'Action' : 'اقدام'}
-                        value={actionDraft.title}
-                        maxLength={160}
-                        required
-                        onChange={(event) => {
-                          const title = event.currentTarget.value;
-                          setActionDraft((current) => (current ? { ...current, title } : current));
-                        }}
-                      />
-                      <TextArea
-                        label={english ? 'Description' : 'شرح'}
-                        value={actionDraft.description}
-                        onChange={(description) =>
-                          setActionDraft((current) =>
-                            current ? { ...current, description } : current,
-                          )
-                        }
-                      />
-                      <div className="execution-form__row">
-                        <label className="execution-field">
-                          <span>{english ? 'Owner' : 'مسئول'}</span>
-                          <select
-                            value={actionDraft.owner_id}
+                        <Button variant="quiet" onClick={() => openActionForm(decision)}>
+                          {english ? 'Add action' : 'افزودن اقدام'}
+                        </Button>
+                      </div>
+                    )}
+                    {canWrite && (
+                      <details className="execution-edit">
+                        <summary>
+                          {english ? 'Edit decision details' : 'ویرایش جزئیات تصمیم'}
+                        </summary>
+                        <form
+                          className="execution-form"
+                          key={`${decision.id}:${decision.revision}:edit`}
+                          onSubmit={(event) => {
+                            markDirty(`decision:${decision.id}`);
+                            void editDecision(event, decision);
+                          }}
+                          onChange={() => markDirty(`decision:${decision.id}`)}
+                        >
+                          <Input
+                            label={english ? 'Decision' : 'تصمیم'}
+                            name="title"
+                            defaultValue={decision.title}
+                            maxLength={160}
+                            required
+                          />
+                          <label className="execution-field">
+                            <span>{english ? 'Source' : 'منبع'}</span>
+                            <select
+                              name="source"
+                              defaultValue={
+                                decision.source
+                                  ? `${decision.source.kind}:${decision.source.id}`
+                                  : ''
+                              }
+                              required
+                            >
+                              <option value="" disabled>
+                                {english ? 'Choose a source' : 'یک منبع انتخاب کنید'}
+                              </option>
+                              {board.sources.map((source) => (
+                                <option
+                                  key={`${source.kind}:${source.id}`}
+                                  value={`${source.kind}:${source.id}`}
+                                >
+                                  {source.title}
+                                </option>
+                              ))}
+                              {decision.source &&
+                                !board.sources.some(
+                                  (source) =>
+                                    source.kind === decision.source?.kind &&
+                                    source.id === decision.source.id,
+                                ) && (
+                                  <option value={`${decision.source.kind}:${decision.source.id}`}>
+                                    {decision.source.title} ·{' '}
+                                    {english ? 'source snapshot' : 'نسخه ثبت‌شده از منبع'}
+                                  </option>
+                                )}
+                            </select>
+                          </label>
+                          <label className="execution-field">
+                            <span>{english ? 'Reason' : 'دلیل'}</span>
+                            <textarea
+                              name="rationale"
+                              defaultValue={decision.rationale}
+                              maxLength={2000}
+                              rows={3}
+                              required
+                            />
+                          </label>
+                          <label className="execution-field">
+                            <span>{english ? 'Assumptions' : 'فرض‌ها'}</span>
+                            <textarea
+                              name="assumptions"
+                              defaultValue={decision.assumptions}
+                              maxLength={2000}
+                              rows={3}
+                              required
+                            />
+                          </label>
+                          <Input
+                            label={english ? 'Review when' : 'محرک بازبینی'}
+                            name="review_trigger"
+                            defaultValue={decision.review_trigger}
+                            maxLength={500}
+                            required
+                          />
+                          <label className="execution-field">
+                            <span>{english ? 'Status' : 'وضعیت'}</span>
+                            <select name="status" defaultValue={decision.status}>
+                              {DECISION_STATUSES.map((item) => (
+                                <option key={item.status} value={item.status}>
+                                  {item[english ? 'en' : 'fa']}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <Button type="submit" variant="primary" pending={pending}>
+                            {english ? 'Save decision' : 'ذخیره تصمیم'}
+                          </Button>
+                        </form>
+                      </details>
+                    )}
+                    {actionDraft?.decision_id === decision.id && (
+                      <form
+                        className="execution-form execution-form--action"
+                        onSubmit={submitAction}
+                        onChange={() => setActionDirty(true)}
+                      >
+                        <h4>
+                          {english
+                            ? 'Add an action for this decision'
+                            : 'اقدام این تصمیم را ثبت کنید'}
+                        </h4>
+                        <Input
+                          label={english ? 'Action' : 'اقدام'}
+                          value={actionDraft.title}
+                          maxLength={160}
+                          required
+                          onChange={(event) => {
+                            const title = event.currentTarget.value;
+                            setActionDraft((current) =>
+                              current ? { ...current, title } : current,
+                            );
+                          }}
+                        />
+                        <TextArea
+                          label={english ? 'Description' : 'شرح'}
+                          value={actionDraft.description}
+                          onChange={(description) =>
+                            setActionDraft((current) =>
+                              current ? { ...current, description } : current,
+                            )
+                          }
+                        />
+                        <div className="execution-form__row">
+                          <label className="execution-field">
+                            <span>{english ? 'Owner' : 'مسئول'}</span>
+                            <select
+                              value={actionDraft.owner_id}
+                              required
+                              onChange={(event) => {
+                                const owner_id = event.currentTarget.value;
+                                setActionDraft((current) =>
+                                  current ? { ...current, owner_id } : current,
+                                );
+                              }}
+                            >
+                              {board.members.map((member) => (
+                                <option key={member.id} value={member.id}>
+                                  {member.name}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <Input
+                            label={english ? 'Due date' : 'موعد'}
+                            type="date"
+                            value={actionDraft.due_on}
                             required
                             onChange={(event) => {
-                              const owner_id = event.currentTarget.value;
+                              const due_on = event.currentTarget.value;
                               setActionDraft((current) =>
-                                current ? { ...current, owner_id } : current,
+                                current ? { ...current, due_on } : current,
+                              );
+                            }}
+                          />
+                        </div>
+                        <label className="execution-field">
+                          <span>{english ? 'Linked goal' : 'هدف پیوندخورده'}</span>
+                          <select
+                            value={actionDraft.goal_id ?? ''}
+                            onChange={(event) => {
+                              const goal_id = event.currentTarget.value || null;
+                              setActionDraft((current) =>
+                                current ? { ...current, goal_id } : current,
                               );
                             }}
                           >
-                            {board.members.map((member) => (
-                              <option key={member.id} value={member.id}>
-                                {member.name}
-                              </option>
-                            ))}
+                            <option value="">
+                              {english ? 'No linked goal' : 'بدون هدف پیوندخورده'}
+                            </option>
+                            {board.goals
+                              .filter((goal) => goal.status === 'active')
+                              .map((goal) => (
+                                <option key={goal.id} value={goal.id}>
+                                  {goal.title}
+                                </option>
+                              ))}
                           </select>
                         </label>
-                        <Input
-                          label={english ? 'Due date' : 'موعد'}
-                          type="date"
-                          value={actionDraft.due_on}
-                          required
-                          onChange={(event) => {
-                            const due_on = event.currentTarget.value;
-                            setActionDraft((current) =>
-                              current ? { ...current, due_on } : current,
-                            );
-                          }}
-                        />
-                      </div>
-                      <label className="execution-field">
-                        <span>{english ? 'Linked goal' : 'هدف پیوندخورده'}</span>
-                        <select
-                          value={actionDraft.goal_id ?? ''}
-                          onChange={(event) => {
-                            const goal_id = event.currentTarget.value || null;
-                            setActionDraft((current) =>
-                              current ? { ...current, goal_id } : current,
-                            );
-                          }}
-                        >
-                          <option value="">
-                            {english ? 'No linked goal' : 'بدون هدف پیوندخورده'}
-                          </option>
-                          {board.goals
-                            .filter((goal) => goal.status === 'active')
-                            .map((goal) => (
-                              <option key={goal.id} value={goal.id}>
-                                {goal.title}
-                              </option>
-                            ))}
-                        </select>
-                      </label>
-                      <div className="execution-form__buttons">
-                        <Button type="submit" variant="primary" pending={pending}>
-                          {english ? 'Add action' : 'ثبت اقدام'}
-                        </Button>
-                        <Button
-                          onClick={() => {
-                            setActionDraft(null);
-                            setActionDirty(false);
-                          }}
-                        >
-                          {english ? 'Cancel' : 'انصراف'}
-                        </Button>
-                      </div>
-                    </form>
-                  )}
-                </li>
-              ))}
-            </ol>
-          )}
-        </section>
-
-        <section className="execution-goals" aria-labelledby="execution-goals-title">
-          <div className="execution-section-heading">
-            <div>
-              <h2 id="execution-goals-title">{english ? 'Goals' : 'هدف‌ها'}</h2>
-              <p>
-                {english
-                  ? 'Give actions a shared outcome.'
-                  : 'اقدام‌ها را به نتیجه مشترک پیوند دهید.'}
-              </p>
-            </div>
-          </div>
-          {canWrite && (
-            <form className="execution-form execution-form--goal" onSubmit={submitGoal}>
-              <Input
-                label={english ? 'Goal' : 'هدف'}
-                value={goalDraft.title}
-                maxLength={160}
-                required
-                onChange={(event) => {
-                  const title = event.currentTarget.value;
-                  setGoalDraft((current) => ({ ...current, title }));
-                }}
-              />
-              <TextArea
-                label={english ? 'Description' : 'شرح'}
-                value={goalDraft.description}
-                onChange={(description) => setGoalDraft((current) => ({ ...current, description }))}
-              />
-              <Input
-                label={english ? 'Target date' : 'تاریخ هدف'}
-                type="date"
-                value={goalDraft.due_on ?? ''}
-                onChange={(event) => {
-                  const due_on = event.currentTarget.value || null;
-                  setGoalDraft((current) => ({ ...current, due_on }));
-                }}
-              />
-              <Button type="submit" variant="secondary" pending={pending}>
-                {english ? 'Add goal' : 'افزودن هدف'}
-              </Button>
-            </form>
-          )}
-          {board.goals.length === 0 ? (
-            <p className="execution-muted">
-              {english
-                ? 'No goals yet. Add one, then link it to an action.'
-                : 'هنوز هدفی ثبت نشده؛ هدفی اضافه کنید و آن را به یک اقدام پیوند دهید.'}
-            </p>
-          ) : (
-            <ul className="execution-goal-list">
-              {board.goals.map((goal) => (
-                <li key={`${goal.id}:${goal.revision}`}>
-                  <div>
-                    <h3 dir="auto">{goal.title}</h3>
-                    {goal.description && <p dir="auto">{goal.description}</p>}
-                    <span>
-                      {english ? 'Target' : 'موعد هدف'}: {dateLabel(goal.due_on, english)} ·{' '}
-                      {localeNumber(goal.action_count)} {english ? 'actions' : 'اقدام'}
-                    </span>
-                  </div>
-                  <label>
-                    <span>{english ? 'Goal status' : 'وضعیت هدف'}</span>
-                    <select
-                      value={goalStatuses[goal.id] ?? goal.status}
-                      disabled={!canWrite || dirtyRecords.has(`goal:${goal.id}`)}
-                      onChange={(event) => {
-                        const status = event.currentTarget.value as ApiExecutionGoalStatus;
-                        setGoalStatuses((current) => {
-                          if (status === goal.status) {
-                            const next = { ...current };
-                            delete next[goal.id];
-                            return next;
-                          }
-                          return { ...current, [goal.id]: status };
-                        });
-                      }}
-                    >
-                      <option value="active">{english ? 'Active' : 'فعال'}</option>
-                      <option value="complete">{english ? 'Complete' : 'تکمیل‌شده'}</option>
-                    </select>
-                  </label>
-                  {canWrite && (
-                    <Button
-                      disabled={
-                        pending ||
-                        !goalStatuses[goal.id] ||
-                        goalStatuses[goal.id] === goal.status ||
-                        dirtyRecords.has(`goal:${goal.id}`)
-                      }
-                      onClick={() => void updateGoalStatus(goal)}
-                    >
-                      {english ? 'Save' : 'ذخیره'}
-                    </Button>
-                  )}
-                  {canWrite && (
-                    <details className="execution-edit">
-                      <summary>{english ? 'Edit goal' : 'ویرایش هدف'}</summary>
-                      <form
-                        className="execution-form"
-                        key={`${goal.id}:${goal.revision}:edit`}
-                        onSubmit={(event) => {
-                          markDirty(`goal:${goal.id}`);
-                          void editGoal(event, goal);
-                        }}
-                        onChange={() => markDirty(`goal:${goal.id}`)}
-                      >
-                        <Input
-                          label={english ? 'Goal' : 'هدف'}
-                          name="title"
-                          defaultValue={goal.title}
-                          maxLength={160}
-                          required
-                        />
-                        <label className="execution-field">
-                          <span>{english ? 'Description' : 'شرح'}</span>
-                          <textarea
-                            name="description"
-                            defaultValue={goal.description}
-                            maxLength={1000}
-                            rows={2}
-                          />
-                        </label>
-                        <Input
-                          label={english ? 'Target date' : 'تاریخ هدف'}
-                          name="due_on"
-                          type="date"
-                          defaultValue={goal.due_on ?? ''}
-                        />
-                        <label className="execution-field">
-                          <span>{english ? 'Status' : 'وضعیت'}</span>
-                          <select name="status" defaultValue={goal.status}>
-                            <option value="active">{english ? 'Active' : 'فعال'}</option>
-                            <option value="complete">{english ? 'Complete' : 'تکمیل‌شده'}</option>
-                          </select>
-                        </label>
-                        <Button type="submit" variant="primary" pending={pending}>
-                          {english ? 'Save goal' : 'ذخیره هدف'}
-                        </Button>
+                        <div className="execution-form__buttons">
+                          <Button type="submit" variant="primary" pending={pending}>
+                            {english ? 'Add action' : 'ثبت اقدام'}
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              setActionDraft(null);
+                              setActionDirty(false);
+                            }}
+                          >
+                            {english ? 'Cancel' : 'انصراف'}
+                          </Button>
+                        </div>
                       </form>
-                    </details>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+          </section>
+        )}
+
+        {focus !== 'decisions' && (
+          <section className="execution-goals" aria-labelledby="execution-goals-title">
+            <div className="execution-section-heading">
+              <div>
+                <h2 id="execution-goals-title">{english ? 'Goals' : 'هدف‌ها'}</h2>
+                <p>
+                  {english
+                    ? 'Give actions a shared outcome.'
+                    : 'اقدام‌ها را به نتیجه مشترک پیوند دهید.'}
+                </p>
+              </div>
+            </div>
+            {canWrite && (
+              <form className="execution-form execution-form--goal" onSubmit={submitGoal}>
+                <Input
+                  label={english ? 'Goal' : 'هدف'}
+                  value={goalDraft.title}
+                  maxLength={160}
+                  required
+                  onChange={(event) => {
+                    const title = event.currentTarget.value;
+                    setGoalDraft((current) => ({ ...current, title }));
+                  }}
+                />
+                <TextArea
+                  label={english ? 'Description' : 'شرح'}
+                  value={goalDraft.description}
+                  onChange={(description) =>
+                    setGoalDraft((current) => ({ ...current, description }))
+                  }
+                />
+                <Input
+                  label={english ? 'Target date' : 'تاریخ هدف'}
+                  type="date"
+                  value={goalDraft.due_on ?? ''}
+                  onChange={(event) => {
+                    const due_on = event.currentTarget.value || null;
+                    setGoalDraft((current) => ({ ...current, due_on }));
+                  }}
+                />
+                <Button type="submit" variant="secondary" pending={pending}>
+                  {english ? 'Add goal' : 'افزودن هدف'}
+                </Button>
+              </form>
+            )}
+            {board.goals.length === 0 ? (
+              <p className="execution-muted">
+                {english
+                  ? 'No goals yet. Add one, then link it to an action.'
+                  : 'هنوز هدفی ثبت نشده؛ هدفی اضافه کنید و آن را به یک اقدام پیوند دهید.'}
+              </p>
+            ) : (
+              <ul className="execution-goal-list">
+                {board.goals.map((goal) => (
+                  <li key={`${goal.id}:${goal.revision}`}>
+                    <div>
+                      <h3 dir="auto">{goal.title}</h3>
+                      {goal.description && <p dir="auto">{goal.description}</p>}
+                      <span>
+                        {english ? 'Target' : 'موعد هدف'}: {dateLabel(goal.due_on, english)} ·{' '}
+                        {localeNumber(goal.action_count)} {english ? 'actions' : 'اقدام'}
+                      </span>
+                    </div>
+                    <label>
+                      <span>{english ? 'Goal status' : 'وضعیت هدف'}</span>
+                      <select
+                        value={goalStatuses[goal.id] ?? goal.status}
+                        disabled={!canWrite || dirtyRecords.has(`goal:${goal.id}`)}
+                        onChange={(event) => {
+                          const status = event.currentTarget.value as ApiExecutionGoalStatus;
+                          setGoalStatuses((current) => {
+                            if (status === goal.status) {
+                              const next = { ...current };
+                              delete next[goal.id];
+                              return next;
+                            }
+                            return { ...current, [goal.id]: status };
+                          });
+                        }}
+                      >
+                        <option value="active">{english ? 'Active' : 'فعال'}</option>
+                        <option value="complete">{english ? 'Complete' : 'تکمیل‌شده'}</option>
+                      </select>
+                    </label>
+                    {canWrite && (
+                      <Button
+                        disabled={
+                          pending ||
+                          !goalStatuses[goal.id] ||
+                          goalStatuses[goal.id] === goal.status ||
+                          dirtyRecords.has(`goal:${goal.id}`)
+                        }
+                        onClick={() => void updateGoalStatus(goal)}
+                      >
+                        {english ? 'Save' : 'ذخیره'}
+                      </Button>
+                    )}
+                    {canWrite && (
+                      <details className="execution-edit">
+                        <summary>{english ? 'Edit goal' : 'ویرایش هدف'}</summary>
+                        <form
+                          className="execution-form"
+                          key={`${goal.id}:${goal.revision}:edit`}
+                          onSubmit={(event) => {
+                            markDirty(`goal:${goal.id}`);
+                            void editGoal(event, goal);
+                          }}
+                          onChange={() => markDirty(`goal:${goal.id}`)}
+                        >
+                          <Input
+                            label={english ? 'Goal' : 'هدف'}
+                            name="title"
+                            defaultValue={goal.title}
+                            maxLength={160}
+                            required
+                          />
+                          <label className="execution-field">
+                            <span>{english ? 'Description' : 'شرح'}</span>
+                            <textarea
+                              name="description"
+                              defaultValue={goal.description}
+                              maxLength={1000}
+                              rows={2}
+                            />
+                          </label>
+                          <Input
+                            label={english ? 'Target date' : 'تاریخ هدف'}
+                            name="due_on"
+                            type="date"
+                            defaultValue={goal.due_on ?? ''}
+                          />
+                          <label className="execution-field">
+                            <span>{english ? 'Status' : 'وضعیت'}</span>
+                            <select name="status" defaultValue={goal.status}>
+                              <option value="active">{english ? 'Active' : 'فعال'}</option>
+                              <option value="complete">{english ? 'Complete' : 'تکمیل‌شده'}</option>
+                            </select>
+                          </label>
+                          <Button type="submit" variant="primary" pending={pending}>
+                            {english ? 'Save goal' : 'ذخیره هدف'}
+                          </Button>
+                        </form>
+                      </details>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
       </section>
 
       <section className="execution-history" aria-labelledby="execution-history-title">

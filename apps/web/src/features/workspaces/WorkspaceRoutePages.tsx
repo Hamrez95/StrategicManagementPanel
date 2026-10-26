@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import {
   Link,
   Navigate,
@@ -14,6 +14,11 @@ import type { Session } from '../../session';
 import { readWorkspaceProfile, readWorkspaceSummary } from './api';
 import { getWorkspaceTool, workspaceToolGroups, workspaceToolPath } from './routeRegistry';
 import { WorkspacePulse } from '../management/WorkspacePulse';
+import { planningDefinitions } from '../analysis/planningDefinitions';
+const PlanningToolPage = lazy(() => import('../analysis/PlanningToolPage'));
+const FinancePage = lazy(() => import('../analysis/FinancePage'));
+const DecisionRoom = lazy(() => import('../decisions/DecisionRoom'));
+const ExecutionPlanPage = lazy(() => import('../decisions/ExecutionPlanPage'));
 
 function formatSummaryDate(value: string, english: boolean) {
   const [year, month, day] = value.split('-').map(Number);
@@ -367,7 +372,6 @@ export function WorkspaceOverviewPage() {
 export function WorkspaceToolPage() {
   const { workspaceId = '', toolId } = useParams();
   const session = useOutletContext<Session>();
-  const location = useLocation();
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
   const tool = getWorkspaceTool(toolId);
@@ -405,8 +409,38 @@ export function WorkspaceToolPage() {
     );
   }
 
-  const legacyPath = new URLSearchParams(location.search).get('path')?.replace(/^\/+|\/+$/g, '');
-  const prototypeRoute = [tool.legacyHash, legacyPath].filter(Boolean).join('/');
+  if (toolId && planningDefinitions[toolId])
+    return (
+      <Suspense fallback={<Skeleton label={english ? 'Loading tool' : 'در حال دریافت ابزار'} />}>
+        <PlanningToolPage tool={toolId} />
+      </Suspense>
+    );
+  if (toolId === 'finance')
+    return (
+      <Suspense
+        fallback={<Skeleton label={english ? 'Loading finance' : 'در حال دریافت اطلاعات مالی'} />}
+      >
+        <FinancePage />
+      </Suspense>
+    );
+  if (toolId === 'qspm')
+    return (
+      <Suspense
+        fallback={<Skeleton label={english ? 'Loading options' : 'در حال دریافت گزینه‌ها'} />}
+      >
+        <DecisionRoom key={workspaceId} />
+      </Suspense>
+    );
+  if (toolId === 'journal' || toolId === 'scorecard')
+    return (
+      <Suspense fallback={<Skeleton label={english ? 'Loading plan' : 'در حال دریافت برنامه'} />}>
+        <ExecutionPlanPage
+          key={`${workspaceId}:${toolId}`}
+          focus={toolId === 'scorecard' ? 'goals' : 'decisions'}
+        />
+      </Suspense>
+    );
+  if (toolId === 'learn') return <Navigate to="/academy/catalog" replace />;
   return (
     <section className="workspace-tool" aria-labelledby="workspace-tool-title">
       <header className="workspace-tool__heading">
@@ -423,23 +457,13 @@ export function WorkspaceToolPage() {
         aria-labelledby="workspace-tool-availability-title"
       >
         <h2 id="workspace-tool-availability-title">
-          {english
-            ? 'Workspace data connection is being prepared'
-            : 'اتصال ابزار به داده‌های فضا در حال آماده‌سازی است'}
+          {english ? 'Choose a Workspace tool' : 'یک ابزار فضای کار رو انتخاب کن'}
         </h2>
         <p>
           {english
-            ? 'This tool route is ready, but its forms do not yet save to this Workspace. The older browser prototype keeps separate local data.'
-            : 'مسیر ابزار آماده است، اما فرم‌های نسخه فعلی هنوز در این فضای کار ذخیره نمی‌شوند. نمونه قدیمی داده را جداگانه و فقط در همین مرورگر نگه می‌دارد.'}
+            ? 'Use the Workspace navigation to open a tool.'
+            : 'از منوی فضای کار، ابزار موردنظرت رو باز کن.'}
         </p>
-        <a
-          className="ui-button ui-button--secondary"
-          href={`/prototype/#${encodeURI(prototypeRoute)}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {english ? 'Open the local prototype' : 'بازکردن نسخه نمونه محلی'}
-        </a>
       </section>
       <p className="workspace-tool__back">
         <Link

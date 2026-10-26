@@ -474,6 +474,28 @@ class CalculationRun(models.Model):
         return super().save(*args, **kwargs)
 
 
+class FinanceCapture(models.Model):
+    """Idempotent capture over canonical observations; calculation remains a separate grant."""
+
+    id = models.UUIDField(primary_key=True, editable=False)
+    workspace = models.ForeignKey("workspaces.Workspace", on_delete=models.CASCADE)
+    recorded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    revenue = models.ForeignKey(
+        InputObservation, on_delete=models.PROTECT, related_name="revenue_captures"
+    )
+    variable_costs = models.ForeignKey(
+        InputObservation, on_delete=models.PROTECT, related_name="cost_captures"
+    )
+    run = models.ForeignKey(
+        CalculationRun, null=True, blank=True, on_delete=models.PROTECT
+    )
+    request_hash = models.CharField(max_length=64)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("-created_at", "id")
+
+
 class MetricValue(models.Model):
     """Immutable result status/value attached to its exact calculation snapshot."""
 

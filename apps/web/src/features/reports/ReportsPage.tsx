@@ -6,6 +6,7 @@ import { queryKeys } from '../../api/queryKeys';
 import type { Session } from '../../session';
 import { useWorkspaceDirtyGuard } from '../workspaces/switchContext';
 import { ReportInsights } from './ReportInsights';
+import { planningDefinitions } from '../analysis/planningDefinitions';
 import {
   createWorkspaceExport,
   downloadWorkspaceExport,
@@ -451,6 +452,51 @@ function CanonicalReport({ data, english }: { data: ReportEnvelope['data']; engl
           );
         })}
       </section>
+    </>
+  );
+}
+
+function PlanningReport({ data, english }: { data: ReportEnvelope['data']; english: boolean }) {
+  const sections = {
+    environment: 'environment_signals',
+    industry: 'competitor_profiles',
+    internal: 'resource_assessments',
+    scenarios: 'scenario_plans',
+    risks: 'risk_records',
+    journey: 'journey_steps',
+  } as const;
+  const language = english ? 'en' : 'fa';
+  return (
+    <>
+      {Object.entries(sections).map(([tool, section]) => {
+        const rows = records(data[section]);
+        const definition = planningDefinitions[tool];
+        return rows.length ? (
+          <section key={tool} className="report-section">
+            <h2>{definition.title[language]}</h2>
+            {definition.note && <p>{definition.note[language]}</p>}
+            {rows.map((row) => (
+              <article className="report-record" key={text(row.id)}>
+                <h3>{text(row.title)}</h3>
+                <dl>
+                  {definition.fields.map((field) => (
+                    <div key={field.id}>
+                      <dt>{field.label[language]}</dt>
+                      <dd>
+                        {field.options?.find((o) => o.value === row[field.id])?.label[language] ??
+                          (text(row[field.id]) || (english ? 'Not recorded' : 'ثبت نشده'))}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <p>
+                  {english ? 'Revision' : 'نسخه'} {numberLabel(row.revision, english, 0)}
+                </p>
+              </article>
+            ))}
+          </section>
+        ) : null;
+      })}
     </>
   );
 }
@@ -934,7 +980,12 @@ function ReportDocument({ snapshot, english }: { snapshot: ReportEnvelope; engli
         </div>
       </section>
 
-      {snapshot.schema_version === 2 && <CanonicalReport data={data} english={english} />}
+      {snapshot.schema_version === 2 && (
+        <>
+          <PlanningReport data={data} english={english} />
+          <CanonicalReport data={data} english={english} />
+        </>
+      )}
       <footer className="report-footer">
         {professional && (
           <p>

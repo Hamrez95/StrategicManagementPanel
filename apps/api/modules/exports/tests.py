@@ -342,6 +342,10 @@ class WorkspaceExportApiTests(TestCase):
     def test_v2_includes_canonical_unknown_zero_and_deleted_analysis_history(self):
         from modules.metrics.models import InputObservation
         from modules.customer_context.models import Product
+        from modules.analysis.models import EnvironmentSignal
+        signal = EnvironmentSignal.objects.create(workspace=self.workspace,created_by=self.owner,title='سیگنال واقعی',category='economic',observation='مشاهده',implication='اثر',source='منبع واقعی')
+        foreign = Workspace.objects.create(owner=self.outsider,billing_account=BillingAccount.objects.create(owner=self.outsider),name='Foreign planning')
+        EnvironmentSignal.objects.create(workspace=foreign,created_by=self.outsider,title='نباید دیده شود',category='legal',observation='Foreign',source='Foreign')
         Product.objects.create(workspace=self.workspace, name='محصول واقعی')
         for state, value in [('observed', 0), ('unknown', None)]:
             InputObservation.objects.create(workspace=self.workspace, recorded_by=self.owner,
@@ -355,8 +359,12 @@ class WorkspaceExportApiTests(TestCase):
         self.assertEqual(created.status_code, 201, created.content)
         envelope = created.json()['snapshot']
         self.assertEqual(envelope['schema'], 'stratino-workspace-v2')
-        self.assertEqual(len(envelope['scope']), 29)
+        self.assertEqual(len(envelope['scope']), 37)
         data = envelope['data']
+        self.assertEqual([row['id'] for row in data['environment_signals']], [str(signal.pk)])
+        self.assertEqual(data['environment_signals'][0]['source'], 'منبع واقعی')
+        self.assertIn('finance_captures', envelope['scope'])
+        self.assertIn('planning_history', envelope['scope'])
         self.assertEqual(data['products'][0]['name'], 'محصول واقعی')
         self.assertEqual({row['state']: row['value'] for row in data['observations']}, {'observed': '0.000000', 'unknown': None})
         self.assertEqual(data['analysis_history'][0]['source_record_id'], str(source_id))

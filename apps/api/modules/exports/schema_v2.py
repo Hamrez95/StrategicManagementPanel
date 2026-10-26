@@ -6,9 +6,19 @@ from modules.customer_context.models import Product, Segment, IdealCustomerProfi
 from modules.evidence.models import Claim, Evidence, ClaimEvidenceLink, ConfidenceAssessment
 from modules.metrics.models import InputObservation, InputObservationEvidence, CalculationRun, MetricValue
 from modules.documents.models import DocumentAttachment
+from modules.analysis.models import CompetitorProfile, EnvironmentSignal, JourneyStep, PlanningRevision, ResourceAssessment, RiskRecord, ScenarioPlan
+from modules.metrics.models import FinanceCapture
 
 
 V2_FIELDS = {
+    'environment_signals': (EnvironmentSignal, 'id title category observation implication source observed_on revision created_at updated_at'),
+    'competitor_profiles': (CompetitorProfile, 'id title customer_segment value_proposition advantage source observed_on revision created_at updated_at'),
+    'resource_assessments': (ResourceAssessment, 'id title description valuable rare hard_to_imitate organized source revision created_at updated_at'),
+    'scenario_plans': (ScenarioPlan, 'id title uncertainty assumptions early_signal response review_on revision created_at updated_at'),
+    'risk_records': (RiskRecord, 'id title description likelihood impact mitigation responsible review_on status revision created_at updated_at'),
+    'journey_steps': (JourneyStep, 'id title stage status outcome revision created_at updated_at'),
+    'planning_history': (PlanningRevision, 'id tool record_id revision snapshot recorded_at'),
+    'finance_captures': (FinanceCapture, 'id revenue_id variable_costs_id run_id created_at'),
     'products': (Product, 'id name description problem_solved target_customer_legacy revision created_at updated_at'),
     'segments': (Segment, 'id name description needs buying_roles industry organization_size geography buying_context revision created_at updated_at'),
     'icps': (IdealCustomerProfile, 'id name segment_id persona_role persona_decision_role persona_goals persona_pains problem legacy_segment_snapshot legacy_evidence_snapshot legacy_assumptions_snapshot revision created_at updated_at'),

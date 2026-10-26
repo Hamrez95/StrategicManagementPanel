@@ -68,4 +68,6 @@ Acceptance: report includes guided data with readable labels; no `_step`/raw mat
 
 ## Later preserved method work
 
+2026-10-26 connection update: `/app` now has typed planning records, canonical finance captures and qualitative option comparison rather than the temporary tool-availability page. See [STATUS](STATUS.md#typed-workspace-tool-connections--2026-10-26). Those records are usable inputs; they do not promote the unreviewed calculation methods below. Keep the same issue IDs and method acceptance gates.
+
 STR-039/#39 (QSPM/VRIO) and STR-040/#40 (CPM/SPACE/BCG) retain their existing review/dependencies. When their definitions are approved, use the same guided interaction: scoped setup, factor-by-factor inputs with examples, explicit source reuse/snapshot, validity gate, then calculation and limitations. Do not enable a fake result or copy unsupported thresholds to make the directory look complete. STR-042's investment/scenario submethods similarly need their existing method/unit/period acceptance; the 13 statement-derived previews are not completion evidence for every financial method.

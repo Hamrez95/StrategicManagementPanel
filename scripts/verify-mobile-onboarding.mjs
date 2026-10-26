@@ -88,6 +88,7 @@ try {
           const controls = await page.locator('.app-topbar').evaluate((node) => {
             const selectors = [
               '.app-brand',
+              '.app-academy-link',
               '.header-theme-switch',
               '.header-language-switch',
               '.app-search-trigger',
