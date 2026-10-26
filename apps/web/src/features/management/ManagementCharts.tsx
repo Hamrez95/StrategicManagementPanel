@@ -11,7 +11,7 @@ export function DecisionOrbit() {
     <svg className="management-orbit" viewBox="0 0 260 190" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id={id} x2="1" y2="1">
-          <stop stopColor="#ddefe5" />
+          <stop stopColor="#dce8f5" />
           <stop offset="1" stopColor="#f5e4c8" />
         </linearGradient>
       </defs>
@@ -61,8 +61,8 @@ export function DecisionOrbit() {
           strokeLinecap="round"
         />
         <rect x="111" y="105" width="10" height="14" rx="3" fill="#b97d44" />
-        <rect x="130" y="94" width="10" height="25" rx="3" fill="#6c8a7a" />
-        <rect x="149" y="83" width="10" height="36" rx="3" fill="#245343" />
+        <rect x="130" y="94" width="10" height="25" rx="3" fill="#8aa9ca" />
+        <rect x="149" y="83" width="10" height="36" rx="3" fill="#3c6593" />
       </g>
       <g className="management-orbit__seal">
         <rect
@@ -77,14 +77,14 @@ export function DecisionOrbit() {
         <path
           d="m55 139 7 6 13-15"
           fill="none"
-          stroke="#294c3f"
+          stroke="#29435f"
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </g>
       <circle cx="211" cy="53" r="7" fill="#d7937c" />
-      <circle cx="57" cy="67" r="4" fill="#7c9e8a" />
+      <circle cx="57" cy="67" r="4" fill="#7d9fc4" />
     </svg>
   );
 }

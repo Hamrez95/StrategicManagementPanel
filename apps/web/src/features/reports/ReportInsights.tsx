@@ -72,19 +72,19 @@ export function ReportInsights({ report, english }: { report?: ReportEnvelope; e
   const categories =
     view === 'strategy'
       ? [
-          ['strength', english ? 'Strengths' : 'قوت‌ها', '#4d8064'],
+          ['strength', english ? 'Strengths' : 'قوت‌ها', '#496f9e'],
           ['weakness', english ? 'Weaknesses' : 'ضعف‌ها', '#b66a5e'],
           ['opportunity', english ? 'Opportunities' : 'فرصت‌ها', '#6684aa'],
           ['threat', english ? 'Threats' : 'تهدیدها', '#b68648'],
         ]
       : view === 'documents'
         ? [
-            ['ready', english ? 'Ready' : 'آماده', '#4d8064'],
+            ['ready', english ? 'Ready' : 'آماده', '#496f9e'],
             ['review', english ? 'In review' : 'در بازبینی', '#6684aa'],
             ['draft', english ? 'Draft' : 'پیش‌نویس', '#b68648'],
           ]
         : [
-            ['done', english ? 'Done' : 'انجام‌شده', '#4d8064'],
+            ['done', english ? 'Done' : 'انجام‌شده', '#496f9e'],
             ['in_progress', english ? 'In progress' : 'در حال انجام', '#6684aa'],
             ['planned', english ? 'Planned' : 'برنامه‌ریزی‌شده', '#b68648'],
             ['blocked', english ? 'Blocked' : 'متوقف', '#b66a5e'],

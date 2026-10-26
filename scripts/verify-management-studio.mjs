@@ -214,6 +214,40 @@ try {
   const audits = [];
   await page.goto(`${base}/app/workspaces/${id}/overview`);
   await page.getByRole('heading', { name: 'تصویر امروز کسب‌وکارت' }).waitFor();
+  const sidebar = page.locator('.app-sidebar');
+  for (const height of [520, 900]) {
+    await page.setViewportSize({ width: 1280, height });
+    await page.evaluate(() => scrollTo(0, 0));
+    await page.waitForFunction(
+      () =>
+        document.querySelector('.app-sidebar').getBoundingClientRect().bottom <= innerHeight - 11,
+    );
+    const sidebarBox = await sidebar.boundingBox();
+    assert.ok(
+      sidebarBox.height <= height - 24,
+      'Sidebar must fit the viewport, including its margins',
+    );
+    const pageScroll = await page.evaluate(() => scrollY);
+    await sidebar.hover();
+    await page.mouse.wheel(0, 5000);
+    await page.waitForFunction(() => {
+      const nav = document.querySelector('.app-sidebar');
+      return nav.scrollTop + nav.clientHeight >= nav.scrollHeight - 2;
+    });
+    assert.equal(
+      await page.evaluate(() => scrollY),
+      pageScroll,
+      'Sidebar wheel must not unexpectedly scroll the page',
+    );
+    const settingsBox = await sidebar.locator('.app-nav-link--settings').boundingBox();
+    assert.ok(
+      settingsBox.y >= 0 && settingsBox.y + settingsBox.height <= height,
+      'Last navigation item remains reachable',
+    );
+    await page.mouse.wheel(0, -5000);
+    await page.waitForFunction(() => document.querySelector('.app-sidebar').scrollTop === 0);
+    checks += 3;
+  }
   assert.equal(await page.locator('.management-stat').nth(0).locator('strong').innerText(), '۲');
   assert.equal(await page.locator('.management-stat').nth(1).locator('strong').innerText(), '۱');
   checks += 2;

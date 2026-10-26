@@ -1,33 +1,41 @@
 /* Customer Workspace skin. Operator/public/Academy data and appearance remain independent. */
 .application-shell {
-  --canvas: #f7f8f4;
-  --paper: #fff;
-  --ink: #24463a;
-  --muted: #5b6c62;
-  --line: #dde5dd;
-  --control: #708376;
-  --action: #245343;
-  --action-fill: #245343;
-  --on-action: #fff;
-  --accent: #34755a;
-  --wash: #edf4ee;
-  --success: #286c4c;
+  --canvas: #f3eddf;
+  --paper: #fbf6eb;
+  --ink: #253c55;
+  --muted: #526479;
+  --line: #cfd6dc;
+  --control: #77879a;
+  --action: #335f8a;
+  --action-fill: #bed7f2;
+  --on-action: #203b58;
+  --accent: #335f8a;
+  --wash: #e4edf6;
+  --success: #335f8a;
+  --workspace-nav: #dce8f5;
+  --workspace-nav-ink: #29435f;
+  --workspace-nav-muted: #52677f;
+  --workspace-nav-active: #b8d2ef;
   background: var(--canvas);
   color: var(--ink);
 }
 [data-theme='dark'] .application-shell {
-  --canvas: #101c18;
-  --paper: #192b24;
-  --ink: #e5f0e9;
-  --muted: #b2c3b8;
-  --line: #33473b;
-  --control: #879e8e;
-  --action: #b9e1c5;
-  --action-fill: #b9e1c5;
-  --on-action: #143522;
-  --accent: #b9e1c5;
-  --wash: #243b2e;
-  --success: #b9e1c5;
+  --canvas: #14202e;
+  --paper: #1e2d40;
+  --ink: #e6effb;
+  --muted: #b4c3d7;
+  --line: #3b5069;
+  --control: #899db7;
+  --action: #b6d1f1;
+  --action-fill: #b6d1f1;
+  --on-action: #18314b;
+  --accent: #b6d1f1;
+  --wash: #2a405c;
+  --success: #b6d1f1;
+  --workspace-nav: #253d59;
+  --workspace-nav-ink: #e6effb;
+  --workspace-nav-muted: #c1d1e5;
+  --workspace-nav-active: #385b84;
 }
 .application-shell .app-topbar {
   flex-wrap: wrap;
@@ -38,42 +46,57 @@
 }
 .application-shell .app-sidebar {
   margin: 12px;
-  height: calc(100dvh - 24px);
+  inset-block-start: 12px;
+  height: var(--workspace-sidebar-height, calc(100dvh - 24px));
+  min-height: 0;
   border: 0;
   border-radius: 23px;
-  background: #19352c;
-  color: #edf5ef;
-  scrollbar-color: #688774 transparent;
+  background: var(--workspace-nav);
+  color: var(--workspace-nav-ink);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: color-mix(in srgb, var(--workspace-nav-ink) 40%, transparent) transparent;
+  overscroll-behavior-y: contain;
 }
 .application-shell .app-sidebar :is(.app-sidebar__eyebrow, .app-nav-group h2) {
-  color: #b6c8bc;
+  color: var(--workspace-nav-muted);
 }
 .application-shell .app-sidebar .app-sidebar__workspace {
-  border-color: #ffffff24;
+  border-color: color-mix(in srgb, var(--workspace-nav-ink) 18%, transparent);
 }
 .application-shell .app-sidebar .app-nav-link {
-  color: #e2eee5;
+  color: var(--workspace-nav-ink);
   min-block-size: 46px;
   border-radius: 12px;
 }
 .application-shell .app-sidebar .app-nav-link:hover {
-  background: #ffffff0c;
+  background: color-mix(in srgb, var(--workspace-nav-ink) 6%, transparent);
 }
 .application-shell .app-sidebar .app-nav-link.is-active {
-  background: #3b634b;
-  border-color: #edc989;
-  color: #fff;
+  background: var(--workspace-nav-active);
+  border-color: var(--action);
+  color: var(--workspace-nav-ink);
 }
 .application-shell .app-sidebar .app-nav-link__mark {
-  color: #c5daca;
+  color: var(--workspace-nav-ink);
   border-color: transparent;
-  background: #ffffff09;
+  background: color-mix(in srgb, var(--workspace-nav-ink) 5%, transparent);
   inline-size: 30px;
   block-size: 30px;
   border-radius: 9px;
 }
 .application-shell .app-sidebar .app-nav-link:focus-visible {
-  outline-color: #edc989;
+  outline-color: var(--action);
+}
+.application-shell .app-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.application-shell .app-sidebar::-webkit-scrollbar-button {
+  display: none;
+}
+.application-shell .app-sidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--workspace-nav-ink) 40%, transparent);
 }
 .application-shell .app-nav-link__mark svg {
   inline-size: 19px;

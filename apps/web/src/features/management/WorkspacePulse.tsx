@@ -82,7 +82,7 @@ export function WorkspacePulse({
               id: 'final',
               label: english ? 'Finalized' : 'نهایی‌شده',
               count: summary.analyses.finalized_count,
-              color: '#4d8064',
+              color: '#496f9e',
             },
             {
               id: 'draft',

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useMatch, useNavigate, useOutletContext } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { Brand, Button, Dialog, Input, useUIAppearance } from '@stratino/ui';
@@ -266,6 +266,43 @@ export default function ApplicationShell() {
                 ? 'Project overview'
                 : 'نمای کلی پروژه');
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const sidebarRef = useRef<HTMLElement>(null);
+  useLayoutEffect(() => {
+    const sidebar = sidebarRef.current;
+    if (!sidebar) return;
+    let frame = 0;
+    let previous = -1;
+    const measure = () => {
+      frame = 0;
+      if (!sidebar.getClientRects().length) return;
+      // Account for the actual header position, wrapping, zoom and sticky offset.
+      const available = Math.max(
+        0,
+        Math.floor(window.innerHeight - Math.max(12, sidebar.getBoundingClientRect().top) - 12),
+      );
+      if (available !== previous) {
+        sidebar.style.setProperty('--workspace-sidebar-height', `${available}px`);
+        previous = available;
+      }
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(measure);
+    };
+    const observer = new ResizeObserver(schedule);
+    sidebar
+      .closest('.application-shell')
+      ?.querySelectorAll('.app-topbar, .app-breadcrumbs')
+      .forEach((node) => observer.observe(node));
+    window.addEventListener('resize', schedule);
+    window.addEventListener('scroll', schedule, { passive: true });
+    measure();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', schedule);
+      window.removeEventListener('scroll', schedule);
+      cancelAnimationFrame(frame);
+    };
+  }, [workspace?.id, english]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [logoutPending, setLogoutPending] = useState(false);
@@ -512,6 +549,7 @@ export default function ApplicationShell() {
       <div className="app-shell-body">
         {workspace && (
           <aside
+            ref={sidebarRef}
             className="app-sidebar"
             aria-label={english ? 'Workspace sidebar' : 'ناوبری فضای کار'}
           >
