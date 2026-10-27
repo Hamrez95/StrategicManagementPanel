@@ -121,5 +121,5 @@ class OperatorAcademyTests(TestCase):
         row = self.read('academy_plans', '?q=selected').json()['results'][0]
         self.assertIsNone(row['price'])
         self.assertIsNone(row['sale_price'])
-        self.assertIsNone(row['duration_days'])
+        self.assertEqual(row['duration_days'], 365)
         self.assertNotIn('answer', self.read('academy_samples').content.decode())

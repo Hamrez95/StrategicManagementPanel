@@ -11,7 +11,7 @@ from .models import AcademyArea, AcademyPlan, AcademyCoupon, AcademyOrder, Acade
 class AcademyPricingTests(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.plan = AcademyPlan.objects.create(code='pricing-test', title='گرایش', kind='specialty', price=1000000, sale_price=800000, duration_days=30)
+        self.plan = AcademyPlan.objects.create(code='pricing-test', title='گرایش', kind='specialty', price=1000000, sale_price=800000, duration_days=365)
         for area_id in ['S01', 'S02']:
             AcademyArea.objects.create(id=area_id, title=area_id, kind='specialty')
         self.coupon = AcademyCoupon.objects.create(code='learn10', percent=10)
@@ -71,3 +71,14 @@ class AcademyPricingTests(TestCase):
         for values in [{'price': 100, 'sale_price': 101}, {'price': None, 'sale_price': 10}]:
             with self.assertRaises(IntegrityError), transaction.atomic():
                 AcademyPlan.objects.filter(pk=self.plan.pk).update(**values)
+
+    def test_nonannual_offer_cannot_quote_or_create_new_order(self):
+        user = get_user_model().objects.create_user('annual@example.test')
+        self.client.force_authenticate(user)
+        for days in (None, 30, 366):
+            self.plan.duration_days = days
+            self.plan.save()
+            with self.subTest(days=days):
+                self.assertEqual(self.client.post('/api/v1/academy/price-quote/', self.body, format='json').status_code, 400)
+                self.assertEqual(self.client.post('/api/v1/academy/orders/', {**self.body, 'request_id': str(uuid4())}, format='json').status_code, 400)
+        self.assertFalse(AcademyOrder.objects.exists())

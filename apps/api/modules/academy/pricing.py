@@ -1,5 +1,8 @@
 """One server-side calculation for previews and immutable order snapshots."""
 from django.utils import timezone
+
+from modules.core.commerce_policy import ANNUAL_DURATION_DAYS
+
 from .models import AcademyArea, AcademyCoupon, AcademyPlan
 
 
@@ -27,6 +30,8 @@ def selection(data):
 
 
 def quote(plan, areas, code=''):
+    if plan.duration_days != ANNUAL_DURATION_DAYS:
+        raise PricingError('این اشتراک باید با دورهٔ یک‌ساله تنظیم بشه.')
     quantity = len(areas) if plan.kind == 'specialty' else 1
     original = plan.price
     unit = plan.sale_price if plan.sale_price is not None else original

@@ -374,7 +374,11 @@ try {
   let planDialog = page.getByRole('dialog', { name: 'ویرایش پلن آکادمی' });
   await planDialog.getByLabel('قیمت اصلی (ریال)', { exact: true }).fill('۱٬۰۰۰٬۰۰۰');
   await planDialog.getByLabel('قیمت با تخفیف (ریال)', { exact: true }).fill('۸۰۰۰۰۰');
-  await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).fill('۹۰');
+  assert.equal(
+    await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).inputValue(),
+    '365',
+  );
+  assert.equal(await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).isDisabled(), true);
   await planDialog.getByLabel('دلیل تغییر', { exact: true }).fill('Synthetic catalog update only');
   await fit();
   await page.screenshot({ path: `${folder}/academy-plan-editor-mobile.png`, fullPage: true });
@@ -383,7 +387,7 @@ try {
   await planDialog.waitFor({ state: 'hidden' });
   assert.equal(academyPlan.price, 1000000);
   assert.equal(academyPlan.sale_price, 800000);
-  assert.equal(academyPlan.duration_days, 90);
+  assert.equal(academyPlan.duration_days, 365);
   await page.getByRole('cell', { name: '۱٬۰۰۰٬۰۰۰', exact: true }).waitFor();
   conflictPlan = true;
   await page.getByRole('button', { name: 'ویرایش پلن', exact: true }).click();
