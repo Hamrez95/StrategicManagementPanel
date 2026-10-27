@@ -25,6 +25,9 @@ INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.
 INSTALLED_APPS += ['modules.academy']
 INSTALLED_APPS += ['modules.operations']
 OPERATOR_MFA_KEYS = tuple(key.strip() for key in os.environ.get('STRATINO_OPERATOR_MFA_KEYS', '').split(',') if key.strip())
+OPERATOR_MFA_OPTIONAL_IN_DEVELOPMENT = os.environ.get('STRATINO_OPERATOR_MFA_OPTIONAL_IN_DEVELOPMENT') == '1'
+if PRODUCTION and OPERATOR_MFA_OPTIONAL_IN_DEVELOPMENT:
+    raise ImproperlyConfigured('Optional operator MFA is restricted to local development.')
 OPERATOR_OWNER_EMAILS = ('hamidrezapakpour95@gmail.com', 'hamidrezaprogramming95@gmail.com')
 # STR-029 remains closed until an owner-approved provider and commerce policy ship.
 MANAGEMENT_CHECKOUT_ENABLED = False

@@ -15,12 +15,13 @@ from modules.workspaces.models import (
     WorkspaceEvent,
 )
 
-from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
-from .academy_plans import can_edit_academy_plans
 from .academy_access import allowed as academy_action_allowed
+from .academy_plans import can_edit_academy_plans
+from .models import OperatorActionEvent, OperatorFactor, OperatorSecurityEvent
 from .security import (
     SECTIONS,
     approved_access,
+    development_mfa_optional,
     explicit_permission,
     failure,
     operator_mfa_verified,
@@ -41,7 +42,8 @@ def operator_status(request):
     access = approved_access(actor)
     proof = verified_proof(request, actor) if not access.must_change_password else None
     return private_response({
-        'sections': sections, 'mfa_ready': proof is not None,
+        'sections': sections, 'mfa_ready': operator_mfa_verified(request, actor),
+        'mfa_optional': development_mfa_optional(), 'mfa_enabled': access.mfa_enabled if development_mfa_optional() else True,
         'mfa_configured': cipher() is not None,
         'mfa_enrolled': OperatorFactor.objects.filter(user=actor, enabled_at__isnull=False).exists(),
         'expires_at': proof.expires_at.isoformat() if proof else None,
@@ -284,6 +286,7 @@ def operator_collection(request, section):
     results = list(page.object_list)
     if section == 'academy_subscriptions':
         from django.utils import timezone
+
         from modules.academy.account_summary import effective_areas, subscription_status
         now = timezone.now()
         results = [{

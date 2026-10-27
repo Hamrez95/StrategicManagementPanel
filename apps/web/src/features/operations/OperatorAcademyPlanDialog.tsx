@@ -3,6 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { Input } from '@stratino/ui';
 import { ApiError, requestApi } from '../../api/client';
 import { OperatorIcon } from './OperatorIcon';
+import { displayDigits } from '../chrome/locale';
 import './operatorDialogs.css';
 
 type Plan = {
@@ -187,7 +188,7 @@ export function OperatorAcademyPlanDialog({
             <Input
               label={t('قیمت اصلی', 'Original price') + ` (${unit})`}
               inputMode="numeric"
-              value={price}
+              value={displayDigits(price, english)}
               onChange={(e) => setPrice(e.target.value)}
               disabled={busy || plan.kind === 'free'}
               hint={t(
@@ -198,7 +199,7 @@ export function OperatorAcademyPlanDialog({
             <Input
               label={t('قیمت با تخفیف', 'Sale price') + ` (${unit})`}
               inputMode="numeric"
-              value={sale}
+              value={displayDigits(sale, english)}
               onChange={(e) => setSale(e.target.value)}
               disabled={busy || plan.kind === 'free'}
               hint={t(
@@ -209,7 +210,7 @@ export function OperatorAcademyPlanDialog({
             <Input
               label={t('مدت اشتراک (روز)', 'Duration (days)')}
               inputMode="numeric"
-              value={duration}
+              value={displayDigits(duration, english)}
               onChange={(e) => setDuration(e.target.value)}
               disabled={busy || plan.kind !== 'free'}
               hint={t(
