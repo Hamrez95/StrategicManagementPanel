@@ -1993,6 +1993,9 @@ try {
   await page.getByRole('alert').waitFor();
   assert.match(await page.getByRole('alert').innerText(), /معتبر نیست/);
   await page.unroute('**/api/v1/session/');
+  await page.route('**/api/v1/session/', (route) => route.fulfill({
+    status: 503, json: { message: 'سرویس حساب در دسترس نیست.' },
+  }));
   await page.goto(url + '/app/workspaces/w1/overview');
   await page.getByRole('alert').waitFor();
   assert.match(await page.getByRole('alert').innerText(), /در دسترس نیست/);
@@ -2009,6 +2012,7 @@ try {
     role_title: '',
     pending_email: '',
   };
+  await page.unroute('**/api/v1/session/');
   await page.route('**/api/v1/session/', (route) => route.fulfill({ json: session }));
   await page.goto(url + '/app/start');
   await page.getByRole('heading', { name: 'کمی درباره شما' }).waitFor();
