@@ -56,7 +56,15 @@ def operator_mfa_verified(request, actor):
     # Import lazily: the MFA endpoint uses the same explicit permission resolver.
     from .mfa import verified_proof
     access = approved_access(actor)
-    return bool(access and not access.must_change_password and verified_proof(request, actor) is not None)
+    return bool(access and not access.must_change_password and (
+        (development_mfa_optional() and not access.mfa_enabled)
+        or verified_proof(request, actor) is not None))
+
+
+def development_mfa_optional():
+    return bool(getattr(settings, 'ENVIRONMENT', '') == 'development'
+                and settings.DEBUG and not getattr(settings, 'PRODUCTION', True)
+                and getattr(settings, 'OPERATOR_MFA_OPTIONAL_IN_DEVELOPMENT', False))
 
 
 def explicit_permission(actor, permission):

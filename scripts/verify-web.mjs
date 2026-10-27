@@ -220,6 +220,20 @@ try {
   let expireProfileNextRead = false;
   const invitations = [];
   const importBatches = [];
+  await page.route('**/api/v1/account/subscriptions/', (route) =>
+    route.fulfill({ json: {
+      user_id: session.user.id,
+      academy: {
+        plans: [], areas: [], subscriptions: [], orders: [], order_history_limit: 30,
+        payment_enabled: false,
+        access_summary: { full: false, general: false, area_ids: [], free_sample: true },
+      },
+      management: {
+        billing_status: 'active', owned_workspaces: 1, archived_workspaces: 0,
+        joined_workspaces: 0, plans_configured: false,
+      },
+    } }),
+  );
   await page.route('**/api/v1/account/preferences/', async (route) => {
     if (route.request().method() === 'GET') return route.fulfill({ json: accountPreferences });
     accountPreferences = {
@@ -1356,7 +1370,7 @@ try {
   await page.getByLabel('زبان رابط').selectOption('en');
   await page.getByLabel('پوسته').selectOption('light');
   await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
-  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
+  await page.getByRole('status').filter({ hasText: 'Your settings were saved and synced with this device.' }).waitFor();
   await page.goto(url + '/app/workspaces/w1/tools/swot');
   await page.getByRole('heading', { name: 'SWOT and TOWS' }).waitFor();
   assert.equal(await page.locator('.ui-root').getAttribute('dir'), 'ltr');
@@ -1447,9 +1461,9 @@ try {
   );
 
   await page.goto(url + '/app/account');
-  await page.getByLabel('زبان رابط').selectOption('fa');
-  await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
-  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
+  await page.getByLabel('Interface language').selectOption('fa');
+  await page.getByRole('button', { name: 'Save settings' }).click();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حسابت ذخیره' }).waitFor();
   await page.goto(url + '/app/workspaces/w1/tools/execution');
   await page.getByRole('heading', { name: 'از تصمیم تا اقدام' }).waitFor();
   await page
@@ -1635,10 +1649,18 @@ try {
   await page.getByRole('button', { name: 'لغو' }).last().click();
   await page.getByText('لغو شد').waitFor();
   signalAttachmentUploadStarted = undefined;
-  while (await page.getByRole('button', { name: 'حذف فایل' }).count()) {
+  for (let remaining = 3; remaining > 0; remaining--) {
+    await page.waitForFunction((count) =>
+      document.querySelectorAll('.document-attachments__list .document-attachment').length === count,
+      remaining,
+    );
     await page.getByRole('button', { name: 'حذف فایل' }).first().click();
     await page.getByText('این فایل و نسخه‌های ذخیره‌شده آن حذف شود؟').first().waitFor();
     await page.getByRole('button', { name: 'حذف نهایی' }).click();
+    await page.waitForFunction((count) =>
+      document.querySelectorAll('.document-attachments__list .document-attachment').length === count,
+      remaining - 1,
+    );
   }
   await page.getByText('بازبین تعیین‌شده محتوا را بررسی کند و سپس آن را آماده کند.').waitFor();
   await page.getByLabel('پیش‌نویس سند').fill('نسخه دوم راهنمای مدیریتی پس از اصلاح');
@@ -1706,7 +1728,7 @@ try {
   await page.goto(url + '/app/account');
   await page.getByLabel('زبان رابط').selectOption('fa');
   await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
-  await page.getByRole('status').filter({ hasText: 'تنظیمات حساب ذخیره' }).waitFor();
+  await page.getByRole('status').filter({ hasText: 'تنظیمات حسابت ذخیره' }).waitFor();
 
   const legacyImportFixture = {
     version: 1,
@@ -1745,7 +1767,7 @@ try {
     await page.goto(url + '/app/account');
     await page.getByLabel('پوسته').selectOption(theme);
     await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
-    await page.getByText('تنظیمات حساب ذخیره و با این دستگاه همگام شد.').waitFor();
+    await page.getByText('تنظیمات حسابت ذخیره و با این دستگاه همگام شد.').waitFor();
     await page.goto(url + '/app/workspaces/w1/imports');
     await page.getByRole('heading', { name: 'واردسازی پشتیبان', exact: true }).waitFor();
     for (const width of [360, 768, 1280, 1440]) {
@@ -1877,7 +1899,7 @@ try {
     await page.getByRole('heading', { name: 'پروفایل و تنظیمات' }).waitFor();
     await page.getByLabel('پوسته').selectOption(theme);
     await page.getByRole('button', { name: 'ذخیره تنظیمات' }).click();
-    await page.getByText('تنظیمات حساب ذخیره و با این دستگاه همگام شد.').waitFor();
+    await page.getByText('تنظیمات حسابت ذخیره و با این دستگاه همگام شد.').waitFor();
     await page.goto(url + '/app/workspaces/w1/overview');
     await page.getByRole('heading', { name: 'پروژه مجاز' }).waitFor();
     for (const width of [360, 768, 1280, 1440]) {
@@ -1946,7 +1968,7 @@ try {
   await page.goto(url + '/app/workspaces/other/overview');
   await page.getByRole('heading', { name: 'فضای کار در دسترس نیست' }).waitFor();
   await page.goto(url + '/internal');
-  await page.getByRole('heading', { name: 'دسترسی ندارید' }).waitFor();
+  await page.getByRole('heading', { name: 'دسترسی نداری' }).waitFor();
   session = { ...session, user: { ...session.user, is_staff: true } };
   await page.route('**/api/v1/operator/status/', (route) =>
     route.fulfill({

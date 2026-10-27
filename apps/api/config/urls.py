@@ -26,6 +26,7 @@ from modules.analysis.views import analysis_collection, analysis_detail, analysi
 from modules.core.views import live, ready
 from modules.operations.views import operator_collection, operator_status, operator_overview
 from modules.operations.mfa import operator_mfa
+from modules.operations.mfa_preferences import operator_mfa_preferences
 from modules.operations.actions import operator_action
 from modules.operations.academy_plans import academy_plan_detail
 from modules.operations.academy_access import academy_grant, academy_sample_config, academy_subscription_detail
@@ -65,6 +66,7 @@ urlpatterns = [
     path('api/v1/operator/subscriptions/grant/', operator_action, {'action': 'grant'}),
     path('api/v1/operator/subscriptions/<uuid:target>/revoke/', operator_action, {'action': 'revoke'}),
     path('api/v1/operator/mfa/<str:action>/', operator_mfa),
+    path('api/v1/operator/mfa-settings/', operator_mfa_preferences),
     path('api/v1/operator/status/', operator_status),
     path('api/v1/operator/overview/', operator_overview),
     path('api/v1/operator/academy_plans/<int:plan_id>/', academy_plan_detail),

@@ -120,17 +120,25 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
   });
   if (query.isPending)
     return (
-      <Notice title="در حال بررسی حساب">
-        <p role="status">دسترسی فضای کار در حال بررسی است.</p>
+      <Notice title={english ? 'Checking your account' : 'در حال بررسی حساب'}>
+        <p role="status">
+          {english ? 'Checking workspace access.' : 'دسترسی فضای کار در حال بررسیه.'}
+        </p>
       </Notice>
     );
   if (query.isError)
     return (
-      <Notice title="فضای کار در دسترس نیست">
-        <p role="alert">{query.error.message}</p>
-        <Button onClick={() => void query.refetch()}>تلاش دوباره</Button>
+      <Notice title={english ? 'Workspace unavailable' : 'فضای کار در دسترس نیست'}>
+        <p role="alert">
+          {english
+            ? 'Could not connect to the account service. Check your connection and try again.'
+            : query.error.message}
+        </p>
+        <Button onClick={() => void query.refetch()}>
+          {english ? 'Try again' : 'تلاش دوباره'}
+        </Button>
         <Link className="text-link" to="/demo">
-          بازکردن نسخه نمونه
+          {english ? 'Open the demo' : 'بازکردن نسخه نمونه'}
         </Link>
       </Notice>
     );
@@ -154,9 +162,11 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
     );
   if (operator && !query.data.user.is_staff)
     return (
-      <Notice title="دسترسی ندارید">
-        <p>این بخش ویژه مدیریت سرویس است.</p>
-        <Link to="/">بازگشت به صفحه اصلی</Link>
+      <Notice title={english ? 'Access unavailable' : 'دسترسی نداری'}>
+        <p>
+          {english ? 'This section is for service administrators.' : 'این بخش ویژهٔ مدیریت سرویسه.'}
+        </p>
+        <Link to="/">{english ? 'Back to home' : 'بازگشت به صفحه اصلی'}</Link>
       </Notice>
     );
   // Global administration has its own shell and no active customer Workspace.
@@ -173,7 +183,11 @@ function SessionBoundary({ operator = false }: { operator?: boolean }) {
       queryClient.removeQueries({ queryKey: queryKeys.workspaces.all });
       navigate('/account/login', { replace: true });
     } catch {
-      setLogoutError('خروج انجام نشد. اتصال را بررسی کنید و دوباره تلاش کنید.');
+      setLogoutError(
+        english
+          ? 'Could not sign out. Check your connection and try again.'
+          : 'خروج انجام نشد؛ اتصال رو بررسی کن و دوباره تلاش کن.',
+      );
     } finally {
       setLoggingOut(false);
     }
@@ -299,6 +313,8 @@ export function App() {
   const [devicePreferences, setDevicePreferences] =
     useState<DevicePreferences>(readDevicePreferences);
   const [preferenceSyncError, setPreferenceSyncError] = useState(false);
+  const english = devicePreferences.language === 'en';
+  const t = (fa: string, en: string) => (english ? en : fa);
   const dark =
     devicePreferences.theme === 'dark' ||
     (devicePreferences.theme === 'system' &&
@@ -368,28 +384,30 @@ export function App() {
   return (
     <>
       <a className="skip-link" href="#content">
-        رفتن به محتوای اصلی
+        {devicePreferences.language === 'en' ? 'Skip to main content' : 'رفتن به محتوای اصلی'}
       </a>
       {!applicationPath && !independentChrome && (
         <header className={`site-header${managementPreviewPath ? ' site-header--preview' : ''}`}>
-          <Link to="/" aria-label="استراتینو، صفحه اصلی">
+          <Link to="/" aria-label={t('استراتینو، صفحه اصلی', 'Stratino home')}>
             <Brand />
           </Link>
-          <nav aria-label="ناوبری اصلی">
-            {Academy && <Link to="/academy">آموزش مدیریت</Link>}
-            <Link to="/management-preview">پیش‌نمایش پنل مدیریت</Link>
-            <Link to="/demo">نمونه تعاملی</Link>
-            <Link to="/account/login">حساب کاربری</Link>
-            <Button aria-label="تغییر تم" onClick={toggleTheme}>
-              {dark ? 'تم روشن' : 'تم تیره'}
+          <nav aria-label={t('ناوبری اصلی', 'Main navigation')}>
+            {Academy && <Link to="/academy">{t('آموزش مدیریت', 'Management learning')}</Link>}
+            <Link to="/management-preview">{t('پیش‌نمایش پنل مدیریت', 'Management preview')}</Link>
+            <Link to="/demo">{t('نمونه تعاملی', 'Interactive demo')}</Link>
+            <Link to="/account/login">{t('حساب کاربری', 'Account')}</Link>
+            <Button aria-label={t('تغییر تم', 'Switch theme')} onClick={toggleTheme}>
+              {dark ? t('تم روشن', 'Light theme') : t('تم تیره', 'Dark theme')}
             </Button>
           </nav>
         </header>
       )}
       {!applicationPath && preferenceSyncError && (
         <p className="preference-sync-note" role="status">
-          ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حساب کامل نشد. در تنظیمات حساب دوباره ذخیره
-          کنید.
+          {t(
+            'ظاهر روی این دستگاه ذخیره شد، اما همگام‌سازی حسابت کامل نشد. در تنظیمات حساب دوباره ذخیره کن.',
+            'Appearance was saved on this device, but account sync failed. Save it again from account settings.',
+          )}
         </p>
       )}
       <main
@@ -402,7 +420,7 @@ export function App() {
         <Suspense
           fallback={
             <p className="loading" role="status">
-              در حال آماده‌سازی صفحه…
+              {t('در حال آماده‌سازی صفحه…', 'Preparing the page…')}
             </p>
           }
         >
@@ -415,7 +433,7 @@ export function App() {
                   <Suspense
                     fallback={
                       <section className="academy-page" aria-busy="true">
-                        <p role="status">در حال بازکردن آکادمی…</p>
+                        <p role="status">{t('در حال بازکردن آکادمی…', 'Opening the Academy…')}</p>
                       </section>
                     }
                   >

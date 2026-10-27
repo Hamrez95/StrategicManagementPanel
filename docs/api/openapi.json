@@ -665,7 +665,7 @@
       "get": {
         "operationId": "readOperatorReadiness",
         "summary": "Read own operator sections and MFA readiness",
-        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed. Requires an explicit active OperatorAccess approval in addition to staff and section permissions. Owner role is restricted to configured owner addresses. A temporary password locks customer reads until replaced; team administration is owner-only.",
+        "description": "Live. Only freshly loaded active, verified staff with independently assigned operator section permissions. Staff/superuser alone grants no access. Reports only the current operator identity and MFA state, never factor keys or customer records. A database proof is bound to the exact authenticated session, password hash and factor generation; it expires after 15 minutes and is revoked on factor removal. Missing or invalid encryption keys fail closed. Requires an explicit active OperatorAccess approval in addition to staff and section permissions. Owner role is restricted to configured owner addresses. A temporary password locks customer reads until replaced; team administration is owner-only. Explicitly opted-in development permits a password-confirmed, audited per-operator MFA preference. Production and all other modes still require a valid proof regardless of the saved preference.",
         "security": [
           {
             "cookieSession": []
@@ -696,7 +696,9 @@
                     "mfa_enrolled",
                     "expires_at",
                     "actor",
-                    "capabilities"
+                    "capabilities",
+                    "mfa_optional",
+                    "mfa_enabled"
                   ],
                   "properties": {
                     "sections": {
@@ -781,6 +783,12 @@
                       "type": "boolean"
                     },
                     "can_manage_operators": {
+                      "type": "boolean"
+                    },
+                    "mfa_optional": {
+                      "type": "boolean"
+                    },
+                    "mfa_enabled": {
                       "type": "boolean"
                     }
                   }
@@ -12242,6 +12250,173 @@
           }
         },
         "description": "Requires section and change permission with fresh MFA. Revision checked under row lock. Writes an immutable audit record, preserves original purchase/payment and other grants, and does not issue a refund."
+      }
+    },
+    "/api/v1/operator/mfa-settings/": {
+      "get": {
+        "operationId": "readOperatorMfaPreference",
+        "summary": "Read own operator MFA preference",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Own effective MFA preference; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "enabled",
+                    "can_disable",
+                    "enrolled",
+                    "revision"
+                  ],
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "can_disable": {
+                      "type": "boolean"
+                    },
+                    "enrolled": {
+                      "type": "boolean"
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator permission, reauthentication or production MFA policy denied"
+          },
+          "409": {
+            "description": "Stale preference revision"
+          },
+          "429": {
+            "description": "Shared reauthentication rate limit"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "changeOperatorMfaPreference",
+        "summary": "Change own MFA preference in explicitly opted-in local development",
+        "description": "Production, test environment and non-opted development require MFA regardless of stored preference. Changes require current password, explicit confirmation and revision; disabling an enrolled factor also consumes a fresh TOTP code. Every change revokes existing proofs and records an atomic immutable access audit. Factor secrets and permissions are retained.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "enabled",
+                  "revision",
+                  "password",
+                  "code",
+                  "confirm"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "password": {
+                    "type": "string",
+                    "maxLength": 4096
+                  },
+                  "code": {
+                    "type": "string",
+                    "maxLength": 12
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Own effective MFA preference; private, no-store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "enabled",
+                    "can_disable",
+                    "enrolled",
+                    "revision"
+                  ],
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "can_disable": {
+                      "type": "boolean"
+                    },
+                    "enrolled": {
+                      "type": "boolean"
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid values, unknown fields or missing confirmation"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Approved operator permission, reauthentication or production MFA policy denied"
+          },
+          "409": {
+            "description": "Stale preference revision"
+          },
+          "429": {
+            "description": "Shared reauthentication rate limit"
+          }
+        }
       }
     }
   },

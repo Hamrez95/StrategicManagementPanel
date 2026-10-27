@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import type { CSSProperties } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useUIAppearance } from '@stratino/ui';
 import { requestApi } from '../../api/client';
 import './accountAvatar.css';
 const businessLeaderSprite = new URL(
@@ -73,6 +74,8 @@ export function AvatarPicker({
   error?: string;
 }) {
   const name = useId();
+  const english = useUIAppearance().dir === 'ltr';
+  const t = (fa: string, en: string) => (english ? en : fa);
   const query = useAccountAvatars();
   const selected = query.data?.avatars.find((avatar) => avatar.id === value);
   return (
@@ -82,17 +85,22 @@ export function AvatarPicker({
       aria-describedby={error ? `${name}-error` : undefined}
     >
       <legend>
-        آواتارت رو انتخاب کن <span>اختیاری</span>
+        {t('آواتارت رو انتخاب کن', 'Choose your avatar')} <span>{t('اختیاری', 'Optional')}</span>
       </legend>
       <p>
-        از کدوم مدیر الهام می‌گیری؟ آواتار کارتونی‌اش رو انتخاب کن؛ هر وقت خواستی می‌تونی عوضش کنی.
+        {t(
+          'از کدوم مدیر الهام می‌گیری؟ آواتار کارتونی‌اش رو انتخاب کن؛ هر وقت خواستی می‌تونی عوضش کنی.',
+          'Which leader inspires you? Choose their cartoon avatar; you can change it whenever you like.',
+        )}
       </p>
-      {query.isPending && <p role="status">داریم آواتارها رو آماده می‌کنیم…</p>}
+      {query.isPending && (
+        <p role="status">{t('داریم آواتارها رو آماده می‌کنیم…', 'Loading avatars…')}</p>
+      )}
       {query.isError && (
         <div role="alert">
-          <p>آواتارها بارگذاری نشدن.</p>
+          <p>{t('آواتارها بارگذاری نشدن.', 'Could not load avatars.')}</p>
           <button type="button" className="avatar-retry" onClick={() => void query.refetch()}>
-            تلاش دوباره
+            {t('تلاش دوباره', 'Try again')}
           </button>
         </div>
       )}
@@ -127,7 +135,9 @@ export function AvatarPicker({
                 </div>
                 <div>
                   <strong>{selected.character_name}</strong>
-                  <span className="avatar-character-role">الهام برای مسیر مدیریت تو</span>
+                  <span className="avatar-character-role">
+                    {t('الهام برای مسیر مدیریت تو', 'Inspiration for your management journey')}
+                  </span>
                   <p>{selected.leadership_note}</p>
                   {selected.source_url && (
                     <a
@@ -136,7 +146,7 @@ export function AvatarPicker({
                       target="_blank"
                       rel="noreferrer"
                     >
-                      دربارهٔ {selected.character_name}
+                      {t('دربارهٔ', 'About')} {selected.character_name}
                     </a>
                   )}
                 </div>
@@ -145,7 +155,7 @@ export function AvatarPicker({
           </div>
           <label className="avatar-use-initial">
             <input type="radio" name={name} checked={!value} onChange={() => onChange(null)} />
-            فعلاً حرف اول اسمم رو نشون بده
+            {t('فعلاً حرف اول اسمم رو نشون بده', 'Use my initial for now')}
           </label>
         </>
       )}

@@ -288,7 +288,7 @@ try {
   checks += 2;
   for (const language of ['fa', 'en']) {
     if (language === 'en')
-      await page.getByRole('button', { name: 'Switch language to English' }).click();
+      await page.getByRole('button', { name: 'تغییر زبان به انگلیسی' }).click();
     for (const theme of ['light', 'dark']) {
       if ((await page.getAttribute('html', 'data-theme')) !== theme)
         await page

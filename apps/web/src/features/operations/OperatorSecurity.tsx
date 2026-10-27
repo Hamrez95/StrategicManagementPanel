@@ -1,7 +1,9 @@
 import { Input } from '@stratino/ui';
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router';
 import { requestApi } from '../../api/client';
 import { OperatorIcon } from './OperatorIcon';
+import { displayDigits } from '../chrome/locale';
 
 export type OperatorCapabilities = {
   edit_academy_plans?: boolean;
@@ -19,6 +21,8 @@ export type OperatorStatus = {
   mfa_ready: boolean;
   mfa_configured: boolean;
   mfa_enrolled: boolean;
+  mfa_optional?: boolean;
+  mfa_enabled?: boolean;
   expires_at: string | null;
   must_change_password?: boolean;
   can_manage_operators?: boolean;
@@ -82,6 +86,26 @@ export function OperatorSecurity({
       setBusy(false);
     }
   }
+  if (status.mfa_optional && status.mfa_enabled === false)
+    return (
+      <section className="op-card op-security" aria-labelledby="op-security-title">
+        <h2 id="op-security-title">
+          {t(
+            'ورود دومرحله‌ای در تست محلی خاموشه',
+            'Two-factor authentication is off for local testing',
+          )}
+        </h2>
+        <p>
+          {t(
+            'مجوزهای مدیریت همچنان بررسی می‌شن. این حالت در نسخهٔ عمومی قابل استفاده نیست.',
+            'Admin permissions are still enforced. This mode is not available in production.',
+          )}
+        </p>
+        <Link to="/app/account#account-security-heading">
+          {t('تنظیمات امنیت حساب', 'Account security settings')}
+        </Link>
+      </section>
+    );
   return (
     <section className="op-security" aria-labelledby="op-security-title">
       <div className="op-security-story">
@@ -108,7 +132,7 @@ export function OperatorSecurity({
         </p>
         <ol className="op-security-steps">
           <li className={status.mfa_enrolled ? 'is-done' : ''}>
-            <span>۱</span>
+            <span>{t('۱', '1')}</span>
             <div>
               <strong>{t('برنامهٔ Authenticator', 'Authenticator app')}</strong>
               <p>
@@ -120,7 +144,7 @@ export function OperatorSecurity({
             </div>
           </li>
           <li className={status.mfa_enrolled ? 'is-done' : ''}>
-            <span>۲</span>
+            <span>{t('۲', '2')}</span>
             <div>
               <strong>{t('اتصال حساب مدیریت', 'Connect your admin account')}</strong>
               <p>
@@ -132,7 +156,7 @@ export function OperatorSecurity({
             </div>
           </li>
           <li className={status.mfa_ready ? 'is-done' : ''}>
-            <span>۳</span>
+            <span>{t('۳', '3')}</span>
             <div>
               <strong>{t('تأیید با کد شش‌رقمی', 'Verify the six-digit code')}</strong>
               <p>
@@ -253,11 +277,11 @@ export function OperatorSecurity({
                   inputMode="numeric"
                   autoComplete="one-time-code"
                   dir="ltr"
-                  pattern="[0-9]{6}"
+                  pattern="[0-9۰-۹٠-٩]{6}"
                   required
                   maxLength={6}
-                  placeholder="000000"
-                  value={code}
+                  placeholder={displayDigits('000000', english)}
+                  value={displayDigits(code, english)}
                   onChange={(e) =>
                     setCode(
                       e.target.value

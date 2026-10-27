@@ -125,7 +125,7 @@ export function LanguageSwitch({ english }: { english: boolean }) {
     <button
       type="button"
       className="header-language-switch"
-      aria-label={english ? 'تغییر زبان به فارسی' : 'Switch language to English'}
+      aria-label={english ? 'Switch language to Persian' : 'تغییر زبان به انگلیسی'}
       title={english ? 'فارسی' : 'English'}
       onClick={() => void changeAppearance('language', 0, 0)}
     >
@@ -142,7 +142,7 @@ export function LanguageSwitch({ english }: { english: boolean }) {
         <path d="M3 12h18M5 6.5c4 2 10 2 14 0M5 17.5c4-2 10-2 14 0" />
       </svg>
       <span key={String(english)} lang={english ? 'fa' : 'en'}>
-        {english ? 'فا' : 'EN'}
+        {english ? 'FA' : 'EN'}
       </span>
     </button>
   );

@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation, useOutletContext } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { queryKeys } from '../../api/queryKeys';
-import { Button, Input } from '@stratino/ui';
+import { Button, Input, useUIAppearance } from '@stratino/ui';
 import { AuthApiError, firstFieldError, postAuth } from '../auth/api';
 import type { AuthFields } from '../auth/api';
 import type { Session } from '../../session';
 import AccountSubscriptionHub from './AccountSubscriptionHub';
+import { AccountSecuritySettings } from './AccountSecuritySettings';
 import { AccountAvatar, AvatarPicker, useAccountAvatars } from './AccountAvatar';
 import {
   loadAndSyncAccountPreferences,
@@ -29,11 +30,15 @@ function Feedback({ message, error = false }: { message: string; error?: boolean
   );
 }
 
-function firstError(fields: AuthFields, name: string) {
-  return firstFieldError(fields, name);
+function firstError(fields: AuthFields, name: string, english: boolean) {
+  const message = firstFieldError(fields, name);
+  return english && message ? 'Review this field and try again.' : message;
 }
 
 export default function AccountSettingsPage() {
+  const session = useOutletContext<Session>();
+  const english = useUIAppearance().dir === 'ltr';
+  const t = (fa: string, en: string) => (english ? en : fa);
   const location = useLocation();
   const queryClient = useQueryClient();
   const profileQuery = useQuery({
@@ -131,9 +136,16 @@ export default function AccountSettingsPage() {
     } catch (error) {
       if (error instanceof AuthApiError) {
         setProfileFields(error.fields);
-        setProfileError(error.message);
+        setProfileError(
+          english ? 'Could not save your profile. Review the highlighted fields.' : error.message,
+        );
       } else {
-        setProfileError('ذخیره اطلاعات انجام نشد. اتصال را بررسی و دوباره تلاش کنید.');
+        setProfileError(
+          t(
+            'اطلاعات ذخیره نشد؛ اتصال رو بررسی کن و دوباره تلاش کن.',
+            'Could not save your profile. Check your connection and try again.',
+          ),
+        );
       }
     } finally {
       setProfilePending(false);
@@ -148,13 +160,16 @@ export default function AccountSettingsPage() {
     try {
       const saved = await saveAccountPreferences(preferences);
       queryClient.setQueryData(queryKeys.account.preferences, saved);
-      setPreferencesMessage('تنظیمات حساب ذخیره و با این دستگاه همگام شد.');
+      setPreferencesMessage('saved');
     } catch (error) {
       setPreferencesError(true);
       setPreferencesMessage(
-        error instanceof AuthApiError
+        !english && error instanceof AuthApiError
           ? error.message
-          : 'تنظیمات ذخیره نشد. اتصال را بررسی و دوباره تلاش کنید.',
+          : t(
+              'تنظیمات ذخیره نشد؛ اتصال رو بررسی کن و دوباره تلاش کن.',
+              'Could not save settings. Check your connection and try again.',
+            ),
       );
     } finally {
       setPreferencesPending(false);
@@ -168,13 +183,20 @@ export default function AccountSettingsPage() {
     setEmailMessage('');
     try {
       const response = await requestEmailChange(email);
-      setEmailMessage(response.message);
+      setEmailMessage(
+        english
+          ? 'Verification requested. Check the new email address for the link.'
+          : response.message,
+      );
       await queryClient.invalidateQueries({ queryKey: queryKeys.account.profile });
     } catch (error) {
       setEmailError(
-        error instanceof AuthApiError
+        !english && error instanceof AuthApiError
           ? error.message
-          : 'درخواست تغییر ایمیل انجام نشد. اتصال را بررسی و دوباره تلاش کنید.',
+          : t(
+              'درخواست تغییر ایمیل ثبت نشد؛ دوباره تلاش کن.',
+              'Could not request an email change. Try again.',
+            ),
       );
     } finally {
       setEmailPending(false);
@@ -184,11 +206,16 @@ export default function AccountSettingsPage() {
   return (
     <section className="account-settings" aria-labelledby="account-settings-title">
       <header className="account-settings__header">
-        <p className="auth-kicker">حساب شخصی</p>
+        <p className="auth-kicker">{t('حساب شخصی', 'Personal account')}</p>
         <h1 id="account-settings-title" tabIndex={-1}>
-          پروفایل و تنظیمات
+          {t('پروفایل و تنظیمات', 'Profile and settings')}
         </h1>
-        <p>مشخصاتت، چهرهٔ حسابت و اشتراک‌هات رو از اینجا مدیریت کن.</p>
+        <p>
+          {t(
+            'مشخصاتت، چهرهٔ حسابت و اشتراک‌هات رو از اینجا مدیریت کن.',
+            'Manage your profile, avatar and subscriptions here.',
+          )}
+        </p>
         <div className="account-profile-preview">
           <AccountAvatar
             avatar={
@@ -199,33 +226,53 @@ export default function AccountSettingsPage() {
             size={72}
           />
           <div>
-            <strong>{displayName || `${firstName} ${lastName}`.trim() || 'حساب من'}</strong>
-            <bdi dir="ltr">{profileQuery.data?.email ?? 'در حال بارگذاری…'}</bdi>
+            <strong>
+              {displayName || `${firstName} ${lastName}`.trim() || t('حساب من', 'My account')}
+            </strong>
+            <bdi dir="ltr">{profileQuery.data?.email ?? t('در حال بارگذاری…', 'Loading…')}</bdi>
           </div>
         </div>
       </header>
-      <nav className="account-section-nav" aria-label="بخش‌های حساب">
-        <a href="#profile-heading">اطلاعات شخصی</a>
-        <a href="#academy-plans">اشتراک‌های آکادمی</a>
-        <a href="#account-preferences">ظاهر و تجربه</a>
-        <a href="#email-heading">ایمیل و امنیت</a>
+      <nav className="account-section-nav" aria-label={t('بخش‌های حساب', 'Account sections')}>
+        <a href="#profile-heading">{t('اطلاعات شخصی', 'Personal information')}</a>
+        <a href="#academy-plans">{t('اشتراک‌های آکادمی', 'Academy subscriptions')}</a>
+        <a href="#account-preferences">{t('ظاهر و تجربه', 'Appearance and experience')}</a>
+        <a href="#email-heading">{t('ایمیل و امنیت', 'Email and security')}</a>
       </nav>
 
-      {profileQuery.isPending && <Feedback message="در حال بارگذاری اطلاعات حساب…" />}
+      {profileQuery.isPending && (
+        <Feedback message={t('در حال بارگذاری اطلاعات حساب…', 'Loading account information…')} />
+      )}
       {profileQuery.isError && (
-        <Feedback error message={profileQuery.error.message || 'اطلاعات حساب بارگذاری نشد.'} />
+        <Feedback
+          error
+          message={
+            english
+              ? 'Could not load account information.'
+              : profileQuery.error.message || 'اطلاعات حساب بارگذاری نشد.'
+          }
+        />
       )}
       {preferencesQuery.isError && (
-        <Feedback error message={preferencesQuery.error.message || 'تنظیمات حساب بارگذاری نشد.'} />
+        <Feedback
+          error
+          message={
+            english
+              ? 'Could not load account settings.'
+              : preferencesQuery.error.message || 'تنظیمات حساب بارگذاری نشد.'
+          }
+        />
       )}
 
       <section className="account-card" aria-labelledby="profile-heading">
         <div className="account-card__heading">
           <div>
-            <h2 id="profile-heading">اطلاعات شخصی</h2>
+            <h2 id="profile-heading">{t('اطلاعات شخصی', 'Personal information')}</h2>
             <p>
-              مشخصات اینجا به حساب تو مربوطه. نقش و دسترسی هر پروژه رو در فضای کار همون پروژه
-              می‌بینی.
+              {t(
+                'مشخصات اینجا به حساب تو مربوطه. نقش و دسترسی هر پروژه رو در فضای کار همون پروژه می‌بینی.',
+                'These details belong to your account. You can find your role and permissions in each project’s workspace.',
+              )}
             </p>
           </div>
         </div>
@@ -235,7 +282,7 @@ export default function AccountSettingsPage() {
             disabled={profilePending || profileQuery.isPending}
           >
             <Input
-              label="نام"
+              label={t('نام', 'First name')}
               value={firstName}
               onChange={(event) => {
                 setFirstName(event.target.value);
@@ -244,10 +291,10 @@ export default function AccountSettingsPage() {
               autoComplete="given-name"
               maxLength={150}
               required
-              error={firstError(profileFields, 'first_name')}
+              error={firstError(profileFields, 'first_name', english)}
             />
             <Input
-              label="نام خانوادگی"
+              label={t('نام خانوادگی', 'Last name')}
               value={lastName}
               onChange={(event) => {
                 setLastName(event.target.value);
@@ -256,31 +303,31 @@ export default function AccountSettingsPage() {
               autoComplete="family-name"
               maxLength={150}
               required
-              error={firstError(profileFields, 'last_name')}
+              error={firstError(profileFields, 'last_name', english)}
             />
             <Input
-              label="نام نمایشی"
+              label={t('نام نمایشی', 'Display name')}
               value={displayName}
               onChange={(event) => {
                 setDisplayName(event.target.value);
                 setProfileSaved(false);
               }}
-              error={firstError(profileFields, 'display_name')}
+              error={firstError(profileFields, 'display_name', english)}
               maxLength={80}
               autoComplete="name"
             />
             <Input
-              label="عنوان حرفه‌ای (اختیاری)"
+              label={t('عنوان حرفه‌ای (اختیاری)', 'Professional title (optional)')}
               value={roleTitle}
               onChange={(event) => {
                 setRoleTitle(event.target.value);
                 setProfileSaved(false);
               }}
-              error={firstError(profileFields, 'role_title')}
+              error={firstError(profileFields, 'role_title', english)}
               maxLength={80}
             />
             <Input
-              label="شماره موبایل"
+              label={t('شماره موبایل', 'Mobile number')}
               type="tel"
               inputMode="tel"
               dir="ltr"
@@ -292,12 +339,15 @@ export default function AccountSettingsPage() {
               }}
               maxLength={40}
               required
-              error={firstError(profileFields, 'phone_number')}
+              error={firstError(profileFields, 'phone_number', english)}
             />
             <p className="account-profile-phone-note">
               {profileQuery.data?.phone_verified && phone === profileQuery.data.phone_number
-                ? 'شمارهٔ فعلی تأیید شده.'
-                : 'فعلاً تأیید پیامکی فعال نیست؛ شماره برای ارتباط دربارهٔ حسابت ثبت می‌شه.'}
+                ? t('شمارهٔ فعلی تأیید شده.', 'Your current number is verified.')
+                : t(
+                    'فعلاً تأیید پیامکی فعال نیست؛ شماره برای ارتباط دربارهٔ حسابت ثبت می‌شه.',
+                    'SMS verification is not enabled yet. Your number is saved for account-related communication.',
+                  )}
             </p>
           </fieldset>
           <AvatarPicker
@@ -307,17 +357,19 @@ export default function AccountSettingsPage() {
               setProfileSaved(false);
             }}
             disabled={profilePending || profileQuery.isPending}
-            error={firstError(profileFields, 'avatar_id')}
+            error={firstError(profileFields, 'avatar_id', english)}
           />
           {profileError && <Feedback error message={profileError} />}
-          {profileSaved && <Feedback message="اطلاعات شخصی ذخیره شد." />}
+          {profileSaved && (
+            <Feedback message={t('اطلاعات شخصی ذخیره شد.', 'Personal information saved.')} />
+          )}
           <Button
             type="submit"
             variant="primary"
             pending={profilePending}
-            pendingLabel="در حال ذخیره…"
+            pendingLabel={t('در حال ذخیره…', 'Saving…')}
           >
-            ذخیره اطلاعات
+            {t('ذخیره اطلاعات', 'Save information')}
           </Button>
         </form>
       </section>
@@ -331,17 +383,19 @@ export default function AccountSettingsPage() {
       >
         <div className="account-card__heading">
           <div>
-            <h2 id="preferences-heading">ظاهر و تجربه</h2>
+            <h2 id="preferences-heading">{t('ظاهر و تجربه', 'Appearance and experience')}</h2>
             <p>
-              این انتخاب‌ها با حساب شما همگام می‌شوند. در اولین ورود، تنظیمات همین دستگاه به حساب
-              منتقل می‌شود.
+              {t(
+                'این انتخاب‌ها با حسابت همگام می‌شن. در اولین ورود، تنظیمات همین دستگاه به حسابت منتقل می‌شه.',
+                'These preferences sync with your account. On your first visit, this device’s preferences are copied to your account.',
+              )}
             </p>
           </div>
         </div>
         <form className="account-form" onSubmit={savePreferences}>
           <div className="account-form__grid">
             <div className="ui-field">
-              <label htmlFor="account-theme">پوسته</label>
+              <label htmlFor="account-theme">{t('پوسته', 'Theme')}</label>
               <select
                 id="account-theme"
                 className="ui-input"
@@ -353,13 +407,13 @@ export default function AccountSettingsPage() {
                   }))
                 }
               >
-                <option value="system">هماهنگ با دستگاه</option>
-                <option value="light">روشن</option>
-                <option value="dark">تیره</option>
+                <option value="system">{t('هماهنگ با دستگاه', 'Follow device')}</option>
+                <option value="light">{t('روشن', 'Light')}</option>
+                <option value="dark">{t('تیره', 'Dark')}</option>
               </select>
             </div>
             <div className="ui-field">
-              <label htmlFor="account-language">زبان رابط</label>
+              <label htmlFor="account-language">{t('زبان رابط', 'Interface language')}</label>
               <select
                 id="account-language"
                 className="ui-input"
@@ -376,7 +430,7 @@ export default function AccountSettingsPage() {
               </select>
             </div>
             <div className="ui-field">
-              <label htmlFor="account-motion">حرکت رابط</label>
+              <label htmlFor="account-motion">{t('حرکت رابط', 'Interface motion')}</label>
               <select
                 id="account-motion"
                 className="ui-input"
@@ -388,17 +442,13 @@ export default function AccountSettingsPage() {
                   }))
                 }
               >
-                <option value="auto">هماهنگ با تنظیم دستگاه</option>
-                <option value="reduced">حرکت کمتر</option>
+                <option value="auto">
+                  {t('هماهنگ با تنظیم دستگاه', 'Follow device preferences')}
+                </option>
+                <option value="reduced">{t('حرکت کمتر', 'Less motion')}</option>
               </select>
             </div>
           </div>
-          {preferences.language === 'en' && (
-            <p className="account-form__hint">
-              نسخه نمونه استراتینو انگلیسی است؛ صفحه‌های تازه حساب فعلاً به فارسی نمایش داده
-              می‌شوند.
-            </p>
-          )}
           <label className="account-check">
             <input
               type="checkbox"
@@ -407,20 +457,41 @@ export default function AccountSettingsPage() {
                 setPreferences((current) => ({ ...current, show_tutorial: event.target.checked }))
               }
             />
-            <span>نمایش راهنمای تعاملی در نسخه نمونه</span>
+            <span>
+              {t(
+                'نمایش راهنمای تعاملی در نسخه نمونه',
+                'Show the interactive guide in the prototype',
+              )}
+            </span>
           </label>
           <p className="account-form__hint">
-            خاموش‌کردن راهنما فقط تور آموزشی را می‌بندد؛ هشدارهای اعتبار داده و محاسبات همچنان نمایش
-            داده می‌شوند.
+            {t(
+              'خاموش‌کردن راهنما فقط تور آموزشی رو می‌بنده؛ هشدارهای اعتبار داده و محاسبات همچنان نمایش داده می‌شن.',
+              'Turning off the guide only hides the tour. Data validity and calculation warnings remain visible.',
+            )}
           </p>
-          {preferencesMessage && <Feedback error={preferencesError} message={preferencesMessage} />}
+          {preferencesMessage && (
+            <Feedback
+              error={preferencesError}
+              message={
+                preferencesError
+                  ? english
+                    ? 'Could not save settings. Check your connection and try again.'
+                    : preferencesMessage
+                  : t(
+                      'تنظیمات حسابت ذخیره و با این دستگاه همگام شد.',
+                      'Your settings were saved and synced with this device.',
+                    )
+              }
+            />
+          )}
           <Button
             type="submit"
             variant="primary"
             pending={preferencesPending}
-            pendingLabel="در حال ذخیره…"
+            pendingLabel={t('در حال ذخیره…', 'Saving…')}
           >
-            ذخیره تنظیمات
+            {t('ذخیره تنظیمات', 'Save settings')}
           </Button>
         </form>
       </section>
@@ -428,20 +499,27 @@ export default function AccountSettingsPage() {
       <section className="account-card" aria-labelledby="email-heading">
         <div className="account-card__heading">
           <div>
-            <h2 id="email-heading">نشانی ایمیل</h2>
+            <h2 id="email-heading">{t('نشانی ایمیل', 'Email address')}</h2>
             <p>
-              ایمیل فعلی <strong dir="ltr">{profileQuery.data?.email ?? 'در حال بارگذاری…'}</strong>
+              {t('ایمیل فعلی', 'Current email')}{' '}
+              <strong dir="ltr">
+                {profileQuery.data?.email ?? t('در حال بارگذاری…', 'Loading…')}
+              </strong>
             </p>
           </div>
         </div>
         {profileQuery.data?.pending_email && (
           <Feedback
-            message={`برای ثبت ${profileQuery.data.pending_email} پیوند تأیید را باز کنید. تا آن زمان با ایمیل فعلی وارد می‌شوید.`}
+            message={
+              english
+                ? `Open the verification link to use ${profileQuery.data.pending_email}. Until then, sign in with your current email.`
+                : `برای ثبت ${profileQuery.data.pending_email} پیوند تأیید رو باز کن. تا اون موقع با ایمیل فعلی وارد می‌شی.`
+            }
           />
         )}
         <form className="account-form account-form--email" onSubmit={changeEmail} noValidate>
           <Input
-            label="ایمیل تازه"
+            label={t('ایمیل تازه', 'New email')}
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -459,21 +537,30 @@ export default function AccountSettingsPage() {
             type="submit"
             variant="secondary"
             pending={emailPending}
-            pendingLabel="در حال ارسال…"
+            pendingLabel={t('در حال ارسال…', 'Sending…')}
           >
-            ارسال پیوند تأیید به ایمیل تازه
+            {t('ارسال پیوند تأیید به ایمیل تازه', 'Send verification link to new email')}
           </Button>
         </form>
       </section>
 
+      <AccountSecuritySettings
+        key={session.user.id}
+        userId={session.user.id}
+        english={english}
+        operator={session.user.is_staff === true}
+      />
+
       <p className="account-settings__back">
-        <Link to="/app/workspaces">بازگشت به فضاهای من</Link>
+        <Link to="/app/workspaces">{t('بازگشت به فضاهای من', 'Back to my workspaces')}</Link>
       </p>
     </section>
   );
 }
 
 export function EmailChangeConfirmationPage() {
+  const english = useUIAppearance().dir === 'ltr';
+  const t = (fa: string, en: string) => (english ? en : fa);
   const location = useLocation();
   const queryClient = useQueryClient();
   const [state, setState] = useState<'checking' | 'success' | 'error'>('checking');
@@ -516,18 +603,31 @@ export function EmailChangeConfirmationPage() {
   return (
     <section className="auth-shell auth-confirmation" aria-labelledby="email-confirmation-title">
       <div className="auth-panel">
-        <p className="auth-kicker">حساب استراتینو</p>
+        <p className="auth-kicker">{t('حساب استراتینو', 'Stratino account')}</p>
         <h1 id="email-confirmation-title" tabIndex={-1}>
-          {state === 'success' ? 'ایمیل تازه تأیید شد' : 'تأیید نشانی ایمیل'}
+          {state === 'success'
+            ? t('ایمیل تازه تأیید شد', 'New email verified')
+            : t('تأیید نشانی ایمیل', 'Verify email address')}
         </h1>
-        <Feedback error={state === 'error'} message={message} />
+        <Feedback
+          error={state === 'error'}
+          message={
+            english
+              ? state === 'success'
+                ? 'Your new email is verified. Sign in to continue.'
+                : state === 'checking'
+                  ? 'Checking the link…'
+                  : 'This link could not be verified. Request a new link from account settings.'
+              : message
+          }
+        />
         {state === 'success' ? (
           <Link className="ui-button ui-button--primary auth-submit" to="/account/login">
-            بازگشت به حساب
+            {t('بازگشت به حساب', 'Back to account')}
           </Link>
         ) : (
           <Link className="auth-context__link" to="/account/login">
-            بازگشت به ورود
+            {t('بازگشت به ورود', 'Back to sign in')}
           </Link>
         )}
       </div>

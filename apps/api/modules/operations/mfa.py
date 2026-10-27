@@ -78,6 +78,7 @@ def _issue_proof(request, actor, factor, now):
 
 
 def _counter(factor, code, now):
+    code = code.translate(str.maketrans('۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩', '01234567890123456789'))
     if not re.fullmatch(r'[0-9]{6}', code):
         return None
     try:

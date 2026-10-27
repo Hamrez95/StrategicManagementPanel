@@ -11,6 +11,7 @@ class OperatorAccess(models.Model):
     role = models.CharField(max_length=10, choices=[('owner', 'Owner'), ('admin', 'Administrator')])
     is_active = models.BooleanField(default=True)
     must_change_password = models.BooleanField(default=False)
+    mfa_enabled = models.BooleanField(default=True)
     revision = models.PositiveIntegerField(default=1)
     approved_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.PROTECT, related_name='+')
     updated_at = models.DateTimeField(auto_now=True)

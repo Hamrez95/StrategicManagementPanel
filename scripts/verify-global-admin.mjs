@@ -376,7 +376,7 @@ try {
   await planDialog.getByLabel('قیمت با تخفیف (ریال)', { exact: true }).fill('۸۰۰۰۰۰');
   assert.equal(
     await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).inputValue(),
-    '365',
+    '۳۶۵',
   );
   assert.equal(await planDialog.getByLabel('مدت اشتراک (روز)', { exact: true }).isDisabled(), true);
   await planDialog.getByLabel('دلیل تغییر', { exact: true }).fill('Synthetic catalog update only');
@@ -479,7 +479,7 @@ try {
   assert.equal(await page.getAttribute('html', 'data-theme'), 'dark');
   await axe('overview-dark');
   await page.screenshot({ path: `${folder}/overview-dark.png`, fullPage: true });
-  await page.getByRole('button', { name: 'Switch language to English' }).click();
+  await page.getByRole('button', { name: 'تغییر زبان به انگلیسی' }).click();
   await page.getByRole('heading', { name: 'Overview', exact: true }).waitFor();
   assert.equal(await page.locator('.operator-console').getAttribute('dir'), 'ltr');
   await fit();
@@ -496,7 +496,7 @@ try {
     .getByRole('heading', { name: /Service administrators|مدیران سرویس/, level: 2 })
     .waitFor();
   if ((await page.getAttribute('html', 'lang')) !== 'en')
-    await page.getByRole('button', { name: 'Switch language to English' }).click();
+    await page.getByRole('button', { name: 'تغییر زبان به انگلیسی' }).click();
   await page
     .getByRole('heading', { name: 'Service administrators', exact: true, level: 2 })
     .waitFor();
@@ -521,7 +521,7 @@ try {
     .getByRole('heading', { name: /Replace your temporary password|گذرواژهٔ اولیه رو تغییر بده/ })
     .waitFor();
   if ((await page.getAttribute('html', 'lang')) !== 'en')
-    await page.getByRole('button', { name: 'Switch language to English' }).click();
+    await page.getByRole('button', { name: 'تغییر زبان به انگلیسی' }).click();
   await page.getByRole('heading', { name: 'Replace your temporary password' }).waitFor();
   assert.equal(protectedReads, readsBeforePassword);
   await page.getByLabel('Current password', { exact: true }).fill('synthetic-temporary');
