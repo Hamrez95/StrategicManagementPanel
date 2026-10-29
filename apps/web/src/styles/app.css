@@ -66,6 +66,14 @@ p {
 .skip-link:focus {
   top: 12px;
 }
+.skip-link:not(:focus) {
+  clip-path: inset(50%);
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+}
 .site-header {
   max-width: 1280px;
   margin: auto;

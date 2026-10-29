@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Link, Navigate, useNavigate, useOutletContext } from 'react-router';
+import { Link, Navigate, useNavigate, useOutletContext, useSearchParams } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Input, Notice, Skeleton, useToast, useUIAppearance } from '@stratino/ui';
 import { queryKeys } from '../../api/queryKeys';
@@ -25,6 +25,7 @@ export default function OnboardingPage() {
   const session = useOutletContext<Session>();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const [destinationParams] = useSearchParams();
   const notify = useToast();
   const { dir } = useUIAppearance();
   const english = dir === 'ltr';
@@ -267,7 +268,13 @@ export default function OnboardingPage() {
             ? 'Project setup saved.'
             : 'اطلاعات اولیه پروژه ذخیره شد.',
       );
-      navigate(`/app/workspaces/${encodeURIComponent(ownedWorkspace.id)}`, { replace: true });
+      const next = destinationParams.get('next');
+      navigate(
+        next && /^\/app\/scorecards(?:\?from=(?:C07-ST05-L03|S01-C4-ST02-L04))?$/.test(next)
+          ? next
+          : `/app/workspaces/${encodeURIComponent(ownedWorkspace.id)}`,
+        { replace: true },
+      );
     } catch (reason) {
       setApiError(
         reason,
@@ -329,7 +336,17 @@ export default function OnboardingPage() {
       return <Navigate to="/app/workspaces" replace />;
     }
     if (ownedWorkspace && savedProfile?.onboarding_completed_at && savedDisplayName.trim()) {
-      return <Navigate to={`/app/workspaces/${encodeURIComponent(ownedWorkspace.id)}`} replace />;
+      const next = destinationParams.get('next');
+      return (
+        <Navigate
+          to={
+            next && /^\/app\/scorecards(?:\?from=(?:C07-ST05-L03|S01-C4-ST02-L04))?$/.test(next)
+              ? next
+              : `/app/workspaces/${encodeURIComponent(ownedWorkspace.id)}`
+          }
+          replace
+        />
+      );
     }
   }
 

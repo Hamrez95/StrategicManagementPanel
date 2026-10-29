@@ -12451,6 +12451,624 @@
           }
         }
       }
+    },
+    "/api/v1/workspaces/{workspace_id}/execution/scorecards/": {
+      "get": {
+        "operationId": "listBalancedScorecards",
+        "summary": "listBalancedScorecards",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscBoard"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createBalancedScorecard",
+        "summary": "createBalancedScorecard",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BscWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscRead"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/execution/scorecards/{card_id}/": {
+      "patch": {
+        "operationId": "updateBalancedScorecard",
+        "summary": "updateBalancedScorecard",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BscWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscRead"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/execution/scorecards/{card_id}/observations/": {
+      "post": {
+        "operationId": "appendScorecardObservation",
+        "summary": "appendScorecardObservation",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BscObservation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscRead"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/execution/scorecards/{card_id}/reviews/": {
+      "post": {
+        "operationId": "appendScorecardReview",
+        "summary": "appendScorecardReview",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BscReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscRead"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/execution/scorecards/{card_id}/objectives/{objective_id}/actions/": {
+      "post": {
+        "operationId": "createScorecardAction",
+        "summary": "createScorecardAction",
+        "description": "Live. Verified session and Workspace membership required; owner/editor writes only. Archived writes rejected. Revision conflicts return 409 without changes. Explicit sample only; source lesson status stays draft. No proven causality or overall score.",
+        "security": [
+          {
+            "cookieSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "objective_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BscAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BscRead"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or field validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace role denied or CSRF failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workspace or record is not visible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Revision or retry conflict; retain draft"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -12463,6 +13081,464 @@
       }
     },
     "schemas": {
+      "BscIndicatorWrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "definition": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "unit": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "formula": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "increase",
+              "decrease",
+              "range"
+            ]
+          },
+          "baseline": {
+            "type": "string",
+            "nullable": true,
+            "description": "Exact decimal string, at most 18 integer digits and 6 decimal places. Null is unknown; zero is not unknown."
+          },
+          "baseline_on": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true,
+            "description": "Exact decimal string, at most 18 integer digits and 6 decimal places. Null is unknown; zero is not unknown."
+          },
+          "target_high": {
+            "type": "string",
+            "nullable": true,
+            "description": "Exact decimal string, at most 18 integer digits and 6 decimal places. Null is unknown; zero is not unknown."
+          },
+          "warning_margin": {
+            "type": "string",
+            "nullable": true,
+            "description": "Exact decimal string, at most 18 integer digits and 6 decimal places. Null is unknown; zero is not unknown."
+          },
+          "due_on": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "cadence_days": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 1,
+            "maximum": 3660
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "owner_id": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "leading",
+              "lagging"
+            ]
+          },
+          "guardrail": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "definition",
+          "unit",
+          "formula",
+          "direction",
+          "baseline",
+          "baseline_on",
+          "target",
+          "target_high",
+          "warning_margin",
+          "due_on",
+          "cadence_days",
+          "source",
+          "owner_id",
+          "kind",
+          "guardrail"
+        ]
+      },
+      "BscObjectiveWrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "perspective": {
+            "type": "string",
+            "enum": [
+              "financial",
+              "customer",
+              "process",
+              "learning"
+            ]
+          },
+          "goal_id": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid"
+          },
+          "action_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "indicators": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/components/schemas/BscIndicatorWrite"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "perspective",
+          "goal_id",
+          "action_ids",
+          "indicators"
+        ]
+      },
+      "BscRelation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "source_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "destination_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rationale": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "test_method": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "source_id",
+          "destination_id",
+          "rationale",
+          "test_method"
+        ]
+      },
+      "BscWrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "scope": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "strategy": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "decision_id": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid"
+          },
+          "period_start": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "objectives": {
+            "type": "array",
+            "maxItems": 80,
+            "items": {
+              "$ref": "#/components/schemas/BscObjectiveWrite"
+            }
+          },
+          "relations": {
+            "type": "array",
+            "maxItems": 160,
+            "items": {
+              "$ref": "#/components/schemas/BscRelation"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "revision",
+          "title",
+          "scope",
+          "strategy",
+          "decision_id",
+          "period_start",
+          "period_end",
+          "objectives",
+          "relations"
+        ]
+      },
+      "BscObservation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "indicator_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "description": "Exact decimal string, at most 18 integer digits and 6 decimal places. Null is unknown; zero is not unknown."
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "revision",
+          "request_id",
+          "indicator_id",
+          "observed_on",
+          "value",
+          "evidence"
+        ]
+      },
+      "BscReview": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reviewed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "action_id": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "revision",
+          "request_id",
+          "reviewed_on",
+          "decision",
+          "action_id"
+        ]
+      },
+      "BscRead": {
+        "type": "object",
+        "description": "Saved aggregate plus append-only observations (including definition_snapshot), policy assessments and meeting reviews. No aggregate score. See docs/design/BALANCED_SCORECARD.md.",
+        "required": [
+          "id",
+          "revision",
+          "title",
+          "objectives",
+          "relations",
+          "reviews"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "scope": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "strategy": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "decision_id": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid"
+          },
+          "period_start": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "period_end": {
+            "type": "string",
+            "nullable": true,
+            "format": "date"
+          },
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "relations": {
+            "type": "array",
+            "maxItems": 160,
+            "items": {
+              "$ref": "#/components/schemas/BscRelation"
+            }
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "BscBoard": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "can_edit": {
+            "type": "boolean"
+          },
+          "cards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BscRead"
+            }
+          }
+        },
+        "required": [
+          "workspace_id",
+          "can_edit",
+          "cards"
+        ]
+      },
+      "BscAction": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "$ref": "#/components/schemas/ExecutionActionWrite"
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "revision",
+          "action",
+          "request_id"
+        ]
+      },
       "MetricObservationCreate": {
         "type": "object",
         "additionalProperties": false,

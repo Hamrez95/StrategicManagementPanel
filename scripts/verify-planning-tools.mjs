@@ -74,7 +74,9 @@ try {
             };
             records.set(tool, [body, ...rows.filter((r) => r.id !== body.id)]);
           }
-        } else if (path.endsWith('/execution/'))
+        } else if (path.endsWith('/execution/scorecards/'))
+          body = { workspace_id: id, can_edit: true, cards: [] };
+        else if (path.endsWith('/execution/'))
           body = {
             workspace_id: id,
             role: 'owner',
@@ -199,7 +201,7 @@ try {
       }
       for (const tool of ['journal', 'scorecard', 'qspm']) {
         await page.goto(`${base}/app/workspaces/${id}/tools/${tool}`);
-        await page.locator('#execution-title').waitFor();
+        await page.locator(tool === 'scorecard' ? '#bsc-title' : '#execution-title').waitFor();
         assert.equal(
           await page.getByText('اتصال ابزار به داده‌های فضا در حال آماده‌سازی است').count(),
           0,

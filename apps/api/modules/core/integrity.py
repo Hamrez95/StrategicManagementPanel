@@ -50,6 +50,9 @@ def database_guard_coverage(database='default'):
     expected = {'ci_billing_owner_key', 'ci_workspace_billing_owner', 'ci_membership_owner', 'ci_workspace_owner', 'ci_management_grant_snapshot', 'ci_billing_owner_identity', 'ci_workspace_owner_identity'}
     expected.update({'ci_managementorder_snapshot', 'ci_managementpaymentattempt_snapshot',
                      'ci_managementrefund_snapshot', 'ci_payment_event_immutable', 'ci_order_grant_scope'})
+    expected.update(f'bsc_scope_{table}' for table in ('scorecard', 'scorecardobjective', 'scorecardindicator', 'scorecardaction', 'scorecardrelation', 'scorecardreview'))
+    expected.update(f'bsc_append_only_{table}' for table in ('scorecardobservation', 'scorecardreview', 'scorecardrevision'))
+    expected.add('bsc_relation_parent')
     for model in product_models():
         table = model._meta.db_table
         expected.update(name('choice', table + field.name) for field in model._meta.fields if field.choices)
@@ -87,6 +90,16 @@ def audit_data(database='default'):
     for model, field in tenant_relations():
         record(f'{model._meta.label}.{field.name}.workspace', model.objects.using(database).filter(**{f'{field.name}__isnull': False}).exclude(workspace_id=F(f'{field.name}__workspace_id')))
     Workspace = apps.get_model('workspaces', 'Workspace')
+    for label, parent, linked in (
+        ('ScorecardObjective', 'card__workspace_id', 'goal__workspace_id'),
+        ('ScorecardAction', 'objective__card__workspace_id', 'action__workspace_id'),
+        ('ScorecardReview', 'card__workspace_id', 'action__workspace_id'),
+    ):
+        model = apps.get_model('execution', label)
+        relation = linked.split('__')[0]
+        record(f'execution.{label}.scope', model.objects.using(database).filter(**{f'{relation}__isnull': False}).exclude(**{parent: F(linked)}))
+    relation = apps.get_model('execution', 'ScorecardRelation')
+    record('execution.ScorecardRelation.parents', relation.objects.using(database).exclude(card_id=F('source__card_id')).union(relation.objects.using(database).exclude(card_id=F('destination__card_id'))))
     Membership = apps.get_model('workspaces', 'Membership')
     record('workspaces.Workspace.billing_owner', Workspace.objects.using(database).exclude(owner_id=F('billing_account__owner_id')))
     record('workspaces.Membership.owner_duplicate', Membership.objects.using(database).filter(user_id=F('workspace__owner_id')))

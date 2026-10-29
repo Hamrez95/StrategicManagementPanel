@@ -72,7 +72,7 @@ export const workspaceToolGroups = [
       {
         id: 'scorecard',
         legacyHash: 'scorecard',
-        title: { fa: 'اهداف و عملکرد', en: 'Goals and performance' },
+        title: { fa: 'کارت امتیازی متوازن', en: 'Balanced scorecard' },
       },
       { id: 'risks', legacyHash: 'risks', title: { fa: 'ریسک‌ها', en: 'Risks' } },
     ],

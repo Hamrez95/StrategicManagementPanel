@@ -32,6 +32,7 @@ const ProductExperience = lazy(() => import('./features/experience/ProductExperi
 const Account = lazy(() => import('./pages/Account'));
 const Workspace = lazy(() => import('./pages/Workspace'));
 const WorkspaceManagement = lazy(() => import('./features/workspaces/WorkspaceManagementPage'));
+const ScorecardStart = lazy(() => import('./features/scorecards/ScorecardStart'));
 const Onboarding = lazy(() => import('./features/onboarding/OnboardingPage'));
 const ApplicationShell = lazy(() => import('./features/workspaces/ApplicationShell'));
 const WorkspaceOverviewPage = lazy(() =>
@@ -468,6 +469,7 @@ export function App() {
               <Route element={<ApplicationShell />}>
                 <Route index element={<Navigate to="/app/workspaces" replace />} />
                 <Route path="workspaces" element={<WorkspaceManagement />} />
+                <Route path="scorecards" element={<ScorecardStart />} />
                 <Route path="start" element={<Onboarding />} />
                 <Route path="account" element={<AccountSettingsPage />} />
                 <Route path="workspaces/:workspaceId">

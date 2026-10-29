@@ -359,7 +359,7 @@ class WorkspaceExportApiTests(TestCase):
         self.assertEqual(created.status_code, 201, created.content)
         envelope = created.json()['snapshot']
         self.assertEqual(envelope['schema'], 'stratino-workspace-v2')
-        self.assertEqual(len(envelope['scope']), 37)
+        self.assertEqual(len(envelope['scope']), 45)
         data = envelope['data']
         self.assertEqual([row['id'] for row in data['environment_signals']], [str(signal.pk)])
         self.assertEqual(data['environment_signals'][0]['source'], 'منبع واقعی')
