@@ -194,6 +194,16 @@ try {
         revision: 1,
         onboarding_completed_at: null,
       };
+    else if (path.endsWith('/exports/snapshot-a/download/')) {
+      const query = new URL(route.request().url()).searchParams;
+      assert.ok(['xlsx', 'ai'].includes(query.get('format')));
+      assert.ok(['fa', 'en'].includes(query.get('language')));
+      return route.fulfill({
+        contentType: query.get('format') === 'xlsx'
+          ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 'application/zip',
+        body: Buffer.from('synthetic-download-fixture'),
+      });
+    }
     else if (path.endsWith('/exports/snapshot-a/')) body = snapshot;
     else if (path.endsWith('/exports/snapshot-b/')) body = second;
     else if (path.endsWith('/exports/')) {
@@ -289,6 +299,17 @@ try {
   for (const language of ['fa', 'en']) {
     if (language === 'en')
       await page.getByRole('button', { name: 'تغییر زبان به انگلیسی' }).click();
+    for (const [label, ending, format] of [
+      [language === 'en' ? 'Complete Excel' : 'اکسل کامل', 'snapshot-a.xlsx', 'xlsx'],
+      [language === 'en' ? 'AI analysis bundle' : 'بستهٔ تحلیل با AI', 'snapshot-a-ai.zip', 'ai'],
+    ]) {
+      const request = page.waitForRequest(r => r.url().includes('format=' + format));
+      const downloaded = page.waitForEvent('download');
+      await page.getByRole('button', { name: label, exact: true }).click();
+      assert.ok((await downloaded).suggestedFilename().endsWith(ending));
+      assert.equal(new URL((await request).url()).searchParams.get('language'), language);
+      checks += 2;
+    }
     for (const theme of ['light', 'dark']) {
       if ((await page.getAttribute('html', 'data-theme')) !== theme)
         await page

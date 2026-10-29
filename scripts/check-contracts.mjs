@@ -54,13 +54,19 @@ assert.ok(
 );
 assert.deepEqual(
   exportDownload.get.parameters.find((parameter) => parameter.name === 'format')?.schema.enum,
-  ['json', 'csv', 'zip'],
+  ['json', 'csv', 'zip', 'xlsx', 'ai'],
 );
 assert.deepEqual(Object.keys(exportDownload.get.responses['200'].content).sort(), [
   'application/json',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   'application/zip',
   'text/csv',
 ]);
+assert.deepEqual(
+  exportDownload.get.parameters.find((parameter) => parameter.name === 'language')?.schema.enum,
+  ['fa', 'en'],
+);
+assert.ok(exportDownload.get.responses['422'], 'Oversized Excel has an explicit error, never truncated success');
 assert.ok(schemas.ExportSnapshot.properties.artifact);
 assert.equal(schemas.ExportSnapshot.properties.expires_at, undefined);
 assert.ok(

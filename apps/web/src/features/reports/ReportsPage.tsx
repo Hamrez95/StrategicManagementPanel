@@ -1016,7 +1016,7 @@ export default function ReportsPage() {
   const selectedId = selection?.workspaceId === workspaceId ? selection.exportId : '';
   const setSelectedId = (exportId: string) => setSelection({ workspaceId, exportId });
   const [creating, setCreating] = useState(false);
-  const [downloading, setDownloading] = useState<'json' | 'csv' | 'zip' | ''>('');
+  const [downloading, setDownloading] = useState<'json' | 'csv' | 'zip' | 'xlsx' | 'ai' | ''>('');
   const [actionError, setActionError] = useState('');
   const createKey = useRef<{ workspaceId: string; purpose: string; key: string } | null>(null);
   useWorkspaceDirtyGuard(`workspace-report-${workspaceId}`, creating);
@@ -1072,12 +1072,12 @@ export default function ReportsPage() {
     }
   }
 
-  async function download(format: 'json' | 'csv' | 'zip') {
+  async function download(format: 'json' | 'csv' | 'zip' | 'xlsx' | 'ai') {
     if (!selectedId || downloading) return;
     setActionError('');
     setDownloading(format);
     try {
-      await downloadWorkspaceExport(workspaceId, selectedId, format);
+      await downloadWorkspaceExport(workspaceId, selectedId, format, english ? 'en' : 'fa');
     } catch (reason) {
       setActionError(
         reason instanceof Error
@@ -1236,6 +1236,24 @@ export default function ReportsPage() {
             </p>
             <div className="reports-toolbar__actions">
               <Button
+                variant="primary"
+                disabled={Boolean(downloading)}
+                pending={downloading === 'xlsx'}
+                pendingLabel={english ? 'Preparing Excel…' : 'داریم اکسل رو آماده می‌کنیم…'}
+                onClick={() => void download('xlsx')}
+              >
+                {english ? 'Complete Excel' : 'اکسل کامل'}
+              </Button>
+              <Button
+                variant="secondary"
+                disabled={Boolean(downloading)}
+                pending={downloading === 'ai'}
+                pendingLabel={english ? 'Preparing AI bundle…' : 'داریم بستهٔ AI رو آماده می‌کنیم…'}
+                onClick={() => void download('ai')}
+              >
+                {english ? 'AI analysis bundle' : 'بستهٔ تحلیل با AI'}
+              </Button>
+              <Button
                 variant="secondary"
                 disabled={Boolean(downloading)}
                 pending={downloading === 'json'}
@@ -1267,6 +1285,18 @@ export default function ReportsPage() {
               </Button>
             </div>
           </div>
+          <p className="reports-scope-note">
+            {english
+              ? 'Excel includes separate data sheets, nested details and an exact data copy. The AI bundle adds JSON and an analysis guide. Attachment files are available separately in ZIP with files; nothing is sent to an AI service automatically.'
+              : 'اکسل، برگ‌های جدا برای داده‌ها، جزئیات و نسخهٔ دقیق اطلاعات داره. بستهٔ AI شامل اکسل، JSON و راهنمای تحلیله. خود فایل‌های پیوست رو از «ZIP همراه فایل‌ها» بگیر؛ چیزی خودکار به سرویس AI فرستاده نمی‌شه.'}
+          </p>
+          {activeSnapshot.schema_version === 1 && (
+            <p role="status">
+              {english
+                ? 'This older snapshot has limited coverage. Save a new snapshot to include current planning, evidence and calculation data.'
+                : 'این نسخهٔ قدیمی همهٔ بخش‌های جدید رو نداره. یک نسخهٔ تازه ثبت کن تا داده‌های برنامه‌ریزی، شواهد و محاسبات هم داخل خروجی باشن.'}
+            </p>
+          )}
           <ReportDocument snapshot={report} english={english} />
         </>
       )}

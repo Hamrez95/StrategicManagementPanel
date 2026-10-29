@@ -274,12 +274,13 @@ export function readWorkspaceExport(workspaceId: string, exportId: string, signa
 export async function downloadWorkspaceExport(
   workspaceId: string,
   exportId: string,
-  format: 'json' | 'csv' | 'zip',
+  format: 'json' | 'csv' | 'zip' | 'xlsx' | 'ai',
+  language: 'fa' | 'en' = 'fa',
 ) {
   let response: Response;
   try {
     response = await fetch(
-      `${exportPath(workspaceId)}${encodeURIComponent(exportId)}/download/?format=${format}`,
+      `${exportPath(workspaceId)}${encodeURIComponent(exportId)}/download/?format=${format}&language=${language}`,
       { credentials: 'same-origin', cache: 'no-store', headers: { Accept: '*/*' } },
     );
   } catch {
@@ -303,7 +304,7 @@ export async function downloadWorkspaceExport(
   const anchor = document.createElement('a');
   anchor.hidden = true;
   anchor.href = href;
-  anchor.download = `stratino-${exportId}.${format}`;
+  anchor.download = `stratino-${exportId}${format === 'ai' ? '-ai' : ''}.${format === 'ai' ? 'zip' : format}`;
   document.body.append(anchor);
   anchor.click();
   anchor.remove();

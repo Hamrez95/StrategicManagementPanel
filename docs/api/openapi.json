@@ -9749,7 +9749,7 @@
         "get": {
           "operationId": "downloadExportSnapshot",
           "summary": "Download a report export",
-          "description": "Rechecks current Workspace membership before returning the JSON, CSV, or private ZIP artifact. ZIP contains workspace.json, records.csv, and ready scanned attachment bytes.",
+          "description": "Rechecks current membership and professional entitlement for every format. XLSX and AI ZIP are rendered from the immutable snapshot. XLSX includes per-section tables, typed nested details, dictionary, guide and exact chunked JSON. AI ZIP includes workbook, exact JSON, guide and checksum manifest; attachment binaries are only in the original ZIP. Large workbooks return 422 without truncating data.",
           "security": [
             {
               "cookieSession": []
@@ -9785,9 +9785,25 @@
                 "enum": [
                   "json",
                   "csv",
-                  "zip"
+                  "zip",
+                  "xlsx",
+                  "ai"
                 ],
                 "default": "zip"
+              }
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "description": "Language of XLSX and AI guide. Stable data keys and stored values are unchanged.",
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "fa",
+                  "en"
+                ],
+                "default": "fa"
               }
             }
           ],
@@ -9816,23 +9832,29 @@
                 }
               },
               "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ReportEnvelope"
-                  }
-                },
-                "text/csv": {
-                  "schema": {
-                    "type": "string"
-                  }
-                },
-                "application/zip": {
-                  "schema": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportEnvelope"
               }
+            },
+            "text/csv": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/zip": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
             },
             "400": {
               "description": "Request or access error",
@@ -9926,6 +9948,17 @@
                   }
                 }
               },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          ,
+            "422": {
+              "description": "Workbook would exceed supported cell/text limits. Download the complete JSON or original ZIP instead; no partial workbook is returned.",
               "content": {
                 "application/json": {
                   "schema": {

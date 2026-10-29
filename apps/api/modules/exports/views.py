@@ -10,6 +10,7 @@ from modules.workspaces.services import get_accessible_workspace_or_404, workspa
 from modules.workspaces.services import WorkspaceActionError
 from modules.workspaces.entitlements import require_workspace_feature
 from .schema_v2 import PROFESSIONAL_METHOD
+from .workbook import WorkbookLimitError, read_workbook, read_ai_bundle
 
 from .models import ExportSnapshot
 from .services import (
@@ -130,6 +131,21 @@ def export_download(request, workspace_id, record_id):
 
     export_format = request.GET.get('format', 'zip')
     base_name = f'stratino-{snapshot.pk}'
+    if export_format in ('xlsx', 'ai'):
+        language = request.GET.get('language', 'fa')
+        if language not in ('fa', 'en'):
+            return _error(400, 'invalid_export_language', 'زبان خروجی رو فارسی یا انگلیسی انتخاب کن.')
+        from .services import _envelope
+        try:
+            content = (read_workbook if export_format == 'xlsx' else read_ai_bundle)(_envelope(snapshot), language=language)
+        except WorkbookLimitError:
+            return _error(422, 'workbook_limit_exceeded', 'این نسخه برای اکسل خیلی بزرگه؛ خروجی کامل JSON یا ZIP رو بگیر. داده‌ای حذف نشده.')
+        extension = 'xlsx' if export_format == 'xlsx' else 'zip'
+        content_type = ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                        if export_format == 'xlsx' else 'application/zip')
+        response = HttpResponse(content, content_type=content_type, headers=PRIVATE_HEADERS)
+        response['Content-Disposition'] = f'attachment; filename="{base_name}{"-ai" if export_format == "ai" else ""}.{extension}"'
+        return response
     if export_format == 'json':
         response = HttpResponse(read_json(snapshot), content_type='application/json; charset=utf-8', headers=PRIVATE_HEADERS)
         response['Content-Disposition'] = f'attachment; filename="{snapshot.pk}.json"'
@@ -139,7 +155,7 @@ def export_download(request, workspace_id, record_id):
         response['Content-Disposition'] = f'attachment; filename="{snapshot.pk}.csv"'
         return response
     if export_format != 'zip':
-        return _error(400, 'invalid_export_format', 'قالب خروجی را JSON، CSV یا ZIP انتخاب کنید.')
+        return _error(400, 'invalid_export_format', 'قالب خروجی رو Excel، بستهٔ AI، JSON، CSV یا ZIP انتخاب کن.')
     try:
         if not re.fullmatch(r'exports/[a-f0-9]{32}\.zip', snapshot.artifact_key):
             return _error(410, 'export_file_unavailable', 'مسیر فایل خروجی معتبر نیست؛ نسخهٔ تازه بساز.')
