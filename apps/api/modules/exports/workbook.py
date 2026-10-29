@@ -18,6 +18,14 @@ MAX_JSON_BYTES = 32 * 1024 * 1024
 CHUNK = 14_000  # Also below Excel's UTF-16 cell limit for astral characters.
 
 TITLES = {
+    'scorecards': ('کارت‌های امتیازی', 'Balanced scorecards'),
+    'scorecard_objectives': ('هدف‌های کارت امتیازی', 'BSC objectives'),
+    'scorecard_actions': ('اقدام‌های کارت امتیازی', 'BSC actions'),
+    'scorecard_indicators': ('شاخص‌های کارت امتیازی', 'BSC indicators'),
+    'scorecard_observations': ('عملکرد کارت امتیازی', 'BSC observations'),
+    'scorecard_relations': ('فرضیه‌های استراتژی', 'Strategy hypotheses'),
+    'scorecard_reviews': ('مرور کارت امتیازی', 'BSC reviews'),
+    'scorecard_history': ('تاریخچهٔ کارت امتیازی', 'BSC revisions'),
     'workspace': ('فضای کار', 'Workspace'),
     'workspace_profile': ('شناخت کسب‌وکار', 'Business profile'),
     'profile_history': ('تاریخچهٔ شناخت', 'Profile history'),

@@ -8,9 +8,18 @@ from modules.metrics.models import InputObservation, InputObservationEvidence, C
 from modules.documents.models import DocumentAttachment
 from modules.analysis.models import CompetitorProfile, EnvironmentSignal, JourneyStep, PlanningRevision, ResourceAssessment, RiskRecord, ScenarioPlan
 from modules.metrics.models import FinanceCapture
+from modules.execution.models import (Scorecard, ScorecardObjective, ScorecardAction, ScorecardIndicator, ScorecardObservation, ScorecardRelation, ScorecardReview, ScorecardRevision)
 
 
 V2_FIELDS = {
+    'scorecards': (Scorecard, 'id title scope strategy decision_id period_start period_end revision created_by_id created_at updated_at'),
+    'scorecard_objectives': (ScorecardObjective, 'id card_id perspective title goal_id position'),
+    'scorecard_actions': (ScorecardAction, 'id objective_id action_id request_id request_fingerprint'),
+    'scorecard_indicators': (ScorecardIndicator, 'id objective_id name definition unit formula direction baseline baseline_on target target_high warning_margin due_on cadence_days source owner_id kind guardrail position'),
+    'scorecard_observations': (ScorecardObservation, 'id indicator_id request_id observed_on value evidence definition_snapshot created_by_id created_at'),
+    'scorecard_relations': (ScorecardRelation, 'id card_id source_id destination_id rationale test_method'),
+    'scorecard_reviews': (ScorecardReview, 'id card_id request_id reviewed_on decision action_id created_by_id created_at'),
+    'scorecard_history': (ScorecardRevision, 'id card_id revision snapshot actor_id created_at'),
     'environment_signals': (EnvironmentSignal, 'id title category observation implication source observed_on revision created_at updated_at'),
     'competitor_profiles': (CompetitorProfile, 'id title customer_segment value_proposition advantage source observed_on revision created_at updated_at'),
     'resource_assessments': (ResourceAssessment, 'id title description valuable rare hard_to_imitate organized source revision created_at updated_at'),
@@ -42,6 +51,12 @@ def collect_v2(workspace, model_values):
     result = {}
     for section, (model, fields) in V2_FIELDS.items():
         lookup = {'workspace': workspace}
+        if section in ('scorecard_objectives', 'scorecard_relations', 'scorecard_reviews', 'scorecard_history'):
+            lookup = {'card__workspace': workspace}
+        elif section in ('scorecard_indicators', 'scorecard_actions'):
+            lookup = {'objective__card__workspace': workspace}
+        elif section == 'scorecard_observations':
+            lookup = {'indicator__objective__card__workspace': workspace}
         if section == 'observation_evidence_links':
             lookup = {'observation__workspace': workspace, 'evidence__workspace': workspace}
         elif section == 'metric_values':
