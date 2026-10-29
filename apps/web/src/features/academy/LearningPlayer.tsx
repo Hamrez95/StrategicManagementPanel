@@ -382,6 +382,14 @@ export function LearningPlayer({
           )}
         </div>
       </div>
+      {['C07-ST05-L03', 'S01-C4-ST02-L04'].includes(unit.id) && (
+        <Link
+          className="ui-button ui-button--secondary"
+          to={`/app/scorecards?from=${encodeURIComponent(unit.id)}`}
+        >
+          ساخت کارت امتیازی کسب‌وکار من
+        </Link>
+      )}
       {!unit.access?.hasFullAccess && (
         <p className="academy-access-label">
           نمونهٔ رایگان · {faNumber(cards)} از {faNumber(unit.access?.total_cards ?? cards)} کارت

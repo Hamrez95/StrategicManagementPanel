@@ -98,6 +98,7 @@ try {
     'scripts/verify-planning-tools.mjs',
     'scripts/verify-account-navigation.mjs',
     'scripts/verify-account-security.mjs',
+    'scripts/verify-scorecards.mjs',
     'scripts/verify-academy-operator-actions.mjs',
   ])
     await run(script, env);

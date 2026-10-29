@@ -1,6 +1,14 @@
 import { ApiError, requestApi } from '../../api/client';
 
 export type ReportData = {
+  scorecards?: Record<string, unknown>[];
+  scorecard_objectives?: Record<string, unknown>[];
+  scorecard_actions?: Record<string, unknown>[];
+  scorecard_indicators?: Record<string, unknown>[];
+  scorecard_observations?: Record<string, unknown>[];
+  scorecard_relations?: Record<string, unknown>[];
+  scorecard_reviews?: Record<string, unknown>[];
+  scorecard_history?: Record<string, unknown>[];
   environment_signals?: Record<string, unknown>[];
   competitor_profiles?: Record<string, unknown>[];
   resource_assessments?: Record<string, unknown>[];
@@ -120,6 +128,14 @@ function decodeSnapshotData(value: unknown): ReportEnvelope {
     }
   }
   for (const field of [
+    'scorecards',
+    'scorecard_objectives',
+    'scorecard_actions',
+    'scorecard_indicators',
+    'scorecard_observations',
+    'scorecard_relations',
+    'scorecard_reviews',
+    'scorecard_history',
     'environment_signals',
     'competitor_profiles',
     'resource_assessments',

@@ -19,6 +19,7 @@ const PlanningToolPage = lazy(() => import('../analysis/PlanningToolPage'));
 const FinancePage = lazy(() => import('../analysis/FinancePage'));
 const DecisionRoom = lazy(() => import('../decisions/DecisionRoom'));
 const ExecutionPlanPage = lazy(() => import('../decisions/ExecutionPlanPage'));
+const ScorecardPage = lazy(() => import('../scorecards/ScorecardPage'));
 
 function formatSummaryDate(value: string, english: boolean) {
   const [year, month, day] = value.split('-').map(Number);
@@ -431,13 +432,20 @@ export function WorkspaceToolPage() {
         <DecisionRoom key={workspaceId} />
       </Suspense>
     );
-  if (toolId === 'journal' || toolId === 'scorecard')
+  if (toolId === 'scorecard')
+    return (
+      <Suspense
+        fallback={
+          <Skeleton label={english ? 'Loading scorecards' : 'در حال دریافت کارت‌های امتیازی'} />
+        }
+      >
+        <ScorecardPage key={workspaceId} />
+      </Suspense>
+    );
+  if (toolId === 'journal')
     return (
       <Suspense fallback={<Skeleton label={english ? 'Loading plan' : 'در حال دریافت برنامه'} />}>
-        <ExecutionPlanPage
-          key={`${workspaceId}:${toolId}`}
-          focus={toolId === 'scorecard' ? 'goals' : 'decisions'}
-        />
+        <ExecutionPlanPage key={`${workspaceId}:${toolId}`} focus="decisions" />
       </Suspense>
     );
   if (toolId === 'learn') return <Navigate to="/academy/catalog" replace />;
