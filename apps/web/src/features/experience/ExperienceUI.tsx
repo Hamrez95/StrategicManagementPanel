@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { BRAND_MARK } from '../../../../../src/brand.js';
 import type { ReactNode } from 'react';
 import './experience.css';
 
@@ -9,11 +10,11 @@ export function Mark({ to = '/' }: { to?: string }) {
       to={to}
       aria-label={to === '/' ? 'استراتینو، صفحه اصلی' : 'استراتینو، فضاهای کاری من'}
     >
-      <span className="ex-mark" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
+      <span
+        className="ex-mark"
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: BRAND_MARK }}
+      />
       <strong>استراتینو</strong>
     </Link>
   );

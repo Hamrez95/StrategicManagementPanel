@@ -108,12 +108,12 @@ p {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #2459ed;
-  color: white;
+  background: transparent;
+  flex-shrink: 0;
 }
 .product-mark svg {
-  width: 29px;
-  height: 29px;
+  width: 100%;
+  height: 100%;
 }
 main {
   min-height: 70vh;
