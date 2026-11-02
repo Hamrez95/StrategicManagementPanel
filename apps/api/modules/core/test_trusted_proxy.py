@@ -29,3 +29,21 @@ class TrustedProxyTests(SimpleTestCase):
     def test_proxy_https_is_recognized_for_secure_cookies_and_csrf(self):
         request = RequestFactory().get('/', HTTP_X_FORWARDED_PROTO='https')
         self.assertTrue(request.is_secure())
+
+    @override_settings(STRATINO_TRUST_PROXY=True, STRATINO_TRUSTED_PROXY_IPS=('172.30.11.2',),
+                       SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https'))
+    def test_untrusted_peer_cannot_assert_client_identity_or_https(self):
+        request = RequestFactory().get('/', REMOTE_ADDR='172.30.11.3',
+                                       HTTP_X_FORWARDED_FOR='203.0.113.5', HTTP_X_FORWARDED_PROTO='https')
+        TrustedProxyMiddleware(lambda request: HttpResponse())(request)
+        self.assertEqual(request.META['REMOTE_ADDR'], '172.30.11.3')
+        self.assertFalse(request.is_secure())
+
+    @override_settings(STRATINO_TRUST_PROXY=True, STRATINO_TRUSTED_PROXY_IPS=('172.30.11.2',),
+                       SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https'))
+    def test_designated_ingress_preserves_client_identity_and_https(self):
+        request = RequestFactory().get('/', REMOTE_ADDR='172.30.11.2',
+                                       HTTP_X_FORWARDED_FOR='203.0.113.5', HTTP_X_FORWARDED_PROTO='https')
+        TrustedProxyMiddleware(lambda request: HttpResponse())(request)
+        self.assertEqual(request.META['REMOTE_ADDR'], '203.0.113.5')
+        self.assertTrue(request.is_secure())
