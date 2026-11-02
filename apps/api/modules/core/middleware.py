@@ -10,7 +10,12 @@ class TrustedProxyMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        if settings.STRATINO_TRUST_PROXY:
+        allowed = settings.STRATINO_TRUSTED_PROXY_IPS
+        trusted = settings.STRATINO_TRUST_PROXY and (not allowed or request.META.get('REMOTE_ADDR') in allowed)
+        if settings.STRATINO_TRUST_PROXY and not trusted:
+            # Django's secure-proxy setting must not trust an unrelated network peer.
+            request.META.pop('HTTP_X_FORWARDED_PROTO', None)
+        if trusted:
             forwarded = request.META.get('HTTP_X_FORWARDED_FOR', '')
             try:
                 client_ip = str(ip_address(forwarded))

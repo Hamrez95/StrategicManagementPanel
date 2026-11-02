@@ -1,0 +1,136 @@
+name: ${COMPOSE_PROJECT_NAME:-businesses}
+x-runtime: &runtime
+  restart: unless-stopped
+  init: true
+  security_opt: [no-new-privileges:true]
+  logging:
+    driver: json-file
+    options: {max-size: 10m, max-file: '3'}
+services:
+  edge:
+    <<: *runtime
+    image: caddy:2.10.2-alpine
+    mem_limit: 128m
+    ports: ['80:80', '443:443']
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./cloudflare-trust.caddy:/etc/caddy/cloudflare-trust.caddy:ro
+      - stratino-static:/srv/stratino-static:ro
+      - edge-data:/data
+      - edge-config:/config
+    networks:
+      internet: {}
+      stratino-ingress: {ipv4_address: 172.30.11.2}
+      mazeduneh-ingress: {ipv4_address: 172.30.21.2}
+  stratino-web:
+    <<: *runtime
+    image: stratino-web:${STRATINO_RELEASE:?Set committed release}
+    build:
+      context: ./sources/stratino
+      dockerfile: infra/Dockerfile.web
+      args: {VITE_ACADEMY_PREVIEW: 'true'}
+    mem_limit: 96m
+    volumes: [./stratino-web.Caddyfile:/etc/caddy/Caddyfile:ro]
+    networks: [stratino-ingress]
+  stratino-api:
+    <<: *runtime
+    image: stratino-api:${STRATINO_RELEASE:?Set committed release}
+    build: {context: ./sources/stratino, dockerfile: infra/Dockerfile.api}
+    command: [gunicorn, 'config.wsgi:application', --bind, '0.0.0.0:8000', --workers, '1', --threads, '2', --timeout, '90']
+    mem_limit: 384m
+    env_file: [{path: '${HOST_SECRETS_DIR:?Set private directory}/stratino-api.env', format: raw}]
+    volumes:
+      - stratino-files:/private-files
+      - stratino-static:/app/static-root
+      - stratino-db-tls:/db-tls:ro
+    networks: [stratino-ingress, stratino-data, stratino-egress]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; r=urllib.request.Request('http://127.0.0.1:8000/api/v1/health/ready',headers={'Host':'stratino.ir','X-Forwarded-Proto':'https'}); urllib.request.urlopen(r,timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  stratino-db:
+    <<: *runtime
+    image: stratino-db:${STRATINO_RELEASE:?Set committed release}
+    build: {context: ./sources/stratino, dockerfile: infra/Dockerfile.postgres}
+    mem_limit: 384m
+    env_file: [{path: '${HOST_SECRETS_DIR:?Set private directory}/stratino-db.env', format: raw}]
+    environment: {STRATINO_DB_TLS_NAME: stratino-db, STRATINO_DB_SHARED_BUFFERS: 64MB, STRATINO_DB_MAX_CONNECTIONS: '40'}
+    volumes: [stratino-db:/var/lib/postgresql/data, stratino-db-tls:/var/lib/postgresql/tls]
+    networks: [stratino-data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  clamav:
+    <<: *runtime
+    image: clamav/clamav:1.5.4
+    mem_limit: 4g
+    volumes: [clamav-signatures:/var/lib/clamav]
+    networks: [stratino-data, scanner-egress]
+  mazeduneh-api:
+    <<: *runtime
+    image: mazeduneh-api:${MAZEDUNEH_RELEASE:?Set committed release}
+    build: {context: ./sources/mazeduneh/services/api}
+    mem_limit: 384m
+    env_file: [{path: '${HOST_SECRETS_DIR:?Set private directory}/mazeduneh-api.env', format: raw}]
+    volumes: [mazeduneh-media:/var/lib/mazeduneh/media, mazeduneh-db-tls:/db-tls:ro]
+    networks: [mazeduneh-ingress, mazeduneh-data, mazeduneh-egress]
+  mazeduneh-web:
+    <<: *runtime
+    image: mazeduneh-web:${MAZEDUNEH_RELEASE:?Set committed release}
+    build:
+      context: ./sources/mazeduneh/apps/storefront
+      args:
+        MAZEDUNEH_RELEASE_BUILD: 'true'
+        NEXT_PUBLIC_MAZEDUNEH_DEMO_MODE: 'false'
+        NEXT_PUBLIC_MAZEDUNEH_API_URL: https://api.mazeduneh.ir
+        NEXT_PUBLIC_SITE_URL: https://mazeduneh.ir
+        NEXT_PUBLIC_MAZEDUNEH_ADMIN_URL: https://admin.mazeduneh.ir
+    mem_limit: 512m
+    environment: {NODE_ENV: production, NODE_OPTIONS: '--max-old-space-size=384', MAZEDUNEH_API_INTERNAL_URL: 'http://mazeduneh-api:8080'}
+    networks: [mazeduneh-ingress, storefront-egress]
+  mazeduneh-admin:
+    <<: *runtime
+    image: mazeduneh-admin:${MAZEDUNEH_RELEASE:?Set committed release}
+    build:
+      context: ./sources/mazeduneh/apps/admin
+      args: {MAZEDUNEH_API_BASE_URL: 'https://api.mazeduneh.ir', MAZEDUNEH_ADMIN_STORE_ID: default}
+    mem_limit: 96m
+    networks: [mazeduneh-ingress]
+  mazeduneh-db:
+    <<: *runtime
+    image: stratino-db:${STRATINO_RELEASE:?Set committed release}
+    mem_limit: 384m
+    env_file: [{path: '${HOST_SECRETS_DIR:?Set private directory}/mazeduneh-db.env', format: raw}]
+    environment: {STRATINO_DB_TLS_NAME: mazeduneh-db, STRATINO_DB_SHARED_BUFFERS: 64MB, STRATINO_DB_MAX_CONNECTIONS: '40'}
+    volumes: [mazeduneh-db:/var/lib/postgresql/data, mazeduneh-db-tls:/var/lib/postgresql/tls]
+    networks: [mazeduneh-data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+networks:
+  internet: {}
+  stratino-ingress: {internal: true, ipam: {config: [{subnet: 172.30.11.0/24}]}}
+  mazeduneh-ingress: {internal: true, ipam: {config: [{subnet: 172.30.21.0/24}]}}
+  stratino-data: {internal: true}
+  mazeduneh-data: {internal: true}
+  stratino-egress: {}
+  mazeduneh-egress: {}
+  storefront-egress: {}
+  scanner-egress: {}
+volumes:
+  edge-data: {}
+  edge-config: {}
+  stratino-files: {}
+  stratino-static: {}
+  stratino-db: {}
+  stratino-db-tls: {}
+  mazeduneh-media: {}
+  mazeduneh-db: {}
+  mazeduneh-db-tls: {}
+  clamav-signatures: {}

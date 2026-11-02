@@ -1,0 +1,65 @@
+{
+  import /etc/caddy/cloudflare-trust.caddy
+}
+(security) {
+  encode zstd gzip
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+    X-Frame-Options DENY
+    -Server
+  }
+  @private path /.env /.env.* /.git /.git/* /private-files /private-files/*
+  respond @private 404
+}
+(ingress) {
+  header_up X-Forwarded-For {client_ip}
+  header_up X-Forwarded-Proto {scheme}
+  header_up -Forwarded
+}
+www.mazeduneh.ir {
+  redir https://mazeduneh.ir{uri} permanent
+}
+www.stratino.ir {
+  redir https://stratino.ir{uri} permanent
+}
+mazeduneh.ir {
+  import security
+  reverse_proxy mazeduneh-web:8080 {
+    import ingress
+  }
+}
+api.mazeduneh.ir {
+  import security
+  request_body {
+    max_size 24MB
+  }
+  reverse_proxy mazeduneh-api:8080 {
+    import ingress
+  }
+}
+admin.mazeduneh.ir {
+  import security
+  reverse_proxy mazeduneh-admin:8080 {
+    import ingress
+  }
+}
+stratino.ir {
+  import security
+  request_body {
+    max_size 24MB
+  }
+  @backend path /api /api/* /internal/management /internal/management/* /internal/django-admin /internal/django-admin/*
+  handle @backend {
+    reverse_proxy stratino-api:8000 {
+      import ingress
+    }
+  }
+  handle_path /static/* {
+    root * /srv/stratino-static
+    file_server
+  }
+  handle {
+    reverse_proxy stratino-web:80
+  }
+}

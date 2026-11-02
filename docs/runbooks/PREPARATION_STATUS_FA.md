@@ -2,6 +2,12 @@
 
 تاریخ بررسی: ۱۰ آبان ۱۴۰۵ / 2026-11-01
 
+Update 2026-11-02: the selected domain is `stratino.ir`. The new shared-host package for
+both businesses is documented in [infra/shared-host/README.md](../../infra/shared-host/README.md).
+It supersedes the single-app hosting topology for this owner's one-server deployment.
+Historical test evidence below remains dated; shared-host runtime/SMTP/restore acceptance
+still requires the future Linux staging host.
+
 این بسته برای آماده‌سازی پیش از خرید سروره. به درخواست مالک، روی سیستم شرکت هیچ بررسی وابسته به اجرای Docker انجام نمی‌شه. ساخته‌شدن فایل‌های سرور به معنی تأیید اجرای اون‌ها یا آماده‌بودن محصول برای کاربر واقعی نیست.
 
 ## کارهای قابل انجام بدون خرید

@@ -77,6 +77,7 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SECURE_SSL_REDIRECT = PRODUCTION
 # Enable only behind the isolated, header-overwriting proxy in compose.production.yml.
 STRATINO_TRUST_PROXY = PRODUCTION and os.environ.get('STRATINO_TRUST_PROXY') == '1'
+STRATINO_TRUSTED_PROXY_IPS = tuple(value.strip() for value in os.environ.get('STRATINO_TRUSTED_PROXY_IPS', '').split(',') if value.strip())
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') if STRATINO_TRUST_PROXY else None
 MIDDLEWARE.insert(0, 'modules.core.middleware.TrustedProxyMiddleware')
 SECURE_HSTS_SECONDS = 31536000 if PRODUCTION else 0

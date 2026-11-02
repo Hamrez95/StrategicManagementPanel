@@ -1,0 +1,15 @@
+:80 {
+  root * /srv/web
+  encode zstd gzip
+  header Cache-Control no-cache
+  @private path /media /media/* /private-files /private-files/* /.env /.env.* /.git /.git/*
+  respond @private 404
+  @assets path /assets/* /academy-content/* /prototype/* /src/* /brand/* /typography/* /sw.js /manifest*.webmanifest
+  handle @assets {
+    file_server
+  }
+  handle {
+    try_files {path} /index.html
+    file_server
+  }
+}

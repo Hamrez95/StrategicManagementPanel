@@ -1,5 +1,7 @@
 # استراتینو — پنل مدیریت استراتژیک
 
+Shared single-server release for Stratino and Mazeduneh: [operator package](infra/shared-host/README.md).
+
 آماده‌سازی انتشار: [وضعیت کارهای پیش از خرید سرور](docs/runbooks/PREPARATION_STATUS_FA.md) و [راهنمای استقرار و بازیابی](docs/runbooks/PRODUCTION.md). بررسی آفلاین با `npm run check:deployment` انجام می‌شه؛ این فرمان Docker اجرا نمی‌کنه. فایل‌های محیط توسعه، تنظیمات انتشار واقعی نیستن.
 
 ## مسیر محصول جدید: استراتینو / Stratino
