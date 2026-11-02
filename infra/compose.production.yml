@@ -1,0 +1,95 @@
+name: ${COMPOSE_PROJECT_NAME:-stratino-production}
+x-logging: &logging
+  driver: json-file
+  options: {max-size: 10m, max-file: '3'}
+services:
+  db:
+    profiles: [database]
+    image: stratino-db:${RELEASE_ID:?Set RELEASE_ID}
+    build: {context: .., dockerfile: infra/Dockerfile.postgres}
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-stratino}
+      POSTGRES_USER: ${POSTGRES_ADMIN_USER:-stratino_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?Set separate database admin password}
+      STRATINO_DB_APP_USER: ${POSTGRES_USER:-stratino}
+      STRATINO_DB_APP_PASSWORD: ${POSTGRES_PASSWORD:?Set database application password}
+    volumes: [database:/var/lib/postgresql/data, database-tls:/var/lib/postgresql/tls]
+    networks: [private]
+    mem_limit: 1g
+    logging: *logging
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  clamav:
+    image: clamav/clamav:1.5.4
+    restart: unless-stopped
+    volumes: [clamav-signatures:/var/lib/clamav]
+    networks: [private, egress]
+    mem_limit: 4g
+    logging: *logging
+  api:
+    image: stratino-api:${RELEASE_ID:?Set RELEASE_ID}
+    build: {context: .., dockerfile: infra/Dockerfile.api}
+    restart: unless-stopped
+    init: true
+    environment:
+      STRATINO_ENV: production
+      DJANGO_DEBUG: '0'
+      STRATINO_TRUST_PROXY: '1'
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set Django secret}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:?Set allowed hosts}
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:?Set trusted origin}
+      STRATINO_PUBLIC_URL: ${STRATINO_PUBLIC_URL:?Set HTTPS public URL}
+      STRATINO_OPERATOR_MFA_KEYS: ${STRATINO_OPERATOR_MFA_KEYS:?Set MFA encryption key}
+      POSTGRES_DB: ${POSTGRES_DB:-stratino}
+      POSTGRES_USER: ${POSTGRES_USER:-stratino}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set database password}
+      POSTGRES_HOST: ${POSTGRES_HOST:-db}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_SSLMODE: ${POSTGRES_SSLMODE:-require}
+      EMAIL_HOST: ${EMAIL_HOST:?Set SMTP host}
+      EMAIL_PORT: ${EMAIL_PORT:-587}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER:?Set SMTP username}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD:?Set SMTP password}
+      DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL:?Set sender}
+      GOOGLE_OAUTH_CLIENT_ID: ${GOOGLE_OAUTH_CLIENT_ID:-}
+      STRATINO_PRIVATE_FILES: /private-files
+      CLAMAV_HOST: clamav
+    volumes: [private-files:/private-files, django-static:/app/static-root]
+    networks: [private, egress]
+    mem_limit: 1g
+    logging: *logging
+    healthcheck:
+      test: [CMD, python, -c, "import os,urllib.request; r=urllib.request.Request('http://127.0.0.1:8000/api/v1/health/ready',headers={'Host':os.environ['DJANGO_ALLOWED_HOSTS'].split(',')[0],'X-Forwarded-Proto':'https'}); urllib.request.urlopen(r,timeout=4)"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+  web:
+    image: stratino-web:${RELEASE_ID:?Set RELEASE_ID}
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.web
+      args: {VITE_ACADEMY_PREVIEW: '${VITE_ACADEMY_PREVIEW:-false}'}
+    restart: unless-stopped
+    environment:
+      STRATINO_DOMAIN: ${STRATINO_DOMAIN:?Set domain}
+    ports: ['80:80', '443:443']
+    volumes: [caddy-data:/data, caddy-config:/config, django-static:/srv/django-static:ro]
+    networks: [private, egress]
+    mem_limit: 256m
+    logging: *logging
+networks:
+  private: {internal: true}
+  egress: {}
+volumes:
+  database: {}
+  database-tls: {}
+  private-files: {}
+  django-static: {}
+  clamav-signatures: {}
+  caddy-data: {}
+  caddy-config: {}

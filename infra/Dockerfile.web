@@ -1,0 +1,15 @@
+FROM node:24-bookworm-slim AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY apps/web/package.json apps/web/package.json
+COPY packages/domain/package.json packages/domain/package.json
+COPY packages/ui/package.json packages/ui/package.json
+RUN npm ci --no-audit --no-fund
+COPY . .
+ARG VITE_ACADEMY_PREVIEW=false
+ENV VITE_ACADEMY_PREVIEW=$VITE_ACADEMY_PREVIEW
+RUN npm run build
+
+FROM caddy:2.10.2-alpine
+COPY --from=build /app/dist /srv/web
+COPY infra/Caddyfile /etc/caddy/Caddyfile

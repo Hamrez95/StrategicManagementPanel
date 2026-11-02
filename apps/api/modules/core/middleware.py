@@ -1,3 +1,26 @@
+from ipaddress import ip_address
+
+from django.conf import settings
+
+
+class TrustedProxyMiddleware:
+    """Accept a single client IP only from an explicitly trusted ingress network."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if settings.STRATINO_TRUST_PROXY:
+            forwarded = request.META.get('HTTP_X_FORWARDED_FOR', '')
+            try:
+                client_ip = str(ip_address(forwarded))
+            except ValueError:
+                # Missing/malformed headers cannot create attacker-selected limiter buckets.
+                client_ip = request.META.get('REMOTE_ADDR', '')
+            request.META['REMOTE_ADDR'] = client_ip
+        return self.get_response(request)
+
+
 class PrivateResponseMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response

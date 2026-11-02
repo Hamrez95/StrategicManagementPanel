@@ -3,3 +3,16 @@ apps/web/src/** text eol=lf
 packages/*/src/** text eol=lf
 scripts/*.mjs text eol=lf
 .github/workflows/** text eol=lf
+infra/** text eol=lf
+apps/api/**/*.py text eol=lf
+# Source-tree rules above must never normalize raster images or fonts as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary

@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:deployment": "node scripts/check-deployment.mjs && node --test tests/production-env.test.mjs",
+    "prepare:production": "node scripts/prepare-production.mjs",
     "build": "npm run build:legacy && npm run build:web",
     "test": "node --test tests/*.test.mjs",
     "pretest": "npm run build:domain",
