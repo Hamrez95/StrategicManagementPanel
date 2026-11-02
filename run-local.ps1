@@ -2,12 +2,22 @@ param(
     [string[]] $Refs,
     [ValidateSet('main', 'academy')]
     [string] $Version,
+    [ValidateSet('admin', 'site', 'both')]
+    [string] $Target,
     [switch] $AcademyPreview,
     [string] $EvidencePath,
     [int] $FirstPort = 4173,
     [switch] $NoBrowser,
     [switch] $SmokeTest,
     [switch] $WithBackend,
+    [switch] $WebOnly,
+    [string] $PythonPath,
+    [string] $ScannerHost,
+    [int] $ScannerPort = 3310,
+    [switch] $SetupAdmin,
+    [switch] $VerifyApi,
+    [switch] $VerifyBrowser,
+    [string] $AdminEmail = 'hamidrezaprogramming95@gmail.com',
     [int] $FirstApiPort = 8000,
     [int] $FirstMailPort = 8025
 )
@@ -21,6 +31,13 @@ $gitCommand = Get-Command git -ErrorAction SilentlyContinue
 $npmCommand = Get-Command npm -ErrorAction SilentlyContinue
 $dockerCommand = Get-Command docker -ErrorAction SilentlyContinue
 $refreshBranch = $null
+$useNativeBackend = -not $WithBackend -and -not $WebOnly
+if ($WithBackend -and $WebOnly) { throw 'Choose -WithBackend or -WebOnly, not both.' }
+if ($SetupAdmin -and -not $useNativeBackend) { throw '-SetupAdmin requires the native backend mode.' }
+if ($VerifyApi -and -not $useNativeBackend) { throw '-VerifyApi requires the native backend mode.' }
+if ($VerifyBrowser -and -not $useNativeBackend) { throw '-VerifyBrowser requires the native backend mode.' }
+if ($useNativeBackend -and $env:OS -ne 'Windows_NT') { throw 'The native runner supports Windows x64. Use -WebOnly for a frontend preview on other systems.' }
+. (Join-Path $repoRoot 'scripts/native-stack.ps1')
 
 if ($Version -and $Refs -and $Refs.Count -gt 0) {
     throw 'Choose a version with -Version or provide explicit refs with -Refs, not both.'
@@ -33,17 +50,28 @@ if ($Version) {
     $refreshBranch = if ($Version -eq 'main') { 'main' } else { 'feat/stratino-academy' }
 }
 elseif (-not $Refs -or $Refs.Count -eq 0) {
-    Write-Host ''
-    Write-Host 'کدام نسخه را برای اجرای محلی می‌خواهید؟' -ForegroundColor Cyan
-    Write-Host '  1) main — آخرین نسخه سایت کامل همراه با آموزش'
-    Write-Host '  2) academy — شاخه آموزشی feat/stratino-academy'
-    $choice = (Read-Host 'شماره نسخه را وارد کنید (1 یا 2)').Trim()
-    $Refs = switch ($choice) {
-        '1' { @('main') }
-        '2' { @('feat/stratino-academy') }
-        default { throw 'انتخاب نامعتبر بود؛ اسکریپت بدون تغییر مخزن متوقف شد.' }
+    $Refs = @('main')
+    $refreshBranch = 'main'
+}
+
+if (-not $Target) {
+    # Explicit smoke-test callers keep their noninteractive site entry point.
+    if ($SmokeTest -and ($Version -or $PSBoundParameters.ContainsKey('Refs'))) {
+        $Target = 'site'
+    } else {
+        Write-Host ''
+        Write-Host 'What would you like to open?' -ForegroundColor Cyan
+        Write-Host '  1) Admin panel'
+        Write-Host '  2) Website'
+        Write-Host '  3) Both'
+        $choice = (Read-Host 'Enter 1, 2, or 3').Trim()
+        $Target = switch ($choice) {
+            '1' { 'admin' }
+            '2' { 'site' }
+            '3' { 'both' }
+            default { throw 'Invalid choice. Enter 1, 2, or 3. No server was started.' }
+        }
     }
-    $refreshBranch = if ($choice -eq '1') { 'main' } else { 'feat/stratino-academy' }
 }
 
 if ($WithBackend) {
@@ -66,10 +94,13 @@ if ($FirstPort -lt 1024 -or $FirstPort -gt 65535) { throw 'FirstPort must be bet
 $worktrees = [Collections.Generic.List[string]]::new()
 $servers = [Collections.Generic.List[object]]::new()
 $stacks = [Collections.Generic.List[object]]::new()
+$nativeStacks = [Collections.Generic.List[object]]::new()
 $urls = [Collections.Generic.List[string]]::new()
 $webPorts = [Collections.Generic.List[int]]::new()
 $apiPorts = [Collections.Generic.List[int]]::new()
 $mailPorts = [Collections.Generic.List[int]]::new()
+$smtpPorts = [Collections.Generic.List[int]]::new()
+$dbPorts = [Collections.Generic.List[int]]::new()
 $usedPorts = [Collections.Generic.HashSet[int]]::new()
 $runEvidence = [Collections.Generic.List[object]]::new()
 
@@ -80,6 +111,7 @@ function Save-RunEvidence {
     [void][IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($fullEvidencePath))
     $payload = @{ runs = @($runEvidence.ToArray()); stopped = $Stopped;
         remainingWorktrees = @($worktrees | Where-Object { Test-Path -LiteralPath $_ });
+        runningNative = @($nativeStacks | Where-Object { -not $_.Process.HasExited } | ForEach-Object { $_.Process.Id });
         runningServers = @($servers | Where-Object { -not $_.Process.HasExited } | ForEach-Object { $_.Process.Id }) }
     [IO.File]::WriteAllText($fullEvidencePath, ($payload | ConvertTo-Json -Depth 8))
 }
@@ -188,14 +220,18 @@ function Get-ServerFailure {
 
 try {
     $sourceRefs = @($Refs)
-    if ($refreshBranch) {
-        $fetchRefspec = "+refs/heads/$($refreshBranch):refs/remotes/origin/$($refreshBranch)"
-        Write-Host "Fetching latest origin/$refreshBranch..."
+    $branchesToRefresh = @(@($refreshBranch) + @($Refs | Where-Object { $_ -in @('main', 'origin/main') } | ForEach-Object { 'main' }) | Where-Object { $_ } | Select-Object -Unique)
+    foreach ($branch in $branchesToRefresh) {
+        $fetchRefspec = "+refs/heads/$($branch):refs/remotes/origin/$($branch)"
+        Write-Host "Fetching latest origin/$branch..."
         $fetchOutput = & $gitCommand.Source -C $repoRoot fetch --quiet --no-tags origin $fetchRefspec 2>&1
         if ($LASTEXITCODE -ne 0) {
-            throw "Could not refresh origin/$refreshBranch. Check GitHub access and try again. $($fetchOutput -join [Environment]::NewLine)"
+            throw "Could not refresh origin/$branch. Check GitHub access and try again. $($fetchOutput -join [Environment]::NewLine)"
         }
-        $sourceRefs = @("origin/$refreshBranch")
+    }
+    for ($index = 0; $index -lt $Refs.Count; $index++) {
+        if ($Refs[$index] -in @('main', 'origin/main')) { $sourceRefs[$index] = 'origin/main' }
+        elseif ($refreshBranch) { $sourceRefs[$index] = "origin/$refreshBranch" }
     }
 
     # Validate refs and reserve distinct available localhost ports before creating worktrees.
@@ -211,10 +247,14 @@ try {
         }
         $commits += $commit
         $webPorts.Add((Find-FreePort -StartAt ($FirstPort + $index) -ReservedPorts $usedPorts))
-        if ($WithBackend) {
-            Invoke-Git -GitArgs @('cat-file', '-e', "$($commits[$index]):infra/compose.dev.yml") | Out-Null
+        if ($WithBackend -or $useNativeBackend) {
+            if ($WithBackend) { Invoke-Git -GitArgs @('cat-file', '-e', "$($commits[$index]):infra/compose.dev.yml") | Out-Null }
             $apiPorts.Add((Find-FreePort -StartAt ($FirstApiPort + $index) -ReservedPorts $usedPorts))
             $mailPorts.Add((Find-FreePort -StartAt ($FirstMailPort + $index) -ReservedPorts $usedPorts))
+            if ($useNativeBackend) {
+                $smtpPorts.Add((Find-FreePort -StartAt (11025 + $index) -ReservedPorts $usedPorts))
+                $dbPorts.Add((Find-FreePort -StartAt (15432 + $index) -ReservedPorts $usedPorts))
+            }
         }
     }
     New-Item -ItemType Directory -Path $tempRoot -Force | Out-Null
@@ -257,10 +297,35 @@ try {
         }
         finally { Pop-Location }
 
+        $nativeReady = $null
+        if ($useNativeBackend) {
+            Write-Host 'Starting native PostgreSQL, API and local email inbox...'
+            $nativeStack = Start-NativeStack -Index $index -Commit $commit -Checkout $worktreePath -WebPort $webPorts[$index] -ApiPort $apiPorts[$index] -MailPort $mailPorts[$index] -SmtpPort $smtpPorts[$index] -DbPort $dbPorts[$index]
+            $nativeStacks.Add($nativeStack)
+            $nativeReady = Wait-NativeStack -Stack $nativeStack
+            Write-Host "Academy API: $($nativeReady.catalogCourses) courses loaded. Local inbox: $($nativeReady.mailUrl)"
+            if (-not $nativeReady.scannerConfigured) { Write-Warning 'No antivirus endpoint configured. Attachment uploads remain blocked; they are not reported as tested.' }
+            Write-Host "Local data: $($nativeStack.State)"
+            if ($VerifyApi) {
+                $apiTestLog = Join-Path $nativeStack.State 'api-tests.log'
+                Write-Host 'Running the API test suite against an isolated test database...'
+                & $nativeStack.Python (Join-Path $repoRoot 'scripts/native-runtime.py') manage --state $nativeStack.State -- test --noinput *> $apiTestLog
+                $apiTestExit = $LASTEXITCODE
+                Get-Content -LiteralPath $apiTestLog -Tail 8 | Out-Host
+                if ($apiTestExit -ne 0) { throw "API tests failed. Inspect $apiTestLog" }
+                $nativeReady | Add-Member -NotePropertyName apiTests -NotePropertyValue 'passed'
+            }
+            if ($SetupAdmin) {
+                & $nativeStack.Python (Join-Path $repoRoot 'scripts/native-runtime.py') manage --state $nativeStack.State -- bootstrap_operator --email $AdminEmail
+                if ($LASTEXITCODE -ne 0) { throw 'Local administrator setup failed. Existing credentials were not reset automatically.' }
+            }
+        }
+
         $port = $webPorts[$index]
         if (-not (Test-PortAvailable -Port $port)) {
             $port = Find-FreePort -StartAt ($port + 1) -ReservedPorts $usedPorts
             $webPorts[$index] = $port
+            if ($useNativeBackend) { throw 'The reserved web port became busy. Run again to keep email links and the web origin consistent.' }
             if ($WithBackend) {
                 $stack = $stacks[$index]
                 $stack.Env['STRATINO_PUBLIC_URL'] = "http://127.0.0.1:$port"
@@ -272,15 +337,21 @@ try {
         if ($previewEnabled -and $academyChunks.Count -eq 0) { throw "$ref did not produce the requested Academy preview." }
         if (-not $previewEnabled -and $academyChunks.Count -ne 0) { throw "$ref unexpectedly enabled Academy in a normal build." }
         $arguments = "$(Quote-ProcessArgument $serverScript) $port $(Quote-ProcessArgument $distPath)"
-        if ($WithBackend) { $arguments += " $($apiPorts[$index])" }
+        if ($WithBackend -or $useNativeBackend) { $arguments += " $($apiPorts[$index])" }
         $stdout = Join-Path $tempRoot "$safeName-$port.stdout.log"
         $stderr = Join-Path $tempRoot "$safeName-$port.stderr.log"
         Remove-Item $stdout, $stderr -Force -ErrorAction SilentlyContinue
         $processOptions = @{FilePath=$nodeCommand.Source; ArgumentList=$arguments; WorkingDirectory=$worktreePath; PassThru=$true; RedirectStandardOutput=$stdout; RedirectStandardError=$stderr}
         if ($env:OS -eq 'Windows_NT') { $processOptions['WindowStyle'] = 'Hidden' }
         $process = Start-Process @processOptions
-        $openPath = if ($ref -in @('feat/stratino-academy', 'origin/feat/stratino-academy')) { '/academy' } else { '/' }
-        $url = "http://127.0.0.1:$port$openPath"
+        $sitePath = if ($ref -in @('feat/stratino-academy', 'origin/feat/stratino-academy')) { '/academy' } else { '/' }
+        $openPaths = switch ($Target) {
+            'admin' { @('/internal/login') }
+            'site' { @($sitePath) }
+            'both' { @($sitePath, '/internal/login') }
+        }
+        $entryUrls = @($openPaths | ForEach-Object { "http://127.0.0.1:$port$_" })
+        $url = $entryUrls[0]
         $server = [pscustomobject]@{ Process = $process; Url = $url; Stdout = $stdout; Stderr = $stderr; ProbeError = '' }
         $servers.Add($server)
 
@@ -316,7 +387,7 @@ try {
             }
             finally { $response.Close() }
         }
-        if ($WithBackend) {
+        if ($WithBackend -or $useNativeBackend) {
             $request = [Net.HttpWebRequest]::Create("http://127.0.0.1:$port/api/v1/health/ready")
             $request.Proxy = $null
             $request.Timeout = 5000
@@ -325,12 +396,33 @@ try {
             finally { $response.Close() }
             Write-Host "API: http://127.0.0.1:$($apiPorts[$index]) | Local email: http://127.0.0.1:$($mailPorts[$index])"
         }
+        if ($useNativeBackend) {
+            $catalogResponse = Invoke-RestMethod -Uri "http://127.0.0.1:$port/api/v1/academy/catalog/" -NoProxy -TimeoutSec 30
+            if (-not $catalogResponse.courses -or $catalogResponse.courses.Count -lt 1) { throw 'Academy content did not load through the web proxy.' }
+        }
+        if ($VerifyBrowser) {
+            & $nodeCommand.Source (Join-Path $repoRoot 'scripts/verify-native-browser.mjs') "http://127.0.0.1:$port/" $worktreePath (Join-Path $repoRoot "test-results/native-browser-$index") $nativeReady.mailUrl
+            if ($LASTEXITCODE -ne 0) { throw 'The real-browser local content check failed.' }
+            $nativeReady | Add-Member -NotePropertyName browserCheck -NotePropertyValue 'passed'
+        }
 
-        $urls.Add($url)
+        foreach ($entryUrl in $entryUrls) {
+            $request = [Net.HttpWebRequest]::Create($entryUrl)
+            $request.Proxy = $null
+            $request.Timeout = 5000
+            $response = $request.GetResponse()
+            try { if ([int]$response.StatusCode -ne 200) { throw "The selected page is not ready: $entryUrl" } }
+            finally { $response.Close() }
+            $urls.Add($entryUrl)
+        }
         $runEvidence.Add([pscustomobject]@{ ref = $ref; commit = $commit; url = $url;
+            target = $Target; urls = $entryUrls;
+            backend = $(if ($useNativeBackend) {'native'} elseif ($WithBackend) {'docker'} else {'none'}); nativeServices = $nativeReady;
             academyPreview = [bool]$previewEnabled; academyChunks = $academyChunks.Count; healthcheck = 'HTTP 200';
             academyHealthcheck = $academyHealthcheck; port = $port })
-        Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $url) -ForegroundColor Cyan
+        foreach ($entryUrl in $entryUrls) {
+            Write-Host ("{0} ({1}) -> {2}" -f $ref, $commit.Substring(0, 8), $entryUrl) -ForegroundColor Cyan
+        }
     }
 
     Save-RunEvidence -Stopped $false
@@ -343,6 +435,10 @@ try {
 
     Write-Host 'Press Ctrl+C to stop the local servers.' -ForegroundColor Green
     while ($true) {
+        foreach ($nativeStack in $nativeStacks) {
+            $nativeStack.Process.Refresh()
+            if ($nativeStack.Process.HasExited) { throw "Native services stopped. Inspect $($nativeStack.Stderr)." }
+        }
         foreach ($server in $servers) {
             $server.Process.Refresh()
             if ($server.Process.HasExited) { throw (Get-ServerFailure -Server $server) }
@@ -362,7 +458,14 @@ finally {
         try { Invoke-Compose -Stack $stack -ComposeArgs @('down', '--timeout', '5') }
         catch { Write-Warning "Could not stop local services for $($stack.Name). Check Docker." }
     }
+    $retainedCheckouts = [Collections.Generic.HashSet[string]]::new()
+    $nativeCleanupFailed = $false
+    foreach ($nativeStack in $nativeStacks) {
+        try { Stop-NativeStack -Stack $nativeStack }
+        catch { $nativeCleanupFailed = $true; [void]$retainedCheckouts.Add($nativeStack.Checkout); Write-Warning $_.Exception.Message }
+    }
     foreach ($worktree in $worktrees) {
+        if ($retainedCheckouts.Contains($worktree)) { continue }
         $resolved = [IO.Path]::GetFullPath($worktree)
         $allowed = [IO.Path]::GetFullPath($tempRoot) + [IO.Path]::DirectorySeparatorChar
         if (-not $resolved.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'Cleanup resolved outside this run''s temporary directory.' }
@@ -381,4 +484,5 @@ finally {
     }
     Write-Host "Run logs and temporary files: $tempRoot"
     Save-RunEvidence -Stopped $true
+    if ($nativeCleanupFailed) { throw 'Native cleanup was not confirmed. See the retained checkout and runtime logs; the run is not marked successful.' }
 }

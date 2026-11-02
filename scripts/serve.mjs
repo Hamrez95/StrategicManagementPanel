@@ -27,7 +27,11 @@ const mimeTypes = {
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    if (pathname.startsWith('/api/')) {
+    const backendRoute = pathname === '/api' || pathname.startsWith('/api/') ||
+      pathname === '/internal/management' || pathname.startsWith('/internal/management/') ||
+      pathname === '/internal/django-admin' || pathname.startsWith('/internal/django-admin/') ||
+      pathname.startsWith('/static/');
+    if (backendRoute) {
       if (apiPort === null) { response.writeHead(404, { 'Cache-Control': 'no-store' }).end('API unavailable'); return; }
       const upstream = proxyRequest({ hostname: '127.0.0.1', port: apiPort, path: request.url, method: request.method, headers: request.headers }, (reply) => {
         response.writeHead(reply.statusCode, { ...reply.headers, 'Cache-Control': 'no-store, private' });
